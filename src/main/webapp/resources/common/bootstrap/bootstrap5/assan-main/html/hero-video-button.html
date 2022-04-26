@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+        <!--Prism css for code snippets-->
+        <link rel="stylesheet"
+            href="assets/vendor/node_modules/css/prism-tomorrow.css">
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--Header Start-->
+        <header class="z-index-fixed">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo.svg" alt="" class="img-fluid">
+                    </a>
+
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 ms-lg-4 me-lg-0">
+                            <a href="#" class="btn btn-success btn-sm rounded-pill">Purchase</a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        @@include('./partials/headers/default-navbar-items.html',{"page": "features"})
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Main content-->
+
+        <main class="main-content" id="main-content">
+            <!--page-Hero-->
+            <section class="bg-dark text-white position-relative overflow-hidden jarallax" data-jarallax=".2">
+                <!--Hero Parallax image-->
+                <img src="assets/img/backgrounds/bg4.jpg" alt="" class="jarallax-img">
+                <!--Hero Image overlay-->
+                <div class="bg-shade-primary opacity-75 position-absolute start-0 top-0 w-100 h-100"></div>
+
+                <!--Hero content-->
+                <div class="container pt-9 pb-9 position-relative z-index-1">
+                    <div class="row pt-6 pb-lg-7">
+                        <div class="col-xl-9 mx-auto text-center">
+
+                            <!--Video button-->
+                            <a href="#" data-bigpicture='{"vimeoSrc": "353105087", "noLoader": "true"}'
+                                class="btn btn-white mb-5 btn-circle-ripple width-10x height-10x rounded-circle d-flex justify-content-center mx-auto align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bx bx-play" viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                                </svg>
+                            </a>
+                            <!--Hero heading-->
+                            <h1 class="display-2 mb-4">
+                                Ultimate design kit <br>for every
+                                <span class="d-inline-block text-warning"
+                                    data-typed='{"strings": ["Startup", "Business", "Team", "Developer"]}'></span>
+                            </h1>
+                            <!--Hero subheading-->
+                            <p class="mb-5 w-lg-75 lead mx-auto">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries.
+                            </p>
+                            <!--Hero action button-->
+                            <div class="d-flex flex-column align-items-center">
+                                <a href="#next" class="btn btn-primary btn-lg mb-3">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--/.Hero end-->
+            <section class="border-bottom">
+                <div class="container pt-9 pt-lg-11">
+
+                    <!--//////////////////SNIPPETS:BEGIN////////////////-->
+                    <nav class="nav-tabs nav">
+                        <a href="#tabMain" data-bs-toggle="tab" class="nav-link active">HTML</a>
+                        <a href="#tabCss" data-bs-toggle="tab" class="nav-link">Css</a>
+                        <a href="#tabJs" data-bs-toggle="tab" class="nav-link">Js</a>
+                    </nav>
+                    <div class="tab-content">
+                        <!--Element Main code-->
+                        <div class="tab-pane fade show active" id="tabMain">
+                            <div class="position-relative">
+                                <button
+                                    class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                                    data-clipboard-target="#copyHTML1" data-clipboard-action="copy"
+                                    id="copyHTML1-1">Copy code</button>
+                                <pre id="copyHTML1" class="language-markup" data-lang="html">
+                <code>
+           &lt;!--page-Hero-->
+            &lt;section class="bg-dark text-white position-relative overflow-hidden jarallax" data-jarallax=".2">
+            &lt;!--Hero Parallax image-->
+            &lt;img src="assets/img/backgrounds/bg4.jpg" alt="" class="jarallax-img">
+            &lt;!--Hero Image overlay-->
+            &lt;div class="bg-shade-primary opacity-75 position-absolute start-0 top-0 w-100 h-100">&lt;/div>
+                &lt;!--Hero content-->
+                &lt;div class="container pt-9 pb-9 position-relative z-index-1">
+                    &lt;div class="row pt-6 pb-lg-7">
+                        &lt;div class="col-xl-9 mx-auto text-center">
+                            &lt;!--Video button-->
+                            &lt;a href="#" data-bigpicture='{"vimeoSrc": "353105087", "noLoader": "true"}'
+                                class="btn btn-white mb-5 btn-circle-ripple width-10x height-10x rounded-circle d-flex justify-content-center mx-auto align-items-center">
+                                 &lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bx bx-play" viewBox="0 0 16 16">
+                                    &lt;path
+                                        d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                                  &lt;/svg>
+                              &lt;/a>
+                            &lt;!--Hero heading-->
+                            &lt;h1 class="display-2 mb-4">
+                                Ultimate design kit &lt;br>for every
+                                &lt;span class="d-inline-block text-warning"
+                                    data-typed='{"strings": ["Startup", "Business", "Team", "Developer"]}'>&lt;/span>
+                                    &lt;/h1>
+                            &lt;!--Hero subheading-->
+                            &lt;p class="mb-5 w-lg-75 lead mx-auto">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries.
+                                &lt;/p>
+                            &lt;!--Hero action button-->
+                            &lt;div class="d-flex flex-column align-items-center">
+                            &lt;a href="#next" class="btn btn-primary btn-lg mb-3">Learn more&lt;/a>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/section>
+            &lt;!--/.Hero end-->
+</code>
+</pre>
+                            </div>
+                        </div>
+                        <!--Element Css-->
+                        <div class="tab-pane fade" id="tabCss">
+                            <div class="position-relative">
+                                <button
+                                    class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                                    data-clipboard-target="#copyCss1" data-clipboard-action="copy" id="copyCss1-2">Copy
+                                    code</button>
+                                <pre id="copyCss1" class="language-markup" data-lang="html">
+                <code>
+  &lt;!-- Bootstrap + Vendor + Theme -->
+  &lt;link href="assets/css/theme.min.css" rel="stylesheet">
+</code>
+</pre>
+                            </div>
+                        </div>
+
+                        <!--Element JS-->
+                        <div class="tab-pane fade" id="tabJs">
+                            <div class="position-relative">
+                                <button
+                                    class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                                    data-clipboard-target="#copyJs1" data-clipboard-action="copy" id="copyJs1-3">Copy
+                                    code</button>
+                                <pre id="copyJs1" class="language-markup" data-lang="html">
+                <code>
+  &lt;!-- Bootstrap + Vendor + Theme -->
+  &lt;script src="assets/css/theme.bundle.js">&lt;/script>
+</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//////////////////SNIPPETS:END////////////////-->
+                </div>
+                <div class="container py-9 py-lg-11">
+                    <div class="px-4 rounded-3 shadow-lg py-6 px-lg-5 py-lg-7 bg-gradient-secondary text-white position-relative overflow-hidden"
+                        data-aos="fade-up" data-aos-duration="400">
+                        <svg class="position-absolute end-0 bottom-0 mb-4 text-success" width="200" height="400"
+                            preserveAspectRatio="none" viewBox="0 0 150 300" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M150 300C130.302 300 110.796 296.12 92.5975 288.582C74.3986 281.044 57.8628 269.995 43.934 256.066C30.0052 242.137 18.9563 225.601 11.4181 207.403C3.87986 189.204 -6.2614e-07 169.698 0 150C6.2614e-07 130.302 3.87987 110.796 11.4181 92.5975C18.9563 74.3987 30.0052 57.8628 43.934 43.934C57.8628 30.0052 74.3987 18.9563 92.5975 11.4181C110.796 3.87986 130.302 3.51961e-06 150 5.00679e-06L150 37.5C135.226 37.5 120.597 40.4099 106.948 46.0636C93.299 51.7172 80.8971 60.0039 70.4505 70.4505C60.0039 80.8971 51.7172 93.299 46.0636 106.948C40.4099 120.597 37.5 135.226 37.5 150C37.5 164.774 40.4099 179.403 46.0636 193.052C51.7172 206.701 60.0039 219.103 70.4505 229.55C80.8971 239.996 93.299 248.283 106.948 253.936C120.597 259.59 135.226 262.5 150 262.5V300Z"
+                                fill="currentColor"></path>
+                        </svg>
+
+                        <div class="row align-items-end position-relative">
+                            <div class="col-lg-6 col-xl-7">
+                                <h5 class="text-muted mb-4">Let's start building</h5>
+                                <h1 class="mb-5 mb-md-0 display-5">Stunning websites ease</h1>
+                            </div>
+                            <div class="col-lg-6 col-xl-5 text-lg-end">
+                                <a href="#!" class="btn btn-primary btn-lg me-2 mb-2 mb-lg-0">Contact sales</a>
+                                <a href="#!" class="btn btn-gray-200 btn-lg">Purchase Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--Footer Start-->
+        <footer id="footer" class="position-relative overflow-hidden bg-white">
+            <div class="container py-7">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <span class="d-block lh-sm small text-muted">&copy; Copyright
+                            <script>
+                                document.write(new Date().getFullYear())
+
+                            </script>. Assan
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+       
+        <!--Copy to clipboard + prismJs-->
+        <script src="assets/vendor/node_modules/js/prism.js"></script>
+        <script src="assets/vendor/node_modules/js/clipboard.min.js"></script>
+        <script>
+            /* Clipboard JS - Copy code button */
+            var cl = document.querySelector('.copy-link');
+            if (typeof !!cl && (cl) != 'undefined' && cl != null) {
+                var cle = document.querySelectorAll('.copy-link');
+                cle.forEach(el => {
+                    el.addEventListener("click", function () {
+                        var theButton = this;
+                        var copyId = this.getAttribute('id');
+                        var clipboard = new ClipboardJS('#' + copyId);
+
+                        clipboard.on('success', function (e) {
+                            e.clearSelection();
+                            theButton.innerHTML = 'Copied!';
+                            setTimeout(function () {
+                                theButton.innerHTML = 'Copy code';
+                            }, 5000);
+                        });
+                    });
+                });
+            }
+
+        </script>
+    </body>
+
+</html>

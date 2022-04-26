@@ -1,0 +1,21 @@
+//
+//Caret dropdown toggle
+//
+.dropdown-toggle::after{
+    margin-left: $spacer * .25;
+    opacity: .5;
+}
+.dropend .dropdown-toggle::after{
+    margin-left: $spacer * .25;
+}
+.dropstart .dropdown-toggle::before{
+    margin-right: $spacer * .75;
+    opacity: .5;
+    vertical-align: -.15em;
+}
+.dropdown-toggle-split.dropdown-toggle::after{
+    margin-left: 0;
+}
+.dropstart .dropdown-toggle-split.dropdown-toggle::before{
+    margin-right: 0px;
+}

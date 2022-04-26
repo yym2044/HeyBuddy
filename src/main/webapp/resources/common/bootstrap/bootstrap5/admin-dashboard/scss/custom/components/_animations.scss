@@ -1,0 +1,93 @@
+@keyframes scale {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: .5;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.anim-scale {
+  animation: 1s scale forwards infinite 1s;
+}
+
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+.anim-spinner{
+  -webkit-animation: spinner .75s ease-in-out infinite;
+  animation: spinner .75s ease-in-out infinite;
+}
+
+.transition-base{
+  transition: $transition-base;
+}
+//Chat typing animation
+.typing {
+  align-items: center;
+  display: inline-flex;
+}
+
+.typing .dot {
+  animation: typingAnimation 1.8s infinite ease-in-out;
+  background-color:currentColor;
+  border-radius: 50%;
+  height: 4px;
+  width: 4px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.typing {
+  .dot {
+    &:nth-child(1) {
+      animation-delay: 200ms;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 300ms;
+      margin: 0px $spacer * .25;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 400ms;
+    }
+  }
+}
+
+.typing .dot:last-child {
+  margin-right: 0;
+}
+
+@keyframes typingAnimation {
+  0% {
+    transform: translateY(0px);
+    background-color:currentColor;
+    opacity: 1;
+  }
+
+  28% {
+    transform: translateY(-7px);
+    background-color:currentColor;
+    opacity: .5;
+  }
+
+  44% {
+    transform: translateY(0px);
+    background-color:currentColor;
+    opacity: .25;
+  }
+}

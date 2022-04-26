@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Index</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        
+<header class="z-index-fixed pt-3 header-absolute-top header-boxed header-sticky">
+    <div class="container text-white position-relative d-none d-lg-block">
+     <div class="row">
+      <div class="col-md-8 ms-auto">
+       <div class="d-flex justify-content-end">
+        <a href="tel:+011234567890" class="text-white small me-4">
+          <i class="bx bx-devices me-1"></i>+01 1234 567 890
+        </a>
+        <a href="mailto:consult@company.com" class="text-white small">
+         <i class="bx bx-envelope me-1"></i>
+        consult@company.com
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!--Navbar boxed-->
+    <div class="navbar-boxed">
+    <div class="container">
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-link-white rounded-3">
+      <a class="navbar-brand" href="index.html">
+         <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+         <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid navbar-brand-transparent">
+      </a>
+    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+      <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"> <i></i> </span>
+      </button>
+     <div class="nav-item me-2 me-lg-0">
+        <a href="#" class="btn btn-primary py-1 px-3">Get started
+        </a>
+     </div>
+    </div>
+    <!--Navbar Collapse-->
+     <div class="collapse navbar-collapse" id="mainNavbarTheme">
+      <!--Navbar items-->
+       <ul class="navbar-nav ms-auto">
+         <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="#">About</a>
+         </li>
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dropdown Nav</a>
+            <div class="dropdown-menu dropdown-menu-end">
+            <a href="#" class="dropdown-item">Dropdown item</a>
+            <a href="#" class="dropdown-item">Dropdown item</a>
+            <a href="#" class="dropdown-item">Dropdown item</a>
+             <a href="#" class="dropdown-item">Dropdown item</a>
+          </div>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Projects</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>  
+       </div>
+      </nav>
+     </div>
+    </div>
+   </header>
+   
+        <!--Main content-->
+        <main class="main-content" id="main-content">
+
+                            
+    <!--Hero-->
+ <section class="position-relative bg-dark text-white jarallax" data-jarallax=".3">
+    <!--Hero: parallax background-->
+       <img src="assets/img/backgrounds/bg4.jpg" alt="" class="jarallax-img opacity-50">
+       <!--Hero: divider-->
+       <svg class="w-100 text-white position-absolute start-0 bottom-0 z-index-1" height="48"
+       fill="currentColor" preserveAspectRatio="none" viewBox="0 0 1200 120"
+       xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg) scaleX(-1);">
+       <path
+       d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26
+       69.27 18 138.3 24.88 209.4
+       13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z"
+       opacity=".25" />
+       <path
+       d="M0 0v15.81c13 21.11 27.64 41.05 47.69 56.24C99.41 111.27 165 111 224.58 91.58c31.15-10.15 60.09-26.07 89.67-39.8
+       40.92-19 84.73-46
+       130.83-49.67 36.26-2.85 70.9 9.42 98.6 31.56 31.77 25.39 62.32 62 103.63 73 40.44 10.79 81.35-6.69
+       119.13-24.28s75.16-39 116.92-43.05c59.73-5.85
+       113.28 22.88 168.9 38.84 30.2 8.66 59 6.17 87.09-7.5 22.43-10.89 48-26.93 60.65-49.24V0z"
+       opacity=".5" />
+       <path
+       d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56
+       35.4C827.93 77.22
+       886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
+       </svg>
+   
+       <!--Hero container-->
+       <div class="container position-relative py-12 py-lg-15">
+           <div class="row pt-4 pt-lg-9 pb-9">
+               <div class="col-lg-10 mx-auto text-center">
+                   <!--hero heading-->
+                   <h1 class="display-1 mb-4">Vector background divider hero example</h1>
+                   <!--hero subheading-->
+                   <p class="lead mb-5">Build a stunning website that attract visitors</p>
+                   
+                   <a href="#!" class="btn btn-primary btn-lg rounded-pill btn-hover-arrow">
+                       Get started</span>
+                       </a>
+                   </div>
+               </div>
+           <!--/.row-->
+           </div>
+       <!--/.content-->
+       </section>
+   <!--/.hero-end-->
+   
+        </main>
+
+                        
+<!--Footer Start-->
+<footer id="footer" class="bg-white">
+    <div class="container pt-9 pt-lg-11 pb-5">
+        <div class="row">
+            <div class="col-sm-7 mb-4 mb-sm-0">
+                <!--Address-->
+                <h5 class="mb-0">1355 Market St, <br> Suite 900,
+                    San Francisco<br>
+                    CA, 94103</h5>
+            </div>
+            <div class="col-sm-5 text-sm-end">
+                <!--Phone-->
+                <a href="#!" class="fs-6 link-hover-underline">+011(1234) 56789</a><br><br>
+                <!--Email-->
+                <a href="mailto:mail@domain.agency" class="fs-6 link-hover-underline">mail@domain.agency</a>
+            </div>
+        </div>
+        <hr class="my-4 my-md-5">
+        <div class="row text-secondary">
+            <div class="col-sm-7">
+                <!--Social List-->
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="link-hover-underline" href="#">Facebook</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="link-hover-underline" href="#">Twitter</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="link-hover-underline" href="#">Linkedin</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="link-hover-underline" href="#">Behance</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-5 text-sm-end">
+                <!--Copyright Text-->
+                <span class="d-block lh-sm small text-muted">© Copyright
+                    <script>
+                      document.write(new Date().getFullYear())
+                    </script>. Assan
+                  </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+    </body>
+
+</html>

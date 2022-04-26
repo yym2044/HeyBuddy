@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--Header Start-->
+        <header class="z-index-fixed header-transparent header-absolute-top sticky-reverse">
+            <nav class="navbar navbar-expand-lg navbar-light navbar-link-white">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+                        <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid navbar-brand-transparent">
+                    </a>
+
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 me-lg-0">
+                            <a href="#" class="btn btn-success btn-sm rounded-pill">Purchase</a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        @@include('./partials/headers/default-navbar-items.html',{"page": "components"})
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Main content-->
+        <main>
+            <!--page-hero-->
+            <section class="bg-dark text-white position-relative">
+                <div class="container pt-14 pb-9 pb-lg-11 position-relative z-index-1">
+                    <div class="row pt-lg-9 pb-lg-5 align-items-center justify-content-center text-center">
+                        <div class="col-lg-10 col-xl-7 z-index-2">
+                            <div class="position-relative">
+                                <div>
+                                    <nav class="d-flex justify-content-center" aria-label="breadcrumb">
+                                        <div class="mb-4">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                <li class="breadcrumb-item active">Components</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Tabbed Content
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </nav>
+                                    <h1 class="mb-0 display-4">
+                                        Tabbed content (Tabs)
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="position-relative">
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="d-flex align-items-center justify-content-center mb-5">
+                                <h6 class="mb-0 me-2 me-lg-4">Tabs style 1</h6>
+                                <span class="border-top d-block flex-grow-1 border-light"></span>
+                            </div>
+                            <div>
+                                <!-- Tabs -->
+                                <nav class="mb-4 nav nav-tabs" role="tablist">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#tab-home" role="tab"
+                                    aria-selected="true">Home</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-profile" role="tab"
+                                    aria-selected="false">Profile</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-contact" role="tab"
+                                    aria-selected="false">Contact</a>
+                                </nav>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="tab-home" role="tabpanel">
+                                        The passage experienced a surge in popularity during the 1960s when Letraset
+                                        used it on their dry-transfer sheets, and again during the 90s as desktop
+                                        publishers bundled the text with their software. Today it's seen all around the
+                                        web; on templates, websites, and stock designs. Use our generator to get your
+                                        own, or read on for the authoritative history of lorem ipsum.
+                                    </div>
+                                    <div class="tab-pane fade" id="tab-profile" role="tabpanel">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
+                                    <div class="tab-pane fade" id="tab-contact" role="tabpanel">
+                                        Eget aliquet nibh praesent tristique magna sit amet. Ultricies leo integer
+                                        malesuada nunc vel. Semper viverra nam libero justo. Dictum fusce ut placerat
+                                        orci nulla. Elementum eu facilisis sed odio morbi quis commodo odio aenean.
+                                        Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
+                                        Pulvinar mattis nunc sed blandit libero volutpat sed. Facilisis mauris sit amet
+                                        massa vitae tortor condimentum lacinia. Commodo elit at imperdiet dui accumsan
+                                        sit amet nulla facilisi. Feugiat in ante metus dictum at tempor. Pulvinar
+                                        elementum integer enim neque volutpat ac tincidunt vitae. Ullamcorper dignissim
+                                        cras tincidunt lobortis feugiat. Lorem ipsum dolor sit amet consectetur
+                                        adipiscing. Egestas maecenas pharetra convallis posuere morbi leo urna molestie
+                                        at. Scelerisque varius morbi enim nunc. Aliquam vestibulum morbi blandit cursus
+                                        risus at.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-light">
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="d-flex align-items-center justify-content-center mb-5">
+                                <h6 class="mb-0 me-2 me-lg-4">Tabs pills</h6>
+                                <span class="border-top d-block flex-grow-1 border-light"></span>
+                            </div>
+                            <div>
+                                <!-- Tabs -->
+                                <nav class="mb-4">
+                                    <div class="nav nav-pills d-inline-flex rounded-pill px-2 py-1 bg-white shadow-sm" role="tablist">
+                                        <a class="nav-link active rounded-pill" data-bs-toggle="tab" href="#tab2-home" role="tab"
+                                            aria-selected="true">Home</a>
+                                        <a class="nav-link rounded-pill" data-bs-toggle="tab" href="#tab2-profile" role="tab"
+                                            aria-selected="false">Profile</a>
+                                        <a class="nav-link rounded-pill" data-bs-toggle="tab" href="#tab2-contact" role="tab"
+                                            aria-selected="false">Contact</a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="tab2-home" role="tabpanel">
+                                        The passage experienced a surge in popularity during the 1960s when Letraset
+                                        used it on their dry-transfer sheets, and again during the 90s as desktop
+                                        publishers bundled the text with their software. Today it's seen all around the
+                                        web; on templates, websites, and stock designs. Use our generator to get your
+                                        own, or read on for the authoritative history of lorem ipsum.
+                                    </div>
+                                    <div class="tab-pane fade" id="tab2-profile" role="tabpanel">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
+                                    <div class="tab-pane fade" id="tab2-contact" role="tabpanel">
+                                        Eget aliquet nibh praesent tristique magna sit amet. Ultricies leo integer
+                                        malesuada nunc vel. Semper viverra nam libero justo. Dictum fusce ut placerat
+                                        orci nulla. Elementum eu facilisis sed odio morbi quis commodo odio aenean.
+                                        Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
+                                        Pulvinar mattis nunc sed blandit libero volutpat sed. Facilisis mauris sit amet
+                                        massa vitae tortor condimentum lacinia. Commodo elit at imperdiet dui accumsan
+                                        sit amet nulla facilisi. Feugiat in ante metus dictum at tempor. Pulvinar
+                                        elementum integer enim neque volutpat ac tincidunt vitae. Ullamcorper dignissim
+                                        cras tincidunt lobortis feugiat. Lorem ipsum dolor sit amet consectetur
+                                        adipiscing. Egestas maecenas pharetra convallis posuere morbi leo urna molestie
+                                        at. Scelerisque varius morbi enim nunc. Aliquam vestibulum morbi blandit cursus
+                                        risus at.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-white">
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="d-flex align-items-center justify-content-center mb-5">
+                                <h6 class="mb-0 me-2 me-lg-4">Tabs pills + justify</h6>
+                                <span class="border-top d-block flex-grow-1 border-light"></span>
+                            </div>
+                            <div>
+                                <!-- Tabs -->
+                                <nav class="mb-4">
+                                    <div class="nav nav-pills nav-fill rounded-2 px-2 py-1 bg-white shadow" role="tablist">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="#tab3-home" role="tab"
+                                            aria-selected="true">Home</a>
+                                        <a class="nav-link" data-bs-toggle="tab" href="#tab3-profile" role="tab"
+                                            aria-selected="false">Profile</a>
+                                        <a class="nav-link" data-bs-toggle="tab" href="#tab3-contact" role="tab"
+                                            aria-selected="false">Contact</a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="tab3-home" role="tabpanel">
+                                        The passage experienced a surge in popularity during the 1960s when Letraset
+                                        used it on their dry-transfer sheets, and again during the 90s as desktop
+                                        publishers bundled the text with their software. Today it's seen all around the
+                                        web; on templates, websites, and stock designs. Use our generator to get your
+                                        own, or read on for the authoritative history of lorem ipsum.
+                                    </div>
+                                    <div class="tab-pane fade" id="tab3-profile" role="tabpanel">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
+                                    <div class="tab-pane fade" id="tab3-contact" role="tabpanel">
+                                        Eget aliquet nibh praesent tristique magna sit amet. Ultricies leo integer
+                                        malesuada nunc vel. Semper viverra nam libero justo. Dictum fusce ut placerat
+                                        orci nulla. Elementum eu facilisis sed odio morbi quis commodo odio aenean.
+                                        Consectetur adipiscing elit pellentesque habitant morbi tristique senectus.
+                                        Pulvinar mattis nunc sed blandit libero volutpat sed. Facilisis mauris sit amet
+                                        massa vitae tortor condimentum lacinia. Commodo elit at imperdiet dui accumsan
+                                        sit amet nulla facilisi. Feugiat in ante metus dictum at tempor. Pulvinar
+                                        elementum integer enim neque volutpat ac tincidunt vitae. Ullamcorper dignissim
+                                        cras tincidunt lobortis feugiat.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-light">
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="d-flex align-items-center justify-content-center mb-5">
+                                <h6 class="mb-0 me-2 me-lg-4">Tabs vertical align start</h6>
+                                <span class="border-top d-block flex-grow-1 border-light"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                    <!-- Tabs -->
+                                    <nav class="mb-4">
+                                        <div class="nav nav-pills nav-tabs-vertical" role="tablist">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#tab4-home" role="tab"
+                                                aria-selected="true"><i class="bx bx-home me-2 align-middle"></i>
+                                                Home</a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab4-profile" role="tab"
+                                                aria-selected="false"><i
+                                                    class="bx bx-user-circle me-2 align-middle"></i> Profile</a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab4-contact" role="tab"
+                                                aria-selected="false"><i class="bx bx-message-dots me-2 align-middle"></i>
+                                                Contact</a>
+                                        </div>
+                                    </nav>
+                                </div>
+                                <div class="col-md-8 col-lg-7 ms-lg-auto">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="tab4-home" role="tabpanel">
+                                            The passage experienced a surge in popularity during the 1960s when Letraset
+                                            used it on their dry-transfer sheets, and again during the 90s as desktop
+                                            publishers bundled the text with their software. Today it's seen all around
+                                            the web; on templates, websites, and stock designs. Use our generator to get
+                                            your own, or read on for the authoritative history of lorem ipsum.
+                                        </div>
+                                        <div class="tab-pane fade" id="tab4-profile" role="tabpanel">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </div>
+                                        <div class="tab-pane fade" id="tab4-contact" role="tabpanel">
+                                            Eget aliquet nibh praesent tristique magna sit amet. Ultricies leo integer
+                                            malesuada nunc vel. Semper viverra nam libero justo. Dictum fusce ut
+                                            placerat orci nulla. Elementum eu facilisis sed odio morbi quis commodo odio
+                                            aenean. Consectetur adipiscing elit pellentesque habitant morbi tristique
+                                            senectus. Pulvinar mattis nunc sed blandit libero volutpat sed. Facilisis
+                                            mauris sit amet massa vitae tortor condimentum lacinia. Commodo elit at
+                                            imperdiet dui accumsan sit amet nulla facilisi. Feugiat in ante metus dictum
+                                            at tempor. Pulvinar elementum integer enim neque volutpat ac tincidunt
+                                            vitae. Ullamcorper dignissim cras tincidunt lobortis feugiat. Lorem ipsum
+                                            dolor sit amet consectetur adipiscing.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-white">
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="d-flex align-items-center justify-content-center mb-5">
+                                <h6 class="mb-0 me-2 me-lg-4">Tabs vertical align end</h6>
+                                <span class="border-top d-block flex-grow-1 border-light"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 order-md-last">
+
+                                    <!-- Tabs -->
+                                    <nav class="mb-4">
+                                        <div class="nav nav-pills nav-tabs-vertical" role="tablist">
+                                            <a class="nav-link active text-end" data-bs-toggle="tab" href="#tab5-home"
+                                                role="tab" aria-selected="true"><i
+                                                    class="bx bx-home me-2 align-middle"></i> Home</a>
+                                            <a class="nav-link text-end" data-bs-toggle="tab" href="#tab5-profile"
+                                                role="tab" aria-selected="false"><i
+                                                    class="bx bx-user-circle me-2 align-middle"></i> Profile</a>
+                                            <a class="nav-link text-end" data-bs-toggle="tab" href="#tab5-contact"
+                                                role="tab" aria-selected="false"><i
+                                                    class="bx bx-message-dots me-2 align-middle"></i> Contact</a>
+                                        </div>
+                                    </nav>
+                                </div>
+                                <div class="col-md-8 col-lg-7 me-lg-auto">
+                                    <div class="tab-content text-end">
+                                        <div class="tab-pane fade show active" id="tab5-home" role="tabpanel">
+                                            The passage experienced a surge in popularity during the 1960s when Letraset
+                                            used it on their dry-transfer sheets, and again during the 90s as desktop
+                                            publishers bundled the text with their software. Today it's seen all around
+                                            the web; on templates, websites, and stock designs. Use our generator to get
+                                            your own, or read on for the authoritative history of lorem ipsum.
+                                        </div>
+                                        <div class="tab-pane fade" id="tab5-profile" role="tabpanel">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </div>
+                                        <div class="tab-pane fade" id="tab5-contact" role="tabpanel">
+                                            Eget aliquet nibh praesent tristique magna sit amet. Ultricies leo integer
+                                            malesuada nunc vel. Semper viverra nam libero justo. Dictum fusce ut
+                                            placerat orci nulla. Elementum eu facilisis sed odio morbi quis commodo odio
+                                            aenean. Consectetur adipiscing elit pellentesque habitant morbi tristique
+                                            senectus. Pulvinar mattis nunc sed blandit libero volutpat sed. Facilisis
+                                            mauris sit amet massa vitae tortor condimentum lacinia. Commodo elit at
+                                            imperdiet dui accumsan sit amet nulla facilisi. Feugiat in ante metus dictum
+                                            at tempor. Pulvinar elementum integer enim neque volutpat ac tincidunt
+                                            vitae. Ullamcorper dignissim cras tincidunt lobortis feugiat. Lorem ipsum
+                                            dolor sit amet consectetur adipiscing.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="min-height-100 bg-light">
+                <div class="container py-9 py-lg-11">
+                    <div class="row">
+                        <div class="col-md-5 col-lg-4 mb-5 mb-md-0">
+                            <div class="nav nav-pills d-flex flex-md-column justify-content-start me-md-3"
+                                id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="nav-link px-4 py-3 active mb-md-3" href="#e-howkins" data-bs-toggle="pill"
+                                    data-bs-target="#e-howkins" role="tab" aria-controls="e-howkins"
+                                    aria-selected="true">
+                                    <h5 class="text-reset mb-0">Emily Howkings</h5>
+                                    <span class="small lh-sm opacity-75">Founder & CTO</span>
+                                </a>
+                                <a class="nav-link px-4 py-3 mb-md-3" href="#g-adams" data-bs-toggle="pill"
+                                    data-bs-target="#g-adams" role="tab" aria-controls="g-adams" aria-selected="false">
+                                    <h5 class="text-reset mb-0">Gabriel Adams</h5>
+                                    <span class="small lh-sm opacity-75">Project Manager</span>
+                                    </a>
+                                    <a class="nav-link px-4 py-3 mb-md-3" href="#d-knight" data-bs-toggle="pill"
+                                        data-bs-target="#d-knight" role="tab" aria-controls="d-knight"
+                                        aria-selected="false">
+                                        <h5 class="text-reset mb-0"> Dagny Knight</h5>
+                                        <span class="small lh-sm opacity-75">Illustrator </span>
+
+                                    </a>
+                                    <a class="nav-link px-4 py-3" href="#j-tar" data-bs-toggle="pill"
+                                        data-bs-target="#j-tar" role="tab" aria-controls="j-tar" aria-selected="false">
+                                        <h5 class="text-reset mb-0"> Julia Tar</h5>
+                                        <span class="small lh-sm opacity-75">Full stack developer</span>
+                                    </a>
+                                 </div>
+                        </div>
+                        <div class="col-md-7 mx-auto">
+
+                            <div class="tab-content" id="tab-panel">
+                                <div class="tab-pane fade show active" id="e-howkins" role="tabpanel"
+                                    aria-labelledby="e-howkins-tab">
+                                    <img src="assets/img/team/1.jpg" alt="" class="img-fluid rounded-3 w-lg-50 w-md-75 mb-4 shadow-xl">
+                                    <p class="mb-5 w-md-75 lead">
+                                        Lorem Ipsum
+                                        Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                        publishing industries for previewing layouts and visual mockups.
+                                    </p>
+                                    <a href="#!" class="text-dark fw-semibold link-hover-underline"
+                                        href="mailto:mailto@emily.com">Contact Emily
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bx bx-right-arrow-alt ms-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="g-adams" role="tabpanel" aria-labelledby="g-adams-tab">
+                                    <img src="assets/img/team/2.jpg" alt="" class="img-fluid rounded-3 w-lg-50 w-md-75 mb-4 shadow-xl">
+                                    <p class="mb-5 w-md-75 lead">
+                                        Lorem Ipsum
+                                        Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                        publishing industries for previewing layouts and visual mockups.
+                                    </p>
+                                    <a href="#!" class="text-dark fw-semibold link-hover-underline"
+                                        href="mailto:mailto@adams.com">Contact Adams
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bx bx-right-arrow-alt ms-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="d-knight" role="tabpanel" aria-labelledby="d-knight-tab">
+                                    <img src="assets/img/team/4.jpg" alt="" class="img-fluid rounded-3 w-lg-50 w-md-75 mb-4 shadow-xl">
+                                    <p class="mb-5 w-md-75 lead">
+                                        Lorem Ipsum
+                                        Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                        publishing industries for previewing layouts and visual mockups.
+                                    </p>
+                                    <a href="#!" class="text-dark fw-semibold link-hover-underline"
+                                        href="mailto:mailto@knight.com">Contact knight
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bx bx-right-arrow-alt ms-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="j-tar" role="tabpanel" aria-labelledby="j-tar-tab">
+                                    <img src="assets/img/team/6.jpg" alt="" class="img-fluid rounded-3 w-lg-50 w-md-75 mb-4 shadow-xl">
+                                    <p class="mb-5 w-md-75 lead">
+                                        Lorem Ipsum
+                                        Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                        publishing industries for previewing layouts and visual mockups.
+                                    </p>
+                                    <a href="#!" class="text-dark fw-semibold link-hover-underline"
+                                        href="mailto:mailto@joseph.com">Contact Julia
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bx bx-right-arrow-alt ms-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-gradient-secondary text-white position-relative">
+                <div class="container py-9 py-lg-11">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7 text-center mx-auto">
+                            <h2 class="mb-4 display-4" data-aos="fade-up">
+                                Let's start building stunning websites
+                            </h2>
+                            <p class="mb-5 px-lg-5" data-aos="fade-up" data-aos-delay="100">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries for previewing layouts and visual mockups.
+                            </p>
+                            <div data-aos="fade-up">
+                                <a href="#!" class="btn btn-white rounded-pill btn-lg">Purchase a
+                                    license</a>
+                            </div>
+                        </div>
+                        <!--End Col-->
+                    </div> <!-- / .row -->
+                </div> <!-- / .container -->
+            </section>
+        </main>
+
+       
+        @@include('./partials/footers/footer-2.html')
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+    </body>
+
+</html>

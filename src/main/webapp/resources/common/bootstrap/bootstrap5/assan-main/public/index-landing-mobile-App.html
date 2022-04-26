@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        <!--Bootstrap Icons-->
+        <link rel="stylesheet" href="assets/fonts/boxicons/css/boxicons.min.css">
+
+        <!--Iconsmind Icons-->
+        <link rel="stylesheet" href="assets/fonts/iconsmind/iconsmind.css">
+        <!--Swiper-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/swiper-bundle.min.css">
+
+        <!-- Aos Animations CSS -->
+        <link href="assets/vendor/node_modules/css/aos.css" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap"
+            rel="stylesheet">
+
+        <!-- Main CSS -->
+        <link href="assets/css/theme-purple.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body data-bs-spy="scroll" data-bs-target="#mainNavbarTheme">
+         <!--Preloader Spinner-->
+         <div class="spinner-loader bg-tint-primary">
+            <div class="spinner-border text-primary" role="status">
+            </div>
+            <span class="small d-block ms-2">Loading...</span>
+        </div>
+        <!--Header Start-->
+        <header class="z-index-fixed header-fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid">
+                    </a>
+
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 me-lg-0">
+                            <a href="#download" class="btn btn-warning btn-sm rounded-pill">
+                                Download App
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item me-lg-4">
+                                <a class="nav-link" href="#app-hero" role="button">Home</a>
+                            </li>
+                            <li class="nav-item me-lg-4">
+                                <a class="nav-link" href="#features" role="button">Features</a>
+                            </li>
+                            <li class="nav-item me-lg-5">
+                                <a class="nav-link" href="#faqs" role="button">Faqs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!--Main content start-->
+        <main>
+            <!--page-hero--->
+            <section id="app-hero" class="position-relative bg-dark text-white overflow-hidden">
+                <!--Particles-js-->
+                <div class="position-absolute w-100 h-100 start-0 top-0" id="particles-js"></div>
+                <div class="container pt-11 pt-lg-14 pb-9 pb-lg-9 position-relative z-index-1">
+                    <div class="row pt-lg-5">
+                        <div class="col-lg-7 col-xl-8">
+                            <h1 class="display-1 mb-4">Attractive design for your mobile App landing page</h1>
+
+                            <p class="mb-4 opacity-75 lead mb-lg-5">
+                                Filter your pictures
+                            </p>
+                            <form class="w-lg-75">
+                                <div class="d-flex mb-4 align-items-center">
+                                    <input type="text" placeholder="012-345-7890"
+                                        class="ms-2 form-control text-white border-primary border-2 rounded-pill rounded-end-0 form-control-lg shadow-none bg-transparent">
+                                    <button type="button"
+                                        class="btn btn-primary btn-lg px-3 px-lg-4 rounded-start-0 border-2 rounded-pill flex-shrink-0">Send
+                                        Link</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-5 col-xl-4 col-sm-8 col-11 mx-auto">
+                            <div class="position-relative z-index-1">
+                                <img src="assets/img/vectors/pattern-dots.svg" alt=""
+                                    class="position-absolute end-0 top-50 translate-middle-y me-lg-3 width-7x h-auto fill-warning"
+                                    data-inject-svg>
+                                <div class="width-18x p-1 position-relative">
+                                    <img src="assets/img/graphics/app/shot2.jpg" alt=""
+                                        class="img-fluid shadow p-1 bg-white rounded-4">
+
+                                </div>
+                                <img src="assets/img/graphics/app/shot1.jpg" alt=""
+                                    class="width-16x me-2 me-lg-7 rounded-4 p-1 bg-white shadow position-absolute end-0 top-50 translate-middle-y me-7 me-lg-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--/.Hero-end-->
+
+            <section id="features" class="position-relative overflow-hidden">
+                <div class="container py-9 py-lg-11 position-relative">
+                    <div class="row justify-content-center">
+                        <!--Feature column-->
+                        <div class="col-12 col-lg-4 text-center mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="150">
+                            <div
+                                class="flex-center mx-auto width-8x height-8x fs-1 rounded-circle bg-primary text-white lh-1 mb-4">
+                                <i class="bx bx-brush"></i>
+                            </div>
+                            <h5 class="mb-3">Unlimited brushes</h5>
+
+                            <p class="mb-0 w-lg-80 mx-auto">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries for layouts and visual mockups.
+                            </p>
+                        </div>
+
+                        <!--Feature column-->
+                        <div class="col-12 col-lg-4 text-center mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                            <div
+                                class="flex-center mx-auto width-8x height-8x fs-1 rounded-circle bg-warning text-white mb-4">
+                                <i class="bx bx-palette"></i>
+                            </div>
+                            <h5 class="mb-3">16M colors</h5>
+                            <p class="mb-0 w-lg-80 mx-auto">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries for layouts and visual mockups.
+                            </p>
+                        </div>
+
+                        <!--Feature column-->
+                        <div class="col-12 col-lg-4 text-center" data-aos="fade-up" data-aos-delay="250">
+                            <div
+                                class="flex-center mx-auto width-8x height-8x fs-1 rounded-circle bg-info text-white lh-1 mb-4">
+                                <i class="bx bx-images"></i>
+                            </div>
+                            <h5 class="mb-3">Photo edit and mix</h5>
+                            <p class="mb-0 w-lg-80 mx-auto">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries for layouts and visual mockups.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative">
+                <div class="container overflow-hidden position-relative py-9">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-6 col-sm-8 mx-auto mx-md-0 col-xl-5 mb-5 mb-md-0">
+                            <div class="position-relative ps-4 z-index-1" data-aos="fade-left">
+                                <img src="assets/img/vectors/pattern-dots.svg" alt=""
+                                    class="position-absolute start-0 top-50 translate-middle-y ms-n3 width-7x h-auto fill-warning"
+                                    data-inject-svg>
+                                <div class="width-19x ms-5 ms-lg-0 p-1 position-relative">
+                                    <img src="assets/img/graphics/app/shot3.jpg" alt=""
+                                        class="img-fluid shadow p-1 bg-white rounded-4">
+
+                                </div>
+                                <img src="assets/img/graphics/app/shot4.jpg" alt=""
+                                    class="width-17x me-lg-9 rounded-4 p-1 bg-white shadow position-absolute end-0 top-50 translate-middle-y">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5" data-aos="fade-right">
+
+                            <h2 class="mb-4 display-5">Edit, crop, filter your images ease</h2>
+                            <p class="mb-5 lead">
+                                Lorem ipsum dolor sit amet adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua.Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                accusantium.
+                            </p>
+
+                            <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+                                <a href="#" data-bigpicture='{"vimeoSrc": "353105087", "noLoader": "true"}'
+                                    class="btn btn-primary hover-lift p-0 width-7x height-7x btn-circle-ripple rounded-pill fs-3 lh-1 flex-center me-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                        class="bx bx-play align-middle" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                                    </svg>
+                                </a>
+                                <small class="d-inline-block text-muted ms-2">How does it work? </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative overflow-hidden">
+                <div class="container position-relative py-9 py-lg-11">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6 col-sm-8 mx-auto mx-md-0 mb-5 mb-md-0 order-md-last position-relative">
+
+                            <div class="position-relative pe-5">
+                                <div class="row g-3 position-relative">
+                                    <div class="col-6 position-relative">
+                                        <img data-aos="fade-right" src="assets/img/graphics/app/art3.jpg" alt=""
+                                            class="img-fluid rounded-4 shadow-lg mb-4">
+                                        <img data-aos="fade-left" src="assets/img/graphics/app/art4.jpg" alt=""
+                                            class="img-fluid rounded-4 shadow-lg">
+                                    </div>
+                                    <div class="col-6 position-relative">
+                                        <img data-aos="fade-right" src="assets/img/graphics/app/art2.jpg" alt=""
+                                            class="img-fluid rounded-4 mb-4 mt-5 shadow-lg">
+                                        <img data-aos="fade-left" src="assets/img/graphics/app/art1.jpg" alt=""
+                                            class="img-fluid rounded-4 shadow-lg">
+                                    </div>
+                                </div>
+                                <!--Decoration-->
+                                <img src="assets/img/vectors/dec-brush3.svg" data-inject-svg alt=""
+                                    class="width-120 h-auto fill-warning z-index-1 position-absolute end-0 mb-n4 bottom-0">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-5 order-md-1" data-aos="fade-right">
+                            <h2 class="mb-4 display-5">Make each memory special</h2>
+                            <p class="mb-5 lead">
+                                Lorem ipsum dolor sit amet adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.Sed ut perspiciatis unde omnis iste natus
+                                error sit voluptatem accusantium.
+                            </p>
+                            <a href="#!" class="btn btn-primary hover-lift">Download the App</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="faqs" class="position-relative">
+                <!--Decoration-->
+                <img src="assets/img/vectors/line2.svg" data-inject-svg alt=""
+                    class="width-18x h-auto fill-gray-200 z-index-1 position-absolute start-0 top-0 mt-lg-n4 ms-n4">
+                <div class="container pt-9 pt-lg-11 z-index-1 position-relative overflow-hidden">
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+                            <h2 class="mb-7 mb-lg-9 text-center display-5" data-aos="fade-down">Frequently asked
+                                questions</h2>
+                            <div class="row">
+                                <div class="col-xl-7 col-md-10 col-lg-8 mx-auto position-relative">
+                                    <div class="swiper pb-9 swiperFaqs position-relative">
+                                        <div class="swiper-wrapper">
+                                            <div
+                                                class="swiper-slide py-7 py-lg-9 px-4 px-lg-5 bg-white shadow-lg rounded-4">
+                                                <h5 class="mb-3">What do I get with this kit?</h5>
+                                                <p class="mb-0">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                                    culpa qui officia deserunt mollit anim id est laborum nisl vel
+                                                    pretium lectus quam id leo tincidunt eget nullam non nisi est sit
+                                                    amet. Adipiscing elit ut aliquam purus.
+                                                </p>
+                                            </div>
+                                            <div
+                                                class="swiper-slide py-7 py-lg-9 px-4 px-lg-5 bg-white shadow-lg rounded-4">
+                                                <h5 class="mb-3">How do i get the new updates?</h5>
+                                                <p class="mb-0">
+                                                    Feugiat in fermentum posuere urna nec tincidunt praesent. Nisi vitae
+                                                    suscipit tellus mauris. Ultrices tincidunt arcu non sodales. Nisl
+                                                    pretium fusce id velit ut tortor pretium. Ut sem nulla pharetra diam
+                                                    sit amet nisl. Dignissim convallis aenean et tortor. Sit amet
+                                                    volutpat consequat mauris. Laoreet sit amet cursus sit amet dictum
+                                                    sit. Condimentum id venenatis a condimentum vitae sapien. Rhoncus
+                                                    aenean vel elit scelerisque. Consequat nisl vel pretium lectus quam
+                                                    id leo. Nisl tincidunt eget nullam non nisi est sit amet facilisis.
+                                                    Adipiscing diam donec adipiscing tristique.
+                                                </p>
+                                            </div>
+                                            <div
+                                                class="swiper-slide py-7 py-lg-9 px-4 px-lg-5 bg-white shadow-lg rounded-4">
+                                                <h5 class="mb-3">Lorem ipsum dolor sit amet?</h5>
+                                                <p class="mb-0">
+                                                    Ultrices tincidunt arcu non sodales. Tempus egestas sed sed risus
+                                                    pretium quam vulputate. Pellentesque dignissim enim sit amet
+                                                    venenatis urna cursus eget. Enim eu turpis egestas pretium aenean.
+                                                    Turpis egestas maecenas pharetra convallis posuere. Risus in
+                                                    hendrerit gravida rutrum. Enim facilisis gravida neque convallis a
+                                                    cras semper. Auctor elit sed vulputate mi. Sem fringilla ut morbi
+                                                    tincidunt augue interdum velit. In hac habitasse platea dictumst
+                                                    quisque sagittis. Lectus urna duis convallis convallis tellus id
+                                                    interdum velit. Rhoncus mattis rhoncus urna neque viverra.
+                                                </p>
+                                            </div>
+                                            <div
+                                                class="swiper-slide py-7 py-lg-9 px-4 px-lg-5 bg-white shadow-lg rounded-4">
+                                                <h5 class="mb-2">What's the refund policy?</h5>
+                                                <p class="mb-0">
+                                                    Malesuada fames ac turpis egestas integer eget aliquet nibh
+                                                    praesent. Mauris in aliquam sem fringilla ut morbi. Vulputate enim
+                                                    nulla aliquet porttitor lacus luctus. Massa placerat duis ultricies
+                                                    lacus sed turpis tincidunt. Commodo odio aenean sed adipiscing diam.
+                                                    Eget dolor morbi non arcu risus quis varius quam quisque. A diam
+                                                    sollicitudin tempor id eu nisl nunc. Ut placerat orci nulla
+                                                    pellentesque dignissim enim sit. Vulputate sapien nec sagittis
+                                                    aliquam. Quis varius quam quisque id diam. Adipiscing elit ut
+                                                    aliquam purus. Diam sollicitudin tempor id eu nisl nunc mi ipsum.
+                                                </p>
+                                            </div>
+                                            <div
+                                                class="swiper-slide py-7 py-lg-9 px-4 px-lg-5 bg-white shadow-lg rounded-4">
+                                                <h5 class="mb-2">Does Assan4 use bootstrap5?</h5>
+                                                <p class="mb-0">
+                                                    Orci porta non pulvinar neque laoreet suspendisse interdum
+                                                    consectetur libero. Amet justo donec enim diam vulputate ut pharetra
+                                                    sit amet. Egestas egestas fringilla phasellus faucibus scelerisque
+                                                    eleifend. Et netus et malesuada fames. Aliquam faucibus purus in
+                                                    massa tempor nec. Tristique senectus et netus et malesuada.
+                                                    Venenatis urna cursus eget nunc scelerisque. Malesuada pellentesque
+                                                    elit eget gravida cum sociis natoque. Lacus suspendisse faucibus
+                                                    interdum posuere lorem ipsum dolor sit. Est placerat in egestas erat
+                                                    imperdiet sed. Augue ut lectus arcu bibendum at varius vel.
+                                                </p>
+                                            </div>
+                                            <div
+                                                class="swiper-slide py-7 py-lg-9 px-4 px-lg-5 bg-white shadow-lg rounded-4">
+                                                <h5 class="mb-2">Why Assan 4?</h5>
+                                                <p class="mb-0">
+                                                    Egestas quis ipsum suspendisse ultrices gravida. Accumsan sit amet
+                                                    nulla facilisi morbi tempus iaculis. Nunc scelerisque viverra mauris
+                                                    in aliquam sem fringilla. Ac feugiat sed lectus vestibulum mattis
+                                                    ullamcorper velit sed ullamcorper. Amet nulla facilisi morbi tempus
+                                                    iaculis urna id volutpat lacus. Bibendum est ultricies integer quis
+                                                    auctor elit sed. Fringilla est ullamcorper eget nulla facilisi.
+                                                    Mauris cursus mattis molestie a iaculis at erat pellentesque
+                                                    adipiscing. Elit duis tristique sollicitudin nibh sit amet commodo.
+                                                    Non sodales neque sodales ut etiam sit amet.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="position-relative">
+                <div class="position-absolute start-0 top-0 w-100 h-50 bg-white"></div>
+                <div id="download" class="container py-9 py-lg-11 z-index-1 position-relative">
+                    <div class="py-5 py-lg-7 px-4 px-lg-5 bg-dark shadow-lg text-white rounded-block position-relative overflow-hidden"
+                        data-aos="fade-down">
+                        <div class="row position-relative">
+                            <div class="col-lg-8 offset-lg-1 col-md-9 mb-5 mb-md-0 text-center text-md-start">
+                                <h2 class="display-4 mb-4">Download the App now</h2>
+
+                                <div
+                                    class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-md-start">
+                                    <a href="#!" class="d-inline-block mb-3 mb-sm-0 me-sm-2 hover-lift hover-shadow"
+                                        aria-label="Download the app from apple store">
+                                        <span class="height-5x w-auto"><img src="assets/img/graphics/app/app-store.svg"
+                                                alt="App Store Apple">
+                                        </span></a>
+                                    <a href="#!" class="d-inline-block hover-lift hover-shadow"
+                                        aria-label="Download the app from google store">
+                                        <span class="height-5x w-auto">
+                                            <img src="assets/img/graphics/app/play-store.svg" alt=""></span></a>
+                                </div>
+                                <div class="pt-4 pt-lg-5 w-md-80 w-lg-100">
+                                    Or text <strong>ART</strong> to <strong>123</strong> to get a download link on
+                                    your mobile phone.
+                                </div>
+                            </div>
+                        </div>
+                        <img src="assets/img/graphics/app/shot2.jpg" alt=""
+                            class="img-fluid border border-5 border-white mx-auto me-md-3 me-lg-12 width-16x d-block mb-n15 position-md-absolute end-0 bottom-0 rounded-4 shadow">
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--Footer Start-->
+        <footer class="footer bg-dark text-white rounded-top-start-block">
+            <div class="container pt-9 pt-lg-11 pb-5">
+                <div class="row">
+                    <div class="col-lg-3 col-md-5 mb-5">
+                        <a class="d-table mb-4" href="#">
+                            <img src="assets/img/logo/logo-white.svg" alt="" class="width-8x h-auto">
+                        </a>
+                        <p class="mb-0 text-muted"><span class="text-muted">Phone:</span>
+                            <a href="tel:0123456789">+01 1234 56789</a> <br><span class="text-muted">Email:</span> <a
+                                href="mailto:mailus@domain.com">mailus@domain.com</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 ms-md-auto  mb-5">
+                        <nav class="nav flex-column">
+                            <a class="nav-link" href="#">About company</a>
+                            <a class="nav-link" href="#">Meet the Team</a>
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 mb-5">
+                        <nav class="nav flex-column">
+                            <a class="nav-link" href="#">Resource</a>
+                            <a class="nav-link" href="#">FAQs</a>
+                            <a class="nav-link" href="#">News & media</a>
+                            <a class="nav-link" href="#">Raise Capital</a>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 mb-5">
+                        <nav class="nav flex-column">
+                            <a class="nav-link" href="#">Statements</a>
+                            <a class="nav-link" href="#">Debit</a>
+                            <a class="nav-link" href="#">Fair Policy</a>
+                            <a class="nav-link" href="#">Services Guide</a>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-8 mb-5">
+                        <h5 class="mb-3">Newsletter</h5>
+                        <div class="newsletter-signup ">
+                            <form>
+                                <div class="d-flex flex-column mb-3">
+                                    <input type="email" placeholder="Enter email address"
+                                        class="form-control form-control-lg mb-2 border-0 shadow-none bg-secondary text-white"
+                                        required="">
+                                    <button class="btn btn-primary btn-lg" type="submit">Subscribe</button>
+                                </div>
+                            </form>
+                            <span class="small text-muted d-block text-end">We do not share your email to anyone</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-5">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <span class="d-block lh-sm small text-muted">&copy; Copyright
+                            <script>
+                                document.write(new Date().getFullYear())
+
+                            </script>. Assan
+                        </span>
+                    </div>
+                    <div class="col-sm-7">
+                        <nav class="nav justify-content-sm-end">
+                            <a class="nav-link small text-muted px-0 me-3" href="#!"><small>Privacy Policy</small></a>
+                            <a class="nav-link small text-muted px-0" href="#!"><small>Terms of Service</small></a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop bg-white rounded-circle">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+
+        <!--Swiper slider-->
+        <script src="assets/vendor/node_modules/js/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".swiperFaqs", {
+                effect: "cards",
+                grabCursor: true,
+                cardsEffect: {
+                    slideShadows: false
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+        </script>
+
+        <!--Particles script-->
+        <script src="assets/vendor/node_modules/js/particles.js"></script>
+        <script>
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 24,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                    },
+                    "opacity": {
+                        "value": 0.6,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": true
+                        }
+                    },
+                    "size": {
+                        "value": 7,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 60,
+                            "size_min": 0.25,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": false,
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 4,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": true,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": false,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": false,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 0
+                            }
+                        },
+                        "bubble": {
+                            "distance": 200,
+                            "size": 60,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 8
+                        },
+                        "repulse": {
+                            "distance": 300,
+                            "duration": 0.9
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+
+        </script>
+    </body>
+
+</html>

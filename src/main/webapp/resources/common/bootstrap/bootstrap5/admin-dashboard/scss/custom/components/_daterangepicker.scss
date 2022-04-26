@@ -1,0 +1,107 @@
+//Date range picker plugin style override
+.daterangepicker{
+    border-color: $dropdown-border-color;
+    background-color: $dropdown-bg;
+    margin-top: 2px;
+    color: $dropdown-link-color;
+    border-radius: $dropdown-border-radius;
+    font-family: $font-family-base;
+    box-shadow: $dropdown-box-shadow;
+    padding: $spacer * .5;
+    &::before,&::after{
+        display: none;
+    }
+    .ranges li{
+       border-radius: $dropdown-border-radius;
+       margin-bottom: $spacer * .125;
+    }
+    &.show-calendar .ranges {
+        margin-right: .5rem;
+    }
+}
+.daterangepicker .calendar-table{
+    background-color: $dropdown-bg;
+    border:0px!important;
+}
+.daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span{
+    border:0px!important;
+}
+.daterangepicker td.off{
+    color: $dropdown-link-disabled-color;
+}
+.daterangepicker td.off.today{
+    color:$dropdown-link-active-color;
+    background-color:$dropdown-link-active-bg;
+    &:hover{
+        color:$dropdown-link-active-color;
+    background-color:$dropdown-link-active-bg;
+    }
+}
+.daterangepicker.show-ranges.ltr .drp-calendar.left{
+    border:0px!important;
+}
+.daterangepicker .drp-buttons{
+    border:0px!important;
+    .btn{
+        font-weight: $btn-font-weight;
+        &.btn-default{
+            background-color: $gray-300;
+            color: $gray-700;
+        }
+    }
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover,.daterangepicker .ranges li.active,.daterangepicker td.in-range.end-date{
+    background-color: $dropdown-link-active-bg;
+    color: $dropdown-link-active-color;
+}
+.daterangepicker .ranges li:hover,.daterangepicker td.in-range{
+    background-color: $dropdown-link-hover-bg;
+    
+}
+.daterangepicker td.in-range{
+    color: $dropdown-link-active-color;
+}
+.daterangepicker td.available:hover, .daterangepicker th.available:hover{
+    background-color: $dropdown-link-active-bg;
+    color: $dropdown-link-active-color;
+}
+.monthselect,.yearselect{
+border-color: $input-border-color;
+background-color: transparent;
+color: $body-color;
+option{
+    color: $secondary;
+}
+}
+.daterangepicker td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date{
+    background-color: transparent;
+    color: $text-muted;
+}
+
+//Prev next arrow buttons
+.daterangepicker{
+    .prev.available,.next.available{
+        >span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transform: none;
+            background-color: transparent;
+            color: $body-color;
+            border: 1px solid $border-color;
+            &::after{
+                font-family: bootstrap-icons!important;
+                font-weight: normal;
+                line-height: 1;
+            }
+        }
+    }
+    .prev.available span::after{
+        content: "\f284";
+    }
+    .next.available span::after{
+        content: "\f285";
+    }
+}

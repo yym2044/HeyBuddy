@@ -1,0 +1,42 @@
+//
+//Snippets style
+//
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: $dark;
+}
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata {
+    color: $success;
+}
+.token.punctuation {
+    color: #aeaeae;
+}
+pre[class*="language-"]{
+    margin: 0;
+}
+code[class*="language-"], pre[class*="language-"]{
+    color: white;
+    font-size: 13px;
+    font-family: $font-family-monospace;
+}
+.token.operator, .token.entity, .token.url {
+    color: #fff;
+}
+.token.tag, .token.attr-name, .token.namespace, .token.deleted {
+    color: #2ea1ff;
+}
+span.token.attr-name{
+    color: #4bd7ff;
+}
+.token.string, .token.char, .token.attr-value, .token.regex, .token.variable {
+    color: #ffa280;
+}
+.token.boolean, .token.number, .token.function {
+    color: #4bd7ff;
+}
+.token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin {
+    color: #aeaeae;
+}
+.token.property, .token.class-name, .token.constant, .token.symbol {
+    color: #ff9252;
+}

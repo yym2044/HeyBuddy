@@ -1,0 +1,23 @@
+.sidebar-trigger{
+    transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) .4s;
+    &.active{
+        transform: rotate(180deg);
+    }
+}
+.navbar-horizontal,.page-header>.page-header-bg{
+    background-color: $page-header-bg;
+}
+
+
+
+//Page header navbar style
+.page-header .nav-link{
+    color: $page-header-link-color;
+    background-color: $page-header-link-bg;
+    border-radius: $border-radius;
+    &:hover{
+        background-color: $page-header-link-hover-bg;
+        color: $page-header-link-hover-color;
+        box-shadow: $box-shadow-lg;
+    }
+}

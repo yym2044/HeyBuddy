@@ -1,0 +1,87 @@
+//
+//Full calendar scss start
+//
+
+.fc {
+    .fc-toolbar{
+        flex-direction:column;
+    }
+    td, th {
+        vertical-align: top;
+        padding: 0;
+        border: 1px solid $border-color;
+        background-color: $card-bg;
+    }
+    th{
+        border-bottom: 0px;
+    }
+    .fc-scrollgrid table {
+        border-top-style: inherit;
+        border-left-style: inherit;
+    }
+    .fc-list-event:hover td{
+        background-color: $body-bg;
+    }
+    .fc-daygrid-dot-event .fc-event-title{
+        text-overflow: ellipsis;
+    }
+    .table-bordered>:not(caption)>*{
+        border: 0px;
+    }
+    .fc-list-table tr>* {
+         border-left: 1px;
+         border-right: 1px;
+    }
+    .fc-list-day-cushion,.fc-list-day-cushion{
+        padding: $card-spacer-y $card-spacer-x;
+    }
+    .fc-direction-ltr .fc-list-table .fc-list-event-graphic {
+        padding-right: $card-spacer-x;
+    }
+    .fc-daygrid-event {
+        padding: $input-btn-padding-y-sm * .5 $input-btn-padding-x-sm;
+        border-radius: $border-radius-pill;
+    }
+    .fc-daygrid-dot-event.fc-event-mirror, .fc-daygrid-dot-event:hover {
+        background: rgba($secondary,.1);
+    }
+    .fc-daygrid-day.fc-day-today{
+        background-color:$body-bg;
+    }
+    .fc-toolbar-chunk+.fc-toolbar-chunk{
+        margin-top:$spacer * .75;
+    }
+    .btn{
+        padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+        font-size: $font-size-sm;
+    }
+    .fc-toolbar-chunk .btn{
+        border-radius: $border-radius-pill;
+    }
+    .fc-toolbar-chunk .btn-group{
+       .btn{
+           border-radius: 0px;
+        &:first-child{
+            border-top-left-radius: $border-radius-pill;
+            border-bottom-left-radius: $border-radius-pill;
+        }
+        &:last-child{
+            border-top-right-radius: $border-radius-pill;
+            border-bottom-right-radius: $border-radius-pill;
+        }
+       }
+    }
+}
+.fc .fc-list-sticky .fc-list-day>*{
+    background-color: $body-bg;
+}
+@include media-breakpoint-up(md){
+    .fc{
+        .fc-toolbar{
+            flex-direction:row;
+        }
+        .fc-toolbar-chunk+.fc-toolbar-chunk{
+            margin: 0;
+        }
+    }
+    }

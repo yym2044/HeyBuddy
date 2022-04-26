@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{page:"forms"})
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+                    @@include('./partials/header/header-default.html')
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8 mb-4 mb-md-0">
+                                    <h3 class="mb-2">Choices</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">Forms</li>
+                                            <li class="breadcrumb-item active">Choices select</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <a href="https://github.com/Choices-js/Choices" target="_blank"
+                                        class="text-body">Learn more <i class="fe-1x ms-1"
+                                            data-feather="external-link"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+
+                                <div class="col-12 col-md-6 mb-4">
+                                    <div class="card card-body">
+                                        <label for="chBasic" class="form-label">Basic Demo</label>
+                                        <select id="chBasic" class="form-control"
+                                            data-choices='{"searchEnabled":false}'>
+                                            <option value="">Select User</option>
+                                            <option value="Adam">Adam</option>
+                                            <option value="Mark">Mark</option>
+                                            <option value="John">John</option>
+                                            <option value="Varun">Varun</option>
+                                            <option value="Joseph">Joseph</option>
+                                            <option value="Smith">Smith</option>
+                                        </select>
+                                     </div>
+                                </div>
+                                <div class="col-12 col-md-6 mb-4">
+                                    <div class="card card-body">
+                                        <label for="chWidth" class="form-label">Custom Width</label>
+                                        <div class="width-140">
+                                            <select id="chWidth" class="form-control"
+                                                data-choices='{"searchEnabled":false}'>
+                                                <option value="">Quantity</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mb-4">
+                                    
+                                    
+                                    <div class="card card-body">
+                                        <label for="Searchable" class="form-label">Searchable</label>
+                                        <div>
+                                            <select id="Searchable" class="form-control"
+                                                data-choices='{"searchEnabled":true}'>
+                                                <option value="">Country</option>
+                                                <option value="Usa">Usa</option>
+                                                <option value="Uk">Uk</option>
+                                                <option value="India">India</option>
+                                                <option value="France">France</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Russia">Russia</option>
+                                                <option value="Poland">Poland</option>
+                                                <option value="Kenya">Kenya</option>
+                                                <option value="Sweden">Sweden</option>
+                                                <option value="Germany">Germany</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mb-4">
+                                    <div class="card card-body">
+                                        <label for="chBasic" class="form-label">Sizing</label>
+                                        <select id="chBasic" class="form-control-sm form-control mb-0"
+                                            data-choices='{"searchEnabled":false}'>
+                                            <option value="">Select User</option>
+                                            <option value="Adam">Adam</option>
+                                            <option value="Mark">Mark</option>
+                                            <option value="John">John</option>
+                                            <option value="Varun">Varun</option>
+                                            <option value="Joseph">Joseph</option>
+                                            <option value="Smith">Smith</option>
+                                        </select>
+                                        <select id="chBasic2" class="form-control mb-0"
+                                            data-choices='{"searchEnabled":false}'>
+                                            <option value="">Select User</option>
+                                            <option value="Adam">Adam</option>
+                                            <option value="Mark">Mark</option>
+                                            <option value="John">John</option>
+                                            <option value="Varun">Varun</option>
+                                            <option value="Joseph">Joseph</option>
+                                            <option value="Smith">Smith</option>
+                                        </select>
+                                        <select id="chBasic3" class="form-control-lg form-control mb-0"
+                                            data-choices='{"searchEnabled":false}'>
+                                            <option value="">Select User</option>
+                                            <option value="Adam">Adam</option>
+                                            <option value="Mark">Mark</option>
+                                            <option value="John">John</option>
+                                            <option value="Varun">Varun</option>
+                                            <option value="Joseph">Joseph</option>
+                                            <option value="Smith">Smith</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mb-4">
+                                    <div class="card card-body">
+                                        <h6>Multiple</h6>
+                                        <input type="text" class="choices__inner" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
+                                    <br>
+                                    <h6>Multiple select with Available Options</h6>
+                                    <select multiple class="choices__inner" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
+                                        <option value="Html">HTML</option>
+                                        <option value="Css">Css</option>
+                                        <option value="Bootstrap">Bootstrap</option>
+                                        <option value="Figma">Figma</option>
+                                        <option value="js">Js</option>
+                                        <option value="Figma">Figma</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+    </body>
+
+</html>

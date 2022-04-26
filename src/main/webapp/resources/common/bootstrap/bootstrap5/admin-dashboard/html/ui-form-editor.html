@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+        <!-- Core Css Quill editor -->
+        <link href="assets/vendor/css/quill.snow.css" rel="stylesheet">
+
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+         @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{page:"forms"})
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+                    @@include('./partials/header/header-default.html')
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8 mb-4 mb-md-0">
+                                    <h3 class="mb-2">Quill Editor</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">Forms</li>
+                                            <li class="breadcrumb-item active">Quill Editor</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <a href="https://quilljs.com/" target="_blank"
+                                        class="text-body">Learn more <i class="fe-1x ms-1"
+                                            data-feather="external-link"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+
+                                <div class="col-12 col-md-12 mb-4">
+                                   <!--Quill editor-->
+                            <div data-quill='{"placeholder": "Quill WYSIWYG"}'>
+                                <p class="fs-1">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+        <script src="assets/vendor/quill.min.js"></script>
+        <script>
+            var initQuill = document.querySelectorAll("[data-quill]");
+            initQuill.forEach((qe) => {
+                const qt = {
+                    ...(qe.dataset.quill ? JSON.parse(qe.dataset.quill) : {}),
+                    modules: {
+                        toolbar: [
+                        [{ header: [1, 2, false] }],
+                            ["bold", "underline"],
+                            ["link", "blockquote", "code", "image"],
+                            [{ list: "ordered" }, { list: "bullet" }]
+                        ]
+                    },
+                    theme: "snow"
+                };
+                new Quill(qe, qt);
+            });
+        </script>
+    </body>
+
+</html>

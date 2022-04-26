@@ -1,0 +1,17 @@
+.simplebar-track.simplebar-vertical{
+    width:8px;
+}
+.simplebar-track.simplebar-horizontal{
+    height: 8px;
+}
+.simplebar-scrollbar:before{
+    left: 2px;
+    right: 2px;
+    border-radius: $border-radius;
+    background-color: $gray-300;
+}
+.text-white{
+    .simplebar-scrollbar:before{
+        background-color: rgba($white,.35);
+    }
+}

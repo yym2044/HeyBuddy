@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assan-Admin</title>
+
+    @@include('./partials/fonts.html')
+
+    <!--Simplebar css-->
+    <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+    <!--Choices css-->
+    <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+  </head>
+
+  <body>
+    @@include('./partials/preloader.html')
+    <!--App Start-->
+    <div class="d-flex flex-column flex-root">
+      <!--Page-->
+      <div class="page d-flex flex-row flex-column-fluid">
+
+        @@include('./partials/sidebars/sidebar-default.html',{page:"components"})
+
+        <!--///////////Page content wrapper///////////////-->
+        <main class="page-content d-flex flex-column flex-row-fluid">
+
+
+          @@include('./partials/header/header-default.html')
+
+          <!--//Page Toolbar//-->
+          <div class="toolbar pt-4 px-4 px-lg-8">
+            <div class="position-relative container-fluid px-0">
+              <div class="row align-items-center position-relative">
+                <div class="col-md-8">
+                  <h3 class="mb-2">Avatars</h3>
+
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                      <li class="breadcrumb-item active">UI Components</li>
+                      <li class="breadcrumb-item active">Avatars</li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--//Page Toolbar End//-->
+
+          <!--//Page content//-->
+          <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+            <div class="container-fluid px-0">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                          <div class="card-header">
+                              <h5 class="mb-0">Sizing</h5>
+                          </div>
+                          <div class="card-body pb-3">
+                              <div class="d-flex flex-wrap align-items-center">
+                                  <img src="assets/media/avatars/01.jpg" class="avatar xs rounded-circle me-2 mb-2" alt="">
+                                  <img src="assets/media/avatars/01.jpg" class="avatar sm rounded-circle me-2 mb-2" alt="">
+                                  <img src="assets/media/avatars/01.jpg" class="avatar rounded-circle me-2 mb-2" alt="">
+                                  <img src="assets/media/avatars/01.jpg" class="avatar lg rounded-circle me-2 mb-2" alt="">
+                                  <img src="assets/media/avatars/01.jpg" class="avatar xl rounded-circle me-2 mb-2" alt="">
+                                  <img src="assets/media/avatars/01.jpg" class="avatar xxl rounded-circle me-2 mb-2" alt="">
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                          <div class="card-header">
+                              <h5 class="mb-0">Status</h5>
+                          </div>
+                          <div class="card-body pb-3">
+                              <div class="d-flex flex-wrap align-items-center">
+                                <div class="avatar avatar-status sm status-online me-2 mb-2">
+                                    <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                  </div>
+                                  <div class="avatar avatar-status status-offline me-2 mb-2">
+                                    <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                  </div>
+                                  <div class="avatar avatar-status lg status-away me-2 mb-2">
+                                    <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                  </div>
+                                  <div class="avatar avatar-status xl status-dnd me-2 mb-2">
+                                    <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                          <div class="card-header">
+                              <h5 class="mb-0">Group</h5>
+                          </div>
+                          <div class="card-body pb-3">
+                            <div class="avatar-group d-none d-lg-flex">
+                                <a href="#!.html" class="avatar-group-item sm avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Gabriel H">
+                                  <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                </a>
+                                <a href="#!.html" class="avatar-group-item sm avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Emily Doe">
+                                  <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                </a>
+                                <a href="#!.html" class="avatar-group-item sm avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Adam Howkins">
+                                  <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                </a>
+                                <a href="#!.html" class="avatar-group-item sm avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Gabriel H">
+                                    <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                  </a>
+                                  <a href="#!.html" class="avatar-group-item sm avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Emily Doe">
+                                    <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                  </a>
+                                  <a href="#!.html" class="avatar-group-item sm avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Adam Howkins">
+                                    <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                  </a>
+                              </div>
+                              <hr>
+                            <div class="avatar-group d-none d-lg-flex">
+                                <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Gabriel H">
+                                  <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                </a>
+                                <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Emily Doe">
+                                  <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                </a>
+                                <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Adam Howkins">
+                                  <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                                </a>
+                                <a href="#!.html" class="avatar-group-item avatar small fw-bold bg-secondary text-white d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="3 more users">
+                                    +3
+                                  </a>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                          <div class="card-header">
+                              <h5 class="mb-0">Placeholders</h5>
+                          </div>
+                          <div class="card-body pb-3">
+                            <div class="d-flex flex-wrap align-items-center">
+                                <a href="#!.html" class="avatar xs me-2 avatar small fw-bold bg-secondary text-white d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Name">
+                                    DJ
+                                  </a>
+                                  <a href="#!.html" class="avatar me-2 sm avatar small fw-bold bg-secondary text-white d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Name">
+                                    DJ
+                                  </a>
+                                  <a href="#!.html" class="avatar me-2 avatar small fw-bold bg-secondary text-white d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Name">
+                                    DJ
+                                  </a>
+                                  <a href="#!.html" class="avatar me-2 lg avatar small fw-bold bg-secondary text-white d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Name">
+                                    DJ
+                                  </a>
+                                  <a href="#!.html" class="avatar me-2 xl small fw-bold bg-secondary text-white d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="Name">
+                                    DJ
+                                  </a>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <!--//Page content End//-->
+
+          @@include('./partials/footer.html')
+        </main>
+        <!--///////////Page content wrapper End///////////////-->
+      </div>
+    </div>
+    @@include('./partials/core-scripts.html')
+
+  </body>
+
+</html>

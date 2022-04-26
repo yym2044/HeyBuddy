@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico" />
+
+        <!--Box Icons-->
+        <link rel="stylesheet" href="assets/fonts/boxicons/css/boxicons.min.css" />
+
+        <!--Iconsmind Icons-->
+        <link rel="stylesheet" href="assets/fonts/iconsmind/iconsmind.css" />
+
+        <!--Select style-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/choices.min.css">
+
+        <!--Swiper slider-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/swiper-bundle.min.css" />
+        <!-- Aos Animations CSS -->
+        <link href="assets/vendor/node_modules/css/aos.css" rel="stylesheet">
+        
+        <!--Google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+        <!-- Main CSS -->
+        <link href="assets/css/theme-teal.min.css" rel="stylesheet" />
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+
+        <!--Header Start-->
+        <header class="z-index-fixed pt-2 header-absolute-top header-sticky">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="d-flex">
+                            <a href="tel:+011234567890" class="text-dark me-3 me-lg-4">
+                                <i class="bx bxs-phone"></i>
+                                <small>+01 1234 567 890</small>
+                            </a>
+                            <a href="mailto:consult@company.com" class="text-dark me-3 me-lg-4">
+                               <i class="bx bxs-envelope"></i>
+                                <small>estate@assan.com</small>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ms-auto">
+                        <div class="d-flex justify-content-end">
+                            <a href="mailto:consult@company.com" class="text-dark">
+                               <i class="bx bxs-user"></i>
+                                <small>Sign In</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light"><div class="container position-relative">
+                <a class="navbar-brand" href="demo-real-estate.html">
+                    <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+                </a>
+                <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                    <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <i></i>
+                        </span>
+                    </button>
+                    <div class="nav-item me-2 ms-lg-5 me-lg-0">
+                        <a href="demo-real-estate-add-listing.html" class="btn btn-dark btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="me-1" width="16" height="16"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M12 4v16m8-8H4" />
+                            </svg> Submit Property
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Home</a>
+                            <!--Dropdown-->
+                            <div class="dropdown-menu">
+                                <a href="demo-real-estate.html" class="dropdown-item">Home default</a>
+                                <a href="demo-real-estate-2.html" class="dropdown-item">Home option</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active"
+                                data-bs-toggle="dropdown">Listing</a>
+                            <!--Dropdown-->
+                            <div class="dropdown-menu">
+                                <a href="demo-real-estate-listing-grid.html" class="dropdown-item">Listing
+                                    Grid</a>
+                                <a href="demo-real-estate-listing-row.html" class="dropdown-item">Listing
+                                    Row</a>
+                                    <a href="demo-real-estate-add-listing.html" class="dropdown-item">Listing
+                                        Add</a>
+                                        <a href="demo-real-estate-listing.html" class="dropdown-item">Listing Detail</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div> </div>
+            </nav>
+        </header>
+
+        <main>
+            <!--hero-->
+            <section class="position-relative overflow-hidden">
+                <div class="container pt-12 pb-9 position-relative z-index-1">
+                    <div class="row pt-7 pt-lg-12 justify-content-between align-items-center">
+                        <div class="col-lg-8 mb-5 mb-lg-0">
+                            <h4 class="text-muted mb-4">Bristol, UK</h4>
+                            <h1 class="display-2 mb-0">
+                                Villa in Coral Gables
+                            </h1>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="d-flex align-items-center justify-content-lg-end">
+                                <a href="#!" class="btn btn-light flex-shrink-0 me-3"><i class="bx bxs-bookmark me-2"></i> Save</a>
+                                <a href="#!" class="btn btn-light flex-shrink-0"><i class="bx bxs-share me-2"></i> Share</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                
+                <div class="container-fluid position-relative">
+                    
+                    <div class="row" id="lightboxGallery" data-bigpicture='{"gallery":"#lightboxGallery"}'>
+                        <div class="col-sm-6 mb-4">
+                          <a href="assets/img/estate/listing/detail1.jpg">
+                            <img src="assets/img/estate/listing/detail1.jpg" data-bp="assets/img/estate/listing/detail1.jpg" class="img-fluid rounded-4 shadow-lg" alt="">
+                          </a>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <a href="assets/img/estate/listing/detail2.jpg">
+                              <img src="assets/img/estate/listing/detail2.jpg" data-bp="assets/img/estate/listing/detail2.jpg" class="img-fluid rounded-4 shadow-lg" alt="">
+                            </a>
+                          </div>
+                          <div class="col-6 mb-4">
+                            <a href="assets/img/estate/listing/detail3.jpg">
+                              <img src="assets/img/estate/listing/detail3.jpg" data-bp="assets/img/estate/listing/detail3.jpg" class="img-fluid rounded-4 shadow-lg" alt="">
+                            </a>
+                          </div>
+                          <div class="col-sm-6 mb-4">
+                            <a href="assets/img/estate/listing/detail4.jpg">
+                              <img src="assets/img/estate/listing/detail4.jpg" data-bp="assets/img/estate/listing/detail4.jpg" class="img-fluid rounded-4 shadow-lg" alt="">
+                            </a>
+                          </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container py-9 py-lg-11">
+                    <div class="row mb-5 align-items-center">
+                        
+                        
+                        <div class="col-sm-4 mb-4 col-6">
+                            <small class="text-muted block">ID:</small>
+                            <p class="lead mb-0 pb-2 border-bottom">0011</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6">
+                            <small class="text-muted block">Property type:</small>
+                            <p class="lead mb-0 pb-2 border-bottom">Apartment</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-12">
+                            <small class="text-muted block">Location</small>
+                            <p class="lead mb-0 pb-2 border-bottom">Bristol, UK</p>
+                        </div>
+                        <div class="col-12 mb-4 col-sm-8">
+                            <small class="text-muted block">Price</small>
+                            <p class="display-3 mb-0 pb-2 border-bottom">$125,000</p>
+                        </div>
+                        <div class="col-12 col-sm-4 mb-4">
+                            <a href="#!" class="btn w-100 d-block btn-secondary btn-lg">Arrange a visit</a>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6">
+                            <small class="text-muted block">Bedrooms:</small>
+                            <p class="lead mb-0 pb-2 border-bottom">4</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6">
+                            <small class="text-muted block">Bathrooms:</small>
+                            <p class="lead mb-0 pb-2 border-bottom">4</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6">
+                            <small class="text-muted block">WIFI</small>
+                            <p class="lead mb-0 pb-2 border-bottom">YES</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6 col-lg-3">
+                            <small class="text-muted block">Parking</small>
+                            <p class="lead mb-0 pb-2 border-bottom">YES</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6 col-lg-3">
+                            <small class="text-muted block">Swimming pool</small>
+                            <p class="lead mb-0 pb-2 border-bottom">YES</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6 col-lg-3">
+                            <small class="text-muted block">Area</small>
+                            <p class="lead mb-0 pb-2 border-bottom">3200 sq. ft.</p>
+                        </div>
+                        <div class="col-sm-4 mb-4 col-6 col-lg-3">
+                            <small class="text-muted block">Year in Built</small>
+                            <p class="lead mb-0 pb-2 border-bottom">2016</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        
+                        <div class="col-md-6 mb-7 mb-md-0">
+                            <small class="d-block text-muted mb-2">Description:</small>
+                            <p>
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups  the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                            </p>
+                            <p class="pb-3 mb-5 border-bottom">
+                                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                            </p>
+
+                            <small class="d-block text-muted mb-4">Contact Agent:</small>
+                            <div class="d-flex align-items-center">
+                                <div class="me-4">
+                                    <img src="assets/img/avatar/4.jpg" class="img-fluid avatar xl rounded-circle" alt="">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">Emily Doe</h6>
+                                    <p class="small mb-1 text-muted"> <i class="bx bxs-phone"></i> +01 123-4567-890</p>
+                                    <p class="mb-0"><a href="#!" class="link-hover-underline">Contact Agent</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <small class="d-block text-muted mb-2">Floor plan:</small>
+                            <img src="assets/img/estate/floor-plan.jpg" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-light">
+                <div class="container py-9 py-lg-11">
+                    <div class="d-flex mb-6 align-items-center">
+                        <h3 class="mb-0">Nearby Properties</h3>
+                        <div class="flex-grow-1 border-top ms-3"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-sm-10 mb-5 mb-lg-0">
+                            <!--Card-property-2-->
+                            <div class="position-relative">
+                                <a href="#!" class="d-block card-hover overflow-hidden rounded-4">
+                                    <!--Image-->
+                                    <img src="assets/img/estate/listing/1.jpg" class="img-fluid img-zoom" alt="">
+                                    <!--Background-->
+                                    <div class="position-absolute start-0 top-0 w-100 h-100 bg-gradient-dark opacity-50">
+                                    </div>
+                                    <div class="position-absolute start-0 top-0 w-100 pt-3 px-3">
+                                        <span class="badge bg-white text-primary">For Sale</span>
+                                    </div>
+                                    <div class="text-white d-flex justify-content-between w-100 px-3 pb-4 position-absolute start-0 bottom-0 w-100 h-100 align-items-end">
+                                        <div class="flex-grow-1 overflow-hidden pe-4">
+                                            <h5 class="mb-3">$453,675</h5>
+                                            <!--Location-->
+                                            <p class="mb-0 d-flex">
+                                                <i class="bx bx-map me-1"></i>
+                                                <span class="small text-truncate">Manchester</span>
+                                            </p>
+                                        </div>
+                                        <!--Agent-->
+                                        <div class="d-flex align-items-center flex-shrink-0">
+                                            <img src="assets/img/avatar/1.jpg" alt="" class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                            <span class="small">
+                                                Sonia
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="card-body pt-4">
+                                    <a href="#!" class="text-dark d-block mb-4">
+                                        <h5>Villa in Coral Gables</h5>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Bedrooms">
+                                            <div class="d-flex align-items-center">
+                                             <i class="bx bx-bed fs-5 me-2"></i>
+                                                <strong class="small">4</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Bathrooms">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bx bx-bath fs-5 me-2"></i>
+                                                <strong class="small">2</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Area">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bx bx-area fs-5 me-2"></i>
+                                                <strong class="small">6400 Sq Ft</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-10 mb-5 mb-lg-0">
+                            <!--Card-property-2-->
+                            <div class="position-relative">
+                                <a href="#!" class="d-block card-hover overflow-hidden rounded-4 position-relative">
+                                    <!--Image-->
+                                    <img src="assets/img/estate/listing/2.jpg" class="img-fluid rounded-4 img-zoom" alt="">
+                                    <!--Background-->
+                                    <div class="position-absolute start-0 top-0 w-100 h-100 bg-gradient-dark opacity-75">
+                                    </div>
+                                    <div class="position-absolute start-0 top-0 w-100 pt-3 px-3">
+                                        <span class="badge bg-info">For Rent</span>
+                                    </div>
+                                    <div class="text-white d-flex justify-content-between w-100 px-3 pb-4 position-absolute start-0 bottom-0 w-100 h-100 align-items-end">
+                                        <div class="flex-grow-1 overflow-hidden pe-4">
+                                            <h5 class="mb-3">$953,000</h5>
+                                            <!--Location-->
+                                            <p class="mb-0 d-flex">
+                                                <i class="bx bxs-map me-1"></i>
+                                                <span class="small text-truncate">Liverpool</span>
+                                            </p>
+                                        </div>
+                                        <!--Agent-->
+                                        <div class="d-flex align-items-center flex-shrink-0">
+                                            <img src="assets/img/avatar/2.jpg" alt="" class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                            <span class="small">
+                                                Monika
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="card-body pt-4">
+                                    <a href="#!" class="text-dark d-block mb-4">
+                                        <h5>Located in the heart of city</h5>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Bedrooms">
+                                            <div class="d-flex align-items-center">
+                                             <i class="bx bx-bed fs-5 me-2"></i>
+                                                <strong class="small">4</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Bathrooms">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bx bxs-bath fs-5 me-2"></i>
+                                                <strong class="small">2</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Area">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bx bx-area fs-5 me-2"></i>
+                                                <strong class="small">6400 Sq Ft</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <!--Card-property-2-->
+                            <div class="position-relative">
+                                <a href="#!" class="d-block card-hover overflow-hidden rounded-4 position-relative">
+                                    <!--Image-->
+                                    <img src="assets/img/estate/listing/4.jpg" class="img-fluid img-zoom" alt="">
+                                    <!--Background-->
+                                    <div class="position-absolute rounded-4 start-0 top-0 w-100 h-100 bg-gradient-dark opacity-50">
+                                    </div>
+                                    <div class="position-absolute start-0 top-0 w-100 pt-3 px-3">
+                                        <span class="badge bg-white text-primary">For Sale</span>
+                                    </div>
+                                    <div class="text-white d-flex justify-content-between w-100 px-3 pb-4 position-absolute start-0 bottom-0 w-100 h-100 align-items-end">
+                                        <div class="flex-grow-1 overflow-hidden pe-4">
+                                            <h5 class="mb-3">$399,000</h5>
+                                            <!--Location-->
+                                            <p class="mb-0 d-flex">
+                                                <i class="bx bxs-map me-1"></i>
+                                                <span class="small text-truncate">Bristol</span>
+                                            </p>
+                                        </div>
+                                        <!--Agent-->
+                                        <div class="d-flex align-items-center flex-shrink-0">
+                                            <img src="assets/img/avatar/6.jpg" alt="" class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                            <span class="small">
+                                                Adam
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="card-body pt-4">
+                                    <a href="#!" class="text-dark d-block mb-4">
+                                        <h5>Standing in the heart of the city</h5>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Bedrooms">
+                                            <div class="d-flex align-items-center">
+                                             <i class="bx bx-bed fs-5 me-2"></i>
+                                                <strong class="small">4</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Bathrooms">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bx bx-bath fs-5 me-2"></i>
+                                                <strong class="small">2</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                            data-bs-original-title="Area">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bx bx-area fs-5 me-2"></i>
+                                                <strong class="small">6400 Sq Ft</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--Footer Start-->
+        @@include('./partials/footers/footer-9.html')
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+        
+    </body>
+
+</html>

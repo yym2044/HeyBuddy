@@ -1,0 +1,60 @@
+//dropdown toggle caret icon overrides
+.dropdown-toggle::after,.dropdown-toggle::before{
+    font-family: bootstrap-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    transition: transform .25s ease-in-out;
+    vertical-align: middle;
+    font-size:$font-size-sm;
+}
+.dropdown-toggle{
+    &::after{
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        content: "\f282";
+        font-size: $font-size-sm;
+    }
+}
+.dropend{
+    .dropdown-toggle::after{
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        content: "\f285";
+        vertical-align: -0.06em;
+    }
+}
+.dropstart .dropdown-toggle::before{
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    content: "\f284";
+    vertical-align: -0.06em;
+}
+.dropup .dropdown-toggle::after{
+    content: "\f286";
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    vertical-align: -0.022em;
+}
+.dropdown-toggle.show{
+    &::after{
+        transform: rotate(180deg);
+    }
+}
+.dropend>.dropdown-toggle.show{
+    &::after{
+        transform: rotate(90deg);
+    }
+}
+.dropstart>.dropdown-toggle.show{
+    &::before{
+        transform: rotate(-90deg);
+    }
+}

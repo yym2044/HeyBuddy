@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+      @@include('./partials/preloader.html')
+      <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{page:"components"})
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+
+                    @@include('./partials/header/header-default.html')
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8">
+                                    <h3 class="mb-2">Spinners</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">UI Components</li>
+                                            <li class="breadcrumb-item active">Spinners</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+                              <div class="col-12 col-lg-6 mb-4">
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center justify-content-between">
+                                        <h5 class="mb-0">Theme Spinners</h5>
+                                    </div>
+                                    <div class="card-body p-0">
+                                      <div class="pt-4 px-4 d-table">
+                                        <h6>Custom spinners easily apply on any svg</h6>
+                                      </div>
+                                     <div class="d-flex flex-wrap">
+                                        <!--Spinner-->
+                                        <div class="d-flex align-items-center p-4" role="status">
+                                          <i data-feather="loader" class="anim-spinner"></i>
+                                            <span class="visually-hidden">Loading...</span>
+                                          </div>
+                                            <!--Spinner-->
+                                        <div class="d-flex align-items-center p-4" role="status">
+                                          <i data-feather="loader" class="anim-spinner text-primary"></i>
+                                            <span class="visually-hidden">Loading...</span>
+                                          </div>
+
+                                          <!--Spinner-->
+                                          <div class="d-flex align-items-center p-4" role="status">
+                                            <svg class="anim-spinner text-success" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M24 12C24 14.3734 23.2962 16.6935 21.9776 18.6668C20.6591 20.6402 18.7849 22.1783 16.5922 23.0866C14.3995 23.9948 11.9867 24.2324 9.65892 23.7694C7.33114 23.3064 5.19295 22.1635 3.51472 20.4853C1.83649 18.8071 0.693599 16.6689 0.230577 14.3411C-0.232446 12.0133 0.00519403 9.60051 0.913446 7.4078C1.8217 5.21509 3.35977 3.34094 5.33316 2.02236C7.30655 0.703788 9.62662 -2.83022e-08 12 0L12 3C10.22 3 8.47991 3.52784 6.99987 4.51677C5.51983 5.50571 4.36627 6.91131 3.68508 8.55585C3.0039 10.2004 2.82567 12.01 3.17293 13.7558C3.5202 15.5016 4.37737 17.1053 5.63604 18.364C6.89471 19.6226 8.49836 20.4798 10.2442 20.8271C11.99 21.1743 13.7996 20.9961 15.4442 20.3149C17.0887 19.6337 18.4943 18.4802 19.4832 17.0001C20.4722 15.5201 21 13.78 21 12H24Z" fill="currentColor"/>
+                                              </svg>
+                                              
+                                          </div>
+                                     </div>
+                                      <!--Spinner-->
+                                      <div class="d-flex align-items-center p-4" role="status">
+                                        <svg class="anim-spinner text-success me-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M24 12C24 14.3734 23.2962 16.6935 21.9776 18.6668C20.6591 20.6402 18.7849 22.1783 16.5922 23.0866C14.3995 23.9948 11.9867 24.2324 9.65892 23.7694C7.33114 23.3064 5.19295 22.1635 3.51472 20.4853C1.83649 18.8071 0.693599 16.6689 0.230577 14.3411C-0.232446 12.0133 0.00519403 9.60051 0.913446 7.4078C1.8217 5.21509 3.35977 3.34094 5.33316 2.02236C7.30655 0.703788 9.62662 -2.83022e-08 12 0L12 3C10.22 3 8.47991 3.52784 6.99987 4.51677C5.51983 5.50571 4.36627 6.91131 3.68508 8.55585C3.0039 10.2004 2.82567 12.01 3.17293 13.7558C3.5202 15.5016 4.37737 17.1053 5.63604 18.364C6.89471 19.6226 8.49836 20.4798 10.2442 20.8271C11.99 21.1743 13.7996 20.9961 15.4442 20.3149C17.0887 19.6337 18.4943 18.4802 19.4832 17.0001C20.4722 15.5201 21 13.78 21 12H24Z" fill="currentColor"/>
+                                          </svg>
+                                          <span>Loading...</span>
+                                      </div>
+                                       <!--Spinner-->
+                                       <div class="d-flex align-items-center p-4" role="status">
+                                        <svg class="anim-spinner text-danger me-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M24 12C24 14.3734 23.2962 16.6935 21.9776 18.6668C20.6591 20.6402 18.7849 22.1783 16.5922 23.0866C14.3995 23.9948 11.9867 24.2324 9.65892 23.7694C7.33114 23.3064 5.19295 22.1635 3.51472 20.4853C1.83649 18.8071 0.693599 16.6689 0.230577 14.3411C-0.232446 12.0133 0.00519403 9.60051 0.913446 7.4078C1.8217 5.21509 3.35977 3.34094 5.33316 2.02236C7.30655 0.703788 9.62662 -2.83022e-08 12 0L12 3C10.22 3 8.47991 3.52784 6.99987 4.51677C5.51983 5.50571 4.36627 6.91131 3.68508 8.55585C3.0039 10.2004 2.82567 12.01 3.17293 13.7558C3.5202 15.5016 4.37737 17.1053 5.63604 18.364C6.89471 19.6226 8.49836 20.4798 10.2442 20.8271C11.99 21.1743 13.7996 20.9961 15.4442 20.3149C17.0887 19.6337 18.4943 18.4802 19.4832 17.0001C20.4722 15.5201 21 13.78 21 12H24Z" fill="currentColor"/>
+                                          </svg>
+                                          <span>Please Wait...</span>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="col-12 col-lg-6 mb-4">
+                                    <div class="card mb-4">
+                                        <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="mb-0">Bootstrap Spinners</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="spinner-border" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <br><br>
+                                              <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <div class="spinner-border text-secondary" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <div class="spinner-border text-success" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <div class="spinner-border text-danger" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <div class="spinner-border text-warning" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <div class="spinner-border text-info" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <div class="spinner-border text-light" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                              <div class="spinner-border text-dark" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                      <div class="card-header d-flex align-items-center justify-content-between">
+                                          <h5 class="mb-0">Bootstrap Growing spinner</h5>
+                                      </div>
+                                      <div class="card-body">
+                                          <div class="spinner-grow" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <br><br>
+                                            <div class="spinner-grow text-primary" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <div class="spinner-grow text-secondary" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <div class="spinner-grow text-success" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <div class="spinner-grow text-danger" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <div class="spinner-grow text-warning" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <div class="spinner-grow text-info" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <div class="spinner-grow text-light" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <div class="spinner-grow text-dark" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+    </body>
+
+</html>

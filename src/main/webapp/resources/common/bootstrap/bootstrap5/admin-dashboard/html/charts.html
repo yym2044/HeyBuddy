@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{"page": "charts"} )
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+                    @@include('./partials/header/header-default.html')
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar py-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8 mb-4 mb-md-0">
+                                    <h3 class="mb-0">Charts</h3>
+                                    <p class="mb-0">Modern & Interactive Open-source Charts</p>
+
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <nav aria-label="breadcrumb" class="d-md-flex justify-content-md-end">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">Charts</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <div class="px-4">
+                        <div class="card card-body">
+                            <h6 class="mb-0">Fully customized according to theme style, Many more amazing examples 👉 <a
+                                    href="https://www.chartjs.org/docs/latest/" target="_blank">ChartJs</a>.</h6>
+                        </div>
+                    </div>
+                    <!--//Page content//-->
+                    <div class="content pb-0 p-4 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+                                <div class="col-12 col-lg-12 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Area Chart</h5>
+                                        </div>
+                                        <div class="card-body p-0" style="height:350px">
+                                            <canvas id="chart_area"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-12 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Line Chart</h5>
+                                        </div>
+                                        <div class="card-body p-0" style="height:350px">
+                                            <canvas id="chart_line"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-12 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Mixed Chart</h5>
+                                        </div>
+                                        <div class="card-body p-0" style="height:400px">
+                                            <canvas id="chart_mixed"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-12 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Bar Chart</h5>
+                                        </div>
+                                        <div class="card-body p-0" style="height:400px">
+                                            <canvas id="chart_bar"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Polar area</h5>
+                                        </div>
+                                        <div class="card-body p-0" style="height:300px">
+                                            <canvas id="chart_polar"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Pie Chart</h5>
+                                        </div>
+                                        <div class="card-body pt-0" style="height:300px">
+                                            <canvas id="chart_pie"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Dougnut Chart</h5>
+                                        </div>
+                                        <div class="card-body pt-0" style="height:300px">
+                                            <canvas id="chart_dougnut"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="card">
+                                        <div class="card-header border-bottom-0">
+                                            <h5 class="mb-0">Radar Chart</h5>
+                                        </div>
+                                        <div class="card-body pt-0" style="height:400px">
+                                            <canvas id="chart_radar"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mb-3">
+                                    <h6 class="mb-0">Sparkline charts</h6>
+                                </div>
+
+                                <!--Sparkline charts-->
+                                <div class="col-12 col-lg-3 col-sm-6 mb-4">
+                                    <div class="card card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <span class="d-block">Earnings</span>
+                                                <h4 class="mb-0">$87458</h4>
+                                            </div>
+                                            <div class="flex-grow-1 text-end">
+                                                <i data-feather="trending-up" class="fe-1x text-success me-2"></i>
+                                                <span>2%</span>
+                                            </div>
+                                        </div>
+                                        <div style="height: 60px;">
+                                            <canvas id="spark1"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 col-sm-6 mb-4">
+                                    <div class="card card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <span class="d-block">Earnings</span>
+                                                <h4 class="mb-0">$87458</h4>
+                                            </div>
+                                            <div class="flex-grow-1 text-end">
+                                                <i data-feather="trending-up" class="fe-1x text-success me-2"></i>
+                                                <span>2%</span>
+                                            </div>
+                                        </div>
+                                        <div style="height: 60px;">
+                                            <canvas id="spark2"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 col-sm-6 mb-4">
+                                    <div class="card card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <span class="d-block">Sales</span>
+                                                <h4 class="mb-0">7458</h4>
+                                            </div>
+                                            <div class="flex-grow-1 text-end">
+                                                <i data-feather="trending-up" class="fe-1x text-success me-2"></i>
+                                                <span>2%</span>
+                                            </div>
+                                        </div>
+                                        <div style="height: 60px;">
+                                            <canvas id="spark3"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 col-sm-6 mb-4">
+                                    <div class="card card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <span class="d-block">Tasks overview</span>
+                                                <h4 class="mb-0">41/9</h4>
+                                            </div>
+                                            
+                                        <div style="height: 80px;width:80px">
+                                            <canvas id="spark4"></canvas>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+        <!--Charts-->
+        <script src="assets/vendor/chart.min.js"></script>
+        <script src="assets/vendor/chartjs-plugin-datalabels.min.js"></script>
+      <script>
+   //Chart colors
+   function hexToRGB(hex, alpha) {
+    var r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16);
+
+    if (alpha) {
+        return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+    } else {
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+    }
+}
+
+var style = getComputedStyle(document.body);
+var rgbaWarning = hexToRGB(style.getPropertyValue('--bs-warning'), 0.5);
+var rgbaSuccess = hexToRGB(style.getPropertyValue('--bs-success'), 0.5);
+var rgbaPrimary = hexToRGB(style.getPropertyValue('--bs-primary'), 0.5);
+var rgbaDanger = hexToRGB(style.getPropertyValue('--bs-danger'), 0.5);
+       var cPrimary = style.getPropertyValue('--bs-primary');
+      var cWarning = style.getPropertyValue('--bs-warning');
+      var cSecondary = style.getPropertyValue('--bs-secondary');
+      var cSuccess = style.getPropertyValue('--bs-success');
+      var cInfo = style.getPropertyValue('--bs-info');
+      var cDanger = style.getPropertyValue('--bs-danger');
+      var cMuted = style.getPropertyValue('--bs-gray-500');
+      var cLight = style.getPropertyValue('--bs-gray-100');
+      var cGray = style.getPropertyValue('--bs-gray-300');
+      var cFont = style.getPropertyValue('--bs-font-sans-serif');
+      var bgBody = style.getPropertyValue('--bs-body-bg');
+      var cBody = style.getPropertyValue('--bs-body-color');
+      Chart.defaults.font.family = cFont;
+
+
+      //Spark1
+      const ctx1 = document.getElementById('spark1').getContext('2d');
+      let chartSpark1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['1 Jan', '2 Jan', '3 Jan', '4 Jan', '5 Jan', '6 Jan', '7 Jan', '8 Jan', '9 Jan', '10 Jan'],
+          datasets: [{
+            data: [311, 123, 546, 222, 636, 1119, 539, 847, 1024, 983],
+            borderColor: cPrimary,
+            borderWidth: 2,
+            backgroundColor: rgbaPrimary,
+            hoverBorderColor: 'transparent',
+            tension: .4,
+            pointHoverRadius: 0,
+            fill:true,
+            pointRadius: 0,
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              position: 'nearest',
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 6,
+              cornerRadius: 6,
+              titleSpacing: 2,
+              bodySpacing: 4,
+
+              font: {
+                family: cFont
+              },
+              callbacks: {
+                label: function (context) {
+                  let label = context.dataset.label || '';
+
+                  if (label) {
+                    label += ': ';
+                  }
+                  if (context.parsed.y !== null) {
+                    label += new Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: 'USD'
+                    }).format(context.parsed.y);
+                  }
+                  return label;
+                }
+              }
+            },
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false,
+          scales: {
+            x: {
+              display: false
+            },
+            y: {
+              display: false,
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                display: false,
+                padding: 50,
+                color: cMuted,
+              }
+            }
+          }
+        }
+      });
+
+  //Spark2
+  const ctx2 = document.getElementById('spark2').getContext('2d');
+      let chartSpark2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['1 Jan', '2 Jan', '3 Jan', '4 Jan', '5 Jan', '6 Jan', '7 Jan', '8 Jan', '9 Jan', '10 Jan'],
+          datasets: [{
+            data: [311, 223, 546, 222, 636, 719, 539, 647, 824, 783],
+            borderColor: 'transparent',
+            borderWidth: 0,
+            backgroundColor: cSuccess,
+            maxBarThickness:8,
+            borderRadius:6,
+            borderSkipped:true
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              position: 'nearest',
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 6,
+              cornerRadius: 6,
+              titleSpacing: 2,
+              bodySpacing: 4,
+
+              font: {
+                family: cFont
+              },
+              callbacks: {
+                label: function (context) {
+                  let label = context.dataset.label || '';
+
+                  if (label) {
+                    label += ': ';
+                  }
+                  if (context.parsed.y !== null) {
+                    label += new Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: 'USD'
+                    }).format(context.parsed.y);
+                  }
+                  return label;
+                }
+              }
+            },
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false,
+          scales: {
+            x: {
+              display: false
+            },
+            y: {
+              display: false,
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                display: false,
+                padding: 50,
+                color: cMuted,
+              }
+            }
+          }
+        }
+      });
+  //Spark3
+  const ctx3 = document.getElementById('spark3').getContext('2d');
+      let chartSpark3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+          labels: ['1 Jan', '2 Jan', '3 Jan', '4 Jan', '5 Jan', '6 Jan', '7 Jan', '8 Jan', '9 Jan', '10 Jan'],
+          datasets: [{
+            data: [311, 223, 546, 222, 636, 719, 539, 647, 824, 783],
+            borderColor: cPrimary,
+            borderWidth: 3,
+            backgroundColor: cPrimary,
+            tension:.4,
+            pointRadius:0,
+            pointHoverRadius:0,
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              position: 'nearest',
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 6,
+              cornerRadius: 6,
+              titleSpacing: 2,
+              bodySpacing: 4,
+
+              font: {
+                family: cFont
+              }
+            },
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false,
+          scales: {
+            x: {
+              display: false
+            },
+            y: {
+              display: false,
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                display: false,
+                padding: 50,
+                color: cMuted,
+              }
+            }
+          }
+        }
+      });
+//Spark4
+const ctx4 = document.getElementById('spark4').getContext('2d');
+      let chartSpark4 = new Chart(ctx4, {
+        type: 'doughnut',
+        data: {
+          labels: ['Done', 'Due',],
+          datasets: [{
+            data: [41, 8],
+            backgroundColor: [cPrimary, cGray],
+            borderWidth: 0,
+            borderColor: 'transparent',
+            hoverBorderColor: 'transparent',
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          datasets: {
+            doughnut: {
+              cutout: '80%',
+              spacing: 1,
+            }
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 8,
+              cornerRadius: 8,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+            }
+          }
+        }
+      });
+
+
+//Line chart
+ const ctx5 = document.getElementById('chart_line').getContext('2d');
+      let chartLine = new Chart(ctx5, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov','Dec'],
+          datasets: [{
+              label: 'Last Year',
+              data: [2234, 2327, 2239, 2134, 2325, 2446, 2357, 2248, 2439, 2361,2471,2362],
+              borderColor: [
+              cWarning
+              ],
+              backgroundColor: [
+              cWarning
+              ],
+              borderWidth:3,
+              order: 1,
+              tension:.4,
+              pointRadius:0,
+              pointHoverRadius:0
+            },
+            {
+              label: 'This Year',
+              data: [2323, 2424, 2355, 2266, 2447, 2568, 2459, 2370, 2581, 2465, 2613, 2414],
+              borderColor: [
+              cPrimary
+              ],
+              backgroundColor: [
+              cPrimary
+              ],
+              borderWidth:3,tension:.4,
+              order: 1,
+              pointRadius:0,
+              pointHoverRadius:0
+            }
+          ]
+        },
+
+
+        options: {
+          maintainAspectRatio:false,
+          responsive: true,
+          
+          title: {
+            display: false,
+          },
+          plugins: {
+            legend: {
+              display: true,
+              align:'left',
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 12,
+              cornerRadius: 12,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+              callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                        }
+                        return label;
+                    }
+                }
+            },
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false,
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                maxTicksLimit:6,
+                display:true,
+                padding: 16,
+                color: cMuted,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                color: cMuted,
+                padding: 16,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            }
+          }
+        },
+      });
+
+
+ //------------------------Overview Area
+ const ctx6 = document.getElementById('chart_area').getContext('2d');
+      let chartArea = new Chart(ctx6, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov','Dec'],
+          datasets: [{
+              label: 'Last Year',
+              data: [2234, 2327, 2239, 2134, 2325, 2446, 2357, 2248, 2439, 2361,2471,2362],
+              borderColor: [
+              cGray
+              ],
+              backgroundColor: [
+              cGray
+              ],
+              borderWidth:0,
+              order: 1,
+              tension:.4,
+              pointRadius:0,
+              pointHoverRadius:0,
+              fill:true
+            },
+            {
+              label: 'This Year',
+              data: [2323, 2424, 2355, 2266, 2447, 2568, 2459, 2370, 2581, 2465, 2613, 2414],
+              borderColor: [
+              'transparent'
+              ],
+              backgroundColor: [
+              cPrimary
+              ],
+              fill:true,
+              borderWidth:0,tension:.4,
+              order: 1,
+              pointRadius:0,
+              pointHoverRadius:0
+            }
+          ]
+        },
+
+
+        options: {
+          maintainAspectRatio:false,
+          responsive: true,
+          
+          title: {
+            display: false,
+          },
+          plugins: {
+            legend: {
+              display: true,
+              align:'left',
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 12,
+              cornerRadius: 12,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+              callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                        }
+                        return label;
+                    }
+                }
+            },
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false,
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                maxTicksLimit:6,
+                display:true,
+                padding: 16,
+                color: cMuted,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                color: cMuted,
+                padding: 16,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            }
+          }
+        },
+      });
+     
+        //-----------------------Chart Polar------------------
+      
+        const ctx7 = document.getElementById('chart_polar').getContext('2d');
+      let chartPolarArea = new Chart(ctx7, {
+        type: 'polarArea',
+        data: {
+            labels:['Failed','Pending','Success'],
+          datasets: [{
+            data:[38,65,99],
+            backgroundColor:[cDanger,cPrimary,cSuccess],
+            borderWidth:[0,0,0],
+            color:[cDanger,cPrimary,cSuccess],
+          },
+          ]
+        },
+        plugins: [ChartDataLabels],
+        options: {
+          scales: {
+      r: {
+          ticks: {
+          display: false
+        },
+        grid: {
+          display: false
+        }
+      },
+    },
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            tooltip:{
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 12,
+              cornerRadius: 12,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+            },
+            legend:{
+              display:true,
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+            datalabels: {
+        anchor: 'end',
+        color: function(context) {
+          return context.dataset.color;
+        },
+        borderColor: 'transparent',
+        borderRadius: 25,
+        borderWidth: 2,
+        backgroundColor: 'white',
+        font: {
+          weight: '400'
+        },
+        formatter: Math.round,
+        padding: 6
+      },
+           }
+          }
+      });
+      
+      
+      //--------------------------Chart mixed--------------------
+      const ctx8 = document.getElementById('chart_mixed').getContext('2d');
+      let chartMixed = new Chart(ctx8, {
+        type: 'bar',
+   data: {
+       datasets: [{
+           label: 'Bar Dataset',
+           data: [110, 120, 310, 140,360,260,120],
+           // this dataset is drawn below
+           order: 2,
+           backgroundColor:cPrimary,
+           fill:true,
+           maxBarThickness:12,
+           borderSkipped:false,
+           borderRadius:12
+       }, {
+           label: 'Line Dataset',
+           data: [120, 230, 150, 360,260,180,240],
+           type: 'line',
+           order: 1,
+           borderWidth:3,
+           borderColor:cSuccess,
+           backgroundColor:cSuccess,
+           tension:.3
+       }],
+       labels: ['January', 'February', 'March', 'April','May','Jun','Jul']
+   },
+   options: {
+          maintainAspectRatio:false,
+          responsive: true,
+          
+          title: {
+            display: false,
+          },
+          plugins: {
+            legend: {
+              display: true,
+              align:'left',
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 12,
+              cornerRadius: 12,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+              callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                        }
+                        return label;
+                    }
+                }
+            },
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false,
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                maxTicksLimit:6,
+                display:true,
+                padding: 16,
+                color: cMuted,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                color: cMuted,
+                padding: 16,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            }
+          }
+        },
+      })
+      
+
+      //--------------------------Bar chart=------------------
+ const ctx9 = document.getElementById('chart_bar').getContext('2d');
+      let chartBar = new Chart(ctx9, {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov','Dec'],
+          datasets: [{
+              label: 'Last Year',
+              data: [1534, 2027, 1239, 1434, 2025, 2046, 1657, 2048, 2039, 1561,2071,1662],
+              borderColor: [
+              cWarning
+              ],
+              backgroundColor: [
+              cWarning
+              ],
+              borderWidth:0,
+              order: 1,
+              maxBarThickness:12,
+              borderRadius:12,
+              
+            categoryPercentage:.5,
+            barPercentage:.9
+            },
+            {
+              label: 'This Year',
+              data: [2323, 2424, 2355, 2266, 2447, 2568, 2459, 2370, 2581, 2465, 2613, 2414],
+              borderColor: [
+              cPrimary
+              ],
+              backgroundColor: [
+              cPrimary
+              ],
+              borderWidth:0,
+              order: 1,
+              maxBarThickness:12,
+              borderRadius:12,
+              
+            categoryPercentage:.5,
+            barPercentage:.9
+            }
+          ]
+        },
+
+
+        options: {
+          maintainAspectRatio:false,
+          responsive: true,
+          title: {
+            display: false,
+          },
+          plugins: {
+            legend: {
+              display: true,
+              align:'left',
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 12,
+              cornerRadius: 12,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+              callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                        }
+                        return label;
+                    }
+                }
+            },
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false,
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                maxTicksLimit:6,
+                display:true,
+                padding: 16,
+                color: cMuted,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                color: cMuted,
+                padding: 16,
+                font: {
+                  size: 12,
+                  family: cFont,
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            }
+          }
+        },
+      });
+
+
+//doughnut
+const ctx10 = document.getElementById('chart_dougnut').getContext('2d');
+      let chartDougnut = new Chart(ctx10, {
+        type: 'doughnut',
+        data: {
+          labels: ['Direct', 'Reffaral','Organic'],
+          datasets: [{
+            data: [41, 28,31],
+            backgroundColor: [cPrimary, cGray,cWarning],
+            borderWidth: 0,
+            borderColor: 'transparent',
+            hoverBorderColor: 'transparent',
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          datasets: {
+            doughnut: {
+              cutout: '80%',
+              spacing: 1,
+            }
+          },
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 8,
+              cornerRadius: 8,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+            }
+          }
+        }
+      });
+
+//pie
+const ctx11 = document.getElementById('chart_pie').getContext('2d');
+      let chartPie = new Chart(ctx11, {
+        type: 'pie',
+        data: {
+          labels: ['Direct', 'Reffaral','Organic'],
+          datasets: [{
+            data: [41, 28,31],
+            backgroundColor: [cPrimary, cGray,cWarning],
+            borderWidth: 0,
+            borderColor: 'transparent',
+            hoverBorderColor: 'transparent',
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          datasets: {
+            doughnut: {
+              cutout: '80%',
+              spacing: 1,
+            }
+          },
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor: cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 8,
+              cornerRadius: 8,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+            }
+          }
+        }
+      });
+
+
+      const ctx12 = document.getElementById('chart_radar').getContext('2d');
+      let chartRadar = new Chart(ctx12, {
+        type: 'radar',
+        data: {
+            labels: [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'July'
+  ],
+  datasets: [ {
+    label: 'Taskes Assigned',
+    data: [76, 68, 95, 93, 65, 58, 46],
+    fill: false,
+    backgroundColor: rgbaPrimary,
+    borderColor: cPrimary,
+    pointBackgroundColor: cPrimary,
+    pointBorderColor: cPrimary,
+    pointHoverBackgroundColor: cPrimary,
+    pointHoverBorderColor: cPrimary
+  }]
+        },
+        options: {
+            responsive:true,
+            maintainAspectRatio:false,
+            plugins: {
+            legend: {
+              display: true,
+              labels: {
+                color: cMuted,
+                boxWidth: 6,
+                boxHeight: 6,
+                usePointStyle: true,
+                font: {
+                  family: cFont
+                }
+              }
+            },
+            tooltip: {
+              boxWidth: 6,
+              boxHeight: 6,
+              boxPadding: 6,
+              usePointStyle: true,
+              backgroundColor:cSecondary,
+              titleColor: cLight,
+              bodyColor: cLight,
+              footerColor: cLight,
+              padding: 8,
+              cornerRadius: 8,
+              titleSpacing: 2,
+              bodySpacing: 6,
+
+              font: {
+                family: cFont
+              },
+            }
+          },
+    elements: {
+        point:{
+            radius:5,
+            hoverRadius:5,
+            borderWidth:0,
+            hitRadius:5
+        }
+    },
+    scales: {
+        r: {
+            angleLines: {
+                display: false
+            },
+            pointLabels: {
+                display: true,
+                color:cMuted
+            },
+            suggestedMin: 10,
+            suggestedMax: 100,
+            grid:{
+                display:true
+            },
+            ticks:{
+                display:false
+            }
+        },
+    }
+  },
+         });
+
+      </script>
+    </body>
+
+</html>

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+        <!--Prism css for code snippets-->
+        <link rel="stylesheet"
+            href="assets/vendor/node_modules/css/prism-tomorrow.css">
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--Header Start-->
+        <header class="z-index-fixed header-transparent header-absolute-top">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo.svg" alt="" class="img-fluid">
+                    </a>
+
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 me-lg-0 ms-lg-4 ms-xl-5 dropdown">
+                            <a href="#" class="btn btn-outline-secondary btm-sm rounded-pill py-1" data-bs-auto-close="outside" data-bs-toggle="dropdown">
+                                Login
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-xs p-4">
+                                <form class="needs-validation" novalidate>
+                                    <div>
+                                        <h3 class="mb-1">
+                                            Welcome back!
+                                        </h3>
+                                        <p class="mb-4 text-muted">
+                                            Please Sign In with details...
+                                        </p>
+                                    </div>
+                                    <div class="input-icon-group mb-3">
+                                        <span class="input-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                class="bx bx-envelope" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z">
+                                                </path>
+                                            </svg>
+                                        </span>
+                                        <input type="email" required class="form-control" autofocus="" placeholder="Username">
+                                    </div>
+                                    <div class="input-icon-group mb-3">
+                                        <span class="input-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                class="bx bx-key" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z">
+                                                </path>
+                                                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+                                            </svg>
+                                        </span>
+                                        <input type="password" required class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="mb-3 d-flex justify-content-between">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="text-end d-block small mb-0"><a
+                                                    href="page-account-forget-password.html"
+                                                    class="text-muted link-decoration">Forget Password?</a></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary btn-hover-arrow" type="submit">
+                                            <span>Sign in</span>
+                                        </button>
+                                    </div>
+                                    <p class="pt-4 mb-0 text-muted">
+                                        Don’t have an account yet? <a href="page-account-signup.html"
+                                            class="ms-2 pb-0 text-dark fw-semibold link-underline">Sign Up</a>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        @@include('./partials/headers/default-navbar-items.html',{"page": "features"})
+                    </div>
+                </div>
+            </nav>
+        </header>
+       
+         <!--Main content-->
+         <main class="main-content" id="main-content">
+            <section class="position-relative bg-tint-primary">
+                <div class="container position-relative py-9 py-lg-15">
+                    <div class="row pt-9 pt-lg-9">
+                        <div class="col-xl-9">
+                            <h1 class="display-4 mb-3">Header Login</h1>
+                            <p class="lead mb-0">Build stunning website faster than ever</p>
+                           </div>
+                    </div>
+                    <!--/.row-->
+                </div>
+                <!--/.content-->
+            </section>
+            <!--/section-->
+            <section class="border-bottom">
+                <div class="container pt-9 pt-lg-11">
+
+                    <!--//////////////////SNIPPETS:BEGIN////////////////-->
+                    <nav class="nav-tabs nav">
+                        <a href="#tabMain" data-bs-toggle="tab" class="nav-link active">HTML</a>
+                        <a href="#tabCss" data-bs-toggle="tab" class="nav-link">Css</a>
+                        <a href="#tabJs" data-bs-toggle="tab" class="nav-link">Js</a>
+                    </nav>
+                    <div class="tab-content">
+                        <!--Element Main code-->
+                        <div class="tab-pane fade show active" id="tabMain">
+                            <div class="position-relative">
+                                <button
+                                    class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                                    data-clipboard-target="#copyHTML1" data-clipboard-action="copy" id="copyHTML1-1">Copy code</button>
+                                <pre id="copyHTML1" class="language-markup" data-lang="html">
+                <code>
+&lt;!--Header Start-->
+&lt;header class="z-index-fixed header-transparent header-absolute-top">
+  &lt;nav class="navbar navbar-expand-lg navbar-light">
+    &lt;div class="container position-relative">
+
+       &lt;a class="navbar-brand" href="index.html">
+          &lt;img src="assets/img/logo/logo.svg" alt="" class="img-fluid">
+       &lt;/a>
+
+     &lt;div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+        &lt;button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+             data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+              aria-label="Toggle navigation">
+             &lt;span class="navbar-toggler-icon">
+               &lt;i>&lt;/i>
+            &lt;/span>
+         &lt;/button>
+         &lt;div class="nav-item me-3 me-lg-0 ms-lg-4 ms-xl-5 dropdown">
+            &lt;a href="#" class="btn btn-outline-secondary btm-sm rounded-pill py-1"
+             data-bs-auto-close="outside" data-bs-toggle="dropdown">
+              Login
+         &lt;/a>
+
+   &lt;div class="dropdown-menu dropdown-menu-end dropdown-menu-xs p-4">
+     &lt;form class="needs-validation" novalidate>
+        &lt;div>
+          &lt;h3 class="mb-1"> Welcome back! &lt;/h3>
+          &lt;p class="mb-4 text-muted">
+            Please Sign In with details...
+          &lt;/p>
+        &lt;/div>
+        &lt;div class="input-icon-group mb-3">
+           &lt;span class="input-icon">
+             &lt;i class="bx bx-envelope">&lt;/i>
+           &lt;/span>
+           &lt;input type="email" required class="form-control" autofocus="" placeholder="Username">
+        &lt;/div>
+        &lt;div class="input-icon-group mb-3">
+            &lt;span class="input-icon">
+              &lt;i class="bx bx-key">&lt;/i>
+            &lt;/span>
+           &lt;input type="password" required class="form-control" placeholder="Password">
+        &lt;/div>
+        &lt;div class="mb-3 d-flex justify-content-between">
+          &lt;div class="form-check">
+           &lt;input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+             &lt;label class="form-check-label" for="flexCheckDefault">
+              Remember me
+            &lt;/label>
+         &lt;/div>
+        &lt;div>
+        &lt;label class="text-end d-block small mb-0">
+            &lt;a href="page-account-forget-password.html"
+            class="text-muted link-decoration">Forget Password?
+            &lt;/a>
+        &lt;/label>
+       &lt;/div>
+     &lt;/div>
+
+      &lt;div class="d-grid">
+        &lt;button class="btn btn-primary btn-hover-arrow" type="submit">
+           &lt;span>Sign in&lt;/span>
+         &lt;/button>
+       &lt;/div>
+       &lt;p class="pt-4 mb-0 text-muted">
+        Don’t have an account yet? &lt;a href="page-account-signup.html"
+        class="ms-2 pb-0 text-dark fw-semibold link-underline">Sign Up&lt;/a>
+       &lt;/p>
+    &lt;/form>
+
+ &lt;/div>
+ &lt;/div>
+&lt;/div>
+
+ &lt;div class="collapse navbar-collapse" id="mainNavbarTheme">
+  &lt;!--Navbar items-->
+   &lt;ul class="navbar-nav ms-auto">
+     &lt;li class="nav-item">
+      &lt;a class="nav-link" href="#">Home&lt;/a>
+     &lt;/li>
+     &lt;li class="nav-item">
+      &lt;a class="nav-link" href="#">About&lt;/a>
+         &lt;/li>
+        &lt;li class="nav-item dropdown">
+           &lt;a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dropdown Nav&lt;/a>
+          &lt;div class="dropdown-menu dropdown-menu-end">
+           &lt;a href="#" class="dropdown-item">Dropdown item&lt;/a>
+           &lt;a href="#" class="dropdown-item">Dropdown item&lt;/a>
+           &lt;a href="#" class="dropdown-item">Dropdown item&lt;/a>
+           &lt;a href="#" class="dropdown-item">Dropdown item&lt;/a>
+          &lt;/div>
+         &lt;/li>
+         &lt;li class="nav-item">
+            &lt;a class="nav-link" href="#">Projects&lt;/a>
+         &lt;/li>
+         &lt;li class="nav-item">
+            &lt;a class="nav-link" href="#">Contact&lt;/a>
+         &lt;/li>
+      &lt;/ul>
+    &lt;/div>
+
+  &lt;/div>
+ &lt;/nav>
+&lt;/header>
+</code>
+</pre>
+                            </div>
+                        </div>
+                        <!--Element Css-->
+                        <div class="tab-pane fade" id="tabCss">
+                            <div class="position-relative">
+                                <button
+                                    class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                                    data-clipboard-target="#copyCss1" data-clipboard-action="copy" id="copyCss1-2">Copy code</button>
+                                <pre id="copyCss1" class="language-markup" data-lang="html">
+                <code>
+  &lt;!-- Bootstrap + Vendor + Theme -->
+  &lt;link href="assets/css/theme.min.css" rel="stylesheet">
+</code>
+</pre>
+                            </div>
+                        </div>
+
+                        <!--Element JS-->
+                        <div class="tab-pane fade" id="tabJs">
+                            <div class="position-relative">
+                                <button
+                                    class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                                    data-clipboard-target="#copyJs1" data-clipboard-action="copy" id="copyJs1-3">Copy code</button>
+                                <pre id="copyJs1" class="language-markup" data-lang="html">
+                <code>
+  &lt;!-- Bootstrap + Vendor + Theme -->
+  &lt;script src="assets/css/theme.bundle.js">&lt;/script>
+</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//////////////////SNIPPETS:END////////////////-->
+                </div>
+                <div class="container py-9 py-lg-11">
+                    <div class="px-4 rounded-3 shadow-lg py-6 px-lg-5 py-lg-7 bg-gradient-secondary text-white position-relative overflow-hidden"
+                        data-aos="fade-up" data-aos-duration="400">
+                        <svg class="position-absolute end-0 bottom-0 mb-4 text-success" width="200" height="400"
+                            preserveAspectRatio="none" viewBox="0 0 150 300" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M150 300C130.302 300 110.796 296.12 92.5975 288.582C74.3986 281.044 57.8628 269.995 43.934 256.066C30.0052 242.137 18.9563 225.601 11.4181 207.403C3.87986 189.204 -6.2614e-07 169.698 0 150C6.2614e-07 130.302 3.87987 110.796 11.4181 92.5975C18.9563 74.3987 30.0052 57.8628 43.934 43.934C57.8628 30.0052 74.3987 18.9563 92.5975 11.4181C110.796 3.87986 130.302 3.51961e-06 150 5.00679e-06L150 37.5C135.226 37.5 120.597 40.4099 106.948 46.0636C93.299 51.7172 80.8971 60.0039 70.4505 70.4505C60.0039 80.8971 51.7172 93.299 46.0636 106.948C40.4099 120.597 37.5 135.226 37.5 150C37.5 164.774 40.4099 179.403 46.0636 193.052C51.7172 206.701 60.0039 219.103 70.4505 229.55C80.8971 239.996 93.299 248.283 106.948 253.936C120.597 259.59 135.226 262.5 150 262.5V300Z"
+                                fill="currentColor"></path>
+                        </svg>
+
+                        <div class="row align-items-end position-relative">
+                            <div class="col-lg-6 col-xl-7">
+                                <h5 class="text-muted mb-4">Let's start building</h5>
+                                <h1 class="mb-5 mb-md-0 display-5">Stunning websites ease</h1>
+                            </div>
+                            <div class="col-lg-6 col-xl-5 text-lg-end">
+                                <a href="#!" class="btn btn-primary btn-lg me-2 mb-2 mb-lg-0">Contact sales</a>
+                                <a href="#!" class="btn btn-gray-200 btn-lg">Purchase Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        @@include('./partials/footers/footer-2.html')
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+
+          <!--Copy to clipboard + prismJs-->
+     <script src="assets/vendor/node_modules/js/prism.js"></script>
+     <script src="assets/vendor/node_modules/js/clipboard.min.js"></script>
+     <script>
+         /* Clipboard JS - Copy code button */
+         var cl = document.querySelector('.copy-link');
+         if (typeof !!cl && (cl) != 'undefined' && cl != null) {
+             var cle = document.querySelectorAll('.copy-link');
+             cle.forEach(el => {
+                 el.addEventListener("click", function () {
+                     var theButton = this;
+                     var copyId = this.getAttribute('id');
+                     var clipboard = new ClipboardJS('#' + copyId);
+    
+                     clipboard.on('success', function (e) {
+                         e.clearSelection();
+                         theButton.innerHTML = 'Copied!';
+                         setTimeout(function () {
+                             theButton.innerHTML = 'Copy code';
+                         }, 5000);
+                     });
+                 });
+             });
+         }
+     </script>
+    </body>
+
+</html>

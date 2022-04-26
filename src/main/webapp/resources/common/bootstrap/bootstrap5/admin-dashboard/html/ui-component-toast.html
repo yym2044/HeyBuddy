@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+      @@include('./partials/preloader.html')
+      <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{page:"components"})
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+
+                    @@include('./partials/header/header-default.html')
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8">
+                                    <h3 class="mb-2">Toasts notifications</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">UI Components</li>
+                                            <li class="breadcrumb-item active">Toasts</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 mb-4">
+                                    <div class="card">
+                                        <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="mb-0">Basic Example</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--Toast-->
+                                            <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                <div class="toast-header">
+                                                  <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                  <strong class="me-auto">Bootstrap</strong>
+                                                  <small>11 mins ago</small>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                                <div class="toast-body">
+                                                  Hello, world! This is a toast message.
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 mb-4">
+                                    <div class="card">
+                                        <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="mb-0">Live Example</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+                                            <div class="position-fixed start-50 top-0 translate-middle-x p-3" style="z-index: 1080">
+                                              <div id="liveToast" class="toast bg-primary text-white border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+                                                <div class="d-flex">
+                                                    <div class="toast-body">
+                                                      Hello, world! This is a toast message.
+                                                    </div>
+                                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="card">
+                                        <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="mb-0">Placement</h5>
+                                        </div>
+                                        <div class="card-body position-relative vh-70">
+                                           <!--Toast-->
+                                           <div class="position-absolute start-0 top-0 ms-4 mt-4">
+                                            <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                <div class="toast-header">
+                                                  <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                  <strong class="me-auto">Placement</strong>
+                                                  <small>Top left</small>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                                <div class="toast-body">
+                                                  Hello, world! This is a toast message.
+                                                </div>
+                                              </div>
+                                           </div>
+
+                                            <!--Toast-->
+                                            <div class="position-absolute start-50 top-50 translate-middle">
+                                                <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-header">
+                                                      <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                      <strong class="me-auto">Placement</strong>
+                                                      <small>Center</small>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="toast-body">
+                                                      Hello, world! This is a toast message.
+                                                    </div>
+                                                  </div>
+                                               </div>
+                                                 <!--Toast-->
+                                            <div class="position-absolute bottom-0 end-0 me-4 mb-4">
+                                                <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-header">
+                                                      <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                      <strong class="me-auto">Placement</strong>
+                                                      <small>Bottom end</small>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="toast-body">
+                                                      Hello, world! This is a toast message.
+                                                    </div>
+                                                  </div>
+                                               </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="card">
+                                        <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="mb-0">Placement</h5>
+                                        </div>
+                                        <div class="card-body position-relative vh-70">
+                                           <!--Toast-->
+                                           <div class="position-absolute end-0 top-0 me-4 mt-4">
+                                            <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                <div class="toast-header">
+                                                  <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                  <strong class="me-auto">Placement</strong>
+                                                  <small>Top end</small>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                                <div class="toast-body">
+                                                  Hello, world! This is a toast message.
+                                                </div>
+                                              </div>
+                                           </div>
+
+                                            <!--Toast-->
+                                            <div class="position-absolute end-0 top-50 translate-middle-y me-4">
+                                                <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-header">
+                                                      <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                      <strong class="me-auto">Placement</strong>
+                                                      <small>Center Right</small>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="toast-body">
+                                                      Hello, world! This is a toast message.
+                                                    </div>
+                                                  </div>
+                                               </div>
+                                                 <!--Toast-->
+                                            <div class="position-absolute bottom-0 start-0 ms-4 mb-4">
+                                                <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                    <div class="toast-header">
+                                                      <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                      <strong class="me-auto">Placement</strong>
+                                                      <small>Bottom start</small>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="toast-body">
+                                                      Hello, world! This is a toast message.
+                                                    </div>
+                                                  </div>
+                                               </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 mb-4">
+                                    <div class="card">
+                                        <div class="card-header d-flex align-items-center justify-content-between">
+                                            <h5 class="mb-0">Stacking</h5>
+                                        </div>
+                                        <div class="card-body position-relative">
+                                           
+                                           <div class="toast-container">
+                                               <!--Toast-->
+                                            <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                <div class="toast-header">
+                                                  <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                  <strong class="me-auto">Placement</strong>
+                                                  <small>Just now</small>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                                <div class="toast-body">
+                                                  Hello, world! This is a toast message.
+                                                </div>
+                                              </div>
+                                              <!--Toast-->
+                                            <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                <div class="toast-header">
+                                                  <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                  <strong class="me-auto">Placement</strong>
+                                                  <small>Just now</small>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                                <div class="toast-body">
+                                                  Hello, world! This is a toast message.
+                                                </div>
+                                              </div>
+                                                 <!--Toast-->
+                                             <div class="toast fade show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                                                <div class="toast-header">
+                                                  <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-20 h-auto me-2" alt="...">
+                                                  <strong class="me-auto">Placement</strong>
+                                                  <small>Just now</small>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                                <div class="toast-body">
+                                                  Hello, world! This is a toast message.
+                                                </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 mb-4">
+                                  <div class="card h-100">
+                                      <div class="card-header d-flex align-items-center justify-content-between">
+                                          <h5 class="mb-0">Auto hide</h5>
+                                      </div>
+                                      <div class="card-body position-relative">
+                                        <div class="toast" id="autoHideToast" role="alert" data-bs-autohide="true" data-bs-delay="4000" aria-live="assertive" aria-atomic="true">
+                                          <div class="toast-header d-flex align-items-center justify-content-between">
+                                            <div class="flex-grow-1">
+                                              <img src="assets/media/brand-logos/bootstrap.svg" class="rounded width-25 me-2" alt="...">
+                                            <strong class="me-2">Bootstrap</strong>
+                                            <small>11 mins ago</small>
+                                            </div>
+                                            <button type="button" class="ms-2 mb-1 btn-close" data-bs-dismiss="toast" aria-label="Close">
+                                            </button>
+                                          </div>
+                                          <div class="toast-body">
+                                            This toast will hide in next 4s
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+        <script>
+          var toastTrigger = document.getElementById('liveToastBtn')
+var toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', function () {
+    var toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+  })
+}
+          var toastTrigger = document.querySelectorAll('[data-bs-autohide="true"]');
+toastTrigger.forEach(function(e){
+  var toast = new bootstrap.Toast(e)
+  toast.show()
+})
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assan-Admin</title>
+
+    @@include('./partials/fonts.html')
+
+    <!--Simplebar css-->
+    <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+    <!--Choices css-->
+    <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+    <!--Page style = Date range picker-->
+    <link rel="stylesheet" href="assets/vendor/css/daterangepicker.css">
+
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+  </head>
+
+  <body>
+    @@include('./partials/preloader.html')
+    <!--App Start-->
+    <div class="d-flex flex-column flex-root">
+      <!--Page-->
+      <div class="page d-flex flex-row flex-column-fluid">
+
+        @@include('./partials/sidebars/sidebar-default.html',{page:"forms"})
+
+        <!--///////////Page content wrapper///////////////-->
+        <main class="page-content d-flex flex-column flex-row-fluid">
+          @@include('./partials/header/header-default.html')
+          <!--//Page Toolbar//-->
+          <div class="toolbar pt-4 px-4 px-lg-8">
+            <div class="position-relative container-fluid px-0">
+              <div class="row align-items-center position-relative">
+                <div class="col-md-8 mb-4 mb-md-0">
+                  <h3 class="mb-2">Date range picker</h3>
+
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                      <li class="breadcrumb-item active">Forms</li>
+                      <li class="breadcrumb-item active">Date range picker</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="https://www.daterangepicker.com/" target="_blank" class="text-body">Learn more <i class="fe-1x ms-1" data-feather="external-link"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--//Page Toolbar End//-->
+
+          <!--//Page content//-->
+          <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+            <div class="container-fluid px-0">
+                <div class="row">
+
+                    <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                        <div class="card card-body">
+                            <label for="singleDatePicker" class="form-label">Single Date Picker</label>
+                            <input id="singleDatePicker" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-5 mb-4">
+                        <div class="card card-body">
+                           
+                            <label for="predefineRange" class="form-label">Pre Defined Range</label>
+                            <button id="predefineRange" class="form-control text-start">
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                        <div class="card card-body">
+                            <label for="datetimes" class="form-label">With Time</label>
+                            <input id="datetimes" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <!--//Page content End//-->
+
+          @@include('./partials/footer.html')
+        </main>
+        <!--///////////Page content wrapper End///////////////-->
+      </div>
+    </div>
+    @@include('./partials/core-scripts.html')
+
+    
+     <!--Page script-->
+     <script src="assets/vendor/moment.min.js"></script>
+     <script src="assets/vendor/daterangepicker.js"></script>
+     <script>
+        $(function () {
+          var start = moment().subtract(6, 'days');
+          var end = moment();
+
+          function cb(start, end) {
+            $('#predefineRange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+          }
+
+          $('#predefineRange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+              'Today': [moment(), moment()],
+              'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+              'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+              'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+              'This Month': [moment().startOf('month'), moment().endOf('month')],
+              'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+          }, cb);
+
+          cb(start, end);
+
+        });
+      </script>
+      <script>
+        $(function() {
+          $('#singleDatePicker').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 1901,
+            maxYear: parseInt(moment().format('YYYY'),10)
+          });
+        });
+        </script>
+
+        <!--Date range picker with time-->
+        <script>
+            $(function() {
+              $('#datetimes').daterangepicker({
+                timePicker: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                  format: 'M/DD hh:mm A'
+                }
+              });
+            });
+            </script>
+  </body>
+
+</html>

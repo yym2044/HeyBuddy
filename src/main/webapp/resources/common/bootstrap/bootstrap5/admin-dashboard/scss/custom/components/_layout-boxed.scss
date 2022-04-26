@@ -1,0 +1,16 @@
+//
+//Box Layout css start
+//
+@include media-breakpoint-up(xl){
+    body.layout-boxed{
+        .flex-root{
+            width: 1170px;
+            margin-left: auto;
+            margin-right: auto;
+            .page-sidebar{
+                left: auto;
+                top: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        <!--Box Icons-->
+        <link rel="stylesheet" href="assets/fonts/boxicons/css/boxicons.min.css">
+
+        <!--Iconsmind Icons-->
+        <link rel="stylesheet" href="assets/fonts/iconsmind/iconsmind.css">
+        <!-- Aos Animations CSS -->
+        <link href="assets/vendor/node_modules/css/aos.css" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap"
+            rel="stylesheet">
+        <!--Swiper slider-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/swiper-bundle.min.css">
+        <!--Splitting Text-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/splitting.css">
+        <!-- Main CSS -->
+        <link href="assets/css/theme-purple.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+
+        <!--Header Start-->
+        <header class="z-index-fixed pt-3 header-absolute-top header-boxed header-sticky">
+            <div class="container text-white position-relative d-none d-lg-block">
+                <div class="row">
+                    <div class="col-md-8 ms-auto">
+                        <div class="d-flex justify-content-end">
+                            <a href="tel:+011234567890" class="text-white small me-4">
+                                <i class="bx bx-phone me-1"></i>
+                                +01 1234 567 890
+                            </a>
+                            <a href="mailto:consult@company.com" class="text-white small">
+                                <i class="bx bx-envelope me-1"></i>
+                                consult@company.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-boxed">
+                <div class="container">
+
+                    <nav class="navbar navbar-expand-lg navbar-light navbar-link-white rounded-3">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+                            <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid navbar-brand-transparent">
+                        </a>
+                        <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                            <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon">
+                                    <i></i>
+                                </span>
+                            </button>
+                            <div class="nav-item me-2 me-lg-0">
+                                <a href="#" class="btn btn-primary py-1 px-3">Get started
+                                </a>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                            @@include('./partials/headers/default-navbar-items.html',{"page": "home"})
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+            <!--Main hero-->
+            <section class="position-relative overflow-hidden bg-shade-primary jarallax">
+                <img src="assets/img//backgrounds/bg6.jpg" alt="" class="jarallax-img">
+                <div class="bg-dark opacity-50 position-absolute start-0 top-0 w-100 h-100"></div>
+                <svg class="position-absolute start-0 bottom-0 text-white" preserveAspectRatio="none" width="100%"
+                    height="64" viewBox="0 0 1460 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M122 22.8261L0 0V120H1460V0L1338 22.8261C1217 44.1304 973 88.2609 730 88.2609C487 88.2609 243 44.1304 122 22.8261Z"
+                        fill="currentColor" />
+                </svg>
+                <div class="container pt-15 pb-15 position-relative z-index-1">
+                    <div class="row pt-lg-12 pb-12">
+                        <div class="col-xl-11 mx-auto text-center text-white" data-aos data-aos-delay="100"
+                            data-aos-mirror="true" data-aos-once="false">
+                            <h1 class="splitting-up display-1 mb-lg-4 mb-0" data-splitting>
+                                Building the future of financial services with leading brands
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Section Newsletter signup-->
+            <section class="position-relative">
+                <div class="container w-lg-80 mx-auto">
+                    <div
+                        class="py-5 px-4 py-lg-7 px-xl-9 px-lg-7 px-md-5 overflow-hidden bg-shade-primary rounded-4 shadow-lg position-relative mt-n15 z-index-1 justify-content-center align-items-end">
+                        <svg class="position-absolute bottom-0 start-0 text-white" width="100%" height="75%"
+                            preserveAspectRatio="none" viewBox="0 0 498 168" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path opacity=".1" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0 149.333L20.75 152.444C41.5 155.556 83 161.778 124.5 152.444C166 143.111 207.5 118.222 249 93.3333C290.5 68.4444 332 43.5556 373.5 28C415 12.4444 456.5 6.22222 477.25 3.11111L498 0V168H477.25C456.5 168 415 168 373.5 168C332 168 290.5 168 249 168C207.5 168 166 168 124.5 168C83 168 41.5 168 20.75 168H0V149.333Z"
+                                fill="currentColor" />
+                        </svg>
+
+                        <div class="position-relative">
+                            <div class="mb-3">
+                                <h2 class="mb-0 fs-1 text-white">Get a free quote
+                                </h2>
+                            </div>
+                            <p class="mb-5 lead text-white"><i class="bx bx-phone me-2 align-middle text-primary"></i>
+                                +01 555 3456 382</p>
+                            <form>
+                                <div class="row g-2 justify-content-center w-100">
+                                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
+                                        <input type="text" placeholder="Name"
+                                            class="form-control form-control-lg shadow-none border-0">
+                                    </div>
+                                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
+                                        <input type="text" placeholder="Phone"
+                                            class="form-control form-control-lg shadow-none border-0">
+                                    </div>
+                                    <div class="col-md-12 col-lg-4">
+                                        <button type="button" class="btn btn-primary btn-lg w-100">Send request</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative overflow-hidden">
+                <div class="container py-9 py-lg-11">
+                    <div class="row mb-7 mb-lg-11 justify-content-between align-items-end">
+                        <div class="col-lg-6" data-aos data-aos-once="false">
+                            <h1 class="display-3 splitting-left" data-splitting>More revenue<br>
+                                Better margin</h1>
+                        </div>
+                        <div class="col-lg-4" data-aos="fade-left" data-aos-delay="150">
+                            <p class="mb-0 ">
+                                Convert your ideas into success with our business strategy Lorem ipsum is placeholder
+                                text commonly used in the graphic, print, and publishing
+                                industries for previewing layouts and visual mockups.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-5 mb-xl-0" data-aos="fade-up">
+                            <div
+                                class="position-relative width-6x height-6x border rounded-pill mb-4 text-primary flex-center">
+                                <i class="bx bx-check fs-4 position-relative"></i>
+                            </div>
+                            <h5 class="mb-3">Trainings & seminars</h5>
+                            <p class="mb-0">
+                                Lorem ipsum is placeholder text commonly used in the graphic and publish
+                                industries for layouts and visual mockups.
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-5 mb-xl-0" data-aos="fade-up" data-aos-delay="100">
+                            <div
+                                class="position-relative width-6x height-6x border rounded-pill mb-4 text-primary flex-center">
+                                <i class="bx bx-check fs-4 position-relative"></i>
+                            </div>
+                            <h5 class="mb-3">Coaching</h5>
+                            <p class="mb-0">
+                                Lorem ipsum is placeholder text commonly used in the graphic and publish
+                                industries for layouts and visual mockups.
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="150">
+                            <div
+                                class="position-relative width-6x height-6x border rounded-pill mb-4 text-primary flex-center">
+                                <i class="bx bx-check fs-4 position-relative"></i>
+                            </div>
+                            <h5 class="mb-3">Business consulting</h5>
+                            <p class="mb-0">
+                                Lorem ipsum is placeholder text commonly used in the graphic and publish
+                                industries for layouts and visual mockups.
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
+                            <div
+                                class="position-relative width-6x height-6x border rounded-pill mb-4 text-primary flex-center">
+                                <i class="bx bx-check fs-4 position-relative"></i>
+                            </div>
+                            <h5 class="mb-3">Creative ideas</h5>
+                            <p class="mb-0">
+                                Lorem ipsum is placeholder text commonly used in the graphic and publish
+                                industries for layouts and visual mockups.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="position-relative overflow-hidden bg-gradient-light">
+                <div class="container-fluid py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row align-items-center">
+                        <div class="order-last col-lg-6 col-xl-4 offset-xl-1">
+                            <h6 class="mb-4" data-aos="fade-up">Why consult with us?
+                            </h6>
+                            <div data-aos data-aos-delay="100" data-aos-once="false">
+                                <h2 class="display-3 lh-1 mb-4 splitting-left" data-splitting>
+                                    A Better future
+                                </h2>
+                            </div>
+                            <p class="mb-5 lead" data-aos="fade-up" data-aos-delay="150">
+                                There are combined alignment methods –
+                                when several types of alignment together
+                                are used in one composition.
+                            </p>
+                            <div class="row mb-7">
+                                <div class="col-6" data-aos="fade-up" data-aos-delay="200">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="d-flex mb-4">
+                                            <div class="me-3">
+                                                <i class="bx bx-check text-primary fs-5"></i>
+                                            </div>
+                                            <p class="mb-0">
+                                                Aenean eu leo quam ornare curabitur blandit tempus.
+                                            </p>
+                                        </li>
+                                        <li class="d-flex mb-0">
+                                            <div class="me-3">
+                                                <i class="bx bx-check text-primary fs-5"></i>
+                                            </div>
+                                            <p class="mb-0">
+                                                Aenean eu leo quam ornare curabitur blandit tempus.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--/column -->
+                                <div class="col-6" data-aos="fade-up" data-aos-delay="250">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="d-flex mb-4">
+                                            <div class="me-3">
+                                                <i class="bx bx-check text-primary fs-5"></i>
+                                            </div>
+                                            <p class="mb-0">
+                                                Aenean eu leo quam ornare curabitur blandit tempus.
+                                            </p>
+                                        </li>
+                                        <li class="d-flex mb-0">
+                                            <div class="me-3">
+                                                <i class="bx bx-check text-primary fs-5"></i>
+                                            </div>
+                                            <p class="mb-0">
+                                                Aenean eu leo quam ornare curabitur blandit tempus.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--/column -->
+                            </div>
+                            <div data-aos="fade-up" data-aos-delay="300">
+                                <a href="#" class="link-underline h6 text-dark">
+                                    Explore Services
+                                    <i class="bx bx-right-arrow-alt fs-4 lh-1 align-middle ms-1"></i>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-5 mb-lg-0 order-1">
+                            <div class="position-relative" data-aos="fade-up" data-aos-delay="200">
+                                <!--feature image-->
+                                <img class="img-fluid position-relative" alt="" src="assets/img/960x1140/1.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative overflow-hidden bg-gradient-primary text-white">
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row mb-7">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <div class="mb-3" data-aos data-aos-once="false">
+                                <h6 class="mb-0 splitting-left" data-splitting>Data-driven methodologies.
+                                </h6>
+                            </div>
+                            <div class="mb-3" data-aos data-aos-once="false">
+                                <h1 class="mb-0 splitting-left display-3" data-splitting>Our work process
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up">
+                            <div class="position-relative">
+                                <span
+                                    class="d-block position-absolute start-50 top-0 translate-middle-x lh-1 display-1 opacity-25">01</span>
+                                <div class="position-relative pt-4 pt-lg-6">
+                                    <h5 class="mb-4">Collaboration</h5>
+                                    <p class="mb-0 opacity-75 w-lg-80">
+                                        Lorem ipsum dolor sit amet elit, sed do eiusmod tempor
+                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        ullamco laboris nisi ut aliquip commodo consequat.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                            <div class="position-relative">
+                                <span
+                                    class="d-block position-absolute start-50 top-0 translate-middle-x lh-1 display-1 opacity-25">02</span>
+                                <div class="position-relative pt-4 pt-lg-6">
+                                    <h5 class="mb-4">Execution</h5>
+                                    <p class="mb-0 opacity-75 w-lg-80">
+                                        Lorem ipsum dolor sit amet elit, sed do eiusmod tempor
+                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        ullamco laboris nisi ut aliquip commodo consequat.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="150">
+                            <div class="position-relative">
+                                <span
+                                    class="d-block position-absolute start-50 top-0 translate-middle-x lh-1 display-1 opacity-25">03</span>
+                                <div class="position-relative pt-4 pt-lg-6">
+                                    <h5 class="mb-4">Financial Intelligence</h5>
+                                    <p class="mb-0 opacity-75 w-lg-80">
+                                        Lorem ipsum dolor sit amet elit, sed do eiusmod tempor
+                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        ullamco laboris nisi ut aliquip commodo consequat.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-white overflow-hidden">
+                <div class="container-fluid py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row align-items-center">
+                        <div class="mx-auto col-lg-6 col-xl-4 order-last order-lg-1">
+                            <div class="mb-6" data-aos="fade-down">
+                                <div
+                                    class="d-flex p-4 bg-gradient-light border-start border-4 border-warning rounded hover-shadow-xl hover-lift">
+                                    <div class="me-4">
+                                        <i class="icon-Light-BulbLeaf fs-1 text-warning"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-2">Our Values
+                                        </h5>
+                                        <p class="mb-0 w-lg-80">
+                                            There are combined alignment methods –
+                                            when several types of alignment together
+                                            are used in one composition.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-6" data-aos="fade-up" data-aos-delay="100">
+                                <div
+                                    class="d-flex p-4 bg-white bg-gradient-light border-start border-4 border-primary rounded hover-shadow-xl hover-lift">
+                                    <div class="me-4">
+                                        <i class="icon-Line-Chart2 fs-1 text-primary"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-2">Business Growth
+                                        </h5>
+                                        <p class="mb-0 w-lg-80">
+                                            There are combined alignment methods –
+                                            when several types of alignment together
+                                            are used in one composition.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end" data-aos="fade-up" data-aos-delay="200">
+                                <a href="#" class="link-underline fs-6 fw-semibold text-dark">
+                                    Explore Services
+                                    <i class="bx bx-right-arrow-alt fs-4 lh-1 align-middle ms-1"></i>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-last mb-5 mb-lg-0">
+                            <div class="position-relative" data-aos="fade-up" data-aos-delay="150">
+                                <!--feature image-->
+                                <img class="img-fluid position-relative" alt="" src="assets/img/960x1140/2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="overflow-hidden position-relative">
+                <div class="position-absolute start-0 top-0 w-100 h-50 bg-tint-warning opacity-50">
+                </div>
+                <div class="container py-9 py-lg-11 position-relative">
+                    <div class="row mb-4 mb-lg-5 align-items-center">
+                        <div class="col-md-8">
+                            <div class="mb-3" data-aos data-aos-once="false">
+                                <h1 class="mb-3 splitting-down display-3" data-splitting>Latest insights
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="position-relative d-flex justify-content-md-end align-items-center">
+                                <!--Buttons navigation-->
+                                <div
+                                    class="swiper3-button-prev start-0 swiper-button-prev mt-0 position-relative rounded-pill width-5x height-5x border border-primary text-primary bg-transparent me-2">
+                                </div>
+                                <div
+                                    class="swiper3-button-next swiper-button-next mt-0 position-relative end-0 rounded-pill width-5x height-5x border border-primary text-primary bg-transparent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-container swiper-3 overflow-visible">
+                        <div class="swiper-wrapper">
+
+                            <!--Slide-->
+                            <div class="swiper-slide">
+
+                                <!--Article-->
+                                <article class="card-hover position-relative">
+                                    <div class="d-block overflow-hidden">
+                                        <img src="assets/img/960x640/2.jpg" alt="" class="img-fluid position-relative">
+                                    </div>
+                                    <div class="position-relative p-4">
+                                        <div class="d-flex justify-content-start w-100 pb-3 align-items-center">
+                                            <small class="text-muted">: Startup</small>
+                                        </div>
+                                        <div class="link-multiline fs-4 lh-sm fw-semibold">
+                                            How to gain your first B2B customers in the market
+                                        </div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+                            </div>
+                            <!--Slide-->
+                            <div class="swiper-slide">
+
+                                <!--Article-->
+                                <article class="card-hover position-relative">
+                                    <div class="d-block overflow-hidden">
+                                        <img src="assets/img/960x640/1.jpg" alt="" class="img-fluid position-relative">
+                                    </div>
+                                    <div class="position-relative p-4">
+                                        <div class="d-flex justify-content-start w-100 pb-3 align-items-center">
+                                            <small class="text-muted">: Business</small>
+                                        </div>
+                                        <div>
+                                            <div class="link-multiline fs-4 lh-sm fw-semibold">
+                                                Top 6 types of finance technologies to grow your business
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+                            </div>
+                            <!--Slide-->
+                            <div class="swiper-slide">
+
+                                <!--Article-->
+                                <article class="card-hover position-relative">
+                                    <div class="d-block overflow-hidden">
+                                        <img src="assets/img/960x640/3.jpg" alt="" class="img-fluid position-relative">
+                                    </div>
+                                    <div class="position-relative p-4">
+                                        <div class="d-flex justify-content-start w-100 pb-3 align-items-center">
+                                            <small class="text-muted">: Code</small>
+                                        </div>
+                                        <div>
+                                            <div class="link-multiline fs-4 lh-sm fw-semibold">
+                                                What is typeScript and why should you use it?
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+                            </div>
+                            <!--Slide-->
+                            <div class="swiper-slide">
+
+                                <!--Article-->
+                                <article class="card-hover position-relative">
+                                    <div class="d-block overflow-hidden">
+                                        <img src="assets/img/960x640/4.jpg" alt="" class="img-fluid position-relative">
+                                    </div>
+                                    <div class="position-relative p-4">
+                                        <div class="d-flex justify-content-start w-100 pb-3 align-items-center">
+                                            <small class="text-muted">: Code</small>
+                                        </div>
+                                        <div>
+                                            <div class="link-multiline fs-4 lh-sm fw-semibold">
+                                                How to use learn to create a monorepo for multiple node packages
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+                            </div>
+                            <!--Slide-->
+                            <div class="swiper-slide">
+
+                                <!--Article-->
+                                <article class="card-hover position-relative">
+                                    <div class="d-block overflow-hidden">
+                                        <img src="assets/img/960x640/5.jpg" alt="" class="img-fluid position-relative">
+                                    </div>
+                                    <div class="position-relative p-4">
+                                        <div class="d-flex justify-content-start w-100 pb-3 align-items-center">
+                                            <small class="text-muted">Design</small>
+                                        </div>
+                                        <div>
+                                            <div class="link-multiline fs-4 lh-sm fw-semibold">
+                                                Follow these steps to replay browser’s network offline
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="position-relative bg-shade-primary text-white">
+                <div class="position-absolute start-50 bottom-0 w-auto h-100 opacity-25 border-end"></div>
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row mb-7 mb-lg-9 align-items-center justify-content-lg-around">
+                        <div class="col-lg-6 col-xl-5 mb-7 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                            <div class="mb-4">
+                                <img src="assets/img/partners/white/spotify.svg" alt="" class="width-10x h-auto">
+                            </div>
+                            <div class="mb-4">
+                                <p class="fs-3 mb-4">
+                                    "They're very responsive and go above and beyond to meet our needs. We continue
+                                    working with them, which is the best sign of our satisfaction."
+                                </p>
+                                <div class="">
+                                    <div>
+                                        <h5>Monroe Bond</h5>
+                                        <small class="text-muted">Full stack developer, Spotify</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="me-auto width-6x pt-1 border-bottom opacity-25"></div>
+                        </div>
+                        <div class="col-lg-6 col-xl-5" data-aos="fade-up" data-aos-delay="100">
+                            <div class="mb-4">
+                                <img src="assets/img/partners/white/booking.com.svg" alt="" class="width-10x h-auto">
+                            </div>
+                            <div class="mb-4">
+                                <p class="fs-3 mb-4">
+                                    "They're very responsive and go above and beyond to meet our needs. We continue
+                                    working with them, which is the best sign of our satisfaction."
+                                </p>
+                                <div class="">
+                                    <div>
+                                        <h5>Eduard Franz</h5>
+                                        <small class="text-muted">Team head, Booking.com</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="me-auto width-6x pt-1 border-bottom opacity-25"></div>
+                        </div>
+                    </div>
+                    <div class="position-relative text-center">
+                        <a href="#!" class="btn btn-white link-btn position-relative">
+                            <span>More Customer stories</span>
+                            <i class="bx bx-right-arrow-alt fs-4 align-middle ms-1 lh-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-white overflow-hidden">
+                <img src="assets/img/vectors/worldmap-light.svg"
+                    class="w-100 h-auto position-absolute start-0 top-0 opacity-25" alt="">
+                <div class="container pt-9 pt-lg-11 position-relative z-index-1">
+                    <div class="mb-7 w-lg-60 mx-auto text-center">
+                        <div class="mb-3" data-aos data-aos-once="false">
+                            <h2 class="display-3 splitting-down" data-splitting>
+                                Trusted partners
+                            </h2>
+                        </div>
+                        <p class="mb-0 lead">
+                            There are combined alignment methods –
+                            when several types of alignment together
+                            are used in one composition.
+                        </p>
+
+                        <div class="mx-auto width-8x pt-1 bg-primary mt-4"></div>
+                    </div>
+                    <div class="row mb-7 mb-lg-11 row-cols-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/amazon.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/booking.com.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/deliveroo.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/grab.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/lyft.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/postmates.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/uber.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/expedia.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center my-4">
+                                <img src="assets/img/partners/zillow.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <!--Footer Start-->
+        @@include('./partials/footers/footer-7.html')
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+        <!--Splitting-->
+        <script src="assets/vendor/node_modules/js/splitting.min.js"></script>
+
+        <!--SwiperSlider-->
+        <script src="assets/vendor/node_modules/js/swiper-bundle.min.js"></script>
+        <script>
+            Splitting();
+            //Splitting text
+
+            //Swiper Slider
+            var swiper3 = new Swiper(".swiper-3", {
+                autoHeight: true,
+                spaceBetween: 16,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 16
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 16
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                },
+                pagination: {
+                    el: ".swiper3-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper3-button-next",
+                    prevEl: ".swiper3-button-prev"
+                }
+            });
+
+        </script>
+    </body>
+
+</html>

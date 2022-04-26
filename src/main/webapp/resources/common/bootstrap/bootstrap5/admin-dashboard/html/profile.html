@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{"page": "pages"})
+
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+                  @@include('./partials/header/header-default.html')
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8">
+                                    <h3 class="mb-2">Profile</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
+                                            <li class="breadcrumb-item active">Pages</li>
+                                            <li class="breadcrumb-item active">Profile</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <!--Profile-->
+                            <div class="pt-4 px-4 px-lg-8 overflow-hidden">
+                                <img src="assets/media/cover/1.jpg" class="img-fluid rounded-3 mb-4 mb-lg-0 shadow-lg" alt="">
+                                <div class="row align-items-lg-stretch align-items-center mx-lg-0 mb-4 mb-lg-0">
+                                    <div class="col-auto">
+
+                                        <!-- Avatar -->
+                                        <div
+                                            class="avatar xxl rounded-3 border border-3 border-white shadow-lg overflow-hidden position-relative mt-lg-n5">
+                                            <img src="assets/media/avatars/01.jpg" alt="..." class="img-fluid">
+                                        </div>
+
+                                    </div>
+                                    <div class="col mb-3">
+
+                                        <!-- Profile Subtitle -->
+                                        <span class="text-muted small d-block pt-3 mb-2">
+                                            Member Since 2014
+                                        </span>
+
+                                        <!--Profile Title -->
+                                        <h3 class="profile-title mb-0">
+                                            Noah Pierre
+                                        </h3>
+                                    </div>
+                                    <div class="col-12 col-md-auto mt-2 mt-md-3 mb-md-3">
+
+                                        <!-- Subscribe Button -->
+                                        <a href="#!" class="btn btn-primary d-block d-md-inline-block lift">
+                                            Subscribe
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <!--Profile content-->
+                                <div class="">
+
+                                    <!--Profile Nav Tabs-->
+                                    <ul class="nav mb-4 nav-tabs nav-overflow">
+                                        <li class="nav-item">
+                                            <a href="#!profile-feed.html" class="nav-link active">
+                                                Feed
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!profile-friends.html" class="nav-link">
+                                                Friends
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!profile-projects.html" class="nav-link">
+                                                Projects
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!profile-photos.html" class="nav-link">
+                                                Photos
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!profile-followers.html" class="nav-link">
+                                                Followers
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <!--Content-->
+                                    <div class="row">
+                                        <div class="col-lg-4">
+
+                                            <!--Card-->
+                                            <div class="card mb-4">
+
+                                                <!--Card body-->
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <div class="mb-2 small text-muted">
+                                                            <i data-feather="info" class="fe-1x me-2 align-middle"></i>About
+                                                        </div>
+                                                        <p class="mb-0">Lorem ipsum is placeholder text commonly used in
+                                                            the graphic, print, and publishing industries for previewing
+                                                            layouts and visual mockups. </p>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <div class="mb-2 small text-muted">
+                                                            <i data-feather="user-plus" class="fe-1x me-2 align-middle"></i>Member since
+                                                        </div>
+                                                        <p class="mb-0"> Dec 15, 2014 </p>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <div class="mb-1 small text-muted">
+                                                            <i data-feather="globe" class="fe-1x me-2 align-middle"></i>Live
+                                                        </div>
+                                                        <p class="mb-0"> New York, USA </p>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <div class="mb-1 small text-muted">
+                                                            <i data-feather="mail" class="fe-1x me-2 align-middle"></i>Email
+                                                        </div>
+                                                        <p class="mb-0"> yourmail@yourdoamin.com </p>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <div class="mb-1 small text-muted">
+                                                            <i data-feather="link" class="fe-1x me-2 align-middle"></i>Site
+                                                        </div>
+                                                        <p class="mb-0"> www.yoursite.com </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Card-->
+                                            <div class="card mb-4">
+                                                <div class="d-flex p-3 pb-0 align-items-center jsutify-content-between">
+                                                    <h5 class="mb-0 me-1">Suggested Users</h5>
+                                                </div>
+                                                <!--Card body-->
+                                                <div class="card-body">
+                                                    <ul class="list-group list-group-flush">
+
+                                                        <!--User List item-->
+                                                        <li class="list-group-item">
+                                                            <div class="row g-2 align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div
+                                                                        class="avatar-status status-offline me-2 avatar sm">
+                                                                        <img src="assets/media/avatars/02.jpg"
+                                                                            class="rounded-circle img-fluid" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h6 class="mb-0">Milana Myles</h6>
+                                                                    <small>milana@mail.com</small>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div class="dropdown">
+                                                                        <a href="#" class="text-muted"
+                                                                            data-bs-toggle="dropdown">
+                                                                            <i data-feather="more-vertical" class="fe-1x align-middle lh-1"></i>
+                                                                        </a>
+                                                                        <div
+                                                                            class="dropdown-menu dropdown-menu-end mt-2">
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Follow</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Hide this user</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Block this user</small>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <!--User List item-->
+                                                        <li class="list-group-item">
+                                                            <div class="row g-2 align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div
+                                                                        class="avatar-status status-online me-2 avatar sm">
+                                                                        <img src="assets/media/avatars/03.jpg"
+                                                                            class="rounded-circle img-fluid" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h6 class="mb-0">Larry Lin</h6>
+                                                                    <small>larry@mail.com</small>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div class="dropdown">
+                                                                        <a href="#" class="text-muted"
+                                                                            data-bs-toggle="dropdown">
+                                                                            <i data-feather="more-vertical" class="fe-1x align-middle lh-1"></i>
+                                                                        </a>
+                                                                        <div
+                                                                            class="dropdown-menu dropdown-menu-end mt-2">
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Follow</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Hide this user</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Block this user</small>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <!--User List item-->
+                                                        <li class="list-group-item">
+                                                            <div class="row g-2 align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div
+                                                                        class="avatar-status status-online me-2 avatar sm">
+                                                                        <img src="assets/media/avatars/04.jpg"
+                                                                            class="rounded-circle img-fluid" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h6 class="mb-0">Korbyn Colon</h6>
+                                                                    <small>kobryn@mail.com</small>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div class="dropdown">
+                                                                        <a href="#" class="text-muted"
+                                                                            data-bs-toggle="dropdown">
+                                                                            <i data-feather="more-vertical" class="fe-1x align-middle lh-1"></i>
+                                                                        </a>
+                                                                        <div
+                                                                            class="dropdown-menu dropdown-menu-end mt-2">
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Follow</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Hide this user</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Block this user</small>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <!--User List item-->
+                                                        <li class="list-group-item">
+                                                            <div class="row g-2 align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div
+                                                                        class="avatar-status status-away me-2 avatar sm">
+                                                                        <img src="assets/media/avatars/05.jpg"
+                                                                            class="rounded-circle img-fluid" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h6 class="mb-0">Alisa Hester</h6>
+                                                                    <small>alisa@mail.com</small>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div class="dropdown">
+                                                                        <a href="#" class="text-muted"
+                                                                            data-bs-toggle="dropdown">
+                                                                            <i data-feather="more-vertical" class="fe-1x align-middle lh-1"></i>
+                                                                        </a>
+                                                                        <div
+                                                                            class="dropdown-menu dropdown-menu-end mt-2">
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Follow</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Hide this user</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Block this user</small>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <!--User List item-->
+                                                        <li class="list-group-item">
+                                                            <div class="row g-2 align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div
+                                                                        class="avatar-status status-dnd me-2 avatar sm">
+                                                                        <img src="assets/media/avatars/06.jpg"
+                                                                            class="rounded-circle img-fluid" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h6 class="mb-0">Becky George</h6>
+                                                                    <small>becky@mail.com</small>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div class="dropdown">
+                                                                        <a href="#" class="text-muted"
+                                                                            data-bs-toggle="dropdown">
+                                                                            <i data-feather="more-vertical" class="fe-1x align-middle lh-1"></i>
+                                                                        </a>
+                                                                        <div
+                                                                            class="dropdown-menu dropdown-menu-end mt-2">
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Follow</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Hide this user</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Block this user</small>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <!--User List item-->
+                                                        <li class="list-group-item">
+                                                            <div class="row g-2 align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div
+                                                                        class="avatar-status status-online me-2 avatar sm">
+                                                                        <img src="assets/media/avatars/07.jpg"
+                                                                            class="rounded-circle img-fluid" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h6 class="mb-0">Aaiden Savage</h6>
+                                                                    <small>aaiden@mail.com</small>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div class="dropdown">
+                                                                        <a href="#" class="text-muted"
+                                                                            data-bs-toggle="dropdown">
+                                                                            <i data-feather="more-vertical" class="fe-1x align-middle lh-1"></i>
+                                                                        </a>
+                                                                        <div
+                                                                            class="dropdown-menu dropdown-menu-end mt-2">
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Follow</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Hide this user</small>
+                                                                            </a>
+                                                                            <a href="#!" class="dropdown-item">
+                                                                                <small>Block this user</small>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+
+                                            <!--Post card start-->
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-start align-items-center mb-3">
+                                                        <span
+                                                            class="avatar flex-shrink-0 rounded-circle d-inline-block">
+                                                            <img src="assets/media/avatars/01.jpg" alt="avatar"
+                                                                class="img-fluid rounded-circle">
+                                                        </span>
+                                                        <div class="ps-3">
+                                                            <h6 class="mb-0">Noah Pierre</h6>
+                                                            <small class="text-muted">04 August 2021 at 11:03 AM</small>
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum, or lipsum as it is sometimes known, is dummy text
+                                                        used in laying out print, graphic or web designs. The passage is
+                                                        attributed to an unknown typesetter in the 15th century who is
+                                                        thought to have scrambled parts of Cicero's De Finibus Bonorum
+                                                        et Malorum for use in a type specimen book...
+                                                    </p>
+                                                    <img src="assets/media/900x600/5.jpg"
+                                                        class="img-fluid mb-3 rounded-3 shadow" alt="">
+
+
+                                                    <!--Reaction list-->
+
+                                                    <!--Likes-->
+                                                    <div
+                                                        class="d-flex mb-3 align-items-center small">
+                                                        <a href="#!"
+                                                            class="d-flex me-1 align-items-center btn btn-sm btn-white border rounded-2 px-2 border">
+                                                            <i data-feather="thumbs-up" class="fe-1x me-1 align-middle"></i>
+                                                            <span>239</span>
+                                                        </a>
+
+                                                        <!--Comments-->
+                                                        <a href="#!"
+                                                            class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+                                                            <i data-feather="message-square" class="fe-1x me-1 align-middle"></i>
+                                                            <span>34</span>
+                                                        </a>
+
+                                                        <!--Shares-->
+                                                        <a href="#!"
+                                                            class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-1">
+                                                            <i data-feather="share" class="fe-1x me-1 align-middle"></i>
+                                                            <span>4</span>
+                                                        </a>
+                                                    </div>
+
+                                                    <!--Comments list-->
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">
+                                                            <div class="d-flex align-items-stretch">
+                                                                <a href="#!" class="flex-shrink-0 d-block me-2">
+                                                                    <img src="assets/media/avatars/01.jpg"
+                                                                        class="avatar sm rounded-circle" alt="">
+                                                                </a>
+                                                                <!--Coomments and replies-->
+                                                                <div>
+                                                                    <div class="py-2 mb-1 px-3 bg-body rounded-3">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <h6 class="mb-0">Noah Pierre</h6>
+                                                                            <small class="text-muted">12:43 PM</small>
+                                                                        </div>
+                                                                        <p class="mb-0">
+                                                                            Lorem ipsum, or lipsum as it is sometimes
+                                                                            known, is dummy text used in laying out
+                                                                            print, graphic or web designs.
+                                                                        </p>
+                                                                    </div>
+                                                                    <!--Reply link-->
+                                                                    <div class="mb-2 small">
+                                                                        <a href="#!" class="text-reset">Reply</a>
+                                                                    </div>
+                                                                    <!--Reply-->
+                                                                    <div class="d-flex align-items-stretch">
+                                                                        <!--Reply icon-->
+                                                                        <div class="me-2 text-muted">
+                                                                            <i data-feather="corner-down-right" class="fe-1x me-1 align-middle"></i>
+                                                                        </div>
+                                                                        <a href="#!" class="flex-shrink-0 d-block me-2">
+                                                                            <img src="assets/media/avatars/02.jpg"
+                                                                                class="avatar xs rounded-circle" alt="">
+                                                                        </a>
+                                                                        <!--Reply-->
+                                                                        <div>
+                                                                            <div
+                                                                                class="py-2 mb-1 px-3 bg-body rounded-3">
+                                                                                <div
+                                                                                    class="d-flex justify-content-between">
+                                                                                    <h6 class="mb-0">Milana Myles</h6>
+                                                                                    <small class="text-muted">12:43
+                                                                                        PM</small>
+                                                                                </div>
+                                                                                <p class="mb-0">
+                                                                                    Lorem ipsum, or lipsum as it is
+                                                                                    sometimes known.
+                                                                                </p>
+                                                                            </div>
+                                                                            <!--Reply link-->
+                                                                            <div class="mb-0 small">
+                                                                                <a href="#!" class="text-reset">Reply</a>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="d-flex align-items-stretch">
+                                                                <a href="#!" class="flex-shrink-0 d-block me-2">
+                                                                    <img src="assets/media/avatars/03.jpg"
+                                                                        class="avatar sm rounded-circle" alt="">
+                                                                </a>
+                                                                <!--Coomments and replies-->
+                                                                <div>
+                                                                    <div class="py-2 mb-1 px-3 bg-body rounded-3">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <h6 class="mb-0">Larry Lin</h6>
+                                                                            <small class="text-muted">12:43 PM</small>
+                                                                        </div>
+                                                                        <p class="mb-0">
+                                                                            Lorem ipsum is dummy text. 😀
+                                                                        </p>
+                                                                    </div>
+                                                                    <!--Reply link-->
+                                                                    <div class="mb-2 small">
+                                                                        <a href="#!" class="text-reset">Reply</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-group-item bg-body">
+                                                            <!--Add comment-->
+                                                    <h6>Add new comment</h6>
+                                                    <form action="#!">
+                                                        <textarea name="addComment" rows="2"
+                                                            class="form-control mb-2"></textarea>
+                                                        <div class="text-end">
+                                                            <button type="button" class="btn btn-primary btn-sm">Add
+                                                                Comment</button>
+                                                        </div>
+                                                    </form>
+                                                        </li>
+                                                    </ul>
+
+                                                    
+                                                </div>
+                                            </div>
+                                            <!--/.Post card end-->
+
+                                            <!--Post card start-->
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-start align-items-center mb-3">
+                                                        <span
+                                                            class="avatar flex-shrink-0 rounded-circle d-inline-block">
+                                                            <img src="assets/media/avatars/01.jpg" alt="avatar"
+                                                                class="img-fluid rounded-circle">
+                                                        </span>
+                                                        <div class="ps-3">
+                                                            <h6 class="mb-0">Noah Pierre</h6>
+                                                            <small class="text-muted">12 August 2021 at 13:43 PM</small>
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum, or lipsum as it is sometimes known, is dummy text
+                                                        used in laying out print, graphic or web designs. The passage is
+                                                        attributed to an unknown typesetter in the 15th century who is
+                                                        thought to have scrambled parts of Cicero's De Finibus Bonorum
+                                                        et Malorum for use in a type specimen book...
+                                                    </p>
+                                                    <img src="assets/media/900x600/7.jpg"
+                                                        class="img-fluid mb-3 rounded-3 shadow" alt="">
+
+                                                        <!--Reaction list-->
+
+                                                    <!--Likes-->
+                                                    <div
+                                                    class="d-flex mb-3 align-items-center small">
+                                                    <a href="#!"
+                                                        class="d-flex me-1 align-items-center btn btn-sm btn-white border rounded-2 px-2 border">
+                                                        <span class="me-1"><i data-feather="thumbs-up" class="fe-1x align-middle"></i></span>
+                                                        <span>239</span>
+                                                    </a>
+
+                                                    <!--Comments-->
+                                                    <a href="#!"
+                                                        class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+                                                        <i data-feather="message-square" class="fe-1x me-1 align-middle"></i>
+                                                        <span>34</span>
+                                                    </a>
+
+                                                    <!--Shares-->
+                                                    <a href="#!"
+                                                        class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-1">
+                                                        <i data-feather="share" class="fe-1x me-1 align-middle"></i>
+                                                        <span>4</span>
+                                                    </a>
+                                                </div>
+
+                                                    <!--Comments list-->
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">
+                                                            <div class="d-flex align-items-stretch">
+                                                                <a href="#!" class="flex-shrink-0 d-block me-2">
+                                                                    <img src="assets/media/avatars/03.jpg"
+                                                                        class="avatar sm rounded-circle" alt="">
+                                                                </a>
+                                                                <!--Coomments and replies-->
+                                                                <div>
+                                                                    <div class="py-2 mb-1 px-3 bg-body rounded-3">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <h6 class="mb-0">Larry Lin</h6>
+                                                                            <small class="text-muted">12:43 PM</small>
+                                                                        </div>
+                                                                        <p class="mb-0">
+                                                                            Lorem ipsum is dummy text. 😀
+                                                                        </p>
+                                                                    </div>
+                                                                    <!--Reply link-->
+                                                                    <div class="mb-2 small">
+                                                                        <a href="#!" class="text-reset">Reply</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-group-item bg-body">
+                                                            <!--Add comment-->
+                                                    <h6>Add new comment</h6>
+                                                    <form action="#!">
+                                                        <textarea name="addComment" rows="2"
+                                                            class="form-control mb-2"></textarea>
+                                                        <div class="text-end">
+                                                            <button type="button" class="btn btn-primary btn-sm">Add
+                                                                Comment</button>
+                                                        </div>
+                                                    </form>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!--/.Post card end-->
+
+                                            <!--Post card start-->
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-start align-items-center mb-3">
+                                                        <span
+                                                            class="avatar flex-shrink-0 rounded-circle d-inline-block">
+                                                            <img src="assets/media/avatars/01.jpg" alt="avatar"
+                                                                class="img-fluid rounded-circle">
+                                                        </span>
+                                                        <div class="ps-3">
+                                                            <h6 class="mb-0">Noah Pierre</h6>
+                                                            <small class="text-muted">16 August 2021 at 9:43 AM</small>
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum, or lipsum as it is sometimes known, is dummy text
+                                                        used in laying out print, graphic or web designs. The passage is
+                                                        attributed to an unknown typesetter in the 15th century who is
+                                                        thought to have scrambled parts of Cicero's De Finibus Bonorum
+                                                        et Malorum for use in a type specimen book...
+                                                    </p>
+                                                    <div class="ratio ratio-21x9 mb-3"><iframe
+                                                            src="https://www.youtube.com/embed/6stlCkUDG_s"
+                                                            allowfullscreen="allowfullscreen"
+                                                            class="w-100 rounded-3"></iframe></div>
+
+                                                    <!--Reaction list-->
+
+                                                    <!--Likes-->
+                                                    <div
+                                                        class="d-flex pb-3 mb-3 border-bottom align-items-center small">
+                                                        <a href="#!"
+                                                            class="d-flex me-1 align-items-center btn btn-sm btn-white border rounded-2 px-2 border">
+                                                            <span class="me-1"><i data-feather="thumbs-up" class="fe-1x align-middle"></i></span>
+                                                            <span>239</span>
+                                                        </a>
+
+                                                        <!--Comments-->
+                                                        <a href="#!"
+                                                            class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+                                                            <i data-feather="message-square" class="fe-1x me-1 align-middle"></i>
+                                                            <span>34</span>
+                                                        </a>
+
+                                                        <!--Shares-->
+                                                        <a href="#!"
+                                                            class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-1">
+                                                            <i data-feather="share" class="fe-1x me-1 align-middle"></i>
+                                                            <span>4</span>
+                                                        </a>
+                                                    </div>
+                                                    <!--Comments list-->
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item text-muted">No Comments</li>
+                                                        <li class="list-group-item bg-body">
+                                                            <!--Add comment-->
+                                                    <h6>Add new comment</h6>
+                                                    <form action="#!">
+                                                        <textarea name="addComment" rows="2"
+                                                            class="form-control mb-2"></textarea>
+                                                        <div class="text-end">
+                                                            <button type="button" class="btn btn-primary btn-sm">Add
+                                                                Comment</button>
+                                                        </div>
+                                                    </form>
+                                                        </li>
+                                                    </ul>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                            <!--/.Post card end-->
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+
+        @@include('./partials/core-scripts.html')
+
+    </body>
+
+</html>

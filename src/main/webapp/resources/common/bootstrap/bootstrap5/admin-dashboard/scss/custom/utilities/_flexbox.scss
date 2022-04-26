@@ -1,0 +1,12 @@
+//Additional flexbox style
+
+.flex-root {
+    flex: 1;
+}
+.flex-column-fluid {
+    flex: 1 0 auto;
+}
+.flex-row-fluid {
+    flex: 1 auto;
+    min-width: 0;
+}

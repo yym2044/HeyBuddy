@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{page:"components"})
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+
+                    @@include('./partials/header/header-default.html')
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8">
+                                    <h3 class="mb-2">Buttons</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">UI Components</li>
+                                            <li class="breadcrumb-item active">Buttons</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Fill buttons</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-primary mb-2 me-2">Primary</button>
+                                            <button type="button" class="btn btn-success mb-2 me-2">success</button>
+                                            <button type="button" class="btn btn-info mb-2 me-2">info</button>
+                                            <button type="button" class="btn btn-danger mb-2 me-2">danger</button>
+                                            <button type="button" class="btn btn-warning mb-2 me-2">warning</button>
+                                            <button type="button" class="btn btn-white mb-2 me-2">white</button>
+                                            <button type="button" class="btn btn-light mb-2 me-2">light</button>
+                                            <button type="button" class="btn btn-gray mb-2 me-2">gray</button>
+                                            <button type="button" class="btn btn-secondary mb-2 me-2">secondary</button>
+                                            <button type="button" class="btn btn-dark mb-2 me-2">Dark</button>
+                                            <br>
+                                            <h6 class="pt-3 mb-3">Stats</h6>
+                                            <button type="button" class="btn btn-primary mb-2 me-2">Default Primary</button>
+                                            <button type="button" class="btn btn-primary active mb-2 me-2">Active Primary</button>
+                                            <button type="button" class="btn btn-primary disabled mb-2 me-2">Disabled Primary</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Outline buttons</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-outline-primary mb-2 me-2">Primary</button>
+                                            <button type="button" class="btn btn-outline-success mb-2 me-2">success</button>
+                                            <button type="button" class="btn btn-outline-info mb-2 me-2">info</button>
+                                            <button type="button" class="btn btn-outline-danger mb-2 me-2">danger</button>
+                                            <button type="button" class="btn btn-outline-warning mb-2 me-2">warning</button>
+                                            <span class="d-inline-block p-3 rounded-2 bg-dark me-2 mb-2">
+                                              <button type="button" class="btn btn-outline-white me-2">white</button>
+                                            <button type="button" class="btn btn-outline-light me-2">light</button>
+                                            <button type="button" class="btn btn-outline-gray">gray</button>
+                                            </span>
+                                            <button type="button" class="btn btn-outline-secondary mb-2 me-2">secondary</button>
+                                            <button type="button" class="btn btn-outline-dark mb-2 me-2">Dark</button>
+                                            <br>
+                                            <h6 class="pt-3 mb-3">Stats</h6>
+                                            <button type="button" class="btn btn-outline-primary mb-2 me-2">Default Primary</button>
+                                            <button type="button" class="btn btn-outline-primary active mb-2 me-2">Active Primary</button>
+                                            <button type="button" class="btn btn-outline-primary disabled mb-2 me-2">Disabled Primary</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Icon buttons</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            
+                                            <button type="button" class="btn btn-secondary mb-2 me-2">
+                                               <i class="fe-2x me-1 align-middle" data-feather="shopping-bag"></i> Add to cart</button>
+                                               <button type="button" class="btn btn-outline-success mb-2 me-2">
+                                                 Download <i class="fe-2x ms-1 align-middle" data-feather="download-cloud"></i></button><hr>
+                                            <button type="button" class="btn btn-outline-primary mb-2 me-2 rounded-pill p-0 size-40 d-inline-flex align-items-center justify-content-center">
+                                                <i data-feather="home" class="fe-1x"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary mb-2 me-2 rounded-pill p-0 size-50 d-inline-flex align-items-center justify-content-center">
+                                                <i data-feather="home" class="fe-2x"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary mb-2 me-2 rounded-pill p-0 size-60 d-inline-flex align-items-center justify-content-center">
+                                                <i data-feather="home" class="fe-3x"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary mb-2 me-2 rounded-pill p-0 size-80 d-inline-flex align-items-center justify-content-center">
+                                                <i data-feather="home" class="fe-4x"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Group buttons</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-gray text-body">Profile</button>
+                                                <button class="btn btn-outline-gray text-body">Contacts</button>
+                                                <button class="btn btn-outline-gray text-body">Settings</button>
+                                            </div>
+                                            <hr>
+                                            <div class="btn-group">
+                                                <button class="btn btn-outline-gray text-body active"><i class="fe-1x align-middle me-1" data-feather="user"></i> Profile</button>
+                                                <button class="btn btn-outline-gray text-body"><i class="fe-1x align-middle me-1" data-feather="activity"></i> Activity</button>
+                                                <button class="btn btn-outline-gray text-body"><i class="fe-1x align-middle me-1" data-feather="rss"></i> Feed</button>
+                                            </div>
+                                            <hr>
+                                            <div class="btn-group btn-group-lg">
+                                                <button class="btn btn-outline-gray text-body"><i class="fe-3x align-middle" data-feather="user"></i></button>
+                                                <button class="btn btn-outline-gray text-body"><i class="fe-3x align-middle" data-feather="activity"></i></button>
+                                                <button class="btn btn-outline-gray text-body"><i class="fe-3x align-middle" data-feather="rss"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Custom buttons</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <button class="btn btn-outline-gray text-body border-2 me-2 mb-2">Outline 2x</button>
+                                            <button class="btn btn-outline-gray text-body rounded-pill me-2 mb-2">Corner Radius</button>
+                                            <button class="btn btn-outline-gray text-body rounded-0 me-2 mb-2">Corner Radius 0</button>
+                                            <hr>
+                                            <button class="btn btn-outline-gray text-body btn-sm me-2 mb-2">Small</button>
+                                            <button class="btn btn-outline-gray text-body me-2 mb-2">Default</button>
+                                            <button class="btn btn-outline-gray text-body btn-lg me-2 mb-2">Large</button>
+                                            <hr>
+                                            <button class="btn btn-primary w-100 d-block me-2 mb-2">Block button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+    </body>
+
+</html>

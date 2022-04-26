@@ -1,0 +1,1665 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/choices.min.css">
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/simplebar.min.css">
+        <!--Icons-->
+        <link href="assets/fonts/boxicons/css/boxicons.min.css" rel="stylesheet">
+         <!--Google fonts-->
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+        <!-- Main CSS -->
+        <link href="assets/css/theme-shop.min.css" rel="stylesheet">
+
+        <!--:Simplebar css ()-->
+        <style type="text/css">
+            .simplebar-track.simplebar-vertical {
+                width: 7px;
+            }
+
+            .simplebar-scrollbar:before {
+                background: currentColor;
+            }
+
+        </style>
+        <title>Assan Shop</title>
+    </head>
+
+    <body>
+     <!--:Preloader Spinner-->
+     <div class="spinner-loader bg-gradient-secondary text-white">
+        <div class="spinner-border text-primary" role="status">
+        </div>
+        <span class="small d-block ms-2">Loading...</span>
+      </div>
+    
+          <!--Header Start-->
+    <header class="z-index-fixed">
+      <div class="border-bottom">
+        <div class="container py-1">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-6 d-none d-md-flex">
+              <div class="small text-muted text-truncate">Get 25% off on first order, Use code <span
+                  class="badge badge-pill bg-success">FIRST25</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 ms-auto text-end">
+              <div class="d-flex justify-content-end align-items-center">
+                <div class="dropdown me-4">
+                  <a href="#" class="text-muted small" data-bs-toggle="dropdown" aria-expanded="false">Eng</a>
+                  <div class="dropdown-menu dropdown-menu-xxs dropdown-menu-end mt-1">
+                    <a href="#" class="dropdown-item active">
+                      <small>English <i class="bx bx-check fs-5"></i></small>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <small>Français</small>
+                    </a>
+                  </div>
+                </div>
+                <div class="dropdown me-4">
+                  <a href="#" class="text-muted small" data-bs-toggle="dropdown" aria-expanded="false">Usd</a>
+                  <div class="dropdown-menu dropdown-menu-xxs dropdown-menu-end mt-1">
+                    <a href="#" class="dropdown-item active">
+                      <small>Usd <i class="bx bx-check fs-5"></i></small>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <small>Euro</small>
+                    </a>
+                  </div>
+                </div>
+                <a href="#" class="text-muted d-none d-md-block small me-4"><i
+                    class="bx bx-phone me-1 d-none d-md-inline-block"></i>01 123 4567 890</a>
+                <div class="dropdown">
+                  <a href="#" class="text-muted small" data-bs-auto-close="outside" data-bs-toggle="dropdown"
+                    aria-expanded="false"> <img src="assets/img/avatar/2.jpg"
+                      class="avatar xs rounded-circle me-1 align-middle" alt=""><span
+                      class="d-none d-md-inline-block">Andria</span></a>
+                  <div class="dropdown-menu dropdown-menu-end mt-2">
+                    <a href="#" class="dropdown-item">Profile</a>
+                    <a href="#" class="dropdown-item">Orders</a>
+                    <a href="#" class="dropdown-item">Wishlist</a>
+                    <a href="#" class="dropdown-item">Settings</a>
+                    <hr class="my-1">
+                    <a href="#" class="dropdown-item">Sign Out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container position-relative">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/img/logo/logo-shop.svg" alt="" class="img-fluid">
+          </a>
+          <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+            <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <i></i>
+              </span>
+            </button>
+            <div class="nav-item me-4">
+              <a href="demo-shop-wishlist.html" class="nav-link lh-1 position-relative">
+                <i class="bx bx-heart fs-4"></i>
+              </a>
+            </div>
+            <div class="nav-item me-4">
+              <a href="#offcanvasCart" data-bs-toggle="offcanvas" class="nav-link lh-1 position-relative">
+                <i class="bx bx-shopping-bag fs-4"></i>
+                <span
+                  class="badge p-0 position-absolute end-0 top-0 me-n3 mt-n2 lh-1 fw-semibold width-2x height-2x bg-white shadow-sm rounded-circle flex-center text-dark">3</span>
+              </a>
+            </div>
+            <div class="nav-item me-4 me-lg-0">
+              <a href="#" data-bs-target="#modal-search-bar-2" data-bs-toggle="modal" class="nav-link lh-1">
+                <i class="bx bx-search fs-4"></i>
+              </a>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="mainNavbarTheme">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item dropdown me-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="false" aria-expanded="false">
+                  Home
+                </a>
+                <div class="dropdown-menu">
+                  <a href="demo-shop.html" class="dropdown-item">01 Default</a>
+                  <a href="demo-shop-home-02.html" class="dropdown-item">02 Home Option</a>
+                </div>
+              </li>
+
+              <li class="nav-item nav-item dropdown position-lg-static me-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Men
+                </a>
+                <div class="dropdown-menu dropdown-menu-fw px-lg-0 py-lg-0 overflow-hidden">
+                  <div class="row mx-0">
+
+                    <div class="col-lg-4 pe-lg-0 order-lg-4 pe-lg-0 ms-lg-auto d-none d-lg-flex">
+                      <div class="d-flex bg-dark flex-column h-100 w-100 py-4 py-md-5 position-relative">
+                        <img alt="" src="assets/img/shop/banners/03.jpg" class="bg-image opacity-75">
+                        <div
+                          class="position-absolute text-center d-flex flex-column justify-content-center align-items-center text-white left-0 top-0 w-100 h-100 p-4">
+                          <div>
+                            <div class="d-md-flex mb-2 justify-content-center align-items-center">
+                              <span style="height: 1px" class="d-none d-md-block bg-light width-7x"></span>
+                              <h5 class="mb-0 mx-3 text-white">
+                                Limited Discount
+                              </h5>
+                              <span style="height: 1px" class="d-none d-md-block bg-light width-7x"></span>
+                            </div>
+                            <h3 class="display-5">New Arrivals
+                            </h3>
+                            <p class="mb-4">Order over $100 and get 30% Off</p>
+                            <a href="#!" class="btn btn-outline-white btn-hover-arrow">
+                              <span>Shop Now</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-lg-3 py-lg-5 mb-lg-0 mb-4">
+                      <div class="d-flex flex-column mb-3">
+                        <h5 class="dropdown-header mb-2">Topwear</h5>
+
+                        <a class="dropdown-item" href="#!">
+                          T-shirts
+                          <span class="badge badge-pill bg-success py-0 small d-inline-block ms-1">New</span>
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Casual Shirts
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Formal Shirts
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Sweatshirts
+
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Jackets
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Blazers & Coats
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Sweaters
+                        </a>
+                      </div>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-lg-3 py-lg-5 mb-lg-0 mb-4">
+                      <div class="d-flex flex-column">
+                        <h5 class="dropdown-header mb-2">Bottomwear</h5>
+
+                        <a class="dropdown-item" href="#!">
+                          Jeans
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Trousers & Pants
+                          <span class="badge badge-pill bg-primary py-0 small d-inline-block ms-1">-20%</span>
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Shorts & Track Pants
+                        </a>
+                      </div>
+                      <div class="dropdown-divider"></div>
+                      <div class="d-flex flex-column">
+                        <h5 class="dropdown-header mb-2">Footwear</h5>
+
+                        <a class="dropdown-item" href="#!">
+                          Shoes
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Sandals & Floaters
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Flip Flops & Socks
+                        </a>
+                      </div>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-lg-2 py-lg-5">
+                      <div class="d-flex flex-column">
+                        <h5 class="dropdown-header mb-2">Accessories</h5>
+                        <a class="dropdown-item" href="#!">
+                          Face mask
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Wallets & Belts
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Backpacks
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Headphones
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Sunglasses
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Belts
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Socks
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Watches
+                        </a>
+                      </div>
+                    </div>
+                    <!--/.col-->
+                  </div>
+                  <!--/.row-->
+                </div>
+              </li>
+              <li class="nav-item nav-item dropdown position-static me-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Women
+                </a>
+                <div class="dropdown-menu dropdown-menu-fw py-lg-0 px-lg-0 overflow-hidden">
+                  <div class="row mx-0">
+                    <div class="col-lg-5 me-lg-auto d-none d-lg-flex ps-lg-0">
+                      <div class="d-flex bg-shade-info flex-column h-100 w-100 py-4 py-lg-5 position-relative">
+                        <img alt="" src="assets/img/shop/banners/02.jpg" class="bg-image opacity-50">
+                        <div
+                          class="position-absolute text-center d-flex flex-column justify-content-end align-items-center text-white left-0 top-0 w-100 h-100 px-4">
+                          <div class="mb-4 py-4 px-4">
+                            <div class="d-md-flex mb-2 justify-content-center align-items-center">
+                              <span style="height: 1px" class="d-none d-lg-block bg-white width-7x"></span>
+                              <h5 class="mb-0 fw-normal mx-2">
+                                Limited Discount
+                              </h5>
+                              <span style="height: 1px" class="d-none d-lg-block bg-white width-7x"></span>
+                            </div>
+                            <h3 class="display-5">New Arrivals
+                            </h3>
+                            <p class="mb-4">Order over $100 and get 30% Off</p>
+                            <a href="#!" class="btn btn-primary btn-hover-arrow">
+                              <span>Shop Now</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-lg-3 py-lg-5 mb-lg-0 ms-lg-auto mb-4">
+                      <div class="d-flex flex-column">
+                        <h5 class="dropdown-header mb-2">Clothes</h5>
+                        <a class="dropdown-item" href="#!">
+                          T-Shirts & Tops
+                          <span class="badge badge-pill bg-success py-0 small d-inline-block ms-1">New</span>
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Shorts
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          T-Shirts
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Jeans & Skirts
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Shoes & Sandals
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Jackets
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Sweatshirts & Hoodies
+                        </a>
+                      </div>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-lg-3 py-lg-5 mb-lg-0 ms-lg-auto mb-4">
+                      <div class="d-flex flex-column">
+                        <h5 class="dropdown-header mb-2">Accessories</h5>
+                        <a class="dropdown-item" href="#!">
+                          Face mask
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Handbags
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Backpacks
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Sunglasses
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Watches
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Wallets
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                          Caps & Hats
+                        </a>
+                      </div>
+                    </div>
+                    <!--/.col-->
+                  </div>
+                  <!--/.row-->
+                </div>
+              </li>
+              <li class="nav-item dropdown me-lg-3">
+                <a class="nav-link dropdown-toggle active" data-bs-auto-close="outside" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop
+                </a>
+                <div class="dropdown-menu p-lg-3">
+                  <div class="dropend">
+                    <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                      href="#">Products</a>
+                    <div class="dropdown-menu p-lg-3">
+                      <a class="dropdown-item" href="demo-shop-products.html">Sidebar</a>
+                      <a class="dropdown-item" href="demo-shop-products-full-width.html">Full
+                        width</a>
+                      <a class="dropdown-item" href="demo-shop-product-category.html">Product
+                        category</a>
+                    </div>
+                  </div>
+                  <div class="dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                      aria-expanded="false">Product</a>
+                    <div class="dropdown-menu p-lg-3">
+                      <a class="dropdown-item" href="demo-shop-product-default.html">Product
+                        Default</a>
+                      <a class="dropdown-item" href="demo-shop-single-product-option.html">Product
+                        Option</a>
+                    </div>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="demo-shop-wishlist.html">Wishlist</a>
+                  <a class="dropdown-item" href="demo-shop-cart.html">Cart</a>
+                  <a class="dropdown-item" href="demo-shop-checkout.html">Checkout</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#!">
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--:Search bar modal-->
+    <div id="modal-search-bar-2" class="modal fade" tabindex="-1" aria-labelledby="modal-search-bar-2"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-top modal-md">
+        <div class="modal-content position-relative border-0">
+          <div class="position-relative px-4">
+            <div
+              class="position-absolute end-0 width-7x top-0 d-flex me-4 align-items-center h-100 justify-content-center">
+              <button type="button" class="btn-close w-auto small" data-bs-dismiss="modal"
+                aria-label="Close">Cancel</button>
+            </div>
+            <form class="mb-0">
+              <div class="d-flex align-items-center">
+                <div class="d-flex flex-grow-1 align-items-center">
+                  <i class="bx bx-search fs-4"></i>
+                  <input type="text" placeholder="Search...."
+                    class="form-control shadow-none border-0 flex-grow-1 form-control-lg">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="p-4 border-top">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bx bx-trending-up fs-4"></i>
+              <h6 class="mb-0 ms-2">
+                Top searches
+              </h6>
+            </div>
+            <div class="d-flex flex-wrap align-items-center">
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Jeans</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Shoes</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Watches</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Men's</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Sneakers</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Casual</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Shirts</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">T-shirts</a></span>
+              <span><a href="#!" class="badge badge-pill border text-muted me-1 mb-1 px-3 py-1">Lowers</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--:Offcanvas end-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCart">
+      <div class="border-bottom offcanvas-header align-items-center justify-content-between">
+        <h5 class="mb-0">Your Cart (3)</h5>
+        <button type="button" class="btn-close text-reset p-0 m-0 width-3x height-3x flex-center ms-auto"
+          data-bs-dismiss="offcanvas" aria-label="Close">
+          <button type="button" class="btn-close shadow-none text-reset p-0 m-0 width-3x height-3x flex-center ms-auto"
+            data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="bx bx-x fs-4"></i>
+          </button>
+      </div>
+      <div class="offcanvas-body p-4">
+        <ul class="list-unstyled no-animation mb-0">
+          <li class="d-flex py-3 border-bottom">
+            <div class="me-1">
+              <a href="#!"><img src="assets/img/shop/backpack2.jpg" class="height-10x hover-lift hover-shadow w-auto"
+                  alt=""></a>
+            </div>
+            <div class="flex-grow-1 px-4 mb-3">
+              <a href="#!" class="text-dark d-block lh-sm fw-semibold mb-2">Laptop backpack water
+                proof</a>
+              <p class="mb-0 small"><strong>$36.00</strong> x
+                <strong>1</strong>
+              </p>
+            </div>
+            <div class="d-block text-end">
+              <a href="#!" class="text-muted small text-decoration-underline">
+                Remove
+              </a>
+            </div>
+          </li>
+          <li class="d-flex py-3">
+            <div class="me-1">
+              <a href="#!"><img src="assets/img/shop/jacket1.jpg" class="height-10x hover-lift hover-shadow w-auto"
+                  alt=""></a>
+            </div>
+            <div class="flex-grow-1 px-4 mb-3">
+              <a href="#!" class="text-dark d-block lh-sm fw-semibold mb-2">Brown denim jacket for
+                mens</a>
+              <p class="mb-0 small"><strong>$59.00</strong> x
+                <strong>2</strong>
+              </p>
+            </div>
+            <div class="d-block text-end">
+              <a href="#!" class="text-muted small text-decoration-underline">
+                Remove
+              </a>
+            </div>
+          </li>
+          <li class="d-flex p-3 mb-3 border-top justify-content-between align-items-center">
+            <span class="fw-normal">Subtotal</span>
+            <span class="text-dark fw-bold">$154.00</span>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-footer p-4 border-top">
+        <ul class="list-unstyled mb-0">
+
+          <li class="pb-2 d-grid">
+            <a href="#" class="btn btn-secondary btn-hover-arrow"><span>View
+                shopping cart</span></a>
+          </li>
+          <li class="d-grid">
+            <a href="#" class="btn btn-primary btn-hover-arrow"><span>Checkout</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+      <!--Main content-->
+      <main>
+  
+          <!--Page header start-->
+      <section class="position-relative bg-dark text-white overflow-hidden">
+        <svg class="position-absolute end-0 top-0 text-primary width-14x h-auto w-lg-20" width="450" height="426"
+          viewBox="0 0 450 426" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clipPageHeader)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M298.999 -192.241C355.489 -184.29 381.574 -118.483 421.706 -77.9221C452.436 -46.8634 475.477 -12.1582 507.054 18.0386C563.019 71.558 665.455 91.3474 678.539 167.687C690.554 237.781 626.362 310.281 562.498 341.514C500.548 371.812 427.798 307.451 360.652 323.154C299.843 337.375 269.726 418.21 207.597 424.514C139.082 431.466 55.4816 414.802 16.3827 358.087C-23.1945 300.678 21.5018 222.882 20.5205 153.15C19.6978 94.6861 -14.5698 34.0886 11.0842 -18.4478C36.6541 -70.8118 102.021 -85.7884 151.898 -115.896C200.173 -145.036 243.168 -200.099 298.999 -192.241Z"
+              fill="currentColor" />
+          </g>
+          <defs>
+            <clipPath id="clipPageHeader">
+              <rect width="450" height="426" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <img src="assets/img/vectors/dec-brush1.svg"
+          class="position-absolute end-0 top-0 me-2 mt-2 me-lg-5 mt-lg-5 fill-warning width-8x h-auto" data-inject-svg
+          alt="">
+        <div class="container py-11 py-lg-15 position-relative">
+          <div class="row align-items-center">
+            <div class="col-lg-10 mx-auto text-center">
+              <nav class="d-flex justify-content-center" aria-label="breadcrumb">
+                <ol class="breadcrumb mb-3">
+                  <li class="breadcrumb-item">
+                    <a href="#!">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active">
+                    Shop
+                  </li>
+                  <li class="breadcrumb-item active">
+                    Product
+                  </li>
+                </ol>
+              </nav>
+              <h1 class="mb-0 display-3">Shoes & Sandals
+              </h1>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+      </section>
+            <section class="position-relative bg-white">
+                <div class="container pt-3 pb-7 pb-lg-9 position-relative">
+                    <div class="row justify-content-between">
+                        <!--Products column-->
+                        <div class="col-md-10 mx-auto pt-5">
+                            <!--Products top bar-->
+                            <div class="row mb-5 align-items-center">
+                                <div class="col-5 col-md-3 mb-3 mb-md-0">
+                                    <a href="#shop_filters" data-bs-toggle="collapse" aria-expanded="false"
+                                        class="btn btn-light btn-sm">
+                                        <i class="bx bx-filter fs-5"></i> Filter
+                                    </a>
+                                </div>
+                                <div class="col-7 text-end col-md-5 mb-3 mb-md-0">
+                                    <span>Showing 1-8 of 190 items</span>
+                                </div>
+                                <div class="col-sm-5 col-md-4 ms-auto">
+                                    <div class="d-flex align-items-center">
+                                        <span class="small text-muted">Short by</span>
+                                        <div class="flex-grow-1 ps-2">
+                                            <select name="shortBy" class="form-control form-control-sm"
+                                                data-choices='{"searchEnabled":false}' id="product-shortby">
+                                                <option value="Best selling" selected> Best selling</option>
+                                                <option value="Best rated"> Best rated</option>
+                                                <option value="Most recent"> Most recent</option>
+                                                <option value="Price - Low to High"> Price - Low to High</option>
+                                                <option value="Price - High to Low">Price - High to Low</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Filter collapse-->
+                            <div class="collapse" id="shop_filters">
+                                <div class="row">
+                                    <!--:Filter column-->
+                                    <div class="col-sm-6 col-xl-3">
+                                        <!--:Sidebar widget card-->
+                                        <div class="card p-0 overflow-hidden card-body mb-4">
+                                            <!--:Title-->
+                                            <div class="d-flex p-3 border-bottom align-items-center">
+                                                <h6 class="me-3 mb-0">Categories</h6>
+                                                <div class="pt-1 flex-grow-1 bg-tint-info"></div>
+                                            </div>
+                                            <!--:Collapse categories-->
+                                            <div class="collapse-group px-3 py-2 collapse d-flex flex-column">
+                                                <div class="collapse d-block">
+                                                    <div class="nav flex-column">
+                                                        <a href="#mens" class="nav-link" data-bs-toggle="collapse"
+                                                            aria-expanded="false">Mens</a>
+                                                        <div class="collapse" id="mens">
+                                                            <div class="nav nav-level-2 flex-column">
+                                                                <a href="#" class="nav-link small">Shirts</a>
+                                                                <a href="#" class="nav-link small">Jeans</a>
+                                                                <a href="#" class="nav-link small">Shoes</a>
+                                                                <a href="#" class="nav-link small">Trousers</a>
+                                                                <a href="#acc_list" data-bs-toggle="collapse"
+                                                                    aria-expanded="false"
+                                                                    class="nav-link small">Accessories</a>
+                                                                <div class="collapse" id="acc_list">
+                                                                    <div class="nav flex-column nav-level-3">
+                                                                        <a href="#" class="nav-link small">Belts</a>
+                                                                        <a href="#" class="nav-link small">Watches</a>
+                                                                        <a href="#"
+                                                                            class="nav-link small">Sunglasses</a>
+                                                                        <a href="#" class="nav-link small">Wallets</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#womens" class="nav-link" data-bs-toggle="collapse"
+                                                            aria-expanded="false">Womens</a>
+                                                        <div class="collapse" id="womens">
+                                                            <div class="nav nav-level-2 flex-column">
+                                                                <a href="#" class="nav-link small">T-shirts & tops</a>
+                                                                <a href="#" class="nav-link small">Shorts</a>
+                                                                <a href="#" class="nav-link small">Shoes</a>
+                                                                <a href="#" class="nav-link small">Trousers</a>
+                                                                <a href="#acc_list_womens" data-bs-toggle="collapse"
+                                                                    aria-expanded="false"
+                                                                    class="nav-link small">Accessories</a>
+                                                                <div class="collapse" id="acc_list_womens">
+                                                                    <div class="nav flex-column nav-level-3">
+                                                                        <a href="#" class="nav-link small">Face mask</a>
+                                                                        <a href="#" class="nav-link small">Socks</a>
+                                                                        <a href="#"
+                                                                            class="nav-link small">Sunglasses</a>
+                                                                        <a href="#" class="nav-link small">Wallets</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--:Sidebar widget card-->
+                                        <div class="card p-0 mb-4 card-body">
+                                            <!--:Title-->
+                                            <div class="d-flex p-3 border-bottom mb-3 align-items-center">
+                                                <h6 class="me-3 mb-0">Colors</h6>
+                                                <div class="pt-1 flex-grow-1 bg-tint-info"></div>
+                                            </div>
+                                            <!--:list-->
+                                            <div class="p-3 pt-0">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="btn-group mb-2">
+                                                        <div class="d-flex flex-wrap gap-1" role="group"
+                                                            aria-label="Basic radio toggle button group">
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_black">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-white product-black"
+                                                                for="color_black"></label>
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_blue">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-white product-blue"
+                                                                for="color_blue"></label>
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_brown">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-white product-brown"
+                                                                for="color_brown"></label>
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_red">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-white product-red"
+                                                                for="color_red"></label>
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_yellow">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-dark product-yellow"
+                                                                for="color_yellow"></label>
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_pink">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-dark product-pink"
+                                                                for="color_pink"></label>
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_purple">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-white product-purple"
+                                                                for="color_purple"></label>
+
+                                                            <input type="checkbox" class="btn-check" name="btnradio"
+                                                                id="color_white">
+                                                            <label
+                                                                class="shop-product-color btn p-0 me-1 width-2x height-2x flex-center rounded-circle text-dark border product-white"
+                                                                for="color_white"></label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:Filter column-->
+                                    <div class="col-sm-6 col-xl-3">
+                                        <!--:Sidebar widget card-->
+                                        <div class="card overflow-hidden p-0 mb-4 card-body">
+                                            <!--:Title-->
+                                            <div class="d-flex p-3 border-bottom align-items-center">
+                                                <h6 class="me-3 mb-0">Brands</h6>
+                                                <div class="pt-1 flex-grow-1 bg-tint-info"></div>
+                                            </div>
+                                            <!--:list-->
+                                            <ul class="list-unstyled px-3 pt-3 pb-2 mb-0" data-simplebar
+                                                style="max-height: 13rem;">
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="adidas">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="adidas">Adidas</label>
+                                                    </div><span class="fs-xs text-muted">122</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="ataylor">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="ataylor">Flying Machine</label>
+                                                    </div><span class="fs-xs text-muted">15</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="armani">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="armani">Puma</label>
+                                                    </div><span class="fs-xs text-muted">18</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="banana">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="banana">US Polo</label>
+                                                    </div><span class="fs-xs text-muted">48</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="bilabong">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="bilabong">Arrow</label>
+                                                    </div><span class="fs-xs text-muted">48</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            id="birkenstock">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="birkenstock">Allen Solly</label>
+                                                    </div><span class="fs-xs text-muted">17</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="klein">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="klein">Calvin Klein</label>
+                                                    </div><span class="fs-xs text-muted">75</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="columbia">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="columbia">New Balance</label>
+                                                    </div><span class="fs-xs text-muted">93</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="converse">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="converse">Converse</label>
+                                                    </div><span class="fs-xs text-muted">56</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="dockers">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="dockers">Dockers</label>
+                                                    </div><span class="fs-xs text-muted">38</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="hanes">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="hanes">Lee cooper</label>
+                                                    </div><span class="fs-xs text-muted">92</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="levis">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="levis">Levi's</label>
+                                                    </div><span class="fs-xs text-muted">234</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="lee">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="lee">Lee</label>
+                                                    </div><span class="fs-xs text-muted">143</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="newbalance">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="newbalance">New Balance</label>
+                                                    </div><span class="fs-xs text-muted">189</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="nike">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="nike">Nike</label>
+                                                    </div><span class="fs-xs text-muted">138</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="navy">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="navy">Old Navy</label>
+                                                    </div><span class="fs-xs text-muted">37</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="polo">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="polo">Polo Ralph Lauren</label>
+                                                    </div><span class="fs-xs text-muted">83</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="puma">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="puma">Puma</label>
+                                                    </div><span class="fs-xs text-muted">73</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="reebok">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="reebok">Reebok</label>
+                                                    </div><span class="fs-xs text-muted">59</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="hilfiger">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="hilfiger">Tommy Hilfiger</label>
+                                                    </div><span class="fs-xs text-muted">74</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="urban">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="urban">Urban Outfitters</label>
+                                                    </div><span class="fs-xs text-muted">34</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="wolverine">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="wolverine">Wolverine</label>
+                                                    </div><span class="fs-xs text-muted">67</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item mb-1 d-flex justify-content-between align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="wrangler">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="wrangler">Wrangler</label>
+                                                    </div><span class="fs-xs text-muted">39</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--:Filter column-->
+                                    <div class="col-sm-6 col-xl-3">
+                                        <!--:Sidebar widget card-->
+                                        <div class="card overflow-hidden p-0 mb-4 card-body">
+                                            <!--:Title-->
+                                            <div class="d-flex p-3 border-bottom align-items-center">
+                                                <h6 class="me-3 mb-0">Size</h6>
+                                                <div class="pt-1 flex-grow-1 bg-tint-info"></div>
+                                            </div>
+                                            <!--:list-->
+                                            <ul class="list-unstyled mb-0 pb-2 pt-3 px-3" data-simplebar
+                                                style="max-height: 13rem;">
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-xs">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-xs">XS</label>
+                                                    </div><span class="small text-muted">21</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-s">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-s">S</label>
+                                                    </div><span class="small text-muted">22</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-m">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-m">M</label>
+                                                    </div><span class="small text-muted">54</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-l">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-l">L</label>
+                                                    </div><span class="small text-muted">32</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-xl">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-xl">XL</label>
+                                                    </div><span class="small text-muted">74</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-39">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-39">39</label>
+                                                    </div><span class="small text-muted">48</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="width-3x height-3x">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="width-3x height-3x">40</label>
+                                                    </div><span class="small text-muted">24</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-41">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-41">41</label>
+                                                    </div><span class="small text-muted">86</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-42">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-42">42</label>
+                                                    </div><span class="small text-muted">98</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-43">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-43">43</label>
+                                                    </div><span class="small text-muted">31</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-44">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-44">44</label>
+                                                    </div><span class="small text-muted">42</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="s50">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="s50">45</label>
+                                                    </div><span class="small text-muted">62</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-46">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-46">46</label>
+                                                    </div><span class="small text-muted">19</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-47">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-47">47</label>
+                                                    </div><span class="small text-muted">97</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-48">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-48">48</label>
+                                                    </div><span class="small text-muted">8</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="size-49">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="size-49">49</label>
+                                                    </div><span class="small text-muted">16</span>
+                                                </li>
+                                                <li
+                                                    class="widget-filter-item d-flex justify-content-between mb-1 align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="s50">
+                                                        <label class="form-check-label widget-filter-item-text"
+                                                            for="s50">50</label>
+                                                    </div><span class="small text-muted">9</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--:Filter column-->
+                                    <div class="col-sm-6 col-xl-3">
+                                        <!--:Sidebar widget card-->
+                                        <div class="card p-0 mb-4 card-body">
+                                            <!--:Title-->
+                                            <div class="d-flex p-3 border-bottom mb-3 align-items-center">
+                                                <h6 class="me-3 mb-0">Price</h6>
+                                                <div class="pt-1 flex-grow-1 bg-tint-info"></div>
+                                            </div>
+                                            <!--:list-->
+                                            <div class="p-3 pt-0">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="form-check mb-2">
+                                                        <input type="radio" name="byPrice" class="form-check-input"
+                                                            id="range_level_1">
+                                                        <label for="range_level_1" class="form-check-label">$100 -
+                                                            $1000</label>
+                                                    </li>
+                                                    <li class="form-check mb-2">
+                                                        <input type="radio" name="byPrice" class="form-check-input"
+                                                            id="range_level_2">
+                                                        <label for="range_level_2" class="form-check-label">$1000 -
+                                                            $2500</label>
+                                                    </li>
+                                                    <li class="form-check mb-2">
+                                                        <input type="radio" name="byPrice" class="form-check-input"
+                                                            id="range_level_3">
+                                                        <label for="range_level_3" class="form-check-label">$2500 -
+                                                            $5000</label>
+                                                    </li>
+                                                    <li class="form-check">
+                                                        <input type="radio" name="byPrice" class="form-check-input"
+                                                            id="range_level_4">
+                                                        <label for="range_level_4" class="form-check-label">$5000 -
+                                                            $10000</label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                  <a href="#!" class="btn btn-primary me-3">Apply</a>
+                                  <a href="#!" class="btn btn-outline-gray-200 text-body">Clear</a>
+                                </div>
+                                <hr>
+                            </div>
+
+
+                            <div class="row mb-5">
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/01.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/02.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+
+                                            <!--Product Label-->
+                                            <span
+                                                class="badge rounded-pill bg-primary position-absolute start-0 top-0 mt-4 ms-4">Bestseller</span>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/03.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/04.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+
+                                            <!--Product Label-->
+                                            <span
+                                                class="badge rounded-pill bg-success position-absolute start-0 top-0 mt-4 ms-4">New</span>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/05.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/06.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+
+                                            <!--Product Label-->
+                                            <span
+                                                class="badge rounded-pill bg-warning position-absolute start-0 top-0 mt-4 ms-4">Hot</span>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <div class="position-relative vh-50 overflow-hidden rounded-3">
+                                        <img src="assets/img/shop/banners/01.jpg" class="bg-image" alt="">
+                                        <div
+                                            class="position-relative z-index-1 w-md-95 px-4 ms-auto d-flex h-100 align-items-center justify-content-start">
+                                            <div>
+                                                <h2 class="mb-1 display-3">Pink Color Sneakers</h2>
+                                                <p class="mb-4">Latest arrived in Sneakers collection </p>
+                                                <a href="#!" class="btn btn-primary hover-lift">shop now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/07.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/08.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+
+                                            <!--Product Label-->
+                                            <span
+                                                class="badge rounded-pill bg-danger position-absolute start-0 top-0 mt-4 ms-4">-20%</span>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-4">
+                                    <!--:card-hover-expand-->
+                                    <div
+                                        class="card hover-shadow-lg overflow-hidden hover-lift-lg card-product border-0">
+                                        <div
+                                            class="card-product-header px-5 p-4 d-block overflow-hidden position-relative">
+                                            <a href="#!">
+                                                <img src="assets/img/shop/category/09.jpg" class="img-fluid"
+                                                    alt="Product">
+                                            </a>
+                                        </div>
+                                        <div class="card-product-body px-4 pb-4 text-center">
+                                            <a href="#!" class="h5 text-dark d-block position-relative mb-2">Product Title</a>
+                                            <div class="card-product-body-ovelray">
+                                                <span class="card-product-price">
+                                                    <span>$149</span> <del class="text-muted">$199</del>
+                                                </span>
+                                                <span class="card-product-view-btn">
+                                                    <a href="#!" class="link-underline mb-1 fw-semibold text-dark">View
+                                                        Details</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--:/card product end-->
+                                </div>
+                            </div>
+                            <div class="d-grid d-sm-flex justify-content-sm-center">
+                                <a href="#" class="btn btn-dark btn-lg btn-hover-text mb-2 me-2">
+                                    <span class="btn-hover-label label-default">Load more</span>
+                                    <span class="btn-hover-label label-hover">Load more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="border-top position-relative overflow-hidden">
+                <div class="container py-9 py-lg-11 position-relative">
+                  <div class="row align-items-center">
+                    <div class="col-md-4 border-end-md border-light text-center mb-7 mb-md-0">
+                        <div class="mb-3">
+                            <i class="bx bx-store fs-1"></i>
+                        </div>
+                        <h6 class="mb-0">30 Day Returns</h6>
+                    </div>
+                    <div class="col-md-4 border-end-md border-light text-center mb-7 mb-md-0">
+                        <div class="mb-3">
+                            <i class="bx bx-purchase-tag fs-1"></i>
+                        </div>
+                        <h6 class="mb-0">100% Handpicked</h6>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="mb-3">
+                            <i class="bx bx-package fs-1"></i>
+                        </div>
+                        <h6 class="mb-0">Assured Quality</h6>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+        </main>
+        <footer class="position-relative bg-dark text-white overflow-hidden">
+            <div class="container pt-9 pt-lg-11 pb-6 position-relative">
+                <div class="row">
+                    <div class="col-6 col-lg-3 col-xl-2 order-lg-2 ms-lg-auto mb-6">
+                        <h6 class="mb-4">Account</h6>
+                        <!-- nav -->
+                        <ul class="nav flex-column mb-0">
+                            <li class="nav-item"><a class="nav-link" href="#!">Placing an order</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Shipping</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Track order</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Orders</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Assan Pay</a></li>
+                        </ul>
+                        <!-- /.nav -->
+                    </div>
+
+                    <div class="col-6 col-lg-3 col-xl-2 order-lg-3 ms-lg-auto mb-6">
+                        <h6 class="mb-4">Company</h6>
+
+                        <ul class="nav flex-column mb-0">
+                            <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Become a seller</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">News &amp; Media</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                            <li class="nav-item d-flex justify-content-between align-items-center">
+                                <a class="nav-link" href="#!">Help center
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.nav -->
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 col-xl-2 ms-lg-auto order-lg-4 mb-6">
+                        <h6 class="mb-4">Top Brands</h6>
+                        <ul class="nav flex-column mb-0">
+                            <li class="nav-item"><a class="nav-link" href="#!">Wrangler</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Us polo Assn.</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Puma</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Levis</a></li>
+                            <li class="nav-item d-flex justify-content-between align-items-center">
+                                <a class="nav-link" href="#!">Flying Machine
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 order-lg-1 mb-6">
+                        <div class="d-flex align-items-md-stretch flex-column h-100">
+                            <div class="flex-grow-1 d-flex flex-column">
+                                <small class="d-block mb-3">
+                                    745K Followers
+                                </small>
+                                <div class="mb-4">
+                                    <a href="#!" class="btn btn-outline-white btn-rise">
+                                        <div class="btn-rise-bg bg-white"></div>
+                                        <div class="btn-rise-text">
+                                            <i class="bx bxl-instagram me-2 align-middle"></i> Follow us on Instagram
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Copyright -->
+                            <p class="small text-muted mb-0">© Assan. by Creative DM</p>
+                            <!-- End Copyright -->
+                        </div>
+                    </div>
+                </div>
+                <hr class="bg-transparent border-top border-white opacity-25 mb-6 mt-0">
+                <div class="row align-items-md-center">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <!--:payment options-->
+                        <div class="d-flex justify-content-start">
+
+                            <div class="d-block me-2 my-1">
+                                <img src="assets/img/payment/american_express.svg" alt="">
+                            </div>
+                            <div class="d-block me-2 my-1">
+                                <img src="assets/img/payment/paypal.svg" alt="paypal">
+                            </div>
+                            <div class="d-block me-2 my-1">
+                                <img src="assets/img/payment/rupay.svg" alt="rupay">
+                            </div>
+                            <div class="d-block my-1">
+                                <img src="assets/img/payment/visa.svg" alt="visa">
+                            </div>
+                        </div>
+                        <!--:/payment options-->
+                    </div>
+
+                    <div class="col-md-2 col-xl-4 mb-3 mb-md-0">
+                        <!-- Links -->
+                        <ul class="list-inline small mb-0">
+                            <li class="list-inline-item me-3">
+                                <a class="d-block" href="#!">
+                                    <i class="bx bxl-facebook fs-4"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                                <a class="d-block" href="#!">
+                                    <i class="bx bxl-twitter fs-4"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="d-block" href="#!">
+                                    <i class="bx bxl-linkedin fs-4"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- End Links -->
+                    </div>
+
+
+                    <div class="col-md-6 col-xl-4 text-md-end">
+                        <!-- Links -->
+                        <ul class="list-inline small mb-0">
+                            <li class="list-inline-item me-3">
+                                <a class="d-block" href="#!">Privacy &amp; Policy</a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                                <a class="d-block" href="#!">Terms &amp; Conditions</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="d-block" href="#!">Careers</a>
+                            </li>
+                        </ul>
+                        <!-- End Links -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--./footer-->
+
+        <!-- :Back to top -->
+        <a href="#top"
+            class="position-fixed toTop d-none d-sm-flex btn btn-light rounded-circle p-0 flex-center width-4x height-4x z-index-fixed end-0 bottom-0 mb-3 me-3">
+            <i class="bx bxs-up-arrow align-middle lh-1"></i>
+        </a>
+
+
+        <!--cursor-->
+        <div class="cursor">
+            <div class="cursor__inner"></div>
+        </div>
+
+         <!-- scripts -->
+         <script src="assets/js/theme.bundle.js"></script>
+         <script src="assets/vendor/node_modules/js/gsap.min.js"></script>
+         <script>
+            //cursor
+                    //cursor
+                    var element = document.querySelector('.cursor');
+
+                    // Track the mouse position
+                    let mouse = { x: 0, y: 0 };
+                    window.addEventListener('mousemove', ev => mouse = getMousePos(ev));
+
+                    // Linear interpolation
+                    const lerp = (a, b, n) => (1 - n) * a + n * b;
+
+                    // Gets the mouse position
+                    const getMousePos = e => {
+                        return {
+                            x: e.clientX,
+                            y: e.clientY
+                        };
+                    };
+
+                    class Cursor {
+                        constructor(el) {
+                            this.DOM = { el: el };
+                            this.DOM.el.style.opacity = 0;
+
+                            this.bounds = this.DOM.el.getBoundingClientRect();
+
+                            this.renderedStyles = {
+                                tx: { previous: 0, current: 0, amt: 0.2 },
+                                ty: { previous: 0, current: 0, amt: 0.2 },
+                                scale: { previous: 1, current: 1, amt: 0.2 },
+                                opacity: { previous: 1, current: 1, amt: 0.2 }
+                            };
+
+                            this.onMouseMoveEv = () => {
+                                this.renderedStyles.tx.previous = this.renderedStyles.tx.current = mouse.x - this.bounds.width / 2;
+                                this.renderedStyles.ty.previous = this.renderedStyles.ty.previous = mouse.y - this.bounds.height / 2;
+                                gsap.to(this.DOM.el, { duration: 0.9, ease: 'Power3.easeOut', opacity: 1 });
+                                requestAnimationFrame(() => this.render());
+                                window.removeEventListener('mousemove', this.onMouseMoveEv);
+                            };
+                            window.addEventListener('mousemove', this.onMouseMoveEv);
+                        }
+                        enter() {
+                            //this.renderedStyles['scale'].current = 4;
+                            element.classList.add('cHover');
+                            //this.renderedStyles['opacity'].current = 0.5;
+                        }
+                        leave() {
+                            this.renderedStyles['scale'].current = 1;
+                            this.renderedStyles['opacity'].current = 1;
+                            element.classList.remove('cHover');
+                        }
+                        render() {
+                            this.renderedStyles['tx'].current = mouse.x - this.bounds.width / 2;
+                            this.renderedStyles['ty'].current = mouse.y - this.bounds.height / 2;
+
+                            for (const key in this.renderedStyles) {
+                                this.renderedStyles[key].previous = lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].amt);
+                            }
+
+                            this.DOM.el.style.transform = `translateX(${(this.renderedStyles['tx'].previous)}px) translateY(${this.renderedStyles['ty'].previous}px) scale(${this.renderedStyles['scale'].previous})`;
+                            this.DOM.el.style.opacity = this.renderedStyles['opacity'].previous;
+
+                            requestAnimationFrame(() => this.render());
+                        }
+                    }
+
+
+                    const cursor = new Cursor(document.querySelector('.cursor'));
+
+                    [...document.querySelectorAll('a,.btn,.swiper-button-prev,.swiper-button-next,button,.form-control')].forEach(link => {
+                        link.addEventListener('mouseenter', () => cursor.enter());
+                        link.addEventListener('mouseleave', () => cursor.leave());
+                    });
+         </script>
+
+        <!--Select scripts-->
+        <script src="assets/vendor/node_modules/js/choices.min.js"></script>
+        <script>
+            var el = document.querySelectorAll("[data-choices]");
+            el.forEach(e => {
+                const t = {
+                    ...e.dataset.choices ? JSON.parse(e.dataset.choices) : {}, ...{
+                        classNames: {
+                            containerInner: e.className,
+                            input: "form-control",
+                            inputCloned: "form-control-xs",
+                            listDropdown: "dropdown-menu",
+                            itemChoice: "dropdown-item",
+                            activeState: "show",
+                            selectedState: "active"
+                        }
+                    }
+                }
+                new Choices(e, t)
+            }
+            );
+        </script>
+        <script src="assets/vendor/node_modules/js/simplebar.min.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--Header Start-->
+        <header class="z-index-fixed header-transparent header-absolute-top sticky-reverse">
+            <nav class="navbar navbar-expand-lg navbar-light navbar-link-white">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+                        <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid navbar-brand-transparent">
+                    </a>
+
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 me-lg-0">
+                            <a href="#" class="btn btn-success btn-sm rounded-pill">Purchase</a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        @@include('./partials/headers/default-navbar-items.html',{"page": "portfolio"})
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Main content-->
+        <main>
+            <section id="page-header" class="position-relative bg-dark text-white overflow-hidden">
+                <div class="container pt-11 pb-9">
+                    <div class="row pt-lg-7">
+                        <div class="col-lg-7">
+                            <ol class="breadcrumb mb-3">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Portfolio</li>
+                                <li class="breadcrumb-item active" aria-current="page">grid full-width 4 columns</li>
+                            </ol>
+                            <h1 class="mb-0 display-3">Selected works</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--/.Page-header-->
+
+            <section class="position-relative hr-linear-bottom bg-white">
+                <div class="container pt-9 pt-lg-11">
+                    <!-- Nav -->
+                    <ul class="mb-5 nav px-3 d-inline-flex align-items-center justify-content-end mb-0">
+                        <li class="nav-item small text-muted d-flex me-2 me-md-4 d-none d-md-block">Filter by:</li>
+                        <li class="nav-item">
+                            <a class="nav-link px-0 mx-2 mx-lg-3 active" href="#" data-bs-toggle="pill" data-filter="*"
+                                data-bs-target="#projects">
+                                All
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-0 mx-2 mx-lg-3" href="#" data-bs-toggle="pill" data-filter=".design"
+                                data-bs-target="#design">
+                                Design
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-0 mx-2 mx-lg-3" href="#" data-bs-toggle="pill"
+                                data-filter=".development" data-bs-target="#development">
+                                Development
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-0 mx-2 mx-lg-3" href="#" data-bs-toggle="pill" data-filter=".motion"
+                                data-bs-target="#motion">
+                                Motion
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container-fluid px-0 position-relative z-index-1">
+                    <div id="projects" data-isotope='{"layoutMode": "masonry"}' class="row g-0">
+
+                        <div class="col-md-6 col-xl-3 development grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/3.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 motion grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/2.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 motion grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/1.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 design development grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/4.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 motion grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/5.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 design grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/6.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 development grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/7.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 design grid-item">
+                            <a href="#!" class="card-over card-split-hover d-block card-hover overflow-hidden">
+                                <img src="assets/img/projects/8.jpg" alt="" class="img-fluid img-zoom">
+                                <div class="card-overlay p-4 p-lg-5 d-flex align-items-end text-white">
+                                    <ul class="list-unstyled overlay-items">
+                                        <li>
+                                            <h5 class="mb-2 fs-4 splitting-up" data-splitting>Awesome title</h5>
+                                        </li>
+                                        <li><span class="splitting-up" data-splitting>Awesome Subtitle</span></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--/section-->
+
+            <section class="bg-shade-primary text-white position-relative px-3 py-9 py-lg-11 jarallax"
+                data-jarallax=".2">
+                <img src="assets/img/backgrounds/bg3.jpg" alt="" class="jarallax-img opacity-25">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8 col-xl-7">
+                            <h2 class="display-4 mb-4">Build stunning website faster than ever</h2>
+                            <p class="lead mb-0">Your business deserve a stunning website. </p>
+                        </div>
+                        <div class="col-lg-4 ms-lg-auto text-lg-end">
+                            <a class="btn btn-outline-white rounded-pill btn-hover-arrow" href="#"><span>Purchase
+                                    Now</span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- / .End container -->
+            </section>
+            <!--/.End section-->
+        </main>
+
+     
+        @@include('./partials/footers/footer-4.html')
+
+
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+
+         <!--Page script-->
+         <script src="assets/vendor/node_modules/js/splitting.min.js"></script>
+         <script>
+             Splitting();
+         </script>
+    </body>
+
+</html>

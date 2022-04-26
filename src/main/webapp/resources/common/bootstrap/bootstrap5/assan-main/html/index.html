@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+
+    @@include('./partials/head-includes.html')
+
+    <!--Master slider-->
+    <link rel="stylesheet" href="assets/vendor/masterslider/style/masterslider.css">
+    <link rel="stylesheet" href="assets/vendor/masterslider/skins/black-1/style.css">
+
+    <!--Swiper slider-->
+    <link rel="stylesheet" href="assets/vendor/node_modules/css/swiper-bundle.min.css">
+
+
+    <!-- Main CSS -->
+    <link href="assets/css/theme.min.css" rel="stylesheet">
+
+    <title>Assan 4</title>
+  </head>
+
+  <body>
+    @@include('./partials/preloader.html')
+    <!--Header Start-->
+    <header class="header-transparent sticky-fixed">
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-link-white">
+        <!--Navbar-fixed-background-->
+        <div class="navbar-fixed-bg position-absolute"></div>
+        <div class="container position-relative z-index-1">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+            <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid navbar-brand-transparent">
+          </a>
+          <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+            <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <i></i>
+              </span>
+            </button>
+            <div class="nav-item me-3 ms-lg-2 me-lg-0">
+              <a href="#" class="btn btn-success btn-sm">Purchase</a>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="mainNavbarTheme">
+            @@include('./partials/headers/default-navbar-items.html',{"page": "home"})
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <!--Main content-->
+    <main>
+      <!--page-hero-master-slider-->
+      <section class="position-relative overflow-hidden">
+        <div class="ms-skin-black-1 master-slider" id="masterslider">
+          <!--slide-1-->
+          <div class="ms-slide bg-dark" data-delay="3" data-fill-mode="fill">
+            <img class="opacity-25" src="assets/vendor/masterslider/style/blank.gif" alt="" title=""
+              data-src="assets/img/backgrounds/bg6.jpg" />
+
+            <!--Layer-->
+            <div class="ms-layer ms-title text-white" data-effect="front(800)" data-duration="1200"
+              data-delay="600" data-ease="easeInOutCubic" data-hide-effect="top(long,false)" data-offset-x="0"
+              data-offset-y="-60" data-origin="mc" data-position="center" data-masked="false">
+              <div class="text-center">
+                Create a website <br>you proud of</div>
+            </div>
+
+
+
+            <!--Layer-->
+            <a href="#" class="ms-layer ms-btn" data-effect="front(800)" data-duration="1200" data-delay="800"
+              data-ease="easeInOutCubic" data-hide-effect="top(long,false)" data-offset-x="0" data-offset-y="130"
+              data-origin="mc" data-position="center" data-masked="false"><span
+                class="btn btn-lg btn-primary btn-sm">Get Started</span>
+            </a>
+          </div>
+          <!--slide-2-->
+          <div class="ms-slide bg-dark" data-delay="3" data-fill-mode="fill">
+            <!--bg-->
+            <img class="opacity-25" src="assets/vendor/masterslider/style/blank.gif" alt="" title=""
+              data-src="assets/img/backgrounds/bg7.jpg" />
+
+            <!--Layer-->
+            <div class="ms-layer ms-title text-center text-white" data-effect="skewbottom(-10,150)"
+              data-duration="1000" data-delay="600" data-ease="easeInOutCubic" data-hide-effect="top(long,false)"
+              data-offset-x="0" data-offset-y="-60" data-origin="mc" data-position="center" data-masked="false">
+              <div>Ultimate solutions<br> for your website</div>
+            </div>
+            <!--Layer-->
+            <a href="#" class="ms-layer ms-btn" data-effect="skewbottom(-10,150)" data-duration="1000" data-delay="900"
+              data-ease="easeInOutCubic" data-hide-effect="top(long,false)" data-offset-x="0" data-offset-y="130"
+              data-origin="mc" data-position="center" data-masked="false">
+              <span class="btn btn-lg btn-primary btn-sm">Get
+                Started</span>
+            </a>
+          </div>
+          <!--slide-3-->
+          <div class="ms-slide bg-dark" data-delay="3" data-fill-mode="fill">
+            <!--bg-->
+            <img class="opacity-25" src="assets/vendor/masterslider/style/blank.gif" alt="" title=""
+              data-src="assets/img/backgrounds/bg5.jpg" />
+            <!--Layer-->
+            <div class="ms-layer text-center ms-title text-white" data-effect="skewleft(23,500)"
+              data-duration="1000" data-delay="900" data-ease="easeInOutSine" data-hide-effect="top(long,false)"
+              data-offset-x="0" data-offset-y="-60" data-origin="mc" data-position="center" data-masked="false">
+              <div>A responsive theme<br> built for success</div>
+            </div>
+
+            <!--Layer-->
+            <a href="#" class="ms-layer ms-btn" data-effect="skewleft(23,500)" data-duration="1000" data-delay="1200"
+              data-ease="easeInOutSine" data-hide-effect="top(long,false)" data-offset-x="0" data-offset-y="130"
+              data-origin="mc" data-position="center" data-masked="false"><span
+                class="btn btn-lg btn-primary btn-sm">Get Started</span>
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+
+
+      <section class="position-relative" id="next">
+        <div class="container py-9 py-lg-11">
+          <div class="row mb-7 mb-lg-11 justify-content-between align-items-end">
+            <div class="col-lg-10 col-xl-8 mx-auto text-center">
+
+               <!--Subheading-->
+               <div class="mb-3" data-aos="fade-up">
+                <span class="h6 text-muted">Welcome to the Assan</span>
+              </div>
+              <!--Section Heading-->
+              <h2 class="display-4 mb-0" data-aos="fade-up">Reimagine your product with forward-thinking solutions
+              </h2>
+            </div>
+          </div>
+          <div class="row justify-content-around">
+            <!--Feature column-->
+            <div class="col-12 col-md-6 col-xl-3 mb-7 mb-xl-0" data-aos="fade-up" data-aos-delay="100">
+              <div class="text-center">
+                <div
+                  class="mb-4 position-relative display-3 fw-normal text-primary">
+                  <i class="icon-Repeat-2 position-relative"></i>
+                </div>
+                <h5 class="mb-3">Reusable elements</h5>
+                <p class="mb-3 px-lg-2">
+                  Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                  industries for layouts and visual mockups.
+                </p>
+                <a href="#!" class="link-hover-underline small text-muted fw-semibold">
+                  Learn More<i class="bx bx-right-arrow-alt align-middle ms-1 lh-1 fs-5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!--Feature column-->
+            <div class="col-12 col-md-6 col-xl-3 mb-7 mb-xl-0" data-aos="fade-up" data-aos-delay="150">
+              <div class="text-center">
+                <div
+                  class="mb-4 position-relative display-3 fw-normal text-primary">
+                  <i class="icon-Light-Bulb position-relative"></i>
+                </div>
+                <h5 class="mb-3">Design & innovation</h5>
+                <p class="mb-3 px-lg-2">
+                  Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                  industries for layouts and visual mockups.
+                </p>
+                <a href="#!" class="link-hover-underline small text-muted fw-semibold">
+                  Learn More<i class="bx bx-right-arrow-alt align-middle ms-1 lh-1 fs-5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!--Feature column-->
+            <div class="col-12 col-md-6 col-xl-3 mb-7 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+              <div class="text-center">
+                <div
+                  class="mb-4 position-relative display-3 fw-normal text-primary">
+                  <i class="icon-Thumbs-UpSmiley position-relative"></i>
+                </div>
+                <h5 class="mb-3">Best selling</h5>
+                <p class="mb-3 px-lg-2">
+                  Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                  industries for layouts and visual mockups.
+                </p>
+                <a href="#!" class="link-hover-underline small text-muted fw-semibold">
+                  Learn More<i class="bx bx-right-arrow-alt align-middle ms-1 lh-1 fs-5"></i>
+                </a>
+              </div>
+            </div>
+            <!--Feature column-->
+            <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="250">
+              <div class="text-center">
+                <div
+                  class="mb-4 position-relative display-3 fw-normal text-primary">
+                  <i class="icon-Duplicate-Window position-relative"></i>
+                </div>
+                <h5 class="mb-3">Modern & organized</h5>
+                <p class="mb-3 px-lg-2">
+                  Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                  industries for layouts and visual mockups.
+                </p>
+                <a href="#!" class="link-hover-underline small text-muted fw-semibold">
+                  Learn More<i class="bx bx-right-arrow-alt align-middle ms-1 lh-1 fs-5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="position-relative overflow-hidden">
+        <div class="container py-9 py-lg-11 position-relative z-index-1">
+          <div class="row align-items-center justify-content-between">
+            <div class="order-last col-lg-5">
+
+               <!--Subheading-->
+               <div class="mb-3" data-aos="fade-up">
+                <span class="h6 text-muted">Why choose us?</span>
+              </div>
+              <!--Section Heading-->
+              <h2 class="mb-7 display-4 position-relative z-index-1" data-aos="fade-right">Designed for developers
+              </h2>
+              <div class="position-relative z-index-1">
+                <!--Feature icon card-->
+                <div class="d-flex mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="150">
+                  <!--Feature icon-->
+                  <div class="me-4">
+                     <!--Icon-->
+                     <i class="bx bx-check lh-1 width-2x height-2x flex-center rounded-circle bg-light text-primary position-relative fs-4"></i>
+                  </div>
+                  <!--Feature text-->
+                  <div>
+                    <h5>
+                      500+ Reusable components
+                    </h5>
+                    <p class="mb-0">
+                      Purus faucibus pulvinar elementum nulla pharetra diam sit
+                      amet.
+                    </p>
+                  </div>
+                </div>
+                <!--Feature icon card-->
+                <div class="d-flex mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="200">
+                  <!--Feature icon-->
+                  <div class="me-4">
+                    <!--Icon-->
+                    <i class="bx bx-check lh-1 width-2x height-2x flex-center rounded-circle bg-light text-primary position-relative fs-4"></i>
+                  
+                 </div>
+
+                  <!--Feature text-->
+                  <div>
+                    <h5>
+                      Beautifully designed layouts
+                    </h5>
+                    <p class="mb-0">
+                      Viverra accumsan mauris rhoncus aenean vel elit
+                      scelerisque mauris.
+                    </p>
+                  </div>
+                </div>
+                <!--Feature icon card-->
+                <div class="d-flex" data-aos="fade-up" data-aos-delay="250">
+                  <!--Feature icon-->
+                  <div class="me-4">
+                    <!--Icon-->
+                    <i class="bx bx-check lh-1 width-2x height-2x flex-center rounded-circle bg-light text-primary position-relative fs-4"></i>
+                  
+                 </div>
+
+                  <!--Feature text-->
+                  <div>
+                    <h5>
+                      Clean & well coded
+                    </h5>
+                    <p class="mb-0">
+                      Leo vel fringilla nulla etiam. Eget lorem dolor
+                      sed viverra ipsum.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-5" data-aos="fade-up" data-aos-delay="250">
+                <a href="#!" class="btn btn-primary btn-lg btn-hover-arrow hover-lift">
+                 <span>Learn more</span>
+                </a>
+              </div>
+
+            </div>
+            <div class="col-lg-6 col-md-10 me-lg-auto order-1 mb-7 mb-lg-0">
+              <div class="position-relative" data-aos="fade-left" data-aos-delay="150">
+                <div class="bg-warning position-absolute start-0 bottom-0 w-80 h-75 rounded-top-start-block"></div>
+       
+                <img src="assets/img/backgrounds/trans1.png" alt="" class="img-fluid position-relative">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="position-relative overflow-hidden" data-aos="fade" data-aos-once="false" data-aos-offset="200">
+        <div class="position-absolute start-0 top-0 w-100 h-100 h-lg-60 bg-secondary"></div>
+        <div class="container position-relative z-index-1 pt-9 pt-lg-11">
+          <div class="row mb-5 mb-lg-7 justify-content-center align-items-end">
+            <div class="col-lg-7 text-white mb-5 mb-lg-0">
+              <!--Subheading-->
+              <div class="mb-3">
+                <span class="h6 text-muted">Case studies</span>
+              </div>
+              <!--Section Heading-->
+              <h2 class="mb-0 display-4">Our work speaks for itself</h2>
+            </div>
+            <div class="col-12 col-lg-auto text-lg-end ms-auto">
+             
+              <!-- Swiper Navigation buttons (Remove it or Keep it) -->
+              <div class="position-relative d-flex justify-content-lg-end align-items-center">
+                <!--Buttons navigation-->
+                <div
+                  class="swiperProjects-button-prev swiper-button-prev mt-0 position-relative start-0 rounded-circle me-2 text-white bg-transparent border border-white">
+                </div>
+                <div
+                  class="swiperProjects-button-next swiper-button-next mt-0 position-relative mx-0 end-0 rounded-circle text-white bg-transparent border border-white">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container pb-9 pb-lg-11">
+          <div class="row">
+            <div class="col-12 position-relative">
+
+              <!--Projects swiper slider-->
+              <div class="swiper-container swiper-projects overflow-visible">
+                <div class="swiper-wrapper">
+
+                  <!--Swiper-slide-->
+                  <div class="swiper-slide">
+                    <a href="#!" class="card-over d-block card-hover overflow-hidden">
+                      <img src="assets/img/projects/1.jpg" alt="" class="img-fluid img-zoom">
+                      <div class="card-overlay p-4 d-flex align-items-end text-white">
+                        <ul class="list-unstyled overlay-items">
+                          <li>
+                            <h4 class="mb-1">Awesome title</h4>
+                          </li>
+                          <li><span class="opacity-75">Awesome Subtitle</span></li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!--Swiper-slide-->
+                  <div class="swiper-slide">
+                    <a href="#!" class="card-over d-block card-hover overflow-hidden">
+                      <img src="assets/img/projects/2.jpg" alt="" class="img-fluid img-zoom">
+                      <div class="card-overlay p-4 d-flex align-items-end text-white">
+                        <ul class="list-unstyled overlay-items">
+                          <li>
+                            <h4 class="mb-1">Awesome title</h4>
+                          </li>
+                          <li><span class="opacity-75">Awesome Subtitle</span></li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!--Swiper-slide-->
+                  <div class="swiper-slide">
+                    <a href="#!" class="card-over d-block card-hover overflow-hidden">
+                      <img src="assets/img/projects/3.jpg" alt="" class="img-fluid img-zoom">
+                      <div class="card-overlay p-4 d-flex align-items-end text-white">
+                        <ul class="list-unstyled overlay-items">
+                          <li>
+                            <h4 class="mb-1">Awesome title</h4>
+                          </li>
+                          <li><span class="opacity-75">Awesome Subtitle</span></li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!--Swiper-slide-->
+                  <div class="swiper-slide">
+                    <a href="#!" class="card-over d-block card-hover overflow-hidden">
+                      <img src="assets/img/projects/4.jpg" alt="" class="img-fluid img-zoom">
+                      <div class="card-overlay p-4 d-flex align-items-end text-white">
+                        <ul class="list-unstyled overlay-items">
+                          <li>
+                            <h4 class="mb-1">Awesome title</h4>
+                          </li>
+                          <li><span class="opacity-75">Awesome Subtitle</span></li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!--Swiper-slide-->
+                  <div class="swiper-slide">
+                    <a href="#!" class="card-over d-block card-hover overflow-hidden">
+                      <img src="assets/img/projects/5.jpg" alt="" class="img-fluid img-zoom">
+                      <div class="card-overlay p-4 d-flex align-items-end text-white">
+                        <ul class="list-unstyled overlay-items">
+                          <li>
+                            <h4 class="mb-1">Awesome title</h4>
+                          </li>
+                          <li><span class="opacity-75">Awesome Subtitle</span></li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!--Swiper-slide-->
+                  <div class="swiper-slide">
+                    <a href="#!" class="card-over d-block card-hover overflow-hidden">
+                      <img src="assets/img/projects/7.jpg" alt="" class="img-fluid img-zoom">
+                      <div class="card-overlay p-4 d-flex align-items-end text-white">
+                        <ul class="list-unstyled overlay-items">
+                          <li>
+                            <h4 class="mb-1">Awesome title</h4>
+                          </li>
+                          <li><span class="opacity-75">Awesome Subtitle</span></li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="text-center pt-9">
+                  <a href="#!" class="btn btn-light hover-lift">
+                    View all case studies
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="position-relative overflow-hidden bg-shade-primary">
+        <!--Divider wave shape-->
+        <svg class="position-absolute start-0 bottom-0 w-100 text-white" preserveAspectRatio="none" width="100%"
+          height="288" viewBox="0 0 1200 288" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M0 0L67 30C133 60 267 120 400 138C533 156 667 132 800 126C933 120 1067 132 1133 138L1200 144V288H1133C1067 288 933 288 800 288C667 288 533 288 400 288C267 288 133 288 67 288H0V0Z"
+            fill="currentColor" />
+        </svg>
+
+        <div class="container position-relative z-index-1 py-9 py-lg-11">
+          <div class="row mb-7 align-items-end justify-content-between">
+            <div class="col-lg-7 text-white mb-4 mb-lg-0">
+              <!--Subheading-->
+              <div class="mb-3" data-aos="fade-up">
+                <span class="h6 text-muted">Testimonials</span>
+              </div>
+              <h2 class="mb-2 display-4" data-aos="fade-right">What our clients say</h2>
+            </div>
+            <div class="col-12 col-lg-3 text-lg-end" data-aos="fade-left" data-aos-delay="150">
+              <a href="#!" class="btn btn-outline-white btn-hover-arrow hover-lift">
+               <span>Customer stories</span>
+              </a>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 position-relative">
+              <div class="swiper-container overflow-hidden swiper-testimonials shadow-lg">
+                <div class="swiper-wrapper">
+                  <!--Testimonial slide-->
+                  <div class="swiper-slide">
+                    <div class="d-flex align-items-center flex-column bg-white overflow-hidden flex-lg-row">
+                      <div class="col-lg-6 px-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                          <!--testimonial Image-->
+                          <img src="assets/img/960x900/2.jpg" class="img-fluid" alt="">
+
+                          <!--Testimonial image divider-->
+                          <svg class="position-absolute d-none d-lg-block end-0 top-0 h-100 me-n1"
+                            preserveAspectRatio="none" width="58" height="583" viewBox="0 0 58 583" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 583L9.66667 534.417C19.3333 485.833 38.6667 388.667 39.7407 291.5C40.8148 194.333 23.6296 97.1667 15.037 48.5833L6.44444 -1.62125e-05H58V48.5833C58 97.1667 58 194.333 58 291.5C58 388.667 58 485.833 58 534.417V583H0Z"
+                              fill="white" />
+                          </svg>
+
+                          <!--Testimonial image small device divider-->
+                          <svg class="position-absolute bottom-0 start-0 mb-n1 d-lg-none" width="100%" height="48"
+                            preserveAspectRatio="none" viewBox="0 0 1200 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 0L100 10.6667C200 21.3333 400 42.6667 600 43.8519C800 45.037 1000 26.0741 1100 16.5926L1200 7.11111V64H1100C1000 64 800 64 600 64C400 64 200 64 100 64H0L0 0Z"
+                              fill="white" />
+                          </svg>
+
+                        </div>
+                      </div>
+                      <div class="col-lg-6 mx-auto px-0">
+                        <blockquote class="blockquote text-center mb-0 px-4 py-5 py-lg-7">
+                          <!--Testimonial Comapny Logo -->
+                          <div class="width-10x mb-3 mb-lg-4 h-auto mx-auto" style="color: #FF5A5F;">
+                            <img src="assets/img/partners/booking.com.svg" alt="">
+                          </div>
+                          <!-- Text -->
+                          <p class="mb-5 fs-4 w-lg-80 mx-auto">
+                            “ It is really refreshing to work with this bootstrap theme
+                            which is truly helpful in the development of one of my client’s
+                            website.”
+                          </p>
+
+                          <!-- Footer -->
+                          <footer class="blockquote-footer pb-4 pb-lg-0">
+                            <span class="h6">Nikita Millton</span>
+                          </footer>
+
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Testimonial slide-->
+                  <div class="swiper-slide">
+                    <div class="d-flex align-items-center flex-column bg-white overflow-hidden flex-lg-row">
+                      <div class="col-lg-6 px-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                          <!--testimonial Image-->
+                          <img src="assets/img/960x900/3.jpg" class="img-fluid" alt="">
+
+                          <!--Testimonial image divider-->
+                          <svg class="position-absolute d-none d-lg-block end-0 top-0 h-100 me-n1"
+                            preserveAspectRatio="none" width="58" height="583" viewBox="0 0 58 583" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 583L9.66667 534.417C19.3333 485.833 38.6667 388.667 39.7407 291.5C40.8148 194.333 23.6296 97.1667 15.037 48.5833L6.44444 -1.62125e-05H58V48.5833C58 97.1667 58 194.333 58 291.5C58 388.667 58 485.833 58 534.417V583H0Z"
+                              fill="white" />
+                          </svg>
+
+                          <!--Testimonial image small device divider-->
+                          <svg class="position-absolute bottom-0 start-0 mb-n1 d-lg-none" width="100%" height="48"
+                            preserveAspectRatio="none" viewBox="0 0 1200 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 0L100 10.6667C200 21.3333 400 42.6667 600 43.8519C800 45.037 1000 26.0741 1100 16.5926L1200 7.11111V64H1100C1000 64 800 64 600 64C400 64 200 64 100 64H0L0 0Z"
+                              fill="white" />
+                          </svg>
+
+                        </div>
+                      </div>
+                      <div class="col-lg-6 mx-auto px-0">
+                        <blockquote class="blockquote text-center mb-0 px-4 py-5 py-lg-7">
+                          <!--Testimonial Comapny Logo -->
+                          <div class="width-10x mb-3 mb-lg-4 h-auto mx-auto" style="color: #FF5A5F;">
+                            <img src="assets/img/partners/expedia.svg" alt="">
+                          </div>
+                          <!-- Text -->
+                          <p class="mb-5 fs-4 w-lg-80 mx-auto">
+                            “ It is really refreshing to work with this bootstrap theme
+                            which is truly helpful in the development of one of my client’s
+                            website.”
+                          </p>
+
+                          <!-- Footer -->
+                          <footer class="blockquote-footer pb-4 pb-lg-0">
+                            <span class="h6">Maria Shaparenko</span>
+                          </footer>
+
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Testimonial slide-->
+                  <div class="swiper-slide">
+                    <div class="d-flex align-items-center flex-column bg-white overflow-hidden flex-lg-row">
+                      <div class="col-lg-6 px-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                          <!--testimonial Image-->
+                          <img src="assets/img/960x900/4.jpg" class="img-fluid" alt="">
+
+                          <!--Testimonial image divider-->
+                          <svg class="position-absolute d-none d-lg-block end-0 top-0 h-100 me-n1"
+                            preserveAspectRatio="none" width="58" height="583" viewBox="0 0 58 583" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 583L9.66667 534.417C19.3333 485.833 38.6667 388.667 39.7407 291.5C40.8148 194.333 23.6296 97.1667 15.037 48.5833L6.44444 -1.62125e-05H58V48.5833C58 97.1667 58 194.333 58 291.5C58 388.667 58 485.833 58 534.417V583H0Z"
+                              fill="white" />
+                          </svg>
+
+                          <!--Testimonial image small device divider-->
+                          <svg class="position-absolute bottom-0 start-0 mb-n1 d-lg-none" width="100%" height="48"
+                            preserveAspectRatio="none" viewBox="0 0 1200 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 0L100 10.6667C200 21.3333 400 42.6667 600 43.8519C800 45.037 1000 26.0741 1100 16.5926L1200 7.11111V64H1100C1000 64 800 64 600 64C400 64 200 64 100 64H0L0 0Z"
+                              fill="white" />
+                          </svg>
+
+                        </div>
+                      </div>
+                      <div class="col-lg-6 mx-auto px-0">
+                        <blockquote class="blockquote text-center mb-0 px-4 py-5 py-lg-7">
+                          <!--Testimonial Comapny Logo -->
+                          <div class="width-10x mb-3 mb-lg-4 h-auto mx-auto" style="color: #FF5A5F;">
+                            <img src="assets/img/partners/deliveroo.svg" alt="">
+                          </div>
+                          <!-- Text -->
+                          <p class="mb-5 fs-4 w-lg-80 mx-auto">
+                            “ It is really refreshing to work with this bootstrap theme
+                            which is truly helpful in the development of one of my client’s
+                            website.”
+                          </p>
+
+                          <!-- Footer -->
+                          <footer class="blockquote-footer pb-4 pb-lg-0">
+                            <span class="h6">Duván Zapata</span>
+                          </footer>
+
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Swiper buttons-->
+
+              <div
+                class="swiperAuto-button-next swiper-button-next me-1 me-sm-0 end-0 width-3x height-3x rounded-pill z-index-3 bg-white shadow text-dark">
+              </div>
+              <div class="swiperAuto-button-prev swiper-button-prev ms-1 ms-sm-0 start-0 width-3x height-3x rounded-pill bg-white shadow text-dark">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="position-relative bg-white overflow-hidden">
+        <div class="container py-9 py-lg-11 position-relative">
+          <div class="row mb-7 align-items-end justify-content-between">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+              <!--Subheading-->
+              <div class="mb-3" data-aos="fade-up">
+                <span class="h6 mb-0 text-muted">Blog</span>
+              </div>
+              <h2 class="mb-0 display-4" data-aos="fade-right">Insights, thoughts & announcements from us</h2>
+            </div>
+            <div class="col-12 col-lg-3 text-lg-end" data-aos="fade-left" data-aos-delay="150">
+              <a href="#!" class="btn btn-outline-secondary btn-hover-arrow hover-lift">
+               <span>Our Blog</span>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up">
+                <article class="card card-hover text-center hover-shadow-lg overflow-hidden border-0 rounded-3">
+                    <div class="overflow-hidden position-relative">
+
+                        <!--Article image-->
+                        <img src="assets/img/960x640/1.jpg" alt="" class="img-fluid img-zoom">
+
+                        <!--Article image divider-->
+                        <svg class="position-absolute start-0 bottom-0 mb-n1 text-white" preserveAspectRatio="none" width="100%" height="48" viewBox="0 0 1460 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M122 22.8261L0 0V120H1460V0L1338 22.8261C1217 44.1304 973 88.2609 730 88.2609C487 88.2609 243 44.1304 122 22.8261Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <!--Content-body-->
+                    <div class="card-body pb-5 position-relative">
+                        <small class="text-muted"><i class="bx bx-calendar-alt me-1"></i> 12 Dec 2021</small>
+                        <h5 class="py-3 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h5>
+                        <p class="mb-0 text-truncate px-lg-4">
+                            Lorem ipsum dolor sit amet sed do eiusmod tempor labore et dolore magna aliqua.
+                            Viverra nam libero justo laoreet.
+                        </p>
+                    </div>
+
+                    <!--Article link-->
+                    <a href="#!" class="stretched-link"></a>
+                </article>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up">
+                <article class="card card-hover text-center hover-shadow-lg overflow-hidden border-0 rounded-3">
+                    <div class="overflow-hidden position-relative">
+
+                        <!--Article image-->
+                        <img src="assets/img/960x640/2.jpg" alt="" class="img-fluid img-zoom">
+
+                        <!--Article image divider-->
+                        <svg class="position-absolute start-0 bottom-0 mb-n1 text-white" preserveAspectRatio="none" width="100%" height="48" viewBox="0 0 1460 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M122 22.8261L0 0V120H1460V0L1338 22.8261C1217 44.1304 973 88.2609 730 88.2609C487 88.2609 243 44.1304 122 22.8261Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <!--Article text-->
+                    <div class="card-body pb-5 position-relative">
+                        <small class="text-muted"><i class="bx bx-calendar-alt me-1"></i> 06 Nov 2021</small>
+                        <h5 class="py-3 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h5>
+                        <p class="mb-0 text-truncate px-lg-4">
+                            Lorem ipsum dolor sit amet sed do eiusmod tempor labore et dolore magna aliqua.
+                            Viverra nam libero justo laoreet.
+                        </p>
+                    </div>
+
+                    <!--Article link-->
+                    <a href="#!" class="stretched-link"></a>
+                </article>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up">
+                <article class="card card-hover text-center hover-shadow-lg overflow-hidden border-0 rounded-3">
+                    <div class="overflow-hidden position-relative">
+
+                        <!--Article image-->
+                        <img src="assets/img/960x640/3.jpg" alt="" class="img-fluid img-zoom">
+
+                        <!--Article image divider-->
+                        <svg class="position-absolute mb-n1 start-0 bottom-0 text-white" preserveAspectRatio="none" width="100%" height="48" viewBox="0 0 1460 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M122 22.8261L0 0V120H1460V0L1338 22.8261C1217 44.1304 973 88.2609 730 88.2609C487 88.2609 243 44.1304 122 22.8261Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+
+                    <!--Article text-->
+                    <div class="card-body pb-5 position-relative">
+                        <small class="text-muted"><i class="bx bx-calendar-alt me-1"></i> 29 Oct 2021</small>
+                        <h5 class="py-3 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h5>
+                        <p class="mb-0 text-truncate px-lg-4">
+                            Lorem ipsum dolor sit amet sed do eiusmod tempor labore et dolore magna aliqua.
+                            Viverra nam libero justo laoreet.
+                        </p>
+                    </div>
+                    <!--Article link-->
+                    <a href="#!" class="stretched-link"></a>
+                </article>
+            </div>
+        </div>
+        </div>
+      </section>
+      <section class="position-relative bg-light overflow-hidden" data-aos="fade" data-aos-once="false" data-aos-offset="200">
+        <div class="container px-lg-12 py-9 py-lg-11 position-relative z-index-1">
+          <div class="mb-5 px-lg-11 text-center" data-aos="fade-up" data-aos-delay="100">
+            <!--Heading-->
+            <h5 class="mb-0 text-primary"><span class="text-muted">Clients who love our</span>
+              <span class="d-inline-block"
+                  data-typed='{"strings": ["Ideas...", "Creativity...", "passion...", "innovation..."]}'></span>
+          </h5>
+          </div>
+          <div class="d-flex flex-wrap justify-content-center">
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="150">
+              <img src="assets/img/partners/dark/amazon.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="150">
+              <img src="assets/img/partners/dark/microsoft.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="200">
+              <img src="assets/img/partners/dark/google.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="250">
+              <img src="assets/img/partners/dark/booking.com.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="300">
+              <img src="assets/img/partners/dark/grab.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="350">
+              <img src="assets/img/partners/dark/slack.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="400">
+              <img src="assets/img/partners/dark/uber.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="450">
+              <img src="assets/img/partners/dark/didi.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="500">
+              <img src="assets/img/partners/dark/lyft.svg" alt="partner" class="img-fluid">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-5 width-14x px-4" data-aos="fade-up"
+              data-aos-delay="550">
+              <img src="assets/img/partners/dark/salesforce.svg" alt="partner" class="img-fluid">
+            </div>
+          </div>
+          <!--Col-->
+        </div>
+      </section>
+      <section class="position-relative overflow-hidden">
+
+        <div class="container py-9 py-lg-11 position-relative">
+          <div class="row position-relative">
+            <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
+              <h2 class="mb-4 display-4 fw-lighter" data-aos="fade-down">
+                Bring <span class="fw-bolder d-inline-block pb-1 position-relative text-primary">Assan template
+                </span> to life and start building — today
+              </h2>
+              <p class="mb-5 px-lg-7 lead" data-aos="zoom-in" data-aos-delay="100">
+                There are combined alignment methods – when several types of alignment together are
+                used
+                in one composition.
+              </p>
+              <div data-aos="fade-up" data-aos-delay="150">
+                <a href="#!" class="btn btn-outline-primary btn-hover-arrow btn-lg">
+                  <span>Purchase Now</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('./partials/footers/footer-1.html')
+
+    <!-- begin Back to Top button -->
+    <a href="#" class="toTop">
+      <i class="bx bxs-up-arrow"></i>
+    </a>
+    <!-- scripts -->
+    <script src="assets/js/theme.bundle.js"></script>
+    <!--Mastert Slider start (Include jquery before master slider js)-->
+    <script src="assets/vendor/node_modules/js/jquery.min.js"></script>
+    <script src="assets/vendor/masterslider/jquery.easing.min.js"></script>
+    <script src="assets/vendor/masterslider/masterslider.min.js"></script>
+    <script>
+      var slider = new MasterSlider();
+      slider.setup('masterslider', {
+        width: 1140,
+        height: 660,
+        minHeight: 400,
+        space: 0,
+        start: 1,
+        grabCursor: false,
+        layout: "fullwidth",
+        wheel: false,
+        autoplay: true,
+        instantStartLayers: true,
+        loop: true,
+        view: "basic",
+        instantStartLayers: true,
+      });
+      slider.control('arrows');
+    </script>
+
+
+    <!--Swiper slider-->
+
+    <script src="assets/vendor/node_modules/js/swiper-bundle.min.js"></script>
+    <script>
+      //swiper-3
+      var swiperProjects = new Swiper(".swiper-projects", {
+        autoHeight: true,
+        spaceBetween: 16,
+        breakpoints: {
+          640: { slidesPerView: 1, spaceBetween: 16 },
+          768: { slidesPerView: 2, spaceBetween: 16 },
+          1024: { slidesPerView: 2, spaceBetween: 16 }
+        },
+        pagination: {
+          el: ".swiperProjects-pagination", clickable: true
+        },
+        navigation: {
+          nextEl: ".swiperProjects-button-next", prevEl: ".swiperProjects-button-prev"
+        }
+      });
+      //swiper-auto
+      var swiperAuto = new Swiper(".swiper-testimonials", {
+        slidesPerView: "auto", loop: true,
+         centeredSlides: true,
+          spaceBetween: 16,
+          effect: "fade",
+                grabCursor: true,
+        pagination: {
+          el: ".swiperAuto-pagination", clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiperAuto-button-next", prevEl: ".swiperAuto-button-prev",
+        }
+      });
+    </script>
+  </body>
+
+</html>

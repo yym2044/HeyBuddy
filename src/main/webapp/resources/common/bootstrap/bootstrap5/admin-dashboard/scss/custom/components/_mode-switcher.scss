@@ -1,0 +1,51 @@
+//
+//Dark and light mode style switcher style start
+//
+.switch_modes{
+    position:relative;
+    overflow:hidden;
+    width:35px;
+    height:35px;
+    border-radius:.5rem;
+    
+    a{
+      position:absolute;
+      width:100%;
+      height:100%;
+      display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: all .2s;
+    >svg{
+        width:16px;
+        height: 16px;
+    }
+    }
+  }
+  html[data-theme=light]{
+    .switch_modes a.mode_light{
+      transform: scale(1);
+      opacity: 1;
+      visibility: visible;
+      transform-origin: center;
+    }
+    .switch_modes a.mode_dark{
+      transform: scale(0);
+      opacity: 0;
+      visibility: hidden;
+      transform-origin: center;
+    }
+  }
+  html[data-theme=dark]{
+    .switch_modes a.mode_light{
+      transform: scale(0);
+      opacity: 0;
+      visibility: hidden;
+    }
+    .switch_modes a.mode_dark{
+      transform: scale(1);
+      opacity: 1;
+      visibility: visible;
+      transform-origin: center;
+    }
+  }

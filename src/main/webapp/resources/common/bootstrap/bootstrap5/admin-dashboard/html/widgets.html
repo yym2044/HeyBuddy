@@ -1,0 +1,3105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assan-Admin</title>
+
+    @@include('./partials/fonts.html')
+
+    <!--Simplebar css-->
+    <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+    <!--Simplebar css-->
+    <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+    <!--Main style-->
+    <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+  </head>
+
+  <body>
+    @@include('./partials/preloader.html')
+    <!--App Start-->
+    <div class="d-flex flex-column flex-root">
+      <!--Page-->
+      <div class="page d-flex flex-row flex-column-fluid">
+
+        @@include('./partials/sidebars/sidebar-default.html',{"page": "widgets"} )
+
+        <!--///////////Page content wrapper///////////////-->
+        <main class="page-content d-flex flex-column flex-row-fluid">
+
+          @@include('./partials/header/header-default.html')
+          <!--//Page Toolbar//-->
+          <div class="toolbar pt-4 pb-4 px-4 px-lg-8 pb-lg-8">
+            <div class="position-relative container-fluid px-0">
+              <div class="row align-items-center position-relative">
+                <div class="col-md-8 mb-4 mb-md-0">
+                  <h3 class="mb-0">Widgets</h3>
+
+
+                </div>
+                <div class="col-md-4 text-md-end">
+                  <nav aria-label="breadcrumb" class="d-md-flex justify-content-md-end">
+                    <ol class="breadcrumb mb-0">
+                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                      <li class="breadcrumb-item active">Widgets</li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--//Page Toolbar End//-->
+
+          <!--//Page content//-->
+          <div class="content pb-0 px-4 px-lg-8 d-flex flex-column-fluid">
+            <div class="container-fluid px-0">
+              <!--Widget row Title-->
+              <div class="row mb-4">
+                <div class="col-md-10">
+                  <h5>Statistics widgets</h5>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-sm-6 col-xl-3">
+
+                  <!--//Card start//-->
+                  <div class="card card-body mb-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!--Card text-->
+                      <div class="me-3">
+                        <div class="h3" data-aos data-aos-id="countup:in" data-to="847059"
+                          data-countup='{"startVal":"0", "prefix":"$"}'>
+                          0
+                        </div>
+                        <span class="text-muted">Sales earnings</span>
+                      </div>
+
+                      <!--Icon-with-size-->
+                      <div
+                        class="text-white bg-primary flex-shrink-0 size-50 rounded-2 d-flex align-items-center justify-content-center">
+                        <!--icon-->
+                        <i data-feather="dollar-sign" class="fe-2x"></i>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+
+                  <!--//Card start//-->
+                  <div class="card card-body mb-4">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <p class="text-muted d-block mb-2">Project Progress</p>
+                        <div class="progress bg-tint-primary mb-1" style="height: 4px;">
+                          <div class="progress-bar bg-primary" aria-valuemax="100" aria-valuenow="74"
+                            style="width: 74%;" role="progressbar"></div>
+                        </div>
+                        <h4 class="mb-0">74%</h4>
+                      </div>
+                      <div class="col-auto text-primary">
+                        <!--icon-->
+                        <!--Icon-with-size-->
+                        <div
+                          class="text-success bg-tint-success flex-shrink-0 size-50 rounded-2 d-flex align-items-center justify-content-center">
+                          <!--icon-->
+                          <i data-feather="bar-chart" class="fe-2x"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden mb-4">
+                    <div class="card-body d-flex align-items-center">
+                      <!--Card text-->
+                      <div class="flex-grow-1">
+                        <div class="h3 mb-2" data-aos data-aos-id="countup:in" data-to="847059"
+                          data-countup='{"startVal":"0", "prefix":"$"}'>
+                          0
+                        </div>
+                        <span class="text-muted">Sales earnings</span>
+                      </div>
+                      <div class="flex-shrink-0 text-end">
+                        <div class="small"><span class="text-success">+35%</span> Up</div>
+                        <i data-feather="trending-up" class="fe-2x text-muted"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+
+                  <!--//Card start//-->
+                  <div class="card mb-4 overflow-hidden">
+                    <div class="card-body d-flex align-items-center">
+                      <!--Card text-->
+                      <div class="flex-grow-1">
+                        <div class="h3 mb-2" data-aos data-aos-id="countup:in" data-to="1425"
+                          data-countup='{"startVal":"0"}'>
+                          0
+                        </div>
+                        <span class="text-muted">Total Sales</span>
+                      </div>
+                      <div class="flex-shrink-0 ps-4 border-start">
+                        <i data-feather="shopping-bag" class="fe-3x text-primary"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden">
+                    <div class="card-body">
+                      <h5 class="mb-2">Company finance</h5>
+                      <div class="progress bg-tint-danger mb-1" style="height: 4px;">
+                        <div class="progress-bar bg-danger" aria-valuemax="100" aria-valuenow="68" style="width: 68%;"
+                          role="progressbar">
+                        </div>
+                      </div>
+                      <!--Card text-->
+                      <div class="flex-grow-1 d-flex align-items-center">
+                        <span class="fs-3 fw-bold text-body mb-0" data-aos data-aos-id="countup:in" data-to="64"
+                          data-countup='{"startVal":"0","suffix":"%"}'>
+                          0
+                        </span>
+                        <span class="text-muted small ms-auto">Used</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden">
+                    <div class="card-body">
+                      <h5 class="mb-2">Storage</h5>
+                      <div class="progress bg-tint-success mb-1" style="height: 4px;">
+                        <div class="progress-bar bg-success" aria-valuemax="100" aria-valuenow="37" style="width: 37%;"
+                          role="progressbar">
+                        </div>
+                      </div>
+                      <!--Card text-->
+                      <div class="flex-grow-1 d-flex align-items-center">
+                        <span class="fs-3 fw-bold text-body mb-0" data-aos data-aos-id="countup:in" data-to="37"
+                          data-countup='{"startVal":"0","suffix":"Gb"}'>
+                          0
+                        </span>
+                        <span class="text-muted small ms-auto">Used of 100GB</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden">
+                    <div class="card-body">
+                      <h5 class="mb-2">Task Overview</h5>
+                      <div class="progress mb-3" style="height: 4px;">
+                        <div class="progress-bar bg-primary" aria-valuemax="100" aria-valuenow="63" style="width: 63%;"
+                          role="progressbar">
+                        </div>
+                        <div class="progress-bar bg-warning" aria-valuemax="100" aria-valuenow="37" style="width: 37%;"
+                          role="progressbar">
+                        </div>
+                      </div>
+                      <!--Card text-->
+                      <ul class="list-unstyled d-flex mb-0">
+                        <li class="d-flex align-items-center me-4">
+                          <span class="bg-primary size-5 rounded-circle me-2">
+                          </span>
+                          <span class="text-muted small">Finished</span>
+                        </li>
+                        <li class="d-flex align-items-center me-4">
+                          <span class="bg-warning size-5 rounded-circle me-2">
+                          </span>
+                          <span class="text-muted small">Due</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card bg-primary border-primary text-white overflow-hidden">
+                    <div class="card-body">
+                      <i data-feather="users" class="fe-3x text-white d-block mb-4"></i>
+                      <span class="fs-2 d-block fw-bold mb-1" data-aos data-aos-id="countup:in" data-to="8475"
+                        data-countup='{"startVal":"0","prefix":"+"}'>
+                        0
+                      </span>
+                      <h6 class="mb-0 text-reset fw-normal">New customers</h6>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card bg-tint-danger border-0 overflow-hidden">
+                    <div class="card-body">
+                      <i data-feather="users" class="fe-3x text-danger d-block mb-4"></i>
+                      <span class="fs-2 d-block fw-bold text-dark mb-1" data-aos data-aos-id="countup:in" data-to="8475"
+                        data-countup='{"startVal":"0","prefix":"+"}'>
+                        0
+                      </span>
+                      <h6 class="mb-0 text-dark fw-normal">New customers</h6>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden">
+                    <div class="card-body">
+                      <i data-feather="users" class="fe-3x text-muted d-block mb-4"></i>
+                      <span class="fs-2 d-block fw-bold mb-1" data-aos data-aos-id="countup:in" data-to="8475"
+                        data-countup='{"startVal":"0","prefix":"+"}'>
+                        0
+                      </span>
+                      <h6 class="mb-0 text-reset fw-normal">New customers</h6>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card bg-danger border-danger text-white overflow-hidden">
+                    <div class="card-body">
+                      <i data-feather="users" class="fe-3x text-white d-block mb-4"></i>
+                      <span class="fs-2 d-block fw-bold mb-1" data-aos data-aos-id="countup:in" data-to="8475"
+                        data-countup='{"startVal":"0","prefix":"+"}'>
+                        0
+                      </span>
+                      <h6 class="mb-0 text-reset fw-normal">New customers</h6>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden">
+                    <div class="card-body d-flex align-items-center justify-content-between">
+                      <div
+                        class="flex-shrink-0 size-60 bg-tint-primary text-primary rounded-pill me-3 d-flex align-items-center justify-content-center">
+                        <i data-feather="users" class="fe-3x d-block"></i>
+                      </div>
+                      <div class="flex-grow-1 text-start">
+                        <h5 class="fs-2 d-block fw-bold mb-1" data-aos data-aos-id="countup:in" data-to="8475"
+                          data-countup='{"startVal":"0","prefix":"+"}'>
+                          0
+                        </h5>
+                        <h6 class="mb-0 fw-normal">New customers</h6>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card border-0 overflow-hidden">
+                    <div
+                      class="card-body border-start border-4 border-success d-flex align-items-center justify-content-between">
+                      <div
+                        class="flex-shrink-0 size-60 bg-tint-success text-success rounded-pill me-3 d-flex align-items-center justify-content-center">
+                        <i data-feather="dollar-sign" class="fe-3x d-block"></i>
+                      </div>
+                      <div class="flex-grow-1 text-start">
+                        <h5 class="fs-2 d-block fw-bold mb-1" data-aos data-aos-id="countup:in" data-to="62145"
+                          data-countup='{"startVal":"0","prefix":"$"}'>
+                          0
+                        </h5>
+                        <h6 class="mb-0 fw-normal">Revenue</h6>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden">
+                    <div
+                      class="card-body border-top border-4 border-primary d-flex align-items-center justify-content-between">
+                      <div
+                        class="flex-shrink-0 size-60 bg-primary text-white rounded-pill me-3 d-flex align-items-center justify-content-center">
+                        <i data-feather="trending-up" class="fe-3x d-block"></i>
+                      </div>
+                      <div class="flex-grow-1 text-start">
+                        <h5 class="fs-2 d-block fw-bold mb-1" data-aos data-aos-id="countup:in" data-to="38"
+                          data-countup='{"startVal":"0","suffix":"%"}'>
+                          0
+                        </h5>
+                        <h6 class="mb-0 fw-normal">Bounce Rate</h6>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+
+                  <!--//Card start//-->
+                  <div class="card overflow-hidden rounded-0 shadow-none">
+                    <div
+                      class="card-body border-start border-4 border-gray d-flex align-items-center justify-content-between">
+                      <div
+                        class="flex-shrink-0 size-60 bg-gray text-body rounded-pill me-3 d-flex align-items-center justify-content-center">
+                        <i data-feather="trending-up" class="fe-3x d-block"></i>
+                      </div>
+                      <div class="flex-grow-1 text-start">
+                        <h5 class="fs-2 d-block fw-bold mb-1" data-aos data-aos-id="countup:in" data-to="38"
+                          data-countup='{"startVal":"0","suffix":"%"}'>
+                          0
+                        </h5>
+                        <h6 class="mb-0 fw-normal">Bounce Rate</h6>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Widget row Title-->
+              <div class="row mb-4">
+                <div class="col-md-10">
+                  <h5>Project widgets</h5>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-lg-4 mb-4">
+
+                  <div class="card">
+                    <div class="d-flex card-header justify-content-between align-items-center">
+                      <h5 class="pe-3 mb-0">Projects</h5>
+                      <span>
+                        <a href="#!.html">View All</a>
+                      </span>
+                    </div>
+                    <div class="card-body p-0">
+                      <ul class="list-group list-group-flush mb-0">
+
+                        <!--List group-item begin-->
+                        <li class="list-group-item bg-transparent px-3">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <a href="#!.html">
+                                <img src="assets/media/900x600/2.jpg" class="img-fluid rounded-2 width-80 h-auto"
+                                  alt="">
+                              </a>
+                            </div>
+                            <div class="overflow-hidden flex-grow-1">
+                              <h6 class="mb-0 text-truncate">
+                                <a href="#!.html" class="text-reset">Podcaster music site</a>
+                              </h6>
+                              <span class="text-muted text-truncate d-block">Lorem ipsum dolor sit amet uses for
+                                print</span>
+                            </div>
+                            <div class="">
+                              <!--Dropdown-->
+                              <div class="dropdown d-block">
+                                <a href="#" data-bs-toggle="dropdown" class="text-muted d-block lh-1">
+                                  <i data-feather="more-vertical" class="fe-1x"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end mt-1">
+                                  <a href="#!.html" class="dropdown-item">Action</a>
+                                  <a href="#!.html" class="dropdown-item">Another action</a>
+                                  <a href="#!.html" class="dropdown-item">Something else</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+
+                        <!--List group-item begin-->
+                        <li class="list-group-item bg-transparent px-3">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <a href="#!.html">
+                                <img src="assets/media/900x600/3.jpg" class="img-fluid rounded-2 width-80 h-auto"
+                                  alt="">
+                              </a>
+                            </div>
+                            <div class="overflow-hidden flex-grow-1">
+                              <h6 class="mb-0 text-truncate">
+                                <a href="#!.html" class="text-reset">Plainting online store</a>
+                              </h6>
+                              <span class="text-muted text-truncate d-block">Lorem ipsum dolor sit amet uses for
+                                print</span>
+                            </div>
+                            <div class="">
+                              <!--Dropdown-->
+                              <div class="dropdown d-block">
+                                <a href="#" data-bs-toggle="dropdown" class="text-muted d-block lh-1">
+                                  <i data-feather="more-vertical" class="fe-1x"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end mt-1">
+                                  <a href="#!.html" class="dropdown-item">Action</a>
+                                  <a href="#!.html" class="dropdown-item">Another action</a>
+                                  <a href="#!.html" class="dropdown-item">Something else</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+
+                        <!--List group-item begin-->
+                        <li class="list-group-item bg-transparent px-3">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <a href="#!.html">
+                                <img src="assets/media/900x600/4.jpg" class="img-fluid rounded-2 width-80 h-auto"
+                                  alt="">
+                              </a>
+                            </div>
+                            <div class="overflow-hidden flex-grow-1">
+                              <h6 class="mb-0 text-truncate">
+                                <a href="#!.html" class="text-reset">Has branding</a>
+                              </h6>
+                              <span class="text-muted text-truncate d-block">Lorem ipsum dolor sit amet uses for
+                                print</span>
+                            </div>
+                            <div class="">
+                              <!--Dropdown-->
+                              <div class="dropdown d-block">
+                                <a href="#" data-bs-toggle="dropdown" class="text-muted d-block lh-1">
+                                  <i data-feather="more-vertical" class="fe-1x"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end mt-1">
+                                  <a href="#!.html" class="dropdown-item">Action</a>
+                                  <a href="#!.html" class="dropdown-item">Another action</a>
+                                  <a href="#!.html" class="dropdown-item">Something else</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+
+                        <!--List group-item begin-->
+                        <li class="list-group-item bg-transparent px-3">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <a href="#!.html">
+                                <img src="assets/media/900x600/5.jpg" class="img-fluid rounded-2 width-80 h-auto"
+                                  alt="">
+                              </a>
+                            </div>
+                            <div class="overflow-hidden flex-grow-1">
+                              <h6 class="mb-0 text-truncate">
+                                <a href="#!.html" class="text-reset">Project title</a>
+                              </h6>
+                              <span class="text-muted text-truncate d-block">Lorem ipsum dolor sit amet uses for
+                                print</span>
+                            </div>
+                            <div class="">
+                              <!--Dropdown-->
+                              <div class="dropdown d-block">
+                                <a href="#" data-bs-toggle="dropdown" class="text-muted d-block lh-1">
+                                  <i data-feather="more-vertical" class="fe-1x"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end mt-1">
+                                  <a href="#!.html" class="dropdown-item">Action</a>
+                                  <a href="#!.html" class="dropdown-item">Another action</a>
+                                  <a href="#!.html" class="dropdown-item">Something else</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Col-->
+                <div class="col-lg-4 mb-4">
+                  <div class="card">
+
+                    <!-- Card Image -->
+                    <a href="#!.html">
+                      <img src="assets/media/900x600/1.jpg" alt="..." class="card-img-top">
+                    </a>
+
+                    <!-- Card - Body -->
+                    <div class="card-body mt-0">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h6 class="mb-1">
+                            <a href="#!.html" class="text-reset">CRM dashboard</a>
+                          </h6>
+                          <small class="text-muted">
+                            Updated yestarday
+                          </small>
+
+                        </div>
+                        <div class="col-auto">
+
+                          <!-- Dropdown -->
+                          <div class="dropdown">
+                            <a href="#" class="text-muted d-block lh-1" role="button" data-bs-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i data-feather="more-vertical" class="fe-1x"></i>
+                            </a>
+                            <div class="dropdown-menu mt-1 dropdown-menu-end">
+                              <a href="#!" class="dropdown-item">
+                                Action
+                              </a>
+                              <a href="#!" class="dropdown-item">
+                                Another action
+                              </a>
+                              <a href="#!" class="dropdown-item">
+                                Something else
+                              </a>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--card Footer -->
+                    <div class="card-footer">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <div class="row align-items-center g-0">
+                            <div class="col-auto">
+                              <small class="me-2">65%</small>
+                            </div>
+                            <div class="col">
+
+                              <!-- Progress bar -->
+                              <div class="progress bg-tint-success" style="height: 4px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"
+                                  aria-valuenow="65" aria-valuemax="100"></div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-auto">
+
+                          <!-- Avatars group -->
+                          <div class="avatar-group justify-content-end">
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Gabriel H">
+                              <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Emily Doe">
+                              <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Adam Howkins">
+                              <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                          </div>
+
+                        </div>
+                      </div> <!-- / .row -->
+                    </div>
+
+                  </div>
+                </div>
+                <!--Col-->
+                <div class="col-lg-4 mb-4">
+                  <div class="card mb-4">
+                    <!-- Card - Body -->
+                    <div class="card-body mt-0">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="mb-1">
+                            <a href="#!.html" class="text-reset">CRM dashboard</a>
+                          </h5>
+                          <span class="text-muted">
+                            Updated yestarday
+                          </span>
+
+                        </div>
+                        <div class="col-auto">
+
+                          <!-- Dropdown -->
+                          <div class="dropdown">
+                            <a href="#" class="text-muted d-block lh-1" role="button" data-bs-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i data-feather="more-vertical" class="fe-1x"></i>
+                            </a>
+                            <div class="dropdown-menu mt-1 dropdown-menu-end">
+                              <a href="#!" class="dropdown-item">
+                                Action
+                              </a>
+                              <a href="#!" class="dropdown-item">
+                                Another action
+                              </a>
+                              <a href="#!" class="dropdown-item">
+                                Something else
+                              </a>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--card Footer -->
+                    <div class="card-footer">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <div class="row align-items-center g-0">
+                            <div class="col-auto">
+                              <small class="me-2">65%</small>
+                            </div>
+                            <div class="col">
+
+                              <!-- Progress bar -->
+                              <div class="progress bg-tint-success" style="height: 4px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"
+                                  aria-valuenow="65" aria-valuemax="100"></div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-auto">
+
+                          <!-- Avatars group -->
+                          <div class="avatar-group justify-content-end">
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Gabriel H">
+                              <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Emily Doe">
+                              <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Adam Howkins">
+                              <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                          </div>
+
+                        </div>
+                      </div> <!-- / .row -->
+                    </div>
+
+                  </div>
+
+                  <!--Scrumboard card-->
+                  <div class="card text-body card-body">
+                    <a href="#!">
+                      <h5>CRM Dashboard Project</h5>
+                    </a>
+                    <p class="mb-4 text-truncate"> Lorem ipsum is placeholder text commonly used in the graphic, print,
+                      and publishing industries for previewing layouts and visual mockups.</p>
+                    <div class="width-40 border-top border-3 mb-4 border-gray"></div>
+                    <!-- Avatars group -->
+                    <div class="avatar-group mb-3">
+                      <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                        title="" data-bs-original-title="Gabriel H">
+                        <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                      </a>
+                      <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                        title="" data-bs-original-title="Emily Doe">
+                        <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                      </a>
+                      <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                        title="" data-bs-original-title="Adam Howkins">
+                        <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                      </a>
+                      <a href="#!.html"
+                        class="avatar-group-item d-flex align-items-center justify-content-center bg-gray text-body avatar sm rounded-circle"
+                        data-bs-toggle="tooltip" title="" data-bs-original-title="6 more members">
+                        <b>+6</b>
+                      </a>
+                    </div>
+                    <div class="card-footer px-0 pb-0">
+                      Updated: <span class="small text-muted"> 2 days ago</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7 mb-4">
+                  <div class="card mb-4 card-body">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <a href="#!.html">
+                          <img src="assets/media/900x600/1.jpg" class="width-90 rounded-3" alt="">
+                        </a>
+                      </div>
+                      <div class="col">
+                        <div class="overflow-hidden flex-nowrap">
+                          <h6 class="mb-1">
+                            <a href="#!" class="text-reset">CRM dashboard landing page</a>
+                          </h6>
+                          <span class="text-muted d-block mb-2 small">
+                            Updated 2 Hours Ago
+                          </span>
+                          <div class="row align-items-center">
+                            <div class="col-12">
+                              <div class="row align-items-center g-0">
+                                <div class="col-auto">
+                                  <small class="me-2">65%</small>
+                                </div>
+                                <div class="col">
+
+                                  <!-- Progress bar -->
+                                  <div class="progress bg-tint-success" style="height: 4px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"
+                                      aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Avatars group -->
+                        <div class="avatar-group justify-content-end d-none d-lg-flex">
+                          <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                            title="" data-bs-original-title="Gabriel H">
+                            <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                          </a>
+                          <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                            title="" data-bs-original-title="Emily Doe">
+                            <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                          </a>
+                          <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                            title="" data-bs-original-title="Adam Howkins">
+                            <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card border-0 bg-shade-primary text-white card-body">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <a href="#!.html">
+                          <img src="assets/media/900x600/3.jpg" class="width-90 rounded-3" alt="">
+                        </a>
+                      </div>
+                      <div class="col">
+                        <div class="overflow-hidden flex-nowrap">
+                          <h6 class="mb-1">
+                            <a href="#!" class="text-white">CRM dashboard landing page</a>
+                          </h6>
+                          <span class="text-muted d-block mb-2 small">
+                            Updated 2 Hours Ago
+                          </span>
+                          <div class="row align-items-center">
+                            <div class="col-12">
+                              <div class="row align-items-center g-0">
+                                <div class="col-auto">
+                                  <small class="me-2">65%</small>
+                                </div>
+                                <div class="col">
+
+                                  <!-- Progress bar -->
+                                  <div class="progress bg-tint-success" style="height: 4px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"
+                                      aria-valuenow="65" aria-valuemax="100"></div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Avatars group -->
+                        <div class="avatar-group justify-content-end d-none d-lg-flex">
+                          <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                            title="" data-bs-original-title="Gabriel H">
+                            <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                          </a>
+                          <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                            title="" data-bs-original-title="Emily Doe">
+                            <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                          </a>
+                          <a href="#!.html" class="avatar-group-item avatar sm rounded-circle" data-bs-toggle="tooltip"
+                            title="" data-bs-original-title="Adam Howkins">
+                            <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex flex-column text-center align-items-center">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <img src="assets/media/brand-logos/prosperops.svg" class="height-60 flex-shrink-0 me-4 w-auto"
+                            alt="">
+                          <div class="dropdown">
+                            <a href="#" class="text-muted d-block lh-1" role="button" data-bs-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                              </svg>
+                            </a>
+                            <div class="dropdown-menu mt-1 dropdown-menu-end">
+                              <a href="#!" class="dropdown-item">
+                                Action
+                              </a>
+                              <a href="#!" class="dropdown-item">
+                                Another action
+                              </a>
+                              <a href="#!" class="dropdown-item">
+                                Something else
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="flex-grow-1 pt-4">
+                          <span class="d-block text-muted">Updated 2h ago</span>
+                          <h5>Prosperops development</h5>
+                          <div class="mb-4">
+                            <span class="badge rounded-pill bg-success">In Progress</span>
+                          </div>
+                          <div class="avatar-group">
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Gabriel H">
+                              <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Emily Doe">
+                              <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                            <a href="#!.html" class="avatar-group-item avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="Adam Howkins">
+                              <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+                            </a>
+                            <a href="#!.html"
+                              class="avatar-group-item d-flex align-items-center justify-content-center bg-gray text-body avatar sm rounded-circle"
+                              data-bs-toggle="tooltip" title="" data-bs-original-title="6 more members">
+                              <b>+6</b>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--Footer states-->
+                    <div class="card-footer py-0">
+                      <div class="row">
+                        <div class="col text-center p-3">
+                          <h4 class="fs-5 mb-1">218</h4>
+                          <span class="d-block font-size-sm">Tasks</span>
+                        </div>
+
+                        <div class="col p-3 text-center border-end border-start">
+                          <h4 class="fs-5 mb-1">468</h4>
+                          <span class="d-block font-size-sm">Hours</span>
+                        </div>
+
+                        <div class="col p-3 text-center">
+                          <h4 class="fs-5 mb-1">14</h4>
+                          <span class="d-block font-size-sm">Days left</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Widget row Title-->
+              <div class="row mb-4">
+                <div class="col-md-10">
+                  <h5>User widgets</h5>
+                </div>
+              </div>
+
+              <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                  <div class="card">
+                    <!--Card title-->
+                    <div class="d-flex card-header justify-content-between align-items-center">
+                      <h5 class="mb-0 me-3">
+                        Users
+                      </h5>
+                      <a href="#!.html">View All</a>
+                    </div>
+
+
+                    <div class="card-body py-0">
+                      <!--List-->
+                      <ul class="list-group list-group-flush">
+
+                        <!--List group item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <a href="#!" class="">
+                                <div class="avatar avatar-status status-online">
+                                  <img src="assets/media/avatars/04.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                </div>
+                              </a>
+                            </div>
+                            <div class="col">
+                              <h6 class="mb-0"><a href="#!.html">Jason Momoa</a></h6>
+                              <small class="text-muted">Front end developer</small>
+                            </div>
+                            <div class="col-auto">
+                              <a href="#!.html" class="btn btn-sm btn-light">Add</a>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List group item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <a href="#!" class="">
+                                <div class="avatar avatar-status status-online">
+                                  <img src="assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                </div>
+                              </a>
+                            </div>
+                            <div class="col">
+                              <h6 class="mb-0"><a href="#!.html">Emily Doe</a></h6>
+                              <small class="text-muted">Front end developer</small>
+                            </div>
+                            <div class="col-auto">
+                              <a href="#!.html" class="btn btn-sm btn-light">Add</a>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List group item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <a href="#!" class="">
+                                <div class="avatar avatar-status status-online">
+                                  <img src="assets/media/avatars/07.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                </div>
+                              </a>
+                            </div>
+                            <div class="col">
+                              <h6 class="mb-0"><a href="#!.html">Danzel Walsh</a></h6>
+                              <small class="text-muted">Python developer</small>
+                            </div>
+                            <div class="col-auto">
+                              <a href="#!.html" class="btn btn-sm btn-light">Add</a>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card card-body">
+
+                    <!--List-->
+                    <ul class="list-group list-group-flush">
+
+                      <!--List group item-->
+                      <li class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <a href="#!" class="">
+                              <div class="avatar">
+                                <img src="assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col">
+                            <h6 class="mb-0"><a href="#!.html" class="text-reset">Nikita Miller</a></h6>
+                            <span class="text-muted small d-flex align-items-center"><span
+                                class="align-middle me-1 size-5 border border-4 border-warning rounded-circle d-inline-block"></span>
+                              Away</span>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#!.html" class="btn btn-sm btn-outline-primary">Follow</a>
+                          </div>
+                        </div>
+                      </li>
+                      <!--List group item-->
+                      <li class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <a href="#!" class="">
+                              <div class="avatar">
+                                <img src="assets/media/avatars/07.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col">
+                            <h6 class="mb-0"><a href="#!.html" class="text-reset">Josefh Ansari</a></h6>
+                            <span class="text-muted small d-flex align-items-center"><span
+                                class="align-middle me-1 size-5 border border-4 border-success rounded-circle d-inline-block"></span>
+                              Online</span>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#!.html" class="btn btn-sm btn-outline-primary">Follow</a>
+                          </div>
+                        </div>
+                      </li>
+                      <!--List group item-->
+                      <li class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <a href="#!" class="">
+                              <div class="avatar">
+                                <img src="assets/media/avatars/03.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col">
+                            <h6 class="mb-0"><a href="#!.html" class="text-reset">Jason Momoa</a></h6>
+                            <span class="text-muted small d-flex align-items-center"><span
+                                class="align-middle me-1 size-5 border border-4 border-success rounded-circle d-inline-block"></span>
+                              Online</span>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#!.html" class="btn btn-sm btn-outline-primary">Follow</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                  <!--Card-->
+                  <div class="card mb-4 text-center">
+                    <!--Card body-->
+                    <div class="card-body py-5">
+                      <!--avatar-->
+                      <a href="#!.html"
+                        class="avatar xxl rounded-circle border border-4 border-white position-relative d-block mx-auto">
+                        <img src="assets/media/avatars/01.jpg" class="avatar-img img-fluid rounded-circle" alt="">
+                      </a>
+                      <h5 class="mb-0 pt-3">
+                        <a href="#!.html" class="text-reset">Noah Pierre</a>
+                      </h5>
+                      <span class="text-muted small d-block">Full stack developer</span>
+                    </div>
+
+                    <!--Card footer-->
+                    <div class="card-footer">
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <span class="text-muted small d-flex align-items-center">
+                            <span
+                              class="align-middle lh-1 me-1 size-5 border border-4 border-warning rounded-circle d-inline-block"></span>
+                            Away
+                          </span>
+                        </div>
+                        <div class="col text-end">
+                          <a href="#!.html" class="btn btn-sm btn-primary">Follow</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Card-->
+                  <div class="card mb-4">
+                    <!--Card body-->
+                    <div class="card-body d-flex align-items-center">
+                      <!--avatar-->
+                      <a href="#!.html"
+                        class="avatar flex-shrink-0 lg me-3 rounded-circle border border-4 border-white position-relative d-block">
+                        <img src="assets/media/avatars/01.jpg" class="avatar-img img-fluid rounded-circle" alt="">
+                      </a>
+                      <div class="flex-grow-1 pe-3">
+                        <h5 class="mb-0">
+                          <a href="#!.html" class="text-reset">Noah Pierre</a>
+                        </h5>
+                        <span class="text-muted small d-block">Full stack developer</span>
+                      </div>
+                      <div class="dropdown">
+                        <a href="#" data-bs-toggle="dropdown" class="text-muted" aria-expanded="false">
+                          <i data-feather="more-vertical" class="fe-1x"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a href="#!" class="dropdown-item">Follow</a>
+                          <a href="#!" class="dropdown-item">Block</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--card-->
+                  <div class="card">
+
+                    <!--Card body-->
+                    <div class="card-body">
+                      <!--Contact-->
+                      <div class="text-center">
+
+                        <!-- Avatar -->
+                        <a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
+                          <img src="assets/media/avatars/01.jpg" alt="..." class="img-fluid rounded-circle">
+                        </a>
+                        <!-- Title -->
+                        <h5 class="mb-0">
+                          <a href="#!" class="text-reset">
+                            Noah Pierre</a>
+                        </h5>
+
+                        <!-- Email -->
+                        <p class="small text-muted mb-3">
+                          <a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">
+                            noah.pierre@mail.com</a>
+                        </p>
+                        <!-- Split dropdown user button -->
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-outline-gray text-body">
+                            <i data-feather="message-square" class="fe-1x me-2 align-middle"></i>Send
+                            Message</button>
+                          <button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i data-feather="more-vertical" class="fe-1x"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fe-1x align-middle me-2 opacity-50" data-feather="info"></i> View detail</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fe-1x align-middle me-2 opacity-50" data-feather="slash"></i> Block
+                                contact</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                  <!--Card-->
+                  <div class="card mb-4 text-center">
+                    <img src="assets/media/900x600/6.jpg" class="card-img-top img-fluid" alt="">
+
+                    <!--Card body-->
+                    <div class="card-body">
+                      <!--avatar-->
+                      <a href="#!.html"
+                        class="avatar xl rounded-circle border border-4 border-white position-relative mt-n8 d-block mx-auto">
+                        <img src="assets/media/avatars/01.jpg" class="avatar-img img-fluid rounded-circle" alt="">
+                      </a>
+                      <h5 class="mb-0 pt-3">
+                        <a href="#!.html" class="text-reset">Noah Pierre</a>
+                      </h5>
+                      <span class="text-muted small d-block">Full stack developer</span>
+                    </div>
+
+                    <!--Card footer-->
+                    <div class="card-footer">
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <span class="text-muted small d-flex align-items-center">
+                            <span
+                              class="align-middle lh-1 me-1 size-5 border border-4 border-success rounded-circle d-inline-block"></span>
+                            Online
+                          </span>
+                        </div>
+                        <div class="col text-end">
+                          <a href="#!.html" class="btn btn-sm btn-primary">Follow</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Card-->
+                  <div class="card">
+
+                    <!--Card body-->
+                    <div class="card-body">
+                      <!--Contact-->
+                      <div class="text-center">
+
+                        <!-- Avatar -->
+                        <a href="#!" class="avatar mb-3 mx-auto xxl rounded-cirlce d-block">
+                          <img src="assets/media/avatars/07.jpg" alt="..." class="img-fluid rounded-circle">
+                        </a>
+                        <!-- Title -->
+                        <h5 class="mb-0">
+                          <a href="#!" class="text-reset">Jakoby Roman</a>
+                        </h5>
+
+                        <!-- Email -->
+                        <p class="small text-muted mb-0">
+                          <a class="d-block text-reset text-truncate"
+                            href="#!mailto:noah.pierre@company.com">jakoby.roman@mail.com</a>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center card-footer">
+                      <div>
+                        <a href="#!" class="bg-tint-success hover-bg-success badge text-success py-2 px-3">
+                          <i data-feather="message-square" class="fe-1x me-2 align-middle"></i> Send Message</a>
+
+                      </div>
+                      <!-- Dropup -->
+                      <div class="dropup">
+                        <a class="d-flex align-items-center justify-content-center size-25 rounded-circle text-muted hover-bg-primary"
+                          href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i data-feather="more-vertical" class="fe-1x align-middle"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end mt-1">
+                          <a class="dropdown-item" href="#!">
+                            <i data-feather="info" class="fe-1x me-2 align-middle opacity-50"></i> Contact
+                            info
+                          </a>
+                          <a class="dropdown-item" href="#!">
+                            <i data-feather="slash" class="fe-1x me-2 align-middle opacity-50"></i> Block contact
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                  <!--Card-->
+                  <div class="card overflow-hidden text-center">
+                    <img src="assets/media/900x600/1.jpg" class="card-img-top img-fluid" alt="">
+
+                    <!--Card body-->
+                    <div class="card-body p-0">
+                      <!--avatar-->
+                      <a href="#!.html"
+                        class="avatar xl rounded-circle border border-4 border-white position-relative mt-n5 d-block mx-auto">
+                        <img src="assets/media/avatars/01.jpg" class="avatar-img img-fluid rounded-circle" alt="">
+                      </a>
+                      <h5 class="mb-0 pt-3">
+                        <a href="#!.html" class="text-reset">Noah Pierre</a>
+                      </h5>
+                      <span class="text-muted small d-block mb-4">Full stack developer</span>
+                      <div class="row mx-0 border-top border-bottom">
+                        <div class="col-6 text-center border-end py-3">
+                          <h5 class="mb-0">2345</h5>
+                          <small class="text-muted">Followers</small>
+                        </div>
+                        <div class="col-6 text-center py-3">
+                          <h5 class="mb-0">54</h5>
+                          <small class="text-muted">Following</small>
+                        </div>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-3 d-flex align-items-center justify-content-between">
+                          <span class="text-muted small">Join</span>
+                          <strong>April 2014</strong>
+                        </li>
+                        <li class="list-group-item px-3 d-flex align-items-center justify-content-between">
+                          <span class="text-muted small">Location</span>
+                          <strong>Barcelona, Spain</strong>
+                        </li>
+                        <li class="list-group-item px-3 d-flex align-items-center justify-content-between">
+                          <span class="text-muted small d-flex align-items-center">
+                            <span
+                              class="align-middle lh-1 me-1 size-5 border border-4 border-success rounded-circle d-inline-block"></span>
+                            Online
+                          </span>
+                          <div class="text-end">
+                            <a href="#!.html" class="btn btn-sm btn-primary">Follow</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Widget row Title-->
+              <div class="row mb-4">
+                <div class="col-md-10">
+                  <h5>Activity widgets</h5>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-12 col-lg-6 mb-4">
+                  <div class="card overflow-hidden">
+                    <div class="card-header">
+                      <h5 class="card-title mb-0">Notifications</h5>
+                    </div>
+                    <div class="card-body pt-0">
+                      <ul class="list-unstyled mb-0">
+                        <li class="px-3 pt-3 h6">New</li>
+                        <!--//Notification item start//-->
+                        <li class="d-block">
+                          <a href="#"
+                            class="hover-bg-secondary rounded-3 px-3 py-2 text-reset d-flex align-items-center">
+                            <div class="d-block me-3">
+                              <div class="avatar avatar-status status-online">
+                                <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </div>
+                            </div>
+
+                            <div class="flex-grow-1 flex-wrap pe-3">
+                              <span class="mb-0 d-block"><strong>Adam Danely</strong> assigned
+                                a task to
+                                you <strong>#PI-392</strong></span>
+                              <small class="text-muted">Just now</small>
+                            </div>
+                          </a>
+                        </li>
+                        <!--//Notification item start//-->
+                        <li class="d-block">
+                          <a href="#"
+                            class="hover-bg-secondary rounded-3 px-3 py-2 text-reset d-flex align-items-center">
+                            <div class="d-block me-3">
+                              <div class="avatar avatar-status status-offline">
+                                <img src="assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </div>
+                            </div>
+
+                            <div class="flex-grow-1 flex-wrap pe-3">
+                              <span class="mb-0 d-block"><strong>Vivianna Kiser
+                                </strong> just posted <span>"Lorem ipsum is placeholder text
+                                  used in the graphic, print,
+                                  and industries.
+                                  "</span></span>
+                              <small class="text-muted">2h Ago</small>
+                            </div>
+                          </a>
+                        </li>
+
+                        <li class="px-3 pt-3 h6">Earlier</li>
+                        <!--//Notification item start//-->
+                        <li class="d-block">
+                          <a href="#"
+                            class="hover-bg-secondary rounded-3 px-3 py-2 text-reset d-flex align-items-center">
+                            <span class="d-block me-3">
+                              <span
+                                class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-success text-success rounded-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="feather feather-tool fe-2x align-middle">
+                                  <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                  </path>
+                                </svg>
+                              </span>
+                            </span>
+
+                            <div class="flex-grow-1 flex-wrap pe-3">
+                              <span class="mb-0 d-block"><strong>Updated</strong> Your account
+                                password updated
+                                succuessfully</span>
+                              <small class="text-muted">2h Ago</small>
+                            </div>
+                          </a>
+                        </li>
+                        <!--//Notification item start//-->
+                        <li class="d-block">
+                          <a href="#"
+                            class="hover-bg-secondary rounded-3 px-3 py-2 text-reset d-flex align-items-center">
+                            <span class="d-block me-3">
+                              <span
+                                class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-danger text-danger rounded-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round" class="feather feather-percent fe-2x align-middle">
+                                  <line x1="19" y1="5" x2="5" y2="19"></line>
+                                  <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                                  <circle cx="17.5" cy="17.5" r="2.5"></circle>
+                                </svg>
+                              </span>
+                            </span>
+
+                            <div class="flex-grow-1 flex-wrap pe-3">
+                              <span class="mb-0 d-block"><strong>Pro discount</strong> Upgrade
+                                to pro plan with 30%
+                                discount, Apply coupon <span class="badge bg-primary">PRO30</span></span>
+                              <small class="text-muted">2h Ago</small>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mb-0 me-3">Recent Activity</h5>
+                      <a href="#!" class="text-muted">View All</a>
+                    </div>
+                    <div class="card-body">
+                      <ul class="step mx-3 mx-sm-0 list-unstyled mb-0">
+                        <li class="step-item">
+                          <div class="step-row">
+                            <span class="step-icon">
+                              <!--Avatar-->
+                              <span
+                                class="avatar sm avatar-status status-online rounded-circle d-flex align-items-center justify-content-center bg-primary text-white">
+                                <b>R</b>
+                              </span>
+                            </span>
+
+                            <div class="step-content">
+                              <h6 class="mb-1">Raymond Atkins</h6>
+                              <span class="lh-sm d-block mb-1">Added <a href="#!">Felipe Grace</a> to project
+                                group</span>
+                              <small class="d-block mb-0 text-muted">3h ago</small>
+                            </div>
+                          </div>
+
+                        </li>
+                        <!--/.step-item-->
+                        <li class="step-item">
+                          <div class="step-row">
+                            <span class="step-icon">
+                              <!--Avatar-->
+                              <span class="avatar sm avatar-status status-online">
+                                <img src="assets/media/avatars/03.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </span>
+                            </span>
+
+                            <div class="step-content">
+                              <h6 class="mb-1">Abdul Kadir</h6>
+                              <span class="lh-sm d-block mb-1">Created a new task <a href="#!">#235</a></span>
+                              <small class="d-block mb-0 text-muted">3h ago</small>
+                            </div>
+                          </div>
+
+                        </li>
+                        <!--/.step-item-->
+                        <li class="step-item">
+                          <div class="step-row">
+                            <span class="step-icon">
+                              <!--Avatar-->
+                              <span class="avatar sm avatar-status status-online">
+                                <img src="assets/media/avatars/05.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </span>
+                            </span>
+
+                            <div class="step-content">
+                              <h6 class="mb-1">Jessica</h6>
+                              <span class="d-block mb-2 lh-sm small">Added CSS file</span>
+                              <!--Post-->
+                              <div class="p-3 border rounded-3 mb-1 d-flex align-items-center">
+                                <img src="assets/media/icons/files/css.svg" class="height-40 me-3 flex-shrink-0 w-auto"
+                                  alt="">
+                                <div class="flex-grow-1 overflow-hidden">
+                                  <p class="mb-1 lh-sm text-truncate">tooltip-popover.css</p>
+                                  <div class="d-flex align-items-center justify-content-between">
+                                    <small class="text-muted">4KB</small>
+                                    <a href="#!" class="text-body"><i data-feather="download" class="fe-1x"></i></a>
+                                  </div>
+                                </div>
+                              </div>
+                              <small class="d-block text-muted">Sep 14, 12:24PM EST</small>
+                            </div>
+                          </div>
+
+                        </li>
+                        <!--/.step-item-->
+
+                        <!--.step-item-->
+                        <li class="step-item">
+                          <div class="step-row">
+                            <span class="step-icon">
+                              <!--Avatar-->
+                              <span class="avatar sm avatar-status status-online">
+                                <img src="assets/media/avatars/04.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                              </span>
+                            </span>
+
+                            <div class="step-content">
+                              <h6 class="mb-1">Adam Voes</h6>
+                              <span class="lh-sm d-block mb-1">Reassigned a tasked to <a href="#!">Jessica</a> <a
+                                  href="#!">#078</a></span>
+                              <small class="d-block mb-0 text-muted">June 14, 12:24PM EST</small>
+                            </div>
+                          </div>
+
+                        </li>
+                        <!--/.step-item-->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Widget row Title-->
+              <div class="row mb-4">
+                <div class="col-md-10">
+                  <h5>Other widgets</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-7 col-xl-8 mb-4">
+                  <!--card-->
+                  <div class="card overflow-hidden h-100">
+                    <div class="d-flex card-header border-bottom-0 justify-content-between">
+                      <h5 class="me-3 card-title mb-0">Top Products</h5>
+                      <a href="#!.html">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table table-borderless table-nowrap table-card mb-0" style="width:100%">
+                        <thead class="text-muted text-uppercase small bg-body">
+                          <tr>
+                            <th class="ps-3" style="width:190px">Product</th>
+                            <th>Change</th>
+                            <th>Price</th>
+                            <th>Sold</th>
+                            <th class="text-end">Sales</th>
+                          </tr>
+                        </thead>
+                        <tbody class="align-middle">
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <a href="#!.html"><img src="assets/media/products/6.png"
+                                    class="avatar p-1 border rounded-2 me-2 align-middle" alt=""></a>
+                                <p class="mb-0 text-truncate"><a href="#!.html" class="text-reset">Apple white earbuds
+                                    water proof</a></p>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span class="me-2">8%</span>
+                                <span class="small text-success">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-trending-up fe-1x align-middle ms-1">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                  </svg>
+                                </span>
+                              </div>
+                            </td>
+                            <td>$69</td>
+                            <td>9040</td>
+                            <td class="text-end">$623760</td>
+                          </tr>
+                          <tr>
+                            <td class="">
+                              <div class="d-flex align-items-center">
+                                <a href="#!.html"><img src="assets/media/products/3.png"
+                                    class="avatar p-1 border rounded-2 me-2 align-middle" alt=""></a>
+                                <p class="mb-0 text-truncate"><a href="#!.html" class="text-reset">Mini handbag for
+                                    woomens</a></p>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span class="me-2">6%</span>
+                                <span class="small text-success">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-trending-up fe-1x align-middle ms-1">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                  </svg>
+                                </span>
+                              </div>
+                            </td>
+                            <td>$59</td>
+                            <td>8475</td>
+                            <td class="text-end">$500025</td>
+                          </tr>
+                          <tr>
+                            <td class="">
+                              <div class="d-flex align-items-center">
+                                <a href="#!.html"><img src="assets/media/products/4.png"
+                                    class="avatar p-1 border rounded-2 me-2 align-middle" alt=""></a>
+                                <p class="mb-0 text-truncate"><a href="#!.html" class="text-reset">Minimalist wireless
+                                    headphone</a></p>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span class="me-2">11%</span>
+                                <span class="small text-success">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-trending-up fe-1x align-middle ms-1">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                  </svg>
+                                </span>
+                              </div>
+                            </td>
+                            <td>$59</td>
+                            <td>7321</td>
+                            <td class="text-end">$431939</td>
+                          </tr>
+                          <tr>
+                            <td class="">
+                              <div class="d-flex align-items-center">
+                                <a href="#!.html"><img src="assets/media/products/5.png"
+                                    class="avatar p-1 border rounded-2 me-2 align-middle" alt=""></a>
+                                <p class="mb-0 text-truncate"><a href="#!.html" class="text-reset">Google home mini</a>
+                                </p>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span class="me-2">-7%</span>
+                                <span class="small text-danger">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-trending-down fe-1x align-middle ms-1">
+                                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                    <polyline points="17 18 23 18 23 12"></polyline>
+                                  </svg>
+                                </span>
+                              </div>
+                            </td>
+                            <td>$39</td>
+                            <td>5485</td>
+                            <td class="text-end">$212862</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 col-xl-4 mb-4">
+                  <div class="card h-100">
+                    <div class="d-flex card-header justify-content-between">
+                      <h5 class="me-3 mb-0">Top Countries</h5>
+                      <a href="#!.html">View All</a>
+                    </div>
+                    <div class="card-body">
+                      <ul class="list-group list-group-flush">
+
+                        <!--List-item-->
+                        <li class="list-group-item pt-0">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img src="assets/media/flags/united-states.svg" alt=""
+                                class="width-20 rounded-circle h-auto">
+                            </div>
+                            <div class="col">United States</div>
+                            <div class="col-auto">
+                              <span>36%</span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img src="assets/media/flags/united-kingdom.svg" alt=""
+                                class="width-20 rounded-circle h-auto">
+                            </div>
+                            <div class="col">United Kingdom</div>
+                            <div class="col-auto">
+                              <span>24%</span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img src="assets/media/flags/poland.svg" alt="" class="width-20 rounded-circle h-auto">
+                            </div>
+                            <div class="col">Poland</div>
+                            <div class="col-auto">
+                              <span>20%</span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img src="assets/media/flags/spain.svg" alt="" class="width-20 rounded-circle h-auto">
+                            </div>
+                            <div class="col">Spain</div>
+                            <div class="col-auto">
+                              <span>7%</span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img src="assets/media/flags/kenya.svg" alt="" class="width-20 rounded-circle h-auto">
+                            </div>
+                            <div class="col">Kenya</div>
+                            <div class="col-auto">
+                              <span>6%</span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img src="assets/media/flags/india.svg" alt="" class="width-20 rounded-circle h-auto">
+                            </div>
+                            <div class="col">India</div>
+                            <div class="col-auto">
+                              <span>5%</span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img src="assets/media/flags/france.svg" alt="" class="width-20 rounded-circle h-auto">
+                            </div>
+                            <div class="col">France</div>
+                            <div class="col-auto">
+                              <span>2%</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 col-xl-4 mb-4">
+                  <div class="card">
+                    <div class="d-flex card-header justify-content-between">
+                      <h5 class="me-3 mb-0">Top Customers</h5>
+                      <a href="#!.html">View All</a>
+                    </div>
+                    <div class="card-body">
+                      <ul class="list-group list-group-flush">
+
+                        <!--List-item-->
+                        <li class="list-group-item pt-0">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <img src="assets/media/avatars/02.jpg" alt="" class="avatar rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                              <h6 class="mb-0">Inara Britt</h6>
+                              <p class="mb-0 text-muted">Georgia, USA</p>
+                            </div>
+                            <div class="flex-shrink-0 text-end">
+                              <span>
+                                $927.00
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <img src="assets/media/avatars/03.jpg" alt="" class="avatar rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                              <h6 class="mb-0">Eduard Franz</h6>
+                              <p class="mb-0 text-muted">London, UK</p>
+                            </div>
+                            <div class="flex-shrink-0 text-end">
+                              <span>
+                                $916.00
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <img src="assets/media/avatars/04.jpg" alt="" class="avatar rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                              <h6 class="mb-0">Gianluca Darby</h6>
+                              <p class="mb-0 text-muted">São Paulo, Brazil</p>
+                            </div>
+                            <div class="flex-shrink-0 text-end">
+                              <span>
+                                $896.50
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <img src="assets/media/avatars/05.jpg" alt="" class="avatar rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                              <h6 class="mb-0">Milana Myles</h6>
+                              <p class="mb-0 text-muted">Marseille, France</p>
+                            </div>
+                            <div class="flex-shrink-0 text-end">
+                              <span>
+                                $874.50
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-item-->
+                        <li class="list-group-item pb-0">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 me-3">
+                              <img src="assets/media/avatars/06.jpg" alt="" class="avatar rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                              <h6 class="mb-0">Taisiia Oluchi</h6>
+                              <p class="mb-0 text-muted">Durban, SA</p>
+                            </div>
+                            <div class="flex-shrink-0 text-end">
+                              <span>
+                                $857.50
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="card">
+
+                    <img src="assets/media/cover/2.jpg" class="card-img-top img-fluid" alt="">
+                    <div class="position-absolute end-0 top-0 me-4 mt-4">
+                      <div class="dropstart">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                          class="btn btn-outline-white rounded-3 p-0 d-flex align-items-center justify-content-center size-40">
+                          <i data-feather="more-vertical" class="fe-2x"></i>
+                        </a>
+                        <div class="dropdown-menu border-0">
+                          <a href="#!" class="dropdown-item">
+                            <i data-feather="heart" class="fe-1x me-2 opacity-75"></i>Like
+                          </a>
+                          <a href="#!" class="dropdown-item">
+                            <i data-feather="info" class="fe-1x me-2 opacity-75"></i>Artist Info
+                          </a>
+                          <a href="#!" class="dropdown-item">
+                            <i data-feather="disc" class="fe-1x me-2 opacity-75"></i>View album
+                          </a>
+                          <a href="#!" class="dropdown-item">
+                            <i data-feather="share" class="fe-1x me-2 opacity-75"></i>Share
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="mb-3 d-flex justify-content-between align-items-center">
+                        <div class="flex-shrink-0">
+                          <h5 class="mb-1">Blinding lights - Remix</h5>
+                          <a href="#!" class="text-muted small">The Weeknd</a>
+                        </div>
+                        <span>
+                          <a href="#!" class="text-muted">
+                            <i data-feather="heart" class="fe-1x"></i>
+                          </a>
+                        </span>
+                      </div>
+                      <!--Playlist progess-->
+                      <div>
+
+                        <div class="progress mb-1 rounded-0 shadow-none bg-tint-secondary" style="height:5px">
+                          <div class="progress-bar bg-secondary" style="width: 47%;" aria-valuemax="100"
+                            aria-valuenow="47" role="progressbar"></div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <span class="small">1:34</span>
+                          <span class="small">-2:01</span>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+
+                      <!--Icon Repeat-->
+                      <span>
+                        <a href="#!" class="text-body">
+                          <i data-feather="repeat" class="fe-1x"></i>
+                        </a>
+                      </span>
+
+                      <!--Icon Play/Pause/Next/Prev-->
+                      <div class="d-flex align-items-center justify-content-center">
+                        <a href="#!"
+                          class="size-40 p-0 btn btn-gray d-flex align-items-center justify-content-center rounded-circle">
+                          <i data-feather="skip-back" class="fe-1x"></i>
+                        </a>
+                        <a href="#!"
+                          class="size-45 mx-1 p-0 btn btn-primary d-flex align-items-center justify-content-center rounded-circle">
+                          <i data-feather="pause" class="fe-2x"></i>
+                        </a>
+                        <a href="#!"
+                          class="size-40 p-0 btn btn-gray d-flex align-items-center justify-content-center rounded-circle">
+                          <i data-feather="skip-forward" class="fe-1x"></i>
+                        </a>
+                      </div>
+                      <!--Icon Shuffle-->
+                      <span>
+                        <a href="#!" class="text-body">
+                          <i data-feather="shuffle" class="fe-1x"></i>
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mb-4">
+                  <div class="card card-body mb-4">
+                    <div class="row align-items-center">
+                      <div class="col-2 col-md-auto">
+                        <div
+                          class="size-50 d-flex align-items-center justify-content-center bg-primary text-white rounded-pill shadow">
+                          <i data-feather="edit" class="fe-2x align-middle"></i>
+                        </div>
+                      </div>
+                      <div class="col-10 ps-5 ps-md-3 col-md">
+                        <div class="row align-items-center">
+                          <div class="col-xl-8 col-md-7 mb-3 mb-md-0">
+                            <h5 class="mb-1">Create your next Campaign</h5>
+                            <p class="mb-0 text-truncate text-muted">Duis aute irure dolor in reprehenderit in voluptate
+                              velit esse
+                              cillum dolore eu fugiat nulla pariatur.</p>
+                          </div>
+
+                          <div class="col-auto ms-md-auto">
+                            <a href="#!" class="btn btn-success d-inline-flex align-items-center">
+                              <i data-feather="plus" class="fe-2x me-1"></i>Create new campaign
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-body border-0 overflow-hidden bg-shade-primary text-white">
+                    <!--Shape-->
+                    <svg class="position-absolute start-50 top-0 text-white" width="100" height="50"
+                      viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path opacity=".15"
+                        d="M100 3.8147e-06C100 6.5661 98.7067 13.0679 96.194 19.1342C93.6812 25.2005 89.9983 30.7124 85.3553 35.3553C80.7124 39.9983 75.2005 43.6812 69.1342 46.194C63.0679 48.7067 56.5661 50 50 50C43.4339 50 36.9321 48.7067 30.8658 46.194C24.7995 43.6812 19.2876 39.9983 14.6447 35.3553C10.0017 30.7124 6.31876 25.2005 3.80602 19.1342C1.29329 13.0679 -5.74026e-07 6.56609 0 0L50 3.8147e-06H100Z"
+                        fill="currentColor" />
+                    </svg>
+                    <div class="row align-items-center position-relative z-index-1">
+                      <div class="col-sm-7 mb-3 mb-sm-0">
+
+                        <h5 class="mb-1">Create a new profile</h5>
+                        <p class="mb-0 text-truncate text-muted">Duis aute irure dolor in reprehenderit in voluptate
+                          velit esse
+                          cillum dolore eu fugiat nulla pariatur.</p>
+                      </div>
+                      <div class="col-sm-5 text-sm-end">
+                        <a href="#!" class="btn btn-primary btn-sm d-inline-flex align-items-center">
+                          <i data-feather="plus" class="fe-2x me-1"></i>Create new
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-7 mb-4">
+                  <div class="card">
+                    <div class="card-header border-0 d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Most visited pages</h5>
+                      <a href="#!">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table-card align-middle table-nowrap mb-0 table table-borderless">
+                        <thead class="small text-uppercase text-muted">
+                          <tr>
+                            <th>Page</th>
+                            <th>Visitors</th>
+                            <th>Unique visitors</th>
+                            <th>Bounce rate</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>/app/widgets.html</td>
+                            <td>13842</td>
+                            <td>2514</td>
+                            <td>23% <i data-feather="trending-up" class="fe-2x ms-2 text-success"></i></td>
+                          </tr>
+                          <tr class="bg-body">
+                            <td>/app/analytics.html</td>
+                            <td>9514</td>
+                            <td>1912</td>
+                            <td>13% <i data-feather="trending-up" class="fe-2x ms-2 text-success"></i></td>
+                          </tr>
+                          <tr>
+                            <td>/app/index.html</td>
+                            <td>8412</td>
+                            <td>1245</td>
+                            <td>-4% <i data-feather="trending-down" class="fe-2x ms-2 text-danger"></i></td>
+                          </tr>
+                          <tr>
+                            <td>/app/e-commerce.html</td>
+                            <td>6239</td>
+                            <td>458</td>
+                            <td>8% <i data-feather="trending-up" class="fe-2x ms-2 text-success"></i></td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-5 mb-4">
+                  <div class="card">
+                    <div class="card-header border-0">
+                      <h5 class="mb-0">Social media traffic</h5>
+                    </div>
+                    <table class="table-card table-nowrap mb-0 table table-borderless">
+                      <thead class="small text-uppercase bg-body text-muted">
+                        <tr>
+                          <th>Network</th>
+                          <th>Visitors</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Instagram</td>
+                          <td>
+                            <div class="fs-6 d-flex justify-content-between align-items-center">654,078
+                              <div class="progress rounded-pill bg-tint-danger height-5 flex-grow-1 ms-4 ms-lg-6">
+                                <div class="progress-bar rounded-pill bg-danger" style="width:70%" aria-valuemax="100"
+                                  aria-valuemin="0" aria-valuenow="70" role="progressbar"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Facebook</td>
+                          <td>
+                            <div class="fs-6 d-flex justify-content-between align-items-center">214,587
+                              <div class="progress rounded-pill height-5 flex-grow-1 ms-4 ms-lg-6">
+                                <div class="progress-bar rounded-pill" style="width:53%" aria-valuemax="100"
+                                  aria-valuemin="0" aria-valuenow="13" role="progressbar"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Twitter</td>
+                          <td>
+                            <div class="fs-6 d-flex justify-content-between align-items-center">123,478
+                              <div class="progress bg-tint-info rounded-pill height-5 flex-grow-1 ms-4 ms-lg-6">
+                                <div class="progress-bar rounded-pill bg-info" style="width:47%" aria-valuemax="100"
+                                  aria-valuemin="0" aria-valuenow="37" role="progressbar"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>LinkedIn</td>
+                          <td>
+                            <div class="fs-6 d-flex justify-content-between align-items-center">012,878
+                              <div class="progress bg-tint-secondary rounded-pill height-5 flex-grow-1 ms-4 ms-lg-6">
+                                <div class="progress-bar rounded-pill bg-secondary" style="width:27%"
+                                  aria-valuemax="100" aria-valuemin="0" aria-valuenow="57" role="progressbar"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mb-4">
+                  <div class="position-relative card">
+                    <div class="card-header border-bottom-0 d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">New customers</h5>
+                      <a href="#!" class="btn btn-gray btn-sm">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table mb-0 table-nowrap table-card">
+                        <thead class="small text-uppercase bg-body text-muted">
+                          <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Country</th>
+                            <th>Payment method</th>
+                            <th>Created Date</th>
+                            <th class="text-end">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="align-middle">
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img src="assets/media/avatars/08.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0"
+                                  alt="Customer">
+                                <div>
+                                  <div class="h6 mb-0 lh-1">Mark Voldov</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>mvoges@email.com</td>
+                            <td><img src="assets/media/flags/russia.svg"
+                                class="width-15 h-auto me-2 rounded-pill align-middle" alt=""> <span
+                                class="d-inline-block align-middle">Russia</span></td>
+                            <td><span>****6231</span></td>
+                            <td>21 Sep, 2021</td>
+                            <td class="text-end">
+                              <div class="drodown">
+                                <a data-bs-toggle="dropdown" href="#" class="btn p-1">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                  </svg>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <a href="#!" class="dropdown-item">View Details</a>
+                                  <a href="#!" class="dropdown-item">Delete user</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img src="assets/media/avatars/04.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0"
+                                  alt="Customer">
+                                <div>
+                                  <div class="h6 mb-0 lh-1">Topias Kantola</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>topiaskantola@email.com</td>
+                            <td><img src="assets/media/flags/brazil.svg"
+                                class="width-15 h-auto me-2 rounded-pill align-middle" alt=""> <span
+                                class="d-inline-block align-middle">Brazil</span></td>
+                            <td><span>****@mail.com</span></td>
+                            <td>21 Sep, 2021</td>
+                            <td class="text-end">
+                              <div class="drodown">
+                                <a data-bs-toggle="dropdown" href="#" class="btn p-1">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                  </svg>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <a href="#!" class="dropdown-item">View Details</a>
+                                  <a href="#!" class="dropdown-item">Delete user</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img src="assets/media/avatars/05.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0"
+                                  alt="Customer">
+                                <div>
+                                  <div class="h6 mb-0 lh-1">Anaiah Whitten</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>anaiahwhitten@email.com</td>
+                            <td><img src="assets/media/flags/poland.svg"
+                                class="width-15 h-auto me-2 rounded-pill align-middle" alt="">
+                              <span class="d-inline-block align-middle">Poland</span>
+                            </td>
+                            <td><span>****0014</span></td>
+                            <td>12 June, 2021</td>
+                            <td class="text-end">
+                              <div class="drodown">
+                                <a data-bs-toggle="dropdown" href="#" class="btn p-1">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                  </svg>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <a href="#!" class="dropdown-item">View Details</a>
+                                  <a href="#!" class="dropdown-item">Delete user</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img src="assets/media/avatars/07.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0"
+                                  alt="Customer">
+                                <div>
+                                  <div class="h6 mb-0 lh-1">Wyatt Morris</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>wyattmorris@email.com</td>
+                            <td><img src="assets/media/flags/kenya.svg"
+                                class="width-15 h-auto me-2 rounded-pill align-middle" alt="">
+                              <span class="d-inline-block align-middle">Kenya</span>
+                            </td>
+                            <td><span>****8715</span></td>
+                            <td>04 June, 2021</td>
+                            <td class="text-end">
+                              <div class="drodown">
+                                <a data-bs-toggle="dropdown" href="#" class="btn p-1">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                  </svg>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <a href="#!" class="dropdown-item">View Details</a>
+                                  <a href="#!" class="dropdown-item">Delete user</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img src="assets/media/avatars/06.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0"
+                                  alt="Customer">
+                                <div>
+                                  <div class="h6 mb-0 lh-1">Eliana Stout</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>elianastout@email.com</td>
+                            <td><img src="assets/media/flags/united-states.svg"
+                                class="width-15 h-auto me-2 rounded-pill align-middle" alt="">
+                              <span class="d-inline-block align-middle">Usa</span>
+                            </td>
+                            <td><span>****1010</span></td>
+                            <td>01 June, 2021</td>
+                            <td class="text-end">
+                              <div class="drodown">
+                                <a data-bs-toggle="dropdown" href="#" class="btn p-1">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                  </svg>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <a href="#!" class="dropdown-item">View Details</a>
+                                  <a href="#!" class="dropdown-item">Delete user</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <div class="position-relative card">
+                    <div class="card-header border-bottom-0 align-items-center">
+                      <h5 class="mb-0">Latest Transactions</h5>
+                      <p class="mb-0 small text-muted">1 Pending</p>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table mb-0 table-nowrap table-card">
+                        <thead class="small text-uppercase bg-body text-muted">
+                          <tr>
+                            <th>Transaction ID</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="align-middle">
+                            <td class="text-muted">
+                              #57473829
+                            </td>
+                            <td>13 Sep, 2021</td>
+                            <td>Renee Sims</td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span><i data-feather="arrow-up" class="me-2 fe-1x text-danger"></i></span>
+                                <span>$145</span>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="badge rounded-pill bg-tint-success text-success">Completed</span>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td class="text-muted">
+                              #012458780
+                            </td>
+                            <td>19 Aug, 2021</td>
+                            <td>Edith Koenig</td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span><i data-feather="arrow-down" class="me-2 fe-1x text-success"></i></span>
+                                <span>$641.64</span>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="badge rounded-pill bg-tint-warning text-warning">Pending</span>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td class="text-muted">
+                              #76444326
+                            </td>
+                            <td>03 April, 2021</td>
+                            <td>Carrie Blount</td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span><i data-feather="arrow-down" class="me-2 fe-1x text-success"></i></span>
+                                <span>$12,457</span>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="badge rounded-pill bg-tint-success text-success">Completed</span>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td class="text-muted">
+                              #12498745
+                            </td>
+                            <td>15 March, 2021</td>
+                            <td>Ander Durham</td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span><i data-feather="arrow-down" class="me-2 fe-1x text-success"></i></span>
+                                <span>$785</span>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="badge rounded-pill bg-tint-success text-success">Completed</span>
+                            </td>
+                          </tr>
+                          <tr class="align-middle">
+                            <td class="text-muted">
+                              #87444654
+                            </td>
+                            <td>23 Jan, 2021</td>
+                            <td>Netflix Inc.</td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <span><i data-feather="arrow-up" class="me-2 fe-1x text-danger"></i></span>
+                                <span>$199</span>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="badge rounded-pill bg-tint-success text-success">Completed</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#!" class="btn btn-gray rounded-pill">View All Transactions</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 mb-4">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <div class="flex-shrink-0">
+                        <h5 class="mb-0">Budget</h5>
+                        <p class="mb-0 text-muted small">Last month budget summary</p>
+                      </div>
+                      <a href="#!">View all</a>
+                    </div>
+                    <div class="card-body pt-0">
+                      <ul class="list-group list-group-flush">
+
+                        <!--List-group-item-->
+                        <li class="list-group-item">
+                          <div class="d-flex align-items-center">
+                            <div class="me-4">
+                              <div
+                                class="size-50 rounded-3 bg-tint-danger text-danger d-flex justify-content-center align-items-center">
+                                <i data-feather="credit-card" class="fe-2x"></i>
+                              </div>
+                            </div>
+                            <div class="flex-grow-1">
+                              <p class="mb-1 text-muted">Expanses</p>
+                              <h5 class="mb-1">$2375.58</h5>
+                              <div class="d-flex align-items-center">
+                                <div class="progress bg-tint-danger flex-grow-1 mb-0" style="height: 4px;">
+                                  <div class="progress-bar bg-danger" style="width: 74%;" aria-valuenow="75"
+                                    aria-valuemax="100" role="progressbar"></div>
+                                </div>
+                                <div class="flex-shrink-0 ps-4">
+                                  <span>14.50% <i data-feather="corner-left-up" class="fe-1x text-success"></i></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-group-item-->
+                        <li class="list-group-item">
+                          <div class="d-flex align-items-center">
+                            <div class="me-4">
+                              <div
+                                class="size-50 rounded-3 bg-tint-success text-success d-flex justify-content-center align-items-center">
+                                <i data-feather="filter" class="fe-2x"></i>
+                              </div>
+                            </div>
+                            <div class="flex-grow-1">
+                              <p class="mb-1 text-muted">Savings</p>
+                              <h5 class="mb-1">$875.25</h5>
+                              <div class="d-flex align-items-center">
+                                <div class="progress bg-tint-success flex-grow-1 mb-0" style="height: 4px;">
+                                  <div class="progress-bar bg-success" style="width: 25%;" aria-valuenow="25"
+                                    aria-valuemax="100" role="progressbar"></div>
+                                </div>
+                                <div class="flex-shrink-0 ps-4">
+                                  <span>2.75% <i data-feather="corner-left-down" class="fe-1x text-danger"></i></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!--List-group-item-->
+                        <li class="list-group-item">
+                          <div class="d-flex align-items-center">
+                            <div class="me-4">
+                              <div
+                                class="size-50 rounded-3 bg-tint-primary text-primary d-flex justify-content-center align-items-center">
+                                <i data-feather="zap-off" class="fe-2x"></i>
+                              </div>
+                            </div>
+                            <div class="flex-grow-1">
+                              <p class="mb-1 text-muted">Bills</p>
+                              <h5 class="mb-1">$524.00</h5>
+                              <div class="d-flex align-items-center">
+                                <div class="progress bg-tint-primary flex-grow-1 mb-0" style="height: 4px;">
+                                  <div class="progress-bar bg-primary" style="width: 12%;" aria-valuenow="12"
+                                    aria-valuemax="100" role="progressbar"></div>
+                                </div>
+                                <div class="flex-shrink-0 ps-4">
+                                  <span>1.25% <i data-feather="corner-left-up" class="fe-1x text-success"></i></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 mb-4">
+
+                  <!--Card Begin-->
+                  <div class="card">
+
+                    <!--Card Header Begin-->
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Todos</h5>
+                      <a href="#!" class="text-body">View all</a>
+                    </div>
+                    <!--Card Header End-->
+
+                    <!--Card Body Begin-->
+                    <div class="card-body">
+
+                      <!--Todolist Begin-->
+                      <div class="todolist">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="todoListOne">
+                          <label class="form-check-label">Fix the charts responsive issues</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="todoListTwo" checked>
+                          <label class="form-check-label">Create the new design for campaign view page</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="todoListThree">
+                          <label class="form-check-label">Fix the reports table header buttons space</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="todoListFour" checked>
+                          <label class="form-check-label">Fix the breadcrumbs separator color for dark
+                            backgrounds</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="todoListFive">
+                          <label class="form-check-label">Make the pagination horizontaly center in reports table page
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="todoListSix">
+                          <label class="form-check-label">Update to bootsrap latest version</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="todoListSeven">
+                          <label class="form-check-label">Remove jquery from theme.bundle.js</label>
+                        </div>
+                      </div>
+                      <!--Todolist End-->
+
+                    </div>
+                    <!--Card Body End-->
+
+                    <!--Create new todo begin-->
+                    <div class="card-footer p-0">
+                      <div class="row me-0 align-items-center">
+                        <div class="col">
+                          <input class="form-control bg-transparent ps-4 border-0 shadow-none py-3"
+                            placeholder="Add new todo">
+
+                        </div>
+                        <div class="col-auto pe-4">
+                          <button class="btn btn-sm btn-primary p-1">
+                            <i data-feather="plus" class="fe-3x"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Create new todo end-->
+
+                  </div>
+                  <!--Card End-->
+                </div>
+                <div class="col-12">
+
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+
+                      <!--Card Job Applied-->
+                      <div class="card card-body">
+                        <div class="d-flex align-items-center mb-3">
+                          <img src="assets/media/avatars/03.jpg" class="avatar rounded-pill flex-shrink-0 me-3" alt="">
+                          <div class="flex-grow-1">
+                            <h5 class="mb-0">Adam Gullium</h5>
+                            <a href="#!">View Profile</a>
+                          </div>
+                        </div>
+                        <div class="d-flex pt-3 border-top align-items-center justify-content-between">
+                          <span class="text-muted small lh-1 align-middle">Applied on Jan 14, 2021</span>
+                          <a href="#!" class="text-body lh-1">
+                            <i class="fe-1x align-middle" data-feather="trash-2"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+
+                      <!--Card Job Applied-->
+                      <div class="card border-0 bg-primary text-white card-body">
+                        <div class="d-flex align-items-center">
+                          <img src="assets/media/avatars/03.jpg" class="avatar rounded-pill flex-shrink-0 me-3" alt="">
+                          <div class="flex-grow-1">
+                            <h5 class="mb-0">Adam Gullium</h5>
+                            <a href="#!" class="link-gray">View Profile</a>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <span class="text-white text-opacity-75 small lh-1 align-middle">Applied on Jan 14,
+                            2021</span>
+                          <a href="#!" class="text-white lh-1">
+                            <i class="fe-1x align-middle" data-feather="trash-2"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+
+                      <!--Card Job Applied-->
+                      <div class="card card-body">
+                        <div class="d-flex align-items-center mb-3">
+                          <img src="assets/media/avatars/03.jpg" class="avatar rounded-pill flex-shrink-0 me-3" alt="">
+                          <div class="flex-grow-1 overflow-hidden">
+                            <h5 class="mb-0">Adam Gullium</h5>
+                            <small class="text-muted d-block text-truncate">Applied on 14 Sep 2021</small>
+                          </div>
+                        </div>
+                        <div class="d-flex pt-3 border-top align-items-center justify-content-between">
+                          <a href="#!">View Profile</a>
+                          <a href="#!" class="text-body lh-1">
+                            <i class="fe-1x align-middle" data-feather="trash-2"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-5 mb-4">
+
+                  <!--Card Begin-->
+                  <div class="card">
+                    <div class="card-header align-items-stretch">
+                      <div class="flex-grow-1 overflow-hidden">
+                        <h5 class="mb-0">Add a Team Member
+                        </h5>
+                        <p class="mb-0 text-truncate text-muted">
+                          Add your teammates to your team and start working together on getting work done
+                        </p>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <div class="mb-3">
+                          <input type="text" class="form-control" placeholder="Team member name">
+                        </div>
+                        <div class="mb-4">
+                          <div class="input-group">
+                            <span class="input-group-text">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-mail fe-1x">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                              </svg>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Team member work email">
+                          </div>
+                        </div>
+                        <h6 class="text-muted small mb-4">Permissions</h6>
+
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <label class="form-switch-label" for="addTask">
+                                <span class="d-block h6 mb-0">Can create tasks</span>
+                                <span class="d-block small text-muted">Create tasks and add them to projects</span>
+                              </label>
+                              <div class="form-switch form-check">
+                                <input type="checkbox" id="addTask" class="form-check-input">
+                              </div>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <label class="form-switch-label" for="moveTask">
+                                <span class="d-block h6 mb-0">Can move tasks around</span>
+                                <span class="d-block small text-muted">Make tasks and add them to projects</span>
+                              </label>
+                              <div class="form-switch form-check">
+                                <input type="checkbox" id="moveTask" class="form-check-input">
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary">Add Member </button>
+                    </div>
+                  </div>
+                  <!--Card End-->
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mb-4">
+
+                  <!--Card Begin-->
+                  <div class="card">
+
+                    <!--Card Body Begin-->
+                    <div class="card-body">
+                      <h5 class="mb-0">Your Top Review</h5>
+                      <small class="text-muted d-block mb-3">Best of your reviews</small>
+                      <div class="d-flex align-items-center mb-3">
+                        <img src="assets/media/avatars/03.jpg" class="avatar rounded-pill flex-shrink-0 me-3" alt="">
+                        <div class="flex-grow-1">
+                          <h6 class="mb-0">Adam Gullium</h6>
+                          <span class="small text-warning">
+                            <i class="fe-1x" data-feather="star"></i>
+                            <i class="fe-1x" data-feather="star"></i>
+                            <i class="fe-1x" data-feather="star"></i>
+                            <i class="fe-1x" data-feather="star"></i>
+                            <i class="fe-1x" data-feather="star"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <p class="mb-0 lead">
+                        " Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries
+                        for previewing layouts and visual mockups. "
+                      </p>
+                    </div>
+                    <!--Card Body End-->
+
+
+                    <div class="card-footer">
+                      <a href="#!" class="text-body d-inline-block me-3">
+                        <i data-feather="heart" class="fe-2x"></i>
+                      </a>
+                      <a href="#!" class="text-body d-inline-block">
+                        <i data-feather="share" class="fe-2x"></i>
+                      </a>
+                    </div>
+
+                  </div>
+                  <!--Card End-->
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+
+                  <!--Card Begin-->
+                  <div class="card">
+
+                    <!--Card Body Begin-->
+                    <div class="card-body">
+                      <div class="d-flex pb-4 align-items-center justify-content-between">
+                        <div class="me-3">
+                          <img src="assets/media/avatars/04.jpg" class="avatar rounded-pill shadow-sm" alt="">
+                        </div>
+                        <div class="d-flex flex-grow-1">
+                          <div class="me-2 flex-shrink-0">
+                            <h6 class="mb-0">Kasper Dolberg</h6>
+                            <span class="text-muted small">Updated 2 hours ago</span>
+                          </div>
+                          <div class="ms-auto text-end">
+                            <span class="badge rounded-pill bg-primary">Developer</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5>Need a Full Stack Developer</h5>
+                        <p class="mb-4">
+                          Lorem ipsum is placeholder text commonly used in the graphic, publishing industries for
+                          previewing layouts and visual mockups.
+                        </p>
+                        <div class="px-4 py-3 mb-4 border rounded-3 d-flex justify-content-between align-items-center">
+                          <div class="flex-grow-1 me-3">
+                            <span class=" d-block">
+                              <sup>$</sup>
+                              <span class="fs-3 fw-bolder text-body">9500</span>
+                            </span>
+                            <sup class="text-muted">Monthly</sup>
+                          </div>
+                          <div>
+                            <span class="badge rounded-pill bg-success">Full Time</span>
+                          </div>
+                        </div>
+                        <div class="d-grid">
+                          <a href="#!" class="btn btn-primary">Apply for this Job</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Card Body End-->
+                  </div>
+                  <!--Card End-->
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                  <!--Card Begin-->
+                  <div class="card">
+
+                    <!--Card Body Begin-->
+                    <div class="card-body">
+                      <div class="d-flex pb-4 align-items-center justify-content-between">
+                        <div class="me-3">
+                          <img src="assets/media/avatars/04.jpg" class="avatar xl rounded-3 shadow" alt="">
+                        </div>
+                        <div class="flex-grow-1">
+                          <div class="me-2 flex-shrink-0">
+                            <h5 class="mb-1">Kasper Dolberg</h5>
+                            <span class="text-muted d-block small">Developer at some agency</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--Options-->
+                      <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="tadmin">
+                        <label for="tadmin">Team administrator</label>
+                      </div>
+
+                      <div class="form-check mb-2">
+                        <input type="checkbox" checked class="form-check-input" id="mbook">
+                        <label for="mbook">Can make bookings</label>
+                      </div>
+
+                      <div class="form-check mb-2">
+                        <input type="checkbox" checked class="form-check-input" id="bproducts">
+                        <label for="bproducts">Can buy products</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input type="checkbox" checked class="form-check-input" id="ctasks">
+                        <label for="ctasks">Can create tasks</label>
+                      </div>
+
+                      <div class="pt-3">
+                        <h6>Access cards</h6>
+                        <input type="text" class="form-control" placeholder="Type and hit enter">
+                      </div>
+                    </div>
+                    <!--Card Body End-->
+
+                    <!--Card footer-->
+
+                    <div class="card-footer">
+                      <div class="d-flex align-items-center justify-content-end">
+                        <a href="#!" class="btn btn-gray me-2">Manage</a>
+                        <a href="#!" class="btn btn-success">Save changes</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Card End-->
+                </div>
+                <div class="col-12 col-md-12 col-lg-8 mb-4">
+
+                  <!--Card Begin-->
+                  <div class="card">
+                    <div class="card-header border-0">
+                      <h5 class="mb-0">My Purchases</h5>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table-card table-sm align-middle table table-nowrap table-borderless">
+                        <thead class="small text-uppercase text-muted bg-body">
+                          <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <p class="mb-0 fw-bold"><a href="#!" class="text-reset">Name of item</a></p>
+                              <small class="text-muted">#INV-1234</small>
+                            </td>
+                            <td>$80.00</td>
+                            <td><small class="text-muted">24/12/2019</small></td>
+                            <td>
+                              <span class="badge bg-success paid">
+                                Paid
+                              </span>
+                            </td>
+                            <td class="text-end">
+                              <a href="#!"><i data-feather="download" class="fe-1x me-2 align-middle"></i>Download</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p class="mb-0 fw-bold"><a href="#!" class="text-reset">Name of item</a></p>
+                              <small class="text-muted">#INV-1234</small>
+                            </td>
+                            <td>$64.00</td>
+                            <td><small class="text-muted">24/12/2019</small></td>
+                            <td>
+                              <span class="badge bg-success paid">
+                                Paid
+                              </span>
+                            </td>
+                            <td class="text-end">
+                              <a href="#!"><i data-feather="download" class="fe-1x me-2 align-middle"></i>Download</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p class="mb-0 fw-bold"><a href="#!" class="text-reset">Name of item</a></p>
+                              <small class="text-muted">#INV-1234</small>
+                            </td>
+                            <td>$319.00</td>
+                            <td><small class="text-muted">24/12/2019</small></td>
+                            <td>
+                              <span class="badge bg-success paid">
+                                Paid
+                              </span>
+                            </td>
+                            <td class="text-end">
+                              <a href="#!"><i data-feather="download" class="fe-1x me-2 align-middle"></i>Download</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p class="mb-0 fw-bold"><a href="#!" class="text-reset">Name of item</a></p>
+                              <small class="text-muted">#INV-1234</small>
+                            </td>
+                            <td>$64.00</td>
+                            <td><small class="text-muted">24/12/2019</small></td>
+                            <td>
+                              <span class="badge bg-success paid">
+                                Paid
+                              </span>
+                            </td>
+                            <td class="text-end">
+                              <a href="#!"><i data-feather="download" class="fe-1x me-2 align-middle"></i>Download</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p class="mb-0 fw-bold"><a href="#!" class="text-reset">Name of item</a></p>
+                              <small class="text-muted">#INV-1234</small>
+                            </td>
+                            <td>$319.00</td>
+                            <td><small class="text-muted">24/12/2019</small></td>
+                            <td>
+                              <span class="badge bg-success paid">
+                                Paid
+                              </span>
+                            </td>
+                            <td class="text-end">
+                              <a href="#!"><i data-feather="download" class="fe-1x me-2 align-middle"></i>Download</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                  <!--Card End-->
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-lg-4 col-md-6 mb-4">
+                  <div class="card card-body mb-4">
+                    <div class="d-flex mb-3 align-items-center">
+                      <img src="assets/media/avatars/02.jpg" class="flex-shrink-0 avatar rounded-pill shadow me-4"
+                        alt="">
+                      <div>
+                        <h6 class="mb-0">Mariah Sopranos</h6>
+                        <small class="text-muted">21 Oct. 2021, 12:20pm</small>
+                      </div>
+                    </div>
+                    <a href="#!" class="h5 mb-0 text-body">
+                      How to create reusable widgets using bootstrap5?
+                    </a>
+                    <hr>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <a href="#!" class="small text-muted">
+                        <i data-feather="heart" class="fe-1x me-1 align-middle"></i> 39 Likes
+                      </a>
+                      <a href="#!" class="small text-muted">
+                        <i data-feather="message-circle" class="fe-1x me-1 align-middle"></i> 19 Comments
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="flex-grow-1">
+                        <h5 class="mb-4">Sacramento, California</h5>
+                        <h2 class="display-4 mb-0">
+                          20<sub class="fs-6 text-muted">.C</sub>
+                        </h2>
+                      </div>
+                      <span class="display-2 fw-normal flex-shrink-0">
+                       <img src="assets/media/illustration/cloud.png" class="img-fluid width-120 h-auto" alt="">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                  <div class="card">
+
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mb-0">Latest Post</h5>
+                      <div class="dropdown">
+                        <a href="#" class="text-muted d-block lh-1" role="button" data-bs-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                          <i data-feather="more-vertical" class="fe-1x"></i>
+                        </a>
+                        <div class="dropdown-menu mt-1 dropdown-menu-end">
+                          <a href="#!" class="dropdown-item">
+                            Action
+                          </a>
+                          <a href="#!" class="dropdown-item">
+                            Another action
+                          </a>
+                          <a href="#!" class="dropdown-item">
+                            Something else
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Card body-->
+                    <div class="card-body">
+
+                      <!--User-->
+                      <div class="d-flex mb-3 align-items-center">
+                        <img src="assets/media/avatars/02.jpg" class="flex-shrink-0 avatar rounded-pill shadow me-4"
+                          alt="">
+                        <div>
+                          <div class="d-flex flex-wrap align-items-center">
+                            <h6 class="mb-0">Mariah Sopranos</h6>
+                            <i class="fe-1x ms-2 text-primary" data-feather="check-circle"></i>
+                          </div>
+
+                          <small class="text-muted">21 Oct. 2021, 12:20pm</small>
+                        </div>
+                      </div>
+                      <!--Poat thumb-->
+                      <a href="#!" class="d-block mb-4">
+                        <img src="assets/media/900x600/7.jpg" class="img-fluid rounded-3" alt="">
+                      </a>
+
+                      <a href="#!" class="h5 mb-0 text-body">
+                        How to create reusable widgets using bootstrap5?
+                      </a>
+                      <hr>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <a href="#!" class="small text-muted">
+                          <i data-feather="heart" class="fe-1x me-1 align-middle"></i> 39 Likes
+                        </a>
+                        <a href="#!" class="small text-muted">
+                          <i data-feather="message-circle" class="fe-1x me-1 align-middle"></i> 19 Comments
+                        </a>
+                      </div>
+                      <hr>
+                      <a href="#!" class="btn d-block w-100 btn-primary">View Post</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 col-md-6 mb-4">
+                  <!--Card-->
+                  <div class="card">
+                    <!--Card Image-->
+                    <a href="#!" class="d-block">
+                      <img src="assets/media/900x600/8.jpg" class="img-fluid card-img-top" alt="">
+                    </a>
+                    <!--Card body-->
+                    <div class="card-body">
+                      <a href="#!" class="h5 mb-0 text-body d-block mb-3">
+                        How to create reusable widgets using bootstrap5?
+                      </a>
+                      <p>
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                        id est laborum.
+                      </p>
+                    </div>
+                    <!--Card footer-->
+                    <div class="d-flex align-items-center justify-content-end card-footer">
+                      <a href="#!" class="small btn btn-gray">
+                        <i data-feather="chevron-right" class="fe-1x me-1 align-middle"></i> Read more
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--//Page content End//-->
+
+          @@include('./partials/footer.html')
+        </main>
+        <!--///////////Page content wrapper End///////////////-->
+      </div>
+    </div>
+    @@include('./partials/core-scripts.html')
+
+  </body>
+
+</html>

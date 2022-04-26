@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--Header Start-->
+        <header class="z-index-fixed header-transparent header-absolute-top sticky-reverse">
+            <nav class="navbar navbar-expand-lg navbar-light navbar-link-white">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+                        <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid navbar-brand-transparent">
+                    </a>
+
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 me-lg-0">
+                            <a href="#" class="btn btn-success btn-sm rounded-pill">Purchase</a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        @@include('./partials/headers/default-navbar-items.html',{"page": "pages"})
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Main content-->
+        <main>
+            <section class="position-relative bg-dark text-white" data-jarallax=".3">
+                <img src="assets/img/backgrounds/bg3.jpg" alt="" class="jarallax-img opacity-25">
+                <div class="container pt-14 pb-9 position-relative z-index-2">
+                    <div class="row pt-lg-9 pb-12">
+                        <div class="col-xl-10 mx-auto text-center">
+                            <p class="mb-4 opacity-50">We love what we do</p>
+                            <h1 class="display-2 mb-5 mb-lg-7">
+                                We turn ideas and concepts into real brand experiences.
+                            </h1>
+                            <div class="text-center">
+                                <a href="#next" class="btn p-0 width-8x height-8x btn-outline-white btn-circle-ripple shadow-lg rounded-circle flex-center d-flex text-center mx-auto">
+                                    <div class="link-arrow-bounce">
+                                     <i class="bx bx-chevron-down fs-2"></i>
+                                    </div>
+                                 </a>     
+                            </div>
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </div>
+                <!--/.End-content-->
+
+                    <!--Vector decoration shape-->
+                    <svg preserveAspectRatio="none" class="position-absolute bottom-0 start-0 text-white" xmlns="http://www.w3.org/2000/svg" width="100%" height="96" viewBox="0 0 1920 180" fill="none" preserveAspectRatio="none"><path d="M117.344 151.326C185.5 142.257 196.244 137.285 255.077 139.449C279.589 140.349 328.106 120.293 388.797 116.998C433.881 114.55 477.928 96.439 522.314 92.966C544.724 91.214 567.422 95.513 589.334 89.482C694.864 60.435 672.154 56.653 758.202 43.682C779.564 40.462 781.148 41.882 797.109 50.282C835.393 70.426 842.76 53.659 871.293 57.782C882.688 59.428 892.788 65.587 904.866 65.856C945.66 66.764 982.554 49.419 1023.74 53.002C1057.9 55.973 1103.01 50.836 1137.15 43.243C1165.34 36.976 1196.85 36.18 1222.94 26.419C1261.33 12.052 1295.38 -8.38098 1337.76 3.63902C1383.93 16.733 1435.31 49.581 1449.66 55.387C1472.79 64.743 1490.17 53.541 1512.33 62.958C1595.5 98.302 1655.37 59.903 1758.05 54.674C1802.12 52.43 1854.41 56.385 1919.99 75.212V387.402H-0.00598145V171.025C39.416 168.323 78.272 156.525 117.344 151.326Z" fill="currentColor"></path>
+                    </svg>   
+            </section>
+            <section class="position-relative" id="next">
+               
+                <div class="container py-9 py-lg-11">
+                    <div class="row mb-lg-5 justify-content-lg-around">
+                        <div class="col-md-5" data-aos="fade-right">
+                            <div class="mb-4 position-relative flex-center text-primary">
+                                <!--Icon-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" preserveAspectRatio="xMidYMid meet" class="text-primary position-relative">
+
+                                    <path d="M34.92 16.468h4.264c0.414 1.162 1.516 2 2.816 2 1.652 0 3-1.346 3-3s-1.348-3-3-3c-1.3 0-2.402 0.838-2.816 2h-9.928c-0.018-0.004-0.038-0.008-0.052-0.012-0.082-0.014-0.164 0-0.246 0.008v-2.996c0-0.552-0.448-1-1-1h-8c-0.552 0-1 0.448-1 1v2.994c-0.082-0.006-0.162-0.020-0.246-0.006-0.018 0.004-0.036 0.008-0.052 0.012h-9.844c-0.414-1.162-1.514-2-2.816-2-1.654 0-3 1.346-3 3s1.346 3 3 3c1.302 0 2.402-0.838 2.816-2h4.18c-5.852 3.194-9.708 9.376-9.708 16.376 0 0.552 0.448 1 1 1s1-0.448 1-1c0-8.046 5.7-14.896 13.576-16.376h0.094v3c0 0.552 0.45 1 1 1h8c0.554 0 1-0.448 1-1v-3h0.098c7.876 1.476 13.574 8.326 13.574 16.376 0 0.552 0.45 1 1 1s1-0.448 1-1c-0.002-7-3.856-13.182-9.71-16.376z" fill="currentColor"/>
+                                    <g class="text-success">
+                                        <path d="M24.882 24.086c-0.31-0.748-1.538-0.748-1.848 0l-5 12.062c-0.154 0.376-0.068 0.804 0.214 1.090 0.284 0.286 0.714 0.374 1.088 0.218l4.622-1.906 4.62 1.906c0.126 0.048 0.25 0.074 0.378 0.074 0.008 0 0.016 0 0.020 0 0.578-0.016 1.020-0.442 1.020-1 0-0.234-0.078-0.45-0.21-0.62l-4.904-11.824z" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <h3 class="mb-0 h2 ml-2">
+                                    Design
+                                </h3>
+                            </div>
+                            <!--/.End heading-->
+                            <p class="mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            </p>
+                            <ul class="list-unstyled text-dark">
+                                <li class="d-flex align-items-center mb-3">
+                                   <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Brand identity</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Illustration</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Packaging and labelling</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Editorial design</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Promotional marketing</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.End Col-->
+                        <div class="col-md-5 mt-7 mt-md-0" data-aos="fade-right" data-aos-delay="100">
+                            <div class="mb-4 position-relative flex-flex-center text-primary">
+                                <!--Icon-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet" class="position-relative text-primary">
+                                    <path d="M0 12v10h48v-10h-48zM9 20c-1.654 0-3-1.344-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zM40 18h-10c-0.55 0-1-0.448-1-1s0.45-1 1-1h10c0.55 0 1 0.448 1 1s-0.45 1-1 1z" fill="currentColor"/>
+                                    <path d="M10 29c0 0.552-0.448 1-1 1s-1-0.448-1-1c0-0.552 0.448-1 1-1s1 0.448 1 1z" fill="currentColor"/>
+                                    <g class="text-success">
+                                    <path xmlns="http://www.w3.org/2000/svg" d="M39.782 0.376c-0.19-0.24-0.478-0.376-0.782-0.376h-30c-0.304 0-0.59 0.136-0.782 0.376l-7.7 9.624h46.962l-7.698-9.624z" fill="currentColor"/>
+                                </g>
+                                    <path d="M0 34h48v-10h-48v10zM30 28h10c0.55 0 1 0.45 1 1 0 0.552-0.45 1-1 1h-10c-0.55 0-1-0.448-1-1 0-0.55 0.45-1 1-1zM9 26c1.654 0 3 1.348 3 3 0 1.656-1.346 3-3 3s-3-1.344-3-3c0-1.652 1.346-3 3-3z" fill="currentColor"/>
+                                    <path d="M10 17c0 0.552-0.448 1-1 1s-1-0.448-1-1c0-0.552 0.448-1 1-1s1 0.448 1 1z" fill="currentColor"/>
+                                    <path d="M0 43c0 3.832 1.168 5 5 5h38c3.832 0 5-1.168 5-5v-7h-48v7zM30 40h10c0.55 0 1 0.45 1 1 0 0.552-0.45 1-1 1h-10c-0.55 0-1-0.448-1-1 0-0.55 0.45-1 1-1zM9 38c1.654 0 3 1.348 3 3 0 1.656-1.346 3-3 3s-3-1.344-3-3c0-1.652 1.346-3 3-3z" fill="currentColor"/>
+                                    <path d="M10 41c0 0.552-0.448 1-1 1s-1-0.448-1-1c0-0.552 0.448-1 1-1s1 0.448 1 1z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <h3 class="mb-0 h2 ml-2">
+                                    Digital
+                                </h3>
+                            </div>
+                            <!--/.End heading-->
+                            <p class="mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            </p>
+                            <ul class="list-unstyled text-dark">
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Web design</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>UI/UX design &amp; prototyping</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>App design</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Front- and backend coding</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Seo and marketing</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.End Col-->
+                    </div>
+                    <div class="row justify-content-lg-around">
+                        <div class="col-md-5 mt-7" data-aos="fade-right" data-aos-delay="150">
+                            <div class="mb-4 position-relative flex-flex-center text-primary">
+                                <!--Icon-->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="position-relative text-primary" width="48" height="48" viewBox="0 0 48 48">
+                                    <path d="M11 24.5c-0.55 0-1-0.45-1-1v-8.816c0-0.416 0.012-0.818 0.024-1.204 0.032-1.164 0.060-2.262-0.292-2.626-0.208-0.212-0.682-0.26-1.038-0.26-0.722 0-1.19 0.218-1.38 0.656-0.226 0.504-0.816 0.734-1.32 0.504-0.504-0.222-0.73-0.816-0.504-1.32 0.522-1.17 1.692-1.84 3.208-1.84 1.098 0 1.9 0.286 2.466 0.868 0.948 0.968 0.904 2.41 0.862 4.074-0.010 0.37-0.022 0.754-0.022 1.148v8.816c-0.004 0.55-0.454 1-1.004 1z" fill="currentColor"></path>
+                                    <path d="M8.992 25.512c-1.574 0-5.754 0-5.754-4.204 0-3.040 3.096-7.626 7.762-7.626 0.55 0 1 0.448 1 1v9.816c0 0.552-0.45 1-1 1l-2.008 0.014zM10 15.786c-2.938 0.612-4.762 3.786-4.762 5.528 0 1.648 0.948 2.208 3.754 2.208l1.008-0.010v-7.726z" fill="currentColor"></path>
+                                    <path d="M15 24.5c-0.55 0-1-0.45-1-1v-18c0-0.55 0.45-1 1-1s1 0.45 1 1v18c0 0.55-0.45 1-1 1z" fill="currentColor"></path>
+                                    <path d="M18.518 25.512l-3.518-0.012c-0.55 0-1-0.45-1-1v-9.816c0-0.55 0.45-1 1-1 4.402 0 8.546 4.292 8.546 7.626 0 1.706-0.59 2.906-1.754 3.574-0.966 0.552-2.144 0.628-3.274 0.628zM16 23.5l2.518 0.012c0.812 0 1.718-0.042 2.28-0.368 0.208-0.12 0.754-0.43 0.754-1.836 0-1.906-2.574-4.944-5.546-5.53l-0.006 7.722z" fill="currentColor"></path>
+                                    <path d="M17.072 39.426c-0.26 0-0.518-0.102-0.708-0.292-0.308-0.304-0.376-0.782-0.18-1.168l4.098-7.86c0.044-0.090 0.106-0.172 0.18-0.244l15.542-15.542c0.192-0.192 0.446-0.292 0.708-0.292v0c0.266 0 0.522 0.106 0.708 0.292l3.76 3.762c0.39 0.388 0.39 1.026 0 1.414l-15.542 15.542c-0.070 0.072-0.152 0.134-0.246 0.18l-7.856 4.096c-0.15 0.072-0.306 0.112-0.464 0.112zM21.984 31.166l-2.556 4.904 4.904-2.554 14.722-14.72-2.344-2.35-14.726 14.72z" fill="currentColor"></path>
+                                    <path d="M41.178 19.498l-1.414-1.414 2.388-2.392c0.476-0.47 0.79-1.074 0.858-1.652 0.034-0.286 0.038-0.824-0.344-1.204-0.638-0.632-1.948-0.406-2.862 0.51l-2.386 2.388-1.414-1.414 2.386-2.388c1.708-1.708 4.26-1.94 5.69-0.51 0.712 0.714 1.044 1.756 0.914 2.856-0.124 1.034-0.63 2.038-1.43 2.832l-2.386 2.388z" fill="currentColor"></path>
+                                    <path d="M23.071 28.669l3.765 3.761-1.413 1.415-3.765-3.761 1.413-1.415z" fill="currentColor"></path>
+                                    <g class="text-success">
+                                        <path d="M46 43.5h-44c-0.55 0-1-0.45-1-1s0.45-1 1-1h44c0.55 0 1 0.45 1 1s-0.45 1-1 1z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <h3 class="mb-0 h2 ml-2">
+                                    Content
+                                </h3>
+                            </div>
+                            <!--/.End heading-->
+                            <p class="mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            </p>
+                            <ul class="list-unstyled text-dark mb-0">
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Content creation</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Copywriting</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Content analysis</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Content strategy</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Content management systems (CMS)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.End Col-->
+                        <div class="col-md-5 mt-7" data-aos="fade-right" data-aos-delay="200">
+                            <div class="mb-4 position-relative flex-flex-center text-primary">
+                                <!--Icon-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="position-relative text-primary" preserveAspectRatio="none">
+
+                                    <path d="M48 44h-44v-44h-2v44h-2v2h2v2h2v-2h44z" fill="currentColor"/>
+                                    <g class="text-success">
+                                    <path xmlns="http://www.w3.org/2000/svg" d="M39 42h4c0.55 0 1-0.45 1-1v-8c0-0.55-0.45-1-1-1h-4c-0.55 0-1 0.45-1 1v8c0 0.55 0.45 1 1 1z" fill="currentColor"/>
+                                </g>
+                                    <path d="M29 42h4c0.55 0 1-0.45 1-1v-16c0-0.552-0.45-1-1-1h-4c-0.55 0-1 0.448-1 1v16c0 0.55 0.45 1 1 1z" fill="currentColor"/>
+                                    <g class="text-success">
+                                    <path xmlns="http://www.w3.org/2000/svg" d="M19 42h4c0.552 0 1-0.45 1-1v-10c0-0.55-0.448-1-1-1h-4c-0.552 0-1 0.45-1 1v10c0 0.55 0.448 1 1 1z" fill="currentColor"/>
+                                </g>
+                                    <path d="M9 42h4c0.552 0 1-0.45 1-1v-30c0-0.552-0.448-1-1-1h-4c-0.552 0-1 0.448-1 1v30c0 0.55 0.448 1 1 1z" fill="currentColor"/>
+                                </svg>
+
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <h3 class="mb-0 h2 ml-2">
+                                    Campaign
+                                </h3>
+                            </div>
+                            <!--/.End heading-->
+                            <p class="mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            </p>
+                            <ul class="list-unstyled text-dark mb-0">
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Digital marketing</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Print advertising</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Campaign visuals</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Editorial design</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bx bx-check-circle fs-4 me-2 text-muted"></i>
+                                    <span>Label and package design</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.End Col-->
+                    </div>
+                    <!--/.End service Row-->
+                </div>
+
+            </section>
+            <section class=" position-relative bg-shade-primary text-white">
+                <svg class="position-absolute start-0 top-0 flip-y" width="100%" height="80" preserveAspectRatio="none" viewBox="0 0 1200 288" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 252L33 234C67 216 133 180 200 174C267 168 333 192 400 192C467 192 533 168 600 144C667 120 733 96 800 102C867 108 933 144 1000 132C1067 120 1133 60 1167 30L1200 0V288H1167C1133 288 1067 288 1000 288C933 288 867 288 800 288C733 288 667 288 600 288C533 288 467 288 400 288C333 288 267 288 200 288C133 288 67 288 33 288H0V252Z" fill="white"/>
+                    </svg>
+                    
+                <div class="container py-9 py-lg-11 position-relative">
+                    <div class="row pt-9">
+                        <div class="col-lg-10 offset-lg-1 col-md-11">
+                            <div class="position-relative">
+                                <div class="mb-4">
+                                    <p class="display-6 font-serif">
+                                        “ First class team - they challenged our way of thinking and brought our vision to life in a beautifully simple way. Any company would be lucky to work alongside these guys! ” 
+                                    </p>
+                                </div>
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div>
+                                        <h6 class="mb-0">Emily Howkins</h6>
+                                        <small class="text-muted">Founder of YOYO</small>
+                                    </div>
+                                    <div class="d-inline-block position-relative pe-4">
+                                        <img src="assets/img/avatar/5.jpg" alt=""
+                                            class="avatar xl shadow position-relative rounded-circle z-index-1">
+                                        <img class="position-relative ms-n6 mb-n5 width-7x h-auto fill-success" src="assets/img/vectors/dec-brush1.svg" alt="" data-inject-svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Vector decoration shape-->
+                <svg preserveAspectRatio="none" class="position-absolute start-0 bottom-0 z-index-1 mb-n4 ms-4 text-warning flip-x width-8x h-auto" width="165" height="207" viewBox="0 0 165 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 -1.91456e-05C-3.9738e-06 45.4549 14.1438 89.7836 40.4701 126.839C66.7963 163.894 104 191.839 146.923 206.799L164.942 155.099C132.75 143.879 104.847 122.92 85.1025 95.129C65.3579 67.3377 54.75 34.0912 54.75 -1.43592e-05L0 -1.91456e-05Z" fill="currentColor"/>
+                    </svg>
+            </section>
+            <section class="py-9 py-lg-11 bg-tint-info position-relative">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-10 col-lg-9 mx-auto text-center">
+                            <div class="position-relative">
+                                <p class="mb-3" data-aos="fade-up">Got a project? </p>
+                                <h2 class="display-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                                    <span class="fw-lighter">Let us</span> help you succeed
+                                </h2>
+                                <p class="mb-5 lead" data-aos="fade-up" data-aos-delay="150">
+                                    Get in touch with us for a quick quote
+                                </p>
+                                <div data-aos="fade-up" data-aos-delay="200">
+                                    <a href="#!" class="btn btn-primary btn-lg">
+                                        <span>Contact us</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+      
+        @@include('./partials/footers/footer-2.html')
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+    </body>
+
+</html>

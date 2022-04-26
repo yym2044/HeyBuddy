@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="../assets/img/favicon.ico" type="image/ico">
+        <!--Icons-->
+        <link href="../assets/fonts/iconsmind/iconsmind.css" rel="stylesheet">
+        <link href="../assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet"
+            href="../assets/vendor/node_modules/css/prism-tomorrow.css">
+        <!-- Main CSS -->
+        <link href="../assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body class="vh-100 d-flex flex-column">
+        <!--Preloader Spinner-->
+        <div class="spinner-loader bg-gradient-secondary text-white">
+            <div class="spinner-border text-primary" role="status">
+            </div>
+            <span class="small d-block ms-2">Loading...</span>
+        </div>
+        <!--Header Start-->
+
+        <!--Header start-->
+        <nav class="navbar navbar-expand-lg z-index-fixed navbar-light bg-white shadow-lg w-100 start-0 top-0">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="../assets/img/logo/logo.svg" alt=""
+                        class="img-fluid"></a>
+                <button class="navbar-toggler collapse d-lg-none d-block" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i></i>
+                        <i></i>
+                    </span>
+                </button>
+                <!--Main Sidebar Nav Start-->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                Get started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="structure.html">
+                                Structure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="credits.html">
+                                Credits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="changelog.html">
+                                Changelog <sub class="small badge bg-light text-muted ms-1">v4.7</sub></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-sm btn-primary" target="_blank"
+                                href="https://wrapbootstrap.com/theme/assan-multipurpose-18-templates-admin-WB05F069P/?ref=wb_rakesh">
+                                Purchase ($29)</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <!--Main start-->
+        <main class="main">
+            <div class="container py-7">
+                <h3 class="mb-2">Files structure</h3>
+                <p class="mb-4">Its look like when you extract the zip folder of Assan theme</p>
+                <ul class="mb-7">
+                    <li>
+                        <strong>📁 assan4_bootstrap5_theme</strong> - Bootstrap5 latest updated folder inside the
+                        downloaded file
+                        <ul>
+                            <li>
+                                📁 <strong> Assan Main</strong>
+                                <ul>
+                                    <li>
+                                        <strong>📁 node_modules</strong> - Directory where <code>npm</code> installs
+                                        dependencies
+                                    </li>
+                                    <li>
+                                        <strong>📁 js</strong> - Javascript source
+                                    </li>
+                                    <li>
+                                        <strong>📁 scss</strong> - SCSS source for theme
+                                    </li>
+                                    <li>
+                                        <strong>📁 html</strong> - Src html files
+                                    </li>
+                                    <li>
+                                        <strong>📁 public</strong>
+                                        <ul>
+                                            <li>
+                                                <strong>📁 assets</strong> - assets files
+                                                <ul>
+                                                    <li>
+                                                        <strong>📁 css</strong> - css production files
+                                                    </li>
+                                                    <li>
+                                                        <strong>📁 js</strong> - Javascript production files
+                                                    </li>
+                                                    <li>
+                                                        <strong>📁 img</strong> - Image assets
+                                                    </li>
+                                                    <li>
+                                                        <strong>📁 videos</strong> - Video assets
+                                                    </li>
+                                                    <li>
+                                                        <strong>📁 vendor</strong> - Third party assets (for uses into
+                                                        special pages)
+                                                        and master slider files
+                                                    </li>
+                                                    <li>
+                                                        <strong>📁 fonts</strong> - bootstrap-icons, iconsmind icons and
+                                                        webfonts
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <strong>📁 docs</strong> - Documentation source
+                                            </li>
+                                            <li>
+                                                <strong>📄 .html files</strong> - All compiled <code>.html</code> files
+                                                here
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>📄 package.json</strong> - List of dependencies and npm information
+                                    </li>
+                                    <li>
+                                        <strong>📄 package-lock.json</strong> - Describes the exact dependency tree that
+                                        was generated
+                                    </li>
+                                    <li>
+                                        <strong>📄 README.md</strong> - Theme info
+                                    </li>
+                                    <li>
+                                        <strong>📄 gulpfile.js</strong> - Gulp4 config file
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                📁 <strong> Assan Admin</strong>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 class="mb-2">Html starter template</h3>
+                <p class="mb-4">Create a new .html file and copy paste below code to get a new starter layout</p>
+                <div class="position-relative" style="max-height: 75vh; overflow-y: auto;">
+                    <!--Copy clipboard button-->
+                    <button
+                        class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                        data-clipboard-target="#copyCode1" data-clipboard-action="copy" id="copyCode1-1">Copy code</button>
+  <pre id="copyCode1" class="language-markup" data-lang="html">
+  <code>
+    &lt;!doctype html>
+    &lt;html lang="en">
+     &lt;head>
+     &lt;!-- Required meta tags -->
+     &lt;meta charset="utf-8">
+     &lt;meta name="viewport" content="width=device-width, initial-scale=1">
+     &lt;!-- favicon -->
+     &lt;link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+    
+     &lt;!-- Bootstrap icons CSS -->
+     &lt;link href="assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+     &lt;!-- iconsmind icons CSS -->
+     &lt;link href="assets/fonts/iconsmind/iconsmind.css" rel="stylesheet">
+     
+     &lt;!-- Google fonts CSS -->
+     &lt;link rel="preconnect" href="https://fonts.googleapis.com">
+     &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     &lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+     
+     &lt;!-- Bootstrap + vendor + theme CSS -->
+     &lt;link href="assets/css/theme.min.css" rel="stylesheet">
+     
+     &lt;!-- Add custom css -->
+     &lt;link href="assets/css/custom.css" rel="stylesheet">
+
+     &lt;title>Hello, world!&lt;/title>
+
+     &lt;head>
+     &lt;body>
+
+        &lt;!--:main header -->
+        &lt;header>
+         &lt;nav class="navbar navbar-expand-lg navbar-light bg-white">
+          
+         &lt;/nav>
+        &lt;/header>
+
+        &lt;!--:main content -->
+        &lt;main>
+         &lt;!--:Feature section -->
+          &lt;section class="positio-relative overflow-hidden">
+             &lt;div class="positio-relative container py-7 py-lg-12">
+                &lt;!--:Feature section content goes here -->
+             &lt;/div>
+           &lt;/section>
+        &lt;/main>
+
+        &lt;!--:main Footer -->
+        &lt;footer>
+          &lt;div class="position-relative container py-7 py-lg-12">
+             &lt;!--:Footer content -->
+          &lt;/div>
+        &lt;/footer>
+
+        &lt;!-- Vendor + theme scripts -->
+        &lt;script src="assets/js/theme.bundle.js">&lt;/script>
+        &lt;!-- Add your custom scripts file -->
+        &lt;script src="assets/js/custom.js">&lt;/script>
+    &lt;/body>
+  &lt;/html>
+  </code>
+  </pre>
+                </div>
+            </div>
+        </main>
+
+        <!--Footer start-->
+        <footer class="footer mt-auto bg-secondary text-white">
+            <div class="container small p-3 p-sm-4">
+                <span class="d-block lh-sm text-muted">&copy; Copyright
+                    <script>
+                        document.write(new Date().getFullYear())
+
+                    </script>. Assan
+                </span>
+            </div>
+        </footer>
+        <!-- scripts -->
+        <script src="../assets/js/theme.bundle.js"></script>
+
+        <!--Copy to clipboard + prismJs-->
+        <script src="../assets/vendor/node_modules/js/prism.js"></script>
+        <script src="../assets/vendor/node_modules/js/clipboard.min.js"></script>
+        <script>
+            /* Clipboard JS - Copy code button */
+            var cl = document.querySelector('.copy-link');
+            if (typeof !!cl && (cl) != 'undefined' && cl != null) {
+                var cle = document.querySelectorAll('.copy-link');
+                cle.forEach(el => {
+                    el.addEventListener("click", function () {
+                        var theButton = this;
+                        var copyId = this.getAttribute('id');
+                        var clipboard = new ClipboardJS('#' + copyId);
+
+                        clipboard.on('success', function (e) {
+                            e.clearSelection();
+                            theButton.innerHTML = 'Copied';
+                            setTimeout(function () {
+                                theButton.innerHTML = 'Copy code';
+                            }, 10000);
+                        });
+                    });
+                });
+            }
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,50 @@
+//
+// Bs stepper override scss start
+//
+
+.bs-stepper {
+    .bs-stepper-header{
+        margin: 0 0;
+    }
+    .step-trigger {
+        padding:0 $spacer * .5;
+        font-size: $font-size-base;
+        font-weight: $font-weight-bold;
+        color: $body-color;
+        &:hover {
+            text-decoration: none;
+            background-color: transparent;
+        }
+    }
+    .step:first-child{
+        .step-trigger{
+            padding-left: 0px;
+        }
+    }
+    .step:last-child{
+        .step-trigger{
+            padding-right: 0px;
+        }
+    }
+.bs-stepper-circle{
+    background-color: $border-color;
+    color: $body-color;
+}
+    .active .bs-stepper-circle {
+        background-color: $component-active-bg;
+        color: $component-active-color;
+    }
+
+    .bs-stepper-line,
+    .line {
+        background-color: $border-color;
+    }
+}
+
+.bs-stepper-circle {
+    width: $spacer * 2.75;
+    height: $spacer * 2.75;
+    padding: 0;
+    border-radius: $border-radius-pill;
+    align-items: center;
+}

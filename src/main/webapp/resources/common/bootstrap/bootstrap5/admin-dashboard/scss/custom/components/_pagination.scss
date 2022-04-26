@@ -1,0 +1,17 @@
+//
+//Pagination style overrides
+//
+
+.pagination{
+    .page-item{
+        .page-link{
+        border-radius: $border-radius-pill;
+        }
+        &:not(:first-child){
+            margin-left: .25rem;
+        }
+        &:not(:first-child) .page-link{
+            margin-left: 0px;
+        }
+    }
+}

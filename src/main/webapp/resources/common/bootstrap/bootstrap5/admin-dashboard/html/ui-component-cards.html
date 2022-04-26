@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{page:"components"})
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+
+                    @@include('./partials/header/header-default.html')
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8">
+                                    <h3 class="mb-2">Cards</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">UI Components</li>
+                                            <li class="breadcrumb-item active">Cards</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Basic</h5>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header d-flex align-items-center">
+                                            <h5 class="mb-0">Action</h5>
+                                            <!--dropdown-->
+                                            <div class="flex-shrink-0 ms-auto">
+                                                <a class="text-muted" href="#" role="button">View All
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header d-flex align-items-center">
+                                            <h5 class="mb-0">Dropdown</h5>
+                                            <!--dropdown-->
+                                            <div class="dropdown ms-auto">
+                                                <a class="d-flex align-items-center justify-content-center size-25 rounded-circle text-muted hover-bg-primary"
+                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i data-feather="more-vertical" class="fe-1x align-middle"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end mt-1">
+                                                    <a class="dropdown-item" href="#!">
+                                                        Dropdown item
+                                                    </a>
+                                                    <a class="dropdown-item" href="#!">
+                                                       Something else
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header d-flex align-items-center">
+                                            <h5 class="mb-0">Search</h5>
+                                            <!--dropdown-->
+                                            <div class="flex-shrink-0 ms-auto">
+                                                <div class="position-relative">
+                                                    <i data-feather="search"
+                                                        class="fe-1x position-absolute start-0 top-50 opacity-25 ms-2 translate-middle-y"></i>
+                                                    <input type="text" placeholder="Search..."
+                                                        class="form-control ps-7 rounded-pill form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Card Tabs</h5>
+                                        </div>
+                                            <ul class="nav bg-body nav-overflow nav-tabs">
+                                                <li class="nav-item ps-4 d-flex">
+                                                    <a href="#tab1" class="nav-link active text-truncate" aria-expanded="true"
+                                                        data-bs-toggle="tab">Today</a>
+                                                </li>
+                                                <li class="nav-item d-flex">
+                                                    <a href="#tab2" class="nav-link text-truncate" aria-expanded="false"
+                                                        data-bs-toggle="tab">Last 7 Days</a>
+                                                </li>
+                                                <li class="nav-item d-flex">
+                                                    <a href="#tab3" class="nav-link text-truncate" aria-expanded="false"
+                                                        data-bs-toggle="tab">Last Month</a>
+                                                </li>
+                                                <li class="nav-item d-flex">
+                                                    <a href="#tab4" class="nav-link text-truncate" aria-expanded="false"
+                                                        data-bs-toggle="tab">Last Year</a>
+                                                </li>
+                                            </ul>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active show fade" id="tab1">
+                                                    Today's report
+                                                </div>
+                                                <div class="tab-pane fade" id="tab2">
+                                                    Last 7 days report
+                                                </div>
+                                                <div class="tab-pane fade" id="tab3">
+                                                    Last month report
+                                                </div>
+                                                <div class="tab-pane fade" id="tab4">
+                                                    Last year report
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card overflow-hidden h-100">
+                                        <div class="card-header d-flex align-items-center">
+                                            <h5 class="mb-0">Group</h5>
+                                            <!--dropdown-->
+                                            <div class="flex-shrink-0 ms-auto">
+                                                <div class="btn-group btn-group-sm shadow-sm">
+                                                  <button type="button" class="btn btn-outline-light border text-muted">Today</button>
+                                                  <button type="button" class="btn btn-outline-light border text-muted">Last Week</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-primary text-white border-0 overflow-hidden h-100">
+                                        <div class="card-header bg-dark bg-opacity-25 border-0 d-flex align-items-center">
+                                            <h5 class="mb-0">Colored Title</h5>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card border-secondary overflow-hidden h-100">
+                                        <div class="card-header bg-secondary text-white d-flex align-items-center">
+                                            <h5 class="mb-0">Custom Outline Title</h5>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card border-success overflow-hidden h-100">
+                                        <div class="card-header border-success d-flex align-items-center">
+                                            <h5 class="mb-0">Outline Title</h5>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-transparent overflow-hidden h-100">
+                                        <div class="card-header d-flex align-items-center">
+                                            <h5 class="mb-0">Trasparent Body</h5>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-transparent shadow-none border-gray overflow-hidden h-100">
+                                        <div class="card-header border-gray bg-transparent d-flex align-items-center">
+                                            <h5 class="mb-0">Trasparent All</h5>
+                                        </div>
+                                        <div class="card-body" style="min-height: 5rem;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+    </body>
+
+</html>

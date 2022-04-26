@@ -1,0 +1,14 @@
+//
+//Dropzone file upload override style start
+//
+.dropzone {
+    background: $card-bg;
+    .dz-preview.dz-file-preview .dz-image{
+        background-color: tint-color($primary,90%);
+    }
+}
+.dropzone .dz-preview .dz-details .dz-filename span{
+    &:hover{
+        border: 0px;
+    }
+}

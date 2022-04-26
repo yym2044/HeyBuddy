@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+        <!--Prism css for code snippets-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/prism-tomorrow.css">
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--Header Start-->
+        <header class="z-index-fixed header-transparent header-absolute-top sticky-reverse">
+            <nav class="navbar navbar-expand-lg navbar-light navbar-link-white">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+                        <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid navbar-brand-transparent">
+                    </a>
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 me-lg-0">
+                            <a href="#" class="btn btn-success btn-sm rounded-pill">Purchase</a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        @@include('./partials/headers/default-navbar-items.html',{"page": "components"})
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Main content-->
+        <main>
+            <!--page-hero-->
+            <section class="bg-dark text-white position-relative">
+                <div class="container pt-14 pb-9 pb-lg-11 position-relative z-index-1">
+                    <div class="row pt-lg-9 pb-lg-5 align-items-center justify-content-center text-center">
+                        <div class="col-lg-10 col-xl-7 z-index-2">
+                            <div class="position-relative">
+                                <div>
+                                    <nav class="d-flex justify-content-center" aria-label="breadcrumb">
+                                        <div class="mb-4">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                <li class="breadcrumb-item active">Components</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Masonry layout
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </nav>
+                                    <h1 class="mb-0 display-4">
+                                        Masonry Layout
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="position-relative">
+                <div class="container py-9 py-lg-11">
+                    <div class="row" data-isotope='{"layoutMode":"masonry"}'>
+                        <!--Masonry-Grid-item-->
+                        <div class="col-md-6 mb-4 grid-item">
+                            <div class="p-4 p-lg-5 border rounded-4">
+                                <h4 class="mb-4">Build anything</h4>
+                                <p class="mb-0">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                    deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                        </div>
+                        <!--Masonry-Grid-item-->
+                        <div class="col-md-6 mb-4 grid-item">
+                            <div class="p-4 p-lg-5 border rounded-4">
+                                <h4 class="mb-4">Masonry grid 2 columns</h4>
+                                <p class="mb-0">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Habitant morbi tristique senectus et
+                                    netus et malesuada. Nibh nisl condimentum id venenatis a condimentum. Et leo duis ut
+                                    diam. Elit ut aliquam purus sit amet luctus venenatis lectus. Pretium vulputate
+                                    sapien nec sagittis aliquam malesuada bibendum arcu vitae. Vestibulum lectus mauris
+                                    ultrices eros in cursus turpis massa tincidunt. Netus et malesuada fames ac. At
+                                    auctor urna nunc id cursus metus aliquam eleifend. Tempus egestas sed sed risus
+                                    pretium. Nulla facilisi morbi tempus iaculis urna id. Dis parturient montes nascetur
+                                    ridiculus mus mauris vitae ultricies. Dictum at tempor commodo ullamcorper. Nunc
+                                    scelerisque viverra mauris in aliquam.
+
+                                    Sit amet est placerat in egestas. Imperdiet massa tincidunt nunc pulvinar. Amet
+                                    cursus sit amet dictum sit amet justo donec enim. Mi in nulla posuere sollicitudin
+                                    aliquam. Viverra vitae congue eu consequat. In ante metus dictum at tempor commodo
+                                    ullamcorper a. Dignissim cras tincidunt lobortis feugiat vivamus at augue. Justo nec
+                                    ultrices dui sapien. Ac feugiat sed lectus vestibulum mattis ullamcorper. In
+                                    pellentesque massa placerat duis ultricies lacus sed turpis.
+                                </p>
+                            </div>
+                        </div>
+                        <!--Masonry-Grid-item-->
+                        <div class="col-md-6 mb-4 grid-item">
+                            <div class="p-4 p-lg-5 border rounded-4">
+                                <h4 class="mb-4">Size based on content</h4>
+                                <p class="mb-0">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Habitant morbi tristique senectus et
+                                    netus et malesuada. Nibh nisl condimentum id venenatis a condimentum. Et leo duis ut
+                                    diam. Elit ut aliquam purus sit amet luctus venenatis lectus. Pretium vulputate
+                                    sapien nec sagittis aliquam malesuada bibendum arcu vitae. Vestibulum lectus mauris
+                                    ultrices eros in cursus turpis massa tincidunt. Netus et malesuada fames ac. At
+                                    auctor urna nunc id cursus metus aliquam eleifend. Tempus egestas sed sed risus
+                                    pretium. Nulla facilisi morbi tempus iaculis urna id. Dis parturient montes nascetur
+                                    ridiculus mus mauris vitae ultricies. Dictum at tempor commodo ullamcorper. Nunc
+                                    scelerisque viverra mauris in aliquam.
+
+                                </p>
+                            </div>
+                        </div>
+                        <!--Masonry-Grid-item-->
+                        <div class="col-md-6 mb-4 grid-item">
+                            <div class="p-4 p-lg-5 border rounded-4">
+                                <h4 class="mb-4">Build anything</h4>
+                                <p class="mb-0">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                    deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                        </div>
+                        <!--Masonry-Grid-item-->
+                        <div class="col-md-6 mb-4 grid-item">
+                            <div class="p-4 p-lg-5 border rounded-4">
+                                <h4 class="mb-4">Powerfull features</h4>
+                                <p class="mb-0">
+                                    Amet cursus sit amet dictum sit amet justo donec enim. Mi in nulla posuere
+                                    sollicitudin aliquam. Viverra vitae congue eu consequat. In ante metus dictum at
+                                    tempor commodo ullamcorper a. Dignissim cras tincidunt lobortis feugiat vivamus at
+                                    augue. Justo nec ultrices dui sapien. Ac feugiat sed lectus vestibulum mattis
+                                    ullamcorper. In pellentesque massa placerat duis ultricies lacus sed turpis. Lorem
+                                    ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborum.
+                                </p>
+                            </div>
+                        </div>
+                        <!--Masonry-Grid-item-->
+                        <div class="col-md-6 mb-4 grid-item">
+                            <div class="p-4 p-lg-5 border rounded-4">
+                                <h4 class="mb-4">You deserved a stunning website</h4>
+                                <p class="mb-0">
+                                    Amet cursus sit amet dictum sit amet justo donec enim. Mi in nulla posuere
+                                    sollicitudin aliquam. Viverra vitae congue eu consequat. In ante metus dictum at
+                                    tempor commodo ullamcorper a. Dignissim cras tincidunt lobortis feugiat vivamus at
+                                    augue. Justo nec ultrices dui sapien. Ac feugiat sed lectus vestibulum mattis
+                                    ullamcorper. In pellentesque massa placerat duis ultricies lacus sed turpis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-light">
+                <div class="container py-9 py-lg-11">
+                    <div class="position-relative" style="max-height: 80vh; overflow-y: auto;">
+                        <button
+                            class="btn btn-sm position-absolute end-0 top-0 me-3 mt-3 z-index-1 btn-primary copy-link"
+                            data-clipboard-target="#copyHTML1" data-clipboard-action="copy" id="copyHTML1-1">Copy
+                            code</button>
+                        <pre id="copyHTML1" class="language-markup" data-lang="html">
+        <code>
+&lt;!--Masonry layout-->
+&lt;div class="row" data-isotope='{"layoutMode":"masonry"}'>
+    &lt;!--Masonry-Grid-item-->
+    &lt;div class="col-md-6 mb-4 grid-item">
+        &lt;div class="p-4 p-lg-5 border rounded-4">
+            &lt;h4 class="mb-4">Build anything&lt;/h4>
+            &lt;p class="mb-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            &lt;/p>
+        &lt;/div>
+    &lt;/div>
+    &lt;!--Masonry-Grid-item-->
+    &lt;div class="col-md-6 mb-4 grid-item">
+        &lt;div class="p-4 p-lg-5 border rounded-4">
+            &lt;h4 class="mb-4">Masonry grid 2 columns&lt;/h4>
+            &lt;p class="mb-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Habitant morbi tristique senectus et
+                netus et malesuada. Nibh nisl condimentum id venenatis a condimentum. Et leo duis ut
+                diam. Elit ut aliquam purus sit amet luctus venenatis lectus. Pretium vulputate
+                sapien nec sagittis aliquam malesuada bibendum arcu vitae. Vestibulum lectus mauris
+                ultrices eros in cursus turpis massa tincidunt. Netus et malesuada fames ac. At
+                auctor urna nunc id cursus metus aliquam eleifend. Tempus egestas sed sed risus
+                pretium. Nulla facilisi morbi tempus iaculis urna id. Dis parturient montes nascetur
+                ridiculus mus mauris vitae ultricies. Dictum at tempor commodo ullamcorper. Nunc
+                scelerisque viverra mauris in aliquam.
+
+                Sit amet est placerat in egestas. Imperdiet massa tincidunt nunc pulvinar. Amet
+                cursus sit amet dictum sit amet justo donec enim. Mi in nulla posuere sollicitudin
+                aliquam. Viverra vitae congue eu consequat. In ante metus dictum at tempor commodo
+                ullamcorper a. Dignissim cras tincidunt lobortis feugiat vivamus at augue. Justo nec
+                ultrices dui sapien. Ac feugiat sed lectus vestibulum mattis ullamcorper. In
+                pellentesque massa placerat duis ultricies lacus sed turpis.
+            &lt;/p>
+        &lt;/div>
+    &lt;/div>
+    &lt;!--Masonry-Grid-item-->
+    &lt;div class="col-md-6 mb-4 grid-item">
+        &lt;div class="p-4 p-lg-5 border rounded-4">
+            &lt;h4 class="mb-4">Size based on content&lt;/h4>
+            &lt;p class="mb-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Habitant morbi tristique senectus et
+                netus et malesuada. Nibh nisl condimentum id venenatis a condimentum. Et leo duis ut
+                diam. Elit ut aliquam purus sit amet luctus venenatis lectus. Pretium vulputate
+                sapien nec sagittis aliquam malesuada bibendum arcu vitae. Vestibulum lectus mauris
+                ultrices eros in cursus turpis massa tincidunt. Netus et malesuada fames ac. At
+                auctor urna nunc id cursus metus aliquam eleifend. Tempus egestas sed sed risus
+                pretium. Nulla facilisi morbi tempus iaculis urna id. Dis parturient montes nascetur
+                ridiculus mus mauris vitae ultricies. Dictum at tempor commodo ullamcorper. Nunc
+                scelerisque viverra mauris in aliquam.
+
+            &lt;/p>
+        &lt;/div>
+    &lt;/div>
+    &lt;!--Masonry-Grid-item-->
+    &lt;div class="col-md-6 mb-4 grid-item">
+        &lt;div class="p-4 p-lg-5 border rounded-4">
+            &lt;h4 class="mb-4">Build anything&lt;/h4>
+            &lt;p class="mb-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            &lt;/p>
+        &lt;/div>
+    &lt;/div>
+    &lt;!--Masonry-Grid-item-->
+    &lt;div class="col-md-6 mb-4 grid-item">
+        &lt;div class="p-4 p-lg-5 border rounded-4">
+            &lt;h4 class="mb-4">Powerfull features&lt;/h4>
+            &lt;p class="mb-0">
+                Amet cursus sit amet dictum sit amet justo donec enim. Mi in nulla posuere
+                sollicitudin aliquam. Viverra vitae congue eu consequat. In ante metus dictum at
+                tempor commodo ullamcorper a. Dignissim cras tincidunt lobortis feugiat vivamus at
+                augue. Justo nec ultrices dui sapien. Ac feugiat sed lectus vestibulum mattis
+                ullamcorper. In pellentesque massa placerat duis ultricies lacus sed turpis. Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+            &lt;/p>
+        &lt;/div>
+    &lt;/div>
+    &lt;!--Masonry-Grid-item-->
+    &lt;div class="col-md-6 mb-4 grid-item">
+        &lt;div class="p-4 p-lg-5 border rounded-4">
+            &lt;h4 class="mb-4">You deserved a stunning website&lt;/h4>
+            &lt;p class="mb-0">
+                Amet cursus sit amet dictum sit amet justo donec enim. Mi in nulla posuere
+                sollicitudin aliquam. Viverra vitae congue eu consequat. In ante metus dictum at
+                tempor commodo ullamcorper a. Dignissim cras tincidunt lobortis feugiat vivamus at
+                augue. Justo nec ultrices dui sapien. Ac feugiat sed lectus vestibulum mattis
+                ullamcorper. In pellentesque massa placerat duis ultricies lacus sed turpis.
+            &lt;/p>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+</code>
+</pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        @@include('./partials/footers/footer-2.html')
+
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+
+        <!--Copy to clipboard + prismJs-->
+        <script src="assets/vendor/node_modules/js/prism.js"></script>
+        <script src="assets/vendor/node_modules/js/clipboard.min.js"></script>
+        <script>
+            /* Clipboard JS - Copy code button */
+            var cl = document.querySelector('.copy-link');
+            if (typeof !!cl && (cl) != 'undefined' && cl != null) {
+                var cle = document.querySelectorAll('.copy-link');
+                cle.forEach(el => {
+                    el.addEventListener("click", function () {
+                        var theButton = this;
+                        var copyId = this.getAttribute('id');
+                        var clipboard = new ClipboardJS('#' + copyId);
+
+                        clipboard.on('success', function (e) {
+                            e.clearSelection();
+                            theButton.innerHTML = 'Copied!';
+                            setTimeout(function () {
+                                theButton.innerHTML = 'Copy code';
+                            }, 5000);
+                        });
+                    });
+                });
+            }
+
+        </script>
+    </body>
+
+</html>

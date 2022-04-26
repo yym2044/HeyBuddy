@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+
+                @@include('./partials/sidebars/sidebar-default.html',{page:"components"})
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+
+                    @@include('./partials/header/header-default.html')
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8">
+                                    <h3 class="mb-2">Badges</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item active">UI Components</li>
+                                            <li class="breadcrumb-item active">Badges</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Colors</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="badge bg-primary">Primary</span>
+                                            <span class="badge bg-secondary">Secondary</span>
+                                            <span class="badge bg-success">Success</span>
+                                            <span class="badge bg-danger">Danger</span>
+                                            <span class="badge bg-warning text-dark">Warning</span>
+                                            <span class="badge bg-info">Info</span>
+                                            <span class="badge bg-light text-dark">Light</span>
+                                            <span class="badge bg-dark">Dark</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Links</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <a class="badge bg-tint-primary text-primary" href="#!">Primary</a>
+                                            <a class="badge bg-tint-secondary text-secondary" href="#!">Secondary</a>
+                                            <a class="badge bg-tint-success text-success" href="#!">Success</a>
+                                            <a class="badge bg-tint-danger text-danger" href="#!">Danger</a>
+                                            <a class="badge bg-tint-warning text-warning" href="#!">Warning</a>
+                                            <a class="badge bg-tint-info text-info" href="#!">Info</a>
+                                            <a class="badge bg-light text-dark" href="#!">Light</a>
+                                            <a class="badge bg-tint-dark text-dark" href="#!">Dark</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="card overflow-hidden">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Button</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <a class="btn btn-primary me-3" href="#!">
+                                                Notifications <span class="badge bg-white text-primary ms-2">99</span>
+                                            </a>
+                                            <a class="btn btn-danger position-relative p-0 rounded-circle size-40 justify-content-center align-items-center d-inline-flex" href="#!">
+                                                <i class="fe-2x" data-feather="bell"></i> <span class="badge bg-dark mt-1 ms-n1 position-absolute start-100 top-0 translate-middle rounded-pill">4</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+    </body>
+
+</html>

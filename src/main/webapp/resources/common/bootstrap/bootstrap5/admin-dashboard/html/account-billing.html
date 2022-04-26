@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root bg-cover bg-no-repeat">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+                @@include('./partials/sidebars/sidebar-default.html',{"page": "pages"} )
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+                    @@include('./partials/header/header-default.html')
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar pt-4 px-4 px-lg-8 pb-0">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8 mb-3 mb-lg-0">
+                                    <h3 class="mb-2">Account</h3>
+                                    <p class="mb-0 text-muted">Update and manage your account</p>
+
+
+                                </div>
+                                <div class="col-md-4">
+                                    <nav aria-label="breadcrumb" class="d-flex justify-content-md-end">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
+                                            <li class="breadcrumb-item active">Pages</li>
+                                            <li class="breadcrumb-item active">Account</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <!--Account nav-->
+                                    <ul class="nav nav-tabs nav-vertical mb-4 h-100">
+                                        <li class="nav-item">
+                                            <a href="account-general.html" class="nav-link px-3">
+                                                <i data-feather="user" class="fe-1x align-middle me-2"></i>General
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="account-billing.html" class="nav-link active px-3">
+                                                <i data-feather="file-text" class="fe-1x align-middle me-2"></i>Billing
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="account-Contacts.html" class="nav-link px-3">
+                                                <i data-feather="users" class="fe-1x align-middle me-2"></i>Contacts
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="account-security.html" class="nav-link px-3">
+                                                <i data-feather="shield" class="fe-1x align-middle me-2"></i>Security
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="account-notifications.html" class="nav-link px-3">
+                                                <i data-feather="bell" class="fe-1x align-middle me-2"></i>Notifications
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-9 h-100">
+
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Your Plan</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-7 mb-4 mb-md-0">
+                                                    <h6>Part-time Access</h6>
+                                                    <h2 class="mb-1">$19.00</h2>
+                                                    <small class="text-muted d-block mb-3">Monthly</small>
+                                                    <span
+                                                        class="badge badge-pill lh-sm bg-success px-2 py-1">Active</span>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <h6>Plan Benefits</h6>
+                                                    <ul class="mb-0 lh-lg">
+                                                        <li>3 transactions per day</li>
+                                                        <li>1 Member dashboard</li>
+                                                        <li>10GB free data</li>
+                                                        <li>1 Professional email account</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-footer align-items-center d-flex justify-content-between">
+                                            <a href="#!" class="me-3 btn btn-primary">Upgrade plan</a>
+                                            <a href="#!" class="btn btn-gray">Cancel
+                                                Subscription</a>
+                                        </div>
+                                    </div>
+                                    <!--/.row-->
+                                    <!--Card-->
+                                    <div class="mb-4 card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Payment methods</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <!--Col-->
+                                                <div class="col-12 col-sm-6 order-last mb-3">
+                                                    <div
+                                                        class="p-3 rounded-3 border shadow-sm d-flex align-items-center position-relative">
+                                                        <div>
+                                                            <img src="assets/media/brand-logos/visa.svg" class="height-20 w-auto me-4" alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <span class="d-block">****6231</span>
+                                                            <div class="d-flex">
+                                                                <small class="text-muted me-2">Expiry date:</small>
+                                                                <span class="d-inline-block">09/024</span>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="h-100 align-self-stretch">
+                                                            <div class="dropdown">
+                                                                <a href="#"
+                                                                    class="d-flex align-items-center justify-content-center size-30 text-muted hover-bg-primary rounded-circle"
+                                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <i data-feather="more-vertical"
+                                                                        class="fe-1x align-middle"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu mt-1 dropdown-menu-end">
+                                                                    <a href="#!" class="dropdown-item">Set primary</a>
+                                                                    <a href="#!" class="dropdown-item">Payment
+                                                                        history</a>
+                                                                    <a href="#!" class="dropdown-item">Remove card</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--Col-->
+                                                <div class="col-12 col-sm-6 mb-3 order-1">
+                                                    <div
+                                                        class="p-3 rounded-3 border shadow-sm d-flex align-items-center position-relative">
+                                                        <div>
+                                                            <img src="assets/media/brand-logos/mastercard.svg" class="height-20 w-auto me-4" alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <span class="d-block">****0786</span>
+                                                            <div class="d-flex">
+                                                                <small class="text-muted me-2">Expiry date:</small>
+                                                                <span class="d-inline-block">09/026</span>
+                                                            </div>
+                                                            <span
+                                                                class="badge position-absolute mt-n2 ms-2 start-0 top-100 badge-pill bg-primary">Primary</span>
+                                                        </div>
+                                                        <div class="h-100 align-self-stretch">
+                                                            <div class="dropdown">
+                                                                <a href="#"
+                                                                    class="d-flex align-items-center justify-content-center size-30 text-muted hover-bg-primary rounded-circle"
+                                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <i data-feather="more-vertical"
+                                                                        class="fe-1x align-middle"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu mt-1 dropdown-menu-end">
+                                                                    <a href="#!" class="dropdown-item">Payment
+                                                                        history</a>
+                                                                    <a href="#!" class="dropdown-item">Remove card</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/.row-->
+                                            <div class="text-end">
+                                                <a href="#!" class="btn btn-gray">
+                                                  <i class="fe-1x me-1" data-feather="plus"></i> Add Payment method</a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <!--card-->
+                                    <div class="card mb-4">
+
+                                        <div class="card-header border-bottom-0">
+                                            <!-- Title -->
+                                            <h5 class="mb-0">
+                                                Invoices
+                                            </h5>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-nowrap table-card table-striped mb-0">
+                                                <thead class="text-muted text-uppercase small">
+                                                    <tr>
+                                                        <th>Invoice ID</th>
+                                                        <th>Date</th>
+                                                        <th>Amount</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fs-base">
+                                                    <tr>
+                                                        <td>
+                                                            <a href="invoice.html">Invoice #56756</a>
+                                                        </td>
+                                                        <td>
+                                                            <time datetime="2020-04-24">Sep. 24, 2021</time>
+                                                        </td>
+                                                        <td>
+                                                            $29.00
+                                                        </td>
+                                                        <td>
+                                                            <span
+                                                                class="badge bg-warning rounded-pill py-1 lh-sm px-2">Pending</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="invoice.html">Invoice #56894</a>
+                                                        </td>
+                                                        <td>
+                                                            <time datetime="2020-03-24">Aug. 04, 2021</time>
+                                                        </td>
+                                                        <td>
+                                                            $29.00
+                                                        </td>
+                                                        <td>
+                                                            <span
+                                                                class="badge bg-success rounded-pill py-1 lh-sm px-2">Paid</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="invoice.html">Invoice #57890</a>
+                                                        </td>
+                                                        <td>
+                                                            <time datetime="2020-02-24">Jun. 13, 2021</time>
+                                                        </td>
+                                                        <td>
+                                                            $29.00
+                                                        </td>
+                                                        <td>
+                                                            <span
+                                                                class="badge bg-success rounded-pill py-1 lh-sm px-2">Paid</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="invoice.html">Invoice #57980</a>
+                                                        </td>
+                                                        <td>
+                                                            <time datetime="2020-01-24">Apr. 03, 2021</time>
+                                                        </td>
+                                                        <td>
+                                                            $29.00
+                                                        </td>
+                                                        <td>
+                                                            <span
+                                                                class="badge bg-success rounded-pill py-1 lh-sm px-2">Paid</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+
+        <!--Page script begin-->
+        <script src="assets/vendor/inputmask.min.js"></script>
+        <script>
+            Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
+        </script>
+    </body>
+
+</html>

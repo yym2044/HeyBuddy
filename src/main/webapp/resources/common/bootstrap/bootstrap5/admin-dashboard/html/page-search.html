@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+        @@include('./partials/fonts.html')
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+                @@include('./partials/sidebars/sidebar-default.html',{"page": "pages"} )
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+                    @@include('./partials/header/header-default.html')
+
+
+                    <!--//Page content//-->
+                    <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                            <div class="row">
+                                <div class="col-md-10 mx-auto">
+                                    <div class="sticky-top top-0">
+
+                                        <!--Search form-->
+                                        <div class="pb-5">
+                                            <form class="position-relative">
+                                                <!--Icon-->
+                                                <span
+                                                    class="d-flex size-20 rounded-circle ms-3 align-items-center justify-content-center position-absolute start-0 top-50 translate-middle-y">
+                                                    <i data-feather="search" class="fe-1x opacity-50"></i>
+                                                </span>
+                                                <!--Input-->
+                                                <input type="text"
+                                                    class="form-control shadow py-4 form-control-lg ps-9"
+                                                    placeholder="Analytics">
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <!--Search result nav-->
+                                    <ul class="nav mb-4 nav-tabs nav-overflow">
+                                        <li class="nav-item">
+                                            <a href="#!" class="nav-link active">
+                                                All
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!" class="nav-link">
+                                                Websites
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!" class="nav-link">
+                                                Blog
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!" class="nav-link">
+                                                Docs
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#!" class="nav-link">
+                                                Library
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!--Search results list-->
+                                    <div class="list-group mb-4">
+                                        <div class="list-group-item p-4">
+                                            <small class="text-muted">About 54 results for analytics </small>
+                                        </div>
+                                        <!--Search result item-->
+                                        <a href="#!" class="list-group-item p-4 list-group-item-action">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/media/900x600/2.jpg" class="flex-shrink-0 rounded-3 width-110" alt="">
+                                                <div class="ps-3 flex-grow-1 overflow-hidden">
+                                                    <span class="fw-semibold d-block mb-1 text-truncate"><i data-feather="external-link" class="fe-1x me-2"></i> https://loremipsum.com</span>
+
+                                            <h5 class="mb-1 text-truncate">Optimize user experience with powerful search <span
+                                                    class="highlight">analytics</span></h5>
+                                            <p class="mb-0 text-truncate opacity-75">
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                                publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!--Search result item-->
+                                        <a href="#!" class="list-group-item p-4 list-group-item-action">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/media/900x600/3.jpg" class="flex-shrink-0 rounded-3 width-110" alt="">
+                                                <div class="ps-3 flex-grow-1 overflow-hidden">
+                                                    <span class="fw-semibold d-block mb-1 text-truncate"><i data-feather="external-link" class="fe-1x me-2"></i> https://loremipsum.com</span>
+
+                                            <h5 class="mb-1 text-truncate">Building Real Time Analytics APIs at Scale<span
+                                                    class="highlight">analytics</span></h5>
+                                            <p class="mb-0 text-truncate opacity-75">
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                                publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!--Search result item-->
+                                        <a href="#!" class="list-group-item p-4 list-group-item-action">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/media/900x600/4.jpg" class="flex-shrink-0 rounded-3 width-110" alt="">
+                                                <div class="ps-3 flex-grow-1 overflow-hidden">
+                                                    <span class="fw-semibold d-block mb-1 text-truncate"><i data-feather="external-link" class="fe-1x me-2"></i> https://loremipsum.com</span>
+
+                                            <h5 class="mb-1 text-truncate">Master Class: Enable advanced<span
+                                                    class="highlight">analytics</span></h5>
+                                            <p class="mb-0 text-truncate opacity-75">
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                                publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!--Search result item-->
+                                        <a href="#!" class="list-group-item p-4 list-group-item-action">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/media/900x600/5.jpg" class="flex-shrink-0 rounded-3 width-110" alt="">
+                                                <div class="ps-3 flex-grow-1 overflow-hidden">
+                                                    <span class="fw-semibold d-block mb-1 text-truncate"><i data-feather="external-link" class="fe-1x me-2"></i> https://loremipsum.com</span>
+
+                                            <h5 class="mb-1 text-truncate">Analytics : The Easiest Way to Measure Your Relevance<span
+                                                    class="highlight">analytics</span></h5>
+                                            <p class="mb-0 text-truncate opacity-75">
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                                publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!--Search result item-->
+                                        <a href="#!" class="list-group-item p-4 list-group-item-action">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/media/900x600/6.jpg" class="flex-shrink-0 rounded-3 width-110" alt="">
+                                                <div class="ps-3 flex-grow-1 overflow-hidden">
+                                                    <span class="fw-semibold d-block mb-1 text-truncate"><i data-feather="external-link" class="fe-1x me-2"></i> https://loremipsum.com</span>
+
+                                            <h5 class="mb-1 text-truncate">Level up your site search experience with our hosted API<span
+                                                    class="highlight">analytics</span></h5>
+                                            <p class="mb-0 text-truncate opacity-75">
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                                publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!--Search result item-->
+                                        <a href="#!" class="list-group-item p-4 list-group-item-action">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/media/900x600/8.jpg" class="flex-shrink-0 rounded-3 width-110" alt="">
+                                                <div class="ps-3 flex-grow-1 overflow-hidden">
+                                                    <span class="fw-semibold d-block mb-1 text-truncate"><i data-feather="external-link" class="fe-1x me-2"></i> https://loremipsum.com</span>
+
+                                            <h5 class="mb-1 text-truncate">Boost engagement with tailored site search experiences<span
+                                                    class="highlight">analytics</span></h5>
+                                            <p class="mb-0 text-truncate opacity-75">
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                                publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!--Search result item-->
+                                        <a href="#!" class="list-group-item p-4 list-group-item-action">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/media/900x600/9.jpg" class="flex-shrink-0 rounded-3 width-110" alt="">
+                                                <div class="ps-3 flex-grow-1 overflow-hidden">
+                                                    <span class="fw-semibold d-block mb-1 text-truncate"><i data-feather="external-link" class="fe-1x me-2"></i> https://loremipsum.com</span>
+
+                                            <h5 class="mb-1 text-truncate">Create a mobile search experience that drives results<span
+                                                    class="highlight">analytics</span></h5>
+                                            <p class="mb-0 text-truncate opacity-75">
+                                                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                                                publishing industries for previewing layouts and visual mockups.
+                                            </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <!--Pagination-->
+                                    <nav aria-label="Page navigation example" class="d-flex justify-content-end">
+                                        <ul class="pagination">
+                                          <li class="page-item disabled"><a class="page-link" href="#!">Previous</a></li>
+                                          <li class="page-item active"><a class="page-link active" href="#!">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                                          <li class="page-item"><a class="page-link" href="#!">Next</a></li>
+                                        </ul>
+                                      </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+    </body>
+
+</html>

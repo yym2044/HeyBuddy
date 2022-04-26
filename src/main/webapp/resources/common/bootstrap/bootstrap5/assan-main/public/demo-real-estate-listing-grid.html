@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico" />
+
+        <!--Box Icons-->
+        <link rel="stylesheet" href="assets/fonts/boxicons/css/boxicons.min.css" />
+
+        <!--Iconsmind Icons-->
+        <link rel="stylesheet" href="assets/fonts/iconsmind/iconsmind.css" />
+
+        <!--Select style-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/choices.min.css">
+
+        <!--Swiper slider-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/swiper-bundle.min.css" />
+        <!-- Aos Animations CSS -->
+        <link href="assets/vendor/node_modules/css/aos.css" rel="stylesheet">
+        
+        <!--Google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+        <!-- Main CSS -->
+        <link href="assets/css/theme-teal.min.css" rel="stylesheet" />
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+         <!--Preloader Spinner-->
+         <div class="spinner-loader bg-tint-primary">
+            <div class="spinner-border text-primary" role="status">
+            </div>
+            <span class="small d-block ms-2">Loading...</span>
+        </div>
+
+        <!--Header Start-->
+        <header class="z-index-fixed pt-2 header-absolute-top header-sticky">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="d-flex">
+                            <a href="tel:+011234567890" class="text-dark me-3 me-lg-4">
+                                <i class="bx bxs-phone"></i>
+                                <small>+01 1234 567 890</small>
+                            </a>
+                            <a href="mailto:consult@company.com" class="text-dark me-3 me-lg-4">
+                               <i class="bx bxs-envelope"></i>
+                                <small>estate@assan.com</small>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ms-auto">
+                        <div class="d-flex justify-content-end">
+                            <a href="mailto:consult@company.com" class="text-dark">
+                               <i class="bx bxs-user"></i>
+                                <small>Sign In</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light rounded-3"><div class="container">
+                <a class="navbar-brand" href="demo-real-estate.html">
+                    <img src="assets/img/logo/logo.svg" alt="" class="img-fluid navbar-brand-sticky">
+                </a>
+                <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                    <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <i></i>
+                        </span>
+                    </button>
+                    <div class="nav-item me-2 ms-lg-5 me-lg-0">
+                        <a href="demo-real-estate-add-listing.html" class="btn btn-dark btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="me-1" width="16" height="16"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M12 4v16m8-8H4" />
+                            </svg> Submit Property
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Home</a>
+                            <!--Dropdown-->
+                            <div class="dropdown-menu">
+                                <a href="demo-real-estate.html" class="dropdown-item">Home default</a>
+                                <a href="demo-real-estate-2.html" class="dropdown-item">Home option</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active"
+                                data-bs-toggle="dropdown">Listing</a>
+                            <!--Dropdown-->
+                            <div class="dropdown-menu">
+                                <a href="demo-real-estate-listing-grid.html" class="dropdown-item">Listing
+                                    Grid</a>
+                                <a href="demo-real-estate-listing-row.html" class="dropdown-item">Listing
+                                    Row</a>
+                                    <a href="demo-real-estate-add-listing.html" class="dropdown-item">Listing
+                                        Add</a>
+                                        <a href="demo-real-estate-listing.html" class="dropdown-item">Listing Detail</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div> </div>
+            </nav>
+        </header>
+
+        <main>
+            <!--hero-->
+            <section class="position-relative overflow-hidden border-bottom">
+                <svg class="position-absolute start-50 bottom-0 w-auto text-light" width="301" height="104%"
+                    viewBox="0 0 301 301" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0.999879 301C0.999881 261.603 8.7596 222.593 23.836 186.195C38.9124 149.797 61.0103 116.726 88.8678 88.8679C116.725 61.0104 149.797 38.9125 186.195 23.8361C222.593 8.75972 261.603 0.999997 301 1"
+                        stroke="currentColor" />
+                </svg>
+
+                <div class="container pt-12 pb-12 position-relative z-index-1">
+                    <div class="row pt-7 pt-lg-12 justify-content-between align-items-center">
+                        <div class="col-md-8 col-xl-6">
+                            <h4 class="text-muted mb-4">Over 2500+</h4>
+                            <h1 class="display-2 mb-4">
+                                Properties listed in London
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sticky-lg-top top-0">
+                <div class="container">
+                    
+                    <form class="position-relative z-index-1 mt-n7 px-3 pb-3 pb-lg-0 pt-2 mb-5 bg-white border rounded-3">
+                        <div class="row mx-0 g-2 align-items-center">
+                            <div class="col-md-6 col-lg-3">
+                                <label for="p_type" class="form-label small text-muted block mb-0">Property type:</label>
+                                <select class="form-control form-control-lg border-0 shadow-none ps-0 pe-5" data-choices='{"searchEnabled":false}' name="p_type" id="p_type">
+                                    <option value="Any type" selected>Any type</option>
+                                    <option value="Villa">Villa</option>
+                                    <option value="Apartment">Apartment</option>
+                                    <option value="Office">Office</option>
+                                    <option value="Parking">Parking</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <label for="p_for" class="form-label small text-muted block mb-0">Property for:</label>
+                                <select class="form-control form-control-lg border-0 shadow-none ps-0 pe-5" data-choices='{"searchEnabled":false}' name="p_for" id="p_type">
+                                    <option value="Rent">For Rent</option>
+                                    <option value="Sale">For Sale</option>
+                                </select>
+                            </div>
+                            <div class="col-md-9 col-lg-4">
+                                <label for="p_location" class="form-label small text-muted">Location:</label>
+                                <div class="position-relative">
+                                    <i
+                                        class="bx bx-map small ms-0 opacity-50 position-absolute start-0 top-50 translate-middle-y"></i>
+                                    <input type="text" id="p_location" class="form-control  border-0 shadow-none form-control-lg ps-4"
+                                        placeholder="Location...">
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-lg-2 text-md-end">
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    Apply Filter
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="position-relative">
+                <div class="container py-9 py-lg-11">
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <small>Showing 9 of 2400+ listings</small>
+                        </div>
+                        <div class="col-6 text-end">
+                           <div class="btn-group ms-auto  btn-group-sm">
+                               <a class="btn btn-outline-secondary rounded-end-0 rounded-pill" href="demo-real-estate-listing-row.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+                               </a>
+                               <a class="btn btn-outline-secondary rounded-start-0 rounded-pill active" href="demo-real-estate-listing-grid.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M3,3v8h8V3H3z M9,9H5V5h4V9z M3,13v8h8v-8H3z M9,19H5v-4h4V19z M13,3v8h8V3H13z M19,9h-4V5h4V9z M13,13v8h8v-8H13z M19,19h-4v-4h4V19z"/></svg>
+                            </a>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                        <!--Property-item-row-->
+                    <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/1.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-light text-primary mb-3">For Sale</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/2.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Monika
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                     <!--Property-item-row-->
+                     <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/2.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-info mb-3">For rent</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/2.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Monika
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                     <!--Property-item-row-->
+                     <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/3.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-light text-primary mb-3">For Sale</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/2.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Monika
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                     <!--Property-item-row-->
+                     <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/4.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-light text-primary mb-3">For Sale</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/2.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Monika
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                     <!--Property-item-row-->
+                     <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/5.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-info mb-3">For Rent</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/2.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Monika
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                     <!--Property-item-row-->
+                     <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/6.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-light text-primary mb-3">For Sale</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/2.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Monika
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                     <!--Property-item-row-->
+                     <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/7.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-light text-primary mb-3">For Sale</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/2.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Monika
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                     <!--Property-item-row-->
+                     <div class="card rounded-4 mb-5" data-aos="fade-up">
+                        <div class="mb-0">
+                            <a href="#!"
+                                class="d-block overflow-hidden rounded-top-4">
+                                <img src="assets/img/estate/listing/8.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                            <span class="badge bg-light text-primary mb-3">For Sale</span>
+                            <a href="#!" class="text-dark d-block mb-4">
+                                <h4>Villa in Coral Gables</h4>
+                            </a>
+                            <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-4 mb-lg-5 text-truncate">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <div class="row justify-content-between justify-content-lg-start">
+
+                                <div class="col-6">
+                                    <!--Price-->
+                                    <h4 class="mb-0">$983,000</h4>
+                                </div>
+                                <div class="col-6">
+                                    <!--Agent-->
+                                    <div
+                                        class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                        <img src="assets/img/avatar/5.jpg" alt=""
+                                            class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                        <span class="small">
+                                            Emily
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-md-6 col-lg-4">
+                        <!--Property-item-row-->
+                        <div class="card rounded-4 mb-5" data-aos="fade-up">
+                           <div class="mb-0">
+                               <a href="#!"
+                                   class="d-block overflow-hidden rounded-top-4">
+                                   <img src="assets/img/estate/listing/2.jpg" class="img-fluid" alt="">
+                               </a>
+                           </div>
+                           <div class="card-body overflow-hidden p-4 px-lg-5 flex-grow-1">
+                               <span class="badge bg-light text-primary mb-3">For Sale</span>
+                               <a href="#!" class="text-dark d-block mb-4">
+                                   <h4>Villa in Coral Gables</h4>
+                               </a>
+                               <div class="row mb-3 mb-lg-4">
+                                <div class="col-3" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bedrooms">
+                                    <div class="d-flex align-items-center">
+                                     <i class="bx bx-bed fs-5 me-2"></i>
+                                        <strong class="small">4</strong>
+                                    </div>
+                                </div>
+                                <div class="col-3 border-start border-end" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Bathrooms">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bath fs-5 me-2"></i>
+                                        <strong class="small">2</strong>
+                                    </div>
+                                </div>
+                                <div class="col-6" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                                    data-bs-original-title="Area">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-area fs-5 me-2"></i>
+                                        <strong class="small">6400 Sq Ft</strong>
+                                    </div>
+                                </div>
+                            </div>
+                               <p class="mb-4 mb-lg-5 text-truncate">
+                                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                   mollit anim id est laborum.
+                               </p>
+                               <div class="row justify-content-between justify-content-lg-start">
+   
+                                   <div class="col-6">
+                                       <!--Price-->
+                                       <h4 class="mb-0">$983,000</h4>
+                                   </div>
+                                   <div class="col-6">
+                                       <!--Agent-->
+                                       <div
+                                           class="d-flex align-items-center justify-content-end flex-shrink-0">
+                                           <img src="assets/img/avatar/6.jpg" alt=""
+                                               class="flex-shrink-0 flex-shrink-0 avatar sm rounded-circle me-2 img-fluid">
+                                           <span class="small">
+                                               Adam
+                                           </span>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div></div>
+                    </div>
+
+                    <!--Lead more-->
+                    <div class="d-flex justify-content-center" data-aos="fade-up">
+                        <a href="#!" class="btn btn-outline-secondary rounded-pill btn-lg hover-lift">
+                            Load more
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--Footer Start-->
+        <footer id="footer" class="overflow-hidden position-relative bg-dark text-white">
+            <!--Divider-->
+            <svg class="position-absolute start-0 bottom-0 text-gray-800 h-40" preserveAspectRatio="none" width="100%" height="250"
+                viewBox="0 0 1200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M0 62.5L22 46.875C44 31.25 89 0 133 0C178 0 222 31.25 267 72.9167C311 114.583 356 166.667 400 187.5C444 208.333 489 197.917 533 182.292C578 166.667 622 145.833 667 114.583C711 83.3333 756 41.6667 800 26.0417C844 10.4167 889 20.8333 933 62.5C978 104.167 1022 177.083 1067 208.333C1111 239.583 1156 229.167 1178 223.958L1200 218.75V250H1178C1156 250 1111 250 1067 250C1022 250 978 250 933 250C889 250 844 250 800 250C756 250 711 250 667 250C622 250 578 250 533 250C489 250 444 250 400 250C356 250 311 250 267 250C222 250 178 250 133 250C89 250 44 250 22 250H0V62.5Z"
+                    fill="currentColor" />
+                <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M0 93.667L24.8889 87.4756C49.7778 82.8321 99.5556 71.9971 149.333 93.667C200.889 113.789 250.667 166.416 300.444 186.538C350.222 208.208 400 197.373 449.778 171.06C499.556 144.746 549.333 102.954 600.889 76.6407C650.667 50.3272 700.444 41.0401 750.222 61.1622C800 82.8321 849.778 135.459 899.556 129.268C949.333 124.624 1000.89 61.1622 1050.67 50.3272C1100.44 41.0401 1150.22 82.8321 1175.11 102.954L1200 124.624V250H1175.11C1150.22 250 1100.44 250 1050.67 250C1000.89 250 949.333 250 899.556 250C849.778 250 800 250 750.222 250C700.444 250 650.667 250 600.889 250C549.333 250 499.556 250 449.778 250C400 250 350.222 250 300.444 250C250.667 250 200.889 250 149.333 250C99.5556 250 49.7778 250 24.8889 250H0V93.667Z"
+                    fill="currentColor" />
+            </svg>
+            <div class="container pt-9 pt-lg-11 pb-5 pb-lg-7 position-relative z-index-1">
+                <div class="row mb-5 mb-lg-7">
+                    <div class="col-md-4 mb-5 mb-md-0 text-md-center order-md-2">
+                        <a href="index.html"><img src="assets/img/logo/logo-white.svg"
+                                class="width-10x d-block h-auto mx-md-auto" alt=""></a>
+                    </div>
+                    <div class="col-md-4 order-md-1 mb-3 mb-md-0">
+                        <a href="mailto:mail@domain.com" class="fs-4 link-hover-underline">mail@domain.com</a>
+                    </div>
+                    <div class="col-md-4 text-md-end order-md-3">
+                        <a href="mailto:mail@domain.com" class="fs-4 link-hover-underline">+01 123-4567-890</a>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-8 order-md-last mb-3 mb-md-0">
+                        <div class="d-flex flex-wrap justify-content-md-end me-n4">
+                            <a href="#!" class="small text-muted me-4 link-hover-underline my-2 block">Properties</a>
+                            <a href="#!" class="small text-muted me-4 link-hover-underline my-2 block">Careers</a>
+                            <a href="#!" class="small text-muted me-4 link-hover-underline my-2 block">Company</a>
+                            <a href="#!" class="small text-muted me-4 link-hover-underline my-2 block">Privacy policy</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 order-md-1 small">
+                        <span class="d-block my-2 lh-sm text-muted">&copy; Copyright
+                            <script>
+                                document.write(new Date().getFullYear())
+
+                            </script>. Assan
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+            <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+         <!--Select scripts-->
+         <script src="assets/vendor/node_modules/js/choices.min.js"></script>
+         <script>
+             var cSelect = document.querySelectorAll("[data-choices]");
+             cSelect.forEach(el => {
+                 const t = {
+                     ...el.dataset.choices ? JSON.parse(el.dataset.choices) : {}, ...{
+                         classNames: {
+                             containerInner: el.className,
+                             input: "form-control",
+                             inputCloned: "form-control-sm",
+                             listDropdown: "dropdown-menu",
+                             itemChoice: "dropdown-item",
+                             activeState: "show",
+                             selectedState: "active"
+                         }
+                     }
+                 }
+                 new Choices(el, t)
+             }
+             );
+         </script>
+    </body>
+
+</html>

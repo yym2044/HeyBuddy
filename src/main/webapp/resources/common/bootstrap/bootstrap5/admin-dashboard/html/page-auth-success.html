@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+        @@include('./partials/fonts.html')
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+                @@include('./partials/sidebars/sidebar-default.html',{"page": "pages"} )
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+                    @@include('./partials/header/header-default.html')
+
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar py-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-8">
+                                    <h3 class="mb-2">Success</h3>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
+                                            <li class="breadcrumb-item active">Pages</li>
+                                            <li class="breadcrumb-item active">Auth</li>
+                                            <li class="breadcrumb-item active">Success</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                        <div class="container-fluid px-0">
+                         <div class="row">
+                             <div class="col-md-6 mb-4">
+                                <h5 class="mb-3">Success message style 1</h5>
+
+                                <!--Success messages-->
+                                <div class="alert p-3 mb-4 overflow-hidden rounded-3 border-0 bg-white text-dark d-flex align-items-center shadow">
+                                    <div class="size-60 me-4 text-white rounded-circle bg-success d-flex align-items-center justify-content-center">
+                                        <i data-feather="check-circle"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h5 class="text-reset mb-0">Information saved</h5>
+                                        <p class="mb-0 opacity-75">Your account has been updated!</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="col-md-6 mb-4">
+                                <h5 class="mb-3">Success message style 2</h5>
+
+                                <!--Success messages-->
+                                <div class="alert p-0 mb-4 shadow ps-12 overflow-hidden rounded-3 border-0 bg-white text-dark d-flex align-items-stretch">
+                                    <div class="h-100 position-absolute start-0 top-0 bg-success text-white width-70 d-flex align-items-center justify-content-center">
+                                        <i data-feather="user-check"></i>
+                                    </div>
+                                    <div class="flex-grow-1 px-3 py-3">
+                                        <h5 class="text-reset mb-0">Information saved</h5>
+                                        <p class="mb-0 opacity-75">Your account has been updated!</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="col-md-6 mb-4">
+                                <h5 class="mb-3">Success message style 3</h5>
+
+                                <!--Success messages-->
+                                <div class="card card-body p-0 border-success mb-4 ps-8 overflow-hidden rounded-3 border-2 shadow-lg border-success d-flex align-items-stretch">
+                                    <div class="h-100 position-absolute start-0 top-0 width-60 text-success d-flex align-items-center justify-content-center">
+                                        <i data-feather="check-circle"></i>
+                                    </div>
+                                    <div class="flex-grow-1 px-3 py-3">
+                                        <h5 class="mb-1 text-success">Your complaint has been received</h5>
+                                        <p class="mb-0 lh-sm text-muted">Your will be notified as soon as it processed by a moderator</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="col-md-6 mb-4">
+                                <h5 class="mb-3">Success message style 4</h5>
+
+                                 <!--Success messages-->
+                                 <div class="card card-body p-3 mb-4 overflow-hidden rounded-3 border-0 flex-row d-flex align-items-center shadow">
+                                    <div class="size-60 me-4 z-index-1 text-white bg-success rounded-3 d-flex align-items-center justify-content-center">
+                                        <i data-feather="check-circle"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h5 class="text-reset mb-0">Information saved</h5>
+                                        <p class="mb-0 opacity-75">Your account has been updated!</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="col-md-6 col-lg-4 mb-4">
+                                <h5 class="mb-3">Success message style 5</h5>
+                                <!--Success messages-->
+                                <div class="card card-body p-4 p-lg-5 overflow-hidden rounded-3 text-center border-0">
+                                    <div class="size-70 bg-success rounded-circle text-white mx-auto d-flex align-items-center justify-content-center">
+                                        <i data-feather="user-check"></i>
+                                    </div>
+                                    <div class="flex-grow-1 px-3 py-3">
+                                        <h5 class="text-reset mb-1">Information saved</h5>
+                                        <p class="mb-0 opacity-75">Your account has been updated!</p>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                        </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                  @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+    </body>
+
+</html>

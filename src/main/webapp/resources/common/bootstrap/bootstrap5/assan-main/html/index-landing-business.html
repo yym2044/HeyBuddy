@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        @@include('./partials/head-includes.html')
+
+        <!--Swiper slider-->
+        <link rel="stylesheet" href="assets/vendor/node_modules/css/swiper-bundle.min.css">
+
+        <!-- Main CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet">
+
+        <title>Assan 4</title>
+    </head>
+
+    <body>
+
+        @@include('./partials/preloader.html')
+        <!--Header Start-->
+        <header class="z-index-fixed pt-lg-3 header-absolute-top header-transparent">
+            <nav class="navbar navbar-expand-lg navbar-light navbar-link-white">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo/logo-white.svg" alt="" class="img-fluid">
+                    </a>
+
+                    <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                        <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i></i>
+                            </span>
+                        </button>
+                        <div class="nav-item me-3 me-lg-0 ms-lg-2">
+                            <a href="#" class="btn btn-success btn-sm rounded-pill">Purchase</a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                        @@include('./partials/headers/default-navbar-items.html',{"page": "home"})
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Main content-->
+
+        <main class="main-content" id="main-content">
+            <section class="position-relative bg-dark overflow-hidden">
+                <!-- Swiper Main -->
+                <div class="swiper-container swiper-classic">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url('assets/img/backgrounds/bg4.jpg')">
+
+                            <!--Overlay-->
+                            <div class="bg-dark position-absolute start-0 top-0 w-100 h-100 opacity-50"></div>
+                            <div class="container-fluid text-white d-flex align-items-center h-100">
+                                <div class="row pt-5 w-100">
+                                    <div class="col-xl-9 col-lg-10 mx-auto text-center">
+                                        <ul class="carousel-layers list-unstyled mb-0">
+                                            <li data-carousel-layer="fade-start">
+                                                <h2 class="display-1 mb-4 mb-lg-7">
+                                                    We build relationships
+                                                </h2>
+                                            </li>
+                                            <li data-carousel-layer="fade-start">
+                                                <a href="#" class="btn btn-primary btn-lg">
+                                                    How it works
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('assets/img/backgrounds/bg5.jpg')">
+                            <!--Overlay-->
+                            <div class="bg-dark position-absolute start-0 top-0 w-100 h-100 opacity-50"></div>
+                            <div class="container-fluid text-white d-flex align-items-center h-100">
+                                <div class="row pt-5 w-100">
+                                    <div class="col-xl-8 col-lg-10 mx-auto text-center">
+                                        <ul class="carousel-layers list-unstyled mb-0">
+                                            <li data-carousel-layer="fade-start">
+                                                <h2 class="display-1 mb-4 mb-lg-7">
+                                                   We connect brands to peoples
+                                                </h2>
+                                            </li>
+                                            <li data-carousel-layer="fade-start">
+                                                <a href="#" class="btn btn-primary btn-lg">
+                                                    Purchase now
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('assets/img/backgrounds/bg2.jpg')">
+                            <!--Overlay-->
+                            <div class="bg-dark position-absolute start-0 top-0 w-100 h-100 opacity-50"></div>
+                            <div class="container-fluid text-white d-flex align-items-center h-100">
+                                <div class="row pt-5 w-100">
+                                    <div class="col-xl-8 col-lg-10 mx-auto text-center">
+                                        <ul class="carousel-layers list-unstyled mb-0">
+                                            <li data-carousel-layer="fade-start">
+                                                <h2 class="display-1 mb-4 mb-lg-7">
+                                                    We are dedicated
+                                                </h2>
+                                            </li>
+                                            <li data-carousel-layer="fade-start">
+                                                <a href="#" class="btn btn-primary btn-lg">
+                                                    Try it Now!
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End swiper-main-->
+
+                <!--Swiper thumbnails-->
+                  <div class="progress-swiper-thumbs pb-3 pb-lg-5 position-absolute start-0 bottom-0 w-100 overflow-hidden text-white px-4 swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- Slide -->
+                        <div class="swiper-slide swiper-pagination-progress">
+                            <div class="swiper-pagination-progress-bar mb-2">
+                                <div class="swiper-pagination-progress-inner swiper-pagination-progress-bar-inner">
+                                </div>
+                            </div>
+                            <span class="small d-block text-truncate font-serif">Build relationships</span>
+                        </div>
+                        <!-- End Slide -->
+
+                        <!-- Slide -->
+                        <div class="swiper-slide swiper-pagination-progress">
+                            <div class="swiper-pagination-progress-bar mb-2">
+                                <div class="swiper-pagination-progress-inner swiper-pagination-progress-bar-inner">
+                                </div>
+                            </div>
+                            <span class="small d-block text-truncate font-serif">Connect peoples</span>
+                        </div>
+                        <!-- End Slide -->
+
+                        <!-- Slide -->
+                        <div class="swiper-slide swiper-pagination-progress">
+                            <div class="swiper-pagination-progress-bar mb-2">
+                                <div class="swiper-pagination-progress-inner swiper-pagination-progress-bar-inner">
+                                </div>
+                            </div>
+                            <span class="small d-block text-truncate font-serif">Dedicated</span>
+                        </div>
+                        <!-- End Slide -->
+                    </div>
+                </div>
+                <!-- End Swiper Thumbs Slider -->
+            </section>
+            <section class="border-bottom overflow-hidden">
+                <div class="container pt-9 pb-6 pb-lg-9">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 col-lg-3 text-center text-md-start">
+                            <h6 class="mb-5 mb-md-0 text-muted font-serif">Our partners</h6>
+                        </div>
+                        <div class="col-md-8 col-lg-9">
+                            <div class="d-flex flex-wrap justify-content-md-end justify-content-center">
+                                <div class="d-flex justify-content-center align-items-center px-4 py-3 width-13x h-auto">
+                                    <img class="img-fluid" src="assets/img/partners/dark/nasdaq.svg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center px-4 py-3 width-13x h-auto">
+                                    <img class="img-fluid" src="assets/img/partners/dark/zillow.svg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center px-4 py-3 width-13x h-auto">
+                                    <img class="img-fluid" src="assets/img/partners/dark/slack.svg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center px-4 py-3 width-13x h-auto">
+                                    <img class="img-fluid" src="assets/img/partners/dark/google.svg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center px-4 py-3 width-13x h-auto">
+                                    <img class="img-fluid" src="assets/img/partners/dark/amazon.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative overflow-hidden">
+                <div class="container py-9 py-lg-11">
+                    <div class="row mb-7 mb-lg-9">
+                        <div class="col-lg-10 col-xl-8">
+                            <h6 class="mb-3 text-italic font-serif text-muted">Who we are</h6>
+                            <h2 class="display-4 mb-0" data-aos="fade-left" data-aos-duration="400">
+                                We are
+                                dedicated to making the
+                                world a better place.
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-5 mb-md-0" data-aos="fade-right" data-aos-delay="100"
+                            data-aos-duration="400">
+                            <img alt="" src="assets/img/graphics/icons/hand-shake.svg" data-inject-svg
+                                class="width-7x h-auto fill-primary mb-4">
+                            <h5 class="mb-3">Relationships</h5>
+                            <p class="mb-0 font-serif">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries layouts and visual mockups.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-5 mb-md-0" data-aos="fade-right" data-aos-delay="150"
+                            data-aos-duration="400">
+                            <img alt="" src="assets/img/graphics/icons/target.svg" data-inject-svg
+                                class="width-7x h-auto fill-primary mb-4">
+                            <h5 class="mb-3">Mission & vision</h5>
+                            <p class="mb-0 font-serif">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries layouts and visual mockups.
+                            </p>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-right" data-aos-delay="200" data-aos-duration="400">
+                            <img alt="" src="assets/img/graphics/icons/magic-wand.svg" data-inject-svg
+                                class="width-7x h-auto fill-primary mb-4">
+                            <h5 class="mb-3">Best results</h5>
+                            <p class="mb-0 font-serif">
+                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                                industries layouts and visual mockups.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="bg-light position-relative overflow-hidden">
+                <!--Divider shape-top-->
+                <svg class="position-absolute start-0 top-0 text-white" preserveAspectRatio="none" width="100%"
+                    height="64" viewBox="0 0 983 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M983 60L942 51.5534C901 42.8155 819 25.6311 737 21.5534C655 17.1845 573 25.6311 491 31.4563C410 37.2816 328 40.1942 246 34.3689C164 28.5437 82 14.2718 41 7.28155L0 -2.86102e-06V-2.86102e-06H41C82 -2.86102e-06 164 -2.86102e-06 246 -2.86102e-06C328 -2.86102e-06 410 -2.86102e-06 491 -2.86102e-06C573 -2.86102e-06 655 -2.86102e-06 737 -2.86102e-06C819 -2.86102e-06 901 -2.86102e-06 942 -2.86102e-06H983V60Z"
+                        fill="currentColor" />
+                </svg>
+                <div class="container py-9 py-lg-11 position-relative">
+                    <div class="row pt-9 justify-content-between">
+                        <div class="col-lg-5 mb-5 mb-lg-0">
+                            <h6 class="mb-3 text-muted text-italic font-serif">What we offer</h6>
+                            <h2 class="display-4 pe-lg-5 mb-5 mb-lg-8" data-aos="fade-left"
+                                data-aos-duration="400">We take your
+                                Business to the next level
+                            </h2>
+                            <div class="w-lg-75">
+                                <nav class="nav nav-pills nav-indicator-dark flex-column" role="tablist">
+                                    <a href="#code" class="nav-link active px-4 fs-5 py-2 mb-1"
+                                        data-bs-toggle="tab"><span>Code</span></a>
+                                    <a href="#strategy" class="nav-link fs-5 px-4 py-21 mb-1"
+                                        data-bs-toggle="tab"><span>Strategy</span></a>
+                                    <a href="#design" class="nav-link fs-5 px-4 py-2"
+                                        data-bs-toggle="tab"><span>Design</span></a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="tab-content">
+                                <div class="tab-pane active fade show" id="code">
+                                    <div class="position-relative">
+                                        <h3 class="mb-3">Code</h3>
+                                        <p class="mb-5 font-serif">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    We design and development
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Mobile Solutions / App
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Microsite / web special
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Website / relaunch
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="strategy">
+                                    <div class="position-relative">
+                                        <h3 class="mb-3">Strategy</h3>
+                                        <p class="mb-5 font-serif">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Digital & communication strategy
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Customer journeys
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Internal communication strategy
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Brand story
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="design">
+                                    <div class="position-relative">
+                                        <h3 class="mb-3">Design</h3>
+                                        <p class="mb-5 font-serif">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    UX Design
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Keynote design
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Corporate Design
+                                                </p>
+                                            </li>
+                                            <li class="d-flex py-2 align-items-center">
+                                                <div class="me-3">
+                                                    <i class="bx bx-check fs-4 text-muted"></i>
+                                                </div>
+                                                <p class="mb-0">
+                                                    Logo design & illustrations
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="jarallax text-white position-relative overflow-hidden bg-dark" data-jarallax=".3">
+                <img src="assets/img/backgrounds/bg3.jpg" class="jarallax-img" alt="">
+                <div class="position-absolute w-100 h-100 start-0 top-0 bg-dark opacity-75"></div>
+                <!--Divider shape-bottom-->
+                <svg class="position-absolute start-0 bottom-0" preserveAspectRatio="none" width="100%" height="48"
+                    viewBox="0 0 983 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0 0L41 8.4466C82 17.1845 164 34.3689 246 38.4466C328 42.8155 410 34.3689 492 28.5437C573 22.7184 655 19.8058 737 25.6311C819 31.4563 901 45.7282 942 52.7184L983 60V60H942C901 60 819 60 737 60C655 60 573 60 492 60C410 60 328 60 246 60C164 60 82 60 41 60H0V0Z"
+                        fill="white" />
+                </svg>
+                <!--Divider shape-top-->
+                <svg class="position-absolute start-0 top-0 text-light" preserveAspectRatio="none" width="100%"
+                    height="48" viewBox="0 0 983 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M983 60L942 51.5534C901 42.8155 819 25.6311 737 21.5534C655 17.1845 573 25.6311 491 31.4563C410 37.2816 328 40.1942 246 34.3689C164 28.5437 82 14.2718 41 7.28155L0 -2.86102e-06V-2.86102e-06H41C82 -2.86102e-06 164 -2.86102e-06 246 -2.86102e-06C328 -2.86102e-06 410 -2.86102e-06 491 -2.86102e-06C573 -2.86102e-06 655 -2.86102e-06 737 -2.86102e-06C819 -2.86102e-06 901 -2.86102e-06 942 -2.86102e-06H983V60Z"
+                        fill="currentColor" />
+                </svg>
+                <div class="container py-9 py-lg-11 position-relative">
+                    <div class="row pb-9">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="width-16x height-16x rounded-circle mb-n15 ms-lg-n11 bg-warning"
+                                data-jarallax-element="-90">
+                            </div>
+                            <div class="position-relative z-index-1" data-aos-duration="400" data-aos="fade-up">
+                                <h2 class="display-2 fw-light mb-5">
+                                    " Great things in
+                                    business are never done
+                                    by one person. "
+                                </h2>
+                                <h5 class="text-end font-serif">
+                                    - Steve Jobs
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="position-relative bg-white overflow-hidden">
+                <div class="container position-relative py-9 py-lg-11">
+                    <div class="row mb-4 mb-lg-5 align-items-end justify-content-between">
+                        <div class="col-md-8 mb-4 mb-md-0">
+                            <h6 class="mb-3 text-muted text-italic font-serif">Testimonials</h6>
+                            <h2 class="mb-4 display-4">Clients who love 
+                               <span class="d-block">our
+                                <span class="d-inline-block text-primary"
+                                data-typed='{"strings": ["Ideas...", "Creativity...", "passion...", "innovation..."]}'></span>
+                               </span>
+                            </h2>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <div class="position-relative d-flex justify-content-md-end align-items-center">
+                                <!--Buttons navigation-->
+                                <div
+                                    class="swiper-testimonials-button-prev start-0 swiper-button-prev mt-0 rounded-end-0 rounded-4 position-relative width-5x height-5x me-1 rounded-circle bg-transparent text-dark border">
+                                </div>
+                                <div
+                                    class="swiper-testimonials-button-next swiper-button-next mt-0 position-relative rounded-start-0 rounded-4 end-0 width-5x height-5x rounded-circle bg-transparent text-dark border">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <!--Swiper slider testimonials-->
+                            <div class="swiper-container swiper-testimonials">
+                                <div class="swiper-wrapper">
+                                    <!--Slide-->
+                                    <div class="swiper-slide">
+                                        <div class="position-relative">
+                                            <div class="mb-4 flex-grow-1 px-3 px-4 py-5 border text-dark rounded-3">
+                                                <div class="mb-3 text-warning">
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                </div>
+                                                <p class="fw-semibold fs-5 mb-0">
+                                                    “ Loved working with the beautiful theme. Everything clean and
+                                                    professional,
+                                                    also very helpful throughout the customisation. Looking forward to
+                                                    buy more
+                                                    license of Assan again in the future.”
+                                                </p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-start">
+
+                                                <div class="position-relative me-3">
+                                                    <!--Avatar Image-->
+                                                    <img class="position-relative avatar lg rounded-circle p-1"
+                                                        src="assets/img/avatar/4.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Nala Goins</h5>
+                                                    <small class="text-muted font-serif">UI UX Designer, Paris</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Slide-->
+                                    <div class="swiper-slide">
+                                        <div class="position-relative">
+                                            <div class="mb-4 flex-grow-1 px-3 px-4 py-5 border text-dark rounded-3">
+                                                <div class="mb-3 text-warning">
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                </div>
+                                                <p class="fw-semibold fs-5 mb-0">
+                                                    “ Their design delivery framework is fantastic and it really helped
+                                                    us all get
+                                                    on the same page from day one. The team has delivered a strong brand
+                                                    identity and a seamless UI
+                                                    which we can’t wait to put live and begin testing. ”
+                                                </p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-start">
+
+                                                <div class="position-relative me-3">
+                                                    <img class="position-relative avatar lg rounded-circle p-1"
+                                                        src="assets/img/avatar/5.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Lilja Peltola</h5>
+                                                    <small class="text-muted font-serif">Full stack developer, Toronto</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Slide-->
+                                    <div class="swiper-slide">
+                                        <div class="position-relative">
+                                            <div class="mb-4 flex-grow-1 px-3 px-4 py-5 border text-dark rounded-3">
+                                                <div class="mb-3 text-warning">
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                </div>
+                                                <p class="fw-semibold fs-5 mb-0">
+                                                    “ Their design delivery framework is fantastic and it really helped
+                                                    us all get
+                                                    on the same page from day one. The team has delivered a strong brand
+                                                    identity and a seamless UI
+                                                    which we can’t wait to put live and begin testing. ”
+                                                </p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-start">
+
+                                                <div class="position-relative me-3">
+                                                    <!--Avatar Image-->
+                                                    <img class="position-relative avatar lg rounded-circle p-1"
+                                                        src="assets/img/avatar/6.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Adam Macofey</h5>
+                                                    <small class="text-muted font-serif">CEO, Physics, Stockholm</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Slide-->
+                                    <div class="swiper-slide">
+                                        <div class="position-relative">
+                                            <div class="mb-4 flex-grow-1 px-3 px-4 py-5 border text-dark rounded-3">
+                                                <div class="mb-3 text-warning">
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                </div>
+                                                <p class="fw-semibold fs-5 mb-0">
+                                                    “ Loved working with the beautiful theme. Everything clean and
+                                                    professional,
+                                                    also very helpful throughout the customisation. Looking forward to
+                                                    buy more
+                                                    license of Assan again in the future.”
+                                                </p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-start">
+
+                                                <div class="position-relative me-3">
+                                                    <!--Avatar Image-->
+                                                    <img class="position-relative avatar lg rounded-circle p-1"
+                                                        src="assets/img/avatar/7.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Alex Lee</h5>
+                                                    <small class="text-muted font-serif">Developer, Barcelona</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Slide-->
+                                    <div class="swiper-slide">
+                                        <div class="position-relative">
+                                            <div class="mb-4 flex-grow-1 px-3 px-4 py-5 border text-dark rounded-3">
+                                                <div class="mb-3 text-warning">
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                </div>
+                                                <p class="fw-semibold fs-5 mb-0">
+                                                    “ Their design delivery framework is fantastic and it really helped
+                                                    us all get
+                                                    on the same page from day one. The team has delivered a strong brand
+                                                    identity and a seamless UI
+                                                    which we can’t wait to put live and begin testing. ”
+                                                </p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-start">
+
+                                                <div class="position-relative me-3">
+                                                    <!--Avatar Image-->
+                                                    <img class="position-relative avatar lg rounded-circle p-1"
+                                                        src="assets/img/avatar/8.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Jayden Massey</h5>
+                                                    <small class="text-muted font-serif">UI UX master, Warsaw</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Slide-->
+                                    <div class="swiper-slide">
+                                        <div class="position-relative">
+                                            <div class="mb-4 flex-grow-1 px-3 px-4 py-5 border text-dark rounded-3">
+                                                <div class="mb-3 text-warning">
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                    <i class="bx bx-star small"></i>
+                                                </div>
+                                                <p class="fw-semibold fs-5 mb-0">
+                                                    “ Their design delivery framework is fantastic and it really helped
+                                                    us all get
+                                                    on the same page from day one. The team has delivered a strong brand
+                                                    identity and a seamless UI
+                                                    which we can’t wait to put live and begin testing. ”
+                                                </p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-start">
+
+                                                <div class="position-relative me-3">
+                                                    <img class="position-relative avatar lg rounded-circle p-1"
+                                                        src="assets/img/avatar/9.jpg" alt="">
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Raymond Atkins</h5>
+                                                    <small class="text-muted font-serif">Entrepreneur, Los Angeles</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="position-relative bg-light overflow-hidden">
+                <div class="container py-lg-11 py-9">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 mb-7 mb-lg-0">
+                            <h2 class="display-4 mb-4" data-aos="fade-up">
+                                Investing in the digital future.
+                            </h2>
+                            <p class="mb-5 font-serif" data-aos="fade-up">
+                                Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                            <div class="d-flex flex-column flex-md-row align-items-md-center" data-aos="fade-up">
+                                <span class="me-md-4 mb-3 mb-md-0">
+                                    <a href="#!" class="btn btn-primary">Contact us</a>
+                                </span>
+                                <span>Or call us <strong>(123) 123-4567</strong></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 ms-auto">
+                            <div class="position-relative pe-7 pb-7" data-aos="fade-up">
+                                <div class="width-15x height-15x bg-warning rounded-pill position-absolute end-0 top-0 mt-7"></div>
+                                <div class="width-1x height-1x bg-success rounded-pill position-absolute start-0 bottom-0 ms-9 mb-4"></div>
+                                <div class="position-absolute end-0 bottom-0 h-50 w-50 rounded-4 shadow-lg bg-white"></div>
+                                <img src="assets/img/960x900/1.jpg" class="rounded-4 position-relative img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-shade-primary text-white jarallax" data-jarallax=".3" data-aos="fade"
+                data-aos-once="false">
+                <!--Parallax image-->
+                <img src="assets/img/backgrounds/bg-element2.svg" class="jarallax-img" alt="">
+                <!--Overlay background-->
+
+                <!--:Container-->
+                <div class="container py-9 py-lg-11 position-relative">
+                    <div class="row pb-7 align-items-center">
+                        <div class="col-lg-8 me-lg-auto" data-aos="fade-down">
+                            <h2 class="display-4 mb-7">
+                                Our work process
+                            </h2>
+                        </div>
+                        <div class="col-md-4 mb-7" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400">
+                            <h2 class="mb-3">01</h2>
+                            <h5 class="mb-3">Analisis & idea</h5>
+                            <p class="mb-0 opacity-75 font-serif">
+                                Lorem ipsum dolor sit amet elit eiusmod tempor ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud ullamco laboris aliquip ex ea commodo.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-7 mb-md-0" data-aos="fade-up" data-aos-delay="150"
+                            data-aos-duration="400">
+                            <h2 class="mb-3">02</h2>
+                            <h5 class="mb-3">Design Process</h5>
+                            <p class="mb-0 opacity-75 font-serif">
+                                Lorem ipsum dolor sit amet elit eiusmod tempor ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud ullamco laboris aliquip ex ea commodo.
+                            </p>
+                        </div>
+                        <div class="col-md-4 offset-lg-2" data-aos="fade-up" data-aos-delay="200"
+                            data-aos-duration="400">
+                            <h2 class="mb-3">03</h2>
+                            <h5 class="mb-3">Ready Digital Project</h5>
+                            <p class="mb-0 opacity-75 font-serif">
+                                Lorem ipsum dolor sit amet elit eiusmod tempor ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud ullamco laboris aliquip ex ea commodo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Divider-->
+                <svg class="position-absolute start-0 bottom-0" preserveAspectRatio="none" width="100%" height="48" viewBox="0 0 983 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L41 8.4466C82 17.1845 164 34.3689 246 38.4466C328 42.8155 410 34.3689 492 28.5437C573 22.7184 655 19.8058 737 25.6311C819 31.4563 901 45.7282 942 52.7184L983 60V60H942C901 60 819 60 737 60C655 60 573 60 492 60C410 60 328 60 246 60C164 60 82 60 41 60H0V0Z" fill="white"></path>
+                </svg>
+            </section>
+            <section class="position-relative overflow-hidden">
+                <div class="container py-9 py-lg-11 position-relative z-index-1">
+                    <div class="row position-relative mb-7 align-items-end">
+                        <div class="col-12 col-md-8 mb-4 mb-md-0">
+                            <div class="position-relative" data-aos="fade-left" data-aos-duration="400">
+                                <h2 class="display-4 mb-0">
+                                    Insights, thoughts & announcements from us
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 text-md-end" data-aos="fade-right" data-aos-duration="400">
+                            <a href="#!"
+                                class="btn btn-rise btn-outline-primary flex-center p-0 rounded-circle width-10x height-10x">
+                                <div class="btn-rise-bg bg-primary"></div>
+                                <div class="btn-rise-text small">Our blog</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="position-relative">
+                        <div class="row position-relative z-index-1">
+                            <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="400">
+                                <!--Article-->
+                                <article class="card-hover hover-lift">
+                                    <div class="position-relative rounded-3 overflow-hidden">
+                                        <img src="assets/img/960x640/3.jpg" class="img-fluid img-zoom" alt="">
+                                    </div>
+                                    <div class="pt-4">
+                                        <h4 class="link-multiline">
+                                            The recipe for excellent design management
+                                        </h4>
+                                        <p class="mb-0 pt-3 font-serif text-muted small">
+                                            02 May
+                                        </p>
+                                    </div>
+
+                                    <!--Post link-->
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+                            </div>
+                            <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="400"
+                                data-aos-delay="100">
+                                <!--Article-->
+                                <article class="card-hover hover-lift">
+                                    <div class="position-relative rounded-3 overflow-hidden">
+                                        <img src="assets/img/960x640/4.jpg" class="img-fluid img-zoom" alt="">
+                                    </div>
+                                    <div class="pt-4">
+                                        <h4 class="link-multiline">
+                                            How to use social media to invent or reinvent yourself
+                                        </h4>
+                                        <p class="mb-0 pt-3 font-serif text-muted small">
+                                            01 May
+                                        </p>
+                                    </div>
+                                    <!--Post link-->
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+                            </div>
+                            <div class="col-lg-4" data-aos="fade-up" data-aos-duration="400" data-aos-delay="150">
+                                <!--Article-->
+                                <article class="card-hover hover-lift">
+                                    <div class="position-relative rounded-3 overflow-hidden">
+                                        <img src="assets/img/960x640/5.jpg" class="img-fluid img-zoom" alt="">
+                                    </div>
+                                    <div class="pt-4">
+                                        <h4 class="link-multiline">
+                                            Digital design trends in 2021
+                                        </h4>
+                                        <p class="mb-0 pt-3 font-serif text-muted small">
+                                            21 April
+                                        </p>
+                                    </div>
+
+                                    <!--Post link-->
+                                    <a href="#" class="stretched-link"></a>
+                                </article>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="position-relative overflow-hidden">
+                <!--Divider-->
+                <svg class="position-absolute bottom-0 start-0 text-dark" xmlns="http://www.w3.org/2000/svg" width="100%" height="50%" viewBox="0 0 1920 180" fill="none" preserveAspectRatio="none"><path d="M117.344 151.326C185.5 142.257 196.244 137.285 255.077 139.449C279.589 140.349 328.106 120.293 388.797 116.998C433.881 114.55 477.928 96.439 522.314 92.966C544.724 91.214 567.422 95.513 589.334 89.482C694.864 60.435 672.154 56.653 758.202 43.682C779.564 40.462 781.148 41.882 797.109 50.282C835.393 70.426 842.76 53.659 871.293 57.782C882.688 59.428 892.788 65.587 904.866 65.856C945.66 66.764 982.554 49.419 1023.74 53.002C1057.9 55.973 1103.01 50.836 1137.15 43.243C1165.34 36.976 1196.85 36.18 1222.94 26.419C1261.33 12.052 1295.38 -8.38098 1337.76 3.63902C1383.93 16.733 1435.31 49.581 1449.66 55.387C1472.79 64.743 1490.17 53.541 1512.33 62.958C1595.5 98.302 1655.37 59.903 1758.05 54.674C1802.12 52.43 1854.41 56.385 1919.99 75.212V387.402H-0.00598145V171.025C39.416 168.323 78.272 156.525 117.344 151.326Z" fill="currentColor"></path>
+                </svg>
+                <div class="container position-relative z-index-1">
+                    <div class="px-4 py-5 px-lg-5 mx-auto bg-white shadow-lg rounded-3 border-top border-success border-4 w-lg-50 w-md-75"
+                        data-aos="fade-down" data-aos-duration="400">
+                        <h5 class="mb-4 fs-3">Get updates direct to your inbox</h5>
+                        <form class="needs-validation" novalidate>
+                            <div class="position-relative">
+                                <input type="email" required placeholder="Enter Work email" class="form-control pe-8 form-control-lg mb-2">
+                               
+                                <div class="position-absolute end-0 me-1 top-50 translate-middle-y">
+                                    <button type="submit" class="btn px-3 lh-1 btn-primary">
+                                        <i class="bx bx-right-arrow-alt fs-3"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        @@include('./partials/footers/footer-5.html')
+        <!-- begin Back to Top button -->
+        <a href="#" class="toTop">
+           <i class="bx bxs-up-arrow"></i>
+        </a>
+        <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
+
+
+        <!--Swiper slider-->
+        <script src="assets/vendor/node_modules/js/swiper-bundle.min.js"></script>
+        <script>
+             //Timeline progressbar 
+             var sliderThumbs = new Swiper('.progress-swiper-thumbs', {
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+                history: false,
+                breakpoints: {
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 16,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 16,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 16,
+                    },
+                },
+                on: {
+                    'afterInit': function (swiper) {
+                        swiper.el.querySelectorAll('.swiper-pagination-progress-inner')
+                            .forEach($progress => $progress.style.transitionDuration =
+                                `${swiper.params.autoplay.delay}ms`)
+                    }
+                }
+            });
+            var swiperClassic = new Swiper(".swiper-classic", {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true,
+                grabCursor: true,
+                autoplay:{
+                    delay:3000,
+                    disableOnInteraction:false,
+                },
+                effect: "creative",
+                creativeEffect: {
+                    prev: {
+                        shadow: true,
+                        translate: ["-20%", 0, -1],
+                    },
+                    next: {
+                        translate: ["100%", 0, 0],
+                    },
+                },
+                thumbs: {
+                    swiper: sliderThumbs
+                },
+            });
+           
+            //swiper -partners
+            var swiperPartners5 = new Swiper(".swiper-partners", {
+                slidesPerView: 2,
+                loop: true,
+                spaceBetween: 16,
+                autoplay: true,
+                breakpoints: {
+                    768: {
+                        slidesPerView: 4
+                    },
+                    1024: {
+                        slidesPerView: 5
+                    }
+                },
+                pagination: {
+                    el: ".swiper-partners-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper-partners-button-next",
+                    prevEl: ".swiper-partners-button-prev"
+                }
+            });
+          
+          
+            //swiper-Testimonials
+            var swiperTestimonails = new Swiper(".swiper-testimonials", {
+                autoHeight: true,
+                spaceBetween: 16,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 16
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 16
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                },
+                pagination: {
+                    el: ".swiper-testimonials-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper-testimonials-button-next",
+                    prevEl: ".swiper-testimonials-button-prev"
+                }
+            });
+
+        </script>
+    </body>
+
+</html>

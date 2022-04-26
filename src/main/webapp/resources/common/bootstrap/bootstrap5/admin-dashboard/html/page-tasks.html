@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assan-Admin</title>
+
+        @@include('./partials/fonts.html')
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+        <!--Page style-->
+        <link rel="stylesheet" href="assets/vendor/css/dragula.min.css">
+
+        <!--Main style-->
+        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+    </head>
+
+    <body>
+        @@include('./partials/preloader.html')
+        <!--App Start-->
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+                @@include('./partials/sidebars/sidebar-default.html',{"page": "pages"} )
+
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+                    @@include('./partials/header/header-default.html')
+
+                    <!--//Page Toolbar//-->
+                    <div class="toolbar py-4 px-4 px-lg-8">
+                        <div class="position-relative container-fluid px-0">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-md-7 mb-4 mb-md-0">
+                                    <h3 class="mb-2">Tasks</h3>
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
+                                            <li class="breadcrumb-item active">Tasks</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                                <div class="col-md-5 text-md-end">
+                                    <div class="dropdown">
+                                        <a href="#" data-bs-auto-close="outside" class="btn btn-primary d-inline-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <small>CRM dashboard</small>
+                                         </a>
+                                         <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-sm">
+                                            <form>
+                                                <div class="d-flex align-items-center p-1 border-bottom ps-4">
+                                                    <div class="text-muted">
+                                                        <i data-feather="search" class="fe-1x"></i>
+                                                    </div>
+                                                    <input type="text" autofocus="" class="form-control bg-transparent rounded-0 py-3 ps-2 border-0 shadow-none" placeholder="Search Projects...">
+                                                </div>
+                                            </form>
+                                             <div class="dropdown-divider mt-0"></div>
+                                             <div class="px-3 py-1">
+                                                <div class="form-check mb-0">
+                                                    <input type="radio" name="projects" id="p1" checked class="form-check-input">
+                                                    <label for="p1" class="form-check-label">CRM dashboard</label>
+                                                </div>
+                                             </div>
+                                             <div class="py-1 px-3">
+                                                <div class="form-check mb-0">
+                                                    <input type="radio" name="projects" id="p2" class="form-check-input">
+                                                    <label for="p2" class="form-check-label">Music web app</label>
+                                                </div>
+                                             </div>
+                                             <div class="py-1 px-3">
+                                                <div class="form-check mb-0">
+                                                    <input type="radio" name="projects" id="p3" class="form-check-input">
+                                                    <label for="p3" class="form-check-label">Nike mobile app</label>
+                                                </div>
+                                             </div>
+                                             <div class="py-1 px-3">
+                                                <div class="form-check mb-0">
+                                                    <input type="radio" name="projects" id="p4" class="form-check-input">
+                                                    <label for="p4" class="form-check-label">Higuen branding</label>
+                                                </div>
+                                             </div>
+                                             <div class="py-1 px-3">
+                                                <div class="form-check mb-0">
+                                                    <input type="radio" name="projects" id="p5" class="form-check-input">
+                                                    <label for="p5" class="form-check-label">Job board management</label>
+                                                </div>
+                                             </div>
+                                             <!-- <a href="#!.html" class="dropdown-item active"> #CRM Dashboard</a>
+                                             <a href="#!.html" class="dropdown-item">#Music web app</a>
+                                             <a href="#!.html" class="dropdown-item">#Nike mobile app</a>
+                                             <a href="#!.html" class="dropdown-item">#Higuen branding</a>
+                                             <a href="#!.html" class="dropdown-item">#Job board management</a> -->
+                                             <div class="dropdown-divider"></div>
+                                             <div class="text-end px-3 pb-2">
+                                                <a href="#!" class="d-inline-block bg-body hover-bg-primary px-2 py-1 small lh-1 text-muted rounded-2">View all Projects</a>
+                                             </div>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//Page Toolbar End//-->
+
+                    <!--//Page content//-->
+                    <div class="content d-flex flex-column-fluid p-4 px-lg-8">
+
+                       <div class="container-fluid px-0">
+                            <!--Kanban board begin-->
+                        <div class="board row mb-4">
+                            <!--Kanban task column-->
+                            <div class="tasks mb-7 mb-md-0 col-md-4" data-dragula="tasks"
+                                data-containers='["tasks-initials", "tasks-inprogress", "tasks-done"]'>
+                                <div>
+                                    <h6 class="mb-4 text-muted">Initial (4)</h6>
+                                </div>
+
+                                <!--Task initials-->
+                                <div id="tasks-initials" class="task-list-items">
+
+                                    <!-- Task card begins-->
+                                    <div
+                                        class="card card-body border-2 border-danger mt-4 border-top-0 border-bottom-0 border-end-0 shadow-lg hover-lift transition-base">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <!--Task date-->
+                                                <span class="d-flex align-items-center mb-2 small text-muted"><i class="fe-1x me-2 align-middle" data-feather="clock"></i> 22-12-21</span>
+                                                <!--Task Heading-->
+                                                <h6 class="mb-4"><a href="#!.html" class="text-reset">Voluptate commodo exercitation culpa non incididunt laboris sint aliquip est</a></h6>
+
+                                                <!--Task assignees-->
+                                                <div>
+                                                    <div class="avatar-group justify-content-end">
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Gabriel H">
+                                                            <img src="assets/media/avatars/04.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Emily Doe">
+                                                            <img src="assets/media/avatars/02.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Adam Howkins">
+                                                            <img src="assets/media/avatars/03.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item text-muted bg-body d-inline-flex align-items-center justify-content-center avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="3 more members">
+                                                            <b class="small">+3</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Task checkbox-->
+                                            <span class="form-check me-0 pe-0 mb-0">
+                                                <input type="checkbox" class="form-check-input mx-0">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--/. Task card ends-->
+
+                                    <!-- Task card begins-->
+                                    <div
+                                        class="card card-body border-2 border-info mt-4 border-top-0 border-bottom-0 border-end-0 shadow-lg hover-lift transition-base">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <!--Task date-->
+                                                <span class="d-flex align-items-center mb-2 small text-muted"><i class="fe-1x me-2 align-middle" data-feather="clock"></i> 19-08-22</span>
+                                                <!--Task Heading-->
+                                                <h6 class="mb-4"><a href="#!.html" class="text-reset">Occaecat consectetur deserunt nisi aliqua aute</a></h6>
+
+                                                <!--Task assignees-->
+                                                <div>
+                                                    <div class="avatar-group justify-content-end">
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Gabriel H">
+                                                            <img src="assets/media/avatars/04.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Emily Doe">
+                                                            <img src="assets/media/avatars/02.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Adam Howkins">
+                                                            <img src="assets/media/avatars/03.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item text-muted bg-body d-inline-flex align-items-center justify-content-center avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="3 more members">
+                                                            <b class="small">+3</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Task checkbox-->
+                                            <span class="form-check me-0 pe-0 mb-0">
+                                                <input type="checkbox" class="form-check-input mx-0">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--/. Task card ends-->
+
+                                    <!-- Task card begins-->
+                                    <div
+                                        class="card card-body border-2 border-primary mt-4 border-top-0 border-bottom-0 border-end-0 shadow-lg hover-lift transition-base">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <!--Task date-->
+                                                <span class="d-flex align-items-center mb-2 small text-muted"><i class="fe-1x me-2 align-middle" data-feather="clock"></i> 01-11-21</span>
+                                                <!--Task Heading-->
+                                                <h6 class="mb-4"><a href="#!.html" class="text-reset">Cupidatat enim ipsum voluptate enim aliquip laboris pariatur</a></h6>
+
+                                                <!--Task assignees-->
+                                                <div>
+                                                    <div class="avatar-group justify-content-end">
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Gabriel H">
+                                                            <img src="assets/media/avatars/04.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Emily Doe">
+                                                            <img src="assets/media/avatars/02.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Adam Howkins">
+                                                            <img src="assets/media/avatars/03.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item text-muted bg-body d-inline-flex align-items-center justify-content-center avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="3 more members">
+                                                            <b class="small">+3</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Task checkbox-->
+                                            <span class="form-check me-0 pe-0 mb-0">
+                                                <input type="checkbox" class="form-check-input mx-0">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--/. Task card ends-->
+
+                                    <!-- Task card begins-->
+                                    <div
+                                        class="card card-body border-2 border-danger mt-4 border-top-0 border-bottom-0 border-end-0 shadow-lg hover-lift transition-base">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <!--Task date-->
+                                                <span class="d-flex align-items-center mb-2 small text-muted"><i class="fe-1x me-2 align-middle" data-feather="clock"></i> 10-10-21 </span>
+                                                <!--Task Heading-->
+                                                <h6 class="mb-4"><a href="#!.html" class="text-reset">Exercitation duis officia aute voluptate non nisi quis sint enim eiusmod eiusmod</a></h6>
+
+                                                <!--Task assignees-->
+                                                <div>
+                                                    <div class="avatar-group justify-content-end">
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Gabriel H">
+                                                            <img src="assets/media/avatars/04.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Emily Doe">
+                                                            <img src="assets/media/avatars/02.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Adam Howkins">
+                                                            <img src="assets/media/avatars/03.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item text-muted bg-body d-inline-flex align-items-center justify-content-center avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="3 more members">
+                                                            <b class="small">+3</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Task checkbox-->
+                                            <span class="form-check me-0 pe-0 mb-0">
+                                                <input type="checkbox" class="form-check-input mx-0">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--/. Task card ends-->
+
+                                    <!--Create task button-->
+                                    <div class="d-grid pt-4">
+                                        <a href="#!" class="btn btn-outline-gray text-body">
+                                           <i data-feather="plus" class="fe-1x me-1"></i> Create new task</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--Kanban task column-->
+                            <div class="tasks mb-7 mb-md-0 col-md-4">
+                                <div>
+                                    <h6 class="mb-4 text-primary">In Progress (2)</h6>
+                                </div>
+
+                                <!--Task In-Progress-->
+                                <div id="tasks-inprogress" class="task-list-items">
+
+                                   <!-- Task card begins-->
+                                   <div
+                                   class="card card-body border-2 border-warning mt-4 border-top-0 border-bottom-0 border-end-0 shadow-lg hover-lift transition-base">
+                                   <div class="d-flex align-items-center justify-content-between">
+                                       <div>
+                                           <!--Task date-->
+                                           <span class="d-flex align-items-center mb-2 small text-muted"><i class="fe-1x me-2 align-middle" data-feather="clock"></i> 24-09-2021</span>
+                                           <!--Task Heading-->
+                                           <h6 class="mb-4"><a href="#!.html" class="text-reset">Duis aliqua dolore sit dolor et consectetur minim aliqua in et dolore irure consequat.</a></h6>
+
+                                           <!--Task assignees-->
+                                           <div>
+                                               <div class="avatar-group justify-content-end">
+                                                   <a href="#!.html"
+                                                       class="avatar-group-item avatar xs rounded-circle"
+                                                       data-bs-toggle="tooltip" title=""
+                                                       data-bs-original-title="Gabriel H">
+                                                       <img src="assets/media/avatars/04.jpg" alt="..."
+                                                           class="avatar-group-img rounded-circle">
+                                                   </a>
+                                                   <a href="#!.html"
+                                                       class="avatar-group-item avatar xs rounded-circle"
+                                                       data-bs-toggle="tooltip" title=""
+                                                       data-bs-original-title="Emily Doe">
+                                                       <img src="assets/media/avatars/02.jpg" alt="..."
+                                                           class="avatar-group-img rounded-circle">
+                                                   </a>
+                                                   <a href="#!.html"
+                                                       class="avatar-group-item avatar xs rounded-circle"
+                                                       data-bs-toggle="tooltip" title=""
+                                                       data-bs-original-title="Adam Howkins">
+                                                       <img src="assets/media/avatars/03.jpg" alt="..."
+                                                           class="avatar-group-img rounded-circle">
+                                                   </a>
+                                                   <a href="#!.html"
+                                                       class="avatar-group-item text-muted bg-body d-inline-flex align-items-center justify-content-center avatar xs rounded-circle"
+                                                       data-bs-toggle="tooltip" title=""
+                                                       data-bs-original-title="3 more members">
+                                                       <b class="small">+3</b>
+                                                   </a>
+                                               </div>
+                                           </div>
+                                       </div>
+
+                                       <!--Task checkbox-->
+                                       <span class="form-check me-0 pe-0 mb-0">
+                                           <input type="checkbox" class="form-check-input mx-0">
+                                       </span>
+                                   </div>
+                               </div>
+                               <!--/. Task card ends-->
+
+                               <!-- Task card begins-->
+                               <div
+                               class="card card-body border-2 border-primary mt-4 border-top-0 border-bottom-0 border-end-0 shadow-lg hover-lift transition-base">
+                               <div class="d-flex align-items-center justify-content-between">
+                                   <div>
+                                       <!--Task date-->
+                                       <span class="d-flex align-items-center mb-2 small text-muted"><i class="fe-1x me-2 align-middle" data-feather="clock"></i> 22-11-21</span>
+                                       <!--Task Heading-->
+                                       <h6 class="mb-4"><a href="#!.html" class="text-reset">Excepteur pariatur consequat ullamco elit voluptate cillum consequat qui laborum</a></h6>
+
+                                       <!--Task assignees-->
+                                       <div>
+                                           <div class="avatar-group justify-content-end">
+                                               <a href="#!.html"
+                                                   class="avatar-group-item avatar xs rounded-circle"
+                                                   data-bs-toggle="tooltip" title=""
+                                                   data-bs-original-title="Gabriel H">
+                                                   <img src="assets/media/avatars/04.jpg" alt="..."
+                                                       class="avatar-group-img rounded-circle">
+                                               </a>
+                                               <a href="#!.html"
+                                                   class="avatar-group-item avatar xs rounded-circle"
+                                                   data-bs-toggle="tooltip" title=""
+                                                   data-bs-original-title="Emily Doe">
+                                                   <img src="assets/media/avatars/02.jpg" alt="..."
+                                                       class="avatar-group-img rounded-circle">
+                                               </a>
+                                               <a href="#!.html"
+                                                   class="avatar-group-item avatar xs rounded-circle"
+                                                   data-bs-toggle="tooltip" title=""
+                                                   data-bs-original-title="Adam Howkins">
+                                                   <img src="assets/media/avatars/03.jpg" alt="..."
+                                                       class="avatar-group-img rounded-circle">
+                                               </a>
+                                               <a href="#!.html"
+                                                   class="avatar-group-item text-muted bg-body d-inline-flex align-items-center justify-content-center avatar xs rounded-circle"
+                                                   data-bs-toggle="tooltip" title=""
+                                                   data-bs-original-title="3 more members">
+                                                   <b class="small">+3</b>
+                                               </a>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <!--Task checkbox-->
+                                   <span class="form-check me-0 pe-0 mb-0">
+                                       <input type="checkbox" class="form-check-input mx-0">
+                                   </span>
+                               </div>
+                           </div>
+                           <!--/. Task card ends-->
+
+                                </div>
+                            </div>
+
+
+                            <!--Kanban task column-->
+                            <div class="tasks col-md-4">
+                                <div>
+                                    <h6 class="mb-4 text-success">Done (1)</h6>
+                                </div>
+
+                                <!--Tasks done-->
+                                <div id="tasks-done" class="task-list-items">
+
+                                    <!-- Task card begins-->
+                                    <div
+                                        class="card card-body border-2 border-success mt-4 border-top-0 border-bottom-0 border-end-0 shadow-lg hover-lift transition-base">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <!--Task date-->
+                                                <span class="d-flex align-items-center mb-2 small text-muted"><i class="fe-1x me-2 align-middle" data-feather="clock"></i> 01-10-2021</span>
+                                                <!--Task Heading-->
+                                                <h6 class="mb-4"><a href="#!.html" class="text-reset">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default.</a></h6>
+
+                                                <!--Task assignees-->
+                                                <div>
+                                                    <div class="avatar-group justify-content-end">
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Gabriel H">
+                                                            <img src="assets/media/avatars/04.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Emily Doe">
+                                                            <img src="assets/media/avatars/02.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="Adam Howkins">
+                                                            <img src="assets/media/avatars/03.jpg" alt="..."
+                                                                class="avatar-group-img rounded-circle">
+                                                        </a>
+                                                        <a href="#!.html"
+                                                            class="avatar-group-item text-muted bg-body d-inline-flex align-items-center justify-content-center avatar xs rounded-circle"
+                                                            data-bs-toggle="tooltip" title=""
+                                                            data-bs-original-title="3 more members">
+                                                            <b class="small">+3</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Task checkbox-->
+                                            <span class="form-check me-0 pe-0 mb-0">
+                                                <input type="checkbox" class="form-check-input mx-0" checked>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--/. Task card ends-->
+
+
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+                    <!--//Page content End//-->
+
+                    @@include('./partials/footer.html')
+                </main>
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+        @@include('./partials/core-scripts.html')
+
+
+        <!--Tasks Kanban Dragula-->
+        <script src="assets/vendor/dragula.min.js"></script>
+        <script type="text/javascript">
+            !function (r) {
+                "use strict";
+                function t() { this.$body = r("body") } t.prototype.init = function () {
+                    r('[data-dragula="tasks"]').each(function () {
+                        var t = r(this).data("containers"), a = []; if (t) for (var n = 0; n < t.length; n++)a.push(r("#" + t[n])[0]);
+                        else a = [r(this)[0]]; var i = r(this).data("handleclass"); i ? dragula(a,
+                            { moves: function (t, a, n) { return n.classList.contains(i) } }) : dragula(a)
+                    })
+                },
+                    r.Dragula = new t, r.Dragula.Constructor = t
+            }(window.jQuery),
+                function () { "use strict"; window.jQuery.Dragula.init() }();
+        </script>
+    </body>
+
+</html>

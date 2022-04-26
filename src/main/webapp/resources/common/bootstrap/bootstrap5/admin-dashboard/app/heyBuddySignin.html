@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Assan-Admin</title>
+
             <!--Bootstrap icons-->
             <link href="assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
@@ -15,11 +16,18 @@
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
     </head>
-
-    <body>
-
-           <!--Theme mode switcher-->
-           <div class="position-absolute end-0 top-0 size-40 z-index-fixed">
+<style>
+body {
+	background-image: url('../../../../../user/images/teamwork.webp');
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+</style>
+<body>
+        <!--Theme mode switcher-->
+        <div class="position-absolute end-0 top-0 size-40 z-index-fixed">
             <div class="switch_modes">
                 <a href="#" class="mode_dark">
                   <i data-feather="moon"></i>
@@ -30,6 +38,7 @@
               </div>
         </div>
 
+        
           <!--////////////////// PreLoader Start//////////////////////-->
           <div class="loader">
             <!--Placeholder animated layout for preloader-->
@@ -54,38 +63,30 @@
         <div class="d-flex flex-column flex-root">
             <!--Page-->
             <div class="page d-flex flex-row flex-column-fluid">
-
+                
                 <!--///////////Page content wrapper///////////////-->
                 <main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+
                     <!--//content//-->
                     <div class="content p-1 d-flex flex-column-fluid position-relative">
                         <div class="container py-4">
-                            <div class="row h-100 align-items-center justify-content-center">
+                            <div class="row align-items-center justify-content-center">
                                 <div class="col-md-8 col-lg-5 col-xl-4">
                                     <!--Logo-->
-                                    <a href="index.html"
-                                        class="d-flex position-relative mb-4 z-index-1 align-items-center justify-content-center">
-                                        <span class="sidebar-icon size-60 bg-primary text-white rounded-circle">
-                                           <b class="fw-bolder fs-3">A</b>
-                                        </span>
-                                    </a>
+                                    <div style="text-align: center;">
+				<img src="../../../../../user/images/heybuddy.png" alt="..." width="400px">
+			</div>
                                     <!--Card-->
-                                    <div class="card card-body p-4">
-                                        <h4 class="text-center">Hello!</h4>
-                                        <p class="mb-4 text-center text-muted">
-                                            To get started, Please signup with details...
+                                    <div class="card card-body p-4" style="border: none; background: transparent;">
+                                        <h4 class="text-center">Welcome Back!</h4>
+                                        <p class="mb-4 text-muted text-center">
+                                            Please Sign In with details...
                                         </p>
-                                        <form action="index.html" class="z-index-1 position-relative needs-validation" novalidate="">
+                                        <form action="index.html" class=" z-index-1 position-relative needs-validation" novalidate="">
                                             <div class="form-floating mb-3">
-                                                <input type="text" class="form-control" required=""
-                                                    id="floatingInputName" placeholder="John Doe">
-                                                <label for="floatingInputName">Full Name</label>
-                                                <span class="invalid-feedback">Please enter your name</span>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="email" class="form-control" required=""
-                                                    id="floatingInputEmail" placeholder="name@example.com">
-                                                <label for="floatingInputEmail">Email address</label>
+                                                <input type="email" class="form-control" required="" id="floatingInput"
+                                                    placeholder="name@example.com">
+                                                <label for="floatingInput">Email address</label>
                                                 <span class="invalid-feedback">Please enter a valid email address</span>
                                             </div>
                                             <div class="form-floating mb-3">
@@ -94,27 +95,21 @@
                                                 <label for="floatingPassword">Password</label>
                                                 <span class="invalid-feedback">Enter the password</span>
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="password" required="" class="form-control"
-                                                    id="floatingPassword2" placeholder="Password">
-                                                <label for="floatingPassword2">Confirm Password</label>
-                                                <span class="invalid-feedback">Enter the same password as above</span>
-                                            </div>
-                                            <div class="d-flex align-items-strech justify-content-between mb-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-3">
                                                 <div class="form-check">
-                                                    <input class="form-check-input me-1" required id="terms"
-                                                        type="checkbox" value="">
-                                                    <label class="form-check-label" for="terms">Agree to our <a
-                                                            href="#!.html">Terms & conditions</a></label>
-                                                    <span class="invalid-feedback">You must be agree to terms &
-                                                        conditions</span>
+                                                    <input class="form-check-input me-1" id="terms" type="checkbox"
+                                                        value="">
+                                                    <label class="form-check-label" for="terms">Remember Me</label>
+                                                </div>
+                                                <div>
+                                                    <a href="page-auth-recover-pass.html" class="small text-muted">Forget Password?</a>
                                                 </div>
                                             </div>
-                                            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
-                                            <hr class="mt-4">
+                                            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+                                            <hr class="mt-4 mb-3">
                                             <p class="text-muted text-center">
-                                                Alread have an account? <a href="page-auth-signin.html"
-                                                    class="ms-2 text-body">Sign In</a>
+                                                Don’t have an account yet? <a href="page-auth-signup.html"
+                                                    class="ms-2 text-body">Sign Up</a>
 
                                             </p>
                                             <div class="d-flex align-items-center pb-3">
@@ -125,12 +120,12 @@
                                             </div>
                                             <div class="d-grid">
                                                 <a href="#!"
-                                                class="d-flex justify-content-center hover-lift btn-secondary btn position-relative center-both">
-                                               <div class="position-relative d-flex align-items-center">
-                                                    <svg fill="currentColor" class="me-2" width="16" height="16" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-                                                    <span>sign up with google</span>
-                                                </div>
-                                            </a>
+                                                    class="d-flex justify-content-center hover-lift btn-secondary btn position-relative center-both">
+                                                   <div class="position-relative d-flex align-items-center">
+                                                        <svg fill="currentColor" class="me-2" width="16" height="16" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+                                                        <span>sign in with google</span>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </form>
                                     </div>
@@ -147,7 +142,7 @@
                           <span class="d-block lh-sm small text-muted text-end">&copy;
                             <script>
                               document.write(new Date().getFullYear())
-                            </script>. Copyright
+                            </script>. Hey, Buddy All rights reserved.
                           </span>
                         </div>
                       </footer>

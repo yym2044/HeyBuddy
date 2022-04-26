@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hey, Buddy</title>
+        <title>화상메인!!</title>
 
         <!--Simplebar css-->
         <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
@@ -23,16 +23,7 @@
         <!--Main style-->
         <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
     </head>
-    <style>
-body {
-	background-image: url('../../../../../user/images/allround.jpg');
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
 
-}
-</style>
     <body>
           <!--////////////////// PreLoader Start//////////////////////-->
           <div class="loader">
@@ -119,7 +110,7 @@ body {
 
 
 								<li class="nav-item">
-                            <a href="heyBuddySetting.html"
+                            <a href="app-calendar.html"
                               class="nav-link d-flex align-items-center text-truncate ">
                               <span class="sidebar-icon">
                                 <i data-feather="calendar" class="fe-1x"></i>
@@ -466,40 +457,107 @@ body {
 
 
                     <!--//Page Toolbar//-->
-                    <div class="toolbar py-4 px-4 px-lg-8 bg-body">
-                        <div class="position-relative container-fluid px-0">
-                            <div class="row align-items-center position-relative">
-                                <div class="col-md-8 mb-4 mb-lg-0">
-                                    <h3 class="mb-2">Blank page</h3>
-
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb mb-0">
-                                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                                            <li class="breadcrumb-item active">Pages</li>
-                                            <li class="breadcrumb-item active">Blank</li>
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//Page Toolbar End//-->
+			          <div class="toolbar pt-4 px-4 px-lg-8">
+			            <div class="position-relative container-fluid px-0">
+			              <div class="row align-items-center position-relative">
+			                <div class="col-md-8 mb-4 mb-md-0">
+			                  <h3 class="mb-2">화상회의</h3>
+			
+			                  <nav aria-label="breadcrumb">
+			                    <ol class="breadcrumb mb-0">
+			                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+			                      <li class="breadcrumb-item active">화상회의</li>
+			                    </ol>
+			                  </nav>
+			                </div>
+			                <div class="col-md-4 text-md-end" style="padding-right: 30px;">
+			                    <a href="./meetStart.html" class="btn rounded-pill btn-danger text-truncate">회의 시작</a>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!--//Page Toolbar End//-->
 
                     <!--//Page content//-->
-                    <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
-                        <div class="container-fluid px-0">
-                          <h5>Content here...</h5>
-                        </div>
-                    </div>
-                    <!--//Page content End//-->
+			          <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
+			            <div class="container-fluid px-0">
+			                <div class="row">
+			                    <div class="col-12">
+			                        <div class="card">
+			                            <div class="table-responsive">
+			                                <table id="datatable" class="table mt-0 table-hover table-card table-nowrap">
+			                                    <!-- <thead class="text-uppercase small text-muted">
+			                                        <tr>
+			                                            <th>Name</th>
+			                                            <th>Position</th>
+			                                            <th>Office</th>
+			                                            <th>Age</th>
+			                                            <th>Start date</th>
+			                                            <th>Salary</th>
+			                                        </tr>
+			                                    </thead> -->
+			                                    <tbody>
+			                                        <tr>
+			                                            <td class="text-center" style="width: 200px;">
+			                                            <!-- <img style="width:50px;" src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle"> -->
+			                                            <div class="avatar-group justify-content-end">
+								                          <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip"
+								                            title="" data-bs-original-title="Gabriel H">
+								                            <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+								                          </a>
+								                          <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip"
+								                            title="" data-bs-original-title="Emily Doe">
+								                            <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+								                          </a>
+								                          <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip"
+								                            title="" data-bs-original-title="Adam Howkins">
+								                            <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+								                          </a>
+								                        </div>
+			                                            </td>
+			                                            <td style="width: 700px;"><span class="fw-bold fs-4">홍길동의 회의실<i class="bi bi-lock ps-2"></i></span><br>홍길동, 김하나, 김둘</td>
+			                                            <td class="text-end" style="width: 200px; vertical-align: middle;"><i class="bi bi-alarm pe-1"></i>12:34</td>
+			                                            <td style="vertical-align: middle;"><a href="./meetEnter.html" class="btn rounded-pill btn-primary text-truncate">회의 참여</a></td>
+			                                        </tr>
+			                                        <tr>
+			                                            <td class="text-center" style="width: 200px;">
+			                                            <!-- <img style="width:50px;" src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle"> -->
+			                                            <div class="avatar-group justify-content-end">
+								                          <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip"
+								                            title="" data-bs-original-title="Gabriel H">
+								                            <img src="assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
+								                          </a>
+								                          <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip"
+								                            title="" data-bs-original-title="Emily Doe">
+								                            <img src="assets/media/avatars/02.jpg" alt="..." class="avatar-group-img rounded-circle">
+								                          </a>
+								                          <a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip"
+								                            title="" data-bs-original-title="Adam Howkins">
+								                            <img src="assets/media/avatars/03.jpg" alt="..." class="avatar-group-img rounded-circle">
+								                          </a>
+								                        </div>
+			                                            </td>
+			                                            <td style="width: 700px;"><span class="fw-bold fs-4">철수의 회의실</span><br>영희, 홍조, 경민</td>
+			                                            <td class="text-end" style="width: 200px; vertical-align: middle;"><i class="bi bi-alarm pe-1"></i>31:23</td>
+			                                            <td style="vertical-align: middle;"><a href="#!.html" class="btn rounded-pill btn-primary text-truncate">회의 참여</a></td>
+			                                        </tr>
+			                                    </tbody>
+			                                </table>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			          </div>
+          <!--//Page content End//-->
 
                    <!--//Page-footer//-->
                    <footer class="pb-4 px-4 px-lg-8">
                       <div class="container-fluid px-0">
                         <span class="d-block lh-sm small text-muted text-end">&copy;
-                            <script>
-                              document.write(new Date().getFullYear())
-                            </script>. Hey, Buddy All rights reserved.
+                          <script>
+                            document.write(new Date().getFullYear())
+                          </script>. Copyright
                         </span>
                       </div>
                     </footer>

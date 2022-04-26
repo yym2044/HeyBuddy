@@ -5,13 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hey, Buddy</title>
-
-        <!--Simplebar css-->
-        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
-
-        <!--Choices css-->
-        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <title>환경설정! - 스페이스 기본정보</title>
 
             <!--Bootstrap icons-->
             <link href="assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -20,19 +14,17 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+        <!--Choices css-->
+        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
         <!--Main style-->
         <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
     </head>
-    <style>
-body {
-	background-image: url('../../../../../user/images/allround.jpg');
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
 
-}
-</style>
     <body>
           <!--////////////////// PreLoader Start//////////////////////-->
           <div class="loader">
@@ -64,6 +56,7 @@ body {
         <div class="d-flex flex-column flex-root">
             <!--Page-->
             <div class="page d-flex flex-row flex-column-fluid">
+
                 <!--///////////Page sidebar begin///////////////-->
                 <aside class="page-sidebar">
                   <div class="h-100 flex-column d-flex justify-content-start">
@@ -88,7 +81,7 @@ body {
                       <nav class="flex-grow-1 h-100" id="page-navbar">
                         <!--:Sidebar nav-->
                         <ul class="nav flex-column collapse-group collapse d-flex">
-                
+          
                           <li class="nav-item">
                             <a href="app-chat.html"
                               class="nav-link d-flex align-items-center text-truncate ">
@@ -108,18 +101,15 @@ body {
                               <span class="sidebar-text">채팅</span>
                             </a>
                           </li>
-                          
-								<li class="nav-item"><a href="meetList.html"
-									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon"> <i data-feather="video"
-											class="fe-1x"></i>
-									</span> <span class="sidebar-text">화상</span>
-								</a></li>
 
-
-
-								<li class="nav-item">
-                            <a href="heyBuddySetting.html"
+                          <li class="nav-item"><a href="meetList.html"
+                            class="nav-link d-flex align-items-center text-truncate ">
+                                <span class="sidebar-icon"> <i data-feather="video"
+                                    class="fe-1x"></i>
+                            </span> <span class="sidebar-text">화상</span>
+                        </a></li>
+                          <li class="nav-item">
+                            <a href="app-calendar.html"
                               class="nav-link d-flex align-items-center text-truncate ">
                               <span class="sidebar-icon">
                                 <i data-feather="calendar" class="fe-1x"></i>
@@ -127,8 +117,7 @@ body {
                               <span class="sidebar-text">일정</span>
                             </a>
                           </li>
-                 
-
+                          
                           <li class="nav-item">
                             <a href="#component-forms" data-bs-toggle="collapse" aria-expanded="false"
                               class="nav-link d-flex align-items-center text-truncate ">
@@ -157,24 +146,23 @@ body {
                                   Inputmask</a></li>
                             </ul>
                           </li>
- 
                         </ul>
                       </nav>
                     </div>
                     <!--Aside-footer-->
                     <footer class="aside-footer position-relative p-3">
-                     <ul class="nav flex-column collapse-group collapse d-flex">
-                    			<li class="nav-item">
-                            <a href="app-calendar.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon">
-                                <i data-feather="settings" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">환경 설정</span>
-                            </a>
-                          </li>
-                          		
-                          </ul>
+                        <ul class="nav flex-column collapse-group collapse d-flex">
+                            <li class="nav-item">
+                        <a href="app-calendar.html"
+                          class="nav-link d-flex align-items-center text-truncate ">
+                          <span class="sidebar-icon">
+                            <i data-feather="settings" class="fe-1x"></i>
+                          </span>
+                          <span class="sidebar-text">환경 설정</span>
+                        </a>
+                      </li>
+                              
+                      </ul>
                     </footer>
                   </div>
                 </aside>
@@ -416,7 +404,7 @@ body {
                               <div class="avatar-status status-online me-sm-2 avatar xs">
                                 <img src="assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt="">
                               </div>
-                              <span class="d-none d-md-inline-block">New Face</span>
+                              <span class="d-none d-md-inline-block">Noah</span>
                             </div>
                           </a>
 
@@ -437,7 +425,7 @@ body {
                                   d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
                               </svg>
                               <div class="position-relative">
-                                <h5 class="mb-1">New Face</h5>
+                                <h5 class="mb-1">Noah Pierre</h5>
                                 <p class="text-muted small mb-0 lh-1">Full stack developer</p>
                               </div>
                             </div>
@@ -464,19 +452,21 @@ body {
                     </header>
                     <!--Main Header End-->
 
-
                     <!--//Page Toolbar//-->
-                    <div class="toolbar py-4 px-4 px-lg-8 bg-body">
+                    <div class="toolbar pt-4 px-4 px-lg-8">
                         <div class="position-relative container-fluid px-0">
                             <div class="row align-items-center position-relative">
-                                <div class="col-md-8 mb-4 mb-lg-0">
-                                    <h3 class="mb-2">Blank page</h3>
+                                <div class="col-md-8 mb-3 mb-lg-0">
+                                    <h3 class="mb-2 fw-bold">환경설정</h3>
+                                    <p class="mb-0">Update and manage your My Space</p>
 
-                                    <nav aria-label="breadcrumb">
+
+                                </div>
+                                <div class="col-md-4">
+                                    <nav aria-label="breadcrumb" class="d-flex justify-content-md-end">
                                         <ol class="breadcrumb mb-0">
                                             <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                                            <li class="breadcrumb-item active">Pages</li>
-                                            <li class="breadcrumb-item active">Blank</li>
+                                            <li class="breadcrumb-item active">환경설정</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -485,10 +475,92 @@ body {
                     </div>
                     <!--//Page Toolbar End//-->
 
+
                     <!--//Page content//-->
-                    <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                    <div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
                         <div class="container-fluid px-0">
-                          <h5>Content here...</h5>
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                  <!--Account nav-->
+                                  <ul class="nav nav-tabs nav-vertical mb-4 h-100">
+                                      <li class="nav-item">
+			                            <a href="#component-forms1" data-bs-toggle="collapse" aria-expanded="false"
+			                              class="nav-link d-flex align-items-center text-truncate ">
+			                              <i class="bi bi-sliders2-vertical align-middle me-2"></i>스페이스 환경
+			                            </a>
+			                            <ul id="component-forms1" class="sidebar-dropdown list-unstyled show">
+			                              <li class="sidebar-item"><a class="sidebar-link" href="heyBuddySetting1.html">
+			                                  기본정보</a></li>
+			                              <li class="sidebar-item"><a class="sidebar-link text-dark" href="heyBuddySetting2.html">
+			                                  프로필정보</a></li>
+			                            </ul>
+			                          </li>
+                                      <li class="nav-item">
+			                            <a href="#component-forms2" data-bs-toggle="collapse" aria-expanded="false"
+			                              class="nav-link d-flex align-items-center text-truncate ">
+			                              <i data-feather="user" class="fe-1x align-middle me-2"></i>스페이스 멤버
+			                            </a>
+			                            <ul id="component-forms2" class="sidebar-dropdown list-unstyled show">
+			                              <li class="sidebar-item"><a class="sidebar-link text-dark" href="heyBuddySetting3.html">
+			                                  멤버관리</a></li>
+			                              <li class="sidebar-item"><a class="sidebar-link text-dark" href="heyBuddySetting4.html">
+			                                  그룹관리</a></li>
+			                              <li class="sidebar-item"><a class="sidebar-link text-dark" href="heyBuddySetting5.html">
+			                                  관리자설정</a></li>
+			                            </ul>
+			                          </li>
+                                  </ul>
+                                </div>
+                                <div class="col-lg-9 h-100">
+                                	<!--card-->
+                                    <div class="card mb-4">
+                                        <div
+                                            class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
+
+                                            <!-- card title -->
+                                            <h5 class="card-title mb-md-0">
+                                                기본정보
+                                            </h5>
+
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-nowrap table-card">
+                                            
+                                            	<tr>
+                                            		<td>호스트</td>
+                                            		<td>윤영민 yym2044@gmail.com</td>
+                                            		<td><button>변경하기</button></td>
+                                            	</tr>
+                                            	<tr>
+                                            		<td>마이스페이스 이름</td>
+                                            		<td colspan="2"><input class="form-control" value="팀부엉"></td>
+                                            	</tr>
+                                            	<tr>
+                                            		<td>마이스페이스 아이디</td>
+                                            		<td colspan="2">__kakaowork@1649227056_3FF8122770C2CDE1D2321C959890155C__</td>
+                                            	</tr>
+                                            	<tr>
+                                            		<td>마이스페이스 로고</td>
+                                            		<td><input type="file" class="form-control"></td>
+                                            		<td><button>찾아보기</button></td>
+                                            	</tr>
+                                            	<tr>
+                                            		<td>대표 색상</td>
+                                            		<td></td>
+                                            	</tr>
+                                            	<tr>
+                                            		<td>서비스 탈퇴</td>
+                                            		<td><button class="btn btn-danger">서비스 탈퇴</button></td>
+                                            	</tr>
+                                            	
+                                            </table>
+                                            <button class="btn btn-secondary">원래대로</button>
+                                            <button class="btn btn-info">적용</button>	
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!--//Page content End//-->
@@ -497,9 +569,9 @@ body {
                    <footer class="pb-4 px-4 px-lg-8">
                       <div class="container-fluid px-0">
                         <span class="d-block lh-sm small text-muted text-end">&copy;
-                            <script>
-                              document.write(new Date().getFullYear())
-                            </script>. Hey, Buddy All rights reserved.
+                          <script>
+                            document.write(new Date().getFullYear())
+                          </script>. Copyright
                         </span>
                       </div>
                     </footer>
@@ -520,6 +592,11 @@ body {
         <!--////////////Theme Core scripts End/////////////////-->
 
 
+        <!--Page script begin-->
+        <script src="assets/vendor/inputmask.min.js"></script>
+        <script>
+            Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
+        </script>
     </body>
 
 </html>

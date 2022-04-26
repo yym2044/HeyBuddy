@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>환경설정! - 스페이스 기본정보</title>
+        <title>환경설정! - 스페이스 프로필정보</title>
 
             <!--Bootstrap icons-->
             <link href="assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -540,43 +540,61 @@
 
                                             <!-- card title -->
                                             <h3 class="card-title mb-md-0">
-                                                기본정보
+                                                프로필정보
                                             </h3>
 
                                         </div>
-                                        <h6 class="ps-4 mb-3">마이스페이스에 대한 기본 정보를 설정합니다.</h6>
+                                        <h6 class="ps-4 mb-3">멤버의 프로필 정보로 사용할 항목을 설정합니다.</h6>
                                         <div class="table-responsive">
                                             <table id="setTable" class="table table-sm table-nowrap table-card">
                                             
-                                            	<tr>
-                                            		<td>호스트</td>
-                                            		<td>윤영민 yym2044@gmail.com</td>
-                                            		<td><button class="btn btn-info">변경하기</button></td>
-                                            	</tr>
-                                            	<tr>
-                                            		<td>마이스페이스 이름</td>
-                                            		<td colspan="2"><input class="form-control" value="팀부엉"></td>
-                                            	</tr>
-                                            	<tr>
-                                            		<td>마이스페이스 아이디</td>
-                                            		<td colspan="2">__kakaowork@1649227056_3FF8122770C2CDE1D2321C959890155C__</td>
-                                            	</tr>
-                                            	<tr>
-                                            		<td>마이스페이스 로고</td>
-                                            		<td><input type="file" class="form-control"></td>
-                                            		<td><button class="btn btn-info">찾아보기</button></td>
-                                            	</tr>
-                                            	<tr>
-                                            		<td>대표 색상</td>
-                                            		<td></td>
-                                            		<td></td>
-                                            	</tr>
-                                            	<tr>
-                                            		<td>서비스 탈퇴</td>
-                                            		<td><button class="btn btn-danger">서비스 탈퇴</button></td>
-                                            		<td></td>
-                                            	</tr>
-                                            	
+                                            <tr>
+	                                            <td>
+	                                                <input class="form-check-input" type="checkbox" value="" id="checkName" checked="">
+	                                                <label class="form-check-label" for="checkName">
+	                                                    이름
+	                                                </label>
+	                                            </td>
+	                                            <td colspan="3">
+	                                            	<input class="form-check-input" type="checkbox" value="" id="checkNickName" checked="">
+	                                                <label class="form-check-label" for="checkNickName">
+	                                                    닉네임
+	                                                </label>
+	                                            </td>
+                                            </tr>
+                                            <tr>
+	                                            <td><input class="form-check-input" type="checkbox" value="" id="checkProfilePhoto" checked="">
+	                                                <label class="form-check-label" for="checkProfilePhoto">
+	                                                    프로필 사진
+	                                                </label></td>
+	                                            <td><input class="form-check-input" type="checkbox" value="" id="checkJo" checked="">
+	                                                <label class="form-check-label" for="checkJo">
+	                                                    조직
+	                                                </label></td>
+	                                            <td><input class="form-check-input" type="checkbox" value="" id="checkJc" checked="">
+	                                                <label class="form-check-label" for="checkJc">
+	                                                    직책
+	                                                </label></td>
+	                                            <td><input class="form-check-input" type="checkbox" value="" id="checkJc2" checked="">
+	                                                <label class="form-check-label" for="checkJc2">
+	                                                    직위
+	                                                </label></td>
+                                            </tr>
+                                            <tr>
+	                                            <td><input class="form-check-input" type="checkbox" value="" id="checkPhone" checked="">
+	                                                <label class="form-check-label" for="checkPhone">
+	                                                    휴대폰
+	                                                </label></td>
+	                                            <td><input class="form-check-input" type="checkbox" value="" id="checkHome" checked="">
+	                                                <label class="form-check-label" for="checkHome">
+	                                                    유선전화
+	                                                </label></td>
+	                                            <td colspan="2"><input class="form-check-input" type="checkbox" value="" id="checkEmail" checked="">
+	                                                <label class="form-check-label" for="checkEmail">
+	                                                    이메일
+	                                                </label></td>
+                                            </tr>
+	                                            	
                                             </table>
 		                                    <div class="text-center pb-3">
 												<button class="btn btn-lg btn-secondary me-1">원래대로</button>

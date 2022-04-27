@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hey, Buddy!</title>
+
+<!--Simplebar css-->
+<link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+
+<!--Choices css-->
+<link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+
+<!--Bootstrap icons-->
+<link href="assets/fonts/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+
+<!--Google web fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
+	rel="stylesheet">
+<!--Main style-->
+<link rel="stylesheet" href="assets/css/style.min.css"
+	id="switchThemeStyle">
+</head>
+<style>
+body {
+	background-image: url('../../../../../user/images/allround.jpg');
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+<body>
+
+ <!--//Page Toolbar//-->
+          <div class="toolbar pb-4 pt-4 px-4 px-lg-8">
+            <div class="position-relative container-fluid px-0">
+              <div class="row align-items-center position-relative">
+             
+                <div class="col-sm-7 mb-3 mb-sm-0">
+                  <h3 class="mb-2"><span>Heybuddy</span> 미림! 👋</h3>
+                </div>
+           
+           
+           	<p style="float:right"> 
+<!-- sessName: <c:out value="${sessName }"/><br>
+<c:if test="${not empty sessSeq}"> -->
+	<button type="button" class="btn btn-sm" name="" id="btnLogout">  <i class="fe-1x me-3" data-feather="log-out">로그아웃</i></button>
+<!-- </c:if> -->  </p>  로그아웃버튼배열다시
+           
+           		<div class="dropdown border-top"></div>
+              </div>
+            </div>
+          </div>
+          <!--//Page Toolbar End//-->
+	
+		<!--//Page Toolbar//-->
+		<div class="toolbar pt-4 px-4 px-lg-8">
+			<div class="position-relative container-fluid px-0">
+				<div class="row align-items-center position-relative">
+					<div class="col-md-8 mb-4 mb-md-0">
+						<h3 class="mb-2">회원정보</h3>
+					</div>
+				</div>
+			</div>
+			</div>
+			<!--//Page Toolbar End//-->
+
+	
+
+			<!--//Page content//-->
+		
+			<!--//Page content End//-->
+
+			<!--//Page-footer//-->
+			<footer class="pb-4 px-4 px-lg-8">
+				<div class="container-fluid px-0">
+					<span class="d-block lh-sm small text-muted text-end">&copy;
+						<script>
+							document.write(new Date().getFullYear())
+						</script>. Copyright
+					</span>
+				</div>
+			</footer>
+			<!--/.Page Footer End-->
+
+	<!--///////////Page content wrapper End///////////////-->
+
+
+	<!--////////////Theme Core scripts Start/////////////////-->
+
+	<script src="assets/vendor/feather.min.js"></script>
+	<script src="assets/js/theme.bundle.js"></script>
+	<script>
+		feather.replace()
+	</script>
+
+	<!--////////////Theme Core scripts End/////////////////-->
+
+
+	<!--Datatables-->
+	<script
+		src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap5.min.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Datatables Responsive
+			$("#datatable").DataTable({
+				"filter" : false,
+				"length" : false
+			});
+		});
+	</script>
+</body>
+
+</html>

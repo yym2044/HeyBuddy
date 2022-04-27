@@ -37,6 +37,14 @@
         <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
         <style>
         	
+        	body {
+				background-image: url('../../../../../user/images/allround.jpg');
+				height: 100vh;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+        	
 			 .planinst :hover{
 			 			background: white;
 			 			color: black;
@@ -48,6 +56,11 @@
 			 .plandele :hover{
 			  			background: white;
 			 			color: red;
+			}
+			
+			.iconic {
+				padding-bottom: 30px;
+				padding-top: 30px;
 			}
         </style>
         
@@ -81,124 +94,106 @@
         </div>
         <!--////////////////// /.PreLoader END//////////////////////-->
 
-          <!--App Start 사이드바 시작부분이다-->
-        <div class="d-flex flex-column flex-root">
-            <!--Page-->
-            <div class="page d-flex flex-row flex-column-fluid">
-                <!--///////////Page sidebar begin///////////////-->
-                <aside class="page-sidebar">
-                  <div class="h-100 flex-column d-flex justify-content-start">
+      <!--App Start 사이드바 시작부분이다-->
+	<div class="d-flex flex-column flex-root">
+		<!--Page-->
+		<div class="page d-flex flex-row flex-column-fluid">
 
-                    <!--Aside-logo-->
-                    <div class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
-                      <a href="index.html" class="d-block">
-                        <div class="d-flex align-items-center flex-no-wrap text-truncate">
-                          <!--Sidebar-icon-->
-                          <span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-primary fw-bold"> 팀 </span>
-                          <span class="sidebar-text">
-                            <!--Sidebar-text-->
-                            <span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder">
-                              팀부엉
-                            </span>
-                          </span>
-                        </div>
-                      </a>
-                    </div>
-                    <!--Aside-Menu-->
-                    <div class="aside-menu px-3 my-auto" data-simplebar>
-                      <nav class="flex-grow-1 h-100" id="page-navbar">
-                        <!--:Sidebar nav-->
-                        <ul class="nav flex-column collapse-group collapse d-flex">
-                
-                          <li class="nav-item">
-                            <a href="app-chat.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon">
-                                <i data-feather="user" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">멤버</span>
-                            </a>
-                          </li>
-                          
-                          <li class="nav-item">
-                            <a href="app-chat.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon">
-                                <i data-feather="message-circle" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">채팅</span>
-                            </a>
-                          </li>
-                          
-								<li class="nav-item"><a href="app-ㅍchat.html"
+			<!--///////////Page sidebar begin///////////////-->
+			<aside class="page-sidebar">
+				<div class="h-100 flex-column d-flex justify-content-start">
+
+					<!--Aside-logo-->
+					<div
+						class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
+						<a href="index.html" class="d-block">
+							<div class="d-flex align-items-center flex-no-wrap text-truncate">
+								<!--Sidebar-icon-->
+								<span
+									class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-primary fw-bold">
+									팀 </span> <span class="sidebar-text"> <!--Sidebar-text--> <span
+									class="sidebar-text text-truncate fs-4 ms-3 fw-bolder">
+										팀부엉 </span>
+								</span>
+							</div>
+						</a>
+					</div>
+					<!--Aside-Menu-->
+					<div class="aside-menu px-3 my-auto" data-simplebar>
+						<nav class="flex-grow-1 h-100" id="page-navbar">
+							<!--:Sidebar nav-->
+							<ul class="nav flex-column collapse-group collapse d-flex">
+
+								<li class="nav-item"><a href="app-chat.html"
 									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon"> <i data-feather="video"
-											class="fe-1x"></i>
-									</span> <span class="sidebar-text">화상</span>
+										<span class="sidebar-icon iconic"> <i
+											data-feather="user" class="fe-1x"></i>
+									</span> <span class="sidebar-text">멤버</span>
 								</a></li>
 
+								<li class="nav-item"><a href="app-chat.html"
+									class="nav-link d-flex align-items-center text-truncate ">
+										<span class="sidebar-icon iconic"> <i
+											data-feather="message-circle" class="fe-1x"></i>
+									</span> <span class="sidebar-text">채팅</span>
+								</a></li>
 
+								<li class="nav-item"><a href="meetList.html"
+									class="nav-link d-flex align-items-center text-truncate ">
+										<span class="sidebar-icon iconic"> <i
+											data-feather="video" class="fe-1x"></i>
+									</span> <span class="sidebar-text">화상</span>
+								</a></li>
+								<li class="nav-item"><a href="app-calendar.html"
+									class="nav-link d-flex align-items-center text-truncate ">
+										<span class="sidebar-icon iconic"> <i
+											data-feather="calendar" class="fe-1x"></i>
+									</span> <span class="sidebar-text">일정</span>
+								</a></li>
 
-								<li class="nav-item">
-                            <a href="app-calendar.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon">
-                                <i data-feather="calendar" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">일정</span>
-                            </a>
-                          </li>
-                 
+								<li class="nav-item"><a href="#component-forms"
+									data-bs-toggle="collapse" aria-expanded="false"
+									class="nav-link d-flex align-items-center text-truncate ">
+										<span class="sidebar-icon iconic"> <i
+											data-feather="edit" class="fe-1x"></i>
+									</span> <!--Sidebar nav text--> <span class="sidebar-text">문서</span>
+								</a>
+									<ul id="component-forms"
+										class="sidebar-dropdown list-unstyled collapse">
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-bootstrap.html"> Bootstrap</a></li>
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-editor.html"> Editor</a></li>
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-stepper.html"> Stepper</a></li>
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-upload.html"> Upload</a></li>
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-daterange-picker.html"> Daterangepicker</a></li>
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-validation.html"> Validation</a></li>
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-choices.html"> Choices</a></li>
+										<li class="sidebar-item"><a class="sidebar-link"
+											href="ui-form-inputmask.html"> Inputmask</a></li>
+									</ul></li>
+							</ul>
+						</nav>
+					</div>
+					<!--Aside-footer-->
+					<footer class="aside-footer position-relative p-3">
+						<ul class="nav flex-column collapse-group collapse d-flex">
+							<li class="nav-item"><a href="app-calendar.html"
+								class="nav-link d-flex align-items-center text-truncate "> <span
+									class="sidebar-icon"> <i data-feather="settings"
+										class="fe-1x"></i>
+								</span> <span class="sidebar-text">환경 설정</span>
+							</a></li>
 
-                          <li class="nav-item">
-                            <a href="#component-forms" data-bs-toggle="collapse" aria-expanded="false"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon">
-                                <i data-feather="edit" class="fe-1x"></i>
-                              </span>
-                              <!--Sidebar nav text-->
-                              <span class="sidebar-text">문서</span>
-                            </a>
-                            <ul id="component-forms" class="sidebar-dropdown list-unstyled collapse">
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-bootstrap.html">
-                                  Bootstrap</a></li>
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-editor.html">
-                                  Editor</a></li>
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-stepper.html">
-                                  Stepper</a></li>
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-upload.html">
-                                  Upload</a></li>
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-daterange-picker.html">
-                                  Daterangepicker</a></li>
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-validation.html">
-                                  Validation</a></li>
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-choices.html">
-                                  Choices</a></li>
-                              <li class="sidebar-item"><a class="sidebar-link" href="ui-form-inputmask.html">
-                                  Inputmask</a></li>
-                            </ul>
-                          </li>
- 
-                        </ul>
-                      </nav>
-                    </div>
-                    <!--Aside-footer-->
-                    <footer class="aside-footer position-relative p-3">
-                     <ul class="nav flex-column collapse-group collapse d-flex">
-                    			<li class="nav-item">
-                            <a href="app-calendar.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon">
-                                <i data-feather="settings" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">환경 설정</span>
-                            </a>
-                          </li>
-                          		
-                          </ul>
-                    </footer>
-                  </div>
-                </aside>
+						</ul>
+					</footer>
+				</div>
+			</aside>
 				<!-- sidebar 끝부분 여기까지 -->
 
                 <!--///////////Page content wrapper///////////////-->
@@ -490,7 +485,7 @@
                                     <nav aria-label="breadcrumb" class="d-flex justify-content-md-end">
                                         <ol class="breadcrumb mb-0">
                                             <li class="breadcrumb-item"><a href="#!">홈</a></li>
-                                            <li class="breadcrumb-item active">일정</li>
+                                            <li class="breadcrumb-item">일정</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -503,21 +498,10 @@
                     	<a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a>
                     	<a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a>
                     </div>
-	<!-- 				<div class="row container" style="float: left;">
-                    <div class="row planinst" > 
-						<a class="btn btn-primary" href="#" style="width: 100px; text-align: center;">일정등록</a>
-                    </div>
-                    <div class="row planupdt"> 
-                    	<a class="btn btn-secondary" href="#" style="width: 100px; text-align: center;">일정변경</a>
-                    </div>
-                    <div class="row plandele"> 
-                    	<a class="btn btn-danger" href="#" style="width: 100px; text-align: center;">일정삭제</a>
-                    </div>
-                    </div> -->
                     <!--// 달력 윗부분 영역//-->
 
 
-                    <!--//달력 아랫 부분//-->
+                    <!--//달력 아랫 부분 달력그자체임 이거없으면 달력날라감//-->
                     <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
                         <div class="container-fluid px-0">
                            <div class="card">

@@ -576,7 +576,7 @@ body {
 							</div>
 							<div class="col-lg-9 h-100">
 								<!--card-->
-								<div class="card mb-4">
+								<div class="card mb-4 p-3">
 									<div
 										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
@@ -634,8 +634,8 @@ body {
 										</table>
 										<div class="text-center pb-4">
 											<a class="btn btn-secondary" href="heyBuddySetting3.html">뒤로</a>
-											<a class="btn btn-info" href="heyBuddySetting3View.html">수정</a>
-											<a class="btn btn-danger" href="">삭제</a>
+											<a class="btn btn-info" href="heyBuddySetting3Edit.html">수정</a>
+											<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</a>
 										</div>
 									</div>
 								</div>
@@ -644,6 +644,30 @@ body {
 					</div>
 				</div>
 				<!--//Page content End//-->
+				
+				<!-- Modal -->
+				<div class="modal fade" id="deleteModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">확인
+                            </h5>
+                            <button type="button" class="btn-close"
+                                data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            회원을 삭제합니다.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">취소</button>
+                            <button type="button" class="btn btn-primary">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+				
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">

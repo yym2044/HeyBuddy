@@ -30,7 +30,7 @@
 
 <style type="text/css">
 #setTable tr td {
-	height: 40px;
+	height: 70px;
 }
 
 #setTable tr {
@@ -520,6 +520,9 @@ body {
 					</div>
 				</div>
 				<!--//Page Toolbar End//-->
+				
+				
+				
 
 
 				<!--//Page content//-->
@@ -563,11 +566,10 @@ body {
 									</ul>
 								</div>
 							</div>
-							<div class="col-lg-9 h-100">
+							<div class="col-lg-9 h-100" data-aos="fade-up" data-aos-duration="1200">
 								<!--card-->
 								<div class="card mb-4 p-3">
-									<div
-										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
+									<div class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
 										<h3 class="card-title mb-md-0">기본정보</h3>
@@ -580,7 +582,14 @@ body {
 
 											<tr>
 												<td>호스트</td>
-												<td>윤영민 yym2044@gmail.com</td>
+												<td>
+												<div class="d-flex align-items-center">
+					                                <img src="assets/media/avatars/08.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
+					                                <div>
+					                                    <div class="h6 mb-0 lh-1">윤영민 yym2044@gmail.com</div>
+					                                </div>
+					                            </div>
+												</td>
 												<td><button class="btn btn-info">변경하기</button></td>
 											</tr>
 											<tr>
@@ -593,8 +602,11 @@ body {
 											</tr>
 											<tr>
 												<td>마이스페이스 로고</td>
-												<td><input type="file" class="form-control"></td>
-												<td><button class="btn btn-info">찾아보기</button></td>
+												<td>
+													<input id="hybdLogo" type="file" class="form-control" style="display: none;">
+													<input type="text" class="form-control" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다. 배경화면은 투명으로 제작해주세요.">
+												</td>
+												<td><label for="hybdLogo"><a class="btn btn-info">찾아보기</a></label></td>
 											</tr>
 											<tr>
 												<td>대표 색상</td>

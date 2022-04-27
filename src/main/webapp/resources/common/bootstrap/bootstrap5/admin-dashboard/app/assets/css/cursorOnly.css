@@ -1,0 +1,36 @@
+@media (any-pointer: fine) {
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    pointer-events: none;
+    z-index: 9999999;
+    mix-blend-mode: difference;
+  }
+
+  .cursor__inner {
+    display: block;
+    margin-top: -0.25rem;
+    margin-left: -0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease-out;
+  }
+
+  .cursor.cHover .cursor__inner {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .cursor {
+    display: none;
+  }
+}

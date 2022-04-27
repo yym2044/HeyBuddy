@@ -42,23 +42,21 @@ body {
  <!--//Page Toolbar//-->
           <div class="toolbar pb-4 pt-4 px-4 px-lg-8">
             <div class="position-relative container-fluid px-0">
-              <div class="row align-items-center position-relative">
+           
              
                 <div class="col-sm-7 mb-3 mb-sm-0">
-                  <h3 class="mb-2"><span>Heybuddy</span> 미림! 👋</h3>
+                  <h3 class="mb-2"><span>Heybuddy</span> 정미림! 👋</h3>
                 </div>
            
            
            	<p style="float:right"> 
 <!-- sessName: <c:out value="${sessName }"/><br>
 <c:if test="${not empty sessSeq}"> -->
-	<button type="button" class="btn btn-sm" name="" id="btnLogout">  <i class="fe-1x me-3" data-feather="log-out">로그아웃</i></button>
-<!-- </c:if> -->  </p>  로그아웃버튼배열다시
-           
-           		<div class="dropdown border-top"></div>
+	<button type="button" class="btn btn-sm" name="" id="btnLogout"> 로그아웃 <i class="fe-1x me-3" data-feather="log-out"></i></button>
+<!-- </c:if> -->  </p> 
               </div>
             </div>
-          </div>
+     		<div class="dropdown border-top"></div>
           <!--//Page Toolbar End//-->
 
 			
@@ -75,8 +73,6 @@ body {
 			</div>
 			<!--//Page Toolbar End//-->
 
-	
-				스크롤바 왜생기냐고~ 최대창인데
 			<!--//Page content//-->
 			<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 				<div class="container-fluid px-0">
@@ -267,6 +263,48 @@ body {
 
 										</tbody>
 									</table>
+									
+										<!--버튼 -->
+			<div class="row text-center" style="width: 100%">
+				<div style="width: 100%; float: none; margin: 0 auto">
+		
+
+<!-- 	
+<a href="javascript:goMemberForm('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
+'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">  -->
+<button type="button" id ="goMemberForm" class="btn btn-sm btn-outline-success"> 회원등록 </button>
+
+<button type="button" id="" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#btnModalNelete"> 삭제 </button> 
+	
+	<div class="modal fade" id="btnModalNelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modal-title">
+										<i class="fas fa-exclamation-circle"></i>삭제 확인!
+									</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">정말 삭제하시겠습니까?</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									
+<!-- 								<a href="javascript:goMemberMultiNelete
+									('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>',
+									'<c:out value="${vo.shMemberValue}"/>','<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>',
+									'<c:out value="${vo.shMemberDateEnd}"/>');">  -->
+	
+									<button type="button" class="btn btn-primary" id="btnModalNelete"  >확인</button></a>
+				
+								</div>
+							</div>
+						</div>
+					</div>    
+				</div>
+			</div>	
+			
+									
 								</div>
 							</div>
 						</div>
@@ -274,6 +312,9 @@ body {
 				</div>
 			</div>
 			<!--//Page content End//-->
+
+
+	
 
 			<!--//Page-footer//-->
 			<footer class="pb-4 px-4 px-lg-8">

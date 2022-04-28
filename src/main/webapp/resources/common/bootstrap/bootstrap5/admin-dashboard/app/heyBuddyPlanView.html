@@ -1,8 +1,16 @@
+<!-- <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%> -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 
     <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +25,13 @@
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 			<!-- Cursor css -->
 			<link href="assets/css/cursorOnly.css" rel="stylesheet">
-
-			<!--cursor-->
-			<div class="cursor">
+ 
+<!--cursor-->
+<div class="cursor">
     <div class="cursor__inner"></div>
 </div>            
+
+			<script src="https://kit.fontawesome.com/b322818db5.js" crossorigin="anonymous"></script>
         <!--Simplebar css-->
         <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
 
@@ -34,32 +44,42 @@
         <!--Main style-->
         <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
         <style>
-        body {
+        	
+       		body {
 				background-image: url('../../../../../user/images/allround.jpg');
 				height: 100vh;
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
 			}
-			
+        	
 			 .planinst :hover{
 			 			background: white;
 			 			color: black;
 			}
-			 .planupdt :hover{
-			  			background: white;
-			 			color: black;
+			
+			.main_div {
+				margin-left: 80px;
+				/* place-items: center; */  /*  가운데 정렬시킴 */
+	    		width: 90%;	/* width 퍼센트로 잡아주면 높이도 알아서 같이되는듯. */
+				display: grid; /* 가로를 가운데로 정렬해줌 */
+				/* width: 100px; */
+				background: skyblue; /*   배경흰색으로*/
+				padding: 30px;  /* 전체적인 테두리 안쪽의 공간 */
+				border-radius: 10px; /* 도형 사각형을 둥글게 */
+				box-shadow: 5px 5px 10px rgba(0,0,0,0.15);  /* 박스에 그림자를 줘서 입체적으로 만듬 */
 			}
-			 .plandele :hover{
-			  			background: white;
-			 			color: red;
-			}
+			
+			
+		
 			
 			.iconic {
 				padding-bottom: 30px;
 				padding-top: 30px;
 			}
-		</style>
+        </style>
+        
+        
     </head>
 
     <body>
@@ -89,7 +109,7 @@
         </div>
         <!--////////////////// /.PreLoader END//////////////////////-->
 
-            <!--App Start 사이드바 시작부분이다-->
+          <!--App Start 사이드바 시작부분이다-->
 	<div class="d-flex flex-column flex-root">
 		<!--Page-->
 		<div class="page d-flex flex-row flex-column-fluid">
@@ -189,7 +209,7 @@
 					</footer>
 				</div>
 			</aside>
-				<!-- 사이드바 끝부분 여기까지 -->
+				<!-- sidebar 끝부분 여기까지 -->
 
                 <!--///////////Page content wrapper///////////////-->
                 <main class="page-content d-flex flex-column flex-row-fluid">
@@ -471,39 +491,91 @@
                         <div class="position-relative container-fluid px-0">
                             <div class="row align-items-center position-relative">
                                 <div class="col-md-8 mb-3 mb-lg-0">
-                                    <h3 class="mb-2">일정</h3>
-                                    <p class="mb-0 text-muted">일정을 등록해 주세요</p>
+                                    <h5 class="mb-2">일정상세</h5>
+                                   <!--  <p class="mb-0 style="color: gray;">일정을 등록해주세요</p> --> <!-- text-muted 텍스트 회색으로 색깔지우는거  -->
 
 
                                 </div>
                                 <div class="col-md-4">
                                     <nav aria-label="breadcrumb" class="d-flex justify-content-md-end">
                                         <ol class="breadcrumb mb-0">
-                                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                                            <li class="breadcrumb-item">일정</li>
+                                            <li class="breadcrumb-item"><a href="#!">홈</a></li>
+                                            <li class="breadcrumb-item active">일정</li>
+                                            <li class="breadcrumb-item">일정상세</li>
                                         </ol>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-   			       <br>  
-					<div class="row planinst container">
-						<a class="btn btn-primary" href="heyBuddyPlanForm.html" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</a>
-                    	<a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a>
-                    	<a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a>
-                    </div>   
-                    <!--//달력 윗부분 끝 End//-->
+                    <br><hr>
+                    <!--// 달력 윗부분 영역//-->
 
 
-                    <!--//달력임 이거 없으면 날라감//-->
-                    <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
+                    <!--//달력 아랫 부분//-->
+<!--                       <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
                         <div class="container-fluid px-0">
                            <div class="card card-body">
                             <div id="exampleCalendar"></div>
                            </div>
                         </div>
+                    </div> -->
+                    <div class="main_div mb-4">
+						<h4 style="text-align: center;">📌일정상세</h4>			
+						<br>			
+                    <!-- 	<h5>제목</h5>
+                    	<input class="form-control mb-3" type="text" id="" name=""  placeholder="일정 제목을 입력해주세요">
+                    	<br>
+                    	<h5>일정내용</h5> 
+                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
+                    	<br> -->
+                    	<h5>기한</h5>
+                    	<a class="form-control mb-3" type="text" id="" name=""  placeholder="기한을 등록해주세요" readOnly><img src="calendar.png" style="width: 50px; height: 50px;"></a>
+                    	<br><br>
+                    	<h5>공유자추가</h5>
+                   	     <div class="col-12">
+                            <div class="card card-body">
+                                <h5 class="form-label">공유자</h5>
+                                <select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' readOnly>
+                                    <option value="1">김나리</option>
+                                    <option value="2">윤영민</option>
+                                    <option value="3">정미림</option>
+                                    <option value="4">이건우</option>
+                                    <option value="5">피터틸</option>  
+                                </select>
+                            </div>
+                        </div>
+                    <!-- 	<h5 style="margin-right: 1150px;">공유자</h5>
+                    	<div class="d-flex" style="margin-right: 850px;"">
+                    	<input class="form-control me-2" type="text" id="" name="" style="font-size: 1.5em;" readonly>
+                 	Button trigger modal	
+                    	<a class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 150px;"  href="#">공유자 추가</a>
+					
+					Modal
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticBackdropLabel">확인</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body"></div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary" name="" id="btnModalDelete">추가</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									</div>
+								</div>
+							</div>
+						</div> -->
+				                    	
+                    	<br>
+                    	<div class="planinst container">
+                    	<br>
+                    	<a class="btn btn-danger me-2" href="heyBuddyPlanList.html" style="width: 60px; font-size: 1em; text-align: center; float: right;">삭제</a>
+                    	</div>
                     </div>
+                    
+                    
                     <!--//Page content End//-->
 
                      <!--//Page-footer//-->
@@ -521,14 +593,12 @@
                 <!--///////////Page content wrapper End///////////////-->
             </div>
         </div>
-        
+     </body>
         <!--////////////Theme Core scripts Start/////////////////-->
 
         <script src="assets/vendor/feather.min.js"></script>
         <script src="assets/js/theme.bundle.js"></script>
-        <script>
-          feather.replace()
-        </script>
+        <script>feather.replace()</script>
 
         <!--////////////Theme Core scripts End/////////////////-->
 
@@ -625,67 +695,70 @@
       droppable: true
     }).render()
         </script>
-    </body>
+   
+<script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-		<!-- Cursor Js -->
-			  <script src="assets/vendor/node_modules/js/gsap.min.js"></script>
-			  <script>
-			    //cursor
-			    var element = document.querySelector('.cursor');
-			    let mouse = { x: 0, y: 0 };
-			    window.addEventListener('mousemove', ev => mouse = getMousePos(ev));
-			    const lerp = (a, b, n) => (1 - n) * a + n * b;
-			    const getMousePos = e => {
-			        return {
-			            x: e.clientX,
-			            y: e.clientY
-			        };
-			    };
-			    class Cursor {
-			        constructor(el) {
-			            this.DOM = { el: el };
-			            this.DOM.el.style.opacity = 0;
-			            this.bounds = this.DOM.el.getBoundingClientRect();
-			            this.renderedStyles = {
-			                tx: { previous: 0, current: 0, amt: 0.2 },
-			                ty: { previous: 0, current: 0, amt: 0.2 },
-			                scale: { previous: 1, current: 1, amt: 0.2 },
-			                opacity: { previous: 1, current: 1, amt: 0.2 }
-			            };
-			            this.onMouseMoveEv = () => {
-			                this.renderedStyles.tx.previous = this.renderedStyles.tx.current = mouse.x - this.bounds.width / 2;
-			                this.renderedStyles.ty.previous = this.renderedStyles.ty.previous = mouse.y - this.bounds.height / 2;
-			                gsap.to(this.DOM.el, { duration: 0.9, ease: 'Power3.easeOut', opacity: 1 });
-			                requestAnimationFrame(() => this.render());
-			                window.removeEventListener('mousemove', this.onMouseMoveEv);
-			            };
-			            window.addEventListener('mousemove', this.onMouseMoveEv);
-			        }
-			        enter() {
-			            element.classList.add('cHover');
-			        }
-			        leave() {
-			            this.renderedStyles['scale'].current = 1;
-			            this.renderedStyles['opacity'].current = 1;
-			            element.classList.remove('cHover');
-			        }
-			        render() {
-			            this.renderedStyles['tx'].current = mouse.x - this.bounds.width / 2;
-			            this.renderedStyles['ty'].current = mouse.y - this.bounds.height / 2;
-			
-			            for (const key in this.renderedStyles) {
-			                this.renderedStyles[key].previous = lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].amt);
-			            }
-			            this.DOM.el.style.transform = `translateX(${(this.renderedStyles['tx'].previous)}px) translateY(${this.renderedStyles['ty'].previous}px) scale(${this.renderedStyles['scale'].previous})`;
-			            this.DOM.el.style.opacity = this.renderedStyles['opacity'].previous;
-			            requestAnimationFrame(() => this.render());
-			        }
-			    }
-			    const cursor = new Cursor(document.querySelector('.cursor'));
-			    [...document.querySelectorAll('a,.btn')].forEach(link => {
-			        link.addEventListener('mouseenter', () => cursor.enter());
-			        link.addEventListener('mouseleave', () => cursor.leave());
-			    });
-			</script>
-			
+<!-- Mouse Cursor Js -->
+	  <script src="assets/vendor/node_modules/js/gsap.min.js"></script>
+	  <script>
+	    //cursor
+	    var element = document.querySelector('.cursor');
+	    let mouse = { x: 0, y: 0 };
+	    window.addEventListener('mousemove', ev => mouse = getMousePos(ev));
+	    const lerp = (a, b, n) => (1 - n) * a + n * b;
+	    const getMousePos = e => {
+	        return {
+	            x: e.clientX,
+	            y: e.clientY
+	        };
+	    };
+	    class Cursor {
+	        constructor(el) {
+	            this.DOM = { el: el };
+	            this.DOM.el.style.opacity = 0;
+	            this.bounds = this.DOM.el.getBoundingClientRect();
+	            this.renderedStyles = {
+	                tx: { previous: 0, current: 0, amt: 0.2 },
+	                ty: { previous: 0, current: 0, amt: 0.2 },
+	                scale: { previous: 1, current: 1, amt: 0.2 },
+	                opacity: { previous: 1, current: 1, amt: 0.2 }
+	            };
+	            this.onMouseMoveEv = () => {
+	                this.renderedStyles.tx.previous = this.renderedStyles.tx.current = mouse.x - this.bounds.width / 2;
+	                this.renderedStyles.ty.previous = this.renderedStyles.ty.previous = mouse.y - this.bounds.height / 2;
+	                gsap.to(this.DOM.el, { duration: 0.9, ease: 'Power3.easeOut', opacity: 1 });
+	                requestAnimationFrame(() => this.render());
+	                window.removeEventListener('mousemove', this.onMouseMoveEv);
+	            };
+	            window.addEventListener('mousemove', this.onMouseMoveEv);
+	        }
+	        enter() {
+	            element.classList.add('cHover');
+	        }
+	        leave() {
+	            this.renderedStyles['scale'].current = 1;
+	            this.renderedStyles['opacity'].current = 1;
+	            element.classList.remove('cHover');
+	        }
+	        render() {
+	            this.renderedStyles['tx'].current = mouse.x - this.bounds.width / 2;
+	            this.renderedStyles['ty'].current = mouse.y - this.bounds.height / 2;
+	
+	            for (const key in this.renderedStyles) {
+	                this.renderedStyles[key].previous = lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].amt);
+	            }
+	            this.DOM.el.style.transform = `translateX(${(this.renderedStyles['tx'].previous)}px) translateY(${this.renderedStyles['ty'].previous}px) scale(${this.renderedStyles['scale'].previous})`;
+	            this.DOM.el.style.opacity = this.renderedStyles['opacity'].previous;
+	            requestAnimationFrame(() => this.render());
+	        }
+	    }
+	    const cursor = new Cursor(document.querySelector('.cursor'));
+	    [...document.querySelectorAll('a,.btn')].forEach(link => {
+	        link.addEventListener('mouseenter', () => cursor.enter());
+	        link.addEventListener('mouseleave', () => cursor.leave());
+	    });
+	</script>
+
+
 </html>

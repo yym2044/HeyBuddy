@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>헤이버디</title>
+        <title>hey, Buddy!</title>
 
             <!--Bootstrap icons-->
             <link href="assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -57,21 +57,13 @@
 			 			background: white;
 			 			color: black;
 			}
-			 .planupdt :hover{
-			  			background: white;
-			 			color: black;
-			}
-			 .plandele :hover{
-			  			background: white;
-			 			color: red;
-			}
 			
 			.main_div {
-				margin-left: 160px;
-				place-items: center;  /*  가운데 정렬시킴 */
+				margin-left: 80px;
+				/* place-items: center; */  /*  가운데 정렬시킴 */
 	    		width: 90%;	/* width 퍼센트로 잡아주면 높이도 알아서 같이되는듯. */
 				display: grid; /* 가로를 가운데로 정렬해줌 */
-				/* width: 365px; */
+				/* width: 100px; */
 				background: #fff; /*   배경흰색으로*/
 				padding: 30px;  /* 전체적인 테두리 안쪽의 공간 */
 				border-radius: 10px; /* 도형 사각형을 둥글게 */
@@ -499,8 +491,8 @@
                         <div class="position-relative container-fluid px-0">
                             <div class="row align-items-center position-relative">
                                 <div class="col-md-8 mb-3 mb-lg-0">
-                                    <h3 class="mb-2">일정상세</h3>
-                                    <p class="mb-0 text-muted">일정을 등록해주세요</p>
+                                    <h5 class="mb-2">일정등록</h5>
+                                   <!--  <p class="mb-0 style="color: gray;">일정을 등록해주세요</p> --> <!-- text-muted 텍스트 회색으로 색깔지우는거  -->
 
 
                                 </div>
@@ -509,20 +501,14 @@
                                         <ol class="breadcrumb mb-0">
                                             <li class="breadcrumb-item"><a href="#!">홈</a></li>
                                             <li class="breadcrumb-item active">일정</li>
-                                            <li class="breadcrumb-item">일정상세</li>
+                                            <li class="breadcrumb-item">일정등록</li>
                                         </ol>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br>
-					<div class="row planinst container">
-					<!-- 	<a class="btn btn-primary" href="heyBuddyPlanForm.html" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">저장하기</a> -->
-                    	<!-- <a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a> -->
-<!--                     	<a class="btn btn-danger plandele" href="heyBuddyPlanList.html" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">뒤로가기</a> -->
-                    </div><hr>
-                    <br>
+                    <br><hr>
                     <!--// 달력 윗부분 영역//-->
 
 
@@ -534,21 +520,22 @@
                            </div>
                         </div>
                     </div> -->
-                    <div class="main_div container">
-						<h1 style="text-align: center;">📌일정등록</h1>			
+                    <div class="main_div mb-4">
+						<h4 style="text-align: center;">📌일정등록</h4>			
 						<br>			
-                    	<h3 style="margin-right: 1150px;">제목</h3>
-                    	<input class="form-control me-2" type="text" id="" name="" style="font-size: 1.5em;" placeholder="일정 제목을 입력해주세요">
+                    	<h5>제목</h5>
+                    	<input class="form-control mb-3" type="text" id="" name="" style="font-size: 1.5em;" placeholder="일정 제목을 입력해주세요">
                     	<br>
-                    	<h3 style="margin-right: 1150px;">일정내용</h3> 
-                    	<input class="form-control me-2" type="text" id="" name="" style="height: 300px; font-size: 1.5em;" placeholder="일정을 입력하세요">
+                    	<h5>일정내용</h5> 
+                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px; font-size: 1.5em;" placeholder="일정을 입력하세요">
                     	<br>
-                    	<h3 style="margin-right: 1150px;">기한</h3>
-                    	<input class="form-control me-2" type="text" id="" name="" style="font-size: 1.5em;" placeholder="기한을 등록해주세요">
+                    	<h5>기한</h5>
+                    	<a class="form-control mb-3" type="text" id="" name="" style="font-size: 1.5em;" placeholder="기한을 등록해주세요"><img src="calendar.png" style="width: 50px; height: 50px;"></a>
                     	<br><br>
+                    	<h5>공유자추가</h5>
                    	     <div class="col-12">
                             <div class="card card-body">
-                                <h3 class="form-label">공유자추가</h3>
+                                <h5 class="form-label">공유자</h5>
                                 <select multiple class="form-control"
                                     data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
                                     <option value="1">김나리</option>
@@ -559,7 +546,7 @@
                                 </select>
                             </div>
                         </div>
-                    <!-- 	<h3 style="margin-right: 1150px;">공유자</h3>
+                    <!-- 	<h5 style="margin-right: 1150px;">공유자</h5>
                     	<div class="d-flex" style="margin-right: 850px;"">
                     	<input class="form-control me-2" type="text" id="" name="" style="font-size: 1.5em;" readonly>
                  	Button trigger modal	
@@ -582,11 +569,10 @@
 							</div>
 						</div> -->
 				                    	
-                    	<br><br><br>
-                    	<div style="margin-left: 850px;">
- 						<a class="btn btn-primary me-2" href="heyBuddyPlanForm.html" style="width: 200px; font-size: 1.5em; text-align: center; padding: 10px;">등록하기</a>
-                    	<!-- <a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a> -->
-                    	<a class="btn btn-danger me-2 plandele" href="heyBuddyPlanList.html" style="width: 150px; font-size: 1.5em; text-align: center; padding: 10px;">취소</a>
+                    	<br>
+                    	<div class="planinst container">
+                    	<a class="btn btn-danger me-2" href="heyBuddyPlanList.html" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
+ 						<a class="btn btn-primary me-2" href="heyBuddyPlanList.html" style="width: 100px; font-size: 1em; text-align: center; float: right;">등록하기</a>
                     	</div>
                     </div>
                     
@@ -608,14 +594,12 @@
                 <!--///////////Page content wrapper End///////////////-->
             </div>
         </div>
-        
+         </body>
         <!--////////////Theme Core scripts Start/////////////////-->
 
         <script src="assets/vendor/feather.min.js"></script>
         <script src="assets/js/theme.bundle.js"></script>
-        <script>
-          feather.replace()
-        </script>
+        <script>feather.replace()</script>
 
         <!--////////////Theme Core scripts End/////////////////-->
 
@@ -712,11 +696,11 @@
       droppable: true
     }).render()
         </script>
-    </body>
+   
 <script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<!-- Cursor Js -->
+<!-- Mouse Cursor Js -->
 	  <script src="assets/vendor/node_modules/js/gsap.min.js"></script>
 	  <script>
 	    //cursor

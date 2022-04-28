@@ -27,6 +27,9 @@
 <!--Main style-->
 <link rel="stylesheet" href="assets/css/style.min.css"
 	id="switchThemeStyle">
+	
+<!--select style-->
+<link rel="stylesheet" href="assets/vendor/node_modules/css/choices.min.css">
 
 <style type="text/css">
 #setTable tr td {
@@ -503,13 +506,7 @@ body {
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-3 mb-lg-0">
 								<h3 class="mb-2 fw-bold">환경설정</h3>
-								<p class="mb-0">Update and manage your My Space</p>
-
-
-							</div>
-							<div class="col-md-4">
-								<nav aria-label="breadcrumb"
-									class="d-flex justify-content-md-end">
+								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb mb-0">
 										<li class="breadcrumb-item"><a href="#!">Home</a></li>
 										<li class="breadcrumb-item active">환경설정</li>
@@ -574,8 +571,9 @@ body {
 									</div>
 									<div class="row">
 										<div class="col-4 ps-3">
+											<!-- 
 											<div class="position-relative flex-grow-1 me-2 me-lg-4">
-												<!--Icon-->
+												Icon
 												<svg xmlns="http://www.w3.org/2000/svg" width="24"
 													height="24" viewBox="0 0 24 24" fill="none"
 													stroke="currentColor" stroke-width="2"
@@ -586,6 +584,18 @@ body {
 												<input type="text" class="form-control search ps-6"
 													placeholder="멤버 이름을 검색해보세요">
 											</div>
+											 -->
+											 
+											 
+											 
+			                                <label for="Searchable" class="form-label">멤버를 선택하세요..</label>
+			                                <div>
+			                                    <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="form-control"><select id="Searchable" class="form-control" data-choices="{&quot;searchEnabled&quot;:true}" hidden="" tabindex="-1" data-choice="active"><option value="Kenya" data-custom-properties="[object Object]">Kenya</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__item--selectable" data-item="" data-id="3" data-value="Kenya" data-custom-properties="[object Object]" aria-selected="true">Kenya</div></div></div><div class="choices__list dropdown-menu" aria-expanded="false"><input type="search" name="search_terms" class="form-control form-control-sm" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Country" placeholder="" aria-activedescendant="choices--Searchable-item-choice-1"><div class="choices__list" role="listbox"><div id="choices--Searchable-item-choice-1" class="choices__item dropdown-item choices__placeholder choices__item--disabled is-highlighted" role="option" data-choice="" data-id="1" data-value="" data-select-text="Press to select" data-choice-disabled="" aria-disabled="true" aria-selected="true">Country</div><div id="choices--Searchable-item-choice-2" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="2" data-value="France" data-select-text="Press to select" data-choice-selectable="" aria-selected="false">France</div><div id="choices--Searchable-item-choice-3" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Germany" data-select-text="Press to select" data-choice-selectable="">Germany</div><div id="choices--Searchable-item-choice-4" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="4" data-value="India" data-select-text="Press to select" data-choice-selectable="">India</div><div id="choices--Searchable-item-choice-5" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="5" data-value="Japan" data-select-text="Press to select" data-choice-selectable="">Japan</div><div id="choices--Searchable-item-choice-6" class="choices__item dropdown-item active choices__item--selectable" role="option" data-choice="" data-id="6" data-value="Kenya" data-select-text="Press to select" data-choice-selectable="" aria-selected="false">Kenya</div><div id="choices--Searchable-item-choice-7" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="7" data-value="Poland" data-select-text="Press to select" data-choice-selectable="" aria-selected="false">Poland</div><div id="choices--Searchable-item-choice-8" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="8" data-value="Russia" data-select-text="Press to select" data-choice-selectable="" aria-selected="false">Russia</div><div id="choices--Searchable-item-choice-9" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="9" data-value="Sweden" data-select-text="Press to select" data-choice-selectable="" aria-selected="false">Sweden</div><div id="choices--Searchable-item-choice-10" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="10" data-value="Uk" data-select-text="Press to select" data-choice-selectable="">Uk</div><div id="choices--Searchable-item-choice-11" class="choices__item dropdown-item choices__item--selectable" role="option" data-choice="" data-id="11" data-value="Usa" data-select-text="Press to select" data-choice-selectable="">Usa</div></div></div></div>
+			                                </div>
+											 
+											 
+											 
+											 
 										</div>
 										<div class="col-12 p-3">
 											<p class="fw-bold">접근 가능 메뉴</p>
@@ -672,6 +682,29 @@ body {
         </script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
+	
+	<!--Select scripts-->
+        <script src="assets/vendor/node_modules/js/choices.min.js"></script>
+        <script>
+            var cSelect = document.querySelectorAll("[data-choices]");
+            cSelect.forEach(el => {
+                const t = {
+                    ...el.dataset.choices ? JSON.parse(el.dataset.choices) : {}, ...{
+                        classNames: {
+                            containerInner: el.className,
+                            input: "form-control",
+                            inputCloned: "form-control-sm",
+                            listDropdown: "dropdown-menu",
+                            itemChoice: "dropdown-item",
+                            activeState: "show",
+                            selectedState: "active"
+                        }
+                    }
+                }
+                new Choices(el, t)
+            }
+            );
+        </script>	
 
 
 	<!--Page script begin-->

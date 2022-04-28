@@ -30,7 +30,7 @@
 
 <style type="text/css">
 #setTable tr td {
-	height: 40px;
+	height: 70px;
 }
 
 #setTable tr {
@@ -528,14 +528,15 @@ body {
 										<li class="nav-item"><a href="#component-forms1"
 											data-bs-toggle="collapse" aria-expanded="false"
 											class="nav-link d-flex align-items-center text-truncate">
-												<i class="bi bi-sliders2-vertical align-middle me-2"></i>스페이스 환경
+												<i class="bi bi-sliders2-vertical align-middle me-2"></i>스페이스
+												환경
 										</a>
 											<ul id="component-forms1"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting1.html"> 기본정보</a></li>
+													href="heyBuddyHostMenu1.html"> 기본정보</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting2.html"> 프로필정보</a></li>
+													href="heyBuddyHostMenu2.html"> 프로필정보</a></li>
 											</ul></li>
 
 										<li class="nav-item"><a href="#component-forms2"
@@ -547,11 +548,11 @@ body {
 											<ul id="component-forms2"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting3.html"> 멤버관리</a></li>
+													href="heyBuddyHostMenu3.html"> 멤버관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting4.html"> 그룹관리</a></li>
+													href="heyBuddyHostMenu4.html"> 그룹관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting5.html"> 관리자설정</a></li>
+													href="heyBuddyHostMenu5.html"> 관리자설정</a></li>
 											</ul></li>
 									</ul>
 								</div>
@@ -563,70 +564,52 @@ body {
 										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
-										<h3 class="card-title mb-md-0">관리자 설정</h3>
+										<h3 class="card-title mb-md-0">프로필정보</h3>
 
 									</div>
-									<div class="row">
-										<div class="col-4 ps-5">
-											<div class="d-flex align-items-center">
-												<img src="assets/media/avatars/03.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
-												<div class="h6 mb-0 lh-1">
-													이건우
-												</div>
-											</div>
+									<h6 class="ps-4 mb-3">멤버의 프로필 정보로 사용할 항목을 설정합니다.</h6>
+									<div class="table-responsive">
+										<table id="setTable"
+											class="table table-sm table-nowrap table-card">
+
+											<tr>
+												<td colspan="4"><input class="form-check-input" type="checkbox"
+													value="" id="checkName" checked=""> <label
+													class="form-check-label" for="checkName"> 이름 </label></td>
+											</tr>
+											<tr>
+												<td><input class="form-check-input" type="checkbox"
+													value="" id="checkProfilePhoto" checked=""> <label
+													class="form-check-label" for="checkProfilePhoto">
+														프로필 사진 </label></td>
+												<td><input class="form-check-input" type="checkbox"
+													value="" id="checkJo" checked=""> <label
+													class="form-check-label" for="checkJo"> 조직 </label></td>
+												<td><input class="form-check-input" type="checkbox"
+													value="" id="checkJc" checked=""> <label
+													class="form-check-label" for="checkJc"> 직책 </label></td>
+												<td><input class="form-check-input" type="checkbox"
+													value="" id="checkJc2" checked=""> <label
+													class="form-check-label" for="checkJc2"> 직위 </label></td>
+											</tr>
+											<tr>
+												<td><input class="form-check-input" type="checkbox"
+													value="" id="checkPhone" checked=""> <label
+													class="form-check-label" for="checkPhone"> 휴대폰 </label></td>
+												<td><input class="form-check-input" type="checkbox"
+													value="" id="checkHome" checked=""> <label
+													class="form-check-label" for="checkHome"> 유선전화 </label></td>
+												<td colspan="2"><input class="form-check-input"
+													type="checkbox" value="" id="checkEmail" checked="">
+													<label class="form-check-label" for="checkEmail">
+														이메일 </label></td>
+											</tr>
+
+										</table>
+										<div class="text-center pb-3">
+											<button class="btn btn-lg btn-secondary me-1">원래대로</button>
+											<button class="btn btn-lg btn-info">적용</button>
 										</div>
-										<div class="col-12 p-3">
-											<p class="fw-bold">접근 가능 메뉴</p>
-											
-											<div class="border p-3" style="height:200px; overflow: auto;">
-												
-<!-- 												<ul class="nav p-3">
-													<li><input id="checkboxAll1" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll1" class="form-check-label fw-bold">스페이스 환경</label></li>
-													<li><input id="checkbox1_1" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_1" class="form-check-label">기본설정</label></li>
-													<li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li>
-												</ul>
-												<ul class="nav p-3">
-													<li><input id="checkboxAll2" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll2" class="form-check-label fw-bold">스페이스 멤버</label></li>
-													<li><input id="checkbox2_1" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_1" class="form-check-label">멤버관리</label></li>
-													<li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_2" class="form-check-label">그룹관리</label></li>
-													<li><input id="checkbox2_3" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_3" class="form-check-label">관리자설정</label></li>
-												</ul> -->
-												<div class="row mb-2">
-													<div class="col-1">
-														<div class="size-50 rounded-3 bg-tint-primary text-primary d-flex justify-content-center align-items-center">
-						                                	<i class="bi bi-sliders2-vertical"></i>
-					                             		</div>
-													</div>
-													<div class="col">
-														<input id="checkboxAll1" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll1" class="form-check-label fw-bold fs-5">스페이스 환경</label>
-														<ul class="nav p-2">
-															<li><input id="checkbox1_1" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_1" class="form-check-label">기본설정</label></li>
-															<li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li>
-														</ul>
-													</div>
-												</div>
-												<div class="row mb-2">
-													<div class="col-1">
-														<div class="size-50 rounded-3 bg-tint-primary text-primary d-flex justify-content-center align-items-center">
-															<i data-feather="user" class="fe-1x align-middle"></i>
-					                             		</div>
-													</div>
-													<div class="col">
-														<input id="checkboxAll2" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll2" class="form-check-label fw-bold fs-5">스페이스 멤버</label>
-														<ul class="nav p-2">
-															<li><input id="checkbox2_1" name="checkbox2" type="checkbox" class="form-check-input mx-2" checked><label for="checkbox2_1" class="form-check-label">멤버관리</label></li>
-															<li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2" checked><label for="checkbox2_2" class="form-check-label">그룹관리</label></li>
-															<li><input id="checkbox2_3" name="checkbox2" type="checkbox" class="form-check-input mx-2" checked><label for="checkbox2_3" class="form-check-label">관리자설정</label></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>										
-									</div>
-										
-									<div class="text-center pb-3">
-										<a href="heyBuddySetting5.html" class="btn btn-lg btn-secondary me-1">취소</a>
-										<button class="btn btn-lg btn-info">변경</button>
 									</div>
 								</div>
 							</div>
@@ -667,69 +650,6 @@ body {
 	<script>
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
-       
-    <script type="text/javascript">
-    $("#checkboxAll1").click(function(){
-		if($("#checkboxAll1").is(":checked")){
-			$("input[name=checkbox1]").prop("checked", true);
-		} else {
-			$("input[name=checkbox1]").prop("checked", false);
-		}
-	});
-	
-	$("input[name=checkbox1]").click(function(){
-		var total = $("input[name=checkbox1]").length;
-		var checked = $("input[name=checkbox1]:checked").length;
-		
-		if(total != checked){
-			$("#checkboxAll1").prop("checked", false);
-		} else {
-			$("#checkboxAll1").prop("checked", true);
-		}
-	});
-	
-	$(document).ready(function(){
-		var total = $("input[name=checkbox1]").length;
-		var checked = $("input[name=checkbox1]:checked").length;
-		
-		if(total != checked){
-			$("#checkboxAll1").prop("checked", false);
-		} else {
-			$("#checkboxAll1").prop("checked", true);
-		}
-	})
-	
-	$("#checkboxAll2").click(function(){
-		if($("#checkboxAll2").is(":checked")){
-			$("input[name=checkbox2]").prop("checked", true);
-		} else {
-			$("input[name=checkbox2]").prop("checked", false);
-		}
-	});
-	
-	$("input[name=checkbox2]").click(function(){
-		var total = $("input[name=checkbox2]").length;
-		var checked = $("input[name=checkbox2]:checked").length;
-		
-		if(total != checked){
-			$("#checkboxAll2").prop("checked", false);
-		} else {
-			$("#checkboxAll2").prop("checked", true);
-		}
-	});
-	
-	$(document).ready(function(){
-		var total = $("input[name=checkbox2]").length;
-		var checked = $("input[name=checkbox2]:checked").length;
-		
-		if(total != checked){
-			$("#checkboxAll2").prop("checked", false);
-		} else {
-			$("#checkboxAll2").prop("checked", true);
-		}
-	})
-    </script>
-        
 </body>
 
 </html>

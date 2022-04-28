@@ -24,28 +24,17 @@
 <!--Choices css-->
 <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
 
-<!--Page style = Date range picker-->
-<link rel="stylesheet" href="assets/vendor/css/daterangepicker.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
 <!--Main style-->
 <link rel="stylesheet" href="assets/css/style.min.css"
 	id="switchThemeStyle">
 
 <style type="text/css">
-#setTable tr td {
-	height: 40px;
+#setTable tbody tr td {
+	height: 70px;
 }
 
 #setTable tr {
 	vertical-align: middle;
-}
-table tr .tableText {
-	width: 25%;
-	text-align: center;
-}
-table tr .form-control {
-	background-color: ghostwhite;
 }
 </style>
 <style>
@@ -545,9 +534,9 @@ body {
 											<ul id="component-forms1"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting1.html"> 기본정보</a></li>
+													href="heyBuddyHostMenu1.html"> 기본정보</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting2.html"> 프로필정보</a></li>
+													href="heyBuddyHostMenu2.html"> 프로필정보</a></li>
 											</ul></li>
 
 										<li class="nav-item"><a href="#component-forms2"
@@ -559,11 +548,11 @@ body {
 											<ul id="component-forms2"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting3.html"> 멤버관리</a></li>
+													href="heyBuddyHostMenu3.html"> 멤버관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting4.html"> 그룹관리</a></li>
+													href="heyBuddyHostMenu4.html"> 그룹관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting5.html"> 관리자설정</a></li>
+													href="heyBuddyHostMenu5.html"> 관리자설정</a></li>
 											</ul></li>
 									</ul>
 								</div>
@@ -575,58 +564,99 @@ body {
 										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
-										<h3 class="card-title mb-md-0">멤버 상세</h3>
+										<h3 class="card-title mb-md-0">멤버 관리</h3>
 
 									</div>
+									<h6 class="ps-4 mb-3">멤버를 등록하고 관리할 수 있습니다.</h6>
+									<div class="row p-3">
+										<div class="col-12">
+											
+										</div>
+										<div class="col">
+											<div class="position-relative flex-grow-1 me-2 me-lg-4">
+												<!--Icon-->
+												<svg xmlns="http://www.w3.org/2000/svg" width="24"
+													height="24" viewBox="0 0 24 24" fill="none"
+													stroke="currentColor" stroke-width="2"
+													stroke-linecap="round" stroke-linejoin="round"
+													class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
+													<circle cx="11" cy="11" r="8"></circle>
+													<line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+												<input type="text" class="form-control search ps-6 w-75"
+													placeholder="멤버 이름을 검색해보세요">
+											</div>
+										</div>
+										<div class="col text-end">
+											<a class="btn btn-outline-danger" href="heyBuddyHostMenu3Form.html">멤버 등록</a> <a
+												class="btn btn-outline-success" href="#!">엑셀 파일</a>
+										</div>
+									</div>
 
-									
 									<div class="table-responsive">
-										<div class="text-center">
-											<label for="profilePhoto" style="cursor: pointer;">
-												<!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
-												<img src="assets/media/avatars/08.jpg" class="avatar rounded-pill flex-shrink-0" alt="Customer">
-											</label>
-											<input id="profilePhoto" type="file" style="display:none;">
-											<p class="p-2 fw-bold">프로필 사진</p>
-										</div>
-										
-										<table id="setTable" class="table table-sm table-nowrap table-card">
-											<tr>
-												<td class="tableText">아이디</td>
-												<td>yym2044</td>
-											</tr>
-											<tr>
-												<td class="tableText">이름</td>
-												<td>윤영민</td>
-											</tr>
-											<tr>
-												<td class="tableText">휴대전화</td>
-												<td>010-1234-5678</td>
-											</tr>
-											<tr>
-												<td class="tableText">유선전화</td>
-												<td></td>
-											</tr>
-											<tr>
-												<td class="tableText">이메일</td>
-												<td>yym2044@naver.com</td>
-											</tr>
-											<tr>
-												<td class="tableText">생일</td>
-												<td>
-													1996.06.07
-												</td>
-											</tr>
-											<tr>
-												<td class="tableText">상태메세지</td>
-												<td>Hi, I'm fine thank you.</td>
-											</tr>
+										<table id="setTable"
+											class="table table-sm table-nowrap table-card">
+											<thead class="bg-body text-muted">
+												<tr>
+													<td>이름</td>
+													<td>소속</td>
+													<!-- <td>직위</td> -->
+													<td>Email</td>
+													<td>계정 생성일</td>
+													<td>멤버 상태</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="">
+													<div class="d-flex align-items-center">
+						                                <img src="assets/media/avatars/08.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+						                                <div>
+						                                  <div class="h6 mb-0 lh-1"><a href="heyBuddyHostMenu3View.html">윤영민</a></div>
+						                                </div>
+						                              </div>
+													</td>
+													<td></td>
+													<!-- <td></td> -->
+													<td>yym2044@naver.com</td>
+													<td>2022.04.26</td>
+													<td>참여중</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td></td>
+													<!-- <td></td> -->
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+												<tr>
+													<td></td>
+													<td></td>
+													<!-- <td></td> -->
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+											</tbody>
 										</table>
-										<div class="text-center pb-4">
-											<a class="btn btn-secondary" href="heyBuddySetting3.html">뒤로</a>
-											<a class="btn btn-info" href="heyBuddySetting3Edit.html">수정</a>
-											<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</a>
-										</div>
+									</div>
+									<div class="d-flex justify-content-center">
+										<ul class="pagination">
+											<li class="paginate_button page-item previous disabled" id="datatable_previous">
+												<a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+											</li>
+											<li class="paginate_button page-item active">
+												<a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+											</li>
+											<!-- 
+											<li class="paginate_button page-item ">
+												<a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+											</li>
+											 -->
+											<li class="paginate_button page-item next disabled" id="datatable_next">
+												<a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -634,30 +664,6 @@ body {
 					</div>
 				</div>
 				<!--//Page content End//-->
-				
-				<!-- Modal -->
-				<div class="modal fade" id="deleteModal" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">확인
-                            </h5>
-                            <button type="button" class="btn-close"
-                                data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            회원을 삭제합니다.
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">취소</button>
-                            <button type="button" class="btn btn-primary">확인</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-				
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
@@ -688,25 +694,9 @@ body {
 
 	<!--Page script begin-->
 	<script src="assets/vendor/inputmask.min.js"></script>
-	<script src="assets/vendor/daterangepicker.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<script>
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
-        
-    <script>
-	$(function() {
-		$('#hybdMmDob').daterangepicker({
-			singleDatePicker: true,
-			showDropdowns: true,
-			minYear: 1901,
-			maxYear: parseInt(moment().format('YYYY'),10)
-		});
-	});
-	</script>
-    
 </body>
 
 </html>

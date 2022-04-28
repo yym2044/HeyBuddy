@@ -29,7 +29,7 @@
 	id="switchThemeStyle">
 
 <style type="text/css">
-#setTable tr td {
+#setTable tbody tr td {
 	height: 70px;
 }
 
@@ -534,9 +534,9 @@ body {
 											<ul id="component-forms1"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting1.html"> 기본정보</a></li>
+													href="heyBuddyHostMenu1.html"> 기본정보</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting2.html"> 프로필정보</a></li>
+													href="heyBuddyHostMenu2.html"> 프로필정보</a></li>
 											</ul></li>
 
 										<li class="nav-item"><a href="#component-forms2"
@@ -548,11 +548,11 @@ body {
 											<ul id="component-forms2"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting3.html"> 멤버관리</a></li>
+													href="heyBuddyHostMenu3.html"> 멤버관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting4.html"> 그룹관리</a></li>
+													href="heyBuddyHostMenu4.html"> 그룹관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting5.html"> 관리자설정</a></li>
+													href="heyBuddyHostMenu5.html"> 관리자설정</a></li>
 											</ul></li>
 									</ul>
 								</div>
@@ -564,52 +564,60 @@ body {
 										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
-										<h3 class="card-title mb-md-0">프로필정보</h3>
+										<h3 class="card-title mb-md-0">관리자 설정</h3>
 
 									</div>
-									<h6 class="ps-4 mb-3">멤버의 프로필 정보로 사용할 항목을 설정합니다.</h6>
+									<div class="row px-3 pb-1 d-flex">
+										<div class="col ps-4 mb-3">워크스페이스 내 관리자를 설정하고, 관리자별 접근 가능한 메뉴를 제한할 수 있습니다.</div>
+										
+										<div class="col-3 text-end">
+											<a class="btn btn-outline-danger" href="heyBuddyHostMenu5Form.html">관리자 추가</a>
+										</div>
+									</div>	
+										
 									<div class="table-responsive">
 										<table id="setTable"
-											class="table table-sm table-nowrap table-card">
-
-											<tr>
-												<td colspan="4"><input class="form-check-input" type="checkbox"
-													value="" id="checkName" checked=""> <label
-													class="form-check-label" for="checkName"> 이름 </label></td>
-											</tr>
-											<tr>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkProfilePhoto" checked=""> <label
-													class="form-check-label" for="checkProfilePhoto">
-														프로필 사진 </label></td>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkJo" checked=""> <label
-													class="form-check-label" for="checkJo"> 조직 </label></td>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkJc" checked=""> <label
-													class="form-check-label" for="checkJc"> 직책 </label></td>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkJc2" checked=""> <label
-													class="form-check-label" for="checkJc2"> 직위 </label></td>
-											</tr>
-											<tr>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkPhone" checked=""> <label
-													class="form-check-label" for="checkPhone"> 휴대폰 </label></td>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkHome" checked=""> <label
-													class="form-check-label" for="checkHome"> 유선전화 </label></td>
-												<td colspan="2"><input class="form-check-input"
-													type="checkbox" value="" id="checkEmail" checked="">
-													<label class="form-check-label" for="checkEmail">
-														이메일 </label></td>
-											</tr>
-
+											class="table table-sm table-nowrap table-card table-borderless">
+											<thead>
+												<tr class="table-light">
+													<td>멤버 정보</td>
+													<td>접근 가능 메뉴</td>
+													<td>편집</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<div class="d-flex align-items-center">
+															<img src="assets/media/avatars/08.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+															<div class="h6 mb-0 lh-1 d-flex align-items-center">
+																<a href="#modalMember3" data-bs-toggle="modal">윤영민</a><span class="badge bg-danger ms-1">S</span>
+															</div>
+														</div>
+													</td>
+													<td>스페이스 환경(2), 스페이스 멤버(3)</td>
+													<td><a href="">호스트 변경</a></td>
+												</tr>
+												<tr>
+													<td>
+														<div class="d-flex align-items-center">
+															<img src="assets/media/avatars/03.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+															<div class="h6 mb-0 lh-1">
+																<a href="#modalMember4" data-bs-toggle="modal">이건우</a>
+															</div>
+														</div>
+													</td>
+													<td>스페이스 멤버(3)</td>
+													<td><a
+														class="btn btn-info position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex"
+														href="heyBuddyHostMenu5Edit.html"> <i class="bi bi-pencil-square"></i>
+													</a> <a
+														class="btn btn-danger position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex"
+														 data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash3"></i>
+													</a></td>
+												</tr>
+											</tbody>
 										</table>
-										<div class="text-center pb-3">
-											<button class="btn btn-lg btn-secondary me-1">원래대로</button>
-											<button class="btn btn-lg btn-info">적용</button>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -617,6 +625,148 @@ body {
 					</div>
 				</div>
 				<!--//Page content End//-->
+
+				<!-- Delete Modal -->
+				<div class="modal fade" id="deleteModal" tabindex="-1"
+	                aria-labelledby="exampleModalLabel" aria-hidden="true">
+	                <div class="modal-dialog">
+	                    <div class="modal-content">
+	                        <div class="modal-header">
+	                            <h5 class="modal-title" id="exampleModalLabel">확인
+	                            </h5>
+	                            <button type="button" class="btn-close"
+	                                data-bs-dismiss="modal" aria-label="Close"></button>
+	                        </div>
+	                        <div class="modal-body">
+	                            관리 권한을 삭제합니다.
+	                        </div>
+	                        <div class="modal-footer">
+	                            <button type="button" class="btn btn-secondary"
+	                                data-bs-dismiss="modal">취소</button>
+	                            <button type="button" class="btn btn-primary">확인</button>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- Delete Modal End -->
+	            
+	            <!-- Member Modal Start -->
+	            <div class="modal fade" id="modalMember3" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content border-0">
+                            
+							<div class="card">
+							
+							<!--Card body-->
+								<div class="card-body">
+								<!--Contact-->
+									<div class="text-center">
+									
+									  	<!-- Avatar -->
+										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
+											<img src="assets/media/avatars/08.jpg" alt="..." class="img-fluid rounded-circle">
+										</a>
+										<!-- Title -->
+										<h5 class="mb-0">
+										<a href="#!" class="text-reset">
+										윤영민</a>
+										</h5>
+									
+										<!-- Email -->
+										<p class="small text-muted mb-0">
+										<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">
+										noah.pierre@mail.com</a>
+										</p>
+									
+										<!-- Phone -->
+										<p class="small text-muted mb-3">
+										<a class="d-block text-reset text-truncate" href="#">
+										010-1234-5678</a>
+										</p>
+									
+									
+										<!-- Split dropdown user button -->
+										<div class="btn-group">
+										<button type="button" class="btn btn-outline-gray text-body">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Send
+										Message</button>
+										<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+										</button>
+										<ul class="dropdown-menu dropdown-menu-end" style="">
+										<li><a class="dropdown-item" href="#">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View detail</a>
+										</li>
+										<li><a class="dropdown-item" href="#">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg> Block
+										 contact</a></li>
+										</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalMember4" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content border-0">
+                            
+							<div class="card">
+							
+							<!--Card body-->
+								<div class="card-body">
+								<!--Contact-->
+									<div class="text-center">
+									
+									  	<!-- Avatar -->
+										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
+											<img src="assets/media/avatars/03.jpg" alt="..." class="img-fluid rounded-circle">
+										</a>
+										<!-- Title -->
+										<h5 class="mb-0">
+										<a href="#!" class="text-reset">
+										이건우</a>
+										</h5>
+									
+										<!-- Email -->
+										<p class="small text-muted mb-0">
+										<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">
+										noah.pierre@mail.com</a>
+										</p>
+									
+										<!-- Phone -->
+										<p class="small text-muted mb-3">
+										<a class="d-block text-reset text-truncate" href="#">
+										010-1234-5678</a>
+										</p>
+									
+									
+										<!-- Split dropdown user button -->
+										<div class="btn-group">
+										<button type="button" class="btn btn-outline-gray text-body">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Send
+										Message</button>
+										<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+										</button>
+										<ul class="dropdown-menu dropdown-menu-end" style="">
+										<li><a class="dropdown-item" href="#">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View detail</a>
+										</li>
+										<li><a class="dropdown-item" href="#">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg> Block
+										 contact</a></li>
+										</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+				<!--Modal Member End-->
+
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">

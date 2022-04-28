@@ -64,7 +64,7 @@
 	    		width: 90%;	/* width 퍼센트로 잡아주면 높이도 알아서 같이되는듯. */
 				display: grid; /* 가로를 가운데로 정렬해줌 */
 				/* width: 100px; */
-				background: #fff; /*   배경흰색으로*/
+				background: skyblue; /*   배경흰색으로*/
 				padding: 30px;  /* 전체적인 테두리 안쪽의 공간 */
 				border-radius: 10px; /* 도형 사각형을 둥글게 */
 				box-shadow: 5px 5px 10px rgba(0,0,0,0.15);  /* 박스에 그림자를 줘서 입체적으로 만듬 */
@@ -491,7 +491,7 @@
                         <div class="position-relative container-fluid px-0">
                             <div class="row align-items-center position-relative">
                                 <div class="col-md-8 mb-3 mb-lg-0">
-                                    <h5 class="mb-2">일정등록</h5>
+                                    <h5 class="mb-2">일정상세</h5>
                                    <!--  <p class="mb-0 style="color: gray;">일정을 등록해주세요</p> --> <!-- text-muted 텍스트 회색으로 색깔지우는거  -->
 
 
@@ -501,7 +501,7 @@
                                         <ol class="breadcrumb mb-0">
                                             <li class="breadcrumb-item"><a href="#!">홈</a></li>
                                             <li class="breadcrumb-item active">일정</li>
-                                            <li class="breadcrumb-item">일정등록</li>
+                                            <li class="breadcrumb-item">일정상세</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -511,7 +511,7 @@
                     <br><hr>
                     <!--// 달력 윗부분 영역//-->
 
- 
+
                     <!--//달력 아랫 부분//-->
 <!--                       <div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
                         <div class="container-fluid px-0">
@@ -521,30 +521,29 @@
                         </div>
                     </div> -->
                     <div class="main_div mb-4">
-						<h4 style="text-align: center;">📌일정등록</h4>			
+						<h4 style="text-align: center;">📌일정상세</h4>			
 						<br>			
-                    	<h5>제목</h5>
-                    	<input class="form-control mb-3" type="text" id="" name="" style="font-size: 1.5em;" placeholder="일정 제목을 입력해주세요">
+                    <!-- 	<h5>제목</h5>
+                    	<input class="form-control mb-3" type="text" id="" name=""  placeholder="일정 제목을 입력해주세요">
                     	<br>
                     	<h5>일정내용</h5> 
-                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px; font-size: 1.5em;" placeholder="일정을 입력하세요">
-                    	<br>
+                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
+                    	<br> -->
                     	<h5>기한</h5>
-                    	<a class="form-control mb-3" type="text" id="" name="" style="font-size: 1.5em;" placeholder="기한을 등록해주세요"><img src="calendar.png" style="width: 50px; height: 50px;"></a>
-                    	<br><br> 
+                    	<a class="form-control mb-3" type="text" id="" name=""  placeholder="기한을 등록해주세요" readOnly><img src="calendar.png" style="width: 50px; height: 50px;"></a>
+                    	<br><br>
                     	<h5>공유자추가</h5>
                    	     <div class="col-12">
                             <div class="card card-body">
                                 <h5 class="form-label">공유자</h5>
-                                <select multiple class="form-control"
-                                    data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
+                                <select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' readOnly>
                                     <option value="1">김나리</option>
                                     <option value="2">윤영민</option>
                                     <option value="3">정미림</option>
                                     <option value="4">이건우</option>
                                     <option value="5">피터틸</option>  
                                 </select>
-                            </div>
+                            </div> 
                         </div>
                     <!-- 	<h5 style="margin-right: 1150px;">공유자</h5>
                     	<div class="d-flex" style="margin-right: 850px;"">
@@ -571,8 +570,8 @@
 				                    	
                     	<br>
                     	<div class="planinst container">
-                    	<a class="btn btn-danger me-2" href="heyBuddyPlanList.html" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
- 						<a class="btn btn-primary me-2" href="heyBuddyPlanList.html" style="width: 100px; font-size: 1em; text-align: center; float: right;">등록하기</a>
+                    	<br>
+                    	<a class="btn btn-danger me-2" href="heyBuddyPlanList.html" style="width: 60px; font-size: 1em; text-align: center; float: right;">삭제</a>
                     	</div>
                     </div>
                     
@@ -594,7 +593,7 @@
                 <!--///////////Page content wrapper End///////////////-->
             </div>
         </div>
-         </body>
+     </body>
         <!--////////////Theme Core scripts Start/////////////////-->
 
         <script src="assets/vendor/feather.min.js"></script>
@@ -760,32 +759,6 @@
 	        link.addEventListener('mouseleave', () => cursor.leave());
 	    });
 	</script>
-	
-	       <!-- scripts -->
-        <script src="assets/js/theme.bundle.js"></script>
 
-
-        <!--Select scripts-->
-        <script src="assets/vendor/node_modules/js/choices.min.js"></script>
-        <script>
-            var cSelect = document.querySelectorAll("[data-choices]");
-            cSelect.forEach(el => {
-                const t = {
-                    ...el.dataset.choices ? JSON.parse(el.dataset.choices) : {}, ...{
-                        classNames: {
-                            containerInner: el.className,
-                            input: "form-control",
-                            inputCloned: "form-control-sm",
-                            listDropdown: "dropdown-menu",
-                            itemChoice: "dropdown-item",
-                            activeState: "show",
-                            selectedState: "active"
-                        }
-                    }
-                }
-                new Choices(el, t)
-            }
-            );
-        </script>
 
 </html>

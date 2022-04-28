@@ -30,7 +30,7 @@
 
 <style type="text/css">
 #setTable tr td {
-	height: 40px;
+	height: 70px;
 }
 
 #setTable tr {
@@ -503,16 +503,12 @@ body {
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-3 mb-lg-0">
 								<h3 class="mb-2 fw-bold">환경설정</h3>
-								<p class="mb-0">Update and manage your My Space</p>
-
-
-							</div>
-							<div class="col-md-4">
-								<nav aria-label="breadcrumb"
-									class="d-flex justify-content-md-end">
+								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb mb-0">
 										<li class="breadcrumb-item"><a href="#!">Home</a></li>
-										<li class="breadcrumb-item active">환경설정</li>
+										<li class="breadcrumb-item">환경설정</li>
+										<li class="breadcrumb-item">스페이스 환경</li>
+										<li class="breadcrumb-item active">기본정보</li>
 									</ol>
 								</nav>
 							</div>
@@ -520,6 +516,9 @@ body {
 					</div>
 				</div>
 				<!--//Page Toolbar End//-->
+				
+				
+				
 
 
 				<!--//Page content//-->
@@ -534,14 +533,15 @@ body {
 										<li class="nav-item"><a href="#component-forms1"
 											data-bs-toggle="collapse" aria-expanded="false"
 											class="nav-link d-flex align-items-center text-truncate">
-												<i class="bi bi-sliders2-vertical align-middle me-2"></i>스페이스 환경
+												<i class="bi bi-sliders2-vertical align-middle me-2"></i>스페이스
+												환경
 										</a>
 											<ul id="component-forms1"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting1.html"> 기본정보</a></li>
+													href="heyBuddyHostMenu1.html"> 기본정보</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting2.html"> 프로필정보</a></li>
+													href="heyBuddyHostMenu2.html"> 프로필정보</a></li>
 											</ul></li>
 
 										<li class="nav-item"><a href="#component-forms2"
@@ -553,11 +553,11 @@ body {
 											<ul id="component-forms2"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting3.html"> 멤버관리</a></li>
+													href="heyBuddyHostMenu3.html"> 멤버관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting4.html"> 그룹관리</a></li>
+													href="heyBuddyHostMenu4.html"> 그룹관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting5.html"> 관리자설정</a></li>
+													href="heyBuddyHostMenu5.html"> 관리자설정</a></li>
 											</ul></li>
 									</ul>
 								</div>
@@ -565,80 +565,61 @@ body {
 							<div class="col-lg-9 h-100" data-aos="fade-up" data-aos-duration="1200">
 								<!--card-->
 								<div class="card mb-4 p-3">
-									<div
-										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
+									<div class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
-										<h3 class="card-title mb-md-0">관리자 추가</h3>
+										<h3 class="card-title mb-md-0">기본정보</h3>
 
 									</div>
-									<div class="row">
-										<div class="col-4 ps-3">
-											<div class="position-relative flex-grow-1 me-2 me-lg-4">
-												<!--Icon-->
-												<svg xmlns="http://www.w3.org/2000/svg" width="24"
-													height="24" viewBox="0 0 24 24" fill="none"
-													stroke="currentColor" stroke-width="2"
-													stroke-linecap="round" stroke-linejoin="round"
-													class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
-													<circle cx="11" cy="11" r="8"></circle>
-													<line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-												<input type="text" class="form-control search ps-6"
-													placeholder="멤버 이름을 검색해보세요">
-											</div>
+									<h6 class="ps-4 mb-3">마이스페이스에 대한 기본 정보를 설정합니다.</h6>
+									<div class="table-responsive">
+										<table id="setTable"
+											class="table table-sm table-nowrap table-card">
+
+											<tr>
+												<td>호스트</td>
+												<td>
+												<div class="d-flex align-items-center">
+					                                <img src="assets/media/avatars/08.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
+					                                <div>
+					                                    <div class="h6 mb-0 lh-1">윤영민 yym2044@gmail.com</div>
+					                                </div>
+					                            </div>
+												</td>
+												<td><button class="btn btn-info">변경하기</button></td>
+											</tr>
+											<tr>
+												<td>마이스페이스 이름</td>
+												<td colspan="2"><input class="form-control" value="팀부엉"></td>
+											</tr>
+											<tr>
+												<td>마이스페이스 아이디</td>
+												<td colspan="2">__kakaowork@1649227056_3FF8122770C2CDE1D2321C959890155C__</td>
+											</tr>
+											<tr>
+												<td>마이스페이스 로고</td>
+												<td>
+													<input id="hybdLogo" type="file" class="form-control" style="display: none;">
+													<input type="text" class="form-control" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다. 배경화면은 투명으로 제작해주세요.">
+												</td>
+												<td><label for="hybdLogo"><a class="btn btn-info">찾아보기</a></label></td>
+											</tr>
+											<tr>
+												<td>대표 색상</td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td>서비스 탈퇴</td>
+												<td><button class="btn btn-danger">서비스 탈퇴</button></td>
+												<td></td>
+											</tr>
+
+										</table>
+										<div class="text-center pb-3">
+											<button class="btn btn-lg btn-secondary me-1">원래대로</button>
+											<button class="btn btn-lg btn-info">적용</button>
 										</div>
-										<div class="col-12 p-3">
-											<p class="fw-bold">접근 가능 메뉴</p>
-											
-											<div class="border p-3" style="height:200px; overflow: auto;">
-												
-<!-- 												<ul class="nav p-3">
-													<li><input id="checkboxAll1" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll1" class="form-check-label fw-bold">스페이스 환경</label></li>
-													<li><input id="checkbox1_1" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_1" class="form-check-label">기본설정</label></li>
-													<li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li>
-												</ul>
-												<ul class="nav p-3">
-													<li><input id="checkboxAll2" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll2" class="form-check-label fw-bold">스페이스 멤버</label></li>
-													<li><input id="checkbox2_1" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_1" class="form-check-label">멤버관리</label></li>
-													<li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_2" class="form-check-label">그룹관리</label></li>
-													<li><input id="checkbox2_3" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_3" class="form-check-label">관리자설정</label></li>
-												</ul> -->
-												<div class="row mb-2">
-													<div class="col-1">
-														<div class="size-50 rounded-3 bg-tint-primary text-primary d-flex justify-content-center align-items-center">
-						                                	<i class="bi bi-sliders2-vertical"></i>
-					                             		</div>
-													</div>
-													<div class="col">
-														<input id="checkboxAll1" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll1" class="form-check-label fw-bold fs-5">스페이스 환경</label>
-														<ul class="nav p-2">
-															<li><input id="checkbox1_1" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_1" class="form-check-label">기본설정</label></li>
-															<li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li>
-														</ul>
-													</div>
-												</div>
-												<div class="row mb-2">
-													<div class="col-1">
-														<div class="size-50 rounded-3 bg-tint-primary text-primary d-flex justify-content-center align-items-center">
-															<i data-feather="user" class="fe-1x align-middle"></i>
-					                             		</div>
-													</div>
-													<div class="col">
-														<input id="checkboxAll2" name="" type="checkbox" class="form-check-input mx-2"><label for="checkboxAll2" class="form-check-label fw-bold fs-5">스페이스 멤버</label>
-														<ul class="nav p-2">
-															<li><input id="checkbox2_1" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_1" class="form-check-label">멤버관리</label></li>
-															<li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_2" class="form-check-label">그룹관리</label></li>
-															<li><input id="checkbox2_3" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_3" class="form-check-label">관리자설정</label></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>										
-									</div>
-										
-									<div class="text-center pb-3">
-										<a href="heyBuddySetting5.html" class="btn btn-lg btn-secondary me-1">취소</a>
-										<button class="btn btn-lg btn-info">등록</button>
 									</div>
 								</div>
 							</div>
@@ -679,47 +660,6 @@ body {
 	<script>
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
-       
-    <script type="text/javascript">
-    $("#checkboxAll1").click(function(){
-		if($("#checkboxAll1").is(":checked")){
-			$("input[name=checkbox1]").prop("checked", true);
-		} else {
-			$("input[name=checkbox1]").prop("checked", false);
-		}
-	});
-	
-	$("input[name=checkbox1]").click(function(){
-		var total = $("input[name=checkbox1]").length;
-		var checked = $("input[name=checkbox1]:checked").length;
-		
-		if(total != checked){
-			$("#checkboxAll1").prop("checked", false);
-		} else {
-			$("#checkboxAll1").prop("checked", true);
-		}
-	});
-	
-	$("#checkboxAll2").click(function(){
-		if($("#checkboxAll2").is(":checked")){
-			$("input[name=checkbox2]").prop("checked", true);
-		} else {
-			$("input[name=checkbox2]").prop("checked", false);
-		}
-	});
-	
-	$("input[name=checkbox2]").click(function(){
-		var total = $("input[name=checkbox2]").length;
-		var checked = $("input[name=checkbox2]:checked").length;
-		
-		if(total != checked){
-			$("#checkboxAll2").prop("checked", false);
-		} else {
-			$("#checkboxAll2").prop("checked", true);
-		}
-	});
-    </script>
-        
 </body>
 
 </html>

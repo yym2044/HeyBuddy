@@ -14,7 +14,9 @@
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
+	rel="stylesheet">
 
 <!--Simplebar css-->
 <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
@@ -22,129 +24,14 @@
 <!--Choices css-->
 <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
 
+<!--Page style = Date range picker-->
+<link rel="stylesheet" href="assets/vendor/css/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 <!--Main style-->
-<link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+<link rel="stylesheet" href="assets/css/style.min.css"
+	id="switchThemeStyle">
 
-<!-- Cursor css -->
-<link href="assets/css/cursorOnly.css" rel="stylesheet">
-
-<!-- font-awesome -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-<style type="text/css">
-ul,
-li {
-  list-style: none;
-  margin: 0;
-  padding: 0
-}
-label{font-weight:normal}
-/*Tree*/
-
-.trees {
-  margin-left: 10px;
-}
-
-.trees li {
-  border-left: dotted 1px #bcbec0;
-  padding: 1px 0 1px 25px;
-  position: relative
-}
-
-.trees li > label {
-  position: relative;
-  left: -11px
-}
-
-.trees li:before {
-  content: "";
-  width: 13px;
-  height: 1px;
-  border-bottom: dotted 1px #bcbec0;
-  position: absolute;
-  top: 10px;
-  left: 0
-}
-
-.trees li:last-child:after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 13px;
-  background: #fff;
-  left: -1px;
-  bottom: 0px;
-}
-
-.trees li input {
-  margin-right: 5px;
-  margin-left: 5px
-}
-
-.trees li.has-child > ul {
-  display: none
-}
-
-.trees li.has-child > input {
-  opacity: 0;
-  position: absolute;
-  left: -14px;
-  z-index: 9999;
-  width: 22px;
-  height: 22px;
-  top: -5px
-}
-
-.trees li.has-child > input + .tree-control {
-  position: absolute;
-  left: -4px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  line-height: 8px;
-  z-index: 2;
-  display: inline-block;
-  color: #fff;
-  border-radius: 3px;
-}
-
-.trees li.has-child > input + .tree-control:after {
-  font-family: 'FontAwesome';
-  content: "";
-  font-size: 8px;
-  color: #183955;
-  position: absolute;
-  left: 1px
-}
-
-.trees li.has-child > input:checked + .tree-control:after {
-  font-family: 'FontAwesome';
-  content: "";
-  font-size: 8px;
-  color: #183955;
-  position: absolute;
-  left: 1px
-}
-
-.trees li.has-child > input:checked ~ ul {
-  display: block
-}
-
-.trees ul li.has-child:last-child {
-  border-left: none
-}
-
-.trees ul li.has-child:nth-last-child(2):after {
-  content: "";
-  width: 1px;
-  height: 5px;
-  border-left: dotted 1px #bcbec0;
-  position: absolute;
-  bottom: -5px;
-  left: -1px
-}
-
-</style>
 <style type="text/css">
 #setTable tr td {
 	height: 40px;
@@ -152,6 +39,13 @@ label{font-weight:normal}
 
 #setTable tr {
 	vertical-align: middle;
+}
+table tr .tableText {
+	width: 25%;
+	text-align: center;
+}
+table tr .form-control {
+	background-color: ghostwhite;
 }
 </style>
 <style>
@@ -620,13 +514,7 @@ body {
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-3 mb-lg-0">
 								<h3 class="mb-2 fw-bold">환경설정</h3>
-								<p class="mb-0">Update and manage your My Space</p>
-
-
-							</div>
-							<div class="col-md-4">
-								<nav aria-label="breadcrumb"
-									class="d-flex justify-content-md-end">
+								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb mb-0">
 										<li class="breadcrumb-item"><a href="#!">Home</a></li>
 										<li class="breadcrumb-item active">환경설정</li>
@@ -657,9 +545,9 @@ body {
 											<ul id="component-forms1"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting1.html"> 기본정보</a></li>
+													href="heyBuddyHostMenu1.html"> 기본정보</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting2.html"> 프로필정보</a></li>
+													href="heyBuddyHostMenu2.html"> 프로필정보</a></li>
 											</ul></li>
 
 										<li class="nav-item"><a href="#component-forms2"
@@ -671,11 +559,11 @@ body {
 											<ul id="component-forms2"
 												class="sidebar-dropdown list-unstyled show">
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting3.html"> 멤버관리</a></li>
+													href="heyBuddyHostMenu3.html"> 멤버관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting4.html"> 그룹관리</a></li>
+													href="heyBuddyHostMenu4.html"> 그룹관리</a></li>
 												<li class="sidebar-item"><a class="sidebar-link"
-													href="heyBuddySetting5.html"> 관리자설정</a></li>
+													href="heyBuddyHostMenu5.html"> 관리자설정</a></li>
 											</ul></li>
 									</ul>
 								</div>
@@ -687,162 +575,57 @@ body {
 										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
-										<h3 class="card-title mb-md-0">그룹 관리</h3>
+										<h3 class="card-title mb-md-0">멤버 상세</h3>
 
 									</div>
-									<h6 class="ps-4 mb-5">그룹을 구성하고 그룹에 대한 상세정보를 확인할 수 있습니다.</h6>
 
-									<div class="row ps-6">
-										<div class="col-lg-5">
-											<div class="row">
-												<p class="fw-bold my-3 px-3">팀부엉(4명)</p>
-												
-												<div class="card overflow-hidden">
-			                                        <div class="card-header d-flex align-items-center">
-		                                                <div class="position-relative">
-		                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search fe-1x position-absolute start-0 top-50 opacity-25 ms-2 translate-middle-y"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-		                                                    <input type="text" placeholder="그룹 검색.." class="form-control ps-7 rounded-pill form-control-sm" style="background-color: ghostwhite;">
-		                                                </div>
-			                                        </div>
-			                                        <div class="card-body" style="min-height: 5rem;">
-			                                        	
-														<div class="tree-box box-border">
-															<ul class="trees">
-																<li class="has-child">
-																	<input id="tree-controll1" type="checkbox" checked><span class="tree-control"></span>
-																	<label>
-																		 <a href="javascript:void(0);">팀부엉 (4)</a>
-																	</label>
-																	<ul class="p-1">
-																		<li class="has-child">
-																		<input type="checkbox" checked><span class="tree-control"></span>
-																		<label>
-																		<a href="javascript:void(0);">1조 (0)</a>
-																		</label>
-																			<ul class="p-1">
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">1분단 (0)</a>
-																				</label>
-																				</li>
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">2분단 (0)</a>
-																				</label>
-																				</li>
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">3분단 (0)</a>
-																				</label>
-																				</li>
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">4분단 (0)</a>
-																				</label>
-																				</li>
-																			</ul>
-																		</li>
-																	
-																		<li class="has-child">
-																		<input type="checkbox" checked><span class="tree-control"></span>
-																		<label>
-																		<a href="javascript:void(0);">2조 (0)</a>
-																		</label>
-																			<ul class="p-1">
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">1분단 (0)</a>
-																			</label>
-																			</li>
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">2분단 (0)</a>
-																			</label>
-																			</li>
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">3분단 (0)</a>
-																			</label>
-																			</li>
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">4분단 (0)</a>
-																			</label>
-																			</li>
-																			</ul>
-																		</li>
-																	</ul>
-																</li>
-																<li>
-																	<label>
-																	<a href="javascript:void(0);">미분류 (0)</a>
-																	</label>
-																</li>
-															</ul>
-														</div>
-
-
-
-			                                        </div>
-			                                    </div>
-												
-											</div>
+									
+									<div class="table-responsive">
+										<div class="text-center">
+											<label for="profilePhoto" style="cursor: pointer;">
+												<!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
+												<img src="assets/media/avatars/08.jpg" class="avatar rounded-pill flex-shrink-0" alt="Customer">
+											</label>
+											<input id="profilePhoto" type="file" style="display:none;">
+											<p class="p-2 fw-bold">프로필 사진</p>
 										</div>
-										<div class="col-lg">
-											<div class="card" style="margin-top: 50px; margin-bottom: 10px;">
-												<div class="card-header d-flex align-items-center" style="height: 60px;">
-												<span class="fw-bold">팀부엉(4)</span>	
-												</div>
-												<div class="card-body" style="height: 16rem; overflow-y: auto;">
-													<ul class="list-unstyled">
-														<li class="py-1">
-															<div class="d-flex align-items-center">
-							                                <img src="assets/media/avatars/05.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1">김나리</div>
-							                                </div>
-							                                </div>
-														</li>
-														<li class="py-1">
-															<div class="d-flex align-items-center">
-							                                <img src="assets/media/avatars/02.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1">정미림</div>
-							                                </div>
-							                                </div>
-														</li>
-														<li class="py-1">
-															<div class="d-flex align-items-center">
-							                                <img src="assets/media/avatars/08.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1">윤영민</div>
-							                                </div>
-							                                </div>
-						                               </li>
-														<li class="py-1">
-															<div class="d-flex align-items-center">
-							                                <img src="assets/media/avatars/04.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1">이건우</div>
-							                                </div>
-							                                </div>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="card" style="height: 4rem;">
-												<div class="row" class="d-flex" style="height: 100%;">
-													<div class="col text-center">
-														<button class="btn btn-outline-success border-2 w-100 h-100 hover-lift">그룹추가</button>
-													</div>
-													<div class="col text-center">
-														<button class="btn btn-outline-success border-2 w-100 h-100 hover-lift">그룹삭제</button>
-													</div>
-													<div class="col text-center" style="vertical-align: middle;">
-														<button class="btn btn-outline-success border-2 w-100 h-100 hover-lift">멤버이동</button>
-													</div>
-												</div>
-											</div>
+										
+										<table id="setTable" class="table table-sm table-nowrap table-card">
+											<tr>
+												<td class="tableText">아이디</td>
+												<td>yym2044</td>
+											</tr>
+											<tr>
+												<td class="tableText">이름</td>
+												<td>윤영민</td>
+											</tr>
+											<tr>
+												<td class="tableText">휴대전화</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td class="tableText">유선전화</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td class="tableText">이메일</td>
+												<td>yym2044@naver.com</td>
+											</tr>
+											<tr>
+												<td class="tableText">생일</td>
+												<td>
+													1996.06.07
+												</td>
+											</tr>
+											<tr>
+												<td class="tableText">상태메세지</td>
+												<td>Hi, I'm fine thank you.</td>
+											</tr>
+										</table>
+										<div class="text-center pb-4">
+											<a class="btn btn-secondary" href="heyBuddyHostMenu3.html">뒤로</a>
+											<a class="btn btn-info" href="heyBuddyHostMenu3Edit.html">수정</a>
+											<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</a>
 										</div>
 									</div>
 								</div>
@@ -851,6 +634,30 @@ body {
 					</div>
 				</div>
 				<!--//Page content End//-->
+				
+				<!-- Modal -->
+				<div class="modal fade" id="deleteModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">확인
+                            </h5>
+                            <button type="button" class="btn-close"
+                                data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            회원을 삭제합니다.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">취소</button>
+                            <button type="button" class="btn btn-primary">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+				
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
@@ -867,11 +674,6 @@ body {
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
-	
-	<!--cursor-->
-    <div class="cursor">
-        <div class="cursor__inner"></div>
-    </div>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -882,76 +684,29 @@ body {
         </script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
-	
-
-	  <!-- Cursor Js -->
-	  <script src="assets/vendor/node_modules/js/gsap.min.js"></script>
-	  <script>
-	    //cursor
-	    var element = document.querySelector('.cursor');
-	    let mouse = { x: 0, y: 0 };
-	    window.addEventListener('mousemove', ev => mouse = getMousePos(ev));
-	    const lerp = (a, b, n) => (1 - n) * a + n * b;
-	    const getMousePos = e => {
-	        return {
-	            x: e.clientX,
-	            y: e.clientY
-	        };
-	    };
-	    class Cursor {
-	        constructor(el) {
-	            this.DOM = { el: el };
-	            this.DOM.el.style.opacity = 0;
-	            this.bounds = this.DOM.el.getBoundingClientRect();
-	            this.renderedStyles = {
-	                tx: { previous: 0, current: 0, amt: 0.2 },
-	                ty: { previous: 0, current: 0, amt: 0.2 },
-	                scale: { previous: 1, current: 1, amt: 0.2 },
-	                opacity: { previous: 1, current: 1, amt: 0.2 }
-	            };
-	            this.onMouseMoveEv = () => {
-	                this.renderedStyles.tx.previous = this.renderedStyles.tx.current = mouse.x - this.bounds.width / 2;
-	                this.renderedStyles.ty.previous = this.renderedStyles.ty.previous = mouse.y - this.bounds.height / 2;
-	                gsap.to(this.DOM.el, { duration: 0.9, ease: 'Power3.easeOut', opacity: 1 });
-	                requestAnimationFrame(() => this.render());
-	                window.removeEventListener('mousemove', this.onMouseMoveEv);
-	            };
-	            window.addEventListener('mousemove', this.onMouseMoveEv);
-	        }
-	        enter() {
-	            element.classList.add('cHover');
-	        }
-	        leave() {
-	            this.renderedStyles['scale'].current = 1;
-	            this.renderedStyles['opacity'].current = 1;
-	            element.classList.remove('cHover');
-	        }
-	        render() {
-	            this.renderedStyles['tx'].current = mouse.x - this.bounds.width / 2;
-	            this.renderedStyles['ty'].current = mouse.y - this.bounds.height / 2;
-	
-	            for (const key in this.renderedStyles) {
-	                this.renderedStyles[key].previous = lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].amt);
-	            }
-	            this.DOM.el.style.transform = `translateX(${(this.renderedStyles['tx'].previous)}px) translateY(${this.renderedStyles['ty'].previous}px) scale(${this.renderedStyles['scale'].previous})`;
-	            this.DOM.el.style.opacity = this.renderedStyles['opacity'].previous;
-	            requestAnimationFrame(() => this.render());
-	        }
-	    }
-	    const cursor = new Cursor(document.querySelector('.cursor'));
-	    [...document.querySelectorAll('a,.btn')].forEach(link => {
-	        link.addEventListener('mouseenter', () => cursor.enter());
-	        link.addEventListener('mouseleave', () => cursor.leave());
-	    });
-	</script>
-
 
 
 	<!--Page script begin-->
 	<script src="assets/vendor/inputmask.min.js"></script>
+	<script src="assets/vendor/daterangepicker.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<script>
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
+        
+    <script>
+	$(function() {
+		$('#hybdMmDob').daterangepicker({
+			singleDatePicker: true,
+			showDropdowns: true,
+			minYear: 1901,
+			maxYear: parseInt(moment().format('YYYY'),10)
+		});
+	});
+	</script>
+    
 </body>
 
 </html>

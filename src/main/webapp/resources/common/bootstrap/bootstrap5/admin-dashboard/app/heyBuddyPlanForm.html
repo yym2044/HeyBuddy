@@ -546,13 +546,26 @@
                     	<h3 style="margin-right: 1150px;">기한</h3>
                     	<input class="form-control me-2" type="text" id="" name="" style="font-size: 1.5em;" placeholder="기한을 등록해주세요">
                     	<br><br>
-                    	<h3 style="margin-right: 1150px;">공유자</h3>
+                   	     <div class="col-12">
+                            <div class="card card-body">
+                                <h3 class="form-label">공유자추가</h3>
+                                <select multiple class="form-control"
+                                    data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
+                                    <option value="1">김나리</option>
+                                    <option value="2">윤영민</option>
+                                    <option value="3">정미림</option>
+                                    <option value="4">이건우</option>
+                                    <option value="5">피터틸</option>
+                                </select>
+                            </div>
+                        </div>
+                    <!-- 	<h3 style="margin-right: 1150px;">공유자</h3>
                     	<div class="d-flex" style="margin-right: 850px;"">
                     	<input class="form-control me-2" type="text" id="" name="" style="font-size: 1.5em;" readonly>
-                 	<!-- Button trigger modal -->	
+                 	Button trigger modal	
                     	<a class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 150px;"  href="#">공유자 추가</a>
 					
-					<!-- Modal -->
+					Modal
 						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -567,12 +580,8 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 				                    	
-                    	
-                    	
-                    	
-                    	</div>
                     	<br><br><br>
                     	<div style="margin-left: 850px;">
  						<a class="btn btn-primary me-2" href="heyBuddyPlanForm.html" style="width: 200px; font-size: 1.5em; text-align: center; padding: 10px;">등록하기</a>
@@ -767,6 +776,32 @@
 	        link.addEventListener('mouseleave', () => cursor.leave());
 	    });
 	</script>
+	
+	       <!-- scripts -->
+        <script src="assets/js/theme.bundle.js"></script>
 
+
+        <!--Select scripts-->
+        <script src="assets/vendor/node_modules/js/choices.min.js"></script>
+        <script>
+            var cSelect = document.querySelectorAll("[data-choices]");
+            cSelect.forEach(el => {
+                const t = {
+                    ...el.dataset.choices ? JSON.parse(el.dataset.choices) : {}, ...{
+                        classNames: {
+                            containerInner: el.className,
+                            input: "form-control",
+                            inputCloned: "form-control-sm",
+                            listDropdown: "dropdown-menu",
+                            itemChoice: "dropdown-item",
+                            activeState: "show",
+                            selectedState: "active"
+                        }
+                    }
+                }
+                new Choices(el, t)
+            }
+            );
+        </script>
 
 </html>

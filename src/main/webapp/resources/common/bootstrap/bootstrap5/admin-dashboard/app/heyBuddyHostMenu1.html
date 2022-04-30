@@ -122,7 +122,7 @@ body {
 }
 </style>
 </head>
-<body class="page-sidebar-mini">
+<body>
 	<!--////////////////// PreLoader Start//////////////////////-->
 	<div class="loader">
 		<!--Placeholder animated layout for preloader-->
@@ -289,7 +289,7 @@ body {
 							class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
 							<a href="javascript:void(0)"
 							class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-								<i data-feather="chevrons-right" class="fe-1x"></i>
+								<i data-feather="chevrons-left" class="fe-1x"></i>
 						</a>
 						</li>
 						<li
@@ -675,11 +675,11 @@ body {
 												<td><label for="hybdLogo"><a class="btn btn-info">찾아보기</a></label></td>
 											</tr>
 											<tr>
-												<td>대표 색상</td>
+												<td>스페이스 색상</td>
 												<td colspan="2">
 													<div class="custom-radios">
 													  <div>
-													    <input type="radio" id="color-1" name="color" value="color-1">
+													    <input type="radio" id="color-1" name="spaceColor" value="color-1">
 													    <label for="color-1">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -688,7 +688,7 @@ body {
 													  </div>
 													  
 													  <div>
-													    <input type="radio" id="color-2" name="color" value="color-2">
+													    <input type="radio" id="color-2" name="spaceColor" value="color-2">
 													    <label for="color-2">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -697,7 +697,7 @@ body {
 													  </div>
 													  
 													  <div>
-													    <input type="radio" id="color-3" name="color" value="color-3">
+													    <input type="radio" id="color-3" name="spaceColor" value="color-3">
 													    <label for="color-3">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -706,7 +706,7 @@ body {
 													  </div>
 													
 													  <div>
-													    <input type="radio" id="color-4" name="color" value="color-4">
+													    <input type="radio" id="color-4" name="spaceColor" value="color-4">
 													    <label for="color-4">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -766,6 +766,26 @@ body {
 	<script>
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
+        
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+    	document.body.style.backgroundImage = "url('../../../../../user/images/allround3.jpg')";
+    })
+    
+    $("input[name='spaceColor']").on("click", function(){
+    	if($(this).val() == 'color-1'){
+    		document.body.style.backgroundImage = "url('../../../../../user/images/allround.jpg')";
+    	} else if($(this).val() == 'color-2'){
+    		document.body.style.backgroundImage = "url('../../../../../user/images/allround2.png')";
+    	} else if($(this).val() == 'color-3'){
+    		document.body.style.backgroundImage = "url('../../../../../user/images/allround3.jpg')";
+    	} else if($(this).val() == 'color-4'){
+    		document.body.style.backgroundImage = "url('../../../../../user/images/allround4.png')";
+    	}
+    })
+    
+    </script>
 </body>
 
 </html>

@@ -37,6 +37,16 @@ body {
 	padding-bottom: 30px;
 	padding-top: 30px;
 }
+.addScroll {
+	overflow-y: auto;
+	height: 90px;
+	background-color: gainsboro;
+}
+
+.input-file-button {
+	padding: auto;
+	cursor: pointer;
+}
 </style>
     <body>
           <!--////////////////// PreLoader Start//////////////////////-->
@@ -485,9 +495,7 @@ body {
                                             <a href="#!" data-bs-placement="top" data-bs-toggle="tooltip" title="삭제" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
                                                 <i class="bi bi-trash-fill"></i>
                                             </a>
- 											<a href="#!" data-bs-placement="top" data-bs-toggle="tooltip" title="수정" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </a>
+
 
                                         </div>
                                     </div>
@@ -504,194 +512,63 @@ body {
                                                 <img class="rounded-circle" src="assets/media/avatars/02.jpg" alt="">
                                               </div>
                                               <div class="flex-1 ms-2">
-                                                <h5 class="mb-0">이젠IT 유지보수 계약 체결 건 </h5><a class="text-800 fs--1" href="#!"><span class="fw-semi-bold">정미림</span><span class="ms-1 text-500">&lt;mrjung@heybuddy.com&gt;</span></a>
+                                                <h5 class="mb-0"><input type="text" class="form-control"
+											placeholder="제목"> </h5>
+										
                                               </div>
                                             </div>
-                                            <div class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
-                                               <a href="#!" data-bs-toggle="tooltip" data-bs-placement="top" title="Print" class="d-inline-block me-3"><i class="bi bi-printer"></i></a>
-                                                <small>2022.04.26.11:40 AM</small>
-                                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Star" class="form-star ms-3">
-                                                <input type="checkbox" class="form-star-input" id="starred_s">
-                                                <label for="starred_s" class="form-star-label"></label>
-                                            </div>
-                                            </div>
+
                                           </div>
                                     </div>
                                     <div class="card-body flex-grow-1">
-                                        <p> 안녕하세요. 팀부엉의 막내 정미림 입니다. </p> 
-
- <p>1. 일시 2022년 4월 10일</p> 
- <p>2. 금액 1,234,567 원 </p> 
- <p>3. 기간 2022년 4월 19일~2023년 4월 18일</p> 
-  <p>A사와 ㅇㅇㅇ건 관련하여 작년에 이어  재계약 하였습니다.</p>  
- <p>전결 완료되어 계약서 공유드립니다.</p>  
- <p> 감사합니다 :) </p>
+                                    <input type="text" class="form-control"
+											name="ifmpNumber" value="  안녕하세요. 팀부엉의 막내 정미림 입니다. 어쩌구저쩌구 수정 ">
+                                       
                                         <hr>
-                                        <p>첨부파일</p>
+                        
                                         <div class="d-flex flex-wrap">
-                                            <!--Attachment image-->
-                                            <a href="#!" class="card-hover me-2 position-relative width-90">
-                                                <span class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
-                                                    <img src="assets/media/900x600/2.jpg" class="img-fluid" alt="">
-                                                    <span class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
-                                                        <span>
-                                                     <i data-feather="download" class="fe-2x"></i>      
-                                                        </span>
-                                                    </span>
-                                                </span>
 
-                                                <!--File description-->
-                                                <span class="d-block small text-body text-truncate">
-                                                  photo-9304157018321
-                                                </span>
-                                                <span class="d-block small text-muted text-truncate">
-                                                 257KB
-                                                </span>
-                                              </a>
-                                              <!--Attachment image-->
-                                              <a href="#!" class="card-hover me-2 position-relative width-90">
-                                                <span class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
-                                                    <img src="assets/media/900x600/1.jpg" class="img-fluid" alt="">
-                                                    <span class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
-                                                        <span>
-                                                     <i data-feather="download" class="fe-2x"></i>      
-                                                        </span>
-                                                    </span>
-                                                </span>
-
-                                                <!--File description-->
-                                                <span class="d-block small text-body text-truncate">
-                                                  photo-9304157018321
-                                                </span>
-                                                <span class="d-block small text-muted text-truncate">
-                                                 257KB
-                                                </span>
-                                              </a>
                                         </div>
-                                    </div>
-                              
                                         
-                                                    <div
-                                                        class="d-flex mb-3 align-items-center small">
-                                                       
-                                                        <!--Comments-->
-                                                        <a href="#!"
-                                                            class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
-                                                            <i data-feather="message-square" class="fe-1x me-1 align-middle"></i>
-                                                            <span>3</span>
-                                                        </a>
+                                            <!--Attachment image-->
+									<div class="row">
+										<div class="col-md-12 mb-3">
+											<label for="file0" class="form-label input-file-button">첨부파일
+												<i data-feather="paperclip" class="fe-1x "></i>
+											</label> <input class="form-control" id="file0" name="file0"
+												type="file" multiple="multiple" style="display: none;"
+												onChange="upload(0,2);">
+											<div class="addScroll">
+												<ul id="ulFile0" class="list-group"></ul>
+											</div>
+										</div>
+									</div>
+                                        
+                                                  
+                    			<div class="row text-center" style="width: 100%">
+									<div style="width: 100%; float: none; margin: 0 auto">
+										<button type="button" class="btn btn-outline-secondary">뒤로</button>
+										<button type="button" class="btn btn-primary ms-2">등록</button>
+									</div>
+									
+									<br> <br>
 
-                                                        <!--Shares-->
-                                                        <a href="#!"
-                                                            class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-1">
-                                                            <i data-feather="share" class="fe-1x me-1 align-middle"></i>
-                                                            <span>4</span>
-                                                        </a>
-                                                    </div>
-                                                    
-                                                    
-                                              <!--Comments list-->
-                                                    <ul class="list-group">
-                                                        <li class="list-group-item">
-                                                            <div class="d-flex align-items-stretch">
-                                                                <a href="#!" class="flex-shrink-0 d-block me-2">
-                                                                    <img src="assets/media/avatars/01.jpg"
-                                                                        class="avatar sm rounded-circle" alt="">
-                                                                </a>
-                                                                <!--Coomments and replies-->
-                                                                <div>
-                                                                    <div class="py-2 mb-1 px-3 bg-body rounded-3">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <h6 class="mb-0">윤영민</h6>
-                                                                            <small class="text-muted">2022.04.27 11:16</small>
-                                                                        </div>
-                                                                        <p class="mb-0">
-                                                                            확인 했습니다. 
-                                                                        </p>
-                                                                    </div>
-                                                                    <!--Reply link-->
-                                                                    <div class="mb-2 small">
-                                                                        <a href="#!" class="text-reset">Reply</a>
-                                                                    </div>
-                                                                    <!--Reply-->
-                                                                    <div class="d-flex align-items-stretch">
-                                                                        <!--Reply icon-->
-                                                                        <div class="me-2 text-muted">
-                                                                            <i data-feather="corner-down-right" class="fe-1x me-1 align-middle"></i>
-                                                                        </div>
-                                                                        <a href="#!" class="flex-shrink-0 d-block me-2">
-                                                                            <img src="assets/media/avatars/02.jpg"
-                                                                                class="avatar xs rounded-circle" alt="">
-                                                                        </a>
-                                                                        <!--Reply-->
-                                                                        <div>
-                                                                            <div
-                                                                                class="py-2 mb-1 px-3 bg-body rounded-3">
-                                                                                <div
-                                                                                    class="d-flex justify-content-between">
-                                                                                    <h6 class="mb-0">정미림</h6>
-                                                                                    <small class="text-muted">2022.04.27 12:16</small>
-                                                                                </div>
-                                                                                <p class="mb-0">
-                                                                                    감사합니다.
-                                                                                </p>
-                                                                            </div>
-                                                                            <!--Reply link-->
-                                                                            <div class="mb-0 small">
-                                                                                <a href="#!" class="text-reset">Reply</a>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="list-group-item">
-                                                            <div class="d-flex align-items-stretch">
-                                                                <a href="#!" class="flex-shrink-0 d-block me-2">
-                                                                    <img src="assets/media/avatars/03.jpg"
-                                                                        class="avatar sm rounded-circle" alt="">
-                                                                </a>
-                                                                <!--Coomments and replies-->
-                                                                <div>
-                                                                    <div class="py-2 mb-1 px-3 bg-body rounded-3">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <h6 class="mb-0">이건우</h6>
-                                                                            <small class="text-muted">2022.04.27 16:11</small>
-                                                                        </div>
-                                                                        <p class="mb-0">
-                                                                            감사합니다. 😀
-                                                                        </p>
-                                                                    </div>
-                                                                    <!--Reply link-->
-                                                                    <div class="mb-2 small">
-                                                                        <a href="#!" class="text-reset">Reply</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="list-group-item bg-body">
-                                                            <!--Add comment-->
-                                                    <h6>Add new comment</h6>
-                                                    <form action="#!">
-                                                        <textarea name="addComment" rows="2"
-                                                            class="form-control mb-2"></textarea>
-                                                        <div class="text-end">
-                                                            <button type="button" class="btn btn-primary btn-sm">등록</button>
-                                                        </div>
-                                                    </form>
-                                                        </li>
-                                                    </ul>
-
-                                                    
-                                                    
+								</div>
+                                        
+                                        
+                                    </div>                
                                 </div>
                             </div>
+                        
                         
                         </div>
                     </div>
                     <!--//Page content End//-->
                     
+                    
+          
+								
+								
 
                    <!--//Page-footer//-->
                    <footer class="pb-4 px-4 px-lg-8">

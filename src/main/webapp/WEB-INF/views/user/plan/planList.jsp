@@ -4,38 +4,38 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
-
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 
     <head> 
-      <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hey, Buddy!</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hey, Buddy!</title>
 
-<!--Simplebar css-->
-<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
+            <!--Bootstrap icons-->
+            <link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-<!--Choices css-->
-<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
+            <!--Google web fonts-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 
-<!--Bootstrap icons-->
-<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <!--Simplebar css-->
+        <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
-<!--Google web fonts-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
-	rel="stylesheet">
-<!--Main style-->
-<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
-</head>
+        <!--Choices css-->
+        <link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
+
+        <!--Calendar app style-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
+
+        <!--Main style-->
+        <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
         <style>
         body {
-				background-image: url('../../../../../user/images/allround.jpg');
+				background-image: url('/resources/user/images/allround.jpg');
 				height: 100vh;
 				background-repeat: no-repeat;
 				background-size: cover;
@@ -281,7 +281,7 @@
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/atlassian.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/atlassian.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Atlassian</h6>
                                   <small>Security and control across Cloud</small>
@@ -291,7 +291,7 @@
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/google-webdev.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/google-webdev.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Google webdev</h6>
                                   <small>Work involved in developing a website</small>
@@ -301,7 +301,7 @@
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/slack.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/slack.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Slack</h6>
                                   <small>Email collaboration software</small>
@@ -345,7 +345,7 @@
                                  <a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
                                     <div class="d-block me-3">
                                       <div class="avatar avatar-status status-online">
-                                        <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                        <img src="/resources/assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
                                       </div>
                                     </div>
 
@@ -360,7 +360,7 @@
                                 <a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
                                     <div class="d-block me-3">
                                       <div class="avatar avatar-status status-offline">
-                                        <img src="assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                        <img src="/resources/assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
                                       </div>
                                     </div>
 
@@ -417,7 +417,7 @@
 
                               <!--Avatar with status-->
                               <div class="avatar-status status-online me-sm-2 avatar xs">
-                                <img src="assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt="">
+                                <img src="/resources/assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt="">
                               </div>
                               <span class="d-none d-md-inline-block">Noah</span>
                             </div>
@@ -524,8 +524,8 @@
         
         <!--////////////Theme Core scripts Start/////////////////-->
 
-        <script src="assets/vendor/feather.min.js"></script>
-        <script src="assets/js/theme.bundle.js"></script>
+        <script src="/resources/assets/vendor/feather.min.js"></script>
+        <script src="/resources/assets/js/theme.bundle.js"></script>
         <script>
           feather.replace()
         </script>
@@ -627,5 +627,4 @@
         </script>
     </body>
 
-			
 </html>

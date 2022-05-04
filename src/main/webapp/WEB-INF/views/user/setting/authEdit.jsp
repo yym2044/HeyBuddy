@@ -16,7 +16,7 @@
 <title>hey, Buddy!</title>
 
 <!--Bootstrap icons-->
-<link href="assets/fonts/bootstrap-icons/bootstrap-icons.css"
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
 
 <!--Google web fonts-->
@@ -27,13 +27,13 @@
 	rel="stylesheet">
 
 <!--Simplebar css-->
-<link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
 <!--Main style-->
-<link rel="stylesheet" href="assets/css/style.min.css"
+<link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
 
 <style type="text/css">
@@ -47,7 +47,7 @@
 </style>
 <style>
 body {
-	background-image: url('../../../../../user/images/allround.jpg');
+	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -300,7 +300,7 @@ body {
 									<a href="#!"
 										class="list-group-item px-3 list-group-item-action d-flex align-items-center">
 										<!--App logo--> <img
-										src="assets/media/brand-logos/atlassian.svg"
+										src="/resources/assets/media/brand-logos/atlassian.svg"
 										class="width-30 w-auto flex-shrink-0 me-4" alt="">
 										<div class="flex-grow-1">
 											<h6 class="mb-0">Atlassian</h6>
@@ -312,7 +312,7 @@ body {
 									<a href="#!"
 										class="list-group-item px-3 list-group-item-action d-flex align-items-center">
 										<!--App logo--> <img
-										src="assets/media/brand-logos/google-webdev.svg"
+										src="/resources/assets/media/brand-logos/google-webdev.svg"
 										class="width-30 w-auto flex-shrink-0 me-4" alt="">
 										<div class="flex-grow-1">
 											<h6 class="mb-0">Google webdev</h6>
@@ -323,7 +323,7 @@ body {
 									<!--App item-->
 									<a href="#!"
 										class="list-group-item px-3 list-group-item-action d-flex align-items-center">
-										<!--App logo--> <img src="assets/media/brand-logos/slack.svg"
+										<!--App logo--> <img src="/resources/assets/media/brand-logos/slack.svg"
 										class="width-30 w-auto flex-shrink-0 me-4" alt="">
 										<div class="flex-grow-1">
 											<h6 class="mb-0">Slack</h6>
@@ -373,7 +373,7 @@ body {
 											class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 											<div class="d-block me-3">
 												<div class="avatar avatar-status status-online">
-													<img src="assets/media/avatars/01.jpg"
+													<img src="/resources/assets/media/avatars/01.jpg"
 														class="img-fluid rounded-circle w-auto" alt="">
 												</div>
 											</div>
@@ -389,7 +389,7 @@ body {
 											class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 											<div class="d-block me-3">
 												<div class="avatar avatar-status status-offline">
-													<img src="assets/media/avatars/06.jpg"
+													<img src="/resources/assets/media/avatars/06.jpg"
 														class="img-fluid rounded-circle w-auto" alt="">
 												</div>
 											</div>
@@ -446,7 +446,7 @@ body {
 
 									<!--Avatar with status-->
 									<div class="avatar-status status-online me-sm-2 avatar xs">
-										<img src="assets/media/avatars/01.jpg"
+										<img src="/resources/assets/media/avatars/01.jpg"
 											class="rounded-circle img-fluid" alt="">
 									</div>
 									<span class="d-none d-md-inline-block">Noah</span>
@@ -577,7 +577,7 @@ body {
 									<div class="row">
 										<div class="col-4 ps-5">
 											<div class="d-flex align-items-center">
-												<img src="assets/media/avatars/03.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
+												<img src="/resources/assets/media/avatars/03.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
 												<div class="h6 mb-0 lh-1">
 													이건우
 												</div>
@@ -661,8 +661,8 @@ body {
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
-	<script src="assets/vendor/feather.min.js"></script>
-	<script src="assets/js/theme.bundle.js"></script>
+	<script src="/resources/assets/vendor/feather.min.js"></script>
+	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
           feather.replace()
         </script>
@@ -671,7 +671,7 @@ body {
 
 
 	<!--Page script begin-->
-	<script src="assets/vendor/inputmask.min.js"></script>
+	<script src="/resources/assets/vendor/inputmask.min.js"></script>
 	<script>
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>

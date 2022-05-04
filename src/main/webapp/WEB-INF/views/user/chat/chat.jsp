@@ -16,7 +16,7 @@
         <title>hey, Buddy!</title>
 
             <!--Bootstrap icons-->
-            <link href="assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+            <link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
             <!--Google web fonts-->
             <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,20 +24,20 @@
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 
         <!--Simplebar css-->
-        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+        <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
         <!--Choices css-->
-        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
         <!--dropzone-->
-        <link rel="stylesheet" href="assets/vendor/css/dropzone.min.css">
+        <link rel="stylesheet" href="/resources/assets/vendor/css/dropzone.min.css">
 
         <!--Main style-->
-        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+        <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
     </head>
     <style>
 body {
-	background-image: url('../../../../../user/images/allround.jpg');
+	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -304,7 +304,7 @@ body {
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/atlassian.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/atlassian.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Atlassian</h6>
                                   <small>Security and control across Cloud</small>
@@ -314,7 +314,7 @@ body {
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/google-webdev.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/google-webdev.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Google webdev</h6>
                                   <small>Work involved in developing a website</small>
@@ -324,7 +324,7 @@ body {
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/slack.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/slack.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Slack</h6>
                                   <small>Email collaboration software</small>
@@ -368,7 +368,7 @@ body {
                                  <a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
                                     <div class="d-block me-3">
                                       <div class="avatar avatar-status status-online">
-                                        <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                        <img src="/resources/assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
                                       </div>
                                     </div>
 
@@ -383,7 +383,7 @@ body {
                                 <a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
                                     <div class="d-block me-3">
                                       <div class="avatar avatar-status status-offline">
-                                        <img src="assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                        <img src="/resources/assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
                                       </div>
                                     </div>
 
@@ -440,7 +440,7 @@ body {
 
                               <!--Avatar with status-->
                               <div class="avatar-status status-online me-sm-2 avatar xs">
-                                <img src="assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt="">
+                                <img src="/resources/assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt="">
                               </div>
                               <span class="d-none d-md-inline-block">Noah</span>
                             </div>
@@ -676,7 +676,7 @@ body {
                                     </div>
                                     <div class="me-auto d-flex align-items-center">
                                         <div class="avatar-status d-none d-sm-flex status-online me-3 flex-shrink-0 avatar">
-                                            <img src="assets/media/avatars/03.jpg" class="rounded-circle img-fluid"
+                                            <img src="/resources/assets/media/avatars/03.jpg" class="rounded-circle img-fluid"
                                                 alt="">
                                         </div>
                                         <div>
@@ -902,8 +902,8 @@ body {
         
         <!--////////////Theme Core scripts Start/////////////////-->
 
-        <script src="assets/vendor/feather.min.js"></script>
-        <script src="assets/js/theme.bundle.js"></script>
+        <script src="/resources/assets/vendor/feather.min.js"></script>
+        <script src="/resources/assets/js/theme.bundle.js"></script>
         <script>
           feather.replace()
         </script>
@@ -911,7 +911,7 @@ body {
         <!--////////////Theme Core scripts End/////////////////-->
 
 
-        <script src="assets/vendor/dropzone.min.js"></script>
+        <script src="/resources/assets/vendor/dropzone.min.js"></script>
         <script>
             let e = new Dropzone("[data-dropzone-area]", {
                 url: "https://httpbin.org/post",

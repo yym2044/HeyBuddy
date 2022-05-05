@@ -1,0 +1,12 @@
+body {
+	background-image: url('/resources/user/images/allround.jpg');
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.iconic {
+	padding-bottom: 30px;
+	padding-top: 30px;
+}

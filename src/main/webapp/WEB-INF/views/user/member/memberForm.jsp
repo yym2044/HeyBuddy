@@ -112,7 +112,7 @@ body {
 													class="form-check-label" for="terms">Agree to our <a
 													href="#!.html">Terms & conditions</a></label> <span
 													class="invalid-feedback">You must be agree to terms
-													& conditions</span>
+													& conditions</span> 
 											</div> 
 										</div>
 										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/login/login'">Sign

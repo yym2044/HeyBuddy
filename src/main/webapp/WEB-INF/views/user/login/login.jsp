@@ -103,7 +103,7 @@ body {
 												for="floatingPassword">Password</label> <span
 												class="invalid-feedback">Enter the password</span>
 										</div>
-										<div
+										<div 
 											class="d-flex align-items-center justify-content-between mb-3">
 											<div class="form-check">
 	 											<input class="form-check-input me-1" id="terms"

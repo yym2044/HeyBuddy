@@ -3,7 +3,7 @@ package com.owl.heybuddy.modules.mySpace;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+@Controller 
 public class MySpaceController {
 
 	@RequestMapping(value = "/user/myProfile")

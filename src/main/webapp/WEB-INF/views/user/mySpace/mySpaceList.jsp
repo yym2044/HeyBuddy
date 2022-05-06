@@ -123,7 +123,7 @@ header {
 										<br>
 										<!-- Split dropdown user button -->
 										<div class="btn-group">
-											<button type="button" class="btn btn-gray" onclick="location.href = '/chat/chatList'">
+											<button type="button" class="btn btn-gray" onclick="location.href = '/user/memberList'">
 												<i class="fe-1x me-2" data-feather="award"></i> GO
 											</button>
 											<button type="button"

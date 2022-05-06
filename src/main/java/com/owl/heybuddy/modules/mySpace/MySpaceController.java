@@ -11,54 +11,8 @@ public class MySpaceController {
 		return "/user/member/myProfile";
 	}
 	
-	@RequestMapping(value = "/setting/authEdit")
-	public String authEdit() {
-
-		return "/user/setting/authEdit";
-	}
-
-	@RequestMapping(value = "/setting/authForm")
-	public String authForm() {
-
-		return "user/setting/authForm";
-	}
-
-	@RequestMapping(value = "/setting/authList")
-	public String authList() {
-
-		return "user/setting/authList";
-	}
-
-	@RequestMapping(value = "/setting/group")
-	public String group() {
-
-		return "user/setting/group";
-	} 
-
-	@RequestMapping(value = "/setting/memberEdit")
-	public String memberEdit() {
-
-		return "user/setting/memberEdit";
-	}
-
-	@RequestMapping(value = "/setting/memberForm")
-	public String memberForm() {
-
-		return "user/setting/memberForm";
-	}
-
-	@RequestMapping(value = "/setting/memberList")
-	public String memberList() {
-
-		return "user/setting/memberList";
-	}
-
-	@RequestMapping(value = "/setting/memberView")
-	public String memberView() {
-
-		return "user/setting/memberView";
-	}
-
+	/******************************* 호스트 메뉴 Start *******************************/
+	
 	@RequestMapping(value = "/setting/profile")
 	public String profile() {
 
@@ -70,6 +24,9 @@ public class MySpaceController {
 
 		return "user/setting/space";
 	}
+	
+	/******************************* 호스트 메뉴 End *******************************/
+
 
 	@RequestMapping(value = "/mySpace/mySpaceForm")
 	public String mySpaceForm() {

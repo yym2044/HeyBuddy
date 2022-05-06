@@ -215,5 +215,56 @@ public class MemberController {
 	}
 
 	
+	/******************************* 호스트 메뉴 Start *******************************/
+	
+	@RequestMapping(value = "/setting/authEdit")
+	public String authEdit() {
 
+		return "/user/setting/authEdit";
+	}
+
+	@RequestMapping(value = "/setting/authForm")
+	public String authForm() {
+
+		return "user/setting/authForm";
+	}
+
+	@RequestMapping(value = "/setting/authList")
+	public String authList() {
+
+		return "user/setting/authList";
+	}
+
+	@RequestMapping(value = "/setting/group")
+	public String group() {
+
+		return "user/setting/group";
+	} 
+
+	@RequestMapping(value = "/setting/memberEdit")
+	public String memberEditHost() {
+
+		return "user/setting/memberEdit";
+	}
+
+	@RequestMapping(value = "/setting/memberForm")
+	public String memberFormHost() {
+
+		return "user/setting/memberForm";
+	}
+
+	@RequestMapping(value = "/setting/memberList")
+	public String memberListHost() {
+
+		return "user/setting/memberList";
+	}
+
+	@RequestMapping(value = "/setting/memberView")
+	public String memberViewHost() {
+
+		return "user/setting/memberView";
+	}
+	
+	/******************************* 호스트 메뉴 End *******************************/
+	
 }

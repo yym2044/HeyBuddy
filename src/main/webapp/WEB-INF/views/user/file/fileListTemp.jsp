@@ -32,22 +32,7 @@
         <!--Main style-->
         <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
     </head>
-<style>    
-body {
-	background-image: url('/resources/user/images/allround.jpg');
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-
-}
-
-.iconic {
-	padding-bottom: 30px;
-	padding-top: 30px;
-}
-
-</style>
+<link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
     <body>
        	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
@@ -385,26 +370,15 @@ body {
                                                     </div>
                                                 </div>
                                                </div>
-                                        </div>
-                                        <div class="col-md-6 col-xl-5 px-2 order-1 order-md-last mb-2 mb-md-0">
-                                           <div class="d-flex justify-content-end">
-                                               <form action="" class="position-relative flex-grow-1 me-2">
-                                                   <!--Icon-->
-                                                   <i data-feather="search" class="fe-1x position-absolute start-0 top-50 translate-middle-y ms-3"></i>
-                                                   <input type="text" class="form-control search ps-8" placeholder="제목,등록자 검색">
-                                               </form>
-                                            <a href="fileForm"  class="btn btn-primary btn-sm d-inline-flex align-items-center">
-                                                <i data-feather="edit-3" class="fe-2x me-md-2"></i>
-                                                <span class="d-md-inline-block d-none">등록</span></a>
-                                           </div>
-                                        </div>
+                                   	     </div>
+                                 
                                     </div>
                                 </div>
                             </div>
                             <!--Inbox mail list-->
                             <div class="list-group px-4 px-lg-8 mb-4 list">
                                 <!--Inbox-item-->
-                                <a href="fileView" class="list-group-item list-group-item-action">
+                                <a href="fileEditTemp" class="list-group-item list-group-item-action">
                                     <div class="d-flex align-items-center">
                                         <!--check-->
                                         <div class="form-check shrink-0 mb-0 me-1 position-relative">
@@ -416,18 +390,16 @@ body {
                                         <label for="starred_1" class="form-star-label"></label>
                                         </div>
                                         <div class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
-                                            <div class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
-                                                <img src="/resources/assets/media/avatars/02.jpg" class="img-fluid rounded-circle" alt="">
-                                            </div>
+                                            
                                             <div class="flex-grow-1 overflow-hidden pe-4">
                                                 <!--name class for search results-->
                                                 <div class="d-flex align-items-center mb-1">
-                                                    <div class="mb-0 me-2 flex-shrink-0 name">정미림</div>
+                                                   
                                                   <!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
                                                 </div>
                                                 <p class="small fw-bold mb-0"></p>
                                                 <p class="lh-sm text-truncate mb-0">
-                                                    <span class="fw-bolder me-2 me-lg-4"> 유지보수 계약건 입니다. </span>
+                                                    <span class="fw-bolder me-2 me-lg-4"> 임시저장 테스트입니다. </span>
                                           
                                                 </p>
                                                </div>
@@ -447,7 +419,7 @@ body {
                                     </div>
                                 </a>
                                 <!--Inbox-item-->
-                                <a href="fileView" class="list-group-item list-group-item-action">
+                                <a href="fileEditTemp" class="list-group-item list-group-item-action">
                                     <div class="d-flex align-items-center">
                                         <!--check-->
                                         <div class="form-check shrink-0 mb-0 me-1 position-relative">
@@ -459,13 +431,11 @@ body {
                                         <label for="starred_2" class="form-star-label"></label>
                                         </div>
                                         <div class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
-                                            <div class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
-                                                <img src="/resources/assets/media/avatars/03.jpg" class="img-fluid rounded-circle" alt="">
-                                            </div>
+                                           
                                             <div class="flex-grow-1 overflow-hidden pe-4">
                                                 <!--name class for search results-->
                                                 <div class="d-flex align-items-center mb-1">
-                                                    <div class="mb-0 me-2 flex-shrink-0 name">윤영민</div>
+                                                  
                                          <!--            <span class="badge label bg-success flex-shrink-0 rounded-pill ms-auto">Work</span> -->
                                                 </div>
                                                 <p class="small fw-bold mb-0"></p>
@@ -490,91 +460,7 @@ body {
                                     </div>
                                 </a>
                                
-                                <!--Inbox-item-->
-                                <a href="fileView" class="list-group-item list-group-item-action">
-                                    <div class="d-flex align-items-center">
-                                        <!--check-->
-                                        <div class="form-check shrink-0 mb-0 me-1 position-relative">
-                                            <input type="checkbox" class="form-check-input" id="check_4">
-                                        <label for="check_4" class="form-check-label"></label>
-                                        </div>
-                                        <div class="form-star shrink-0 mb-0 me-2 d-md-flex d-none position-relative">
-                                            <input type="checkbox" class="form-star-input" id="starred_4">
-                                        <label for="starred_4" class="form-star-label"></label>
-                                        </div>
-                                        <div class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
-                                            <div class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
-                                                <img src="/resources/assets/media/avatars/04.jpg" class="img-fluid rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden pe-4">
-                                                <!--name class for search results-->
-                                                <div class="d-flex align-items-center mb-1">
-                                                    <div class="mb-0 me-2 flex-shrink-0 name">이건우</div>
-                                            <!--         <span class="badge label bg-info flex-shrink-0 rounded-pill ms-auto">Family</span> -->
-                                                </div>
-                                                <p class="small fw-bold mb-0"></p>
-                                                <p class="lh-sm text-truncate mb-0">
-                                                   
-                                                          <span class="fw-bolder me-2 me-lg-4"> 4월3주차 사업현황 리포트 입니다.  </span>
-                                                </p>
-                                               </div>
-                                            <div class="flex-shrink-0">
-                                                <div class="d-flex flex-column align-items-end">
-                                                    <!--New indicator-->
-                                                    <div class="d-flex align-items-center justify-content-end mb-2">
-                                                        <i data-feather="image" class="fe-1x"></i>
-                                                        <!-- <span class="size-10 bg-info rounded-circle d-inline-block mb-2"></span> -->
-                                                    </div>
-                                                    <!--Time-->
-                                                    <span class="block small text-muted">16 Feb.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                
-                                <!--Inbox-item-->
-                                <a href="fileView" class="list-group-item list-group-item-action">
-                                    <div class="d-flex align-items-center">
-                                        <!--check-->
-                                        <div class="form-check shrink-0 mb-0 me-1 position-relative">
-                                            <input type="checkbox" class="form-check-input" id="check_6">
-                                        <label for="check_6" class="form-check-label"></label>
-                                        </div>
-                                        <div class="form-star shrink-0 mb-0 me-2 d-md-flex d-none position-relative">
-                                            <input type="checkbox" class="form-star-input" checked id="starred_6">
-                                        <label for="starred_6" class="form-star-label"></label>
-                                        </div>
-                                        <div class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
-                                            <div class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
-                                                <img src="/resources/assets/media/avatars/05.jpg" class="img-fluid rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden pe-4">
-                                                <!--name class for search results-->
-                                                <div class="d-flex align-items-center mb-1">
-                                                    <div class="mb-0 me-2 flex-shrink-0 name">김나리</div>
-                                                 
-                                                </div>
-                                                <p class="small fw-bold mb-0"></p>
-                                                <p class="lh-sm text-truncate mb-0">
-                                                   
-                                                   <span class="fw-bolder me-2 me-lg-4"> Wedding Invitation </span>
-                                                </p>
-                                               </div>
-                                            <div class="flex-shrink-0">
-                                                <div class="d-flex flex-column align-items-end">
-                                                    <!--New indicator-->
-                                                    <div class="d-flex align-items-center mb-2">
-                                                        <i data-feather="paperclip" class="fe-1x"></i>
-                                                        <!-- <span class="size-10 bg-primary rounded-circle d-inline-block mb-2"></span> -->
-                                                    </div>
-                                                    <!--Time-->
-                                                    <span class="block small text-muted">31 Dec 21</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                         
                              
                             </div>
                             <!--Footer for emails-->
@@ -601,34 +487,7 @@ body {
             </div>
         </div>
 
-          <!--Mail Compose Modal-->
-   <div class="modal search_modal fade" id="modal_compose" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="position-relative d-flex rounded-top px-4 py-3 align-items-center justify-content-between bg-primary text-white">
-                <h5 class="mb-0">문서등록</h5>
-                <button
-                    class="btn text-white shadow-none small"
-                    data-bs-dismiss="modal" type="button">취소</button>
-            </div>
-            <div class="p-4 modal-body">
-                <form>
-                    <input type="text" class="form-control mb-3" placeholder="공유자검색">
-                    <input type="text" class="form-control mb-3" placeholder="제목">
-                       <!--Quill editor-->
-                       <div class="mb-3" data-quill='{"placeholder": "Enter your message here..."}'></div>
-                   
-                   <input type="text" class="form-control mb-3" placeholder="내용" height="500px">
-                   
-                    <div class="d-flex justify-content-end pt-4">
-                        <button type="button" class="btn btn-outline-secondary">임시저장</button>
-                        <button type="button" class="btn btn-primary ms-2">등록</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
+ 
 
         
         <!--////////////Theme Core scripts Start/////////////////-->

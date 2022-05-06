@@ -91,14 +91,11 @@
                                 <div class="d-flex align-items-center pb-2 flex-row justify-content-between">
                                     
                                     <div class="flex-grow-1">
-                                        <a href="fileList" data-bs-placement="top" data-bs-toggle="tooltip" title="리스트" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+                                        <a href="app-inbox.html" data-bs-placement="top" data-bs-toggle="tooltip" title="리스트" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
                                             <i data-feather="arrow-left" class="fe-1x me-lg-1"></i>   <span class="d-none d-lg-inline-block">Back</span>
                                         </a>
 
                                         <div class="btn-group btn-group-sm">
-        
-                                           
-
 
                                         </div>
                                     </div>
@@ -125,7 +122,7 @@
                                     </div>
                                     <div class="card-body flex-grow-1">
                                     <input type="text" class="form-control"
-											name="ifmpNumber" value="  안녕하세요. 팀부엉의 막내 정미림 입니다. 어쩌구저쩌구 수정 ">
+											name="ifmpNumber" value="  안녕하세요.임시저장되었던 내용입니다. 등록해보세요~ ">
                                        
                                         <hr>
                         
@@ -198,7 +195,6 @@
         </script>
 
         <!--////////////Theme Core scripts End/////////////////-->
-
 
 
     </body>

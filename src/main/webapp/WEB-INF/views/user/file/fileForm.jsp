@@ -36,19 +36,6 @@
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
 <style>
-body {
-	background-image: url('/resources/user/images/allround.jpg');
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
-
-.iconic {
-	padding-bottom: 30px;
-	padding-top: 30px;
-}
-
 .addScroll {
 	overflow-y: auto;
 	height: 90px;
@@ -60,6 +47,8 @@ body {
 	cursor: pointer;
 }
 </style>
+
+<link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 
 <body>
@@ -401,12 +390,16 @@ body {
 								class="d-flex align-items-center pb-2 flex-row justify-content-between">
 
 								<div class="flex-grow-1">
-									<a href="app-inbox.html" data-bs-placement="top"
+									<a href="fileList" data-bs-placement="top"
 										data-bs-toggle="tooltip" title="리스트"
 										class="border text-body hover-bg-secondary btn btn-sm"> <i
 										data-feather="arrow-left" class="fe-1x me-lg-1"></i> <span
 										class="d-none d-lg-inline-block">Back</span>
 									</a>
+										 <a href="fileListTemp" data-bs-placement="top" data-bs-toggle="tooltip" title="임시저장불러오기" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+									
 								</div>
 							</div>
 						</div>

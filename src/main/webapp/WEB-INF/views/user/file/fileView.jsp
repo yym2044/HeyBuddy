@@ -31,21 +31,8 @@
         <!--Main style-->
         <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
     </head>
-<style>    
-body {
-	background-image: url('/resources/user/images/allround.jpg');
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+<link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 
-}
-
-.iconic {
-	padding-bottom: 30px;
-	padding-top: 30px;
-}
-</style>
     <body>
         	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>

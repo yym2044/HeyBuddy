@@ -31,4 +31,9 @@ public class FileController {
 	public String fileListTemp() throws Exception {
 		return "user/file/fileListTemp";
 	}
+	
+	@RequestMapping(value = "/file/fileEditTemp") // 임시저장 등록페이지
+	public String fileEditTemp() throws Exception {
+		return "user/file/fileEditTemp";
+	}
 }

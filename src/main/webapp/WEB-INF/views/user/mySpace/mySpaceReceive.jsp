@@ -105,12 +105,12 @@ body {
 										<br>
 										
 											<div class="btn-group">
-											<button type="button" class="btn btn-gray">
+											<button type="button" class="btn btn-gray" onclick="location.href = '/mySpace/mySpaceList'">
 												<i class="fe-1x me-2" data-feather="thumbs-up"></i> I'm in!
 											</button>
 											</div>
 											<div class="btn-group">
-											<button type="button" class="btn btn-gray">
+											<button type="button" class="btn btn-gray" onclick="location.href = '/mySpace/mySpaceList'">
 												<i class="fe-1x me-2" data-feather="thumbs-down"></i> I'm Sorry
 											</button>
 

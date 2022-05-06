@@ -35,8 +35,12 @@ body {
 	background-position: center;
 }
 
+header {
+	margin-top: 1%;
+}
+
 .mySpaceZone {
-	margin-top: 2%;
+	margin-top: 1%;
 	margin-bottom: 20%;
 	margin-left: 20%;
 	margin-right: 20%;
@@ -44,15 +48,35 @@ body {
 </style>
 
 <body>
+<header class="navbar py-0 page-header navbar-expand navbar-light">
 
-	<!--Theme mode switcher-->
-	<div class="position-absolute end-0 top-0 size-40 z-index-fixed">
-		<div class="switch_modes">
-			<a href="#" class="mode_dark"> <i data-feather="moon"></i>
-			</a> <a href="#" class="mode_light active"> <i data-feather="sun"></i>
-			</a>
-		</div>
-	</div>
+	<ul class="navbar-nav d-flex align-items-center h-100">
+		
+	</ul>
+	
+	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+	<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceSendList" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+				<i data-feather="mail" class="fe-1x"></i>
+			</a></li>
+	<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceReceive" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+				<i data-feather="bell" class="fe-1x"></i>
+			</a></li>
+		
+		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+				<a href="#" class="mode_dark text-reset p-0">
+					<i data-feather="sun" class="fe-1x"></i>
+				</a>
+				<a href="#" class="mode_light text-reset p-0">
+					<i data-feather="moon" class="fe-1x"></i>
+				</a>
+			</div>
+		</li>
+
+
+	</ul>
+</header>
+
 
 		<%@include file="../include/loader.jsp"%>
 
@@ -71,6 +95,7 @@ body {
 						<div style="text-align: center;">
 							<img src="/resources/user/images/mySpace.PNG" alt="..."
 								width="700px">
+							
 						</div>
 						<!--col-->
 						<div class="col-sm-6 col-xl-4">
@@ -83,7 +108,7 @@ body {
 									<div class="text-center">
 
 										<!-- Avatar --> 
-										<a href="#!"
+										<a href="/chat/chatList"
 											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
 											src="/resources/user/images/Beer-drinking.jpeg" alt="..."
 											class="img-fluid rounded-circle">
@@ -98,7 +123,7 @@ body {
 										<br>
 										<!-- Split dropdown user button -->
 										<div class="btn-group">
-											<button type="button" class="btn btn-gray">
+											<button type="button" class="btn btn-gray" onclick="location.href = '/chat/chatList'">
 												<i class="fe-1x me-2" data-feather="award"></i> GO
 											</button>
 											<button type="button"
@@ -107,7 +132,7 @@ body {
 												<i class="fe-1x" data-feather="more-vertical"></i>
 											</button>
 											<ul class="dropdown-menu dropdown-menu-end">
-												<li><a class="dropdown-item" href="#"><i
+												<li><a class="dropdown-item" href="/mySpace/mySpaceSend"><i
 														class="fe-1x me-2 align-middle" data-feather="user-plus"></i>
 														멤버 초대 </a></li>
 												<li><a class="dropdown-item" href="#"><i
@@ -274,7 +299,7 @@ body {
 									<div class="text-center">
 
 										<!-- Avatar -->
-										<a href="#!"
+										<a href="/mySpace/mySpaceForm"
 											class="avatar mb-3 mx-auto xxl d-block"> <img
 											src="/resources/user/images/newspaceplus.png" alt="...">
 										</a>

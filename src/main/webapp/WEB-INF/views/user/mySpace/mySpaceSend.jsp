@@ -85,7 +85,7 @@ body {
 												class="invalid-feedback"></span>
 										</div>
 										
-										<button class="w-100 btn btn-lg btn-success" type="submit">
+										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/mySpace/mySpaceSendList'">
 											SEND </button>
 
 

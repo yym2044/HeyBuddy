@@ -83,7 +83,7 @@
 										</small>
 									</div>
 									<!--Search result item-->
-									<a href="#!" class="list-group-item p-4 list-group-item-action">
+									<a href="/chat/chat" class="list-group-item p-4 list-group-item-action">
 										<div class="d-flex align-items-center">
 											<img src="/resources/assets/media/avatars/01.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
 											<div class="ps-3 flex-grow-1 overflow-hidden">

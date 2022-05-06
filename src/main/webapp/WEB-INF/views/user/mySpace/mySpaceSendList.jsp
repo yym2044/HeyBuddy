@@ -45,7 +45,16 @@ body {
 </style>
 
 <body>
-
+<header class="aside-footer position-relative p-3">
+			<ul class="nav">
+				<li class="nav-item"><a href="/mySpace/mySpaceList" class="nav-link d-flex align-items-center text-truncate ">
+						<span class="sidebar-icon">
+							<i class="bi bi-arrow-left-right" class="fe-1x"></i>
+						</span>
+						<span class="sidebar-text">마이스페이스</span>
+					</a></li>
+					</ul>
+					</header>
 	<!--Theme mode switcher-->
 	<div class="position-absolute end-0 top-0 size-40 z-index-fixed">
 		<div class="switch_modes">

@@ -94,7 +94,7 @@
                                                 </div>
                                                 <div class="overflow-hidden flex-grow-1">
                                                     <div class="d-flex">
-                                                        <h6 class="mb-0 flex-grow-1">Adam Voges
+                                                        <h6 class="mb-0 flex-grow-1"> 김나리
                                                             <!--New message badge-->
                                                             <span
                                                                 class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
@@ -118,7 +118,7 @@
                                                 </div>
                                                 <div class="overflow-hidden flex-grow-1">
                                                     <div class="d-flex">
-                                                        <h6 class="mb-0 text-reset flex-grow-1">Jason Doe</h6>
+                                                        <h6 class="mb-0 text-reset flex-grow-1"> Jason Doe </h6>
                                                         <small class=" opacity-75 ms-auto">08:24 AM</small>
                                                     </div>
                                                     <p class="mb-0 text-truncate">
@@ -138,7 +138,7 @@
                                                 </div>
                                                 <div class="overflow-hidden flex-grow-1">
                                                     <div class="d-flex">
-                                                        <h6 class="mb-0 text-reset flex-grow-1">Dwayne Bravo
+                                                        <h6 class="mb-0 text-reset flex-grow-1"> Dwayne Bravo
                                                         </h6>
                                                         <small class=" opacity-75 ms-auto">21/07/21</small>
                                                     </div>
@@ -159,7 +159,7 @@
                                                 </div>
                                                 <div class="overflow-hidden flex-grow-1">
                                                     <div class="d-flex">
-                                                        <h6 class="mb-0 text-reset flex-grow-1">Nikita Miller
+                                                        <h6 class="mb-0 text-reset flex-grow-1"> Nikita Miller
                                                         </h6>
                                                         <small class=" opacity-75 ms-auto">07/0721</small>
                                                     </div>
@@ -181,8 +181,8 @@
                                                 </div>
                                                 <div class="overflow-hidden flex-grow-1">
                                                     <div class="d-flex">
-                                                        <h6 class="mb-0 text-reset flex-grow-1">Dylan Ambrose
-                                                        </h6>
+                                                        <h6 class="mb-0 text-reset flex-grow-1" >Dylan Ambrose
+                                                        </h6> 
                                                         <small class=" opacity-75 ms-auto">03/06/21</small>
                                                     </div>
                                                     <p class="mb-0 opacity-75 text-truncate">
@@ -202,7 +202,7 @@
                                                 </div>
                                                 <div class="overflow-hidden flex-grow-1">
                                                     <div class="d-flex">
-                                                        <h6 class="mb-0 text-reset flex-grow-1">Abriella Bond
+                                                        <h6 class="mb-0 text-reset flex-grow-1"> Abriella Bond
                                                         </h6>
                                                         <small class=" opacity-75 ms-auto">21/04/21</small>
                                                     </div>
@@ -242,7 +242,7 @@
                                                 alt="">
                                         </div>
                                         <div>
-                                            <h5 class="mb-0 lh-1">Adam Voges</h5>
+                                            <h5 class="mb-0 lh-1"> 김나리 </h5>
                                             <span class="small lh-sm d-none d-sm-block">Active now</span>
                                         </div>
                                     </div>

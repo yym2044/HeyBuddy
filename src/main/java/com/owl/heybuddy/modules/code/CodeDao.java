@@ -1,5 +1,7 @@
 package com.owl.heybuddy.modules.code;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,5 +15,6 @@ public class CodeDao {
 	  
 	private static String namespace = "com.owl.heybuddy.modules.code.CodeMpp";
 
+	public List<Code> selectListForCache() {return sqlSession.selectList(namespace + ".selectListForCache", "");}
 
 }

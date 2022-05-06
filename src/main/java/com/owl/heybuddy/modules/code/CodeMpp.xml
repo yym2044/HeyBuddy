@@ -8,5 +8,18 @@
 
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.code.Code"></resultMap> <!-- 결과 객체 저장 -->
  
+ 	<select id="selectListForCache" resultMap="resultMapObj">
+		SELECT 
+			ifcdSeq
+			, ifcdName
+			, ifcgSeq
+		FROM 
+			infrCode
+		WHERE 1=1
+			AND ifcdDelNy = 0
+			AND ifcdUseNy = 1
+		ORDER BY
+			ifcdOrder
+	</select>
 	
 </mapper>

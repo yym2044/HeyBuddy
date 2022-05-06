@@ -1,5 +1,8 @@
 package com.owl.heybuddy.modules.code;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Code {
 	
 //	DTO
@@ -20,6 +23,10 @@ public class Code {
 	private Integer ifcdDelNy;
 	private Integer ifcdOrder;
 	
+//	for cache
+	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();
+	
+	/******************************* Getter & Setter *******************************/
 	
 	public String getIfcgSeq() {
 		return ifcgSeq;

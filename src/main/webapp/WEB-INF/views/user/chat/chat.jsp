@@ -504,6 +504,18 @@
             });
 
         </script>
+		 	
+		 	
+		 		<!-- 사이드바 Hover 유지시켜주는 작업-->
+      <script type="text/javascript">
+    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
+    	console.log(sidebarLink);
+    	
+    	console.log(sidebarLink[1]);
+    	
+    	sidebarLink[1].className += ' current';
+    </script>
+
     </body>
 
 </html>

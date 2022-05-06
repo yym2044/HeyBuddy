@@ -26,7 +26,7 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
- 
+ 			<link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 			<script src="https://kit.fontawesome.com/b322818db5.js" crossorigin="anonymous"></script>
         <!--Simplebar css-->
         <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
@@ -40,14 +40,6 @@
         <!--Main style-->
         <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
         <style>
-        	
-       		body {
-				background-image: url('/resources/user/images/allround.jpg');
-				height: 100vh;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-			}
         	
 			 .planinst :hover{
 			 			background: white;
@@ -66,13 +58,6 @@
 				box-shadow: 5px 5px 10px rgba(0,0,0,0.15);  /* 박스에 그림자를 줘서 입체적으로 만듬 */
 			}
 			
-			
-		
-			
-			.iconic {
-				padding-bottom: 30px;
-				padding-top: 30px;
-			}
         </style>
         
         
@@ -107,7 +92,7 @@
 
 
                                 </div>
-                                <div class="col-md-4">
+                               <!--  <div class="col-md-4">
                                     <nav aria-label="breadcrumb" class="d-flex justify-content-md-end">
                                         <ol class="breadcrumb mb-0">
                                             <li class="breadcrumb-item"><a href="#!">홈</a></li>
@@ -115,11 +100,11 @@
                                             <li class="breadcrumb-item">일정등록</li>
                                         </ol>
                                     </nav>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-                    <br><hr>
+                    <br>
                     <!--// 달력 윗부분 영역//-->
 
  
@@ -135,18 +120,17 @@
 						<h4 style="text-align: center;">📌일정등록</h4>			
 						<br>			
                     	<h5>제목</h5>
-                    	<input class="form-control mb-3" type="text" id="" name="" style="font-size: 1.5em;" placeholder="일정 제목을 입력해주세요">
+                    	<input class="form-control mb-3" type="text" id="" name="" placeholder="일정 제목을 입력해주세요">
                     	<br>
                     	<h5>일정내용</h5> 
-                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px; font-size: 1.5em;" placeholder="일정을 입력하세요">
+                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
                     	<br>
                     	<h5>기한</h5>
-                    	<a class="form-control mb-3" type="text" id="" name="" style="font-size: 1.5em;" placeholder="기한을 등록해주세요"><img src="/resources/user/images/calendar.png" style="width: 50px; height: 50px;"></a>
-                    	<br><br> 
-                    	<h5>공유자추가</h5>
-                   	     <div class="col-12">
+                    	<a class="form-control mb-3" type="text" id="" name="" placeholder="기한을 등록해주세요"><img src="/resources/user/images/calendar.png" style="width: 50px; height: 50px;"></a>
+                    	<br>
+                    	<h5>공유자</h5>
+                   	     <div class="form-control mb-3">
                             <div class="card card-body">
-                                <h5 class="form-label">공유자</h5>
                                 <select multiple class="form-control"
                                     data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
                                     <option value="1">김나리</option>
@@ -182,7 +166,7 @@
 				                    	
                     	<br>
                     	<div class="planinst container">
-                    	<a class="btn btn-danger me-2" href="planForm" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
+                    	<a class="btn btn-danger me-2" href="planList" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
  						<a class="btn btn-primary me-2" href="planList" style="width: 100px; font-size: 1em; text-align: center; float: right;">등록하기</a>
                     	</div>
                     </div>
@@ -310,6 +294,14 @@
    
 <script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+	
+      <script type="text/javascript">
+    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
+    	console.log(sidebarLink);
+    	
+    	console.log(sidebarLink[3]);
+    	
+    	sidebarLink[3].className += ' current';
+    </script>
 
 </html>

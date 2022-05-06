@@ -19,7 +19,7 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-
+			<link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
         <!--Simplebar css-->
         <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
@@ -32,13 +32,6 @@
         <!--Main style-->
         <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
         <style>
-        body {
-				background-image: url('/resources/user/images/allround.jpg');
-				height: 100vh;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-			}
 			
 			 .planinst :hover{
 			 			background: white;
@@ -53,10 +46,6 @@
 			 			color: red;
 			}
 			
-			.iconic {
-				padding-bottom: 30px;
-				padding-top: 30px;
-			}
 		</style>
     </head>
 
@@ -82,19 +71,19 @@
                         <div class="position-relative container-fluid px-0">
                             <div class="row align-items-center position-relative">
                                 <div class="col-md-8 mb-3 mb-lg-0">
-                                    <h3 class="mb-2">일정</h3>
-                                    <p class="mb-0 text-muted">일정을 등록해 주세요</p>
+                                    <h3 class="mb-2 ">일정</h3>
+                                   <!--  <p class="mb-0 text-muted">일정을 등록해 주세요</p> -->
 
 
                                 </div>
-                                <div class="col-md-4">
+                              <!--   <div class="col-md-4">
                                     <nav aria-label="breadcrumb" class="d-flex justify-content-md-end">
                                         <ol class="breadcrumb mb-0">
                                             <li class="breadcrumb-item"><a href="#!">Home</a></li>
                                             <li class="breadcrumb-item">일정</li>
                                         </ol>
                                     </nav>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -236,6 +225,15 @@
       droppable: true
     }).render()
         </script>
+        
+    <script type="text/javascript">
+    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
+    	console.log(sidebarLink);
+    	
+    	console.log(sidebarLink[3]);
+    	
+    	sidebarLink[3].className += ' current';
+    </script>
     </body>
 
 </html>

@@ -5,3 +5,28 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 		<!-- 사이드바 Hover 유지시켜주는 작업-->
+      <script type="text/javascript">
+    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
+    	console.log(sidebarLink);
+    	
+    	console.log(sidebarLink[0]);
+    	
+    	sidebarLink[0].className += ' current';
+    </script>

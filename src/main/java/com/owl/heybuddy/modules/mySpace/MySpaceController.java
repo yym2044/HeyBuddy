@@ -33,7 +33,7 @@ public class MySpaceController {
 	public String group() {
 
 		return "user/setting/group";
-	}
+	} 
 
 	@RequestMapping(value = "/setting/memberEdit")
 	public String memberEdit() {

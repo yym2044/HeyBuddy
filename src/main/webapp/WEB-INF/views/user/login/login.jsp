@@ -106,7 +106,7 @@ body {
 										<div
 											class="d-flex align-items-center justify-content-between mb-3">
 											<div class="form-check">
-												<input class="form-check-input me-1" id="terms"
+	 											<input class="form-check-input me-1" id="terms"
 													type="checkbox" value=""> <label
 													class="form-check-label fontB" for="terms">Remember
 													Me</label>

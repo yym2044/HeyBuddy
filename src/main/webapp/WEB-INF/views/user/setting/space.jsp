@@ -317,6 +317,15 @@
     })
     
     </script>
+    
+    <script type="text/javascript">
+    	const sidebarLink = document.querySelectorAll('.sidebar-link');
+    	console.log(sidebarLink);
+    	
+    	console.log(sidebarLink[6]);
+    	
+    	sidebarLink[6].className += ' current';
+    </script>
 </body>
 
 </html>

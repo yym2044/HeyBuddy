@@ -108,15 +108,15 @@ public class MemberController {
 	 */
 
 	
-	@RequestMapping(value = "/user/login") // 회원로그인
+	@RequestMapping(value = "/login/login") // 회원로그인
 	public String memberLogin() throws Exception {
 		return "/user/login/login";
 	}
 	
 	
-	@RequestMapping(value = "/xdmin/login") // 관리자로그인
+	@RequestMapping(value = "/login/xdminLogin") // 관리자로그인
 	public String xdminLogin() throws Exception {
-		return "/xdmin/login/login";
+		return "/xdmin/login/xdminLogin";
 	}
 	
 	/*

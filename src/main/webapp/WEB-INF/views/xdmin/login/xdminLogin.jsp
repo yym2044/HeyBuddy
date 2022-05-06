@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,29 +15,26 @@
 <title>hey, Buddy!</title>
 
 <!--Bootstrap icons-->
-<link href="assets/fonts/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.c
-            /om"
-	crossorigin>
-<link 
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
-	rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.min.css"
-	id="switchThemeStyle">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+
 </head>
+
 <style>
 body {
-	background-image: url('../../../../../user/images/allround.jpg');
+	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 </style>
+
 <body>
 	<!--Theme mode switcher-->
 	<div class="position-absolute end-0 top-0 size-40 z-index-fixed">
@@ -101,7 +97,7 @@ body {
 							<br>
 							<br>
 							<div style="text-align: center;">
-								<img src="../../../../../user/images/heybuddyWH.png" alt="..."
+								<img src="/resources/user/images/heybuddyWH.PNG" alt="..."
 									width="600px">
 							</div>
 							<div class="col-md-8 col-lg-5 col-xl-4">
@@ -166,8 +162,8 @@ body {
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
-	<script src="assets/vendor/feather.min.js"></script>
-	<script src="assets/js/theme.bundle.js"></script>
+	<script src="/resources/assets/vendor/feather.min.js"></script>
+	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
           feather.replace()
         </script>

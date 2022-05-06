@@ -110,16 +110,14 @@
                                 <div class="card h-100">
                                     <div class="card-header">
                                         <div class="row justify-content-md-between">
-                                            <div class="col-md d-flex mb-4 mb-md-0 align-items-center">
-                                              <div class="avatar">
-                                                <img class="rounded-circle" src="/resources/assets/media/avatars/02.jpg" alt="">
-                                              </div>
+                                        
+                                             
                                               <div class="flex-1 ms-2">
                                                 <h5 class="mb-0"><input type="text" class="form-control"
 											placeholder="제목"> </h5>
 										
                                               </div>
-                                            </div>
+                                    
 
                                           </div>
                                     </div>

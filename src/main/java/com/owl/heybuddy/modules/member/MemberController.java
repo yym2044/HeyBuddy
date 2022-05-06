@@ -1,17 +1,16 @@
 package com.owl.heybuddy.modules.member;
 
-import java.util.Locale;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
 public class MemberController { 
-	/*
-	 * @Autowired MemberServiceImpl service;
-	 */
+	
+	  @Autowired 
+	  MemberServiceImpl service;
+	 
 	
 	
 	/******************************* 관리자 *******************************/
@@ -209,11 +208,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/user/memberList")
-	public String chatList(Locale locale, Model model) {
+	public String chatList() {
 
 		return "user/member/memberList";
 	}
-
+		
 	
 	/******************************* 호스트 메뉴 Start *******************************/
 	

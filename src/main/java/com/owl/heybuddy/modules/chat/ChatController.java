@@ -1,16 +1,17 @@
 package com.owl.heybuddy.modules.chat;
 
-import java.util.Locale;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ChatController {
+	
+	@Autowired
+	ChatServiceImpl service;
 
 	@RequestMapping(value = "/chat/chat")
-	public String chat(Locale locale, Model model) {
+	public String chat() {
 
 		return "user/chat/chat";
 	}

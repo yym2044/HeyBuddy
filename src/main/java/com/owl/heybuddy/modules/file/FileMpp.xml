@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.owl.heybuddy.modules.file.FileMpp"> <!-- 지금 파일 지정 -->
+
+	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.file.File"></resultMap> <!-- 결과 객체 저장 -->
+ 
+	
+</mapper>

@@ -17,19 +17,19 @@
 
 
 <!--Page style = Date range picker-->
-<link rel="stylesheet" href="assets/vendor/css/daterangepicker.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 
 
 <!--Simplebar css-->
-<link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
 <!--Bootstrap icons-->
-<link href="assets/fonts/bootstrap-icons/bootstrap-icons.css"
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
 
 <!--Google web fonts-->
@@ -39,12 +39,12 @@
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
 	rel="stylesheet">
 <!--Main style-->
-<link rel="stylesheet" href="assets/css/style.min.css"
+<link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
 </head>
 <style>
 body {
-	background-image: url('../../../../../user/images/allround.jpg');
+	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -106,10 +106,10 @@ body {
 					<!--Aside-logo-->
 					<div
 						class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
-						<a href="index.html" class="d-block">
+						<a href="memberList" class="d-block">
 							<div class="d-flex align-items-center flex-no-wrap text-truncate">
 								<!--Sidebar-icon-->
-									<img src="../../../../../user/images/heybuddy.png" alt="..."
+									<img src="/resources/user/images/heybuddy.PNG" alt="..."
 									width="200px">
 							</div>
 						</a>
@@ -120,7 +120,7 @@ body {
 							<!--:Sidebar nav-->
 							<ul class="nav flex-column collapse-group collapse d-flex">
 
-								<li class="nav-item"><a href="index-analytics.html"
+								<li class="nav-item"><a href="memberList"
 									class="nav-link d-flex align-items-center text-truncate ">
 										<span class="sidebar-icon iconic"> <i
 											data-feather="user" class="fe-1x"></i>
@@ -194,7 +194,7 @@ body {
 							<div class="table-responsive">
 								<div class="text-center">
 									<label for="profilePhoto" style="cursor: pointer;"> <img
-										src="../../../../../user/images/profileUpload.png"
+										src="/resources//user/images/profileUpload.png"
 										style="width: 70px;">
 									</label> <input id="profilePhoto" type="file" style="display: none;">
 									<p class="p-2 fw-bold">프로필 사진</p>
@@ -312,8 +312,8 @@ body {
 
 								</table>
 								<div class="text-center pb-4">
-									<a class="btn btn-secondary" href="">취소</a> <a
-										class="btn btn-info" href="">등록</a>
+									<a class="btn btn-secondary" href="memberList">취소</a> <a
+										class="btn btn-info" href="memberView">등록</a>
 								</div>
 							</div>
 						</div>
@@ -342,8 +342,8 @@ body {
 
 				<!--////////////Theme Core scripts Start/////////////////-->
 
-				<script src="assets/vendor/feather.min.js"></script>
-				<script src="assets/js/theme.bundle.js"></script>
+				<script src="/resources/assets/vendor/feather.min.js"></script>
+				<script src="/resources/assets/js/theme.bundle.js"></script>
 				<script>
 					feather.replace()
 				</script>
@@ -368,8 +368,8 @@ body {
 				
 				
 					<!--Page script begin-->
-	<script src="assets/vendor/inputmask.min.js"></script>
-	<script src="assets/vendor/daterangepicker.js"></script>
+	<script src="/resources/assets/vendor/inputmask.min.js"></script>
+	<script src="/resources/assets/vendor/daterangepicker.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>

@@ -116,11 +116,11 @@ body {
 													class="small text-light fontB">Forget Password?</a>
 											</div>
 										</div>
-										<button class="w-100 btn btn-lg btn-success" type="submit">Sign
+										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/mySpace/mySpaceList'">Sign
 											In</button>
 										<hr class="mt-4 mb-3">
 										<p class="text-center text-light fontB">
-											Don’t have an account yet? <a href="page-auth-signup.html"
+											Don’t have an account yet? <a href="/user/memberForm"
 												class="ms-2 text-body">Sign Up</a>
 
 										</p>

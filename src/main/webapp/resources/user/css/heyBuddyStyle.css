@@ -10,3 +10,29 @@ body {
 	padding-bottom: 30px;
 	padding-top: 30px;
 }
+.sidebar-text:hover {
+	text-decoration: none;
+	color: white;
+}
+.sidebar-link {
+	transition: all .4s;
+}
+
+.sidebar-link:hover {
+	background-color: #55B4B0;
+	border-radius: 5px;
+	
+}
+
+.current {
+	background-color: #55B4B0;
+	border-radius: 7px;
+	box-shadow: 2px 5px 10px gray;
+}
+
+.current:hover {
+	background-color: #55B4B0;
+	border-radius: 7px;
+	box-shadow: 2px 5px 10px gray;
+	transform: translateY(-1px);
+}

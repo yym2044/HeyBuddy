@@ -16,24 +16,24 @@
         <title>hey, Buddy!</title>
 
         <!--Simplebar css-->
-        <link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+        <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
         <!--Choices css-->
-        <link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+        <link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
             <!--Bootstrap icons-->
-            <link href="assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+            <link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
             <!--Google web fonts-->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
         <!--Main style-->
-        <link rel="stylesheet" href="assets/css/style.min.css" id="switchThemeStyle">
+        <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
     </head>
 <style>    
 body {
-	background-image: url('../../../../../user/images/allround.jpg');
+	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -47,134 +47,16 @@ body {
 }
 </style>
     <body>
-          <!--////////////////// PreLoader Start//////////////////////-->
-          <div class="loader">
-            <!--Placeholder animated layout for preloader-->
-            <div class="d-flex flex-column flex-root">
-              <div class="page d-flex flex-row flex-column-fluid">
-
-                <!--Sidebar start-->
-                <aside class="page-sidebar aside-dark placeholder-wave">
-                  <div class="placeholder col-12 h-100 bg-gray"></div>
-                </aside>
-                <div class="page-content d-flex flex-column flex-row-fluid">
-                  <div
-                    class="content flex-column p-4 pb-0 d-flex justify-content-center align-items-center flex-column-fluid position-relative">
-                    <div class="w-100 h-100 position-relative d-flex align-items-center justify-content-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-loader spinner-grow  me-2"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
-                    <div>
-                      <span>Loading...</span>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--////////////////// /.PreLoader END//////////////////////-->
+        	<!-- include 처리 1번 -->
+	<%@include file="../include/loader.jsp"%>
 
         <!--App Start-->
         <div class="d-flex flex-column flex-root">
             <!--Page-->
             <div class="page d-flex flex-row flex-column-fluid">
-                <!--///////////Page sidebar begin///////////////-->
-                <aside class="page-sidebar">
-                  <div class="h-100 flex-column d-flex justify-content-start">
-
-                    <!--Aside-logo-->
-                    <div class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
-                      <a href="index.html" class="d-block">
-                        <div class="d-flex align-items-center flex-no-wrap text-truncate">
-                          <!--Sidebar-icon-->
-                          <span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-primary fw-bold"> 팀 </span>
-                          <span class="sidebar-text">
-                            <!--Sidebar-text-->
-                            <span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder">
-                              팀부엉
-                            </span>
-                          </span>
-                        </div>
-                      </a>
-                    </div>
-                    <!--Aside-Menu-->
-                    <div class="aside-menu px-3 my-auto" data-simplebar>
-                      <nav class="flex-grow-1 h-100" id="page-navbar">
-                        <!--:Sidebar nav-->
-                        <ul class="nav flex-column collapse-group collapse d-flex">
-                
-                          <li class="nav-item">
-                            <a href="app-chat.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon iconic">
-                                <i data-feather="user" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">멤버</span>
-                            </a>
-                          </li>
-                          
-                          <li class="nav-item">
-                            <a href="app-chat.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon iconic">
-                                <i data-feather="message-circle" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">채팅</span>
-                            </a>
-                          </li>
-                          
-								<li class="nav-item"><a href="app-ㅍchat.html"
-									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon iconic"> <i data-feather="video"
-											class="fe-1x"></i>
-									</span> <span class="sidebar-text">화상</span>
-								</a></li>
-
-
-
-								<li class="nav-item">
-                            <a href="app-calendar.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon iconic">
-                                <i data-feather="calendar" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">일정</span>
-                            </a>
-                          </li>
-                 
-
-                          <li class="nav-item">
-                            <a href="#component-forms" data-bs-toggle="collapse" aria-expanded="false"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon iconic">
-                                <i data-feather="edit" class="fe-1x"></i>
-                              </span>
-                              <!--Sidebar nav text-->
-                              <span class="sidebar-text">문서</span>
-                            </a>
-                      
-                          </li>
- 
-                        </ul>
-                      </nav>
-                    </div>
-                    <!--Aside-footer-->
-                    <footer class="aside-footer position-relative p-3">
-                     <ul class="nav flex-column collapse-group collapse d-flex">
-                    			<li class="nav-item">
-                            <a href="app-calendar.html"
-                              class="nav-link d-flex align-items-center text-truncate ">
-                              <span class="sidebar-icon">
-                                <i data-feather="settings" class="fe-1x"></i>
-                              </span>
-                              <span class="sidebar-text">환경 설정</span>
-                            </a>
-                          </li>
-                          		
-                          </ul>
-                    </footer>
-                  </div>
-                </aside>
-                <!--///////////Page Sidebar End///////////////-->
+            
+             	<!-- include 처리 2번 -->
+			<%@include file="../include/pageSideBar.jsp"%>
 
                 <!--///Sidebar close button for 991px or below devices///-->
                 <div
@@ -274,7 +156,7 @@ body {
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/atlassian.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/atlassian.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Atlassian</h6>
                                   <small>Security and control across Cloud</small>
@@ -284,7 +166,7 @@ body {
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/google-webdev.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/google-webdev.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Google webdev</h6>
                                   <small>Work involved in developing a website</small>
@@ -294,7 +176,7 @@ body {
                               <!--App item-->
                               <a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
                                 <!--App logo-->
-                                <img src="assets/media/brand-logos/slack.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
+                                <img src="/resources/assets/media/brand-logos/slack.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
                                 <div class="flex-grow-1">
                                   <h6 class="mb-0">Slack</h6>
                                   <small>Email collaboration software</small>
@@ -338,7 +220,7 @@ body {
                                  <a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
                                     <div class="d-block me-3">
                                       <div class="avatar avatar-status status-online">
-                                        <img src="assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                        <img src="/resources/assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
                                       </div>
                                     </div>
 
@@ -353,7 +235,7 @@ body {
                                 <a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
                                     <div class="d-block me-3">
                                       <div class="avatar avatar-status status-offline">
-                                        <img src="assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
+                                        <img src="/resources/assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
                                       </div>
                                     </div>
 
@@ -410,7 +292,7 @@ body {
 
                               <!--Avatar with status-->
                               <div class="avatar-status status-online me-sm-2 avatar xs">
-                                <img src="assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt="">
+                                <img src="/resources/assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt="">
                               </div>
                               <span class="d-none d-md-inline-block">New Face</span>
                             </div>
@@ -484,7 +366,7 @@ body {
                                 <div class="d-flex align-items-center pb-2 flex-row justify-content-between">
                                     
                                     <div class="flex-grow-1">
-                                        <a href="app-inbox.html" data-bs-placement="top" data-bs-toggle="tooltip" title="리스트" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+                                        <a href="fileList" data-bs-placement="top" data-bs-toggle="tooltip" title="리스트" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
                                             <i data-feather="arrow-left" class="fe-1x me-lg-1"></i>   <span class="d-none d-lg-inline-block">Back</span>
                                         </a>
 
@@ -493,7 +375,9 @@ body {
                                             <a href="#!" data-bs-placement="top" data-bs-toggle="tooltip" title="삭제" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
                                                 <i class="bi bi-trash-fill"></i>
                                             </a>
-
+                 							 <a href="fileEdit" data-bs-placement="top" data-bs-toggle="tooltip" title="수정" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
 
                                         </div>
                                     </div>
@@ -507,7 +391,7 @@ body {
                                         <div class="row justify-content-md-between">
                                             <div class="col-md d-flex mb-4 mb-md-0 align-items-center">
                                               <div class="avatar">
-                                                <img class="rounded-circle" src="assets/media/avatars/02.jpg" alt="">
+                                                <img class="rounded-circle" src="/resources/assets/media/avatars/02.jpg" alt="">
                                               </div>
                                               <div class="flex-1 ms-2">
                                                 <h5 class="mb-0">이젠IT 유지보수 계약 체결 건 </h5><a class="text-800 fs--1" href="#!"><span class="fw-semi-bold">정미림</span><span class="ms-1 text-500">&lt;mrjung@heybuddy.com&gt;</span></a>
@@ -538,7 +422,7 @@ body {
                                             <!--Attachment image-->
                                             <a href="#!" class="card-hover me-2 position-relative width-90">
                                                 <span class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
-                                                    <img src="assets/media/900x600/2.jpg" class="img-fluid" alt="">
+                                                    <img src="/resources/assets/media/900x600/2.jpg" class="img-fluid" alt="">
                                                     <span class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
                                                         <span>
                                                      <i data-feather="download" class="fe-2x"></i>      
@@ -557,7 +441,7 @@ body {
                                               <!--Attachment image-->
                                               <a href="#!" class="card-hover me-2 position-relative width-90">
                                                 <span class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
-                                                    <img src="assets/media/900x600/1.jpg" class="img-fluid" alt="">
+                                                    <img src="/resources/assets/media/900x600/1.jpg" class="img-fluid" alt="">
                                                     <span class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
                                                         <span>
                                                      <i data-feather="download" class="fe-2x"></i>      
@@ -601,7 +485,7 @@ body {
                                                         <li class="list-group-item">
                                                             <div class="d-flex align-items-stretch">
                                                                 <a href="#!" class="flex-shrink-0 d-block me-2">
-                                                                    <img src="assets/media/avatars/01.jpg"
+                                                                    <img src="/resources/assets/media/avatars/01.jpg"
                                                                         class="avatar sm rounded-circle" alt="">
                                                                 </a>
                                                                 <!--Coomments and replies-->
@@ -626,7 +510,7 @@ body {
                                                                             <i data-feather="corner-down-right" class="fe-1x me-1 align-middle"></i>
                                                                         </div>
                                                                         <a href="#!" class="flex-shrink-0 d-block me-2">
-                                                                            <img src="assets/media/avatars/02.jpg"
+                                                                            <img src="/resources/assets/media/avatars/02.jpg"
                                                                                 class="avatar xs rounded-circle" alt="">
                                                                         </a>
                                                                         <!--Reply-->
@@ -655,7 +539,7 @@ body {
                                                         <li class="list-group-item">
                                                             <div class="d-flex align-items-stretch">
                                                                 <a href="#!" class="flex-shrink-0 d-block me-2">
-                                                                    <img src="assets/media/avatars/03.jpg"
+                                                                    <img src="/resources/assets/media/avatars/03.jpg"
                                                                         class="avatar sm rounded-circle" alt="">
                                                                 </a>
                                                                 <!--Coomments and replies-->
@@ -717,8 +601,8 @@ body {
         
         <!--////////////Theme Core scripts Start/////////////////-->
 
-        <script src="assets/vendor/feather.min.js"></script>
-        <script src="assets/js/theme.bundle.js"></script>
+        <script src="/resources/assets/vendor/feather.min.js"></script>
+        <script src="/resources/assets/js/theme.bundle.js"></script>
         <script>
           feather.replace()
         </script>

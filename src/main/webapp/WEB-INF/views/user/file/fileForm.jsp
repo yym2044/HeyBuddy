@@ -17,13 +17,13 @@
 <title>hey, Buddy!</title>
 
 <!--Simplebar css-->
-<link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
 <!--Bootstrap icons-->
-<link href="assets/fonts/bootstrap-icons/bootstrap-icons.css"
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
 
 <!--Google web fonts-->
@@ -33,11 +33,11 @@
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
 	rel="stylesheet">
 <!--Main style-->
-<link rel="stylesheet" href="assets/css/style.min.css"
+<link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
 <style>
 body {
-	background-image: url('../../../../../user/images/allround.jpg');
+	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -63,155 +63,17 @@ body {
 </head>
 
 <body>
-	<!--////////////////// PreLoader Start//////////////////////-->
-	<div class="loader">
-		<!--Placeholder animated layout for preloader-->
-		<div class="d-flex flex-column flex-root">
-			<div class="page d-flex flex-row flex-column-fluid">
-
-				<!--Sidebar start-->
-				<aside class="page-sidebar aside-dark placeholder-wave">
-					<div class="placeholder col-12 h-100 bg-gray"></div>
-				</aside>
-				<div class="page-content d-flex flex-column flex-row-fluid">
-					<div
-						class="content flex-column p-4 pb-0 d-flex justify-content-center align-items-center flex-column-fluid position-relative">
-						<div
-							class="w-100 h-100 position-relative d-flex align-items-center justify-content-center">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-								viewBox="0 0 24 24" fill="none" stroke="currentColor"
-								stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-								class="feather feather-loader spinner-grow  me-2">
-								<line x1="12" y1="2" x2="12" y2="6" />
-								<line x1="12" y1="18" x2="12" y2="22" />
-								<line x1="4.93" y1="4.93" x2="7.76" y2="7.76" />
-								<line x1="16.24" y1="16.24" x2="19.07" y2="19.07" />
-								<line x1="2" y1="12" x2="6" y2="12" />
-								<line x1="18" y1="12" x2="22" y2="12" />
-								<line x1="4.93" y1="19.07" x2="7.76" y2="16.24" />
-								<line x1="16.24" y1="7.76" x2="19.07" y2="4.93" /></svg>
-							<div>
-								<span>Loading...</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--////////////////// /.PreLoader END//////////////////////-->
+		<!-- include 처리 1번 -->
+	<%@include file="../include/loader.jsp"%>
 
 	<!--App Start-->
 	<div class="d-flex flex-column flex-root">
 		<!--Page-->
 		<div class="page d-flex flex-row flex-column-fluid">
-			<!--///////////Page sidebar begin///////////////-->
-			<aside class="page-sidebar">
-				<div class="h-100 flex-column d-flex justify-content-start">
-
-					<!--Aside-logo-->
-					<div
-						class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
-						<a href="index.html" class="d-block">
-							<div class="d-flex align-items-center flex-no-wrap text-truncate">
-								<!--Sidebar-icon-->
-								<span
-									class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-primary fw-bold">
-									팀 </span> <span class="sidebar-text"> <!--Sidebar-text--> <span
-									class="sidebar-text text-truncate fs-4 ms-3 fw-bolder">
-										팀부엉 </span>
-								</span>
-							</div>
-						</a>
-					</div>
-					<!--Aside-Menu-->
-					<div class="aside-menu px-3 my-auto" data-simplebar>
-						<nav class="flex-grow-1 h-100" id="page-navbar">
-							<!--:Sidebar nav-->
-							<ul class="nav flex-column collapse-group collapse d-flex">
-
-								<li class="nav-item"><a href="app-chat.html"
-									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon iconic"> <i
-											data-feather="user" class="fe-1x"></i>
-									</span> <span class="sidebar-text">멤버</span>
-								</a></li>
-
-								<li class="nav-item"><a href="app-chat.html"
-									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon iconic"> <i
-											data-feather="message-circle" class="fe-1x"></i>
-									</span> <span class="sidebar-text">채팅</span>
-								</a></li>
-
-								<li class="nav-item"><a href="app-ㅍchat.html"
-									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon iconic"> <i
-											data-feather="video" class="fe-1x"></i>
-									</span> <span class="sidebar-text">화상</span>
-								</a></li>
-
-
-
-								<li class="nav-item"><a href="app-calendar.html"
-									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon iconic"> <i
-											data-feather="calendar" class="fe-1x"></i>
-									</span> <span class="sidebar-text">일정</span>
-								</a></li>
-
-
-								<li class="nav-item"><a href="#component-forms"
-									data-bs-toggle="collapse" aria-expanded="false"
-									class="nav-link d-flex align-items-center text-truncate ">
-										<span class="sidebar-icon iconic"> <i
-											data-feather="edit" class="fe-1x"></i>
-									</span> <!--Sidebar nav text--> <span class="sidebar-text">문서</span>
-								</a>
-									<ul id="component-forms"
-										class="sidebar-dropdown list-unstyled collapse">
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-bootstrap.html"> Bootstrap</a></li>
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-editor.html"> Editor</a></li>
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-stepper.html"> Stepper</a></li>
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-upload.html"> Upload</a></li>
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-daterange-picker.html"> Daterangepicker</a></li>
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-validation.html"> Validation</a></li>
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-choices.html"> Choices</a></li>
-										<li class="sidebar-item"><a class="sidebar-link"
-											href="ui-form-inputmask.html"> Inputmask</a></li>
-									</ul></li>
-
-							</ul>
-						</nav>
-					</div>
-					<!--Aside-footer-->
-					<footer class="aside-footer position-relative p-3">
-						<ul class="nav flex-column collapse-group collapse d-flex">
-							<li class="nav-item"><a href="app-calendar.html"
-								class="nav-link d-flex align-items-center text-truncate "> <span
-									class="sidebar-icon"> <i data-feather="settings"
-										class="fe-1x"></i>
-								</span> <span class="sidebar-text">환경 설정</span>
-							</a></li>
-
-						</ul>
-					</footer>
-				</div>
-			</aside>
-			<!--///////////Page Sidebar End///////////////-->
-
-			<!--///Sidebar close button for 991px or below devices///-->
-			<div class="sidebar-close d-lg-none">
-				<a href="#"></a>
-			</div>
-			<!--///.Sidebar close end///-->
+			
+			
+			<!-- include 처리 2번 -->
+			<%@include file="../include/pageSideBar.jsp"%>
 
 
 			<!--///////////Page content wrapper///////////////-->
@@ -306,7 +168,7 @@ body {
 									<a href="#!"
 										class="list-group-item px-3 list-group-item-action d-flex align-items-center">
 										<!--App logo--> <img
-										src="assets/media/brand-logos/atlassian.svg"
+										src="/resources/assets/media/brand-logos/atlassian.svg"
 										class="width-30 w-auto flex-shrink-0 me-4" alt="">
 										<div class="flex-grow-1">
 											<h6 class="mb-0">Atlassian</h6>
@@ -318,7 +180,7 @@ body {
 									<a href="#!"
 										class="list-group-item px-3 list-group-item-action d-flex align-items-center">
 										<!--App logo--> <img
-										src="assets/media/brand-logos/google-webdev.svg"
+										src="/resources/assets/media/brand-logos/google-webdev.svg"
 										class="width-30 w-auto flex-shrink-0 me-4" alt="">
 										<div class="flex-grow-1">
 											<h6 class="mb-0">Google webdev</h6>
@@ -329,7 +191,7 @@ body {
 									<!--App item-->
 									<a href="#!"
 										class="list-group-item px-3 list-group-item-action d-flex align-items-center">
-										<!--App logo--> <img src="assets/media/brand-logos/slack.svg"
+										<!--App logo--> <img src="/resources/assets/media/brand-logos/slack.svg"
 										class="width-30 w-auto flex-shrink-0 me-4" alt="">
 										<div class="flex-grow-1">
 											<h6 class="mb-0">Slack</h6>
@@ -379,7 +241,7 @@ body {
 											class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 											<div class="d-block me-3">
 												<div class="avatar avatar-status status-online">
-													<img src="assets/media/avatars/01.jpg"
+													<img src="/resources/assets/media/avatars/01.jpg"
 														class="img-fluid rounded-circle w-auto" alt="">
 												</div>
 											</div>
@@ -395,7 +257,7 @@ body {
 											class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 											<div class="d-block me-3">
 												<div class="avatar avatar-status status-offline">
-													<img src="assets/media/avatars/06.jpg"
+													<img src="/resources/assets/media/avatars/06.jpg"
 														class="img-fluid rounded-circle w-auto" alt="">
 												</div>
 											</div>
@@ -452,7 +314,7 @@ body {
 
 									<!--Avatar with status-->
 									<div class="avatar-status status-online me-sm-2 avatar xs">
-										<img src="assets/media/avatars/01.jpg"
+										<img src="/resources/assets/media/avatars/01.jpg"
 											class="rounded-circle img-fluid" alt="">
 									</div>
 									<span class="d-none d-md-inline-block">New Face</span>
@@ -612,7 +474,8 @@ body {
 								<div class="row text-center" style="width: 100%">
 									<div style="width: 100%; float: none; margin: 0 auto">
 										<button type="button" class="btn btn-outline-secondary">임시저장</button>
-										<button type="button" class="btn btn-primary ms-2">등록</button>
+									<a href="fileView">	<button type="button" class="btn btn-primary ms-2">등록</button>
+									</a> 
 									</div>
 									
 									<br> <br>
@@ -645,8 +508,8 @@ body {
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
-	<script src="assets/vendor/feather.min.js"></script>
-	<script src="assets/js/theme.bundle.js"></script>
+	<script src="/resources/assets/vendor/feather.min.js"></script>
+	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
 		feather.replace()
 	</script>

@@ -16,13 +16,13 @@
 <title>hey, Buddy!</title>
 
 <!--Simplebar css-->
-<link rel="stylesheet" href="assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet" href="assets/vendor/css/choices.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
 <!--Bootstrap icons-->
-<link href="assets/fonts/bootstrap-icons/bootstrap-icons.css"
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
 
 <!--Google web fonts-->
@@ -32,12 +32,12 @@
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
 	rel="stylesheet">
 <!--Main style-->
-<link rel="stylesheet" href="assets/css/style.min.css"
+<link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
 </head>
 <style>
 body {
-	background-image: url('../../../../../user/images/allround.jpg');
+	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -99,11 +99,11 @@ body {
 					<!--Aside-logo-->
 					<div
 						class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
-						<a href="index.html" class="d-block">
+						<a href="memberList" class="d-block">
 							<div class="d-flex align-items-center flex-no-wrap text-truncate">
 								<!--Sidebar-icon-->
 								
-								<img src="../../../../../user/images/heybuddy.png" alt="..."
+								<img src="/resources/user/images/heybuddy.PNG" alt="..."
 									width="200px">
 						
 							</div>
@@ -115,7 +115,7 @@ body {
 							<!--:Sidebar nav-->
 							<ul class="nav flex-column collapse-group collapse d-flex">
 
-								<li class="nav-item"><a href="index-analytics.html"
+								<li class="nav-item"><a href="memberList"
 									class="nav-link d-flex align-items-center text-truncate ">
 										<span class="sidebar-icon iconic"> <i
 											data-feather="user" class="fe-1x"></i>
@@ -269,6 +269,8 @@ body {
 						<div class="col-12">
 							<div class="card">
 								<div class="table-responsive">
+									
+										<a href="memberView">
 									<table id="datatable"
 										class="table mt-0 table-striped table-card table-nowrap">
 										<thead class="text-uppercase small text-muted">
@@ -286,7 +288,7 @@ body {
 										<tbody>
 											<tr>
 												<td>1</td>
-												<td>정미림</td>
+										<td>정미림</td>
 												<td>mija345</td>
 												<td>910907</td>
 												<td>여자</td>
@@ -357,7 +359,7 @@ body {
 
 										</tbody>
 									</table>
-									
+									 </a>
 										<!--버튼 -->
 			<div class="row text-center" style="width: 100%">
 				<div style="width: 100%; float: none; margin: 0 auto">
@@ -366,9 +368,9 @@ body {
 <!-- 	
 <a href="javascript:goMemberForm('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
 '<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">  -->
-<button type="button" id ="goMemberForm" class="btn btn-sm btn-outline-success"> 회원등록 </button>
+<a href="memberForm"> <button type="button" id ="goMemberForm" class="btn btn-sm btn-success"> 회원등록 </button> </a>
 
-<button type="button" id="" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#btnModalNelete"> 삭제 </button> 
+<!-- <button type="button" id="" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#btnModalNelete"> 삭제 </button>  -->
 	
 	<div class="modal fade" id="btnModalNelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -392,6 +394,8 @@ body {
 									<button type="button" class="btn btn-primary" id="btnModalNelete"  >확인</button></a>
 				
 								</div>
+								
+					
 							</div>
 						</div>
 					</div>    
@@ -405,6 +409,8 @@ body {
 					</div>
 				</div>
 			</div>
+			
+		
 			<!--//Page content End//-->
 
 
@@ -428,8 +434,8 @@ body {
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
-	<script src="assets/vendor/feather.min.js"></script>
-	<script src="assets/js/theme.bundle.js"></script>
+	<script src="/resources/assets/vendor/feather.min.js"></script>
+	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
 		feather.replace()
 	</script>

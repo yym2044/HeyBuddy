@@ -162,8 +162,8 @@ body {
                                                   
                     			<div class="row text-center" style="width: 100%">
 									<div style="width: 100%; float: none; margin: 0 auto">
-										<button type="button" class="btn btn-outline-secondary">뒤로</button>
-										<button type="button" class="btn btn-primary ms-2">등록</button>
+									<a href="fileList">	<button type="button" class="btn btn-outline-secondary">뒤로</button> </a>
+								<a href="fileView"> <button type="button" class="btn btn-primary ms-2">등록</button> </a>
 									</div>
 									
 									<br> <br>

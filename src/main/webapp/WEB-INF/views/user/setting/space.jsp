@@ -319,7 +319,7 @@
     </script>
     
     <script type="text/javascript">
-    	const sidebarLink = document.querySelectorAll('.sidebar-link');
+    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
     	console.log(sidebarLink);
     	
     	console.log(sidebarLink[6]);

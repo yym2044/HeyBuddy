@@ -207,7 +207,7 @@
 					<a href="profile.html" class="dropdown-item">
 						<i class="fe-1x me-3" data-feather="user"></i>Profile
 					</a>
-					<a href="account-general.html" class="dropdown-item">
+					<a href="/user/myProfile" class="dropdown-item">
 						<i class="fe-1x me-3" data-feather="tool"></i>Settings
 					</a>
 					<a href="page-tasks.html" class="dropdown-item">

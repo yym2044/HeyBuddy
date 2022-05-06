@@ -1,6 +1,9 @@
 package com.owl.heybuddy.modules.member;
 
+import java.util.Locale;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -205,6 +208,11 @@ public class MemberController {
 		return "user/member/memberForm";
 	}
 	
+	@RequestMapping(value = "/user/memberList")
+	public String chatList(Locale locale, Model model) {
+
+		return "user/member/memberList";
+	}
 
 	
 

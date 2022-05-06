@@ -15,9 +15,4 @@ public class ChatController {
 		return "user/chat/chat";
 	}
 
-	@RequestMapping(value = "/chat/chatList")
-	public String chatList(Locale locale, Model model) {
-
-		return "user/chat/chatList";
-	}
 }

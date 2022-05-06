@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MySpaceController {
 
+	@RequestMapping(value = "/user/myProfile")
+	public String myProfile() {
+		return "/user/member/myProfile";
+	}
+	
 	@RequestMapping(value = "/setting/authEdit")
 	public String authEdit() {
 

@@ -23,7 +23,7 @@
 				<!--:Sidebar nav-->
 				<ul class="nav flex-column collapse-group collapse d-flex">
 
-					<li class="nav-item"><a href="app-chat.html" class="nav-link d-flex align-items-center text-truncate ">
+					<li class="nav-item"><a href="/user/memberList" class="nav-link d-flex align-items-center text-truncate ">
 							<span class="sidebar-icon iconic">
 								<i data-feather="user" class="fe-1x"></i>
 							</span>
@@ -37,7 +37,7 @@
 							<span class="sidebar-text">채팅</span>
 						</a></li>
 
-					<li class="nav-item"><a href="meetList" class="nav-link d-flex align-items-center text-truncate ">
+					<li class="nav-item"><a href="/meet/meetList" class="nav-link d-flex align-items-center text-truncate ">
 							<span class="sidebar-icon iconic">
 								<i data-feather="video" class="fe-1x"></i>
 							</span>

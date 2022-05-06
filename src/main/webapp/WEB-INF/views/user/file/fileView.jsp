@@ -595,7 +595,14 @@
         </script>
 
         <!--////////////Theme Core scripts End/////////////////-->
-
+      <script type="text/javascript">
+    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
+    	console.log(sidebarLink);
+    	
+    	console.log(sidebarLink[4]);
+    	
+    	sidebarLink[4].className += ' current';
+    </script>
 
     </body>
 

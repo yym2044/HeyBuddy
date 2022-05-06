@@ -53,6 +53,7 @@
 				<%@include file="../include/pageHeader.jsp"%>
 
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -66,12 +67,13 @@
 									</ol>
 								</nav>
 							</div>
-							<!-- <div class="col-md-4 text-md-end" style="padding-right: 30px;">
+							<div class="col-md-4 text-md-end" style="padding-right: 30px;">
 			                    <a href="#!.html" class="btn rounded-pill btn-danger text-truncate">회의 시작</a>
-			                </div> -->
+			                </div>
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
 
 				<!--//Page content//-->
@@ -185,6 +187,11 @@
     })
     </script>
 
+	<script type="text/javascript">
+		const sidebarLink = document.querySelectorAll('.Sidebar-link');
+
+		sidebarLink[2].className += ' current';
+	</script>
 </body>
 
 </html>

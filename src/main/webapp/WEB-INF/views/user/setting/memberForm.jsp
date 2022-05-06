@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,15 +15,12 @@
 <title>hey, Buddy!</title>
 
 <!--Bootstrap icons-->
-<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 
 <!--Simplebar css-->
 <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
@@ -37,8 +33,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <!--Main style-->
-<link rel="stylesheet" href="/resources/assets/css/style.min.css"
-	id="switchThemeStyle">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 
 <style type="text/css">
 #setTable tr td {
@@ -48,10 +43,12 @@
 #setTable tr {
 	vertical-align: middle;
 }
+
 table tr .tableText {
 	width: 25%;
 	text-align: center;
 }
+
 table tr .form-control {
 	background-color: ghostwhite;
 }
@@ -61,7 +58,7 @@ table tr .form-control {
 <body>
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
-	
+
 	<!--App Start-->
 	<div class="d-flex flex-column flex-root">
 		<!--Page-->
@@ -72,7 +69,7 @@ table tr .form-control {
 
 			<!--///////////Page content wrapper///////////////-->
 			<main class="page-content d-flex flex-column flex-row-fluid">
-				
+
 				<!-- include 처리 3번 -->
 				<%@include file="../include/pageHeader.jsp"%>
 
@@ -100,73 +97,82 @@ table tr .form-control {
 					<div class="container-fluid px-0">
 
 						<div class="row">
-						
+
 							<%@include file="../include/settingMenu.jsp"%>
-							
+
 							<div class="col-lg-9 h-100" data-aos="fade-up" data-aos-duration="1200">
 								<!--card-->
 								<div class="card mb-4 p-3">
-									<div
-										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
+									<div class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
 										<h3 class="card-title mb-md-0">멤버 등록</h3>
 
 									</div>
 
-									
+
 									<div class="table-responsive">
 										<div class="text-center">
-											<label for="profilePhoto" style="cursor: pointer;">
-												<img src="/resources/user/images/profileUpload.png" style="width: 70px;">
-												
+											<label for="profilePhoto" style="cursor: pointer;"> <img src="/resources/user/images/profileUpload.png" style="width: 70px;">
+
 											</label>
-											<input id="profilePhoto" type="file" style="display:none;">
+											<input id="profilePhoto" type="file" style="display: none;">
 											<p class="p-2 fw-bold">프로필 사진</p>
 										</div>
-										
+
 										<table id="setTable" class="table table-sm table-nowrap table-card text-center">
 											<tr>
 												<td class="tableText">아이디</td>
-												<td><input type="text" class="form-control" placeholder="로그인 시 사용할 아이디"></td>
+												<td>
+													<input type="text" class="form-control" placeholder="로그인 시 사용할 아이디">
+												</td>
 											</tr>
 											<tr>
 												<td>이름</td>
-												<td><input type="text" class="form-control" placeholder="이름(50자 이하)"></td>
+												<td>
+													<input type="text" class="form-control" placeholder="이름(50자 이하)">
+												</td>
 											</tr>
 											<tr>
 												<td>휴대전화</td>
-												<td><input type="text" class="form-control" placeholder="전화번호"></td>
+												<td>
+													<input type="text" class="form-control" placeholder="전화번호">
+												</td>
 											</tr>
 											<tr>
 												<td>유선전화</td>
-												<td><input type="text" class="form-control" placeholder="전화번호"></td>
+												<td>
+													<input type="text" class="form-control" placeholder="전화번호">
+												</td>
 											</tr>
 											<tr>
 												<td>이메일</td>
-												<td><input type="text" class="form-control" placeholder="이메일"></td>
+												<td>
+													<input type="text" class="form-control" placeholder="이메일">
+												</td>
 											</tr>
 											<tr>
 												<td>생일</td>
 												<td>
-												<!-- <input type="text" class="form-control"> -->
-												<div class="position-relative flex-grow-1">
-													<!--Icon-->
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-													stroke="currentColor" stroke-width="2" 
-													stroke-linecap="round" stroke-linejoin="round" 
-													class="feather feather-calendar fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
+													<!-- <input type="text" class="form-control"> -->
+													<div class="position-relative flex-grow-1">
+														<!--Icon-->
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
 													<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-													<line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+													<line x1="16" y1="2" x2="16" y2="6"></line>
+															<line x1="8" y1="2" x2="8" y2="6"></line>
+															<line x1="3" y1="10" x2="21" y2="10"></line>
 													</svg>
-													<input id="hybdMmDob" type="text" class="form-control ps-6">
-												</div>
-												
+														<input id="hybdMmDob" type="text" class="form-control ps-6">
+													</div>
+
 												</td>
 											</tr>
 											<tr>
 												<td>상태메세지</td>
-												<td><input type="text" class="form-control" placeholder="상태메세지(50자 이하)"></td>
+												<td>
+													<input type="text" class="form-control" placeholder="상태메세지(50자 이하)">
+												</td>
 											</tr>
 										</table>
 										<div class="text-center pb-4">
@@ -184,10 +190,12 @@ table tr .form-control {
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
 					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">&copy;
+						<span class="d-block lh-sm small text-muted text-end">
+							&copy;
 							<script>
-                              document.write(new Date().getFullYear())
-                            </script>. Hey, Buddy All rights reserved.
+								document.write(new Date().getFullYear())
+							</script>
+							. Hey, Buddy All rights reserved.
 						</span>
 					</div>
 				</footer>
@@ -202,8 +210,8 @@ table tr .form-control {
 	<script src="/resources/assets/vendor/feather.min.js"></script>
 	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
-          feather.replace()
-        </script>
+		feather.replace()
+	</script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
@@ -215,20 +223,25 @@ table tr .form-control {
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<script>
-        Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
-    </script>
-        
-    <script>
-	$(function() {
-		$('#hybdMmDob').daterangepicker({
-			singleDatePicker: true,
-			showDropdowns: true,
-			minYear: 1901,
-			maxYear: parseInt(moment().format('YYYY'),10)
-		});
-	});
+		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
 	</script>
-    
+
+	<script>
+		$(function() {
+			$('#hybdMmDob').daterangepicker({
+				singleDatePicker : true,
+				showDropdowns : true,
+				minYear : 1901,
+				maxYear : parseInt(moment().format('YYYY'), 10)
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		const sidebarLink = document.querySelectorAll('.Sidebar-link');
+
+		sidebarLink[6].className += ' current';
+	</script>
+
 </body>
 
 </html>

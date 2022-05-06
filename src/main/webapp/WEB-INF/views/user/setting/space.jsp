@@ -319,13 +319,13 @@
     </script>
     
     <script type="text/javascript">
-    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
-    	console.log(sidebarLink);
-    	
-    	console.log(sidebarLink[6]);
-    	
-    	sidebarLink[6].className += ' current';
-    </script>
+	const sidebarLink = document.querySelectorAll('.Sidebar-link');
+	
+	console.log(sidebarLink[6]);
+	
+	sidebarLink[6].className += ' current';
+	</script>
+    
 </body>
 
 </html>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,8 +15,7 @@
 <title>hey, Buddy!</title>
 
 <!--Bootstrap icons-->
-<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,118 +38,118 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 
 <style type="text/css">
-ul,
-li {
-  list-style: none;
-  margin: 0;
-  padding: 0
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0
 }
-label{font-weight:normal}
-/*Tree*/
 
+label {
+	font-weight: normal
+}
+/*Tree*/
 .trees {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 .trees li {
-  border-left: dotted 1px #bcbec0;
-  padding: 1px 0 1px 25px;
-  position: relative
+	border-left: dotted 1px #bcbec0;
+	padding: 1px 0 1px 25px;
+	position: relative
 }
 
-.trees li > label {
-  position: relative;
-  left: -11px
+.trees li>label {
+	position: relative;
+	left: -11px
 }
 
 .trees li:before {
-  content: "";
-  width: 13px;
-  height: 1px;
-  border-bottom: dotted 1px #bcbec0;
-  position: absolute;
-  top: 10px;
-  left: 0
+	content: "";
+	width: 13px;
+	height: 1px;
+	border-bottom: dotted 1px #bcbec0;
+	position: absolute;
+	top: 10px;
+	left: 0
 }
 
 .trees li:last-child:after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 13px;
-  background: #fff;
-  left: -1px;
-  bottom: 0px;
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 13px;
+	background: #fff;
+	left: -1px;
+	bottom: 0px;
 }
 
 .trees li input {
-  margin-right: 5px;
-  margin-left: 5px
+	margin-right: 5px;
+	margin-left: 5px
 }
 
-.trees li.has-child > ul {
-  display: none
+.trees li.has-child>ul {
+	display: none
 }
 
-.trees li.has-child > input {
-  opacity: 0;
-  position: absolute;
-  left: -14px;
-  z-index: 9999;
-  width: 22px;
-  height: 22px;
-  top: -5px
+.trees li.has-child>input {
+	opacity: 0;
+	position: absolute;
+	left: -14px;
+	z-index: 9999;
+	width: 22px;
+	height: 22px;
+	top: -5px
 }
 
-.trees li.has-child > input + .tree-control {
-  position: absolute;
-  left: -4px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  line-height: 8px;
-  z-index: 2;
-  display: inline-block;
-  color: #fff;
-  border-radius: 3px;
+.trees li.has-child>input+.tree-control {
+	position: absolute;
+	left: -4px;
+	top: 6px;
+	width: 8px;
+	height: 8px;
+	line-height: 8px;
+	z-index: 2;
+	display: inline-block;
+	color: #fff;
+	border-radius: 3px;
 }
 
-.trees li.has-child > input + .tree-control:after {
-  font-family: 'FontAwesome';
-  content: "";
-  font-size: 8px;
-  color: #183955;
-  position: absolute;
-  left: 1px
+.trees li.has-child>input+.tree-control:after {
+	font-family: 'FontAwesome';
+	content: "";
+	font-size: 8px;
+	color: #183955;
+	position: absolute;
+	left: 1px
 }
 
-.trees li.has-child > input:checked + .tree-control:after {
-  font-family: 'FontAwesome';
-  content: "";
-  font-size: 8px;
-  color: #183955;
-  position: absolute;
-  left: 1px
+.trees li.has-child>input:checked+.tree-control:after {
+	font-family: 'FontAwesome';
+	content: "";
+	font-size: 8px;
+	color: #183955;
+	position: absolute;
+	left: 1px
 }
 
-.trees li.has-child > input:checked ~ ul {
-  display: block
+.trees li.has-child>input:checked ~ ul {
+	display: block
 }
 
 .trees ul li.has-child:last-child {
-  border-left: none
+	border-left: none
 }
 
 .trees ul li.has-child:nth-last-child(2):after {
-  content: "";
-  width: 1px;
-  height: 5px;
-  border-left: dotted 1px #bcbec0;
-  position: absolute;
-  bottom: -5px;
-  left: -1px
+	content: "";
+	width: 1px;
+	height: 5px;
+	border-left: dotted 1px #bcbec0;
+	position: absolute;
+	bottom: -5px;
+	left: -1px
 }
-
 </style>
 <style type="text/css">
 #setTable tr td {
@@ -167,6 +165,7 @@ label{font-weight:normal}
 	width: 30%;
 	background-color: ghostwhite;
 }
+
 .tableContent {
 	text-align: center;
 }
@@ -187,7 +186,7 @@ label{font-weight:normal}
 
 			<!--///////////Page content wrapper///////////////-->
 			<main class="page-content d-flex flex-column flex-row-fluid">
-				
+
 				<!-- include 처리 3번 -->
 				<%@include file="../include/pageHeader.jsp"%>
 
@@ -215,14 +214,13 @@ label{font-weight:normal}
 					<div class="container-fluid px-0">
 
 						<div class="row">
-						
+
 							<%@include file="../include/settingMenu.jsp"%>
-							
+
 							<div class="col-lg-9 h-100" data-aos="fade-up" data-aos-duration="1200">
 								<!--card-->
 								<div class="card mb-4 p-3">
-									<div
-										class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
+									<div class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
 										<h3 class="card-title mb-md-0">그룹 관리</h3>
@@ -234,137 +232,108 @@ label{font-weight:normal}
 										<div class="col-lg-5">
 											<div class="row">
 												<p class="fw-bold my-3 px-3">팀부엉(4명)</p>
-												
+
 												<div class="card overflow-hidden">
-			                                        <div class="card-header d-flex align-items-center">
-		                                                <div class="position-relative">
-		                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search fe-1x position-absolute start-0 top-50 opacity-25 ms-2 translate-middle-y"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-		                                                    <input type="text" placeholder="그룹 검색.." class="form-control ps-7 rounded-pill form-control-sm" style="background-color: ghostwhite;">
-		                                                </div>
-			                                        </div>
-			                                        <div class="card-body" style="min-height: 5rem;">
-			                                        	
+													<div class="card-header d-flex align-items-center">
+														<div class="position-relative">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search fe-1x position-absolute start-0 top-50 opacity-25 ms-2 translate-middle-y">
+																<circle cx="11" cy="11" r="8"></circle>
+																<line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+															<input type="text" placeholder="그룹 검색.." class="form-control ps-7 rounded-pill form-control-sm" style="background-color: ghostwhite;">
+														</div>
+													</div>
+													<div class="card-body" style="min-height: 5rem;">
+
 														<div class="tree-box box-border">
 															<ul class="trees">
-																<li class="has-child">
-																	<input id="tree-controll1" type="checkbox" checked><span class="tree-control"></span>
-																	<label>
-																		 <a href="javascript:void(0);">팀부엉 (4)</a>
-																	</label>
+																<li class="has-child"><input id="tree-controll1" type="checkbox" checked> <span class="tree-control"></span> <label> <a href="javascript:void(0);">팀부엉 (4)</a>
+																</label>
 																	<ul class="p-1">
-																		<li class="has-child">
-																		<input type="checkbox" checked><span class="tree-control"></span>
-																		<label>
-																		<a href="javascript:void(0);">1조 (0)</a>
+																		<li class="has-child"><input type="checkbox" checked> <span class="tree-control"></span> <label> <a href="javascript:void(0);">1조 (0)</a>
 																		</label>
 																			<ul class="p-1">
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">1분단 (0)</a>
-																				</label>
-																				</li>
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">2분단 (0)</a>
-																				</label>
-																				</li>
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">3분단 (0)</a>
-																				</label>
-																				</li>
-																				<li>
-																				<label>
-																				<a href="javascript:void(0);">4분단 (0)</a>
-																				</label>
-																				</li>
-																			</ul>
-																		</li>
-																	
-																		<li class="has-child">
-																		<input type="checkbox" checked><span class="tree-control"></span>
-																		<label>
-																		<a href="javascript:void(0);">2조 (0)</a>
+																				<li><label> <a href="javascript:void(0);">1분단 (0)</a>
+																				</label></li>
+																				<li><label> <a href="javascript:void(0);">2분단 (0)</a>
+																				</label></li>
+																				<li><label> <a href="javascript:void(0);">3분단 (0)</a>
+																				</label></li>
+																				<li><label> <a href="javascript:void(0);">4분단 (0)</a>
+																				</label></li>
+																			</ul></li>
+
+																		<li class="has-child"><input type="checkbox" checked> <span class="tree-control"></span> <label> <a href="javascript:void(0);">2조 (0)</a>
 																		</label>
 																			<ul class="p-1">
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">1분단 (0)</a>
-																			</label>
-																			</li>
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">2분단 (0)</a>
-																			</label>
-																			</li>
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">3분단 (0)</a>
-																			</label>
-																			</li>
-																			<li>
-																			<label>
-																			<a href="javascript:void(0);">4분단 (0)</a>
-																			</label>
-																			</li>
-																			</ul>
-																		</li>
-																	</ul>
-																</li>
-																<li>
-																	<label>
-																	<a href="javascript:void(0);">미분류 (0)</a>
-																	</label>
-																</li>
+																				<li><label> <a href="javascript:void(0);">1분단 (0)</a>
+																				</label></li>
+																				<li><label> <a href="javascript:void(0);">2분단 (0)</a>
+																				</label></li>
+																				<li><label> <a href="javascript:void(0);">3분단 (0)</a>
+																				</label></li>
+																				<li><label> <a href="javascript:void(0);">4분단 (0)</a>
+																				</label></li>
+																			</ul></li>
+																	</ul></li>
+																<li><label> <a href="javascript:void(0);">미분류 (0)</a>
+																</label></li>
 															</ul>
 														</div>
 
 
 
-			                                        </div>
-			                                    </div>
-												
+													</div>
+												</div>
+
 											</div>
 										</div>
 										<div class="col-lg">
 											<div class="card" style="margin-top: 50px; margin-bottom: 10px;">
 												<div class="card-header d-flex align-items-center" style="height: 60px;">
-												<span class="fw-bold">팀부엉(4)</span>	
+													<span class="fw-bold">팀부엉(4)</span>
 												</div>
 												<div class="card-body" style="height: 16rem; overflow-y: auto;">
 													<ul class="list-unstyled">
-													
+
 														<li class="py-1">
 															<div class="d-flex align-items-center">
-							                                <img src="/resources/assets/media/avatars/05.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1"><a href="#modalMember1" data-bs-toggle="modal">김나리</a></div>
-							                                </div>
-							                                </div>
+																<img src="/resources/assets/media/avatars/05.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+																<div>
+																	<div class="h6 mb-0 lh-1">
+																		<a href="#modalMember1" data-bs-toggle="modal">김나리</a>
+																	</div>
+																</div>
+															</div>
 														</li>
 														<li class="py-1">
 															<div class="d-flex align-items-center">
-							                                <img src="/resources/assets/media/avatars/02.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1"><a href="#modalMember2" data-bs-toggle="modal">정미림</a></div>
-							                                </div>
-							                                </div>
+																<img src="/resources/assets/media/avatars/02.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+																<div>
+																	<div class="h6 mb-0 lh-1">
+																		<a href="#modalMember2" data-bs-toggle="modal">정미림</a>
+																	</div>
+																</div>
+															</div>
 														</li>
 														<li class="py-1">
 															<div class="d-flex align-items-center">
-							                                <img src="/resources/assets/media/avatars/08.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1"><a href="#modalMember3" data-bs-toggle="modal">윤영민</a></div>
-							                                </div>
-							                                </div>
-						                               </li>
+																<img src="/resources/assets/media/avatars/08.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+																<div>
+																	<div class="h6 mb-0 lh-1">
+																		<a href="#modalMember3" data-bs-toggle="modal">윤영민</a>
+																	</div>
+																</div>
+															</div>
+														</li>
 														<li class="py-1">
 															<div class="d-flex align-items-center">
-							                                <img src="/resources/assets/media/avatars/03.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
-							                                <div>
-						                                    <div class="h6 mb-0 lh-1"><a href="#modalMember4" data-bs-toggle="modal">이건우</a></div>
-							                                </div>
-							                                </div>
+																<img src="/resources/assets/media/avatars/03.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+																<div>
+																	<div class="h6 mb-0 lh-1">
+																		<a href="#modalMember4" data-bs-toggle="modal">이건우</a>
+																	</div>
+																</div>
+															</div>
 														</li>
 													</ul>
 												</div>
@@ -390,247 +359,285 @@ label{font-weight:normal}
 					</div>
 				</div>
 				<!--//Page content End//-->
-				
-				
+
+
 				<!--Modal Member-->
-                <div class="modal fade" id="modalMember1" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
-                            
+				<div class="modal fade" id="modalMember1" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content border-0">
+
 							<div class="card">
-							
-							<!--Card body-->
+
+								<!--Card body-->
 								<div class="card-body">
-								<!--Contact-->
+									<!--Contact-->
 									<div class="text-center">
-									
-									  	<!-- Avatar -->
+
+										<!-- Avatar -->
 										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
 											<img src="/resources/assets/media/avatars/05.jpg" alt="..." class="img-fluid rounded-circle">
 										</a>
 										<!-- Title -->
 										<h5 class="mb-0">
-										<a href="#!" class="text-reset">
-										김나리</a>
+											<a href="#!" class="text-reset"> 김나리</a>
 										</h5>
-									
+
 										<!-- Email -->
 										<p class="small text-muted mb-0">
-										<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">
-										noah.pierre@mail.com</a>
+											<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com"> noah.pierre@mail.com</a>
 										</p>
-									
+
 										<!-- Phone -->
 										<p class="small text-muted mb-3">
-										<a class="d-block text-reset text-truncate" href="#">
-										010-1234-5678</a>
+											<a class="d-block text-reset text-truncate" href="#"> 010-1234-5678</a>
 										</p>
-									
-									
+
+
 										<!-- Split dropdown user button -->
 										<div class="btn-group">
-										<button type="button" class="btn btn-outline-gray text-body">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Send
-										Message</button>
-										<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-end" style="">
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View detail</a>
-										</li>
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg> Block
-										 contact</a></li>
-										</ul>
+											<button type="button" class="btn btn-outline-gray text-body">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
+													<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+												Send Message
+											</button>
+											<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+													<circle cx="12" cy="12" r="1"></circle>
+													<circle cx="12" cy="5" r="1"></circle>
+													<circle cx="12" cy="19" r="1"></circle></svg>
+											</button>
+											<ul class="dropdown-menu dropdown-menu-end" style="">
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="12" y1="16" x2="12" y2="12"></line>
+															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+														View detail
+													</a></li>
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+														Block contact
+													</a></li>
+											</ul>
 										</div>
 									</div>
 								</div>
 							</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="modalMember2" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
-                            
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="modalMember2" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content border-0">
+
 							<div class="card">
-							
-							<!--Card body-->
+
+								<!--Card body-->
 								<div class="card-body">
-								<!--Contact-->
+									<!--Contact-->
 									<div class="text-center">
-									
-									  	<!-- Avatar -->
+
+										<!-- Avatar -->
 										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
 											<img src="/resources/assets/media/avatars/02.jpg" alt="..." class="img-fluid rounded-circle">
 										</a>
 										<!-- Title -->
 										<h5 class="mb-0">
-										<a href="#!" class="text-reset">
-										정미림</a>
+											<a href="#!" class="text-reset"> 정미림</a>
 										</h5>
-									
+
 										<!-- Email -->
 										<p class="small text-muted mb-0">
-										<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">
-										noah.pierre@mail.com</a>
+											<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com"> noah.pierre@mail.com</a>
 										</p>
-									
+
 										<!-- Phone -->
 										<p class="small text-muted mb-3">
-										<a class="d-block text-reset text-truncate" href="#">
-										010-1234-5678</a>
+											<a class="d-block text-reset text-truncate" href="#"> 010-1234-5678</a>
 										</p>
-									
-									
+
+
 										<!-- Split dropdown user button -->
 										<div class="btn-group">
-										<button type="button" class="btn btn-outline-gray text-body">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Send
-										Message</button>
-										<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-end" style="">
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View detail</a>
-										</li>
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg> Block
-										 contact</a></li>
-										</ul>
+											<button type="button" class="btn btn-outline-gray text-body">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
+													<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+												Send Message
+											</button>
+											<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+													<circle cx="12" cy="12" r="1"></circle>
+													<circle cx="12" cy="5" r="1"></circle>
+													<circle cx="12" cy="19" r="1"></circle></svg>
+											</button>
+											<ul class="dropdown-menu dropdown-menu-end" style="">
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="12" y1="16" x2="12" y2="12"></line>
+															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+														View detail
+													</a></li>
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+														Block contact
+													</a></li>
+											</ul>
 										</div>
 									</div>
 								</div>
 							</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="modalMember3" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
-                            
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="modalMember3" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content border-0">
+
 							<div class="card">
-							
-							<!--Card body-->
+
+								<!--Card body-->
 								<div class="card-body">
-								<!--Contact-->
+									<!--Contact-->
 									<div class="text-center">
-									
-									  	<!-- Avatar -->
+
+										<!-- Avatar -->
 										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
 											<img src="/resources/assets/media/avatars/08.jpg" alt="..." class="img-fluid rounded-circle">
 										</a>
 										<!-- Title -->
 										<h5 class="mb-0">
-										<a href="#!" class="text-reset">
-										윤영민</a>
+											<a href="#!" class="text-reset"> 윤영민</a>
 										</h5>
-									
+
 										<!-- Email -->
 										<p class="small text-muted mb-0">
-										<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">
-										noah.pierre@mail.com</a>
+											<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com"> noah.pierre@mail.com</a>
 										</p>
-									
+
 										<!-- Phone -->
 										<p class="small text-muted mb-3">
-										<a class="d-block text-reset text-truncate" href="#">
-										010-1234-5678</a>
+											<a class="d-block text-reset text-truncate" href="#"> 010-1234-5678</a>
 										</p>
-									
-									
+
+
 										<!-- Split dropdown user button -->
 										<div class="btn-group">
-										<button type="button" class="btn btn-outline-gray text-body">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Send
-										Message</button>
-										<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-end" style="">
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View detail</a>
-										</li>
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg> Block
-										 contact</a></li>
-										</ul>
+											<button type="button" class="btn btn-outline-gray text-body">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
+													<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+												Send Message
+											</button>
+											<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+													<circle cx="12" cy="12" r="1"></circle>
+													<circle cx="12" cy="5" r="1"></circle>
+													<circle cx="12" cy="19" r="1"></circle></svg>
+											</button>
+											<ul class="dropdown-menu dropdown-menu-end" style="">
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="12" y1="16" x2="12" y2="12"></line>
+															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+														View detail
+													</a></li>
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+														Block contact
+													</a></li>
+											</ul>
 										</div>
 									</div>
 								</div>
 							</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="modalMember4" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
-                            
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="modalMember4" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content border-0">
+
 							<div class="card">
-							
-							<!--Card body-->
+
+								<!--Card body-->
 								<div class="card-body">
-								<!--Contact-->
+									<!--Contact-->
 									<div class="text-center">
-									
-									  	<!-- Avatar -->
+
+										<!-- Avatar -->
 										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
 											<img src="/resources/assets/media/avatars/03.jpg" alt="..." class="img-fluid rounded-circle">
 										</a>
 										<!-- Title -->
 										<h5 class="mb-0">
-										<a href="#!" class="text-reset">
-										이건우</a>
+											<a href="#!" class="text-reset"> 이건우</a>
 										</h5>
-									
+
 										<!-- Email -->
 										<p class="small text-muted mb-0">
-										<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">
-										noah.pierre@mail.com</a>
+											<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com"> noah.pierre@mail.com</a>
 										</p>
-									
+
 										<!-- Phone -->
 										<p class="small text-muted mb-3">
-										<a class="d-block text-reset text-truncate" href="#">
-										010-1234-5678</a>
+											<a class="d-block text-reset text-truncate" href="#"> 010-1234-5678</a>
 										</p>
-									
-									
+
+
 										<!-- Split dropdown user button -->
 										<div class="btn-group">
-										<button type="button" class="btn btn-outline-gray text-body">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Send
-										Message</button>
-										<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-end" style="">
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View detail</a>
-										</li>
-										<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg> Block
-										 contact</a></li>
-										</ul>
+											<button type="button" class="btn btn-outline-gray text-body">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
+													<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+												Send Message
+											</button>
+											<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+													<circle cx="12" cy="12" r="1"></circle>
+													<circle cx="12" cy="5" r="1"></circle>
+													<circle cx="12" cy="19" r="1"></circle></svg>
+											</button>
+											<ul class="dropdown-menu dropdown-menu-end" style="">
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="12" y1="16" x2="12" y2="12"></line>
+															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+														View detail
+													</a></li>
+												<li><a class="dropdown-item" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+														Block contact
+													</a></li>
+											</ul>
 										</div>
 									</div>
 								</div>
 							</div>
-                        </div>
-                    </div>
-                </div>
+						</div>
+					</div>
+				</div>
 				<!--Modal Member End-->
-				
+
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
 					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">&copy;
+						<span class="d-block lh-sm small text-muted text-end">
+							&copy;
 							<script>
-                              document.write(new Date().getFullYear())
-                            </script>. Hey, Buddy All rights reserved.
+								document.write(new Date().getFullYear())
+							</script>
+							. Hey, Buddy All rights reserved.
 						</span>
 					</div>
 				</footer>
@@ -639,23 +646,28 @@ label{font-weight:normal}
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
-	
+
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>
 	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
-          feather.replace()
-        </script>
+		feather.replace()
+	</script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
-	
+
 
 	<!--Page script begin-->
 	<script src="/resources/assets/vendor/inputmask.min.js"></script>
 	<script>
-            Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
-        </script>
+		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
+	</script>
+	<script type="text/javascript">
+		const sidebarLink = document.querySelectorAll('.Sidebar-link');
+
+		sidebarLink[6].className += ' current';
+	</script>
 </body>
 
 </html>

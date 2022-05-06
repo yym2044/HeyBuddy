@@ -54,6 +54,7 @@
 				<%@include file="../include/pageHeader.jsp"%>
 
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -74,8 +75,9 @@
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
-
+				
 				<!--//Page content//-->
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
@@ -174,6 +176,18 @@
 					</div>
 				</div>
 				<!--//Page content End//-->
+				
+				<div class="toolbar py-4 px-4 px-lg-8">
+					<div class="position-relative container-fluid px-0">
+						<div class="row align-items-center position-relative">
+							<div class="col-md-12 text-md-end" style="padding-right: 30px;">
+								<a href="meetStart"
+									class="btn rounded-pill btn-danger text-truncate">회의 시작</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
@@ -200,7 +214,12 @@
         </script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
+	
+	<script type="text/javascript">
+		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
+		sidebarLink[2].className += ' current';
+	</script>
 
 </body>
 

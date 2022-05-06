@@ -241,6 +241,11 @@ table tr .form-control {
 		});
 	});
 	</script>
+	<script type="text/javascript">
+	const sidebarLink = document.querySelectorAll('.Sidebar-link');
+	
+	sidebarLink[6].className += ' current';
+</script>
     
 </body>
 

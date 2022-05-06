@@ -103,10 +103,10 @@ body {
 												for="floatingPassword">Password</label> <span
 												class="invalid-feedback">Enter the password</span>
 										</div>
-										<div
+										<div 
 											class="d-flex align-items-center justify-content-between mb-3">
 											<div class="form-check">
-												<input class="form-check-input me-1" id="terms"
+	 											<input class="form-check-input me-1" id="terms"
 													type="checkbox" value=""> <label
 													class="form-check-label fontB" for="terms">Remember
 													Me</label>
@@ -116,11 +116,11 @@ body {
 													class="small text-light fontB">Forget Password?</a>
 											</div>
 										</div>
-										<button class="w-100 btn btn-lg btn-success" type="submit">Sign
+										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/mySpace/mySpaceList'">Sign
 											In</button>
 										<hr class="mt-4 mb-3">
 										<p class="text-center text-light fontB">
-											Don’t have an account yet? <a href="page-auth-signup.html"
+											Don’t have an account yet? <a href="/user/memberForm"
 												class="ms-2 text-body">Sign Up</a>
 
 										</p>

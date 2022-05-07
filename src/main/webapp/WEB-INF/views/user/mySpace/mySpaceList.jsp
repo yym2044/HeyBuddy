@@ -45,6 +45,15 @@ header {
 	margin-left: 20%;
 	margin-right: 20%;
 }
+
+.card {
+	width: 280px;
+	height: 280px;
+}
+
+.newSpace {
+	display: block; margin: 0px auto;
+}
 </style>
 
 <body>
@@ -292,26 +301,12 @@ header {
 							<!--card-->
 							<div class="card mb-4">
 <br>
-										<br>
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
 
 										<!-- Avatar -->
-										<a href="/mySpace/mySpaceForm"
-											class="avatar mb-3 mx-auto xxl d-block"> <img
-											src="/resources/user/images/newspaceplus.png" alt="...">
+										<a href="/mySpace/mySpaceForm"> <img
+											src="/resources/user/images/newspaceplus.png" alt="..." class="newSpace">
 										</a>
 									
-
-										<!-- Email -->
-										
-										<br><br>
-										
-									
-									</div>
-								</div>
 
 							</div>
 							<!--/.row-->

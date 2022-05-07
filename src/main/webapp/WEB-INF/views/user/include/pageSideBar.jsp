@@ -9,7 +9,7 @@
 			<a href="#" class="d-block">
 				<div class="d-flex align-items-center flex-no-wrap text-truncate">
 					<!--Sidebar-icon-->
-					<span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-primary fw-bold"> 팀 </span>
+					<span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-success fw-bold"> 팀 </span>
 					<span class="sidebar-text">
 						<!--Sidebar-text-->
 						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"> 팀부엉 </span>

@@ -26,6 +26,10 @@
 </head>
 
 <style>
+header {
+	margin-top: 1%;
+	margin-left: 1%;
+}
 
 body {
 	background-image: url('/resources/user/images/allround.jpg');
@@ -36,33 +40,42 @@ body {
 }
 
 .mySpaceZone {
-	margin-top: 2%;
 	margin-bottom: 20%;
 	margin-left: 20%;
 	margin-right: 20%;
 }
 
+.list-group {
+	border-radius: 7px;
+}
 </style>
 
 <body>
-<header class="aside-footer position-relative p-3">
-			<ul class="nav">
-				<li class="nav-item"><a href="/mySpace/mySpaceList" class="nav-link d-flex align-items-center text-truncate ">
-						<span class="sidebar-icon">
-							<i class="bi bi-arrow-left-right" class="fe-1x"></i>
-						</span>
-						<span class="sidebar-text">마이스페이스</span>
-					</a></li>
-					</ul>
-					</header>
-	<!--Theme mode switcher-->
-	<div class="position-absolute end-0 top-0 size-40 z-index-fixed">
-		<div class="switch_modes">
-			<a href="#" class="mode_dark"> <i data-feather="moon"></i>
-			</a> <a href="#" class="mode_light active"> <i data-feather="sun"></i>
-			</a>
-		</div>
-	</div>
+<!--//page-header//-->
+<header class="navbar py-0 page-header navbar-expand navbar-light">
+
+	<ul class="navbar-nav d-flex align-items-center h-100">
+		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceList" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+				<i data-feather="arrow-left" class="fe-1x"></i>
+			</a></li>
+		
+	</ul>
+	
+	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+				<a href="#" class="mode_dark text-reset p-0">
+					<i data-feather="sun" class="fe-1x"></i>
+				</a>
+				<a href="#" class="mode_light text-reset p-0">
+					<i data-feather="moon" class="fe-1x"></i>
+				</a>
+			</div>
+		</li>
+		
+		
+	</ul>
+</header>
 
 	<%@include file="../include/loader.jsp"%>
 
@@ -97,7 +110,7 @@ body {
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
 												<h6 class="mb-0 text-reset flex-grow-1"> 장원영 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="circle" class="fe-1x"></i></h6>
+											data-feather="square" class="fe-1x"></i></h6>
 												<small class=" opacity-75 ms-auto"> 팀부엉 </small>
 											</div>
 											
@@ -115,7 +128,7 @@ body {
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
 												<h6 class="mb-0 text-reset flex-grow-1"> 이건우 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-circle" class="fe-1x"></i></h6>
+											data-feather="check-square" class="fe-1x"></i></h6>
 												<small class=" opacity-75 ms-auto"> 팀부엉 </small>
 											</div>
 											
@@ -132,7 +145,7 @@ body {
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
 												<h6 class="mb-0 text-reset flex-grow-1"> 윤영민 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-circle" class="fe-1x"></i></h6>
+											data-feather="check-square" class="fe-1x"></i></h6>
 												<small class="opacity-75 ms-auto"> 팀부엉 </small>
 											</div>
 										</div>
@@ -150,7 +163,7 @@ body {
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
 												<h6 class="mb-0 text-reset flex-grow-1"> 정미림 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-circle" class="fe-1x"></i></h6>
+											data-feather="check-square" class="fe-1x"></i></h6>
 												<small class="opacity-75 ms-auto"> 팀부엉 </small>
 											</div>
 											
@@ -168,7 +181,7 @@ body {
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
 												<h6 class="mb-0 text-reset flex-grow-1"> 윤이나 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-circle" class="fe-1x"></i></h6>
+											data-feather="check-square" class="fe-1x"></i></h6>
 												<small class="opacity-75 ms-auto"> 팀부엉 </small>
 											</div>
 											
@@ -187,7 +200,7 @@ body {
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
 												<h6 class="mb-0 text-reset flex-grow-1"> 윤수빈 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-circle" class="fe-1x"></i></h6>
+											data-feather="check-square" class="fe-1x"></i></h6>
 												<small class="opacity-75 ms-auto"> 팀부엉 </small>
 											</div>
 										

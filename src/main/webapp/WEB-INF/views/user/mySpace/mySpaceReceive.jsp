@@ -25,7 +25,14 @@
 
 </head>
 
-<style> 
+<style>
+
+header {
+	margin-top: 1%;
+	margin-left: 1%;
+	
+}
+ 
 body {
 	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
@@ -35,7 +42,6 @@ body {
 }
 
 .mySpaceZone {
-	margin-top: 2%;
 	margin-bottom: 20%;
 	margin-left: 20%;
 	margin-right: 20%;
@@ -43,16 +49,32 @@ body {
 </style>
 
 <body>
+<!--//page-header//-->
+<header class="navbar py-0 page-header navbar-expand navbar-light">
 
-	<!--Theme mode switcher-->
-	<div class="position-absolute end-0 top-0 size-40 z-index-fixed">
-		<div class="switch_modes">
-			<a href="#" class="mode_dark"> <i data-feather="moon"></i>
-			</a> <a href="#" class="mode_light active"> <i data-feather="sun"></i>
-			</a>
-		</div>
-	</div>
-
+	<ul class="navbar-nav d-flex align-items-center h-100">
+		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceList" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+				<i data-feather="arrow-left" class="fe-1x"></i>
+			</a></li>
+		
+	</ul>
+	
+	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+				<a href="#" class="mode_dark text-reset p-0">
+					<i data-feather="sun" class="fe-1x"></i>
+				</a>
+				<a href="#" class="mode_light text-reset p-0">
+					<i data-feather="moon" class="fe-1x"></i>
+				</a>
+			</div>
+		</li>
+		
+		
+	</ul>
+</header>
+<!--Main Header End-->
 	<%@include file="../include/loader.jsp"%>
 
 	<div class="d-flex flex-column flex-root">

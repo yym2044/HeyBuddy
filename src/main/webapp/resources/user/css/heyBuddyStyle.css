@@ -16,20 +16,20 @@ body {
 }
 
 .Sidebar-link:hover {
-	background-color: #B3D3AF;
+	background-color: #C8EFD4;
 	border-radius: 5px;
-	box-shadow: 2px 5px 10px gray;
+	box-shadow: 2px 5px 10px #C8EBFA;
 }
 
 .current {
-	background-color: #B3D3AF;
+	background-color: #C8EFD4;
 	border-radius: 7px;
-	box-shadow: 2px 5px 10px gray;
+	box-shadow: 2px 5px 10px #C8EBFA;
 }
 
 .current:hover {
-	background-color: #B3D3AF;
+	background-color: #C8EFD4;
 	border-radius: 7px;
-	box-shadow: 2px 5px 10px gray;
+	box-shadow: 2px 5px 10px #C8EBFA;
 	transform: translateY(-1px);
 }

@@ -33,13 +33,13 @@
 
 </head>
 <style>
+
 body {
-	background-image: url('/resources/user/images/teamwork.webp');
+	background-image: url('/resources/user/images/TeamheyBuddy.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	margin-top: 2%;
 	margin-bottom: 20%;
 	margin-left: 20%;
 	margin-right: 20%;
@@ -53,11 +53,14 @@ body {
 
 	<!--Theme mode switcher-->
 	<div class="position-absolute end-0 top-0 size-40 z-index-fixed">
-		<div class="switch_modes">
-			<a href="#" class="mode_dark"> <i data-feather="moon"></i>
-			</a> <a href="#" class="mode_light active"> <i data-feather="sun"></i>
-			</a>
-		</div>
+		<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+				<a href="#" class="mode_dark text-reset p-0">
+					<i data-feather="sun" class="fe-1x"></i>
+				</a>
+				<a href="#" class="mode_light text-reset p-0">
+					<i data-feather="moon" class="fe-1x"></i>
+				</a>
+			</div>
 	</div>
 
 
@@ -68,8 +71,7 @@ body {
 		<div class="page d-flex flex-row flex-column-fluid">
 
 			<!--///////////Page content wrapper///////////////-->
-			<main
-				class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid ">
+			<main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid ">
 
 				<!--//content//-->
 				<div class="content p-1 d-flex flex-column-fluid position-relative">
@@ -108,25 +110,25 @@ body {
 											<div class="form-check">
 	 											<input class="form-check-input me-1" id="terms"
 													type="checkbox" value=""> <label
-													class="form-check-label fontB" for="terms">Remember
+													class="form-check-label text-mono fontB text-light" for="terms">Remember
 													Me</label>
 											</div>
 											<div>
 												<a href="page-auth-recover-pass.html"
-													class="small text-light fontB">Forget Password?</a>
+													class="small text-light text-mono fontB">Forget Password?</a>
 											</div>
 										</div>
-										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/mySpace/mySpaceList'">Sign
+										<button class="w-100 btn btn-lg text-mono btn-success" type="submit" onclick="location.href = '/mySpace/mySpaceList'">Sign
 											In</button>
 										<hr class="mt-4 mb-3">
-										<p class="text-center text-light fontB">
+										<p class="text-center text-light fontB text-mono">
 											Don’t have an account yet? <a href="/user/memberForm"
-												class="ms-2 text-body">Sign Up</a>
+												class="ms-2 text-mono"><button type="button" class="btn btn-success">Sign Up</button></a>
 
 										</p>
 										<div class="d-flex align-items-center pb-3">
 											<span class="flex-grow-1 border-bottom pt-1"></span> <span
-												class="d-inline-flex align-items-center justify-content-center lh-1 size-30 rounded-circle text-mono">or</span>
+												class="d-inline-flex align-items-center justify-content-center lh-1 size-30 rounded-circle text-light">or</span>
 											<span class="flex-grow-1 border-bottom pt-1"></span>
 										</div>
 

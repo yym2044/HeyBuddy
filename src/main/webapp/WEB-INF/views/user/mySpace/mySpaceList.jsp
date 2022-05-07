@@ -62,29 +62,40 @@ header {
 	<ul class="navbar-nav d-flex align-items-center h-100">
 		
 	</ul>
-	
-	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
-	<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceSendList" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-				<i data-feather="mail" class="fe-1x"></i>
-			</a></li>
-	<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceReceive" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-				<i data-feather="bell" class="fe-1x"></i>
-			</a></li>
-		
-		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
-			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
-				<a href="#" class="mode_dark text-reset p-0">
-					<i data-feather="sun" class="fe-1x"></i>
-				</a>
-				<a href="#" class="mode_light text-reset p-0">
-					<i data-feather="moon" class="fe-1x"></i>
-				</a>
-			</div>
-		</li>
 
+		<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+			<li
+				class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+				<div
+					class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+					<a href="#" class="mode_dark text-reset p-0"> <i
+						data-feather="sun" class="fe-1x"></i>
+					</a> <a href="#" class="mode_light text-reset p-0"> <i
+						data-feather="moon" class="fe-1x"></i>
+					</a>
+				</div>
+			</li>
+			<li
+				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+				href="/mySpace/mySpaceSendList"
+				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+					<i data-feather="mail" class="fe-1x"></i>
+			</a></li>
+			<li
+				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+				href="/mySpace/mySpaceReceive"
+				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+					<i data-feather="bell" class="fe-1x"></i>
+			</a></li>
 
-	</ul>
-</header>
+			<li
+				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+				href="/login/login"
+				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+					<i data-feather="log-out" class="fe-1x"></i>
+			</a></li>
+		</ul>
+	</header>
 
 
 		<%@include file="../include/loader.jsp"%>

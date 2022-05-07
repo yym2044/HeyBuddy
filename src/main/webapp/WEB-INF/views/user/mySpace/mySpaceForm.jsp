@@ -64,7 +64,12 @@ body {
 				</a>
 			</div>
 		</li>
-		
+					<li
+				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+				href="/login/login"
+				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+					<i data-feather="log-out" class="fe-1x"></i>
+			</a></li>
 		
 	</ul>
 </header>
@@ -76,8 +81,7 @@ body {
 		<div class="page d-flex flex-row flex-column-fluid">
 
 			<!--///////////Page content wrapper///////////////-->
-			<main
-				class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+			<main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
 				<!--//content//-->
 				<div class="content p-1 d-flex flex-column-fluid position-relative">
 					<div class="container py-4">

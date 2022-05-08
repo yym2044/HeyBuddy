@@ -90,27 +90,17 @@
 						<div class="row">
 							<div class="col offset-2">
 
-								<div
+								<video id="myFace" autoplay
 									class="bg-secondary d-flex align-items-end justify-content-center mb-3"
 									style="width: 720px; height: 400px; margin-left: 28px;">
-									<div class="pb-3">
-										<button id="btnMicOff" class="btn rounded-circle"
-											style="background-color: white;">
-											<i class="bi bi-mic"></i>
-										</button>
-										<button id="btnMicOn" class="btn rounded-circle"
-											style="background-color: white;">
-											<i class="bi bi-mic-mute"></i>
-										</button>
-										<button id="btnCamOff" class="btn rounded-circle"
-											style="background-color: white;">
-											<i class="bi bi-camera-video"></i>
-										</button>
-										<button id="btnCamOn" class="btn rounded-circle"
-											style="background-color: white;">
-											<i class="bi bi-camera-video-off"></i>
-										</button>
-									</div>
+								</video>
+								<div class="text-center pb-3" style="width: 720px; margin-left: 28px;">
+									 <button id="btnMic" class="btn rounded-circle" style="background-color: white">
+									 	<i class="bi bi-mic"></i>
+									 </button>
+									 <button id="btnCam" class="btn rounded-circle" style="background-color: white">
+									 	<i class="bi bi-camera-video"></i>
+									 </button>
 								</div>
 
 								<ul class="list-unstyled fs-4" style="margin-left: 28px;">
@@ -162,30 +152,8 @@
         </script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
-
-	<!-- 마이크, 카메라 온오프 버튼 -->
-	<script type="text/javascript">
-    $(document).ready(function(){
-    	$("#btnMicOff").hide();
-    	$("#btnCamOff").hide();
-    });
-    $("#btnMicOn").on("click", function(){
-    	$("#btnMicOn").hide();
-    	$("#btnMicOff").show();
-    })
-    $("#btnMicOff").on("click", function(){
-    	$("#btnMicOff").hide();
-    	$("#btnMicOn").show();
-    })
-    $("#btnCamOn").on("click", function(){
-    	$("#btnCamOn").hide();
-    	$("#btnCamOff").show();
-    })
-    $("#btnCamOff").on("click", function(){
-    	$("#btnCamOff").hide();
-    	$("#btnCamOn").show();
-    })
-    </script>
+	
+	<script src="/resources/user/js/videoPreview.js"></script>
 
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');

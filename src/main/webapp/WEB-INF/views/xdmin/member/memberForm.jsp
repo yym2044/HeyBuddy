@@ -109,7 +109,7 @@ body {
 						<a href="memberList" class="d-block">
 							<div class="d-flex align-items-center flex-no-wrap text-truncate">
 								<!--Sidebar-icon-->
-									<img src="/resources/user/images/heybuddy.PNG" alt="..."
+									<img src="/resources/user/images/xdminHeyBuddy.PNG" alt="..."
 									width="200px">
 							</div>
 						</a>

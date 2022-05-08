@@ -31,8 +31,8 @@
 </head>
 <style>
 header {
-	margin-top: 1%;
-	margin-left: 1%;
+	margin-top: 5px;
+	margin-left: 7px;
 }
 
 body {
@@ -41,6 +41,10 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+}
+
+.card {
+	box-shadow: 2px 5px 10px #119C8D;
 }
 </style>
 <body>
@@ -85,8 +89,8 @@ body {
 					<div class="container py-4">
 						<div class="row h-100 align-items-center justify-content-center">
 							<div style="text-align: center;">
-								<img src="/resources/user/images/welcome.png" alt="..."
-									width="900px">
+								<img src="/resources/user/images/SignUp.PNG" alt="..."
+									width="600px">
 							</div>
 							<br> <br>
 							<div class="col-md-8 col-lg-5 col-xl-4">
@@ -138,12 +142,6 @@ body {
 										</div>
 										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/login/login'">Sign
 											Up</button>
-										<hr class="mt-4">
-										<p class="text-muted text-center">
-											Alread have an account? <a href="/login/login"
-												class="ms-2 text-body">Sign In</a>
-
-										</p>
 										<div class="d-flex align-items-center pb-3">
 											<span class="flex-grow-1 border-bottom pt-1"></span> <span
 												class="d-inline-flex align-items-center justify-content-center lh-1 size-30 rounded-circle text-mono">or</span>

@@ -25,13 +25,11 @@
 <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 
 </head>
- 
-<style>
 
+<style>
 header {
-	margin-top: 1%;
-	margin-left: 1%;
-	
+	margin-top: 5px;
+	margin-left: 7px;
 }
 
 body {
@@ -65,13 +63,13 @@ body {
 				</a>
 			</div>
 		</li>
-					<li
+		
+				<li
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
 				href="/login/login"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 					<i data-feather="log-out" class="fe-1x"></i>
-			</a></li>
-		
+			</a></li>	
 	</ul>
 </header>
 <!--Main Header End-->
@@ -84,14 +82,13 @@ body {
 		<div class="page d-flex flex-row flex-column-fluid">
 
 			<!--///////////Page content wrapper///////////////-->
-			<main
-				class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+			<main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
 				<!--//content//-->
 				<div class="content p-1 d-flex flex-column-fluid position-relative">
 					<div class="container py-4">
 						<div class="row h-100 align-items-center justify-content-center">
 							<div style="text-align: center;">
-								<img src="/resources/user/images/comeplay.png" alt="..."
+								<img src="/resources/user/images/newcome.png" alt="..."
 									width="700px">
 							</div>
 					
@@ -99,9 +96,6 @@ body {
 								<!--Logo-->
 							
 								<!--Card-->
-								<div class="card card-body p-4"
-									style="border: none; background: transparent;">
-
 									<form action="index.html"
 										class="z-index-1 position-relative needs-validation"
 										novalidate="">
@@ -120,7 +114,6 @@ body {
 
 
 									</form>
-								</div>
 							</div>
 						</div>
 					</div>

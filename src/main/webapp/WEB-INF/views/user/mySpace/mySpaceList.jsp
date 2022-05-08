@@ -25,18 +25,19 @@
 <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 
 </head>
- 
+
 <style>
+header {
+	margin-top: 5px;
+	margin-left: 7px;
+}
+
 body {
 	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-}
-
-header {
-	margin-top: 1%;
 }
 
 .mySpaceZone {
@@ -47,12 +48,14 @@ header {
 }
 
 .card {
-	width: 280px;
-	height: 280px;
+	width: 240px;
+	height: 260px;
+	box-shadow: 2px 5px 10px #119C8D;
 }
 
 .newSpace {
-	display: block; margin: 0px auto;
+	display: block;
+	margin: 0px auto;
 }
 </style>
 
@@ -83,7 +86,7 @@ header {
 			</a></li>
 			<li
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-				href="/mySpace/mySpaceReceive"
+				href="/mySpace/mySpaceReceiveList"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 					<i data-feather="bell" class="fe-1x"></i>
 			</a></li>
@@ -110,13 +113,13 @@ header {
 
 				<div class="container-fluid px-0">
 
-
-					<div class="row mySpaceZone">
-						<div style="text-align: center;">
-							<img src="/resources/user/images/mySpace.PNG" alt="..."
-								width="700px">
+	<div style="text-align: center;">
+							<img src="/resources/user/images/newMySpace.PNG" alt="..."
+								width="800px">
 							
 						</div>
+					<div class="row mySpaceZone">
+					
 						<!--col-->
 						<div class="col-sm-6 col-xl-4">
 							<!--card-->
@@ -310,12 +313,12 @@ header {
 						<!--col-->
 						<div class="col-sm-6 col-xl-4">
 							<!--card-->
-							<div class="card mb-4">
+							<div class="card mb-4" style="background-color: #119C8D; box-shadow: 2px 5px 10px white;">
 <br>
 
 										<!-- Avatar -->
 										<a href="/mySpace/mySpaceForm"> <img
-											src="/resources/user/images/newspaceplus.png" alt="..." class="newSpace">
+											src="/resources/user/images/newNewSpace.PNG" alt="..." class="newSpace">
 										</a>
 									
 

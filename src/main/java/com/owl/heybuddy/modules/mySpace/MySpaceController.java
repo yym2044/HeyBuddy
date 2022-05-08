@@ -49,6 +49,12 @@ public class MySpaceController {
 
 		return "user/mySpace/mySpaceReceive";
 	}
+	
+	@RequestMapping(value = "/mySpace/mySpaceReceiveList")
+	public String mySpaceReceiveList() {
+		
+		return "user/mySpace/mySpaceReceiveList";
+	}
 
 	@RequestMapping(value = "/mySpace/mySpaceSend")
 	public String mySpaceSend() {

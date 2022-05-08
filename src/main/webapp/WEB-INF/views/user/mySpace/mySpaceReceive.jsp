@@ -28,11 +28,10 @@
 <style>
 
 header {
-	margin-top: 1%;
-	margin-left: 1%;
-	
+	margin-top: 5px;
+	margin-left: 7px;
 }
- 
+
 body {
 	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
@@ -42,9 +41,12 @@ body {
 }
 
 .mySpaceZone {
-	margin-bottom: 20%;
 	margin-left: 20%;
 	margin-right: 20%;
+}
+
+.card {
+	box-shadow: 2px 5px 10px #119C8D;
 }
 </style>
 
@@ -70,16 +72,16 @@ body {
 				</a>
 			</div>
 		</li>
-					<li
+		
+				<li
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
 				href="/login/login"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 					<i data-feather="log-out" class="fe-1x"></i>
-			</a></li>
-		
+			</a></li>	
 	</ul>
 </header>
-<!--Main Header End-->
+	<!--Main Header End-->
 	<%@include file="../include/loader.jsp"%>
 
 	<div class="d-flex flex-column flex-root">
@@ -91,84 +93,86 @@ body {
 
 				<div class="container-fluid px-0">
 
-	<br><br><br>
 					<div class="row mySpaceZone">
 						<div style="text-align: center;">
-								<img src="/resources/user/images/comein.PNG" alt="..." width="700px">
-							
+							<img src="/resources/user/images/newJoinUs.PNG" alt="..."
+								width="600px">
+
 						</div>
-		
-						
-			
-							<!--card-->
-							<div class="card mb-4">
 
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
 
-										<!-- Avatar --> 
-										
-											<h5 class="mb-0">
-											 Welcome 👋  </h5>
-											 <br>
-										<h5> 최고의 팀 '팀부엉'으로부터 초대되었습니다.</h5>
-										<hr>
-										<a href="#!"
-											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
-											src="/resources/user/images/Beer-drinking.jpeg" alt="..."
-											class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 팀부엉 </a>
-										</h5>
-									
-									  <small> 현재가입자수 : 4 명</small>
 
-										<!-- Email -->
-										<br>
-										<br>
-										
-											<div class="btn-group">
-											<button type="button" class="btn btn-gray" onclick="location.href = '/mySpace/mySpaceList'">
-												<i class="fe-1x me-2" data-feather="thumbs-up"></i> I'm in!
-											</button>
-											</div>
-											<div class="btn-group">
-											<button type="button" class="btn btn-gray" onclick="location.href = '/mySpace/mySpaceList'">
-												<i class="fe-1x me-2" data-feather="thumbs-down"></i> I'm Sorry
-											</button>
+						<!--card-->
+						<div class="card mb-4">
 
-										</div>
+							<!--Card body-->
+							<div class="card-body">
+								<!--Contact-->
+								<div class="text-center">
+
+									<!-- Avatar -->
+
+									<h5 class="mb-0">Welcome 👋</h5>
+									<br>
+									<h5>최고의 팀 '팀부엉'으로부터 초대되었습니다.</h5>
+									<hr>
+									<a href="#!"
+										class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
+										src="/resources/user/images/Beer-drinking.jpeg" alt="..."
+										class="img-fluid rounded-circle">
+									</a>
+									<!-- Title -->
+									<h5 class="mb-0">
+										<a href="#!" class="text-reset"> 팀부엉 </a>
+									</h5>
+
+									<small> 현재가입자수 : 4 명</small>
+
+									<!-- Email -->
+									<br> <br>
+
+									<div class="btn-group">
+										<button type="button" class="btn btn-gray"
+											onclick="location.href = '/mySpace/mySpaceList'">
+											<i class="fe-1x me-2" data-feather="thumbs-up"></i> I'm in!
+										</button>
+									</div>
+									<div class="btn-group">
+										<button type="button" class="btn btn-gray"
+											onclick="location.href = '/mySpace/mySpaceList'">
+											<i class="fe-1x me-2" data-feather="thumbs-down"></i> I'm
+											Sorry
+										</button>
+
 									</div>
 								</div>
 							</div>
 						</div>
-						
-						
-					
-
-	
 					</div>
-				</div>
-				<!--///////////Page content wrapper end///////////////-->
 
-				<!--//Page-footer//-->
-				<footer class="pb-4 px-4 px-lg-8">
-					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">&copy;
-							<script>
+
+
+
+
+				</div>
+		
+		<!--///////////Page content wrapper end///////////////-->
+
+		<!--//Page-footer//-->
+		<footer class="pb-4 px-4 px-lg-8">
+			<div class="container-fluid px-0">
+				<span class="d-block lh-sm small text-muted text-end">&copy;
+					<script>
 								document.write(new Date().getFullYear())
 							</script>. Hey, Buddy All rights reserved.
-						</span>
-					</div>
-				</footer>
-				<!--/.Page Footer End-->
-			</main>
+				</span>
+			</div>
+		</footer>
+		<!--/.Page Footer End-->
+		
+		</main>
 		</div>
-
+	</div>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>

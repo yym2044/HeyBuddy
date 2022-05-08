@@ -26,11 +26,9 @@
 </head>
 
 <style> 
-
 header {
-	margin-top: 1%;
-	margin-left: 1%;
-	
+	margin-top: 5px;
+	margin-left: 7px;
 }
  
 body { 
@@ -85,22 +83,19 @@ body {
 				<!--//content//-->
 				<div class="content p-1 d-flex flex-column-fluid position-relative">
 					<div class="container py-4">
-						<div class="row h-100 align-items-center justify-content-center">
-							<div style="text-align: center;">
-								<img src="/resources/user/images/newSpace.PNG" alt="..." width="900px">
+						<div style="text-align: center;">
+								<img src="/resources/user/images/makeMySpace.PNG" alt="..." width="800px">
 							</div>
-							<br> <br>
+							
+						<div class="row h-100 align-items-center justify-content-center">
 							<div class="col-md-8 col-lg-5 col-xl-4">
-								<!--Logo-->
+							<!--Logo-->
 								<div style="text-align: center;">
 									<img src="/resources/user/images/gathering1.png" alt="..."
 										class="img-fluid rounded-circle" width="200px">
 								</div>
-								<br>
 								<!--Card-->
-								<div class="card card-body p-4"
-									style="border: none; background: transparent;">
-
+								
 									<form action="index.html"
 										class="z-index-1 position-relative needs-validation"
 										novalidate="">
@@ -128,7 +123,7 @@ body {
 
 
 									</form>
-								</div>
+								
 							</div>
 						</div>
 					</div>

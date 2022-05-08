@@ -26,6 +26,10 @@
 </head>
 
 <style>
+header {
+	margin-left:5px; 
+}
+
 body {
 	background-image: url('/resources/user/images/allround.jpg');
 	height: 100vh;
@@ -33,17 +37,37 @@ body {
 	background-size: cover;
 	background-position: center;
 }
+
+main {
+	margin-top: 5%;
+}
 </style>
 
 <body>
-	<!--Theme mode switcher-->
-	<div class="position-absolute end-0 top-0 size-40 z-index-fixed">
-		<div class="switch_modes">
-			<a href="#" class="mode_dark"> <i data-feather="moon"></i>
-			</a> <a href="#" class="mode_light active"> <i data-feather="sun"></i>
-			</a>
-		</div>
-	</div>
+<!--//page-header//-->
+<header class="navbar py-0 page-header navbar-expand navbar-light">
+
+	<ul class="navbar-nav d-flex align-items-center h-100">
+		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/login/login" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+				<i data-feather="home" class="fe-1x"></i>
+			</a></li>
+		
+	</ul>
+	
+	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+				<a href="#" class="mode_dark text-reset p-0">
+					<i data-feather="sun" class="fe-1x"></i>
+				</a>
+				<a href="#" class="mode_light text-reset p-0">
+					<i data-feather="moon" class="fe-1x"></i>
+				</a>
+			</div>
+		</li>
+		
+	</ul>
+</header>
 
 
 	<!--////////////////// PreLoader Start//////////////////////-->
@@ -97,8 +121,8 @@ body {
 							<br>
 							<br>
 							<div style="text-align: center;">
-								<img src="/resources/user/images/heybuddyWH.PNG" alt="..."
-									width="600px">
+								<img src="/resources/user/images/newHeyBuddyWH.PNG" alt="..."
+									width="700px">
 							</div>
 							<div class="col-md-8 col-lg-5 col-xl-4">
 
@@ -109,12 +133,11 @@ body {
 
 
 								<!--Card-->
-								<div class="card card-body p-4"
-									style="border: none; background: transparent;">
 
 									<form action="index.html"
 										class=" z-index-1 position-relative needs-validation"
 										novalidate="">
+										<hr class="mt-4 mb-3">
 										<div class="form-floating mb-3">
 											<input type="email" class="form-control" required=""
 												id="floatingInput" placeholder="name@example.com"> <label
@@ -131,13 +154,13 @@ body {
 											class="d-flex align-items-center justify-content-between mb-3">
 
 										</div>
-										<button class="w-100 btn btn-lg btn-success" type="submit">로그인</button>
+										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/xdmin/memberList'">로그인</button>
 										<hr class="mt-4 mb-3">
 
 
 
 									</form>
-								</div>
+								
 							</div>
 						</div>
 					</div>

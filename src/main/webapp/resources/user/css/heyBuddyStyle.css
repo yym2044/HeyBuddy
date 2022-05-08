@@ -18,18 +18,18 @@ body {
 .Sidebar-link:hover {
 	background-color: #C8EFD4;
 	border-radius: 5px;
-	box-shadow: 2px 5px 10px #C8EBFA;
+	box-shadow: 2px 5px 10px #CCD8A6;
 }
 
 .current {
 	background-color: #C8EFD4;
 	border-radius: 7px;
-	box-shadow: 2px 5px 10px #C8EBFA;
+	box-shadow: 2px 5px 10px #CCD8A6;
 }
 
 .current:hover {
 	background-color: #C8EFD4;
 	border-radius: 7px;
-	box-shadow: 2px 5px 10px #C8EBFA;
+	box-shadow: 2px 5px 10px #CCD8A6;
 	transform: translateY(-1px);
 }

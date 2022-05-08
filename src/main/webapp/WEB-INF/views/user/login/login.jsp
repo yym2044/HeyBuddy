@@ -33,20 +33,24 @@
 
 </head>
 <style>
-
 body {
 	background-image: url('/resources/user/images/TeamheyBuddy.jpg');
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	margin-bottom: 20%;
+	margin-top: 5%;
 	margin-left: 20%;
 	margin-right: 20%;
 }
 
 .fontB {
 	font-weight: bold;
+}
+
+.btn {
+	background-color: #1E293B;
+	color:white;
 }
 </style>
 <body>
@@ -78,8 +82,8 @@ body {
 					<div class="container py-4">
 						<div class="row align-items-center justify-content-center">
 							<div style="text-align: center;">
-								<img src="/resources/user/images/heybuddy.PNG" alt="..."
-									width="600px">
+								<img src="/resources/user/images/newHeyBuddy.PNG" alt="..."
+									width="700px">
 							</div>
 							<div class="col-md-10 col-lg-7 col-xl-6" data-aos="fade-up"
 								data-aos-duration="1200">
@@ -118,12 +122,12 @@ body {
 													class="small text-light text-mono fontB">Forget Password?</a>
 											</div>
 										</div>
-										<button class="w-100 btn btn-lg text-mono btn-success" type="submit" onclick="location.href = '/mySpace/mySpaceList'">Sign
+										<button class="w-100 btn btn-lg text-mono" type="submit" onclick="location.href = '/mySpace/mySpaceList'">Sign
 											In</button>
 										<hr class="mt-4 mb-3">
 										<p class="text-center text-light fontB text-mono">
 											Don’t have an account yet? <a href="/user/memberForm"
-												class="ms-2 text-mono"><button type="button" class="btn btn-success">Sign Up</button></a>
+												class="ms-2 text-mono"><button type="button" class="btn">Sign Up</button></a>
 
 										</p>
 										<div class="d-flex align-items-center pb-3">
@@ -145,7 +149,10 @@ body {
 
 				<!--///////////Page content wrapper end///////////////-->
 
-				<!--//Page-footer//-->
+	
+			</main>
+		</div>
+					<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
 					<div class="container-fluid px-0">
 						<span class="d-block lh-sm small text-muted text-end">&copy;
@@ -156,8 +163,6 @@ body {
 					</div>
 				</footer>
 				<!--/.Page Footer End-->
-			</main>
-		</div>
 	</div>
 
 	<!--////////////Theme Core scripts Start/////////////////-->

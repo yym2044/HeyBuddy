@@ -97,25 +97,27 @@ body {
 					<div class="row mySpaceZone">
 						<div class="col-3"></div>
 						<div class="col-6">
-								<div style="text-align: center;">
-									<img src="/resources/user/images/newWelcome.PNG" alt="..." width="440x">
-								</div>
+						<div style="text-align: center;">
+							<img src="/resources/user/images/check.PNG" alt="..."
+								width="400px">
+
+						</div>
 				
 								<div class="list-group list-group-flush mb-0">
 									
 									<!--Chat User-->
-									<a href="#!"
+									<a href="/mySpace/mySpaceReceive"
 										class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
 										<div class="flex-shrink-0">
-											<div class="avatar-status status-offline me-3 avatar">
-												<img src="/resources/assets/media/avatars/01.jpg"
+											<div class="me-3 avatar">
+												<img src="/resources/user/images/Beer-drinking.jpeg"
 													class="rounded-circle img-fluid" alt="">
+													
 											</div>
 										</div>
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
-												<h6 class="mb-0 text-reset flex-grow-1"> 장원영 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="square" class="fe-1x"></i></h6>
+												<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!</h6>
 												<small class=" opacity-75 ms-auto"> 팀부엉 </small>
 											</div>
 											
@@ -125,92 +127,73 @@ body {
 									<a href="#!"
 										class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
 										<div class="flex-shrink-0">
-											<div class="avatar-status status-offline me-3 avatar">
-												<img src="/resources/assets/media/avatars/02.jpg"
+											<div class="me-3 avatar">
+												<img src="/resources/user/images/Wine-drinking.jpg"
 													class="rounded-circle img-fluid" alt="">
 											</div>
 										</div>
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
-												<h6 class="mb-0 text-reset flex-grow-1"> 이건우 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-square" class="fe-1x"></i></h6>
-												<small class=" opacity-75 ms-auto"> 팀부엉 </small>
+												<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!</h6>
+												<small class=" opacity-75 ms-auto"> 이젠아이티 </small>
 											</div>
 											
 										</div>
 									</a>
 									<!--Chat User-->
 									<a href="#!"
-										class="list-group-item px-3 align-items-center list-group-item-action border-0 d-flex py-3">
+										class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
 										<div class="flex-shrink-0">
-											<div class="avatar-status status-online me-3 avatar d-flex align-items-center justify-content-center bg-primary text-white fw-bolder rounded-circle">
-												<img src="/resources/assets/media/avatars/03.jpg"
-													class="rounded-circle img-fluid" alt=""></div>
+											<div class="me-3 avatar">
+												<img src="/resources/user/images/Cocktail-drinking.jpg"
+													class="rounded-circle img-fluid" alt="">
+											</div>
 										</div>
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
-												<h6 class="mb-0 text-reset flex-grow-1"> 윤영민 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-square" class="fe-1x"></i></h6>
-												<small class="opacity-75 ms-auto"> 팀부엉 </small>
+												<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!</h6>
+												<small class=" opacity-75 ms-auto"> 공주나라 </small>
 											</div>
+											
 										</div>
 									</a>
+									<!--Chat User-->
+									<a href="#!"
+										class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
+										<div class="flex-shrink-0">
+											<div class="me-3 avatar">
+												<img src="/resources/user/images/Soju-drinking.jpg"
+													class="rounded-circle img-fluid" alt="">
+											</div>
+										</div>
+										<div class="overflow-hidden flex-grow-1">
+											<div class="d-flex">
+												<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!</h6>
+												<small class=" opacity-75 ms-auto"> 왕자나라 </small>
+											</div>
+											
+										</div>
+									</a>
+									<!--Chat User-->
+									<a href="#!"
+										class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
+										<div class="flex-shrink-0">
+											<div class="me-3 avatar">
+												<img src="/resources/user/images/Whiskey-drinking.jpg"
+													class="rounded-circle img-fluid" alt="">
+											</div>
+										</div>
+										<div class="overflow-hidden flex-grow-1">
+											<div class="d-flex">
+												<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!</h6>
+												<small class=" opacity-75 ms-auto"> 너와나의연결고리 </small>
+											</div>
+											
+										</div>
+									</a>
+									
+									
 
-									<!--Chat User-->
-									<a href="#!"
-										class="list-group-item px-3 align-items-center list-group-item-action border-0 d-flex py-3">
-										<div class="flex-shrink-0">
-											<div class="avatar-status status-offline me-3 avatar">
-												<img src="/resources/assets/media/avatars/04.jpg"
-													class="rounded-circle img-fluid" alt="">
-											</div>
-										</div>
-										<div class="overflow-hidden flex-grow-1">
-											<div class="d-flex">
-												<h6 class="mb-0 text-reset flex-grow-1"> 정미림 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-square" class="fe-1x"></i></h6>
-												<small class="opacity-75 ms-auto"> 팀부엉 </small>
-											</div>
-											
-										</div>
-									</a>
-									<!--Chat User-->
-									<a href="#!"
-										class="list-group-item px-3 align-items-center list-group-item-action border-0 d-flex py-3">
-										<div class="flex-shrink-0">
-											<div
-												class="avatar-status status-online me-3 avatar d-flex align-items-center fw-bolder justify-content-center text-white bg-success rounded-circle">
-												<img src="/resources/assets/media/avatars/05.jpg"
-													class="rounded-circle img-fluid" alt=""></div>
-										</div>
-										<div class="overflow-hidden flex-grow-1">
-											<div class="d-flex">
-												<h6 class="mb-0 text-reset flex-grow-1"> 윤이나 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-square" class="fe-1x"></i></h6>
-												<small class="opacity-75 ms-auto"> 팀부엉 </small>
-											</div>
-											
-										</div>
-									</a>
-
-									<!--Chat User-->
-									<a href="#!"
-										class="list-group-item px-3 align-items-left list-group-item-action border-0 d-flex py-3">
-										<div class="flex-shrink-0">
-											<div class="avatar-status status-offline me-3 avatar">
-												<img src="/resources/assets/media/avatars/06.jpg"
-													class="rounded-circle img-fluid" alt="">
-											</div>
-										</div>
-										<div class="overflow-hidden flex-grow-1">
-											<div class="d-flex">
-												<h6 class="mb-0 text-reset flex-grow-1"> 윤수빈 &nbsp;&nbsp;<i style="color:green;"
-											data-feather="check-square" class="fe-1x"></i></h6>
-												<small class="opacity-75 ms-auto"> 팀부엉 </small>
-											</div>
-										
-										</div>
-									</a>
 									<!--Load more button-->
 									<a href="#!"
 										class="list-group-item px-3 align-items-center justify-content-center list-group-item-action d-flex py-3">
@@ -222,7 +205,11 @@ body {
 					</div>
 					<!--///////////Page content wrapper end///////////////-->
 
-					<!--//Page-footer//-->
+
+
+			</main>
+		</div>
+							<!--//Page-footer//-->
 					<footer class="pb-4 px-4 px-lg-8">
 						<div class="container-fluid px-0">
 							<span class="d-block lh-sm small text-muted text-end">&copy;
@@ -233,9 +220,6 @@ body {
 						</div>
 				</footer>
 				<!--/.Page Footer End-->
-
-			</main>
-		</div>
 	</div>
 
 	<!--////////////Theme Core scripts Start/////////////////-->

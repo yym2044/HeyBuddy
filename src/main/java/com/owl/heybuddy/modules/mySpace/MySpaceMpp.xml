@@ -6,7 +6,120 @@
 
 <mapper namespace="com.owl.heybuddy.modules.mySpace.MySpaceMpp"> <!-- 지금 파일 지정 -->
 
-	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.mySpace.MySpace"></resultMap> <!-- 결과 객체 저장 -->
- 
+	<resultMap id="resultMapObj"
+		type="com.owl.heybuddy.modules.mySpace.MySpace"></resultMap> <!-- 결과 객체 저장 -->
+
+
+	<select id="selectListMySpace" resultMap="resultMapObj">
+
+		SELECT
+		hyspSeq
+		, hyspOrder
+		, hyspTypeCd
+		, hyspUseNy
+		, hyspName
+		, hyspDelNy
+		, regIp
+		, regSeq
+		, regDevice
+		, regDateTime
+		, regDateTimeSvr
+		, modIp
+		, modSeq
+		, modDevice
+		, modDateTime
+		, modDateTimeSvr
+
+		FROM hybdSpace
+
+
+	</select>
+	<select id="selectOneMySpace" resultMap="resultMapObj">
+
+		SELECT
+		hyspSeq
+		, hyspOrder
+		, hyspTypeCd
+		, hyspUseNy
+		, hyspName
+
+		FROM hybdSpace
+		WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+
+	</select>
+
+	<insert id="insertMySpace">
+
+		INSERT INTO hybdSpace (
+		hyspSeq
+		, hyspOrder
+		, hyspTypeCd
+		, hyspUseNy
+		, hyspName
+		, hyspDelNy
+		, regIp
+		, regSeq
+		, regDevice
+		, regDateTime
+		, regDateTimeSvr
+		, modIp
+		, modSeq
+		, modDevice
+		, modDateTime
+		, modDateTimeSvr
+		) VALUES (
+		#{hyspSeq}
+		, #{hyspOrder}
+		, #{hyspTypeCd}
+		, #{hyspUseNy}
+		, #{hyspName}
+		, 0
+		, #{regIp}
+		, #{regSeq}
+		, #{regDevice}
+		, now()
+		, now()
+		, #{modIp}
+		, #{modSeq}
+		, #{modDevice}
+		, now()
+		, now()
+		)
+		<selectKey resultType="String" keyProperty="hyspSeq"
+			order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+
+	<update id="updateMySpace">
+		UPDATE hybdSpace
+		SET
+		hyspTypeCd = #{hyspTypeCd}
+		, hyspUseNy = #{hyspUseNy}
+		, hyspName = #{hyspName}
+		, modIp = #{modIp}
+		, modSeq = #{modSeq}
+		, modDevice = #{modDevice}
+		, modDateTime = #{modDateTime}
+		, modDateTimeSvr = #{modDateTimeSvr}
+
+		WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+	</update>
 	
+	<update id="ueleteMySpace">
+		UPDATE hybdSpace
+		SET 
+		hyspDelNy = 1 
+		WHERE 1=1 
+		AND hyspSeq = #{hyspSeq}
+	</update>
+
+	<delete id="deleteMySpace">
+		DELETE FROM hybdSpace 
+		WHERE 1=1 
+		AND hyspSeq = #{hyspSeq}
+	</delete>
+
 </mapper>

@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.owl.heybuddy.common.util.UtilUpload;
 
 @Service
-public class FileServiceImpl implements FileService {
+public class FileServiceImpl implements FileService { 
 	
 	@Autowired
 	FileDao dao;

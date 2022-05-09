@@ -2,7 +2,7 @@ package com.owl.heybuddy.modules.file;
 
 import java.util.Date;
 
-public class FileVo {
+public class FileVo { 
 
 	private String hydcSeq;
 	private String hyspSeq;

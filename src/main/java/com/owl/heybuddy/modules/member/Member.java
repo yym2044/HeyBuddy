@@ -3,7 +3,7 @@ package com.owl.heybuddy.modules.member;
 import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
-
+ 
 public class Member { 
 	
 	

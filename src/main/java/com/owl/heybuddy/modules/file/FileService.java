@@ -5,7 +5,7 @@ import java.util.List;
 
 
 
-public interface FileService {
+public interface FileService { 
 
 	
 	int selectOneCount(FileVo vo) throws Exception;    //문서검색

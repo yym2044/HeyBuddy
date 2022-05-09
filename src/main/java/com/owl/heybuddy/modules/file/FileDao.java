@@ -7,11 +7,10 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.owl.heybuddy.modules.member.Member;
-import com.owl.heybuddy.modules.member.MemberVo;
+
 
 @Repository
-public class FileDao {
+public class FileDao { 
 
 	@Inject
 	private SqlSession sqlSession;

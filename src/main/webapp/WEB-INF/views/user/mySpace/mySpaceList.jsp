@@ -82,13 +82,13 @@ body {
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
 				href="/mySpace/mySpaceSendList"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-					<i data-feather="mail" class="fe-1x"></i>
+					<i data-feather="user-check" class="fe-1x"></i>
 			</a></li>
 			<li
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
 				href="/mySpace/mySpaceReceiveList"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-					<i data-feather="bell" class="fe-1x"></i>
+					<i data-feather="mail" class="fe-1x"></i>
 			</a></li>
 
 			<li

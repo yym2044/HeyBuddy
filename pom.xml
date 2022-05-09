@@ -232,6 +232,21 @@
 			<artifactId>jaxb-impl</artifactId> 
 			<version>2.3.1</version> 
 		</dependency> -->
+		
+		<!-- WebSocket Start-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<!-- WebSocket End-->
+		
 	</dependencies>
     <build>
         <plugins>

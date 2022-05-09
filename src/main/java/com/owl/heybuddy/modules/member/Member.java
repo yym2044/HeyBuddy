@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class Member {
+public class Member { 
 	
 	
 	private String hymmSeq;

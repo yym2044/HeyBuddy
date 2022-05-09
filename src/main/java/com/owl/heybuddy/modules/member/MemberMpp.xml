@@ -148,7 +148,7 @@
 		,delNY
 		,pseq
 		,path
-		,ifmmSeq
+		,hymmSeq
 		)
 		VALUES(
 		#{defaultNy}
@@ -161,7 +161,7 @@
 		,0
 		,#{pseq}
 		,#{path}
-		,#{ifmmSeq}
+		,#{hymmSeq}
 		)
 </insert>
 	
@@ -180,69 +180,69 @@
 			, pseq
 			, path
 		FROM
-			infrMemberUploaded
+			hybdMemberUploaded
 		WHERE 1=1
-			AND pseq = #{ifmmSeq}
+			AND pseq = #{hymmSeq}
 	</select>
 	
 	<update id="updateMember">  <!-- 회원수정 -->
 		UPDATE infrMember SET
-		hybdmmPassword  =  #{hybdmmPassword}
-		,hybdmmGenderCd =  #{hybdmmGenderCd}
-		,hybdmmDelny =  0
-		,hybdmmSaveCd =  #{hybdmmSaveCd}
-        ,hybdmmDob = #{hybdmmDob}
-		,hybdmmEmailConsentNy =  #{hybdmmEmailConsentNy}
-		,hybdmmSmsConsentNy =  #{hybdmmSmsConsentNy}
-		,hybdmmPushConsentNy =  #{hybdmmPushConsentNy}
-		,hybdmmDesc = #{hybdmmDesc}
+		hymmPassword  =  #{hymmPassword}
+		,hymmGenderCd =  #{hymmGenderCd}
+		,hymmDelny =  0
+		,hymmSaveCd =  #{hymmSaveCd}
+        ,hymmDob = #{hymmDob}
+		,hymmEmailConsentNy =  #{hymmEmailConsentNy}
+		,hymmSmsConsentNy =  #{hymmSmsConsentNy}
+		,hymmPushConsentNy =  #{hymmPushConsentNy}
+		,hymmDesc = #{hybdmmDesc}
 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}
 		,modDevice =  #{modDevice}
 		,modDateTime =  now()
 		,modDateTimeSvr =  now()
 		WHERE 1 = 1
-		AND hybdmmSeq = #{hybdmmSeq}
+		AND hymmSeq = #{hymmSeq}
 	</update>
 
 
 	<select id="selectOneIdUser" resultMap="resultMapObj">
 	SELECT
-		a.hybdmmSeq
-		,a.hybdmmId
+		a.hymmSeq
+		,a.hymmId
 		FROM
 			hybdMember a
 		WHERE 1 = 1
-		 	AND a.hybdmmId = #{hybdmmId}
+		 	AND a.hymmId = #{hymmId}
 	</select>
 	
 	<select id="selectOneLoginUser" resultMap="resultMapObj">
 	SELECT
-		 a.hybdmmSeq
-		 ,a.hybdmmId
-		 ,a.hybdmmName
-		 ,a.hybdmmDesc
-		 ,a.hybdmmPwdModDate
+		 a.hymmSeq
+		 ,a.hymmId
+		 ,a.hymmName
+		 ,a.hymmDesc
+		 ,a.hymmPwdModDate
 	 FROM
 	 	hybdMember a
 	 WHERE 1 = 1
-	 AND a.hybdmmId = #{hybdmmId}
-	 AND a.hybdPassword = #{hybdPassword}
+	 AND a.hymmId = #{hymmId}
+	 AND a.hymmPassword = #{hymmPassword}
 	</select>
 
 	
 	<delete id="deleteMember"> <!-- 진짜삭제 -->
 	DELETE FROM hybdMember
 	WHERE 
-	hybdmmSeq= #{hybdmmSeq}
+	hymmSeq= #{hymmSeq}
 	</delete>
 
 	<update id="updateDeleteMember">    <!-- 가짜삭제 -->
 	UPDATE hybdMember SET 
-		hybdmmDelNy = 1 
-		,hybdmmDormancyNy = 1 
+		hymmDelNy = 1 
+		,hymmDormancyNy = 1 
 		WHERE
-		hybdmmSeq= #{hybdmmSeq}
+		hymmSeq= #{hymmSeq}
 	</update>
 	
 </mapper>

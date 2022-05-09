@@ -37,7 +37,7 @@ public class MemberServiceImpl implements MemberService {
 		for(MultipartFile multipartFile : dto.getFile0()) {
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
 			
-			UtilUpload.upload(multipartFile, pathModule, dto);
+			UtilUpload.uploadProfile(multipartFile, pathModule, dto);
 
 			dto.setTableName("hybdMemberUploaded");
 			dto.setType(0);
@@ -53,7 +53,7 @@ public class MemberServiceImpl implements MemberService {
 			for(MultipartFile multipartFile : dto.getFile1()) {
 				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
 				
-				UtilUpload.upload(multipartFile, pathModule, dto);
+				UtilUpload.uploadProfile(multipartFile, pathModule, dto);
 
 				dto.setTableName("hybdMemberUploaded");
 				dto.setType(1);

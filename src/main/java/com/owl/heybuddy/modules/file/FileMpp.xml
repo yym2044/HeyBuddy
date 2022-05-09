@@ -8,5 +8,118 @@
 
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.file.File"></resultMap> <!-- 결과 객체 저장 -->
  
+ 
+ 
+<!--  ************************* 문서관련mpp*************************  -->
+<!--  ************************* 문서관련mpp*************************  -->
+<!--  ************************* 문서관련mpp*************************  -->
+ 
+		<insert id="insertDocument">  <!-- 문서등록 -->
+		INSERT INTO hybdDocument(
+		hybdTitle
+		,hybdText
+		,hybdDelNy
+		,regIp
+		,regSeq
+		,regDevice
+		,regDateTime
+		,regDateTimeSvr
+		,hyspSeq
+		,hymmSeq
+		)
+		VALUES(
+		#{hybdTitle}
+		,#{hybdText} 
+		,#{hybdDelNy}
+		,#{regIp}
+		,#{regSeq}
+		,#{regDevice}
+		,#{regDateTime} 
+		,#{regDateTimeSvr} 
+		,#{hyspSeq} 
+		,#{hymmSeq}
+		)
+</insert>
+
+
+	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
+		select
+		*
+		from
+		hybdDocumnet
+		where 1=1
+		and hydcDelNy = 0
+		and hymmSeq = #{hymmSeq}
+	</select>
+
+	<update id="updateDocument">  <!-- 문서수정 -->
+		UPDATE hybdDocumnet SET
+		hybdTitle  =  #{hybdTitle}
+		,hybdText =  #{hybdText}
+		,hybdmmDelny =  0
+		,hybdmmDesc = #{hybdmmDesc}
+		,modIp =  #{modIp}
+		,modSeq =  #{modSeq}
+		,modDevice =  #{modDevice}
+		,modDateTime =  now()
+		,modDateTimeSvr =  now()
+		WHERE 1 = 1
+		AND hymmSeq = #{hymmSeq}
+	</update>
+
+
+<!--  ************************* 파일관련mpp*************************  -->
+<!--  ************************* 파일관련mpp*************************  -->
+<!--  ************************* 파일관련mpp*************************  -->
+
+
+	<insert id="insertUploaded">  <!-- 파일등록 -->
+		INSERT INTO ${tableName}(
+		defaultNy
+		,type 
+		,sort
+		,originalFileName
+		,uuidFileName
+		,ext
+ 		,size 
+		,delNY
+		,pseq
+		,path
+		,hymmSeq
+		)
+		VALUES(
+		#{defaultNy}
+		,#{type} 
+		,#{sort}
+		,#{originalFileName}
+		,#{uuidFileName}
+		,#{ext}
+		,#{size} 
+		,0
+		,#{pseq}
+		,#{path}
+		,#{hymmSeq}
+		)
+</insert>
+
+	<select id="FileUploaded" resultMap = "resultMapObj"> <!--파일뷰 -->
+		SELECT
+			seq
+			, type
+			, defaultNy
+			, sort
+			, originalFileName
+			, uuidFileName 
+			, ext
+			, size 
+			, delNy
+			, pseq
+			, path
+		FROM
+			hybdMemberUploaded
+		WHERE 1=1
+			AND pseq = #{hymmSeq}
+	</select>
+	
 	
 </mapper>

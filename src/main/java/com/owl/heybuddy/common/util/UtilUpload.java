@@ -16,7 +16,7 @@ public class UtilUpload {
 	
 	/* 멤버 프로필사진업로드 */
 	
-	public static void upload(MultipartFile multipartFile, String className, Member dto) throws Exception {
+	public static void uploadProfile(MultipartFile multipartFile, String className, com.owl.heybuddy.modules.member.Member dto) throws Exception {
 
 		String fileName = multipartFile.getOriginalFilename();
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -51,9 +51,9 @@ public class UtilUpload {
 	}
 	
 	
-	/* 문서 파일업로드 */
+	/* 문서에서 파일업로드 */
 
-	/*	public static void uploadProduct(MultipartFile multipartFile, String className) throws Exception {
+	public static void uploadFile(MultipartFile multipartFile, String className,  com.owl.heybuddy.modules.file.File dto) throws Exception {
 
 		String fileName = multipartFile.getOriginalFilename();
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -70,7 +70,7 @@ public class UtilUpload {
 
 		multipartFile.transferTo(new File(path + uuidFileName));
 
-		dto.setPath("/infra/resources/uploaded/" + pathModule + "/" + pathDate + "/");
+		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
 		dto.setOriginalFileName(fileName);
 		dto.setUuidFileName(uuidFileName);
 		dto.setExt(ext);
@@ -87,6 +87,11 @@ public class UtilUpload {
 	 
 	 }
 
-} */
-	 
 }
+
+
+
+		
+	}
+
+

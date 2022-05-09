@@ -1,12 +1,95 @@
 package com.owl.heybuddy.modules.member;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+
+import com.owl.heybuddy.common.util.UtilUpload;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDao dao;
+	
+
+	@Override
+	public List<Member> memberList(MemberVo vo) throws Exception { //회원리스트
+		return dao.memberList(vo);
+	}
+	@Override
+	public int selectOneCount(MemberVo vo) throws Exception {   //회원검색
+		return dao.selectOneCount(vo);
+	}
+	@Override
+	public Member memberView(MemberVo vo) throws Exception { //회원뷰
+		return dao.memberView(vo);
+	}
+	@Override
+	public int insertMember(Member dto) throws Exception {  //회원등록
+		/* dto.setRegDateTime(UtilDateTime.nowDate()); */
+		dao.insertMember(dto);
+
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0()) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
+			
+			UtilUpload.upload(multipartFile, pathModule, dto);
+
+			dto.setTableName("hybdMemberUploaded");
+			dto.setType(0);
+			dto.setDefaultNy(0);
+			dto.setSort(j);
+			dto.setPseq(dto.getHymmSeq());
+			 
+			dao.insertUploaded(dto);
+
+			j++;
+		}
+		    j = 0;
+			for(MultipartFile multipartFile : dto.getFile1()) {
+				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
+				
+				UtilUpload.upload(multipartFile, pathModule, dto);
+
+				dto.setTableName("hybdMemberUploaded");
+				dto.setType(1);
+				dto.setDefaultNy(0);
+				dto.setSort(j);
+				dto.setPseq(dto.getHymmSeq());
+				 
+				j++;
+	}
+		return 1;
+	}
+	
+	
+	@Override
+	public int updateMember(Member dto) throws Exception { //회원수정
+		/* dto.setModDateTime(UtilDateTime.nowDate()); */
+		dao.updateMember(dto);
+		return 1;
+	}
+	
+	@Override
+	public int deleteMember(MemberVo vo) {   //회원삭제
+		return dao.deleteMember(vo);	
+	}
+	@Override
+	public int updateDeleteMember(MemberVo vo) throws Exception { //회원가짜삭제 
+		return dao.updateDeleteMember(vo);
+	}
+	
+	@Override
+	public Member MemberUploaded(MemberVo vo) throws Exception { //회원사진
+		return dao.MemberUploaded(vo);
+	}
+	@Override
+	public Member selectOneLogin(Member dto) { //회원로그인
+		return dao.selectOneLogin(dto); 
+	}
 	
 }

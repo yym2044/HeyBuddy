@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.owl.heybuddy.modules.member.MemberMpp"> <!-- 지금 파일 지정 -->
+
+	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.member.Member"></resultMap> <!-- 결과 객체 저장 -->
+ 
+		<sql id="selectCommon">
+		FROM
+		infrMember a
+		WHERE 1 = 1
+		<choose>
+			<when test="shIfmmDelNy == 1">AND ifmmDelNy = 1 </when>   
+			<when test="shIfmmDelNy == 0">AND ifmmDelNy = 0 </when>  
+		</choose>
+		<choose>
+			<when test="shIfmmDormancyNy == 1">AND ifmmDormancyNy = 1 </when> 
+			<when test="shIfmmDormancyNy == 0">AND ifmmDormancyNy = 0 </when>  
+		</choose>
+		<choose>
+			<when test="shMemberOptionDate == 1">AND a.regDateTime BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd}  </when> 
+			<when test="shMemberOptionDate == 2">AND a.modDateTime BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd}  </when>
+			<when test="shMemberOptionDate == 3">AND a.ifmmDob BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd} </when>  
+		</choose>  
+		<if test="shIfmmName != null and !shIfmmName.equals('')"> AND ifmmName LIKE concat('%',#{shIfmmName},'%')</if>
+		<choose>
+			<when test="shMemberOption == 1">AND hybdmmName LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 2">AND hybdmmId LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 3">AND hybdmmNickname LIKE concat('%',#{shMemberValue},'%')	</when>
+			<when test="shMemberOption == 4">AND hybdmmNumber LIKE concat('%',#{shMemberValue},'%')</when>  
+		</choose>
+	</sql>
+
+	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
+		select
+		count(*)
+		<include refid="selectCommon"/>
+	</select>
+
+	<select id="memberList" resultMap="resultMapObj">  <!-- 멤버리스트-->
+		select
+		*
+		from
+		hybdMember a
+		where
+		1=1
+			<choose>
+			<when test="shHymmDelNy == 1">AND hybdmmDelNy = 1 </when>   
+			<when test="shHymmDelNy == 0">AND hybdmmDelNy = 0 </when>  
+		</choose>
+		<choose>
+			<when test="shHybdmmDormancyNy == 1">AND hybdmmDormancyNy = 1 </when> 
+			<when test="shHybdmmDormancyNy == 0">AND hybdmmDormancyNy = 0 </when>  
+		</choose>
+		<if test="shIfmmName != null and !shIfmmName.equals('')"> AND ifmmName LIKE concat('%',#{shIfmmName},'%')</if>
+		<choose>
+			<when test="shMemberOption == 1">AND hybdmmName LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 2">AND hybdmmId LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 3">AND hybdmmNickname LIKE concat('%',#{shMemberValue},'%')	</when>
+		</choose>
+		limit  #{startRnumForMysql} , #{rowNumToShow}
+	
+	</select>
+
+
+	<select id="memberView" resultMap="resultMapObj">   <!-- 멤버뷰 셀렉원 -->
+		select
+		*
+		from
+		hybdMember
+		where 1=1
+		and hybdmmDelNy = 0
+		and hybdmmSeq = #{hybdmmSeq}
+	</select>
+	
+	<select id="selectOneMember" resultMap="resultMapObj">
+		select
+		*
+		from
+		hybdMember
+		where 1 = 1
+		and hybdmmDelNy = 0
+		and hybdmmSeq = #{hybdmmSeq}
+	</select>
+	
+	
+	<insert id="insertMember">  <!-- 멤버등록 -->
+	INSERT INTO hybdMember(
+		hybdmmAdminNy
+		,hybdmmDormancyNy
+		,hybdmmName
+		,hybdmmId
+		,hybdmmNickname
+		,hybdmmPassword
+		,hybdmmDob 
+		,hybdmmGenderCd
+		,hybdmmNumber
+		,hybdmmDelny
+		,hybdmmSaveCd
+		,hybdmmEmailConsentNy
+		,hybdmmSmsConsentNy
+		,hybdmmPushConsentNy
+		,regIp
+		,regSeq
+		,regDevice
+		,regDateTime
+		,regDateTimeSvr
+		)
+		VALUES (
+		0
+		,0
+		,#{hybdmmName}
+		,#{hybdmmId}
+		,#{hybdmmNickname}
+		,#{hybdmmPassword}
+		,#{hybdmmDob}
+		,#{hybdmmGenderCd}
+		,#{hybdmmNumber}
+		,0
+		,#{hybdmmSaveCd}
+		,#{hybdmmEmailConsentNy}
+		,#{hybdmmSmsConsentNy}
+		,#{hybdmmPushConsentNy}
+		,#{regIp}
+		,#{regSeq}
+		,#{regDevice}
+		,now()
+		,now()
+		)
+		<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	
+	<insert id="insertUploaded">
+		INSERT INTO ${tableName}(
+		defaultNy
+		,type 
+		,sort
+		,originalFileName
+		,uuidFileName
+		,ext
+ 		,size 
+		,delNY
+		,pseq
+		,path
+		,ifmmSeq
+		)
+		VALUES(
+		#{defaultNy}
+		,#{type} 
+		,#{sort}
+		,#{originalFileName}
+		,#{uuidFileName}
+		,#{ext}
+		,#{size} 
+		,0
+		,#{pseq}
+		,#{path}
+		,#{ifmmSeq}
+		)
+</insert>
+	
+	
+	<select id="MemberUploaded" resultMap = "resultMapObj">
+		SELECT
+			seq
+			, type
+			, defaultNy
+			, sort
+			, originalFileName
+			, uuidFileName 
+			, ext
+			, size 
+			, delNy
+			, pseq
+			, path
+		FROM
+			infrMemberUploaded
+		WHERE 1=1
+			AND pseq = #{ifmmSeq}
+	</select>
+	
+	<update id="updateMember">  <!-- 회원수정 -->
+		UPDATE infrMember SET
+		hybdmmPassword  =  #{hybdmmPassword}
+		,hybdmmGenderCd =  #{hybdmmGenderCd}
+		,hybdmmDelny =  0
+		,hybdmmSaveCd =  #{hybdmmSaveCd}
+        ,hybdmmDob = #{hybdmmDob}
+		,hybdmmEmailConsentNy =  #{hybdmmEmailConsentNy}
+		,hybdmmSmsConsentNy =  #{hybdmmSmsConsentNy}
+		,hybdmmPushConsentNy =  #{hybdmmPushConsentNy}
+		,hybdmmDesc = #{hybdmmDesc}
+		,modIp =  #{modIp}
+		,modSeq =  #{modSeq}
+		,modDevice =  #{modDevice}
+		,modDateTime =  now()
+		,modDateTimeSvr =  now()
+		WHERE 1 = 1
+		AND hybdmmSeq = #{hybdmmSeq}
+	</update>
+
+
+	<select id="selectOneIdUser" resultMap="resultMapObj">
+	SELECT
+		a.hybdmmSeq
+		,a.hybdmmId
+		FROM
+			hybdMember a
+		WHERE 1 = 1
+		 	AND a.hybdmmId = #{hybdmmId}
+	</select>
+	
+	<select id="selectOneLoginUser" resultMap="resultMapObj">
+	SELECT
+		 a.hybdmmSeq
+		 ,a.hybdmmId
+		 ,a.hybdmmName
+		 ,a.hybdmmDesc
+		 ,a.hybdmmPwdModDate
+	 FROM
+	 	hybdMember a
+	 WHERE 1 = 1
+	 AND a.hybdmmId = #{hybdmmId}
+	 AND a.hybdPassword = #{hybdPassword}
+	</select>
+
+	
+	<delete id="deleteMember"> <!-- 진짜삭제 -->
+	DELETE FROM hybdMember
+	WHERE 
+	hybdmmSeq= #{hybdmmSeq}
+	</delete>
+
+	<update id="updateDeleteMember">    <!-- 가짜삭제 -->
+	UPDATE hybdMember SET 
+		hybdmmDelNy = 1 
+		,hybdmmDormancyNy = 1 
+		WHERE
+		hybdmmSeq= #{hybdmmSeq}
+	</update>
+	
+</mapper>

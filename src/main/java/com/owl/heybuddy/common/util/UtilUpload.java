@@ -6,7 +6,8 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.owl.heybuddy.common.constants.Constants;
-import com.owl.heybuddy.modules.xdmin.Member;
+import com.owl.heybuddy.modules.member.Member;
+
 
 
 
@@ -32,7 +33,7 @@ public class UtilUpload {
 
 		multipartFile.transferTo(new File(path + uuidFileName));
 
-		dto.setPath("/infra/resources/uploaded/" + pathModule + "/" + pathDate + "/"); 
+		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/"); 
 		dto.setOriginalFileName(fileName);
 		dto.setUuidFileName(uuidFileName);
 		dto.setExt(ext);

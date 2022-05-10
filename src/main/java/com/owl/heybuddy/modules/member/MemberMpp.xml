@@ -8,29 +8,29 @@
 
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.member.Member"></resultMap> <!-- 결과 객체 저장 -->
  
-		<sql id="selectCommon">
+	<sql id="selectCommon"> <!-- 공통 -->
 		FROM
-		infrMember a
+		hybdMember a
 		WHERE 1 = 1
 		<choose>
-			<when test="shIfmmDelNy == 1">AND ifmmDelNy = 1 </when>   
-			<when test="shIfmmDelNy == 0">AND ifmmDelNy = 0 </when>  
+			<when test="shHymmDelNy == 1">AND hymmDelNy = 1 </when>   
+			<when test="shHymmDelNy == 0">AND hymmDelNy = 0 </when>  
 		</choose>
 		<choose>
-			<when test="shIfmmDormancyNy == 1">AND ifmmDormancyNy = 1 </when> 
-			<when test="shIfmmDormancyNy == 0">AND ifmmDormancyNy = 0 </when>  
+			<when test="shHymmDormancyNy == 1">AND hymmDormancyNy = 1 </when> 
+			<when test="shHymmDormancyNy == 0">AND hymmDormancyNy = 0 </when>  
 		</choose>
 		<choose>
 			<when test="shMemberOptionDate == 1">AND a.regDateTime BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd}  </when> 
 			<when test="shMemberOptionDate == 2">AND a.modDateTime BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd}  </when>
-			<when test="shMemberOptionDate == 3">AND a.ifmmDob BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd} </when>  
+			<when test="shMemberOptionDate == 3">AND a.hymmDob BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd} </when>  
 		</choose>  
-		<if test="shIfmmName != null and !shIfmmName.equals('')"> AND ifmmName LIKE concat('%',#{shIfmmName},'%')</if>
+		<if test="shHymmName != null and !shHymmName.equals('')"> AND hymmName LIKE concat('%',#{shHymmName},'%')</if>
 		<choose>
-			<when test="shMemberOption == 1">AND hybdmmName LIKE concat('%',#{shMemberValue},'%')</when>
-			<when test="shMemberOption == 2">AND hybdmmId LIKE concat('%',#{shMemberValue},'%')</when>
-			<when test="shMemberOption == 3">AND hybdmmNickname LIKE concat('%',#{shMemberValue},'%')	</when>
-			<when test="shMemberOption == 4">AND hybdmmNumber LIKE concat('%',#{shMemberValue},'%')</when>  
+			<when test="shMemberOption == 1">AND hymmName LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 2">AND hymmId LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 3">AND hymmNickname LIKE concat('%',#{shMemberValue},'%')	</when>
+			<when test="shMemberOption == 4">AND hymmNumber LIKE concat('%',#{shMemberValue},'%')</when>  
 		</choose>
 	</sql>
 
@@ -47,19 +47,20 @@
 		hybdMember a
 		where
 		1=1
-			<choose>
-			<when test="shHymmDelNy == 1">AND hybdmmDelNy = 1 </when>   
-			<when test="shHymmDelNy == 0">AND hybdmmDelNy = 0 </when>  
+		<choose>
+			<when test="shHymmDelNy == 1">AND hymmDelNy = 1 </when>   
+			<when test="shHymmDelNy == 0">AND hymmDelNy = 0 </when>  
 		</choose>
 		<choose>
-			<when test="shHybdmmDormancyNy == 1">AND hybdmmDormancyNy = 1 </when> 
-			<when test="shHybdmmDormancyNy == 0">AND hybdmmDormancyNy = 0 </when>  
+			<when test="shHymmDormancyNy == 1">AND hymmDormancyNy = 1 </when> 
+			<when test="shHymmDormancyNy == 0">AND hymmDormancyNy = 0 </when>  
 		</choose>
-		<if test="shIfmmName != null and !shIfmmName.equals('')"> AND ifmmName LIKE concat('%',#{shIfmmName},'%')</if>
+		<if test="shHymmName != null and !shHymmName.equals('')"> AND hymmName LIKE concat('%',#{shHymmName},'%')</if>
+		
 		<choose>
-			<when test="shMemberOption == 1">AND hybdmmName LIKE concat('%',#{shMemberValue},'%')</when>
-			<when test="shMemberOption == 2">AND hybdmmId LIKE concat('%',#{shMemberValue},'%')</when>
-			<when test="shMemberOption == 3">AND hybdmmNickname LIKE concat('%',#{shMemberValue},'%')	</when>
+			<when test="shMemberOption == 1">AND hymmName LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 2">AND hymmId LIKE concat('%',#{shMemberValue},'%')</when>
+			<when test="shMemberOption == 3">AND hymmNumber LIKE concat('%',#{shMemberValue},'%')	</when>
 		</choose>
 		limit  #{startRnumForMysql} , #{rowNumToShow}
 	
@@ -72,8 +73,8 @@
 		from
 		hybdMember
 		where 1=1
-		and hybdmmDelNy = 0
-		and hybdmmSeq = #{hybdmmSeq}
+		and hymmDelNy = 0
+		and hymmSeq = #{hymmSeq}
 	</select>
 	
 	<select id="selectOneMember" resultMap="resultMapObj">
@@ -82,27 +83,27 @@
 		from
 		hybdMember
 		where 1 = 1
-		and hybdmmDelNy = 0
-		and hybdmmSeq = #{hybdmmSeq}
+		and hymmDelNy = 0
+		and hymmSeq = #{hymmSeq}
 	</select>
 	
 	
 	<insert id="insertMember">  <!-- 멤버등록 -->
 	INSERT INTO hybdMember(
-		hybdmmAdminNy
-		,hybdmmDormancyNy
-		,hybdmmName
-		,hybdmmId
-		,hybdmmNickname
-		,hybdmmPassword
-		,hybdmmDob 
-		,hybdmmGenderCd
-		,hybdmmNumber
-		,hybdmmDelny
-		,hybdmmSaveCd
-		,hybdmmEmailConsentNy
-		,hybdmmSmsConsentNy
-		,hybdmmPushConsentNy
+		hymmAdminNy
+		,hymmDormancyNy
+		,hymmName
+		,hymmId
+		,hymmNickname
+		,hymmPassword
+		,hymmDob 
+		,hymmGenderCd
+		,hymmNumber
+		,hymmDelny
+		,hymmSaveCd
+		,hymmEmailConsentNy
+		,hymmSmsConsentNy
+		,hymmPushConsentNy
 		,regIp
 		,regSeq
 		,regDevice
@@ -112,25 +113,25 @@
 		VALUES (
 		0
 		,0
-		,#{hybdmmName}
-		,#{hybdmmId}
-		,#{hybdmmNickname}
-		,#{hybdmmPassword}
-		,#{hybdmmDob}
-		,#{hybdmmGenderCd}
-		,#{hybdmmNumber}
+		,#{hymmName}
+		,#{hymmId}
+		,#{hymmNickname}
+		,#{hymmPassword}
+		,#{hymmDob}
+		,#{hymmGenderCd}
+		,#{hymmNumber}
 		,0
-		,#{hybdmmSaveCd}
-		,#{hybdmmEmailConsentNy}
-		,#{hybdmmSmsConsentNy}
-		,#{hybdmmPushConsentNy}
+		,#{hymmSaveCd}
+		,#{hymmEmailConsentNy}
+		,#{hymmSmsConsentNy}
+		,#{hymmPushConsentNy}
 		,#{regIp}
 		,#{regSeq}
 		,#{regDevice}
 		,now()
 		,now()
 		)
-		<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="hymmSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
@@ -166,16 +167,16 @@
 </insert>
 	
 	
-	<select id="MemberUploaded" resultMap = "resultMapObj">
+	<select id="profileUploaded" resultMap = "resultMapObj"> <!-- 프로필뷰 -->
 		SELECT
 			seq
-			, type
+<!-- 			, type -->
 			, defaultNy
 			, sort
 			, originalFileName
 			, uuidFileName 
 			, ext
-			, size 
+<!-- 			, size  -->
 			, delNy
 			, pseq
 			, path
@@ -185,8 +186,12 @@
 			AND pseq = #{hymmSeq}
 	</select>
 	
+
+	
+	
+	
 	<update id="updateMember">  <!-- 회원수정 -->
-		UPDATE infrMember SET
+		UPDATE hybdMember SET
 		hymmPassword  =  #{hymmPassword}
 		,hymmGenderCd =  #{hymmGenderCd}
 		,hymmDelny =  0
@@ -195,7 +200,7 @@
 		,hymmEmailConsentNy =  #{hymmEmailConsentNy}
 		,hymmSmsConsentNy =  #{hymmSmsConsentNy}
 		,hymmPushConsentNy =  #{hymmPushConsentNy}
-		,hymmDesc = #{hybdmmDesc}
+		,hymmDesc = #{hymmDesc}
 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}
 		,modDevice =  #{modDevice}

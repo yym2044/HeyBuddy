@@ -84,8 +84,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public Member MemberUploaded(MemberVo vo) throws Exception { //회원사진
-		return dao.MemberUploaded(vo);
+	public Member profileUploaded(MemberVo vo) throws Exception { //회원사진
+		return dao.profileUploaded(vo);
 	}
 	@Override
 	public Member selectOneLogin(Member dto) { //회원로그인

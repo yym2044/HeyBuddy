@@ -16,10 +16,12 @@
 <title>hey, Buddy!</title>
 
 <!--Simplebar css-->
-<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet"
+	href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
+<link rel="stylesheet"
+	href="/resources/assets/vendor/css/choices.min.css">
 
 <!--Bootstrap icons-->
 <link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
@@ -34,6 +36,11 @@
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
+<!-- jquery ui CSS 220510미림추가-->
+<link
+	href="/infra/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
+	rel="stylesheet">
+
 </head>
 <style>
 body {
@@ -101,17 +108,20 @@ body {
 						class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
 						<a href="memberList" class="d-block">
 							<div class="d-flex align-items-center flex-no-wrap text-truncate">
+
 								<!--Sidebar-icon-->
-								
+
 								<img src="/resources/user/images/xdminHeyBuddy.PNG" alt="..."
 									width="200px">
-						
+
 							</div>
 						</a>
 					</div>
+
 					<!--Aside-Menu-->
 					<div class="aside-menu px-3 my-auto" data-simplebar>
 						<nav class="flex-grow-1 h-100" id="page-navbar">
+
 							<!--:Sidebar nav-->
 							<ul class="nav flex-column collapse-group collapse d-flex">
 
@@ -122,9 +132,9 @@ body {
 									</span> <!--Sidebar nav text--> <span class="sidebar-text"> 멤버
 									</span>
 								</a></li>
-
-
-				</div>
+							</ul>
+						</nav>
+					</div>
 			</aside>
 			<!--///////////Page Sidebar End///////////////-->
 
@@ -138,299 +148,239 @@ body {
 			<!--///////////Page content wrapper///////////////-->
 			<main class="page-content d-flex flex-column flex-row-fluid">
 
-			
- <!--//Page Toolbar//-->
- <div align="right">
-          <div class="toolbar pb-4 pt-4 px-4 px-lg-8">
-            <div class="position-relative container-fluid px-0">
-                <div class="col-sm-7 mb-3 mb-sm-0">
-                  <h3 class="mb-2"> 정미림 님, 반갑습니다👋</h3>
-                </div>
-              </div>
-            </div>
-            		</div>
-     		<div class="dropdown border-top"></div>
-     
-          <!--//Page Toolbar End//-->
 
-			
-	
-		<!--//Page Toolbar//-->
-		<div class="toolbar pt-4 px-4 px-lg-8">
-			<div class="position-relative container-fluid px-0">
-				<div class="row align-items-center position-relative">
-					<div class="col-md-8 mb-4 mb-md-0">
-						<h4 class="mb-2">회원목록</h4>
-					</div>
-				</div>
-			</div>
-			</div>
-			<!--//Page Toolbar End//-->
-
-			<!--//Page content//-->
-			<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
-				<div class="container-fluid px-0">
-					<div class="row ">
-						<div class="col-12">
-							<div class="card">
-								<div class="table-responsive">
-									<form class="row gx-3 gy-2 align-items-center">
-									<br>
-									
-								<!-- 	
-										<div class="col-lg-2 col-md-6 col-sm-12">
-											<select class="form-select form-select-sm"
-												name="shMemberOptionDate" id="shMemberOptionDate"
-												style="width: 150px">
-												
-												<option value="">::날짜::</option>
-															<option value="1" <c:if test="${vo.shMemberOptionDate eq 1}">selected</c:if>>등록일</option>
-					<option value="2" <c:if test="${vo.shMemberOptionDate eq 2}">selected</c:if>>수정일</option>
-					<option value="3" <c:if test="${vo.shMemberOptionDate eq 3}">selected</c:if>>생일</option>
-											</select>
-										</div>
-
-										<div class="col-lg-2 col-md-6 col-sm-12">
-												<fmt:parseDate value="${vo.shMemberDateEnd}" var="shMemberDateEnd" pattern="yyyy-MM-dd"/>
-											<input class="form-control form-select-sm" type="date" id=""
-												name="shMemberDateStart" style="width: 150px" value=""
-												placeholder="시작일" class="" autocomplete="off">
-										</div>
-
-										<div class="col-lg-2 col-md-6 col-sm-12">
-												<fmt:parseDate value="${vo.shMemberDateEnd}" var="shMemberDateEnd" pattern="yyyy-MM-dd"/>
-											<input class="form-control form-select-sm" type="date" id=""
-												name="shMemberDateEnd" style="width: 150px" value=""
-												placeholder="종료일" class="" autocomplete="off">
-										</div>
-
-									</form> -->
-									<br>
-
-	&nbsp;&nbsp;&nbsp;&nbsp;
-										<div class="col-lg-2 col-md-6 col-sm-12">
-											<select class="form-select form-select-sm" name="shIfmmDelNy"
-												id="shIfmmDelNy" style="width: 150px">
-												<option value="">::삭제여부::
-													<!-- 				<option value="1"<c:if test="${vo.shIfmmDelNy eq 1 }">selected </c:if>>Y
-							<option value="0"<c:if test="${vo.shIfmmDelNy eq 0 }">selected </c:if>>N -->
-											</select>
-										</div>
-
-	&nbsp;&nbsp;&nbsp;&nbsp;
-										<div class="col-lg-2 col-md-6 col-sm-12">
-											<select class="form-select form-select-sm"
-												name="shIfmmDormancyNy" id="shIfmmDormancyNy"
-												style="width: 150px">
-												<option value="">::휴먼여부::
-													<!-- 	<option value="0" <c:if test="${vo.shIfmmDormancyNy eq 0 }"> selected</c:if>>N
-							<option value="1" <c:if test="${vo.shIfmmDormancyNy eq 1 }"> selected</c:if>>Y -->
-											</select>
-										</div>
-	&nbsp;&nbsp;&nbsp;&nbsp;
-										<div class="col-lg-2 col-md-6 col-sm-12">
-											<select class="form-select form-select-sm"
-												name="shMemberOption" id="shMemberOption"
-												style="width: 150px">
-												<option value="">::검색구문::
-													<!-- 		<option value="1" <c:if test="${vo.shMemberOption eq 1 }"> selected</c:if>>이름
-							<option value="2" <c:if test="${vo.shMemberOption eq 2 }"> selected</c:if>>아이디
-							<option value="3" <c:if test="${vo.shMemberOption eq 3 }"> selected</c:if>>닉네임
-							<option value="4" <c:if test="${vo.shMemberOption eq 4 }"> selected</c:if>>연락처 -->
-											</select>
-										</div>
-	&nbsp;&nbsp;&nbsp;&nbsp;
-										<div class="col-lg-2 col-md-6 col-sm-12">
-											<input class="form-control form-control-sm" type="text"
-												name="shMemberValue" id="shMemberValue" style="width: 150px"
-												value="">
-										</div>
-	&nbsp;&nbsp;&nbsp;&nbsp;
-									<div class="col-lg-2 col-md-6 col-sm-12">
-											<button class="btn btn-primary" type="submit" name="search"
-												id="btnSearch">검색</button>
-										</div>
-
-								</div>
+				<!--//Page Toolbar//-->
+				<div align="right">
+					<div class="toolbar pb-4 pt-4 px-4 px-lg-8">
+						<div class="position-relative container-fluid px-0">
+							<div class="col-sm-7 mb-3 mb-sm-0">
+								<h3 class="mb-2">정미림 님, 반갑습니다👋</h3>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="dropdown border-top"></div>
+
+				<!--//Page Toolbar End//-->
 
 
+				<!-- post방식 -->
+				<form id="formList" name="formList" method="post" action="/xdmin/memberList">
+					<input type="hidden" id="rowNumToShow" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>"> 
+					<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>"> 
+					<input type="hidden" id="hymmSeq" name="hymmSeq">
+				</form>
 
 
-
-			<!--//Page content//-->
-			<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
-				<div class="container-fluid px-0">
-					<div class="row">
-						<div class="col-12">
-							<div class="card">
-								<div class="table-responsive">
-									
-										<a href="memberView">
-									<table id="datatable"
-										class="table mt-0 table-striped table-card table-nowrap">
-										<thead class="text-uppercase small text-muted">
-											<tr>
-												<th>No</th>
-												<th>이름</th>
-												<th>아이디</th>
-												<th>생년월일</th>
-												<th>성별</th>
-												<th>연락처</th>
-												<th>가입일</th>
-												<th>상태</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-										<td>정미림</td>
-												<td>mija345</td>
-												<td>910907</td>
-												<td>여자</td>
-												<td>010-9245-6252</td>
-												<td>2022.04.27 12:00:00</td>
-												<td>활성</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>김나리</td>
-												<td>narishkim</td>
-												<td>930101</td>
-												<td>여자</td>
-												<td>010-1111-2222</td>
-															<td>2022.04.27 12:00:00</td>
-												<td>활성</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>윤영민</td>
-												<td>yym1111r</td>
-												<td>960505</td>
-												<td>남자</td>
-												<td>010-2222-3333</td>
-															<td>2022.04.27 12:00:00</td>
-												<td>활성</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td>이건우</td>
-												<td>jameshill</td>
-												<td>970605</td>
-												<td>남자</td>
-												<td>010-3333-4444</td>
-															<td>2022.04.27 12:00:00</td>
-												<td>활성</td>
-											</tr>
-											<tr>
-												<td>5</td>
-												<td>윤이나</td>
-												<td>yoon1</td>
-												<td>900101</td>
-												<td>여자</td>
-												<td>010-4444-5555</td>
-															<td>2022.04.27 12:00:00</td>
-												<td>휴먼</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>차경석</td>
-												<td>chacha123</td>
-												<td>851010</td>
-												<td>남자</td>
-												<td>010-5555-6666</td>
-															<td>2022.04.27 12:00:00</td>
-												<td>활성</td>
-											</tr>
-											<tr>
-												<td>7</td>
-												<td>윤수빈</td>
-												<td>soobinsoo</td>
-												<td>950101</td>
-												<td>여자</td>
-												<td>010-6666-7777</td>
-															<td>2022.04.27 12:00:00</td>
-												<td>활성</td>
-											</tr>
-
-										</tbody>
-									</table>
-									 </a>
-										<!--버튼 -->
-			<div class="row text-center" style="width: 100%">
-				<div style="width: 100%; float: none; margin: 0 auto">
-		
-
-<!-- 	
-<a href="javascript:goMemberForm('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
-'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">  -->
-<a href="memberForm"> <button type="button" id ="goMemberForm" class="btn btn-sm btn-success"> 회원등록 </button> </a>
-
-<!-- <button type="button" id="" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#btnModalNelete"> 삭제 </button>  -->
-	
-	<div class="modal fade" id="btnModalNelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="modal-title">
-										<i class="fas fa-exclamation-circle"></i>삭제 확인!
-									</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-										aria-label="Close"></button>
-								</div>
-								<div class="modal-body">정말 삭제하시겠습니까?</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-									
-<!-- 								<a href="javascript:goMemberMultiNelete
-									('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>',
-									'<c:out value="${vo.shMemberValue}"/>','<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>',
-									'<c:out value="${vo.shMemberDateEnd}"/>');">  -->
-	
-									<button type="button" class="btn btn-primary" id="btnModalNelete"  >확인</button></a>
-				
-								</div>
-								
-					
-							</div>
-						</div>
-					</div>    
-				</div>
-			</div>	
-			
-									
-								</div>
+				<!--//Page Toolbar//-->
+				<div class="toolbar pt-4 px-4 px-lg-8">
+					<div class="position-relative container-fluid px-0">
+						<div class="row align-items-center position-relative">
+							<div class="col-md-8 mb-4 mb-md-0">
+								<h4 class="mb-2">회원목록</h4>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-		
-			<!--//Page content End//-->
+				<!--//Page Toolbar End//-->
 
+				<!--//Page content//-->
 
-	
-
-			<!--//Page content End//-->
-
-				<!--//Page-footer//-->
-				<footer class="pb-4 px-4 px-lg-8">
+<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">&copy;
-							<script>
-								document.write(new Date().getFullYear())
-							</script>. Copyright
-						</span>
-					</div>
-				</footer>
-				<!--/.Page Footer End-->
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="table-responsive">
+										
 
-				<!--///////////Page content wrapper End///////////////-->
+										<form class="row gx-3 gy-2 align-items-center">
+											<div class="col-lg-2 col-md-6 col-sm-12">
+												<select class="form-select form-select-sm"
+													name="shHymmDelNy" id="shHymmDelNy" style="width: 150px">
+													<option value="">::삭제여부::
+													<option value="1"
+														<c:if test="${vo.shHymmDelNy eq 1 }">selected </c:if>>Y
+													<option value="0"
+														<c:if test="${vo.shHymmDelNy eq 0 }">selected </c:if>>N
+
+												</select>
+											</div>
+
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<div class="col-lg-2 col-md-6 col-sm-12">
+												<select class="form-select form-select-sm"
+													name="shHymmDormancyNy" id="shHymmDormancyNy"
+													style="width: 150px">
+													<option value="">::휴먼여부::
+													<option value="0"
+														<c:if test="${vo.shHymmDormancyNy eq 0 }"> selected</c:if>>N
+\
+													<option value="1"
+														<c:if test="${vo.shHymmDormancyNy eq 1 }"> selected</c:if>>Y
+
+
+													
+												</select>
+											</div>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<div class="col-lg-2 col-md-6 col-sm-12">
+												<select class="form-select form-select-sm"
+													name="shMemberOption" id="shMemberOption"
+													style="width: 150px">
+													<option value="">::검색구문::
+													<option value="1"
+														<c:if test="${vo.shMemberOption eq 1 }"> selected</c:if>>이름
+
+													<option value="2"
+														<c:if test="${vo.shMemberOption eq 2 }"> selected</c:if>>아이디
+
+													<option value="4"
+														<c:if test="${vo.shMemberOption eq 3 }"> selected</c:if>>연락처
+\
+												</select>
+											</div>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<div class="col-lg-2 col-md-6 col-sm-12">
+												<input class="form-control form-control-sm" type="text"
+													name="shMemberValue" id="shMemberValue"
+													style="width: 150px" value="">
+											</div>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<div class="col-lg-2 col-md-6 col-sm-12">
+												<button class="btn btn-primary" type="submit" name="search"
+													id="btnSearch">검색</button>
+											</div>
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<!--//Page content//-->
+				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
+					<div class="container-fluid px-0">
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="table-responsive">
+										<table id="datatable"
+											class="table mt-0 table-striped table-card table-nowrap">
+											<thead class="text-uppercase small text-muted">
+												<tr>
+													<th>No</th>
+													<th>이름</th>
+													<th>아이디</th>
+													<th>성별</th>
+													<th>생년월일</th>
+													<th>연락처</th>
+													<th>가입일</th>
+													<th>상태</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<c:choose>
+													<c:when test="${fn:length(list) eq 0}">
+														<tr>
+															<td class="text-center" colspan="9">There is no data!</td>
+														</tr>
+													</c:when>
+													<c:otherwise>
+														<c:forEach items="${list}" var="item" varStatus="status">
+															<tbody id="mainTable_tbody">
+																<tr>
+																	<td scope="row">
+																		<div class="m_check_wrap">
+																			<input type="checkbox" id="checkboxSeq" name="checkboxSeq"
+																				value="<c:out value="${item.hymmSeq}" />">
+																			&nbsp;&nbsp;
+																			<c:out value="${item.hymmSeq}" />
+																		</div>
+																	</td>
+																	<td><a
+																		href="javaScript:goMemberView('<c:out value="${item.hymmSeq}"/>')"><c:out
+																				value="${item.hymmName}" /></a></td>
+																	<td><c:out value="${item.hymmId}" /></td>
+																	<td><c:if test="${item.hymmGenderCd eq 1}"> <c:out value="남성" />
+																		</c:if> <c:if test="${item.hymmGenderCd eq 2}"> <c:out value="여성" />
+																		</c:if></td>
+
+																	<td><c:out value="${item.hymmDob}" /></td>
+																	<td><c:set var="numberPhone"
+																			value="${item.hymmNumber}" /> <c:choose>
+																			<c:when test="${fn:length(numberPhone) eq 10 }">
+																				<c:out value="${fn:substring(numberPhone,0,3)}" />
+															- <c:out value="${fn:substring(numberPhone,3,6)}" />
+															- <c:out value="${fn:substring(numberPhone,6,10)}" />
+																			</c:when>
+																			<c:otherwise>
+																				<c:out value="${fn:substring(numberPhone,0,3)}" />
+															- <c:out value="${fn:substring(numberPhone,3,7)}" />
+															- <c:out value="${fn:substring(numberPhone,7,11)}" />
+																			</c:otherwise>
+																		</c:choose></td>
+																	<td><c:out value="${item.regDateTime}" /></td>
+
+																	<td><c:if test="${item.hymmDormancyNy eq 0}">
+																			<c:out value="활성" />
+																		</c:if> <c:if test="${item.hymmDormancyNy eq 1}">
+																			<c:out value="휴먼" />
+																		</c:if></td>
+																</tr>
+															</tbody>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+										</table>
+										<!--버튼 -->
+										<div class="row text-center" style="width: 100%">
+											<div style="width: 100%; float: none; margin: 0 auto">
+
+
+
+												<a
+													href="javascript:goMemberForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
+'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">
+													<button type="button" id="goMemberForm"
+														class="btn btn-sm btn-success">회원등록</button>
+												</a>
+
+
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<!--//Page content End//-->
+
+
+
+	<!--//Page-footer//-->
+	<footer class="pb-4 px-4 px-lg-8">
+		<div class="container-fluid px-0">
+			<span class="d-block lh-sm small text-muted text-end">&copy; <script>
+				document.write(new Date().getFullYear())
+			</script>. Copyright
+			</span>
+		</div>
+	</footer>
+	<!--/.Page Footer End-->
+
+	<!--///////////Page content wrapper End///////////////-->
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -456,6 +406,30 @@ body {
 				"length" : false
 			});
 		});
+	</script>
+
+	<script type="text/javascript">
+		var seq = $("input:hidden[name=hymmSeq]");
+
+		goMemberList = function(seq) {
+			alert(seq);
+			$("#thisPage").val(seq);
+			$("#formList").submit();
+		};
+		goMemberView = function(seq) {
+			alert(seq);
+			$("#hymmSeq").val(seq);
+			$("#formList").attr("action", "/xdmin/memberView");
+			$("#formList").submit();
+		};
+		goMemberForm = function(seq) {
+			$("#formList").attr("action", "/xdmin/memberForm");
+			$("#formList").submit();
+		};
+		goMemberMultiNelete = function(seq) {
+			$("#formList").attr("action", "/xdmin/memberMultiNele");
+			$("#formList").submit();
+		};
 	</script>
 </body>
 

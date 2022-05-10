@@ -116,7 +116,7 @@
 			, pseq
 			, path
 		FROM
-			hybdMemberUploaded
+			hybdFileUploaded
 		WHERE 1=1
 			AND pseq = #{hymmSeq}
 	</select>

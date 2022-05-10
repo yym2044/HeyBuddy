@@ -207,28 +207,45 @@ body {
 									<tr>
 										<td class="tableText">아이디</td>
 										<td><input type="text" class="form-control"
-											placeholder="아이디"></td>
+									name="hymmId" placeholder="영문+숫자 10자이내" value="" required>
+								<div class="invalid-feedback">아이디를 입력해주세요.</div>
+							</td>
+									</tr>
+											<tr>
+										<td class="tableText">비밀번호</td>
+										<td><input type="password" class="form-control"
+									name="hymmPassword" placeholder="" value="" required>
+								<div class="invalid-feedback">패스워드를 입력해주세요.</div>
+							</td>
 									</tr>
 									<tr>
 										<td>이름</td>
 										<td><input type="text" class="form-control"
-											placeholder="이름"></td>
+									name="hymmName" placeholder="" value="" required>
+								<div class="invalid-feedback">이름을 입력해주세요.</div></td>
+									</tr>
+									<tr>
+								<td>성별</td>
+								<td><select class="form-control" name="hymmGenderCd" required>
+									<option value="1">남성</option>
+									<option value="2">여성</option>
+								</select> 	<div class="invalid-feedback">성별 선택해주세요.</div></td>
+								</tr>
+									<tr>
+										<td>휴대전화</td>
+										<td>	
+					
+								<input type="text" class="form-control" name="hymmNumber" placeholder="' - '제외" required>
+								<div class="invalid-feedback" >휴대폰번호를 입력해주세요.</div></td>
 									</tr>
 								
 									<tr>
-										<td>휴대전화</td>
-										<td><input type="text" class="form-control"
-											placeholder="전화번호"></td>
-									</tr>
-									<tr>
-										<td>유선전화</td>
-										<td><input type="text" class="form-control"
-											placeholder="전화번호"></td>
-									</tr>
-									<tr>
 										<td>이메일</td>
-										<td><input type="text" class="form-control"
-											placeholder="이메일"></td>
+										<td><input type="text" class="form-control" name="hymmEmailFull"
+											placeholder="you@example.com" required>
+										
+								<div class="invalid-feedback">이메일을 입력해주세요.</div> </td>
+								
 									</tr>
 									<tr>
 										<td>생일</td>
@@ -243,45 +260,51 @@ body {
 													<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
 													<line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 													</svg>
-													<input id="hybdMmDob" type="text" class="form-control ps-6">
+													<input id="hybdMmDob"  name="hybdMmDob"  type="text" class="form-control ps-6">
 												</div>
 												
 												</td>
 									</tr>
 									<tr>
 										<td>상태메세지</td>
-										<td><input type="text" class="form-control"
+										<td><input type="text" class="form-control" name="hymmDesc" 
 											placeholder="상태메세지(50자 이하)"></td>
 									</tr>
 									<tr>
 										<td>개인정보유효기간</td>
 										<td><div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="6"> <label
+													name="hymmSaveCd" value="6"> <label
 													class="form-check-label" for="flexRadioDefault5">1년
 												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="8"> <label
+													name="hymmSaveCd" value="7"> <label
+													class="form-check-label" for="flexRadioDefault6">
+													2년 </label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio"
+													name="hymmSaveCd" value="8"> <label
 													class="form-check-label" for="flexRadioDefault6">
 													3년 </label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="9"> <label
+													name="hymmSaveCd" value="9"> <label
 													class="form-check-label" for="flexRadioDefault6">5년
 												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="10"> <label
+													name="hymmSaveCd" value="10"> <label
 													class="form-check-label" for="flexRadioDefault6">10년
 												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="11"> <label
+													name="hymmSaveCd" value="11"> <label
 													class="form-check-label" for="flexRadioDefault6">탈퇴시
 												</label>
 											</div></td>
@@ -289,20 +312,20 @@ body {
 									<tr>
 										<td>SMS 마케팅동의</td>
 										<td><input class="form-check-input" type="radio"
-											id="ifmmSmsConsent" name="ifmmSmsConsent" checked> <label
+											id="hymmSmsConsentNy" name="hymmSmsConsentNy" checked> <label
 											class="form-check-label" for="flexRadioDefault5"> Yes
 										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="ifmmSmsConsent" name="ifmmSmsConsent"
+											type="radio" id="hymmSmsConsentNy" name="hymmSmsConsentNy"
 											checked> <label class="form-check-label"
 											for="flexRadioDefault5"> No </label></td>
 									</tr>
 									<tr>
 										<td>이메일 마케팅동의</td>
 										<td><input class="form-check-input" type="radio"
-											id="ifmmSmsConsent" name="ifmmSmsConsent" checked> <label
+											id="hymmEmailConsentNy" name="hymmEmailConsentNy" checked> <label
 											class="form-check-label" for="flexRadioDefault5"> Yes
 										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="ifmmSmsConsent" name="ifmmSmsConsent"
+											type="radio" id="hymmEmailConsentNy" name="hymmEmailConsentNy"
 											checked> <label class="form-check-label"
 											for="flexRadioDefault5"> No </label></td>
 
@@ -312,8 +335,9 @@ body {
 
 								</table>
 								<div class="text-center pb-4">
-									<a class="btn btn-secondary" href="memberList">취소</a> <a
-										class="btn btn-info" href="memberView">등록</a>
+									<a class="btn btn-secondary" href="javascript:goMemberList();">목록</a> 
+									<button type="submit" class="btn btn-info" id="btnSubmit">등록 </button>
+									
 								</div>
 							</div>
 						</div>
@@ -387,6 +411,92 @@ body {
 		});
 	});
 	</script>
+	
+		<script type="text/javascript">
+			goMemberList = function(){
+				$("#formList").attr("action", "/xdmin/memberList");
+				$("#formList").submit();
+			};
+	</script>
+	
+		<script type="text/javascript">
+		$("#btnSubmit").on("click", function() {
+			if (!checkId($("#hymmId"), $("#hymmId").val(), "아이디를 입력 해 주세요!"))
+				retrun
+			false;
+		});
+	</script>
+	
+	
+	<!-- **************************************업로드************************************** -->
+	<script src="resources/common/js/commonXdmin.js"></script>
+	<script src="resources/common/js/constantsXdmin.js"></script>
+	<script src="resources/common/js/common.js"></script>
+
+		<script type="text/javascript">
+		
+		upload = function(seq,div){
+			
+		$("#ulFile"+ seq).children().remove();
+		
+		var fileCount = $("input[type=file]")[seq].files.length;
+		
+		if(checkUploadedTotalFileNumber(fileCount,seq) == false) {return false;}
+		
+		var totalFileSize;
+		for (var i = 0; i < fileCount; i++){
+			if(div == 1){
+				if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name,seq)==false) {return false;}
+			}else if (div == 2){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name,seq)==false) {return false;}
+			}else{
+				return false;
+			}
+			
+			if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name,seq)==false) {return false;}
+			totalFileSize += $("input[type=file]")[seq].files[i].size;
+		}
+		if(checkUploadedTotalFileSize(totalFileSize,seq)==false) {return false;}
+		
+		for (var i = 0 ; i<fileCount ; i ++){
+			addUploadLi(seq,i,$("input[type=file]")[seq].files[i].name);
+		}
+		}	
+		
+		addUploadLi = function (seq, index, name){
+			
+			var ul_list = $("#ulFile0");
+			
+			li = '<li id= "li_  '+ seq +'_' + index + ' "class="list-group-item d-flex justify-content-between align-items-center"> ';
+			li = li + name; 
+			li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi(' + seq + ',' +  index + ')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
+			li = li + '</li>';
+
+			$("#ulFile" + seq).append(li);
+		}
+		
+			delLi = function (seq,index){
+			$("#li_" + seq +"_"+index).remove();
+		}
+			
+		addUploadLi = function (seq, index, name){
+	
+			var ul_list = $("#ulFile1");
+			
+			li = '<li id="li_'+seq+'_'+index+'"class="list-group-item d-flex justify-content-between align-items-center"> ';
+			li = li + name; 
+			li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+  index +')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
+			li = li + '</li>';
+
+			$("#ulFile"+seq).append(li);
+		}
+		
+			delLi = function(seq,index){
+			$("#li_" +seq+"_"+index).remove();
+		}
+			
+			
+		</script> 
 </body>
 
 </html>

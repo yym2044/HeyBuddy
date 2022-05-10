@@ -171,6 +171,19 @@ body {
 				</div>
 				<!--//Page Toolbar End//-->
 
+
+ <!-- 히든처리 -->
+<form id="formView" action="" method="post">
+	<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
+	<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
+	<input type="hidden" id="shHymmDelNy" name="shHymmDelNy" value="<c:out value="${vo.shHymmDelNy}"/>">
+	<input type="hidden" id="shHymmName" name="shHymmName" value="<c:out value="${vo.shHymmName}"/>">
+	<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
+	<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
+</form>
+
+
+
 				<!--//Page content//-->
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0"></div>
@@ -214,48 +227,101 @@ body {
 									</tr>
 									<tr>
 										<td class="tableText">휴대전화</td>
-										<th>010-1234-5678</th>
+										<th><c:out value="${item.hymmNumber}" /></th>
 									</tr>
-									<tr>
-										<td class="tableText">유선전화</td>
-										<td></td>
-									</tr>
+
 									<tr>
 										<td class="tableText">이메일</td>
-										<td>mija345@naver.com</td>
+										<td><c:out value="${item.hymmEmail}" /></td>
 									</tr>
 								
 									<tr>
 										<td class="tableText">상태메세지</td>
-										<td>팀부엉 취업 대박나세요~</td>
+										<td><c:out value="${item.hymmDesc}" /></td>
 									</tr>
 									<tr>
 										<td class="tableText">개인정보유효기간</td>
-										<td>5년</td>
+									<td><c:if test="${item.hymmSaveCd eq 6}">
+								<c:out value="1년" />
+							</c:if> <c:if test="${item.hymmSaveCd eq 7}">
+								<c:out value="2년" />
+							</c:if> <c:if test="${item.hymmSaveCd eq 8}">
+								<c:out value="3년" />
+							</c:if> <c:if test="${item.hymmSaveCd eq 9}">
+								<c:out value="5년" />
+							</c:if> <c:if test="${item.hymmSaveCd eq 10}">
+								<c:out value="10년" />
+							</c:if> <c:if test="${item.hymmSaveCd eq 11}">
+								<c:out value="탈퇴시" />
+							</c:if></td>
 									</tr>
 									<tr>
 										<td class="tableText">SMS 마케팅 동의</td>
-										<td>Y</td>
+								<td><c:if test="${item.hymmSmsConsentNy eq 1}">
+								<c:out value="동의" />
+							</c:if> <c:if test="${item.hymmSmsConsentNy eq 0}">
+								<c:out value="거절" />
+							</c:if></td>
 									</tr>
 									<tr>
 										<td class="tableText">이메일 마케팅 동의</td>
-										<td>Y</td>
+										<td><c:if test="${item.hymmEmailConsentNy eq 1}">
+								<c:out value="동의" />
+							</c:if> <c:if test="${item.hymmEmailConsentNy eq 0}">
+								<c:out value="거절" />
+							</c:if></td>
 									</tr>
 									<tr>
 										<td class="tableText">가입일</td>
-										<td>2022.04.27.12:38</td>
+										<td><c:out value="${item.regDateTime}" /></td>
 									</tr>
 									<tr>
 										<td class="tableText">수정일</td>
-										<td>2022.04.27.15:38</td>
+										<td><c:out value="${item.modDateTime}" /></td>
 									</tr>
 
 
 								</table>
 								<div class="text-center pb-4">
-									<a class="btn btn-secondary" href="memberList">뒤로</a>
-									<a class="btn btn-info" href="memberEdit">수정</a>
-									<a class="btn btn-danger" href="">삭제</a>
+								
+								<a  class="btn btn-secondary" href="javascript:goMemberList('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
+'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">
+								목록</a>
+									
+									
+<a  class="btn btn-info" href="javascript:goMemberEdit('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
+'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');"> 
+수정 </a>
+
+
+<button type="button" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#btnModalNelete"> 삭제 </button> 
+	
+	<div class="modal fade" id="btnModalNelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modal-title">
+										<i class="fas fa-exclamation-circle"></i>삭제 확인!
+									</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">정말 삭제하시겠습니까?</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									
+									<a href="javascript:goMemberNelete
+									('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>',
+									'<c:out value="${vo.shMemberValue}"/>','<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>',
+									'<c:out value="${vo.shMemberDateEnd}"/>');"> 
+	<button type="button" class="btn btn-primary" id=""  >확인</button></a>
+								</div>
+							</div>
+						</div>
+					</div>   
+					
+					
+									
 								</div>
 							</div>
 						</div>
@@ -313,6 +379,25 @@ body {
 			});
 		});
 	</script>
+	
+	<script type="text/javascript">
+		goMemberList = function(){
+	$("#formView").attr("action", "/xdmin/memberList");
+	$("#formView").submit();
+		};
+
+		goMemberEdit = function(){
+	$("#formView").attr("action", "/xdmin/memberEdit");
+	$("#formView").submit();
+		};
+		
+		goMemberNelete = function(seq){
+	$("#formView").attr("action", "/xdmin/memberNele");
+	$("#formView").submit();
+		};
+	</script>
+	
+	
 </body>
 
 </html>

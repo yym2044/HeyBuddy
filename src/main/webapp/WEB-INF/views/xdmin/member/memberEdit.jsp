@@ -189,6 +189,16 @@ body {
 
 				<!--//Page Toolbar End//-->
 
+
+		<form id="formEdit" name="formEdit" method="post" action="/xdmin/memberUpdt">
+		<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" />">
+		<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
+		<input type="hidden" id="shHymmDelNy" name="shHymmDelNy" value="<c:out value="${vo.shHymmDelNy}"/>">
+		<input type="hidden" id="shHYmmName" name="shHYmmName" value="<c:out value="${vo.shHYmmName}"/>">
+		<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
+		<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
+		</form>
+
 				<!--//Page content//-->
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0"></div>
@@ -418,6 +428,24 @@ body {
 		});
 	});
 	</script>
+	
+		
+	<script type="text/javascript">
+		goMemberView = function(seq){
+					$("#hymmSeq").val(seq)	
+					$("#formEdit").attr("action","/xdmin/memberView");
+					$("#formEdit").submit();
+			};
+		
+
+		goMemberUpdt = function(seq){
+					$("#ifmmSeq").val(seq)	
+					$("#formEdit").attr("action","/xdmin/memberUpdt");
+					$("#formEdit").submit();
+			};
+
+	</script>
+	
 </body>
 
 </html>

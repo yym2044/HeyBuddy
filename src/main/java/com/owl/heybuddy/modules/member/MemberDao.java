@@ -51,10 +51,10 @@ public class MemberDao {
 		return sqlSession.update(namespace + ".updateDeleteMember", vo); // 가짜삭제
 	} 
 
-	public Member MemberUploaded(MemberVo vo) {
-		return sqlSession.selectOne(namespace + ".MemberUploaded", vo); // 회원사진
+	public Member profileUploaded(MemberVo vo) {
+		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진
 	}
-
+	
 	public int insertUploaded(Member dto) {
 		return sqlSession.insert(namespace + ".insertUploaded", dto); // 회원등록(프로필사진)
 	}

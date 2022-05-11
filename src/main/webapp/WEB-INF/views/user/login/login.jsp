@@ -93,20 +93,19 @@ body {
 								<div class="card card-body p-4"
 									style="border: none; background: transparent;">
 
-									<form action="index.html"
-										class=" z-index-1 position-relative needs-validation"
+									<form action="/login/userLogin" class=" z-index-1 position-relative needs-validation"
 										novalidate="">
 										<div class="form-floating mb-3">
-											<input type="email" class="form-control" required=""
-												id="floatingInput" placeholder="name@example.com"> <label
-												for="floatingInput">Email address</label> <span
+											<input type="text" class="form-control" required=""
+												id="hymmId" name="hymmId" placeholder="name@example.com"> <label
+												for="hymmId">Email address</label> <span
 												class="invalid-feedback">Please enter a valid email
 												address</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"
-												id="floatingPassword" placeholder="Password"> <label
-												for="floatingPassword">Password</label> <span
+												id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
+												for="hymmPassword">Password</label> <span
 												class="invalid-feedback">Enter the password</span>
 										</div>
 										<div 
@@ -122,7 +121,7 @@ body {
 													class="small text-light text-mono fontB">Forget Password?</a>
 											</div>
 										</div>
-										<button class="w-100 btn btn-lg text-mono" type="submit" onclick="location.href = '/mySpace/mySpaceList'">Sign
+										<button class="w-100 btn btn-lg text-mono" id="btnLogin" name="btnLogin" type="button">Sign
 											In</button>
 										<hr class="mt-4 mb-3">
 										<p class="text-center text-light fontB text-mono">
@@ -176,6 +175,9 @@ body {
 	<!--////////////Theme Core scripts End/////////////////-->
 	
 
+	<!-- *********************ajax******************************** -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
 	<!-- *********************카카오톡로그인******************************** -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
@@ -223,7 +225,39 @@ function kakaoLogin() {
 </script>
 	<!-- *********************카카오톡로그인******************************** -->
 
+	<!-- *********************로그인S******************************** -->
+	<script>
+		$("#btnLogin").on(
+				"click",
+				function() {
+					/* 	if(validation()==false) return false;
+					if(!checkNull($("hymmId"), $.trim($("#hymmId").val()), "아이디를 확인해 주세요!")) return false;
+					if(!checkNull($("hymmPassword"), $.trim($("#hymmPassword").val()), "비밀번호를 확인해 주세요!")) return false; */
+					$.ajax({
+						async : true,
+						cache : false,
+						type : "post",
+						url : "/member/loginProc",
+						data : {
+							"hymmId" : $("#hymmId").val(),
+							"hymmPassword" : $("#hymmPassword").val()
+						},
+						success : function(response) {
+							if (response.rt == "success") {
+								location.href = "/mySpace/mySpaceList";
+							} else {
+								alert("회원없음");
+							}
+						},
+						error : function(jqXHR, textStatus, errorThrown) {
+							alert("ajaxUpdate " + jqXHR.textStatus + " : "
+									+ jqXHR.errorThrown);
+						}
+					});
+				});
 
+</script>
+	<!-- *********************로그인E******************************** -->
 </body>
 
 </html>

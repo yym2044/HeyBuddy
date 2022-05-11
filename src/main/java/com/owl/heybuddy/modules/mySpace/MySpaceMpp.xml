@@ -13,24 +13,29 @@
 	<select id="selectListMySpace" resultMap="resultMapObj">
 
 		SELECT
-		hyspSeq
-		, hyspOrder
-		, hyspTypeCd
-		, hyspUseNy
-		, hyspName
-		, hyspDelNy
-		, regIp
-		, regSeq
-		, regDevice
-		, regDateTime
-		, regDateTimeSvr
-		, modIp
-		, modSeq
-		, modDevice
-		, modDateTime
-		, modDateTimeSvr
+		a.hymmName
+		, a.hymmId
+		, b.hysmSeq
+		a.
+		, a.hyspTypeCd
+		, a.hyspUseNy
+		, a.hyspName
+		, a.hyspDelNy
+		, a.regDateTime
+		, a.regDateTimeSvr
+		, a.modDateTime
+		, a.modDateTimeSvr
+		, b.hyspSeq
+		, b.hymmSeq
+		, c.hyspSeq
 
-		FROM hybdSpace
+
+		FROM hybdMember a
+		LEFT JOIN hybdSpaceMember b on b.oypdSeq = a.oypdSeq
+		LEFT JOIN hybdSpace c on c.type = 0 AND c.pseq = a.oypdSeq
+
+		WHERE 1=1
+		AND oypdDelNy = 0
 
 
 	</select>
@@ -38,9 +43,7 @@
 
 		SELECT
 		hyspSeq
-		, hyspOrder
 		, hyspTypeCd
-		, hyspUseNy
 		, hyspName
 
 		FROM hybdSpace
@@ -53,40 +56,44 @@
 
 		INSERT INTO hybdSpace (
 		hyspSeq
-		, hyspOrder
 		, hyspTypeCd
-		, hyspUseNy
 		, hyspName
 		, hyspDelNy
-		, regIp
-		, regSeq
-		, regDevice
 		, regDateTime
 		, regDateTimeSvr
-		, modIp
-		, modSeq
-		, modDevice
 		, modDateTime
 		, modDateTimeSvr
 		) VALUES (
 		#{hyspSeq}
-		, #{hyspOrder}
 		, #{hyspTypeCd}
-		, #{hyspUseNy}
 		, #{hyspName}
 		, 0
-		, #{regIp}
-		, #{regSeq}
-		, #{regDevice}
 		, now()
 		, now()
-		, #{modIp}
-		, #{modSeq}
-		, #{modDevice}
 		, now()
 		, now()
 		)
 		<selectKey resultType="String" keyProperty="hyspSeq"
+			order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+
+	<insert id="insertMySpaceMember">
+
+		INSERT INTO hybdSpaceMember (
+		hysmSeq,
+		hyspSeq,
+		hymmSeq,
+		hysmRoleCd
+		) VALUES (
+		#{hysmSeq}
+		, #{hyspSeq}
+		, #{hymmSeq}
+		, 13
+		)
+
+		<selectKey resultType="String" keyProperty="hysmSeq"
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
@@ -98,14 +105,23 @@
 		hyspTypeCd = #{hyspTypeCd}
 		, hyspUseNy = #{hyspUseNy}
 		, hyspName = #{hyspName}
-		, modIp = #{modIp}
-		, modSeq = #{modSeq}
-		, modDevice = #{modDevice}
 		, modDateTime = #{modDateTime}
 		, modDateTimeSvr = #{modDateTimeSvr}
 
 		WHERE 1=1
 		AND hyspSeq = #{hyspSeq}
+	</update>
+
+	<update id="updateMySpaceMember">
+		UPDATE hybdSpaceMember
+		SET
+		hysmRoleCd = #{hysmRoleCd}
+		, hysmAcceptedNy = #{hysmAcceptedNy}
+		, hysmExitNy = #{hysmExitNy}
+		, hysmActiveNy = #{hysmActiveNy}
+
+		WHERE 1=1
+		AND hysmSeq = #{hysmSeq}
 	</update>
 	
 	<update id="ueleteMySpace">

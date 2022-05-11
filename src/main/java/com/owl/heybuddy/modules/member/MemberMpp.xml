@@ -220,13 +220,13 @@
 		 	AND a.hymmId = #{hymmId}
 	</select>
 	
-	<select id="selectOneLoginUser" resultMap="resultMapObj">
+	<select id="selectOneLogin" resultMap="resultMapObj">
 	SELECT
 		 a.hymmSeq
 		 ,a.hymmId
 		 ,a.hymmName
 		 ,a.hymmDesc
-		 ,a.hymmPwdModDate
+		 ,a.hymmPassword
 	 FROM
 	 	hybdMember a
 	 WHERE 1 = 1

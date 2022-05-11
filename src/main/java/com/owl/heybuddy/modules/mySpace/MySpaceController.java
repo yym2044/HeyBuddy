@@ -1,12 +1,15 @@
 package com.owl.heybuddy.modules.mySpace;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller 
+@Controller
 public class MySpaceController {
-	
+
 	@Autowired
 	MySpaceServiceImpl service;
 
@@ -14,9 +17,9 @@ public class MySpaceController {
 	public String myProfile() {
 		return "/user/member/myProfile";
 	}
-	
+
 	/******************************* 호스트 메뉴 Start *******************************/
-	
+
 	@RequestMapping(value = "/setting/profile")
 	public String profile() {
 
@@ -28,9 +31,8 @@ public class MySpaceController {
 
 		return "user/setting/space";
 	}
-	
-	/******************************* 호스트 메뉴 End *******************************/
 
+	/******************************* 호스트 메뉴 End *******************************/
 
 	@RequestMapping(value = "/mySpace/mySpaceForm")
 	public String mySpaceForm() {
@@ -39,8 +41,9 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceList")
-	public String mySpaceList() {
-
+	public String mySpaceList(MySpaceVo vo, Model model) throws Exception {
+		List<MySpace> list = service.selectListMySpace(vo);
+		model.addAttribute("list", list);
 		return "user/mySpace/mySpaceList";
 	}
 
@@ -49,10 +52,10 @@ public class MySpaceController {
 
 		return "user/mySpace/mySpaceReceive";
 	}
-	
+
 	@RequestMapping(value = "/mySpace/mySpaceReceiveList")
 	public String mySpaceReceiveList() {
-		
+
 		return "user/mySpace/mySpaceReceiveList";
 	}
 

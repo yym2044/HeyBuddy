@@ -118,8 +118,11 @@ body {
 								width="800px">
 							
 						</div>
+						
+						
 					<div class="row mySpaceZone">
-					
+					<c:forEach items="${list}" var="item" varStatus="status">
+						<c:if test="${item.hymmSeq eq sessSeq}">
 						<!--col-->
 						<div class="col-sm-6 col-xl-4">
 							<!--card-->
@@ -131,14 +134,13 @@ body {
 									<div class="text-center">
 
 										<!-- Avatar --> 
-										<a href="/chat/chatList"
-											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
+										<a class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
 											src="/resources/user/images/Beer-drinking.jpeg" alt="..."
 											class="img-fluid rounded-circle">
 										</a>
 										<!-- Title -->
 										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 팀부엉 </a>
+											<a href="#!" class="text-reset"><c:out value="${item.hyspName}"/></a>
 										</h5>
 
 										<!-- Email -->
@@ -167,148 +169,9 @@ body {
 								</div>
 							</div>
 						</div>
-
-						<!--col-->
-						<div class="col-sm-6 col-xl-4">
-							<!--card-->
-							<div class="card mb-4">
-
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
-
-										<!-- Avatar -->
-										<a href="#!"
-											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
-											src="/resources/user/images/Cocktail-drinking.jpg" alt="..."
-											class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 공주나라 </a>
-										</h5>
-
-										<!-- Email -->
-										<br>
-										<br>
-										<!-- Split dropdown user button -->
-										<div class="btn-group">
-											<button type="button" class="btn btn-gray">
-												<i class="fe-1x me-2" data-feather="thumbs-up"></i> GO
-											</button>
-
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--col-->
-						<div class="col-sm-6 col-xl-4">
-							<!--card-->
-							<div class="card mb-4">
-
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
-
-										<!-- Avatar -->
-										<a href="#!"
-											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
-											src="/resources/user/images/Soju-drinking.jpg" alt="..."
-											class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 왕자나라 </a>
-										</h5>
-
-										<!-- Email -->
-										<br>
-										<br>
-										<!-- Split dropdown user button -->
-										<div class="btn-group">
-											<button type="button" class="btn btn-gray">
-												<i class="fe-1x me-2" data-feather="thumbs-up"></i> GO
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--col-->
-						<div class="col-sm-6 col-xl-4">
-							<!--card-->
-							<div class="card mb-4 mb-xl-0">
-
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
-
-										<!-- Avatar -->
-										<a href="#!"
-											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
-											src="/resources/user/images/Whiskey-drinking.jpg" alt="..."
-											class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 너와나의연결고리 </a>
-										</h5>
-
-										<!-- Email -->
-										<br>
-										<br>
-										<!-- Split dropdown user button -->
-										<div class="btn-group">
-											<button type="button" class="btn btn-gray">
-												<i class="fe-1x me-2" data-feather="thumbs-up"></i> GO
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--col-->
-						<div class="col-sm-6 col-xl-4">
-							<!--card-->
-							<div class="card mb-4">
-
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
-
-										<!-- Avatar -->
-										<a href="#!"
-											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
-											src="/resources/user/images/Wine-drinking.jpg" alt="..."
-											class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 이젠아이티 </a>
-										</h5>
-
-										<!-- Email -->
-										<br>
-										<br>
-										<!-- Split dropdown user button -->
-										<div class="btn-group">
-											<button type="button" class="btn btn-gray">
-												<i class="fe-1x me-2" data-feather="thumbs-up"></i> GO
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+</c:if>
+					</c:forEach>
+						
 
 						<!--col-->
 						<div class="col-sm-6 col-xl-4">

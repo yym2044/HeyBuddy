@@ -220,7 +220,6 @@
 
 		sidebarLink[2].className += ' current';
 	</script>
-
 </body>
 
 </html>

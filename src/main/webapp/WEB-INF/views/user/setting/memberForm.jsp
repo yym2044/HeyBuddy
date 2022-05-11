@@ -122,13 +122,19 @@ table tr .form-control {
 
 										<table id="setTable" class="table table-sm table-nowrap table-card text-center">
 											<tr>
-												<td class="tableText">아이디</td>
+												<td>이메일<span class="text-danger ps-2">*</span></td>
+												<td>
+													<input type="text" class="form-control" placeholder="해당 메일로 초대메일을 발송합니다.">
+												</td>
+											</tr>
+											<tr>
+												<td class="tableText">아이디<span class="text-danger ps-2">*</span></td>
 												<td>
 													<input type="text" class="form-control" placeholder="로그인 시 사용할 아이디">
 												</td>
 											</tr>
 											<tr>
-												<td>이름</td>
+												<td>이름<span class="text-danger ps-2">*</span></td>
 												<td>
 													<input type="text" class="form-control" placeholder="이름(50자 이하)">
 												</td>
@@ -143,12 +149,6 @@ table tr .form-control {
 												<td>유선전화</td>
 												<td>
 													<input type="text" class="form-control" placeholder="전화번호">
-												</td>
-											</tr>
-											<tr>
-												<td>이메일</td>
-												<td>
-													<input type="text" class="form-control" placeholder="이메일">
 												</td>
 											</tr>
 											<tr>
@@ -239,7 +239,7 @@ table tr .form-control {
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
-		sidebarLink[6].className += ' current';
+		sidebarLink[5].className += ' current';
 	</script>
 
 </body>

@@ -323,7 +323,7 @@
 	
 	console.log(sidebarLink[6]);
 	
-	sidebarLink[6].className += ' current';
+	sidebarLink[5].className += ' current';
 	</script>
     
 </body>

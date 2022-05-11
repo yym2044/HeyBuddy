@@ -84,7 +84,6 @@ public class MemberController {
 
 	@RequestMapping(value = "/login/userLogin") // 회원로그인
 	 public String userLogin(Member dto, Model model) throws Exception { 
-	Member rt = service.selectOneLogin(dto); model.addAttribute("rt", rt); 
 		return "/user/login/login";
 	}
 
@@ -190,26 +189,44 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/memberEdit")
-	public String memberEditHost() {
+	public String memberEditHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 
+		Member rt = service.memberView(vo);
+		model.addAttribute("item", rt);
+		
 		return "user/setting/memberEdit";
 	}
 
 	@RequestMapping(value = "/setting/memberForm")
-	public String memberFormHost() {
+	public String memberFormHost(@ModelAttribute("vo") MemberVo vo) throws Exception {
 
 		return "user/setting/memberForm";
 	}
 
 	@RequestMapping(value = "/setting/memberList")
-	public String memberListHost() {
+	public String memberListHost(MemberVo vo, Model model) throws Exception {
 
+		
+		int count = service.selectOneCount(vo);
+		vo.setParamsPaging(count);
+		if (count != 0) {
+			List<Member> list = service.memberList(vo);
+			model.addAttribute("list", list);
+		} else {
+
+		}
+		
+		
 		return "user/setting/memberList";
 	}
 
 	@RequestMapping(value = "/setting/memberView")
-	public String memberViewHost() {
+	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 
+		Member rt = service.memberView(vo);
+		model.addAttribute("item", rt);
+		model.addAttribute("uploaded", service.profileUploaded(vo));
+		
 		return "user/setting/memberView";
 	}
 

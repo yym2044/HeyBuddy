@@ -219,7 +219,7 @@
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
-		sidebarLink[6].className += ' current';
+		sidebarLink[5].className += ' current';
 	</script>
 </body>
 

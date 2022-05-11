@@ -113,9 +113,13 @@
 	
 	</script> -->
 
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	
     <script src="/resources/user/js/client.js"></script>
     <!--WebRTC related code-->
 
+	
+		
 </div>
 
 </body>

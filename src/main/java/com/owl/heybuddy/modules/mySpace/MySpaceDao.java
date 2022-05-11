@@ -27,6 +27,10 @@ public class MySpaceDao {
 		return sqlSession.insert(namespace + ".insertMySpace", dto); // 스페이스등록
 	}
 
+	public int insertMySpaceMember(MySpace dto) {
+		return sqlSession.insert(namespace + ".insertMySpaceMember", dto); // 스페이스등록
+	}
+
 	public int updateMySpace(MySpace dto) {
 		return sqlSession.update(namespace + ".updateMySpace", dto); // 스페이스수정
 	}

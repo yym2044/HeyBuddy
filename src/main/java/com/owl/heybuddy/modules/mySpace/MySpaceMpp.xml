@@ -13,32 +13,25 @@
 	<select id="selectListMySpace" resultMap="resultMapObj">
 
 		SELECT
-		a.hymmName
+		a.hymmSeq
+		, a.hymmName
 		, a.hymmId
+		, a.hymmDelNy
 		, b.hysmSeq
-		a.
-		, a.hyspTypeCd
-		, a.hyspUseNy
-		, a.hyspName
-		, a.hyspDelNy
-		, a.regDateTime
-		, a.regDateTimeSvr
-		, a.modDateTime
-		, a.modDateTimeSvr
 		, b.hyspSeq
 		, b.hymmSeq
+		, b.hysmDelNy
 		, c.hyspSeq
+		, c.hyspName
+		, c.hyspDelNy
 
-
-		FROM hybdMember a
-		LEFT JOIN hybdSpaceMember b on b.oypdSeq = a.oypdSeq
-		LEFT JOIN hybdSpace c on c.type = 0 AND c.pseq = a.oypdSeq
-
-		WHERE 1=1
-		AND oypdDelNy = 0
-
+		FROM hybdSpaceMember b
+		LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
 
 	</select>
+	
+	
 	<select id="selectOneMySpace" resultMap="resultMapObj">
 
 		SELECT

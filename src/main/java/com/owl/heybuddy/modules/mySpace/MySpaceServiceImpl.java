@@ -23,7 +23,9 @@ public class MySpaceServiceImpl implements MySpaceService {
 
 	@Override
 	public int insertMySpace(MySpace dto) throws Exception { // 스페이스등록
-		return dao.insertMySpace(dto);
+		 dao.insertMySpace(dto);
+		 dao.insertMySpaceMember(dto);
+		return 1;
 	}
 
 	@Override

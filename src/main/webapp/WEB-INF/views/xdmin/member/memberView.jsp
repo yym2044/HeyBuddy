@@ -180,7 +180,7 @@ body {
 	<input type="hidden" id="shHymmName" name="shHymmName" value="<c:out value="${vo.shHymmName}"/>">
 	<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
 	<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
-</form>
+
 
 
 
@@ -284,14 +284,12 @@ body {
 								</table>
 								<div class="text-center pb-4">
 								
-								<a  class="btn btn-secondary" href="javascript:goMemberList('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
-'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">
+								<a  class="btn btn-secondary" href="javascript:goMemberList('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>');">
 								목록</a>
 									
 									
-<a  class="btn btn-info" href="javascript:goMemberEdit('<c:out value="${item.ifmmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
-'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');"> 
-수정 </a>
+								<a  class="btn btn-info" href="javascript:goMemberEdit('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>');"> 
+								수정 </a>
 
 
 <button type="button" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#btnModalNelete"> 삭제 </button> 
@@ -312,8 +310,7 @@ body {
 									
 									<a href="javascript:goMemberNelete
 									('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>',
-									'<c:out value="${vo.shMemberValue}"/>','<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>',
-									'<c:out value="${vo.shMemberDateEnd}"/>');"> 
+									'<c:out value="${vo.shMemberValue}"/>' );"> 
 	<button type="button" class="btn btn-primary" id=""  >확인</button></a>
 								</div>
 							</div>
@@ -326,18 +323,12 @@ body {
 							</div>
 						</div>
 					</div>
-
-
 				</div>
+				
+				</form>
 				<!--//Page content End//-->
 
 
-
-
-
-
-
-				<!--//Page content End//-->
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">

@@ -94,19 +94,18 @@
 		,hymmDormancyNy
 		,hymmName
 		,hymmId
-		,hymmNickname
 		,hymmPassword
 		,hymmDob 
 		,hymmGenderCd
 		,hymmNumber
+		,hymmEmail
 		,hymmDelny
 		,hymmSaveCd
 		,hymmEmailConsentNy
 		,hymmSmsConsentNy
-		,hymmPushConsentNy
-		,regIp
+<!-- 		,regIp
 		,regSeq
-		,regDevice
+		,regDevice -->
 		,regDateTime
 		,regDateTimeSvr
 		)
@@ -115,19 +114,18 @@
 		,0
 		,#{hymmName}
 		,#{hymmId}
-		,#{hymmNickname}
 		,#{hymmPassword}
 		,#{hymmDob}
 		,#{hymmGenderCd}
 		,#{hymmNumber}
+		,#{hymmEmail}
 		,0
 		,#{hymmSaveCd}
 		,#{hymmEmailConsentNy}
 		,#{hymmSmsConsentNy}
-		,#{hymmPushConsentNy}
-		,#{regIp}
+<!-- 		,#{regIp}
 		,#{regSeq}
-		,#{regDevice}
+		,#{regDevice} -->
 		,now()
 		,now()
 		)
@@ -197,13 +195,14 @@
 		,hymmDelny =  0
 		,hymmSaveCd =  #{hymmSaveCd}
         ,hymmDob = #{hymmDob}
+        ,hymmEmail = #{hymmEmail}
+        ,hymmNumber = #{hymmNumber}
 		,hymmEmailConsentNy =  #{hymmEmailConsentNy}
 		,hymmSmsConsentNy =  #{hymmSmsConsentNy}
-		,hymmPushConsentNy =  #{hymmPushConsentNy}
 		,hymmDesc = #{hymmDesc}
-		,modIp =  #{modIp}
+<!-- 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}
-		,modDevice =  #{modDevice}
+		,modDevice =  #{modDevice} -->
 		,modDateTime =  now()
 		,modDateTimeSvr =  now()
 		WHERE 1 = 1

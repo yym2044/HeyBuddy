@@ -194,7 +194,7 @@ body {
 		<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" />">
 		<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
 		<input type="hidden" id="shHymmDelNy" name="shHymmDelNy" value="<c:out value="${vo.shHymmDelNy}"/>">
-		<input type="hidden" id="shHYmmName" name="shHYmmName" value="<c:out value="${vo.shHYmmName}"/>">
+		<input type="hidden" id="shHymmName" name="shHymmName" value="<c:out value="${vo.shHymmName}"/>">
 		<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
 		<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
 		</form>
@@ -215,48 +215,47 @@ body {
 
 							<div class="table-responsive">
 								<div class="text-center">
-									<label for="profilePhoto" style="cursor: pointer;"> <!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
+									<label for="file0" style="cursor: pointer;"> <!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
 										<img src="/resources/assets/media/avatars/08.jpg"
 										class="avatar rounded-pill flex-shrink-0" alt="Customer">
-									</label> <input id="profilePhoto" type="file" style="display: none;">
+									</label> 
+									<input  class="form-control" id="file0" name="file0" type="file" 
+												multiple="multiple" style="display:none;" onChange="upload(0,2);">
 									<p class="p-2 fw-bold">프로필 사진</p>
 								</div>
 
+										
+										
 								<table id="setTable"
 									class="table table-sm table-nowrap table-card">
 									<tr>
 										<td class="tableText">상태</td>
 										<td><input class="form-check-input" type="radio"
-											id="ifmmSmsConsent" name="ifmmSmsConsent" checked> <label
+											id="hymmDormancyNy" name="hymmDormancyNy" checked> <label
 											class="form-check-label" for="flexRadioDefault5"> 활성
 										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="ifmmSmsConsent" name="ifmmSmsConsent"
+											type="radio" id="hymmDormancyNy" name="hymmDormancyNy"
 											checked> <label class="form-check-label"
 											for="flexRadioDefault5"> 휴먼 </label></td>
 									</tr>
 									<tr>
 										<td class="tableText">아이디</td>
-										<td>mija345</td>
+										<td><c:out value="${item.hymmId}" /></td>
 									</tr>
 									<tr>
 										<td class="tableText">이름</td>
-										<td>정미림</td>
+										<td><c:out value="${item.hymmName}" /></td>
 									</tr>
 							
 									<tr>
-										<td class="tableText">휴대전화</td>
+										<td class="tableText">연락처</td>
 										<td><input type="text" class="form-control"
-											name="ifmpNumber" value=""></td>
+											name="hymmNumber" value="<c:out value="${item.hymmNumber}"/>"></td>
 									</tr>
-									<tr>
-										<td class="tableText">유선전화</td>
-										<td><input type="text" class="form-control"
-											name="ifmpNumber" value=""></td>
-									</tr>
+								
 									<tr>
 										<td class="tableText">이메일</td>
-										<td><input type="text" class="form-control"
-											name="ifmpNumber" value=""></td>
+										<td><input type="text"  class="form-control" name="hymmEmail" value="<c:out value="${item.hymmEmail}"/>"></td>
 									</tr>
 									<tr>
 										<td class="tableText">생일</td>
@@ -286,31 +285,31 @@ body {
 										<td>개인정보유효기간</td>
 										<td><div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="6"> <label
+													name="hymmSaveCd" value="6"> <label
 													class="form-check-label" for="flexRadioDefault5">1년
 												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="8"> <label
+													name="hymmSaveCd" value="8"> <label
 													class="form-check-label" for="flexRadioDefault6">
 													3년 </label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="9"> <label
+													name="hymmSaveCd" value="9"> <label
 													class="form-check-label" for="flexRadioDefault6">5년
 												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="10"> <label
+													name="hymmSaveCd" value="10"> <label
 													class="form-check-label" for="flexRadioDefault6">10년
 												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio"
-													name="ifmmSaveCd" value="11"> <label
+													name="hymmSaveCd" value="11"> <label
 													class="form-check-label" for="flexRadioDefault6">탈퇴시
 												</label>
 											</div></td>
@@ -318,20 +317,20 @@ body {
 									<tr>
 										<td>SMS 마케팅동의</td>
 										<td><input class="form-check-input" type="radio"
-											id="ifmmSmsConsent" name="ifmmSmsConsent" checked> <label
+											id="hymmSmsConsentNy" name="hymmSmsConsentNy" checked> <label
 											class="form-check-label" for="flexRadioDefault5"> Yes
 										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="ifmmSmsConsent" name="ifmmSmsConsent"
+											type="radio" id="hymmSmsConsentNy" name="hymmSmsConsentNy"
 											checked> <label class="form-check-label"
 											for="flexRadioDefault5"> No </label></td>
 									</tr>
 									<tr>
 										<td>이메일 마케팅동의</td>
 										<td><input class="form-check-input" type="radio"
-											id="ifmmSmsConsent" name="ifmmSmsConsent" checked> <label
+											id="hymmEmailConsentNy" name="hymmEmailConsentNy" checked> <label
 											class="form-check-label" for="flexRadioDefault5"> Yes
 										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="ifmmSmsConsent" name="ifmmSmsConsent"
+											type="radio" id="hymmEmailConsentNy" name="hymmEmailConsentNy"
 											checked> <label class="form-check-label"
 											for="flexRadioDefault5"> No </label></td>
 
@@ -348,8 +347,8 @@ body {
 
 								</table>
 								<div class="text-center pb-4">
-									<a class="btn btn-secondary" href="memberView">뒤로</a>
-									<a class="btn btn-info" href="memberView">확인</a>
+									<a class="btn btn-secondary" href="javascript:goMemberView('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>');">취소</a>
+									<a class="btn btn-info" href="javascript:goMemberUpdt('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>');">저장</a>
 
 								</div>
 							</div>
@@ -439,12 +438,14 @@ body {
 		
 
 		goMemberUpdt = function(seq){
-					$("#ifmmSeq").val(seq)	
+					$("#hymmSeq").val(seq)	
 					$("#formEdit").attr("action","/xdmin/memberUpdt");
 					$("#formEdit").submit();
 			};
 
 	</script>
+	
+	
 	
 </body>
 

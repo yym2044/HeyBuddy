@@ -176,6 +176,18 @@ body {
 					</div>
 				</div>
 				<!--//Page Toolbar End//-->
+				
+				
+		<form id="formList" name="formList" method="post" action="/infra/member/memberInstAdmin" enctype="multipart/form-data">
+
+		<!-- 기본값히든처리 -->
+		<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
+		<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
+		<input type="hidden" id="shHymmDelNy" name="shHymmDelNy" value="<c:out value="${vo.shHymmDelNy}"/>">
+		<input type="hidden" id="shHymmName" name="shHymmName" value="<c:out value="${vo.shHymmName}"/>">
+		<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
+		<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
+		</form>
 
 				<!--//Page content//-->
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
@@ -401,6 +413,9 @@ body {
         Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
     </script>
         
+        		<!-- jquery ui -->
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+		
     <script>
 	$(function() {
 		$('#hybdMmDob').daterangepicker({
@@ -419,6 +434,9 @@ body {
 			};
 	</script>
 	
+
+			
+	
 		<script type="text/javascript">
 		$("#btnSubmit").on("click", function() {
 			if (!checkId($("#hymmId"), $("#hymmId").val(), "아이디를 입력 해 주세요!"))
@@ -429,9 +447,9 @@ body {
 	
 	
 	<!-- **************************************업로드************************************** -->
-	<script src="resources/common/js/commonXdmin.js"></script>
-	<script src="resources/common/js/constantsXdmin.js"></script>
-	<script src="resources/common/js/common.js"></script>
+	<script src="/resources/common/js/commonXdmin.js"></script>
+	<script src="/resources/common/js/constantsXdmin.js"></script>
+	<script src="/resources/common/js/common.js"></script>
 
 		<script type="text/javascript">
 		

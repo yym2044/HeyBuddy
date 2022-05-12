@@ -10,6 +10,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <title>hey, Buddy!</title>
 
             <!--Bootstrap icons-->
@@ -20,6 +21,7 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 			<link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
+			<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
         <!--Simplebar css-->
         <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
@@ -89,9 +91,75 @@
                     </div>
    			       <br>  
 					<div class="row planinst container">
-						<a class="btn btn-primary" href="planForm" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</a>
+							<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
+					
+					<!-- 모달 -->
+					<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> <!-- 이 위치에 넣어줘야 적용됨  -->
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h4 class="modal-title" id="exampleModalLabel" style="text-align: center; float: center;">📌일정등록</h4>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body">
+	                    	<h5>제목</h5>
+	                    	<input class="form-control mb-3" type="text" id="" name="" placeholder="일정 제목을 입력해주세요">
+	                    	<br>
+	                    	<h5>일정내용</h5> 
+	                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
+	                    	<br>
+	                    	<h5>날짜</h5>
+	                    	<input class="form-control mb-3 shDate" type="text" id="shDate" name="" placeholder="날짜를 등록해주세요">
+	                    	<br>
+	                    	<h5>공유자</h5>
+	                   	     <div class="form-control mb-3">
+	                            <div class="card card-body">
+	                                <select multiple class="form-control"
+	                                    data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
+	                                    <option value="1">김나리</option>
+	                                    <option value="2">윤영민</option>
+	                                    <option value="3">정미림</option>
+	                                    <option value="4">이건우</option>
+	                                    <option value="5">피터틸</option>  
+	                                </select>
+	                            </div>
+	                        </div>
+					      </div>
+					      <div class="modal-footer planinst container">
+                    	<a class="btn btn-danger me-2" href="planList" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
+ 						<a class="btn btn-primary me-2" href="planList" style="width: 100px; font-size: 1em; text-align: center; float: right;">등록하기</a>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+												
                     	<a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a>
-                    	<a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a>
+                    	<!-- <a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a> -->
+                    
+						<!-- Button trigger modal -->
+		                 <a class="btn btn-danger plandele" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a>
+						
+						<!-- Modal -->
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="staticBackdropLabel">경 고</h5>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body">
+						        <p style="text-align: center;">정말로 일정을 삭제 하시겠습니까?</p>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-danger">삭 제</button>
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫 기</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						                    
+                    
                     </div>   
                     <!--//달력 윗부분 끝 End//-->
 
@@ -119,20 +187,19 @@
                       <!--/.Page Footer End-->
                 </main>
                 <!--///////////Page content wrapper End///////////////-->
-            </div>
-        </div>
-        
+         </body>
         <!--////////////Theme Core scripts Start/////////////////-->
-
+		<script src="/resources/user/js/backgroundImg.js"></script>
         <script src="/resources/assets/vendor/feather.min.js"></script>
         <script src="/resources/assets/js/theme.bundle.js"></script>
+        <script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+		<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet"/>
         <script>
           feather.replace()
         </script>
-
-        <!--////////////Theme Core scripts End/////////////////-->
-
-
 
         <!--App calendar Plugin-->
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
@@ -201,7 +268,7 @@
         borderColor: 'blue',
       }
     ]
-                // Initialize the calendar
+                // Initialize the 달력
     const exampleCalendar = new FullCalendar.Calendar(document.getElementById('exampleCalendar'), {
       events: exampleEvents,
       headerToolbar: {
@@ -212,11 +279,11 @@
       themeSystem: 'bootstrap',
       bootstrapFontAwesome: false,
       buttonText: {
-        today: 'Today',
-        month: 'Month',
-        week: 'Week',
-        day: 'Day',
-        list: 'List',
+        today: '오늘',
+        month: '월별',
+        week: '주별',
+        day: '일별',
+        list: '이벤트',
         prev: '❮',
         next: '❯',
       },
@@ -226,6 +293,8 @@
     }).render()
         </script>
         
+        
+        <!--  사이드바 강조 Hover 자바스크립트-->
     <script type="text/javascript">
     	const sidebarLink = document.querySelectorAll('.Sidebar-link');
     	console.log(sidebarLink);
@@ -234,6 +303,36 @@
     	
     	sidebarLink[3].className += ' current';
     </script>
-    </body>
+    
+    <!-- 모달 자바스크립트 -->
+   	<script type="text/javascript">
+			var myModal = document.getElementById('myModal')
+			var myInput = document.getElementById('myInput')
+			
+			myModal.addEventListener('shown.bs.modal', function () {
+			  myInput.focus()
+			})
+	</script>
+    
+    <!-- Jquery 달력  -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+		 $("input.shDate").datepicker();
+	}); 
+
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
+	</script>
+   
 
 </html>

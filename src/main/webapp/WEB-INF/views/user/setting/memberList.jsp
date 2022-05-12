@@ -133,7 +133,7 @@
 															<img src="/resources/assets/media/avatars/08.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
 															<div>
 																<div class="h6 mb-0 lh-1">
-																	<a href="heyBuddyHostMenu3View.html">윤영민</a>
+																	<a href="javascript:goView();">윤영민</a>
 																</div>
 															</div>
 														</div>
@@ -216,6 +216,9 @@
 	<script>
 		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
 	</script>
+	
+	<script src="/resources/user/js/backgroundImg.js"></script> 
+	
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 

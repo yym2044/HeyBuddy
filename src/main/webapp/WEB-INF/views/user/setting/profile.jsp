@@ -186,6 +186,8 @@
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
         
+    <script src="/resources/user/js/backgroundImg.js"></script>     
+        
 <script type="text/javascript">
 	const sidebarLink = document.querySelectorAll('.Sidebar-link');
 	

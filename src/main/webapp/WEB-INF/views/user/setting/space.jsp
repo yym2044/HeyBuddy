@@ -259,7 +259,7 @@
 										</table>
 										<div class="text-center pb-3">
 											<button class="btn btn-lg btn-secondary me-1">원래대로</button>
-											<button class="btn btn-lg btn-info">적용</button>
+											<button id="btnApply" class="btn btn-lg btn-info">적용</button>
 										</div>
 									</div>
 								</div>
@@ -302,19 +302,31 @@
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
         
+    <script src="/resources/user/js/backgroundImg.js"></script>    
+        
     <script type="text/javascript">
+    
+    let backUrl;
     
     $("input[name='spaceColor']").on("click", function(){
     	if($(this).val() == 'color-1'){
+    		backUrl = 1;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround.jpg')";
     	} else if($(this).val() == 'color-2'){
+    		backUrl = 2;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround2.png')";
     	} else if($(this).val() == 'color-3'){
+    		backUrl = 3;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround3.jpg')";
     	} else if($(this).val() == 'color-4'){
+    		backUrl = 4;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround4.png')";
     	}
-    })
+    });
+    
+	$("#btnApply").on("click", function(){
+		localStorage.setItem("backUrl", backUrl);
+	});
     
     </script>
     

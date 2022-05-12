@@ -230,7 +230,9 @@ table tr .form-control {
 	<script>
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
-        
+    
+    <script src="/resources/user/js/backgroundImg.js"></script> 
+    
     <script>
 	$(function() {
 		$('#hybdMmDob').daterangepicker({

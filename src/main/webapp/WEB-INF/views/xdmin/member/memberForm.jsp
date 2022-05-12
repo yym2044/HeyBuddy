@@ -329,7 +329,6 @@
 											type="radio" id="hymmEmailConsentNy" name="hymmEmailConsentNy"
 											checked> <label class="form-check-label"
 											for="flexRadioDefault5"> No </label></td>
-
 									</tr>
 
 
@@ -404,6 +403,9 @@
         
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="/resources/common/js/validation.js"></script>
+		<!-- jquery ui -->
+	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+			
    
     <script>
 	$(function() {

@@ -206,15 +206,17 @@ public class MemberController {
 
 	@RequestMapping(value = "/setting/memberList")
 	public String memberListHost(MemberVo vo, Model model) throws Exception {
-
 		
-		int count = service.selectOneCount(vo);
+		//임시로 스페이스 지정
+		vo.setShHyspSeq("1");
+		
+		int count = service.selectOneCountMemberInSpace(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
-			List<Member> list = service.memberList(vo);
+			List<Member> list = service.selectListMemberInSpace(vo);
 			model.addAttribute("list", list);
 		} else {
-
+			// by pass
 		}
 		
 		
@@ -224,7 +226,10 @@ public class MemberController {
 	@RequestMapping(value = "/setting/memberView")
 	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 
-		Member rt = service.memberView(vo);
+		//임시로 스페이스 지정
+		vo.setShHyspSeq("1");
+		
+		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("uploaded", service.profileUploaded(vo));
 		

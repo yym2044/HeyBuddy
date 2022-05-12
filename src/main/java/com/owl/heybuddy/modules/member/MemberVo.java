@@ -4,7 +4,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MemberVo {
 
-	
+	//space
+	private String shHyspSeq;
 
 	//common
 	private String shMemberOption;
@@ -423,7 +424,13 @@ public class MemberVo {
 		public void setPath(String path) {
 			this.path = path;
 		}
-
+		public String getShHyspSeq() {
+			return shHyspSeq;
+		}
+		public void setShHyspSeq(String shHyspSeq) {
+			this.shHyspSeq = shHyspSeq;
+		}
+		
 
 		
 		

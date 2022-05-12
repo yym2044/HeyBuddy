@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import com.owl.heybuddy.common.constants.Constants;
 
 @Controller
@@ -46,9 +47,8 @@ public class MemberController {
 	}
 
 
-	
 	@RequestMapping(value = "/xdmin/memberForm") // 회원등록 
-	public String xdminMemberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	public String memberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 	Member rt = service.memberView(vo); model.addAttribute("item", rt); 
 	return "xdmin/member/memberForm"; 
 	}
@@ -62,6 +62,7 @@ public class MemberController {
 	 return "redirect:/xdmin/member/memberView";
 	 }
 	 
+		
 	
 	@RequestMapping(value = "/xdmin/memberEdit") // 회원수정 
 	 public String memberEdit(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {

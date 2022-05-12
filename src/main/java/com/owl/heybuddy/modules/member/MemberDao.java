@@ -52,7 +52,7 @@ public class MemberDao {
 	} 
 
 	public Member profileUploaded(MemberVo vo) {
-		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진
+		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
 	}
 	
 	public int insertUploaded(Member dto) {

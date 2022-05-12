@@ -42,20 +42,9 @@
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
 </head>
-<style>
-body {
-	background-image: url('/resources/user/images/allround.jpg');
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
 
-.iconic {
-	padding-bottom: 30px;
-	padding-top: 30px;
-}
-</style>
+<link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
+
 <body>
 	<!--////////////////// PreLoader Start//////////////////////-->
 	<div class="loader">
@@ -154,12 +143,12 @@ body {
           <div class="toolbar pb-4 pt-4 px-4 px-lg-8">
             <div class="position-relative container-fluid px-0">
                 <div class="col-sm-7 mb-3 mb-sm-0">
-                  <h3 class="mb-2"> 정미림 님, 반갑습니다👋</h3>
+                  <h3 class="mb-2">  <c:out value="${sessName }"/> 님, 반갑습니다👋</h3>
                 </div>
               </div>
             </div>
-            		</div>
-     		<div class="dropdown border-top"></div>
+          </div>
+      <div class="dropdown border-top"></div>
      
           <!--//Page Toolbar End//-->
 
@@ -178,8 +167,8 @@ body {
 				<!--//Page Toolbar End//-->
 				
 				
-		<form id="formList" name="formList" method="post" action="/infra/member/memberInstAdmin" enctype="multipart/form-data">
-
+		<form id="formList" name="formList" method="post" action="/xdmin/memberInst" enctype="multipart/form-data">
+		
 		<!-- 기본값히든처리 -->
 		<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
 		<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
@@ -253,7 +242,7 @@ body {
 								
 									<tr>
 										<td>이메일</td>
-										<td><input type="text" class="form-control" name="hymmEmailFull"
+										<td><input type="text" class="form-control" name="hymmEmail"
 											placeholder="you@example.com" required>
 										
 								<div class="invalid-feedback">이메일을 입력해주세요.</div> </td>
@@ -262,18 +251,18 @@ body {
 									<tr>
 										<td>생일</td>
 												<td>
-												<!-- <input type="text" class="form-control"> -->
-												<div class="position-relative flex-grow-1">
-													<!--Icon-->
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-													stroke="currentColor" stroke-width="2" 
-													stroke-linecap="round" stroke-linejoin="round" 
-													class="feather feather-calendar fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
+													<!-- <input type="text" class="form-control"> -->
+													<div class="position-relative flex-grow-1">
+														<!--Icon-->
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
 													<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-													<line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+													<line x1="16" y1="2" x2="16" y2="6"></line>
+															<line x1="8" y1="2" x2="8" y2="6"></line>
+															<line x1="3" y1="10" x2="21" y2="10"></line>
 													</svg>
-													<input id="hybdMmDob"  name="hybdMmDob"  type="text" class="form-control ps-6">
-												</div>
+														<input id="hymmDob"  name="hymmDob" type="text" class="form-control ps-6">
+													</div>
+												
 												
 												</td>
 									</tr>
@@ -349,7 +338,7 @@ body {
 								<div class="text-center pb-4">
 									<a class="btn btn-secondary" href="javascript:goMemberList();">목록</a> 
 									<button type="submit" class="btn btn-info" id="btnSubmit">등록 </button>
-									
+
 								</div>
 							</div>
 						</div>
@@ -413,12 +402,12 @@ body {
         Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
     </script>
         
-        		<!-- jquery ui -->
-		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
-		
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/resources/common/js/validation.js"></script>
+   
     <script>
 	$(function() {
-		$('#hybdMmDob').daterangepicker({
+		$('#hymmDob').daterangepicker({
 			singleDatePicker: true,
 			showDropdowns: true,
 			minYear: 1901,
@@ -426,25 +415,21 @@ body {
 		});
 	});
 	</script>
-	
-		<script type="text/javascript">
+
+	<script type="text/javascript">
 			goMemberList = function(){
 				$("#formList").attr("action", "/xdmin/memberList");
 				$("#formList").submit();
 			};
 	</script>
 	
-
-			
-	
-		<script type="text/javascript">
+	<script type="text/javascript">
 		$("#btnSubmit").on("click", function() {
 			if (!checkId($("#hymmId"), $("#hymmId").val(), "아이디를 입력 해 주세요!"))
 				retrun
 			false;
 		});
 	</script>
-	
 	
 	<!-- **************************************업로드************************************** -->
 	<script src="/resources/common/js/commonXdmin.js"></script>
@@ -518,20 +503,4 @@ body {
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -58,4 +58,9 @@ public class MemberDao {
 	public int insertUploaded(Member dto) {
 		return sqlSession.insert(namespace + ".insertUploaded", dto); // 회원등록(프로필사진)
 	}
+	
+	//영민 추가
+	public int selectOneCountMemberInSpace(MemberVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountMemberInSpace", vo);}
+	public List<Member> selectListMemberInSpace(MemberVo vo) {return sqlSession.selectList(namespace + ".selectListMemberInSpace", vo); }
+	public Member selectOneMemberInSpace(MemberVo vo) {return sqlSession.selectOne(namespace + ".selectOneMemberInSpace", vo); }
 }

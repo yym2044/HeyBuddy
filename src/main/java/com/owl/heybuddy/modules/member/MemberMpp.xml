@@ -77,7 +77,16 @@
 		and hymmSeq = #{hymmSeq}
 	</select>
 	
-
+	<select id="selectOneMember" resultMap="resultMapObj">
+		select
+		*
+		from
+		hybdMember
+		where 1 = 1
+		and hymmDelNy = 0
+		and hymmSeq = #{hymmSeq}
+	</select>
+	
 	
 	<insert id="insertMember">  <!-- 멤버등록 -->
 	INSERT INTO hybdMember(
@@ -94,7 +103,6 @@
 		,hymmSaveCd
 		,hymmEmailConsentNy
 		,hymmSmsConsentNy
-		,hymmDelNy
 <!-- 		,regIp
 		,regSeq
 		,regDevice -->
@@ -240,5 +248,66 @@
 		WHERE
 		hymmSeq= #{hymmSeq}
 	</update>
+	
+	
+	<!-- 영민 추가 -->
+	<sql id="selectCommonInSpace"> <!-- 공통 -->
+		FROM
+		hybdMember a
+	LEFT JOIN
+		hybdSpaceMember b
+	ON 
+		b.hymmSeq = a.hymmSeq
+	WHERE 1=1
+		AND b.hyspSeq = #{shHyspSeq} 
+	</sql>
+	
+	<select id="selectOneCountMemberInSpace" resultType="Integer">
+	SELECT
+		count(*)
+	<include refid="selectCommonInSpace"/>
+	</select>
+	
+	<select id="selectListMemberInSpace" resultMap="resultMapObj">
+	SELECT 
+		a.hymmSeq
+		, a.hymmName
+		, a.hymmId
+		, a.hymmGenderCd
+		, a.hymmNumber
+		, a.hymmEmail
+		, a.hymmDob
+		, a.hymmDesc
+		, b.hysmActiveNy
+		
+		, a.regDateTime
+		, a.modDateTime
+	<include refid="selectCommonInSpace"/>
+	</select>
+	
+	<select id="selectOneMemberInSpace" resultMap="resultMapObj">
+	SELECT 
+		a.hymmSeq
+		, a.hymmName
+		, a.hymmId
+		, a.hymmGenderCd
+		, a.hymmNumber
+		, a.hymmEmail
+		, a.hymmDob
+		, a.hymmDesc
+		, b.hysmActiveNy
+		
+		, a.regDateTime
+		, a.modDateTime
+	FROM
+		hybdMember a
+	LEFT JOIN
+		hybdSpaceMember b
+	ON 
+		b.hymmSeq = a.hymmSeq
+	WHERE 1=1
+		AND a.hymmSeq = #{hymmSeq}
+		AND b.hyspSeq = #{shHyspSeq} 
+	</select>
 	
 </mapper>

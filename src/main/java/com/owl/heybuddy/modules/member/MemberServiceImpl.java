@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import com.owl.heybuddy.common.util.UtilUpload;
 
 @Service
@@ -92,4 +91,15 @@ public class MemberServiceImpl implements MemberService {
 		return dao.selectOneLogin(dto); 
 	}
 	
+	
+//	영민 추가
+	public int selectOneCountMemberInSpace(MemberVo vo) throws Exception {
+		return dao.selectOneCountMemberInSpace(vo);
+	}
+	public List<Member> selectListMemberInSpace(MemberVo vo) throws Exception {
+		return dao.selectListMemberInSpace(vo);
+	}
+	public Member selectOneMemberInSpace(MemberVo vo) throws Exception {
+		return dao.selectOneMemberInSpace(vo);
+	}
 }

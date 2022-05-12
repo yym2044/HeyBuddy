@@ -22,6 +22,9 @@ public class Member {
 	private Integer hymmSmsConsentNy;
 	private String hymmDesc;
 	private Integer hymmDelNy;
+	//스페이스
+	private String hyspSeq;
+	private Integer hysmActiveNy;
 	
 	//RegMod
 	private String regIp;
@@ -297,5 +300,18 @@ public class Member {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	public String getHyspSeq() {
+		return hyspSeq;
+	}
+	public void setHyspSeq(String hyspSeq) {
+		this.hyspSeq = hyspSeq;
+	}
+	public Integer getHysmActiveNy() {
+		return hysmActiveNy;
+	}
+	public void setHysmActiveNy(Integer hysmActiveNy) {
+		this.hysmActiveNy = hysmActiveNy;
+	}
+	
 	
 }

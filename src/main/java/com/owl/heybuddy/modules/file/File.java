@@ -50,6 +50,23 @@ public class File {
 	private String pseq;
 	private String path;
 
+	//hybdMember
+	private Integer hymmAdminNy;
+	private Integer hymmDormancyNy;
+	private String hymmName;
+	private String hymmId;
+	private String hymmPassword;
+	private Integer hymmGenderCd;
+	private String hymmNumber;
+	private String hymmEmail;
+	private String hymmDob;
+	private Integer hymmSaveCd;
+	private Integer hymmEmailConsentNy;
+	private Integer hymmSmsConsentNy;
+	private String hymmDesc;
+	private Integer hymmDelNy;
+	
+
 	
 	
 	/******************************* Getter & Setter *******************************/
@@ -269,6 +286,95 @@ public class File {
 		this.path = path;
 	}
 	
+
 	
+
+
+
+	public Integer getHymmAdminNy() {
+	return hymmAdminNy;
+}
+public void setHymmAdminNy(Integer hymmAdminNy) {
+	this.hymmAdminNy = hymmAdminNy;
+}
+public Integer getHymmDormancyNy() {
+	return hymmDormancyNy;
+}
+public void setHymmDormancyNy(Integer hymmDormancyNy) {
+	this.hymmDormancyNy = hymmDormancyNy;
+}
+public String getHymmName() {
+	return hymmName;
+}
+public void setHymmName(String hymmName) {
+	this.hymmName = hymmName;
+}
+public String getHymmId() {
+	return hymmId;
+}
+public void setHymmId(String hymmId) {
+	this.hymmId = hymmId;
+}
+public String getHymmPassword() {
+	return hymmPassword;
+}
+public void setHymmPassword(String hymmPassword) {
+	this.hymmPassword = hymmPassword;
+}
+public Integer getHymmGenderCd() {
+	return hymmGenderCd;
+}
+public void setHymmGenderCd(Integer hymmGenderCd) {
+	this.hymmGenderCd = hymmGenderCd;
+}
+public String getHymmNumber() {
+	return hymmNumber;
+}
+public void setHymmNumber(String hymmNumber) {
+	this.hymmNumber = hymmNumber;
+}
+public String getHymmEmail() {
+	return hymmEmail;
+}
+public void setHymmEmail(String hymmEmail) {
+	this.hymmEmail = hymmEmail;
+}
+public String getHymmDob() {
+	return hymmDob;
+}
+public void setHymmDob(String hymmDob) {
+	this.hymmDob = hymmDob;
+}
+public Integer getHymmSaveCd() {
+	return hymmSaveCd;
+}
+public void setHymmSaveCd(Integer hymmSaveCd) {
+	this.hymmSaveCd = hymmSaveCd;
+}
+public Integer getHymmEmailConsentNy() {
+	return hymmEmailConsentNy;
+}
+public void setHymmEmailConsentNy(Integer hymmEmailConsentNy) {
+	this.hymmEmailConsentNy = hymmEmailConsentNy;
+}
+public Integer getHymmSmsConsentNy() {
+	return hymmSmsConsentNy;
+}
+public void setHymmSmsConsentNy(Integer hymmSmsConsentNy) {
+	this.hymmSmsConsentNy = hymmSmsConsentNy;
+}
+public String getHymmDesc() {
+	return hymmDesc;
+}
+public void setHymmDesc(String hymmDesc) {
+	this.hymmDesc = hymmDesc;
+}
+public Integer getHymmDelNy() {
+	return hymmDelNy;
+}
+public void setHymmDelNy(Integer hymmDelNy) {
+	this.hymmDelNy = hymmDelNy;
+}
+
 	
 }

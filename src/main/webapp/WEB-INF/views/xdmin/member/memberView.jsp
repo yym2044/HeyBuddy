@@ -211,19 +211,23 @@ body {
 									class="table table-sm table-nowrap table-card">
 									<tr>
 										<td class="tableText">상태</td>
-										<td>활성</td>
+									<td><c:if test="${item.hymmDormancyNy eq 0}">
+																			<c:out value="활성" />
+																		</c:if> <c:if test="${item.hymmDormancyNy eq 1}">
+																			<c:out value="휴먼" />
+																		</c:if></td>
 									</tr>
 									<tr>
 										<td class="tableText">아이디</td>
-										<th>mija345</th>
+										<th><c:out value="${item.hymmId}" /></th>
 									</tr>
 									<tr>
 										<td class="tableText">이름</td>
-										<th>정미림</th>
+										<th><c:out value="${item.hymmName}" /></th>
 									</tr>
 										<tr>
 										<td class="tableText">생일</td>
-										<th>1991.09.07</th>
+										<th><c:out value="${item.hymmDob}" /></th>
 									</tr>
 									<tr>
 										<td class="tableText">휴대전화</td>

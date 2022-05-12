@@ -36,7 +36,8 @@
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
-<!-- jquery ui CSS 220510미림추가-->
+<!-- jquery ui CSS 220510
+추가-->
 <link
 	href="/infra/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
 	rel="stylesheet">
@@ -216,7 +217,7 @@ body {
 													<option value="">::휴먼여부::
 													<option value="0"
 														<c:if test="${vo.shHymmDormancyNy eq 0 }"> selected</c:if>>N
-\
+
 													<option value="1"
 														<c:if test="${vo.shHymmDormancyNy eq 1 }"> selected</c:if>>Y
 
@@ -238,7 +239,7 @@ body {
 
 													<option value="4"
 														<c:if test="${vo.shMemberOption eq 3 }"> selected</c:if>>연락처
-\
+
 												</select>
 											</div>
 											&nbsp;&nbsp;&nbsp;&nbsp;
@@ -311,7 +312,6 @@ body {
 																	<td><c:if test="${item.hymmGenderCd eq 1}"> <c:out value="남성" />
 																		</c:if> <c:if test="${item.hymmGenderCd eq 2}"> <c:out value="여성" />
 																		</c:if></td>
-
 																	<td><c:out value="${item.hymmDob}" /></td>
 																	<td><c:set var="numberPhone"
 																			value="${item.hymmNumber}" /> <c:choose>

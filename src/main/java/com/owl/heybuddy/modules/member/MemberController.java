@@ -75,7 +75,7 @@ public class MemberController {
 	 service.updateMember(dto); 
 	 return "redirect:/xdmin/member/memberView"; 
 	 }
-	 
+	
 
 	  public String makeQueryString(MemberVo vo) { String tmp = "&thisPage=" +
 	  vo.getThisPage() + "&shOption=" + vo.getShMemberOption() + "&shMemberValue="

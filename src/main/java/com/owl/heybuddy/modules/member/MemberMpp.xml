@@ -77,16 +77,7 @@
 		and hymmSeq = #{hymmSeq}
 	</select>
 	
-	<select id="selectOneMember" resultMap="resultMapObj">
-		select
-		*
-		from
-		hybdMember
-		where 1 = 1
-		and hymmDelNy = 0
-		and hymmSeq = #{hymmSeq}
-	</select>
-	
+
 	
 	<insert id="insertMember">  <!-- 멤버등록 -->
 	INSERT INTO hybdMember(
@@ -103,6 +94,7 @@
 		,hymmSaveCd
 		,hymmEmailConsentNy
 		,hymmSmsConsentNy
+		,hymmDelNy
 <!-- 		,regIp
 		,regSeq
 		,regDevice -->

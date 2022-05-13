@@ -188,9 +188,12 @@
 
 							<div class="table-responsive">
 								<div class="text-center">
-									<label for="profilePhoto" style="cursor: pointer;"> <!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
-										<img src="/resources/assets/media/avatars/08.jpg"
-										class="avatar rounded-pill flex-shrink-0" alt="Customer">
+									<label for="profilePhoto" style="cursor: pointer;"> 
+									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0"  />
+						<br>		
+						<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" 
+						download="<c:out value="${uploaded.path}"/><c:out value="${uploaded.originalFileName}"/>">
+						다운로드 </a>
 									</label> 
 									<p class="p-2 fw-bold">프로필 사진</p>
 								</div>

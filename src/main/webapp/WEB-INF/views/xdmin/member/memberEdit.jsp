@@ -330,11 +330,11 @@
 									</tr>
 									<tr>
 										<td class="tableText">가입일</td>
-										<td>2022.04.27.12:38</td>
+										<td><c:out value="${item.regDateTime}"/></td>
 									</tr>
 									<tr>
 										<td class="tableText">수정일</td>
-										<td>2022.04.27.15:38</td>
+										<td><c:out value="${item.modDateTime}"/></td>
 									</tr>
 
 

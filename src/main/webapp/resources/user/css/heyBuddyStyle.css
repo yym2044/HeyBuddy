@@ -33,3 +33,9 @@ body {
 	box-shadow: 2px 5px 10px #CCD8A6;
 	transform: translateY(-1px);
 }
+
+.preview {
+	width: 70px;
+	height: 70px;
+	border-radius: 95%;
+}

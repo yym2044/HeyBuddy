@@ -149,7 +149,6 @@
 		,delNY
 		,pseq
 		,path
-		,hymmSeq
 		)
 		VALUES(
 		#{defaultNy}
@@ -162,7 +161,6 @@
 		,0
 		,#{pseq}
 		,#{path}
-		,#{hymmSeq}
 		)
 </insert>
 	

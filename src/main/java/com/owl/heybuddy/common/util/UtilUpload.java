@@ -16,7 +16,7 @@ public class UtilUpload {
 	
 	/* 멤버 프로필사진업로드 */
 	
-	public static void uploadProfile(MultipartFile multipartFile, String className, com.owl.heybuddy.modules.member.Member dto) throws Exception {
+	public static void uploadProfile(MultipartFile multipartFile, String className, Member dto) throws Exception {
 
 		String fileName = multipartFile.getOriginalFilename();
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);

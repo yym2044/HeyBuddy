@@ -182,12 +182,12 @@
 
 								<div class="table-responsive">
 									<div class="text-center">
-										<label for="profilePhoto" style="cursor: pointer;"> <img src="/resources//user/images/profileUpload.png" style="width: 70px;">
+										<label for="profilePhoto" style="cursor: pointer;"> <img id="img" src="/resources//user/images/profileUpload.png" style="width: 70px;">
 										</label>
-										<input id="profilePhoto" type="file" style="display: none;">
+										<input id="profilePhoto" name="file0" type="file" style="display: none;">
 										<p class="p-2 fw-bold">프로필 사진</p>
 									</div>
-
+									
 									<!-- 	<table id="setTable"
 									class="table table-sm table-nowrap table-card text-center"> -->
 									<table id="setTable" class="table table-sm table-nowrap table-card">
@@ -421,99 +421,121 @@
 							});
 				</script>
 
-				<!-- **************************************업로드************************************** -->
-				<script src="/resources/common/js/commonXdmin.js"></script>
-				<script src="/resources/common/js/constantsXdmin.js"></script>
-				<script src="/resources/common/js/common.js"></script>
+	<!-- **************************************업로드************************************** -->
+			<!-- <script type="text/javascript">
+				upload = function(seq, div) {
 
-				<script type="text/javascript">
-					upload = function(seq, div) {
+					$("#ulFile" + seq).children().remove();
 
-						$("#ulFile" + seq).children().remove();
+					var fileCount = $("input[type=file]")[seq].files.length;
 
-						var fileCount = $("input[type=file]")[seq].files.length;
+					if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
+						return false;
+					}
 
-						if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
-							return false;
-						}
-
-						var totalFileSize;
-						for (var i = 0; i < fileCount; i++) {
-							if (div == 1) {
-								if (checkUploadedAllExt(
-										$("input[type=file]")[seq].files[i].name,
-										seq) == false) {
-									return false;
-								}
-							} else if (div == 2) {
-								if (checkUploadedImageExt(
-										$("input[type=file]")[seq].files[i].name,
-										seq) == false) {
-									return false;
-								}
-							} else {
-								return false;
-							}
-
-							if (checkUploadedEachFileSize(
+					var totalFileSize;
+					for (var i = 0; i < fileCount; i++) {
+						if (div == 1) {
+							if (checkUploadedAllExt(
 									$("input[type=file]")[seq].files[i].name,
 									seq) == false) {
 								return false;
 							}
-							totalFileSize += $("input[type=file]")[seq].files[i].size;
-						}
-						if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
+						} else if (div == 2) {
+							if (checkUploadedImageExt(
+									$("input[type=file]")[seq].files[i].name,
+									seq) == false) {
+								return false;
+							}
+						} else {
 							return false;
 						}
 
-						for (var i = 0; i < fileCount; i++) {
-							addUploadLi(seq, i,
-									$("input[type=file]")[seq].files[i].name);
+						if (checkUploadedEachFileSize(
+								$("input[type=file]")[seq].files[i].name,
+								seq) == false) {
+							return false;
 						}
+						totalFileSize += $("input[type=file]")[seq].files[i].size;
+					}
+					if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
+						return false;
 					}
 
-					addUploadLi = function(seq, index, name) {
-
-						var ul_list = $("#ulFile0");
-
-						li = '<li id= "li_  '+ seq +'_' + index + ' "class="list-group-item d-flex justify-content-between align-items-center"> ';
-						li = li + name;
-						li = li
-								+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
-								+ seq
-								+ ','
-								+ index
-								+ ')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
-						li = li + '</li>';
-
-						$("#ulFile" + seq).append(li);
+					for (var i = 0; i < fileCount; i++) {
+						addUploadLi(seq, i,
+								$("input[type=file]")[seq].files[i].name);
 					}
+				}
 
-					delLi = function(seq, index) {
-						$("#li_" + seq + "_" + index).remove();
-					}
+				addUploadLi = function(seq, index, name) {
 
-					addUploadLi = function(seq, index, name) {
+					var ul_list = $("#ulFile0");
 
-						var ul_list = $("#ulFile1");
+					li = '<li id= "li_  '+ seq +'_' + index + ' "class="list-group-item d-flex justify-content-between align-items-center"> ';
+					li = li + name;
+					li = li
+							+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
+							+ seq
+							+ ','
+							+ index
+							+ ')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
+					li = li + '</li>';
 
-						li = '<li id="li_'+seq+'_'+index+'"class="list-group-item d-flex justify-content-between align-items-center"> ';
-						li = li + name;
-						li = li
-								+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
-								+ seq
-								+ ','
-								+ index
-								+ ')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
-						li = li + '</li>';
+					$("#ulFile" + seq).append(li);
+				}
 
-						$("#ulFile" + seq).append(li);
-					}
+				delLi = function(seq, index) {
+					$("#li_" + seq + "_" + index).remove();
+				}
 
-					delLi = function(seq, index) {
-						$("#li_" + seq + "_" + index).remove();
-					}
-				</script>
+				addUploadLi = function(seq, index, name) {
+
+					var ul_list = $("#ulFile1");
+
+					li = '<li id="li_'+seq+'_'+index+'"class="list-group-item d-flex justify-content-between align-items-center"> ';
+					li = li + name;
+					li = li
+							+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
+							+ seq
+							+ ','
+							+ index
+							+ ')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
+					li = li + '</li>';
+
+					$("#ulFile" + seq).append(li);
+				}
+
+				delLi = function(seq, index) {
+					$("#li_" + seq + "_" + index).remove();
+				}
+			</script>
+	 -->			
+	
+	<script src="/resources/common/js/commonXdmin.js"></script>
+	<script src="/resources/common/js/constantsXdmin.js"></script>
+	<script src="/resources/common/js/common.js"></script>
+				
+	<!-- 프로필사진 이미지 프리뷰 바꾸는 script! 링크걸어서 사용해도 될 듯 -->
+	<script type="text/javascript">
+	let profileInput = document.getElementById("profilePhoto");
+	let img = document.querySelector('label[for=profilePhoto] img')
+	
+	profileInput.onchange = (e) => {
+		
+		var ext = $("#profilePhoto")[0].files[0].name.split('.').pop().toLowerCase();
+		if(extArrayImage.indexOf(ext) == -1){
+			alert("허용된 확장자가 아닙니다.");
+			return false;
+		}
+		
+		img.classList.add('preview');
+		img.src = URL.createObjectURL(e.target.files[0]);
+	}
+	</script>
+				
+				
+
 </body>
 
 </html>

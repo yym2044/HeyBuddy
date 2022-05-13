@@ -128,12 +128,13 @@
 												<input type="text" class="form-control search ps-8"
 													placeholder="제목,등록자 검색">
 											</form>
-											<div
+								<%-- 			<div
 												class="btn btn-primary btn-sm d-inline-flex align-items-center">
-												<i data-feather="edit-3" class="fe-2x me-md-2"></i> 
-												<span class="d-md-inline-block d-none"> 
-												<a href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>');">등록 </a></span>
-											</div>
+												<i data-feather="edit-3" class="fe-2x me-md-2"></i> <span
+													class="d-md-inline-block d-none"> <a
+													href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>');">
+												</a></span>
+											</div> --%>
 										</div>
 									</div>
 								</div>
@@ -143,11 +144,13 @@
 						<c:choose>
 							<c:when test="${fn:length(list) eq 0}">
 								<tr>
-									<td class="text-center" colspan="9">There is no data!</td>
-								</tr>
+									<td class="text-centr" colspan="9">There is no data!</td>
+								</tr>e
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${list}" var="item" varStatus="status">
+
+
 									<div class="flex-grow-1 overflow-hidden pe-4">
 
 										<!--Inbox mail list-->
@@ -156,9 +159,6 @@
 											<div class="list-group-item list-group-item-action">
 												<div class="d-flex align-items-center">
 
-
-
-
 													<!--check-->
 													<div
 														class="form-check shrink-0 mb-0 me-1 position-relative">
@@ -166,14 +166,12 @@
 															id="check_1"> <label for="check_1"
 															class="form-check-label"></label>
 													</div>
-
 													<div
 														class="form-star shrink-0 mb-0 me-2 d-md-flex d-none position-relative">
 														<input type="checkbox" class="form-star-input"
 															id="starred_1"> <label for="starred_1"
 															class="form-star-label"></label>
 													</div>
-
 													<div
 														class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
 														<div
@@ -182,25 +180,23 @@
 																class="img-fluid rounded-circle" alt="">
 														</div>
 
-
 														<!--name class for search results-->
-
 														<div class="d-flex align-items-center mb-1">
 															<div class="mb-0 me-2 flex-shrink-0 name">
-																<c:out value="${item.hymmName}" />
+																<a href="#modalMember" data-bs-toggle="modal"> <c:out
+																		value="${item.hymmName}" />
+																</a>
 															</div>
 															<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
 														</div>
 														<p class="small fw-bold mb-0"></p>
 														<p class="lh-sm text-truncate mb-0">
-															<span class="fw-bolder me-2 me-lg-4"> 
-															<a href="javaScript:goFileView('<c:out value="${item.hymmSeq}"/>')"> <c:out
-																	value="${item.hydcTitle}" /> </a>
+															<span class="fw-bolder me-2 me-lg-4"> <a
+																href="javaScript:goFileView('<c:out value="${item.hymmSeq}"/>')">
+																	<c:out value="${item.hydcTitle}" />
+															</a>
 															</span>
-
 														</p>
-
-
 														<div class="flex-shrink-0">
 															<div class="d-flex flex-column align-items-end">
 																<!--New indicator-->
@@ -208,97 +204,184 @@
 																	<i data-feather="paperclip" class="fe-1x "></i>
 
 																</div>
+
 																<!--Time-->
-																<span class="block small text-muted">Just Now</span>
+																<div align="right">
+																	<span class="block small text-muted">Just Now</span>
+																</div>
+
 															</div>
 														</div>
 
 
 													</div>
-
 												</div>
-
 											</div>
-
 										</div>
 									</div>
+
+
+
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-						<!--Footer for emails-->
-						<div
-							class="d-flex justify-content-between align-items-center mb-4 px-4 px-lg-8">
+		<!--포스트 페이징과 버튼 -->
+											<div class="row text-center" style="width: 100%">
+												<div style="width: 100%; float: none; margin: 0 auto">
+													<br> <br>
+													<nav aria-label="...">
+														<ul class="pagination  justify-content-center">
+															<c:if test="${vo.startPage gt vo.pageNumToShow}">
+																<li class="page-item"><a class="page-link"
+																	href="javascript:goFileList( <c:out value='${vo.startPage - 1}'/>);">
+																		Previous</a></li>
+															</c:if>
+															<c:forEach begin="${vo.startPage}" end="${vo.endPage}"
+																varStatus="i">
+																<c:choose>
+																	<c:when test="${i.index eq vo.thisPage}">
+																		<li class="page-item active"><a class="page-link"
+																			href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+																	</c:when>
+																	<c:otherwise>
+																		<li class="page-item"><a class="page-link"
+																			href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+																	</c:otherwise>
+																</c:choose>
+															</c:forEach>
+															<c:if test="${vo.endPage ne vo.totalPages}">
+																<li class="page-item"><a class="page-link"
+																	href="javascript:goFileList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>
+															</c:if>
+														</ul>
+													</nav>
 
-							<div>
-								<small>1-12 of 999</small>
-								<div class="btn-group btn-group-sm ms-3">
-									<button class="btn btn-white btn-sm" type="button"
-										disabled="disabled">
-										<i data-feather="arrow-left" class="fe-1x"></i>
-									</button>
-									<button class="btn btn-white btn-sm" type="button">
-										<i data-feather="arrow-right" class="fe-1x"></i>
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--//Page content End//-->
+													<a
+														href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">
+														<button type="button" id="goFileForm"
+															class="btn btn-success">문서등록</button>
+													</a> <br> <br>
 
-				<!--//Page-footer//-->
-				<footer class="pb-4 px-4 px-lg-8">
-					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">
-							&copy; <script>
+
+												</div>
+											</div>
+										</div>
+										</div>
+
+					<!--//Page content End//-->
+
+
+					<!--//Page-footer//-->
+					<footer class="pb-4 px-4 px-lg-8">
+						<div class="container-fluid px-0">
+							<span class="d-block lh-sm small text-muted text-end">
+								&copy; <script>
                               document.write(new Date().getFullYear())
                             </script> . Hey, Buddy All rights reserved.
-						</span>
-					</div>
-				</footer>
-				<!--/.Page Footer End-->
+							</span>
+						</div>
+					</footer>
+					<!--/.Page Footer End-->
 			</main>
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
 
-	</main>
-	<!--///////////Page content wrapper End///////////////-->
-	</div>
-	</div>
 
-	<!--Mail Compose Modal-->
-	<div class="modal search_modal fade" id="modal_compose" tabindex="-1"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div
-					class="position-relative d-flex rounded-top px-4 py-3 align-items-center justify-content-between bg-primary text-white">
-					<h5 class="mb-0">문서등록</h5>
-					<button class="btn text-white shadow-none small"
-						data-bs-dismiss="modal" type="button">취소</button>
-				</div>
-				<div class="p-4 modal-body">
-					<form>
-						<input type="text" class="form-control mb-3" placeholder="공유자검색">
-						<input type="text" class="form-control mb-3" placeholder="제목">
-						<!--Quill editor-->
-						<div class="mb-3"
-							data-quill='{"placeholder": "Enter your message here..."}'></div>
 
-						<input type="text" class="form-control mb-3" placeholder="내용"
-							height="500px">
 
-						<div class="d-flex justify-content-end pt-4">
-							<button type="button" class="btn btn-outline-secondary">임시저장</button>
-							<button type="button" class="btn btn-primary ms-2">등록</button>
+
+
+	<div class="modal fade" id="modalMember" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content border-0">
+
+				<div class="card">
+
+					<!--Card body-->
+					<div class="card-body">
+						<!--Contact-->
+						<div class="text-center">
+
+							<!-- Avatar -->
+							<a href="#!"
+								class="avatar mb-3 mx-auto xl rounded-cirlce d-block"> <img
+								src="/resources/assets/media/avatars/02.jpg" alt="..."
+								class="img-fluid rounded-circle">
+							</a>
+							<!-- Title -->
+							<h5 class="mb-0">
+								<a href="#!" class="text-reset"> 정미림</a>
+							</h5>
+
+							<!-- Email -->
+							<p class="small text-muted mb-0">
+								<a class="d-block text-reset text-truncate"
+									href="#!mailto:noah.pierre@company.com">
+									noah.pierre@mail.com</a>
+							</p>
+
+							<!-- Phone -->
+							<p class="small text-muted mb-3">
+								<a class="d-block text-reset text-truncate" href="#">
+									010-1234-5678</a>
+							</p>
+
+
+							<!-- Split dropdown user button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-outline-gray text-body">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+										viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round"
+										class="feather feather-message-square fe-1x me-2 align-middle">
+													<path
+											d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+									Send Message
+								</button>
+								<button type="button"
+									class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+										viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round"
+										class="feather feather-more-vertical fe-1x">
+													<circle cx="12" cy="12" r="1"></circle>
+													<circle cx="12" cy="5" r="1"></circle>
+													<circle cx="12" cy="19" r="1"></circle></svg>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-end" style="">
+									<li><a class="dropdown-item" href="#"> <svg
+												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+												viewBox="0 0 24 24" fill="none" stroke="currentColor"
+												stroke-width="2" stroke-linecap="round"
+												stroke-linejoin="round"
+												class="feather feather-info fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="12" y1="16" x2="12" y2="12"></line>
+															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View
+											detail
+									</a></li>
+									<li><a class="dropdown-item" href="#"> <svg
+												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+												viewBox="0 0 24 24" fill="none" stroke="currentColor"
+												stroke-width="2" stroke-linecap="round"
+												stroke-linejoin="round"
+												class="feather feather-slash fe-1x align-middle me-2 opacity-50">
+															<circle cx="12" cy="12" r="10"></circle>
+															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+											Block contact
+									</a></li>
+								</ul>
+							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 	<script src="/resources/assets/vendor/feather.min.js"></script>
@@ -346,8 +429,8 @@ var userList = new List('mailList', options);
     	
     	sidebarLink[4].className += ' current';
     </script>
-    
-        <script type="text/javascript">
+
+	<script type="text/javascript">
 		var seq = $("input:hidden[name=hydcSeq]");
 
 

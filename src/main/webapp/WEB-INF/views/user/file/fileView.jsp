@@ -124,7 +124,9 @@
                                                 <img class="rounded-circle" src="/resources/assets/media/avatars/02.jpg" alt="">
                                               </div>
                                               <div class="flex-1 ms-2">
-                                                <h5 class="mb-0"> <c:out value="${item.hydcTitle}" /> </h5><a class="text-800 fs--1" href="#!"><span class="fw-semi-bold">정미림</span><span class="ms-1 text-500">&lt;mrjung@heybuddy.com&gt;</span></a>
+                                                <h5 class="mb-0"> <c:out value="${item.hydcTitle}" /> </h5><a class="text-800 fs--1" href="#!"><span class="fw-semi-bold">
+                                          <c:out value="${item.hymmName}"></c:out> 
+                                                </span><span class="ms-1 text-500">&lt;<c:out value="${item.hymmEmail}"></c:out>&gt;</span></a>
                                               </div>
                                             </div>
                                             <div class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">

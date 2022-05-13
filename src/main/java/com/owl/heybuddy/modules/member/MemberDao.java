@@ -65,4 +65,5 @@ public class MemberDao {
 	public Member selectOneMemberInSpace(MemberVo vo) {return sqlSession.selectOne(namespace + ".selectOneMemberInSpace", vo); }
 	public int insertMemberInSpace(Member dto) {return sqlSession.insert(namespace + ".insertMemberInSpace", dto); }
 	public int insertSpaceMember(Member dto) {return sqlSession.insert(namespace + ".insertSpaceMember", dto); }
+	public Member selectOneSpace(MemberVo vo) {return sqlSession.selectOne(namespace + ".selectOneSpace", vo); }
 }

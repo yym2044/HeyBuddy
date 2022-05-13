@@ -24,6 +24,7 @@ public class Member {
 	private Integer hymmDelNy;
 	//스페이스
 	private String hyspSeq;
+	private String hyspName;
 	private Integer hysmActiveNy;
 	
 	//RegMod
@@ -311,6 +312,12 @@ public class Member {
 	}
 	public void setHysmActiveNy(Integer hysmActiveNy) {
 		this.hysmActiveNy = hysmActiveNy;
+	}
+	public String getHyspName() {
+		return hyspName;
+	}
+	public void setHyspName(String hyspName) {
+		this.hyspName = hyspName;
 	}
 	
 	

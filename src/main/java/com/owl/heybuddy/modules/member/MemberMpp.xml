@@ -375,4 +375,22 @@
 		)
 	</insert>
 	
+	<select id="selectOneSpace" resultMap="resultMapObj">
+	SELECT
+		a.hyspSeq
+		, a.hyspName
+		, c.hymmName
+	FROM
+		hybdSpace a
+	LEFT JOIN
+		hybdSpaceMember b 
+	ON b.hyspSeq = a.hyspSeq
+		AND b.hysmRoleCd = 12
+	LEFT JOIN
+		hybdMember c
+	ON c.hymmSeq = b.hymmSeq 
+	WHERE 1=1
+		AND a.hyspSeq = #{hyspSeq}
+	</select>
+	
 </mapper>

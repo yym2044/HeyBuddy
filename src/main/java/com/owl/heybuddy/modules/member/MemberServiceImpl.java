@@ -112,5 +112,8 @@ public class MemberServiceImpl implements MemberService {
 		
 		return 1;
 	}
+	public Member selectOneSpace(MemberVo vo) throws Exception {
+		return dao.selectOneSpace(vo);
+	}
 }
 

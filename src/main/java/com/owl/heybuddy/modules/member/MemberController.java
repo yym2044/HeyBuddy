@@ -203,7 +203,9 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/memberForm")
-	public String memberFormHost(@ModelAttribute("vo") MemberVo vo) throws Exception {
+	public String memberFormHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		
+		model.addAttribute("space", service.selectOneSpace(vo));
 
 		return "user/setting/memberForm";
 	}
@@ -218,7 +220,7 @@ public class MemberController {
 		
 		redirectAttributes.addFlashAttribute("vo", vo);
 		
-		return "redirect:/user/setting/memberList";
+		return "redirect:/setting/memberList";
 		
 	}
 

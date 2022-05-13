@@ -144,7 +144,10 @@
 					<div class="toolbar pb-4 pt-4 px-4 px-lg-8">
 						<div class="position-relative container-fluid px-0">
 							<div class="col-sm-7 mb-3 mb-sm-0">
-								<h3 class="mb-2"> <c:out value="${sessName }"/> 님, 반갑습니다👋</h3>
+								<h3 class="mb-2">
+									<c:out value="${sessName }" />
+									님, 반갑습니다👋
+								</h3>
 							</div>
 						</div>
 					</div>
@@ -155,11 +158,14 @@
 
 
 				<!-- post방식 -->
-				<form id="formList" name="formList" method="post" action="/xdmin/memberList">
-					<input type="hidden" id="rowNumToShow" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>"> 
-					<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
-					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>"> 
-					<input type="hidden" id="hymmSeq" name="hymmSeq">
+				<form id="formList" name="formList" method="post"
+					action="/xdmin/memberList">
+					<input type="hidden" id="rowNumToShow" name="rowNumToShow"
+						value="<c:out value="${vo.rowNumToShow}"/>"> <input
+						type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+					<input type="hidden" id="thisPage" name="thisPage"
+						value="<c:out value="${vo.thisPage}" default="1"/>"> <input
+						type="hidden" id="hymmSeq" name="hymmSeq">
 				</form>
 
 
@@ -177,132 +183,141 @@
 
 				<!--//Page content//-->
 
-<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
-					<div class="container-fluid px-0">
-						<div class="row">
-							<div class="col-12">
-								<div class="card">
-									<div class="table-responsive">
-										
-
-										<form class="row gx-3 gy-2 align-items-center">
-											<div class="col-lg-2 col-md-6 col-sm-12">
-												<select class="form-select form-select-sm"
-													name="shHymmDelNy" id="shHymmDelNy" style="width: 150px">
-													<option value="">::삭제여부::
-													<option value="1"
-														<c:if test="${vo.shHymmDelNy eq 1 }">selected </c:if>>Y
-													<option value="0"
-														<c:if test="${vo.shHymmDelNy eq 0 }">selected </c:if>>N
-
-												</select>
-											</div>
-
-											&nbsp;&nbsp;&nbsp;&nbsp;
-											<div class="col-lg-2 col-md-6 col-sm-12">
-												<select class="form-select form-select-sm"
-													name="shHymmDormancyNy" id="shHymmDormancyNy"
-													style="width: 150px">
-													<option value="">::휴먼여부::
-													<option value="0"
-														<c:if test="${vo.shHymmDormancyNy eq 0 }"> selected</c:if>>N
-
-													<option value="1"
-														<c:if test="${vo.shHymmDormancyNy eq 1 }"> selected</c:if>>Y
-
-
-													
-												</select>
-											</div>
-											&nbsp;&nbsp;&nbsp;&nbsp;
-											<div class="col-lg-2 col-md-6 col-sm-12">
-												<select class="form-select form-select-sm"
-													name="shMemberOption" id="shMemberOption"
-													style="width: 150px">
-													<option value="">::검색구문::
-													<option value="1"
-														<c:if test="${vo.shMemberOption eq 1 }"> selected</c:if>>이름
-
-													<option value="2"
-														<c:if test="${vo.shMemberOption eq 2 }"> selected</c:if>>아이디
-
-													<option value="4"
-														<c:if test="${vo.shMemberOption eq 3 }"> selected</c:if>>연락처
-
-												</select>
-											</div>
-											&nbsp;&nbsp;&nbsp;&nbsp;
-											<div class="col-lg-2 col-md-6 col-sm-12">
-												<input class="form-control form-control-sm" type="text"
-													name="shMemberValue" id="shMemberValue"
-													style="width: 150px" value="">
-											</div>
-											&nbsp;&nbsp;&nbsp;&nbsp;
-											<div class="col-lg-2 col-md-6 col-sm-12">
-												<button class="btn btn-primary" type="submit" name="search"
-													id="btnSearch">검색</button>
-											</div>
-										</form>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-
-				<!--//Page content//-->
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
-						<div class="row">
+						<div class="row text-center">
 							<div class="col-12">
 								<div class="card">
 									<div class="table-responsive">
-										<table id="datatable"
-											class="table mt-0 table-striped table-card table-nowrap">
-											<thead class="text-uppercase small text-muted">
+
+										<table
+											class="table-card align-middle table-nowrap mb-0 table table-borderless">
+
+											<thead class="small text-uppercase text-muted">
 												<tr>
-													<th>No</th>
-													<th>이름</th>
-													<th>아이디</th>
-													<th>성별</th>
-													<th>생년월일</th>
-													<th>연락처</th>
-													<th>가입일</th>
-													<th>상태</th>
+													<th><select
+														class="form-select form-select-sm" name="shHymmDelNy"
+														id="shHymmDelNy" style="">
+															<option value="">삭제여부
+															<option value="1"
+																<c:if test="${vo.shHymmDelNy eq 1 }">selected </c:if>>Y
+
+
+															
+															<option value="0"
+																<c:if test="${vo.shHymmDelNy eq 0 }">selected </c:if>>N
+
+
+
+															
+													</select></th>
+													<th><select
+														class="form-select form-select-sm" name="shHymmDormancyNy"
+														id="shHymmDormancyNy" style="">
+															<option value="">휴먼여부
+															<option value="0"
+																<c:if test="${vo.shHymmDormancyNy eq 0 }"> selected</c:if>>N
+
+
+
+															
+															<option value="1"
+																<c:if test="${vo.shHymmDormancyNy eq 1 }"> selected</c:if>>Y
+
+
+
+
+
+															
+													</select></th>
+													<th><select
+														class="form-select form-select-sm" name="shMemberOption"
+														id="shMemberOption" style="">
+															<option value="">검색구문
+															<option value="1"
+																<c:if test="${vo.shMemberOption eq 1 }"> selected</c:if>>이름
+
+
+
+															
+															<option value="2"
+																<c:if test="${vo.shMemberOption eq 2 }"> selected</c:if>>아이디
+
+
+
+															
+															<option value="4"
+																<c:if test="${vo.shMemberOption eq 3 }"> selected</c:if>>연락처
+
+
+
+															
+													</select></th>
+													<th><input
+														class="form-control form-control-sm" type="text"
+														name="shMemberValue" id="shMemberValue" style="" value=""
+														placeholder="검색어를입력해주세요"></th>
+													<th class="text-end" rowspan="2"><button
+															class="btn btn-primary" type="submit" name="search"
+															id="btnSearch">검색</button></th>
+
 												</tr>
 											</thead>
 											<tbody>
 
+												<tr>
+
+													<th class="text-center">No</th>
+													<th class="text-center">이름</th>
+													<th class="text-center">아이디</th>
+													<th class="text-center">성별</th>
+													<th class="text-center">생년월일</th>
+													<th class="text-center">연락처</th>
+													<th class="text-center">가입일</th>
+													<th class="text-center">상태</th>
+												</tr>
+
+
 												<c:choose>
 													<c:when test="${fn:length(list) eq 0}">
 														<tr>
-															<td class="text-center" colspan="9">There is no data!</td>
+															<td class="text-center" colspan="9">There is no
+																data!</td>
 														</tr>
 													</c:when>
 													<c:otherwise>
 														<c:forEach items="${list}" var="item" varStatus="status">
 															<tbody id="mainTable_tbody">
 																<tr>
-																	<td scope="row">
-																		<div class="m_check_wrap">
-																			<input type="checkbox" id="checkboxSeq" name="checkboxSeq"
+
+																	<td scope="" class="text-center">
+																		<%-- <div class="m_check_wrap">
+																			<input type="checkbox" id="checkboxSeq"
+																				name="checkboxSeq"
 																				value="<c:out value="${item.hymmSeq}" />">
 																			&nbsp;&nbsp;
 																			<c:out value="${item.hymmSeq}" />
-																		</div>
+																		</div> --%> <c:out value="${item.hymmSeq}" />
 																	</td>
-																	<td><a
+
+																	<td class="text-center"><a
 																		href="javaScript:goMemberView('<c:out value="${item.hymmSeq}"/>')"><c:out
 																				value="${item.hymmName}" /></a></td>
-																	<td><c:out value="${item.hymmId}" /></td>
-																	<td><c:if test="${item.hymmGenderCd eq 1}"> <c:out value="남성" />
-																		</c:if> <c:if test="${item.hymmGenderCd eq 2}"> <c:out value="여성" />
+
+																	<td class="text-center"><c:out
+																			value="${item.hymmId}" /></td>
+
+																	<td class="text-center"><c:if
+																			test="${item.hymmGenderCd eq 1}">
+																			<c:out value="남성" />
+																		</c:if> <c:if test="${item.hymmGenderCd eq 2}">
+																			<c:out value="여성" />
 																		</c:if></td>
-																	<td><c:out value="${item.hymmDob}" /></td>
-																	<td><c:set var="numberPhone"
+
+																	<td class="text-center"><c:out
+																			value="${item.hymmDob}" /></td>
+
+																	<td class="text-center"><c:set var="numberPhone"
 																			value="${item.hymmNumber}" /> <c:choose>
 																			<c:when test="${fn:length(numberPhone) eq 10 }">
 																				<c:out value="${fn:substring(numberPhone,0,3)}" />
@@ -315,9 +330,12 @@
 															- <c:out value="${fn:substring(numberPhone,7,11)}" />
 																			</c:otherwise>
 																		</c:choose></td>
-																	<td><c:out value="${item.regDateTime}" /></td>
 
-																	<td><c:if test="${item.hymmDormancyNy eq 0}">
+																	<td class="text-center"><c:out
+																			value="${item.regDateTime}" /></td>
+
+																	<td class="text-center"><c:if
+																			test="${item.hymmDormancyNy eq 0}">
 																			<c:out value="활성" />
 																		</c:if> <c:if test="${item.hymmDormancyNy eq 1}">
 																			<c:out value="휴먼" />
@@ -329,19 +347,44 @@
 												</c:choose>
 											</tbody>
 										</table>
-										<!--버튼 -->
+
+										<!--포스트 페이징과 버튼 -->
 										<div class="row text-center" style="width: 100%">
 											<div style="width: 100%; float: none; margin: 0 auto">
-
-
+												<br> <br>
+												<nav aria-label="...">
+													<ul class="pagination  justify-content-center">
+														<c:if test="${vo.startPage gt vo.pageNumToShow}">
+															<li class="page-item"><a class="page-link"
+																href="javascript:goMemberList( <c:out value='${vo.startPage - 1}'/>);">
+																	Previous</a></li>
+														</c:if>
+														<c:forEach begin="${vo.startPage}" end="${vo.endPage}"
+															varStatus="i">
+															<c:choose>
+																<c:when test="${i.index eq vo.thisPage}">
+																	<li class="page-item active"><a class="page-link"
+																		href="javascript:goMemberList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+																</c:when>
+																<c:otherwise>
+																	<li class="page-item"><a class="page-link"
+																		href="javascript:goMemberList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+																</c:otherwise>
+															</c:choose>
+														</c:forEach>
+														<c:if test="${vo.endPage ne vo.totalPages}">
+															<li class="page-item"><a class="page-link"
+																href="javascript:goMemberList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>
+														</c:if>
+													</ul>
+												</nav>
 
 												<a
 													href="javascript:goMemberForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
 '<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">
 													<button type="button" id="goMemberForm"
-														class="btn btn-sm btn-success">회원등록</button>
-												</a>
-
+														class="btn btn-success">회원등록</button>
+												</a> <br> <br>
 
 
 											</div>
@@ -350,44 +393,44 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-		</div>
-	</div>
-	<!--//Page content End//-->
 
 
 
-	<!--//Page-footer//-->
-	<footer class="pb-4 px-4 px-lg-8">
-		<div class="container-fluid px-0">
-			<span class="d-block lh-sm small text-muted text-end">&copy; <script>
+
+
+
+
+						<!--//Page-footer//-->
+						<footer class="pb-4 px-4 px-lg-8">
+							<div class="container-fluid px-0">
+								<span class="d-block lh-sm small text-muted text-end">&copy;
+									<script>
 				document.write(new Date().getFullYear())
 			</script>. Copyright
-			</span>
-		</div>
-	</footer>
-	<!--/.Page Footer End-->
+								</span>
+							</div>
+						</footer>
+						<!--/.Page Footer End-->
 
-	<!--///////////Page content wrapper End///////////////-->
+						<!--///////////Page content wrapper End///////////////-->
 
-	<!--////////////Theme Core scripts Start/////////////////-->
+						<!--////////////Theme Core scripts Start/////////////////-->
 
-	<script src="/resources/assets/vendor/feather.min.js"></script>
-	<script src="/resources/assets/js/theme.bundle.js"></script>
-	<script>
+						<script src="/resources/assets/vendor/feather.min.js"></script>
+						<script src="/resources/assets/js/theme.bundle.js"></script>
+						<script>
 		feather.replace()
 	</script>
 
-	<!--////////////Theme Core scripts End/////////////////-->
+						<!--////////////Theme Core scripts End/////////////////-->
 
 
-	<!--Datatables-->
-	<script
-		src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap5.min.js"></script>
-	<script>
+						<!--Datatables-->
+						<script
+							src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+						<script
+							src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap5.min.js"></script>
+						<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Datatables Responsive
 			$("#datatable").DataTable({
@@ -397,7 +440,20 @@
 		});
 	</script>
 
-	<script type="text/javascript">
+						<script type="text/javascript">
+	
+		$("#btnSearch").on( 
+				"click", function() {
+				if (!checkNull($("#shMemberOption"), $("#shMemberOption").val(),"검색구문을 선택해 주세요!")) 
+					return
+					false;
+				if (!checkNull($("#shMemberValue"), $("#shMemberValue").val(),"검색어를 입력 해 주세요!"))
+					retrun
+				false;
+			});
+			</script>
+
+						<script type="text/javascript">
 		var seq = $("input:hidden[name=hymmSeq]");
 
 		goMemberList = function(seq) {

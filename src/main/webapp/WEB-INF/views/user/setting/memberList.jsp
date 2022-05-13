@@ -43,6 +43,12 @@
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 <body>
+
+	<form id="formList" method="post">
+
+	<input type="hidden" id="hymmSeq" name="hymmSeq">
+	<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 
@@ -109,7 +115,7 @@
 											</div>
 										</div>
 										<div class="col text-end">
-											<a class="btn btn-outline-danger" href="memberForm">멤버 등록</a>
+											<a class="btn btn-outline-danger" href="javascript:goForm()">멤버 등록</a>
 											<a class="btn btn-outline-success" href="#!">엑셀 파일</a>
 										</div>
 									</div>
@@ -119,47 +125,49 @@
 											<thead class="bg-body text-muted">
 												<tr>
 													<td>이름</td>
-													<td>소속</td>
-													<!-- <td>직위</td> -->
+													<td>연락처</td>
 													<td>Email</td>
 													<td>계정 생성일</td>
 													<td>멤버 상태</td>
 												</tr>
 											</thead>
 											<tbody>
+												<c:forEach items="${list}" var="item" varStatus="status">
 												<tr>
 													<td class="">
 														<div class="d-flex align-items-center">
 															<img src="/resources/assets/media/avatars/08.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
 															<div>
 																<div class="h6 mb-0 lh-1">
-																	<a href="javascript:goView();">윤영민</a>
+																	<a href="javascript:goView(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/></a>
 																</div>
 															</div>
 														</div>
 													</td>
-													<td></td>
-													<!-- <td></td> -->
-													<td>yym2044@naver.com</td>
-													<td>2022.04.26</td>
-													<td>참여중</td>
+													<td>
+														<c:choose>
+															<c:when test="${fn:length(item.hymmNumber) eq 10 }">
+																<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,6)}" />-<c:out value="${fn:substring(item.hymmNumber,6,10)}" />
+															</c:when>
+															<c:otherwise>
+																<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,7)}" />-<c:out value="${fn:substring(item.hymmNumber,7,11)}" />
+															</c:otherwise>
+														</c:choose>
+													</td>
+													<td><c:out value="${item.hymmEmail}"/></td>
+													<td><fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd" /></td>
+													<td>
+														<c:choose>
+															<c:when test="${item.hysmActiveNy eq 1}">
+																참여중
+															</c:when>
+															<c:otherwise>
+																대기중
+															</c:otherwise>
+														</c:choose>
+													</td>
 												</tr>
-												<tr>
-													<td></td>
-													<td></td>
-													<!-- <td></td> -->
-													<td></td>
-													<td></td>
-													<td></td>
-												</tr>
-												<tr>
-													<td></td>
-													<td></td>
-													<!-- <td></td> -->
-													<td></td>
-													<td></td>
-													<td></td>
-												</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
@@ -199,6 +207,8 @@
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -217,12 +227,23 @@
 		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
 	</script>
 	
-	<script src="/resources/user/js/backgroundImg.js"></script> 
+	 
 	
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
 		sidebarLink[5].className += ' current';
+	</script>
+	
+	<script type="text/javascript">
+	goView = function(hymmSeq){
+		$("#hymmSeq").val(hymmSeq);
+		$("#formList").attr("action", "/setting/memberView").submit();
+	}
+	
+	goForm = function(){
+		$("#formList").attr("action", "/setting/memberForm").submit();
+	}
 	</script>
 </body>
 

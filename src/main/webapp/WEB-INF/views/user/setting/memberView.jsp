@@ -59,6 +59,10 @@ table tr .form-control {
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 <body>
+	<form id="formView" method="post">
+	
+	<input id="hymmSeq" name="hymmSeq" type="hidden">
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 	
@@ -128,38 +132,43 @@ table tr .form-control {
 										<table id="setTable" class="table table-sm table-nowrap table-card">
 											<tr>
 												<td class="tableText">아이디</td>
-												<td>yym2044</td>
+												<td><c:out value="${item.hymmId}"/></td>
 											</tr>
 											<tr>
 												<td class="tableText">이름</td>
-												<td>윤영민</td>
+												<td><c:out value="${item.hymmName}"/></td>
 											</tr>
 											<tr>
 												<td class="tableText">휴대전화</td>
-												<td>010-1234-5678</td>
-											</tr>
-											<tr>
-												<td class="tableText">유선전화</td>
-												<td></td>
+												<td>
+													<c:choose>
+														<c:when test="${fn:length(item.hymmNumber) eq 10 }">
+															<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,6)}" />-<c:out value="${fn:substring(item.hymmNumber,6,10)}" />
+														</c:when>
+														<c:otherwise>
+															<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,7)}" />-<c:out value="${fn:substring(item.hymmNumber,7,11)}" />
+														</c:otherwise>
+													</c:choose>
+												</td>
 											</tr>
 											<tr>
 												<td class="tableText">이메일</td>
-												<td>yym2044@naver.com</td>
+												<td><c:out value="${item.hymmEmail}"/></td>
 											</tr>
 											<tr>
 												<td class="tableText">생일</td>
 												<td>
-													1996.06.07
+													<c:out value="${item.hymmDob}"/>
 												</td>
 											</tr>
 											<tr>
 												<td class="tableText">상태메세지</td>
-												<td>Hi, I'm fine thank you.</td>
+												<td><c:out value="${item.hymmDesc}"/></td>
 											</tr>
 										</table>
 										<div class="text-center pb-4">
 											<a class="btn btn-secondary" href="memberList">목록</a>
-											<a class="btn btn-info" href="memberEdit">수정</a>
+											<a class="btn btn-info" href="javascript:goEdit(<c:out value="${item.hymmSeq}"/>);">수정</a>
 											<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</a>
 										</div>
 									</div>
@@ -187,7 +196,7 @@ table tr .form-control {
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">취소</button>
-                            <button type="button" class="btn btn-primary">확인</button>
+                            <a href="javascript:goDelete(<c:out value="${item.hymmSeq}"/>)" type="button" class="btn btn-primary">확인</a>
                         </div>
                     </div>
                 </div>
@@ -210,6 +219,7 @@ table tr .form-control {
 		</div>
 	</div>
 
+</form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>
@@ -231,7 +241,7 @@ table tr .form-control {
             Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
         </script>
     
-    <script src="/resources/user/js/backgroundImg.js"></script> 
+     
     
     <script>
 	$(function() {
@@ -248,6 +258,15 @@ table tr .form-control {
 	
 	sidebarLink[5].className += ' current';
 </script>
+    
+<script type="text/javascript">
+
+goEdit = function(hymmSeq){
+	$("#hymmSeq").val(hymmSeq);
+	$("#formView").attr("action", "/setting/memberEdit").submit();
+}
+
+</script>    
     
 </body>
 

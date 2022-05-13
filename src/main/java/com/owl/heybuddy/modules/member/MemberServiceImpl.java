@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.owl.heybuddy.common.util.UtilDateTime;
 import com.owl.heybuddy.common.util.UtilUpload;
 
 @Service
@@ -101,4 +102,15 @@ public class MemberServiceImpl implements MemberService {
 	public Member selectOneMemberInSpace(MemberVo vo) throws Exception {
 		return dao.selectOneMemberInSpace(vo);
 	}
+	public int insertMemberInSpace(Member dto) throws Exception {
+		
+		dto.setRegDateTime(UtilDateTime.nowDate());
+		dto.setModDateTime(UtilDateTime.nowDate());
+		
+		dao.insertMemberInSpace(dto);
+		dao.insertSpaceMember(dto);
+		
+		return 1;
+	}
 }
+

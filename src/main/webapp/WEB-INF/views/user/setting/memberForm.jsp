@@ -35,6 +35,34 @@
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 
+<link rel="stylesheet" href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css">
+
+
+<!-- 이메일 보내기 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('FS25RLpmNBndCHTai');
+    })();
+</script>
+<script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+
 <style type="text/css">
 #setTable tr td {
 	height: 40px;
@@ -56,8 +84,24 @@ table tr .form-control {
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 <body>
+
+	<form id="contact-form">
+        <input type="hidden" name="contact_number">
+        <label>Name</label>
+        <input type="text" name="user_name">
+        <label>Email</label>
+        <input type="email" name="user_email">
+        <label>Message</label>
+        <textarea name="message"></textarea>
+        <input type="submit" value="Send">
+    </form>
+
+	<form id="formForm" method="post">
+	
+	<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
+	
 	<!-- include 처리 1번 -->
-	<%@include file="../include/loader.jsp"%>
+	<%-- <%@include file="../include/loader.jsp"%> --%>
 
 	<!--App Start-->
 	<div class="d-flex flex-column flex-root">
@@ -65,7 +109,7 @@ table tr .form-control {
 		<div class="page d-flex flex-row flex-column-fluid">
 
 			<!-- include 처리 2번 -->
-			<%@include file="../include/pageSideBar.jsp"%>
+			<%-- <%@include file="../include/pageSideBar.jsp"%> --%>
 
 			<!--///////////Page content wrapper///////////////-->
 			<main class="page-content d-flex flex-column flex-row-fluid">
@@ -124,37 +168,30 @@ table tr .form-control {
 											<tr>
 												<td>이메일<span class="text-danger ps-2">*</span></td>
 												<td>
-													<input type="text" class="form-control" placeholder="해당 메일로 초대메일을 발송합니다.">
+													<input id="hymmEmail" name="hymmEmail" type="text" class="form-control" placeholder="해당 메일로 초대메일을 발송합니다.">
 												</td>
 											</tr>
 											<tr>
 												<td class="tableText">아이디<span class="text-danger ps-2">*</span></td>
 												<td>
-													<input type="text" class="form-control" placeholder="로그인 시 사용할 아이디">
+													<input id="hymmId" name="hymmId" type="text" class="form-control" placeholder="로그인 시 사용할 아이디">
 												</td>
 											</tr>
 											<tr>
 												<td>이름<span class="text-danger ps-2">*</span></td>
 												<td>
-													<input type="text" class="form-control" placeholder="이름(50자 이하)">
+													<input id="hymmName" name="hymmName" type="text" class="form-control" placeholder="이름(50자 이하)">
 												</td>
 											</tr>
 											<tr>
 												<td>휴대전화</td>
 												<td>
-													<input type="text" class="form-control" placeholder="전화번호">
-												</td>
-											</tr>
-											<tr>
-												<td>유선전화</td>
-												<td>
-													<input type="text" class="form-control" placeholder="전화번호">
+													<input id="hymmNumber" name="hymmNumber" type="text" class="form-control" placeholder="전화번호">
 												</td>
 											</tr>
 											<tr>
 												<td>생일</td>
 												<td>
-													<!-- <input type="text" class="form-control"> -->
 													<div class="position-relative flex-grow-1">
 														<!--Icon-->
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
@@ -163,7 +200,7 @@ table tr .form-control {
 															<line x1="8" y1="2" x2="8" y2="6"></line>
 															<line x1="3" y1="10" x2="21" y2="10"></line>
 													</svg>
-														<input id="hybdMmDob" type="text" class="form-control ps-6">
+														<input id="hymmDob" name="hymmDob" type="text" class="form-control ps-6">
 													</div>
 
 												</td>
@@ -171,13 +208,13 @@ table tr .form-control {
 											<tr>
 												<td>상태메세지</td>
 												<td>
-													<input type="text" class="form-control" placeholder="상태메세지(50자 이하)">
+													<input id="hymmDesc" name="hymmDesc" type="text" class="form-control" placeholder="상태메세지(50자 이하)">
 												</td>
 											</tr>
 										</table>
 										<div class="text-center pb-4">
 											<a class="btn btn-secondary" href="memberList">취소</a>
-											<a class="btn btn-info" href="memberView">등록</a>
+											<button type="button" id="btnSubmit" class="btn btn-info">등록</button>
 										</div>
 									</div>
 								</div>
@@ -204,6 +241,8 @@ table tr .form-control {
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -221,22 +260,33 @@ table tr .form-control {
 	<script src="/resources/assets/vendor/daterangepicker.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	
+	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+	
 	<script>
 		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
 	</script>
 	
-	<script src="/resources/user/js/backgroundImg.js"></script> 
+	 
 
 	<script>
-		$(function() {
-			$('#hybdMmDob').daterangepicker({
-				singleDatePicker : true,
-				showDropdowns : true,
-				minYear : 1901,
-				maxYear : parseInt(moment().format('YYYY'), 10)
-			});
+		$(document).ready(function(){
+			$("#hymmDob").datepicker();
 		});
+		
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
+		
 	</script>
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
@@ -244,6 +294,15 @@ table tr .form-control {
 		sidebarLink[5].className += ' current';
 	</script>
 
+
+	<script type="text/javascript">
+	$("#btnSubmit").on("click", function(){
+		
+		$("#formForm").attr("action", "/setting/memberInst").submit();
+		
+	});
+	</script>
+	
 </body>
 
 </html>

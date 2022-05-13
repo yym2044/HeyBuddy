@@ -19,5 +19,6 @@ public interface MemberService {
 	public int selectOneCountMemberInSpace(MemberVo vo) throws Exception;
 	public List<Member> selectListMemberInSpace(MemberVo vo) throws Exception;
 	public Member selectOneMemberInSpace(MemberVo vo) throws Exception;
+	public int insertMemberInSpace(Member dto) throws Exception;
 	
 }

@@ -192,8 +192,12 @@ public class MemberController {
 	@RequestMapping(value = "/setting/memberEdit")
 	public String memberEditHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 
-		Member rt = service.memberView(vo);
+		//임시로 스페이스 지정
+		vo.setHyspSeq("1");
+		
+		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);
+		model.addAttribute("uploaded", service.profileUploaded(vo));
 		
 		return "user/setting/memberEdit";
 	}
@@ -203,12 +207,26 @@ public class MemberController {
 
 		return "user/setting/memberForm";
 	}
-
-	@RequestMapping(value = "/setting/memberList")
-	public String memberListHost(MemberVo vo, Model model) throws Exception {
+	
+	@RequestMapping(value = "/setting/memberInst")
+	public String memberInstHost(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
 		//임시로 스페이스 지정
-		vo.setShHyspSeq("1");
+		dto.setHyspSeq("1");
+		
+		service.insertMemberInSpace(dto);
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/user/setting/memberList";
+		
+	}
+
+	@RequestMapping(value = "/setting/memberList")
+	public String memberListHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		
+		//임시로 스페이스 지정
+		vo.setHyspSeq("1");
 		
 		int count = service.selectOneCountMemberInSpace(vo);
 		vo.setParamsPaging(count);
@@ -227,7 +245,7 @@ public class MemberController {
 	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 
 		//임시로 스페이스 지정
-		vo.setShHyspSeq("1");
+		vo.setHyspSeq("1");
 		
 		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);

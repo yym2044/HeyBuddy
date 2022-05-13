@@ -77,6 +77,16 @@
 		and hymmSeq = #{hymmSeq}
 	</select>
 	
+	<select id="selectOneMember" resultMap="resultMapObj">
+		select
+		*
+		from
+		hybdMember
+		where 1 = 1
+		and hymmDelNy = 0
+		and hymmSeq = #{hymmSeq}
+	</select>
+	
 	
 	<insert id="insertMember">  <!-- 멤버등록 -->
 	INSERT INTO hybdMember(
@@ -180,7 +190,8 @@
 	
 	<update id="updateMember">  <!-- 회원수정 -->
 		UPDATE hybdMember SET
-		hymmGenderCd =  #{hymmGenderCd}
+		hymmPassword  =  #{hymmPassword}
+		,hymmGenderCd =  #{hymmGenderCd}
 		,hymmDelny =  0
 		,hymmSaveCd =  #{hymmSaveCd}
         ,hymmDob = #{hymmDob}
@@ -240,6 +251,16 @@
 	
 	
 	<!-- 영민 추가 -->
+	<sql id="insertRegMod">
+		, regDateTime
+		, modDateTime
+	</sql>
+	
+	<sql id="insertRegModValue">
+		,#{regDateTime}
+		,#{modDateTime}
+	</sql>
+	
 	<sql id="selectCommonInSpace"> <!-- 공통 -->
 		FROM
 		hybdMember a
@@ -248,7 +269,7 @@
 	ON 
 		b.hymmSeq = a.hymmSeq
 	WHERE 1=1
-		AND b.hyspSeq = #{shHyspSeq} 
+		AND b.hyspSeq = #{hyspSeq} 
 	</sql>
 	
 	<select id="selectOneCountMemberInSpace" resultType="Integer">
@@ -296,7 +317,62 @@
 		b.hymmSeq = a.hymmSeq
 	WHERE 1=1
 		AND a.hymmSeq = #{hymmSeq}
-		AND b.hyspSeq = #{shHyspSeq} 
+		AND b.hyspSeq = #{hyspSeq} 
 	</select>
+	
+	<insert id="insertMemberInSpace">
+	INSERT INTO
+		hybdMember (
+			hymmAdminNy
+			, hymmDormancyNy
+			, hymmName
+			, hymmId
+			, hymmNumber
+			, hymmEmail
+			, hymmDob
+			, hymmDesc
+			, hymmDelNy
+			<include refid="insertRegMod"/>
+		) VALUES (
+			0
+			, 0
+			, #{hymmName}
+			, #{hymmId}
+			, #{hymmNumber}
+			, #{hymmEmail}
+			, #{hymmDob}
+			, #{hymmDesc}
+			, 0
+			<include refid="insertRegModValue"/>
+		)
+	
+		<selectKey resultType="String" keyProperty="hymmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+		
+	</insert>
+	
+	<insert id="insertSpaceMember">
+	INSERT INTO
+		hybdSpaceMember (
+			hyspSeq
+			, hymmSeq
+			, hysmRoleCd
+			, hysmAcceptedNy
+			, hysmExitNy
+			, hysmActiveNy
+			, hysmDelNy
+			<include refid="insertRegMod"/>
+		) VALUES (
+			#{hyspSeq}
+			, #{hymmSeq}
+			, 13
+			, 0
+			, 0
+			, 0
+			, 0
+			<include refid="insertRegModValue"/>
+		)
+	</insert>
 	
 </mapper>

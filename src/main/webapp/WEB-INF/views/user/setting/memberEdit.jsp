@@ -35,6 +35,8 @@
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 
+<link rel="stylesheet" href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css">
+
 <style type="text/css">
 #setTable tr td {
 	height: 40px;
@@ -56,6 +58,10 @@ table tr .form-control {
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 <body>
+	
+	<form id="formEdit" method="post">
+	
+	<input id="hymmSeq" name="hymmSeq" type="hidden">
 
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
@@ -107,7 +113,7 @@ table tr .form-control {
 									<div class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
 										<!-- card title -->
-										<h3 class="card-title mb-md-0">멤버 등록</h3>
+										<h3 class="card-title mb-md-0">멤버 수정</h3>
 
 									</div>
 
@@ -124,37 +130,30 @@ table tr .form-control {
 											<tr>
 												<td class="tableText">아이디</td>
 												<td>
-													<input type="text" class="form-control" placeholder="로그인 시 사용할 아이디" value="yym2044">
+													<input type="text" class="form-control" placeholder="로그인 시 사용할 아이디" value="<c:out value="${item.hymmId}"/>">
 												</td>
 											</tr>
 											<tr>
 												<td>이름</td>
 												<td>
-													<input type="text" class="form-control" placeholder="이름(50자 이하)" value="윤영민">
+													<input type="text" class="form-control" placeholder="이름(50자 이하)" value="<c:out value="${item.hymmName}"/>">
 												</td>
 											</tr>
 											<tr>
 												<td>휴대전화</td>
 												<td>
-													<input type="text" class="form-control" placeholder="전화번호" value="010-1234-5678">
-												</td>
-											</tr>
-											<tr>
-												<td>유선전화</td>
-												<td>
-													<input type="text" class="form-control" placeholder="전화번호">
+													<input type="text" class="form-control" placeholder="전화번호" value="<c:out value="${item.hymmNumber}"/>">
 												</td>
 											</tr>
 											<tr>
 												<td>이메일</td>
 												<td>
-													<input type="text" class="form-control" placeholder="이메일" value="yym2044@naver.com">
+													<input type="text" class="form-control" placeholder="이메일" value="<c:out value="${item.hymmEmail}"/>">
 												</td>
 											</tr>
 											<tr>
 												<td>생일</td>
 												<td>
-													<!-- <input type="text" class="form-control"> -->
 													<div class="position-relative flex-grow-1">
 														<!--Icon-->
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
@@ -163,7 +162,7 @@ table tr .form-control {
 															<line x1="8" y1="2" x2="8" y2="6"></line>
 															<line x1="3" y1="10" x2="21" y2="10"></line>
 													</svg>
-														<input id="hybdMmDob" type="text" class="form-control ps-6" value="06/07/1996">
+														<input id="hymmDob" name="hymmDob" type="text" class="form-control ps-6" value="<c:out value="${item.hymmDob}"/>">
 													</div>
 
 												</td>
@@ -171,13 +170,13 @@ table tr .form-control {
 											<tr>
 												<td>상태메세지</td>
 												<td>
-													<input type="text" class="form-control" placeholder="상태메세지(50자 이하)" value="Hi, I'm fine thank you.">
+													<input id="hymmDesc" name="hymmDesc" type="text" class="form-control" placeholder="상태메세지(50자 이하)" value="<c:out value="${item.hymmDesc}"/>">
 												</td>
 											</tr>
 										</table>
 										<div class="text-center pb-4">
-											<a class="btn btn-secondary" href="memberView">취소</a>
-											<a class="btn btn-info" href="memberView">등록</a>
+											<a class="btn btn-secondary" href="javascript:goView(<c:out value="${item.hymmSeq}"/>)">취소</a>
+											<a class="btn btn-info" href="memberView">확인</a>
 										</div>
 									</div>
 								</div>
@@ -204,6 +203,8 @@ table tr .form-control {
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -221,27 +222,47 @@ table tr .form-control {
 	<script src="/resources/assets/vendor/daterangepicker.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	
+	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+	
 	<script>
 		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
 	</script>
 	
-	<script src="/resources/user/js/backgroundImg.js"></script> 
+	 
 
 	<script>
-		$(function() {
-			$('#hybdMmDob').daterangepicker({
-				singleDatePicker : true,
-				showDropdowns : true,
-				minYear : 1901,
-				maxYear : parseInt(moment().format('YYYY'), 10)
-			});
+		$(document).ready(function(){
+			$("#hymmDob").datepicker();
 		});
+		
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
+		
 	</script>
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
 		sidebarLink[5].className += ' current';
+	</script>
+	
+	<script type="text/javascript">
+	
+	goView = function(hymmSeq){
+		$("#hymmSeq").val(hymmSeq);
+		$("#formEdit").attr("action", "/setting/memberView").submit();
+	}
+	
 	</script>
 
 </body>

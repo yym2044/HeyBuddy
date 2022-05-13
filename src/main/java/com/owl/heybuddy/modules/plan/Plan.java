@@ -8,6 +8,8 @@ public class Plan {
 	private Integer hyplDefaultNy;
 	private String hyplName;
 	private Date hyplDate;
+	private int hyplMember;
+	private String hyplMemberName;
 	private Integer hyplTypeCd;
 	private String hyplDesc;
 	private Integer hyplDelNy;
@@ -25,7 +27,6 @@ public class Plan {
 	private Date modDateTimeSvr;
 	
 	/******************************* Getter & Setter *******************************/
-	
 	public String getHyplSeq() {
 		return hyplSeq;
 	}
@@ -49,6 +50,18 @@ public class Plan {
 	}
 	public void setHyplDate(Date hyplDate) {
 		this.hyplDate = hyplDate;
+	}
+	public int getHyplMember() {
+		return hyplMember;
+	}
+	public void setHyplMember(int hyplMember) {
+		this.hyplMember = hyplMember;
+	}
+	public String getHyplMemberName() {
+		return hyplMemberName;
+	}
+	public void setHyplMemberName(String hyplMemberName) {
+		this.hyplMemberName = hyplMemberName;
 	}
 	public Integer getHyplTypeCd() {
 		return hyplTypeCd;
@@ -128,5 +141,8 @@ public class Plan {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
+	
+
+	
 	
 }

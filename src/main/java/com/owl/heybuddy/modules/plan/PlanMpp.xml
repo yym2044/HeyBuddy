@@ -12,9 +12,7 @@
 		FROM
 		hybdPlan a
 		LEFT JOIN
-		hyplPlanPhone b ON a.hyplSeq = b.hyplSeq
-		LEFT JOIN
-		hyplPlanEmail c ON a.hyplSeq = c.hyplSeq
+		hybdSpace b ON a.hyplSeq = b.hyspSeq
 		WHERE 1=1
 		<choose>
 			<!-- <when test="shOptionDate == 0">AND a.regDateTime disabled #{shDateStart} 
@@ -52,12 +50,12 @@
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 		a.hyplSeq
+		,a.hyplDefaultNy
 		,a.hyplName
-		,a.hyplId
-		,a.hyplDelNy
-		,b.ifmpNumber
-		,c.ifmeEmailFull
-		,a.regDateTime
+		,a.hyplData
+		,a.hyplDesc
+		,a.hyplMemberName
+		,a.hyplMember
 		<!-- ,a.hyplPassword -->
 		<include refid="selectCommon" />
 		limit #{startRnumForMysql}, #{rowNumToShow}
@@ -78,34 +76,21 @@
 	<insert id="insert">
 		INSERT INTO hybdPlan (
 		hyplName
-		,hyplNameEng
-		,hyplId
+		,hyplDefaultNy
 		,hyplDelNy
-		,hyplPassword
-		,hyplPassword2
-		,hyplDob
-		,hyplGenderCd
-		,regDateTime
-		,hyplEmailConsentNy
-		,originalFileName
-		,uuidFileName
+		,hyplDate
+		,hyplDesc
+		,hyplMemberName
 		)
 		VALUES (
 		#{hyplName}
-		,#{hyplNameEng}
-		,#{hyplId}
-		,0
-		,#{hyplPassword}
-		,#{hyplPassword2}
-		,#{hyplDob}
-		,#{hyplGenderCd}
-		,#{regDateTime}
-		,#{hyplEmailConsentNy}
-		,#{originalFileName}
-		,#{uuidFileName}
+		,#{hyplDefaultNy}
+		,#{hyplDelNy}
+		,#{hyplData}
+		,#{hyplDesc}
+		,#{hyplMemberName}
 		)
-		<selectKey resultType="String" keyProperty="hyplSeq"
-			order="AFTER">
+		<selectKey resultType="String" keyProperty="hyplSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
@@ -113,15 +98,14 @@
 
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
-		a.hyplSeq
+		hyplSeq
 		,a.hyplName
-		,a.hyplNameEng
-		,a.hyplId
-		,a.hyplDelNy
-		,a.hyplPassword
-		,a.hyplPassword2
-		,a.hyplDob
-		,a.regDateTime
+		,a.hyplDefaultNy
+		,a.hyplName
+		,a.hyplData
+		,a.hyplDesc
+		,a.hyplMemberName
+		,a.hyplMember
 		,(select ifcdName from hybdCode where ifcdSeq
 		= a.hyplEmailConsentNy) as hyplMarketing
 		,a.originalFileName

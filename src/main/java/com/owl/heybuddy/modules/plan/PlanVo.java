@@ -12,9 +12,12 @@ public class PlanVo {
 	private Integer hyplDefaultNy;
 	private String hyplName;
 	private Date hyplDate;
+	private int hyplMember;
+	private String hyplMemberName;
 	private Integer hyplTypeCd;
 	private String hyplDesc;
 	private Integer hyplDelNy;
+
 	
 	//Option
 	private String shOption;
@@ -34,10 +37,11 @@ public class PlanVo {
 	private String modDeviceCd;
 	private Date modDateTime;
 	private Date modDateTimeSvr;
-
 	
 	
-// --------------------------
+	
+	
+	// --------------------------
 	
 	public String getHyplSeq() {
 		return hyplSeq;
@@ -63,6 +67,18 @@ public class PlanVo {
 	public void setHyplDate(Date hyplDate) {
 		this.hyplDate = hyplDate;
 	}
+	public int getHyplMember() {
+		return hyplMember;
+	}
+	public void setHyplMember(int hyplMember) {
+		this.hyplMember = hyplMember;
+	}
+	public String getHyplMemberName() {
+		return hyplMemberName;
+	}
+	public void setHyplMemberName(String hyplMemberName) {
+		this.hyplMemberName = hyplMemberName;
+	}
 	public Integer getHyplTypeCd() {
 		return hyplTypeCd;
 	}
@@ -80,6 +96,24 @@ public class PlanVo {
 	}
 	public void setHyplDelNy(Integer hyplDelNy) {
 		this.hyplDelNy = hyplDelNy;
+	}
+	public String getShOption() {
+		return shOption;
+	}
+	public void setShOption(String shOption) {
+		this.shOption = shOption;
+	}
+	public String getShJoinOption() {
+		return shJoinOption;
+	}
+	public void setShJoinOption(String shJoinOption) {
+		this.shJoinOption = shJoinOption;
+	}
+	public String getShOptionDate() {
+		return shOptionDate;
+	}
+	public void setShOptionDate(String shOptionDate) {
+		this.shOptionDate = shOptionDate;
 	}
 	public String getRegIp() {
 		return regIp;
@@ -141,6 +175,11 @@ public class PlanVo {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
+
+	
+	
+
+	
 	
 	
 

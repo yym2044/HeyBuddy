@@ -68,7 +68,6 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public int updateMember(Member dto) throws Exception { //회원수정
-		/* dto.setModDateTime(UtilDateTime.nowDate()); */
 		dao.updateMember(dto);
 		return 1;
 	}

@@ -50,6 +50,7 @@ public class MemberController {
 	@RequestMapping(value = "/xdmin/memberForm") // 회원등록 
 	public String memberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 	Member rt = service.memberView(vo); model.addAttribute("item", rt); 
+	model.addAttribute("item", rt);
 	return "xdmin/member/memberForm"; 
 	}
 
@@ -66,7 +67,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/xdmin/memberEdit") // 회원수정 
 	 public String memberEdit(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-	 Member rt = service.memberView(vo); model.addAttribute("item", rt); 
+	 Member rt = service.memberView(vo); 
+	 model.addAttribute("item", rt); 
 	 return "xdmin/member/memberEdit"; 
 	 }
 
@@ -74,9 +76,10 @@ public class MemberController {
 	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
 	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo) throws Exception {
 	 service.updateMember(dto); 
-	 return "redirect:/xdmin/member/memberView"; 
+	 return "redirect:/xdmin/memberView"; 
 	 }
-	
+
+
 
 	  public String makeQueryString(MemberVo vo) { String tmp = "&thisPage=" +
 	  vo.getThisPage() + "&shOption=" + vo.getShMemberOption() + "&shMemberValue="
@@ -147,10 +150,7 @@ public class MemberController {
 	 
 
 	/******************************* 사용자 *******************************/
-	/******************************* 사용자 *******************************/
-	/******************************* 사용자 *******************************/
-	/******************************* 사용자 *******************************/
-	/******************************* 사용자 *******************************/
+
 
 	@RequestMapping(value = "/user/memberForm") // 회원등록
 	public String memberForm() throws Exception {

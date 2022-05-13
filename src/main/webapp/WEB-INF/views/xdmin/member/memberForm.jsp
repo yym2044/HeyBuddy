@@ -407,17 +407,7 @@
 	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 			
    
-    <script>
-	$(function() {
-		$('#hymmDob').daterangepicker({
-			singleDatePicker: true,
-			showDropdowns: true,
-			minYear: 1901,
-			maxYear: parseInt(moment().format('YYYY'),10)
-		});
-	});
-	</script>
-
+ 
 	<script type="text/javascript">
 			goMemberList = function(){
 				$("#formList").attr("action", "/xdmin/memberList");
@@ -431,6 +421,18 @@
 				retrun
 			false;
 		});
+	</script>
+	
+	  
+    <script>
+	$(function() {
+		$('#hymmDob').daterangepicker({
+			singleDatePicker: true,
+			showDropdowns: true,
+			minYear: 1901,
+			maxYear: parseInt(moment().format('YYYY'),10)
+		});
+	});
 	</script>
 	
 	<!-- **************************************업로드************************************** -->

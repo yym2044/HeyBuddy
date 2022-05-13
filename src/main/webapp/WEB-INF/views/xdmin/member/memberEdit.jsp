@@ -183,7 +183,7 @@
 		<input type="hidden" id="shHymmName" name="shHymmName" value="<c:out value="${vo.shHymmName}"/>">
 		<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
 		<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
-		</form>
+
 
 				<!--//Page content//-->
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
@@ -223,6 +223,9 @@
 											type="radio" id="hymmDormancyNy" name="hymmDormancyNy"
 											checked> <label class="form-check-label"
 											for="flexRadioDefault5"> 휴먼 </label></td>
+											
+											
+								
 									</tr>
 									<tr>
 										<td class="tableText">아이디</td>
@@ -237,6 +240,9 @@
 										<td class="tableText">연락처</td>
 										<td><input type="text" class="form-control"
 											name="hymmNumber" value="<c:out value="${item.hymmNumber}"/>"></td>
+											
+											
+											
 									</tr>
 								
 									<tr>
@@ -258,14 +264,15 @@
 													<line x1="8" y1="2" x2="8" y2="6"></line>
 													<line x1="3" y1="10" x2="21" y2="10"></line>
 													</svg>
-												<input id="hybdMmDob" type="text" class="form-control ps-6">
+												<input id="hymmDob" type="text" class="form-control ps-6">
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<td class="tableText">상태메세지</td>
 										<td><input type="text" class="form-control"
-											name="ifmpNumber" value=""></td>
+											name="hymmDesc" value="<c:out value="${item.hymmDesc}"/>"></td>
+								
 									</tr>
 									<tr>
 										<td>개인정보유효기간</td>
@@ -343,7 +350,7 @@
 
 
 				</div>
-
+		</form>
 
 				<!--//Page content End//-->
 
@@ -405,7 +412,7 @@
         
     <script>
 	$(function() {
-		$('#hybdMmDob').daterangepicker({
+		$('#hymmDob').daterangepicker({
 			singleDatePicker: true,
 			showDropdowns: true,
 			minYear: 1901,
@@ -430,7 +437,6 @@
 			};
 
 	</script>
-	
 	
 	
 </body>

@@ -77,16 +77,6 @@
 		and hymmSeq = #{hymmSeq}
 	</select>
 	
-	<select id="selectOneMember" resultMap="resultMapObj">
-		select
-		*
-		from
-		hybdMember
-		where 1 = 1
-		and hymmDelNy = 0
-		and hymmSeq = #{hymmSeq}
-	</select>
-	
 	
 	<insert id="insertMember">  <!-- 멤버등록 -->
 	INSERT INTO hybdMember(
@@ -190,8 +180,7 @@
 	
 	<update id="updateMember">  <!-- 회원수정 -->
 		UPDATE hybdMember SET
-		hymmPassword  =  #{hymmPassword}
-		,hymmGenderCd =  #{hymmGenderCd}
+		hymmGenderCd =  #{hymmGenderCd}
 		,hymmDelny =  0
 		,hymmSaveCd =  #{hymmSaveCd}
         ,hymmDob = #{hymmDob}

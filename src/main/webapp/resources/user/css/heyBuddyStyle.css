@@ -39,3 +39,16 @@ body {
 	height: 70px;
 	border-radius: 95%;
 }
+
+ .planinst :hover{
+ 			background: white;
+ 			color: black;
+}
+ .planupdt :hover{
+  			background: white;
+ 			color: black;
+}
+ .plandele :hover{
+  			background: white;
+ 			color: red;
+}

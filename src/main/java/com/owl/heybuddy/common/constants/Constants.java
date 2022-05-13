@@ -22,6 +22,6 @@ public static final String TIME_FORMAT_BASIC = "HH:mm:ss";
 
 public static int DATE_INTERVAL = -30;
 
-public static final String UPLOAD_PATH_PREFIX = "C:/factory/ws_sts_4130/springmvc_mirim/src/main/webapp/resources/uploaded/";
+public static final String UPLOAD_PATH_PREFIX = "C:/factory/ws_sts_4130/HeyBuddy/src/main/webapp/resources/uploaded/";
 	
 }

@@ -380,8 +380,7 @@
 												</nav>
 
 												<a
-													href="javascript:goMemberForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>',
-'<c:out value="${vo.shMemberOptionDate}"/>','<c:out value="${vo.shMemberDateStart}"/>','<c:out value="${vo.shMemberDateEnd}"/>');">
+													href="javascript:goMemberForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shMemberOption}"/>','<c:out value="${vo.shMemberValue}"/>');">
 													<button type="button" id="goMemberForm"
 														class="btn btn-success">회원등록</button>
 												</a> <br> <br>
@@ -393,7 +392,8 @@
 								</div>
 							</div>
 						</div>
-
+</div>
+</div>
 
 
 

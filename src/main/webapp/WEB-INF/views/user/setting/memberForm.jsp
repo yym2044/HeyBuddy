@@ -43,7 +43,7 @@
 <script type="text/javascript">
     (function() {
         // https://dashboard.emailjs.com/admin/account
-        emailjs.init('FS25RLpmNBndCHTai');
+        emailjs.init('');
     })();
 </script>
 <script type="text/javascript">

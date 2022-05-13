@@ -265,11 +265,11 @@
 									</tr>
 									<tr>
 										<td class="tableText">가입일</td>
-										<td><c:out value="${item.regDateTime}" /></td>
+										<td><fmt:formatDate value="${item.regDateTime }"/></td>
 									</tr>
 									<tr>
 										<td class="tableText">수정일</td>
-										<td><c:out value="${item.modDateTime}" /></td>
+										<td><fmt:formatDate value="${item.modDateTime }"/></td>
 									</tr>
 
 

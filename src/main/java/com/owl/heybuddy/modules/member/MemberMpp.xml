@@ -100,6 +100,7 @@
 		,hymmNumber
 		,hymmEmail
 		,hymmDelny
+		,hymmDesc
 		,hymmSaveCd
 		,hymmEmailConsentNy
 		,hymmSmsConsentNy
@@ -107,7 +108,7 @@
 		,regSeq
 		,regDevice -->
 		,regDateTime
-		,regDateTimeSvr
+		,modDateTime
 		)
 		VALUES (
 		0
@@ -120,6 +121,7 @@
 		,#{hymmNumber}
 		,#{hymmEmail}
 		,0
+		,#{hymmDesc}
 		,#{hymmSaveCd}
 		,#{hymmEmailConsentNy}
 		,#{hymmSmsConsentNy}

@@ -60,7 +60,7 @@ public class MemberController {
 	 service.insertMember(dto);
 	 vo.setHymmSeq(dto.getHymmSeq());
 	 redirectAttributes.addFlashAttribute("vo", vo); 
-	 return "redirect:/xdmin/member/memberView";
+	 return "redirect:/xdmin/memberView";
 	 }
 	 
 		

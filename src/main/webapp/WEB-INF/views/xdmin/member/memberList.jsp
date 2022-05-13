@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
@@ -331,8 +332,7 @@
 																			</c:otherwise>
 																		</c:choose></td>
 
-																	<td class="text-center"><c:out
-																			value="${item.regDateTime}" /></td>
+																	<td class="text-center"><fmt:formatDate value="${item.regDateTime }"/></td>
 
 																	<td class="text-center"><c:if
 																			test="${item.hymmDormancyNy eq 0}">

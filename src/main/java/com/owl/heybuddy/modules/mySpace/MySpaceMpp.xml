@@ -20,6 +20,7 @@
 		, b.hysmSeq
 		, b.hyspSeq
 		, b.hymmSeq
+		, b.hysmRoleCd
 		, b.hysmDelNy
 		, c.hyspSeq
 		, c.hyspName
@@ -27,39 +28,48 @@
 
 		FROM hybdSpaceMember b
 		LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		LEFT JOIN hybdSpace c
+		on c.hyspSeq = b.hyspSeq
 
 	</select>
-	
-	
+
+
 	<select id="selectOneMySpace" resultMap="resultMapObj">
 
 		SELECT
-		hyspSeq
-		, hyspTypeCd
-		, hyspName
+		a. hyspSeq
+		,
+		a.hyspTypeCd
+		, a.hyspName
+		, b.hymmName
+		, c.hysmRoleCd
 
-		FROM hybdSpace
+		FROM hybdSpaceMember
+		c
+
+		LEFT JOIN hybdMember b on b.hymmSeq = c.hymmSeq
+		LEFT JOIN hybdSpace a
+		on a.hyspSeq = c.hyspSeq
+
 		WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
-
+		AND a.hyspSeq = #{hyspSeq}
 	</select>
 
 	<insert id="insertMySpace">
 
 		INSERT INTO hybdSpace (
-		hyspSeq
-		, hyspTypeCd
+		hyspTypeCd
 		, hyspName
 		, hyspDelNy
 		, regDateTime
-		, regDateTimeSvr
+		,
+		regDateTimeSvr
 		, modDateTime
 		, modDateTimeSvr
 		) VALUES (
-		#{hyspSeq}
-		, #{hyspTypeCd}
-		, #{hyspName}
+		#{hyspTypeCd}
+		,
+		#{hyspName}
 		, 0
 		, now()
 		, now()
@@ -70,25 +80,36 @@
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
+
 	</insert>
+
+
 
 	<insert id="insertMySpaceMember">
 
 		INSERT INTO hybdSpaceMember (
-		hysmSeq,
-		hyspSeq,
-		hymmSeq,
-		hysmRoleCd
+		hymmSeq
+		, hysmRoleCd
+		, hyspSeq
+		, hysmActiveNy
+		, hysmAcceptedNy
+		, hysmExitNy
+		, hysmDelNy
 		) VALUES (
-		#{hysmSeq}
+		#{hymmSeq}
+		, 12
 		, #{hyspSeq}
-		, #{hymmSeq}
-		, 13
+		, 1
+		, 1
+		, 0
+		, 0
 		)
 
-		<selectKey resultType="String" keyProperty="hysmSeq"
+
+		<selectKey resultType="String" keyProperty="hyspSeq"
 			order="AFTER">
 			SELECT last_insert_id()
+
 		</selectKey>
 	</insert>
 
@@ -96,39 +117,46 @@
 		UPDATE hybdSpace
 		SET
 		hyspTypeCd = #{hyspTypeCd}
-		, hyspUseNy = #{hyspUseNy}
+		,
+		hyspUseNy = #{hyspUseNy}
 		, hyspName = #{hyspName}
-		, modDateTime = #{modDateTime}
+		, modDateTime =
+		#{modDateTime}
 		, modDateTimeSvr = #{modDateTimeSvr}
 
 		WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+		AND hyspSeq
+		= #{hyspSeq}
 	</update>
 
 	<update id="updateMySpaceMember">
 		UPDATE hybdSpaceMember
 		SET
 		hysmRoleCd = #{hysmRoleCd}
-		, hysmAcceptedNy = #{hysmAcceptedNy}
+		,
+		hysmAcceptedNy = #{hysmAcceptedNy}
 		, hysmExitNy = #{hysmExitNy}
-		, hysmActiveNy = #{hysmActiveNy}
+		,
+		hysmActiveNy = #{hysmActiveNy}
 
 		WHERE 1=1
 		AND hysmSeq = #{hysmSeq}
 	</update>
-	
+
 	<update id="ueleteMySpace">
 		UPDATE hybdSpace
-		SET 
-		hyspDelNy = 1 
-		WHERE 1=1 
-		AND hyspSeq = #{hyspSeq}
+		SET
+		hyspDelNy = 1
+		WHERE 1=1
+		AND hyspSeq
+		= #{hyspSeq}
 	</update>
 
 	<delete id="deleteMySpace">
-		DELETE FROM hybdSpace 
-		WHERE 1=1 
-		AND hyspSeq = #{hyspSeq}
+		DELETE FROM hybdSpace
+		WHERE 1=1
+		AND hyspSeq =
+		#{hyspSeq}
 	</delete>
 
 </mapper>

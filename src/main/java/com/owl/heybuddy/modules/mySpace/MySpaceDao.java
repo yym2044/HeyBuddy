@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.owl.heybuddy.modules.member.Member;
+
 @Repository
 public class MySpaceDao {
 
@@ -28,6 +30,7 @@ public class MySpaceDao {
 	}
 
 	public int insertMySpaceMember(MySpace dto) {
+
 		return sqlSession.insert(namespace + ".insertMySpaceMember", dto); // 스페이스등록
 	}
 

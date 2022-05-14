@@ -60,6 +60,8 @@ body {
 </style>
 
 <body>
+	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
+	
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
 	<ul class="navbar-nav d-flex align-items-center h-100">
@@ -149,21 +151,21 @@ body {
 										<!-- Split dropdown user button -->
 										<div class="btn-group">
 											<button type="button" class="btn btn-gray" onclick="location.href = '/user/memberList'">
-												<i class="fe-1x me-2" data-feather="award"></i> GO
+												<c:if test="${item.hysmRoleCd eq 12}"><i class="fe-1x me-2" data-feather="award"></i></c:if> GO
 											</button>
-											<button type="button"
+											<c:if test="${item.hysmRoleCd eq 12}"><button type="button"
 												class="btn btn-gray dropdown-toggle-split rounded-end"
 												data-bs-toggle="dropdown" aria-expanded="false">
 												<i class="fe-1x" data-feather="more-vertical"></i>
 											</button>
 											<ul class="dropdown-menu dropdown-menu-end">
-												<li><a class="dropdown-item" href="/mySpace/mySpaceSend"><i
+												<li><a class="dropdown-item" href="javascript:goPlusMember(<c:out value="${item.hyspSeq}"/>);"><i
 														class="fe-1x me-2 align-middle" data-feather="user-plus"></i>
 														멤버 초대 </a></li>
 												<li><a class="dropdown-item" href="#"><i
 														class="fe-1x me-2 align-middle" data-feather="slash"></i>
 														스페이스 삭제 </a></li>
-											</ul>
+											</ul></c:if>
 										</div>
 									</div>
 								</div>
@@ -180,7 +182,7 @@ body {
 <br>
 
 										<!-- Avatar -->
-										<a href="/mySpace/mySpaceForm"> <img
+										<a href="javascript:goForm();"> <img
 											src="/resources/user/images/newNewSpace.PNG" alt="..." class="newSpace">
 										</a>
 									
@@ -216,7 +218,14 @@ body {
 	</script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
-
+	
+	<script type="text/javascript">
+	goForm = function() {
+		$("#mySpaceList").attr("action", "/mySpace/mySpaceForm");
+		$("#mySpaceList").submit();
+	}
+	</script>
+</form>
 </body>
 
 </html>

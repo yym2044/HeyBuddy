@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +21,11 @@
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css"
+	id="switchThemeStyle">
 
 </head>
 
@@ -42,38 +45,42 @@ body {
 </style>
 
 <body>
-<!--//page-header//-->
-<header class="navbar py-0 page-header navbar-expand navbar-light">
 
-	<ul class="navbar-nav d-flex align-items-center h-100">
-		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceList" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-				<i data-feather="arrow-left" class="fe-1x"></i>
+
+	<!--//page-header//-->
+	<header class="navbar py-0 page-header navbar-expand navbar-light">
+
+		<ul class="navbar-nav d-flex align-items-center h-100">
+			<li
+				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+				href="/mySpace/mySpaceList"
+				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+					<i data-feather="arrow-left" class="fe-1x"></i>
 			</a></li>
-		
-	</ul>
-	
-	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
-		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
-			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
-				<a href="#" class="mode_dark text-reset p-0">
-					<i data-feather="sun" class="fe-1x"></i>
-				</a>
-				<a href="#" class="mode_light text-reset p-0">
-					<i data-feather="moon" class="fe-1x"></i>
-				</a>
-			</div>
-		</li>
-		
-				<li
+
+		</ul>
+
+		<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+			<li
+				class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+				<div
+					class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+					<a href="#" class="mode_dark text-reset p-0"> <i
+						data-feather="sun" class="fe-1x"></i>
+					</a> <a href="#" class="mode_light text-reset p-0"> <i
+						data-feather="moon" class="fe-1x"></i>
+					</a>
+				</div>
+			</li>
+			<li
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
 				href="/login/login"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 					<i data-feather="log-out" class="fe-1x"></i>
-			</a></li>	
-	</ul>
-</header>
-<!--Main Header End-->
+			</a></li>
 
+		</ul>
+	</header>
 
 	<%@include file="../include/loader.jsp"%>
 
@@ -82,40 +89,54 @@ body {
 		<div class="page d-flex flex-row flex-column-fluid">
 
 			<!--///////////Page content wrapper///////////////-->
-			<main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+			<main
+				class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
 				<!--//content//-->
 				<div class="content p-1 d-flex flex-column-fluid position-relative">
 					<div class="container py-4">
+						<div style="text-align: center;">
+							<img src="/resources/user/images/makeMySpace.PNG" alt="..."
+								width="800px">
+						</div>
+
 						<div class="row h-100 align-items-center justify-content-center">
-							<div style="text-align: center;">
-								<img src="/resources/user/images/newcome.png" alt="..."
-									width="700px">
-							</div>
-					
 							<div class="col-md-8 col-lg-5 col-xl-4">
 								<!--Logo-->
-							
+								<div style="text-align: center;">
+									<img src="/resources/user/images/gathering1.png" alt="..."
+										class="img-fluid rounded-circle" width="200px">
+								</div>
 								<!--Card-->
-								<form id="mySpaceSend" name="mySpaceSend" method="post"
-									action="/mySpace/mySpaceSend" class="z-index-1 position-relative needs-validation"
+
+								<form id="newMySpace2" name="newMySpace2" method="post"
+									action="/mySpace/mySpaceForm2"
+									class="z-index-1 position-relative needs-validation"
 									novalidate="">
-										<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>">
+									<input type="hidden" id="hyspSeq" name="hyspSeq"
+										value="<c:out value="${vo.hyspSeq}"/>"> <input
+										type="hidden" id="hymmSeq" name="hymmSeq"
+										value="<c:out value="${vo.hymmSeq}"/>">
+									<hr class="mt-4">
 
 
-										<div class="form-floating mb-3">
-											<input type="email" class="form-control" required="" id="hymmId" name="hymmId"
-												placeholder="name@example.com"> <label
-												for="hymmId">To..</label>
-												<span
-												class="invalid-feedback"></span>
-										</div>
+									
+<h2><span>반가워요!</span></h2><h1><i class="fe-1x me-2" data-feather="award" style="width: 35px; height: 35px; color: #FFB900;"></i><c:out value="${vo.hymmName}"/>님</h1>
+<h1><c:out value="${vo.hyspName}"/></h1><h3>에 오신것을 환영해요 🙌</h3>
+							
+											
 										
-										<a href="javaScript:goSend();">
-										<button class="w-100 btn btn-lg btn-success" type="submit">
-											SEND </button></a>
+									
 
 
-									</form>
+
+									<a href="javaScript:goReg();"><button
+											class="w-100 btn btn-lg btn-success" type="button">
+											GO</button></a>
+									<hr class="mt-4">
+
+
+								</form>
+
 							</div>
 						</div>
 					</div>
@@ -147,12 +168,15 @@ body {
 	</script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
+
 	<script type="text/javascript">
-		goSend = function() {
-			$("#mySpaceSend").attr("action", "/mySpace/mySpacePlusMember");
-			$("#mySpaceSend").submit();
+		goReg = function() {
+			$("#newMySpace2").attr("action", "/mySpace/mySpaceInstMember");
+			$("#newMySpace2").submit();
 		}
+
 	</script>
+
 </body>
 
 </html>

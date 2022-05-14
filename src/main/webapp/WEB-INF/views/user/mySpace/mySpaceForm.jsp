@@ -104,17 +104,19 @@ body {
 							<div class="col-md-8 col-lg-5 col-xl-4">
 								<!--Logo-->
 								<div style="text-align: center;">
-									<img src="/resources/user/images/gathering1.png" alt="..."
-										class="img-fluid rounded-circle" width="200px">
-								</div>
+								<label for="newSpacePhoto" style="cursor: pointer;">
+									<img class="img-fluid rounded-circle" style="width: 200px;"
+										id="previewImage" src="/resources/user/images/gathering1.png">
+								</label>
+								
+								<input id="newSpacePhoto" name="file0" type="file" style="display: none;">
+										<p class="p-2 fw-bold">스페이스 대표 사진</p></div>
 								<!--Card-->
 
 								<form id="newMySpace" name="newMySpace" method="post"
-									action="/mySpace/mySpaceForm" enctype="multipart/form-data"
-									class="z-index-1 position-relative needs-validation"
+									action="/mySpace/mySpaceForm" class="z-index-1 position-relative needs-validation"
 									novalidate="">
-									<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>">
-									
+									<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>">
 									<hr class="mt-4">
 									<select class="form-select form-select-lg mb-3"
 										aria-label=".form-select-lg example">
@@ -125,8 +127,7 @@ body {
 										<option value="">위스키</option>
 										<option value="">와인</option>
 									</select>
-
-
+									
 
 									<div class="form-floating mb-3">
 										<input type="text" class="form-control" required=""
@@ -137,7 +138,7 @@ body {
 
 									<a href="javaScript:goReg();"><button
 											class="w-100 btn btn-lg btn-success" type="button">
-											GO</button></a>
+											NEXT</button></a>
 									<hr class="mt-4">
 
 
@@ -166,7 +167,7 @@ body {
 	</div>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
-
+	
 	<script src="/resources/assets/vendor/feather.min.js"></script>
 	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
@@ -182,6 +183,26 @@ body {
 		}
 	</script>
 
+	<script type="text/javascript">
+		/*** 단일파일 업로드 */
+		function readImage(input) {
+		    if (input.files && input.files[0]) {
+		        const reader = new FileReader();
+		        
+		        reader.onload = (e) => {
+		            const previewImage = document.getElementById('previewImage');
+		            previewImage.src = e.target.result;
+		        }
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+		// 이벤트 리스너
+		document.getElementById('newSpacePhoto').addEventListener('change', (e) => {
+		    readImage(e.target);
+		})
+	</script>
+
+	
 </body>
 
 </html>

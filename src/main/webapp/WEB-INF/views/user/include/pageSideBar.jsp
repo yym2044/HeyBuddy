@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--///////////Page sidebar begin///////////////-->
 <aside class="page-sidebar">
 	<div class="h-100 flex-column d-flex justify-content-start">
@@ -12,7 +12,7 @@
 					<span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-success fw-bold"> 팀 </span>
 					<span class="sidebar-text">
 						<!--Sidebar-text-->
-						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"> 팀부엉 </span>
+						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${item.hyspName}"/></span>
 					</span>
 				</div>
 			</a>
@@ -27,7 +27,7 @@
 							<span class="sidebar-icon iconic">
 								<i data-feather="user" class="fe-1x"></i>
 							</span>
-							<span class="sidebar-text">멤버</span>
+							<span class="sidebar-text"> 멤버 </span>
 						</a></li>
 
 					<li class="nav-item"><a href="/chat/chat" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
@@ -41,7 +41,7 @@
 							<span class="sidebar-icon iconic">
 								<i data-feather="video" class="fe-1x"></i>
 							</span>
-							<span class="sidebar-text">화상</span>
+							<span class="sidebar-text"> 화상 </span>
 						</a></li>
 
 
@@ -50,7 +50,7 @@
 							<span class="sidebar-icon iconic">
 								<i data-feather="calendar" class="fe-1x"></i>
 							</span>
-							<span class="sidebar-text">일정</span>
+							<span class="sidebar-text"> 일정 </span>
 						</a></li>
 
 
@@ -58,7 +58,7 @@
 							<span class="sidebar-icon iconic">
 								<i data-feather="edit" class="fe-1x"></i>
 							</span>
-							<span class="sidebar-text">문서</span>
+							<span class="sidebar-text"> 문서 </span>
 						</a></li>
 
 					<!-- 
@@ -87,19 +87,18 @@
 		<!--Aside-footer-->
 		<footer class="aside-footer position-relative p-3">
 			<ul class="nav flex-column collapse-group collapse d-flex">
-				<li class="nav-item"><a href="/setting/space" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-						<span class="sidebar-icon">
-							<i data-feather="settings" class="fe-1x"></i>
-						</span>
-						<span class="sidebar-text">환경 설정</span>
-					</a></li>
-				<li class="nav-item"><a href="/mySpace/mySpaceList" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-						<span class="sidebar-icon">
-							<i class="bi bi-arrow-left-right" class="fe-1x"></i>
-						</span>
-						<span class="sidebar-text">마이스페이스</span>
-					</a></li>
-
+				<li class="nav-item"><a href="/setting/space"
+					class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+						<span class="sidebar-icon"> <i data-feather="settings"
+							class="fe-1x"></i>
+					</span> <span class="sidebar-text">환경 설정</span>
+				</a></li>
+				<li class="nav-item"><a href="/mySpace/mySpaceList"
+					class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+						<span class="sidebar-icon"> <i
+							class="bi bi-arrow-left-right" class="fe-1x"></i>
+					</span> <span class="sidebar-text">마이스페이스</span>
+				</a></li>
 			</ul>
 		</footer>
 	</div>

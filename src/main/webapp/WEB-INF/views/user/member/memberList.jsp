@@ -36,6 +36,9 @@
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 
 <body>
+<form id="chatList" name="chatList" method="post" action="/member/memberList">
+<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+<input type="hidden" id="hyspName" name="hyspName" value="<c:out value="${item.hyspName}"/>">
 
 		<%@include file="../include/loader.jsp"%>
 
@@ -82,6 +85,13 @@
 										<small class="text-muted">About 54 results for member
 										</small>
 									</div>
+									
+							
+									
+							
+
+
+							<c:forEach items="${list}" var="item" varStatus="status">
 									<!--Search result item-->
 									<a href="/chat/chat" class="list-group-item p-4 list-group-item-action">
 										<div class="d-flex align-items-center">
@@ -89,77 +99,13 @@
 											<div class="ps-3 flex-grow-1 overflow-hidden">
 												<span class="fw-semibold d-block mb-1 text-truncate"></span>
 
-												<h5 class="mb-1 text-truncate">김나리</h5>
-
-											</div>
-										</div>
-									</a> <a href="#!"
-										class="list-group-item p-4 list-group-item-action">
-										<div class="d-flex align-items-center">
-											<img src="/resources/assets/media/avatars/02.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
-											<div class="ps-3 flex-grow-1 overflow-hidden">
-												<span class="fw-semibold d-block mb-1 text-truncate"></span>
-
-												<h5 class="mb-1 text-truncate">윤영민</h5>
-
-											</div>
-										</div>
-									</a> <a href="#!"
-										class="list-group-item p-4 list-group-item-action">
-										<div class="d-flex align-items-center">
-											<img src="/resources/assets/media/avatars/03.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
-											<div class="ps-3 flex-grow-1 overflow-hidden">
-												<span class="fw-semibold d-block mb-1 text-truncate"></span>
-
-												<h5 class="mb-1 text-truncate">정미림</h5>
-
-											</div>
-										</div>
-									</a> <a href="#!"
-										class="list-group-item p-4 list-group-item-action">
-										<div class="d-flex align-items-center">
-											<img src="/resources/assets/media/avatars/04.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
-											<div class="ps-3 flex-grow-1 overflow-hidden">
-												<span class="fw-semibold d-block mb-1 text-truncate"></span>
-
-												<h5 class="mb-1 text-truncate">이건우</h5>
-
-											</div>
-										</div>
-									</a> <a href="#!"
-										class="list-group-item p-4 list-group-item-action">
-										<div class="d-flex align-items-center">
-											<img src="/resources/assets/media/avatars/05.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
-											<div class="ps-3 flex-grow-1 overflow-hidden">
-												<span class="fw-semibold d-block mb-1 text-truncate"></span>
-
-												<h5 class="mb-1 text-truncate">윤이나</h5>
-
-											</div>
-										</div>
-									</a> <a href="#!"
-										class="list-group-item p-4 list-group-item-action">
-										<div class="d-flex align-items-center">
-											<img src="/resources/assets/media/avatars/06.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
-											<div class="ps-3 flex-grow-1 overflow-hidden">
-												<span class="fw-semibold d-block mb-1 text-truncate"></span>
-
-												<h5 class="mb-1 text-truncate">차경석</h5>
-
-											</div>
-										</div>
-									</a> <a href="#!"
-										class="list-group-item p-4 list-group-item-action">
-										<div class="d-flex align-items-center">
-											<img src="/resources/assets/media/avatars/07.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
-											<div class="ps-3 flex-grow-1 overflow-hidden">
-												<span class="fw-semibold d-block mb-1 text-truncate"></span>
-
-												<h5 class="mb-1 text-truncate">윤수빈</h5>
+												<h5 class="mb-1 text-truncate"><c:out value="${item.hymmName}" /></h5>
 
 											</div>
 										</div>
 									</a>
+							</c:forEach>
+									
 
 								</div>
 
@@ -194,7 +140,7 @@
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
-
+</form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>

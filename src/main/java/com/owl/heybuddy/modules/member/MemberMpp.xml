@@ -62,8 +62,24 @@
 			<when test="shMemberOption == 2">AND hymmId LIKE concat('%',#{shMemberValue},'%')</when>
 			<when test="shMemberOption == 3">AND hymmNumber LIKE concat('%',#{shMemberValue},'%')	</when>
 		</choose>
-		limit  #{startRnumForMysql} , #{rowNumToShow}
+	limit #{startRnumForMysql} , #{rowNumToShow}
 	
+	</select>
+	
+	<select id="selectListSpaceMember" resultMap="resultMapObj">
+
+		SELECT
+		a.hymmName
+	
+		FROM hybdMember a
+		LEFT JOIN hybdSpaceMember b on b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+	
+		WHERE 1=1
+		AND b.hysmAcceptedNy = '1'
+		AND b.hysmExitNy = '0'
+		AND b.hyspSeq = #{hyspSeq}
+		
 	</select>
 
 
@@ -86,7 +102,20 @@
 		and hymmDelNy = 0
 		and hymmSeq = #{hymmSeq}
 	</select>
-	
+
+	<select id="selectOneSidebar" resultMap="resultMapObj">
+
+		SELECT
+		a.hyspName
+
+		FROM hybdSpace a
+		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+
+		WHERE 1=1
+		AND b.hyspSeq = #{hyspSeq}
+		AND b.hymmSeq = #{hymmSeq}
+
+	</select>
 	
 	<insert id="insertMember">  <!-- 멤버등록 -->
 	INSERT INTO hybdMember(

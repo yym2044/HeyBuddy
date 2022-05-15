@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import com.owl.heybuddy.common.constants.Constants;
-
 @Controller
 public class MemberController {
 
@@ -158,8 +157,22 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/user/memberList")
-	public String chatList() {
-
+	public String chatList(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
+		
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		
+		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
+		System.out.println("vo.getHymmName :" + vo.getHymmName());
+		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
+		System.out.println("vo.getHyspName :" + vo.getHyspName());
+		
+		List<Member> list = service.selectListSpaceMember(vo);
+		model.addAttribute("list", list);
+		
+		Member rt = service.selectOneSidebar(vo);
+		model.addAttribute("item", rt);
+		
 		return "user/member/memberList";
 	}
 

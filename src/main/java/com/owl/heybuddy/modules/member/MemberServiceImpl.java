@@ -15,7 +15,10 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	MemberDao dao;
 	
-
+	@Override
+	public List<Member> selectListSpaceMember(MemberVo vo) throws Exception { // 스페이스리스트
+		return dao.selectListSpaceMember(vo);
+	}
 	@Override
 	public List<Member> memberList(MemberVo vo) throws Exception { //회원리스트
 		return dao.memberList(vo);
@@ -23,6 +26,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int selectOneCount(MemberVo vo) throws Exception {   //회원검색
 		return dao.selectOneCount(vo);
+	}
+	@Override
+	public Member selectOneSidebar(MemberVo vo) throws Exception { // 사이드바상단
+		return dao.selectOneSidebar(vo);
 	}
 	@Override
 	public Member memberView(MemberVo vo) throws Exception { //회원뷰

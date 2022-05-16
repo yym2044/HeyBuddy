@@ -162,8 +162,13 @@ public class MemberController {
 	@RequestMapping(value = "/user/memberList")
 	public String chatList(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
 		
+		if(vo.getHyspSeq() != null) {
+			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
+		}
+		
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		
 		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
 		System.out.println("vo.getHymmName :" + vo.getHymmName());

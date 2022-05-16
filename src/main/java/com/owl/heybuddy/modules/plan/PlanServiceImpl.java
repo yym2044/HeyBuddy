@@ -28,11 +28,6 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public List<Plan> selectListNation() throws Exception {
-		return dao.selectListNation();
-	}
-
-	@Override
 	public int insert(Plan dto) throws Exception {
 		/* dto.setRegDateTime(UtilDateTime.nowDate()); */
 
@@ -42,11 +37,6 @@ public class PlanServiceImpl implements PlanService {
 
 	}
 
-	@Override
-	public Plan selectOne(PlanVo vo) throws Exception {
-
-		return dao.selectOne(vo);
-	}
 
 	@Override
 	public int update(Plan dto) throws Exception {
@@ -62,17 +52,27 @@ public class PlanServiceImpl implements PlanService {
 		return 1;
 	}
 
-	@Override
-	public int updateDelete(PlanVo vo) throws Exception {
-		return dao.updateDelete(vo);
-	}
-
-	@Override
-	public Plan selectOneLogin(Plan dto) throws Exception {
-		return dao.selectOneLogin(dto);
-	}
 	/*
 	 * @Override public Member selectGender(MemberVo vo) throws Exception { return
 	 * dao.selectGender(vo); }
 	 */
+
+
+	@Override
+	public Plan selectOne(PlanVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Plan selectOneLogin(Plan dto) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updateDelete(PlanVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -4,8 +4,7 @@
 
 <mapper namespace="com.owl.heybuddy.modules.plan.PlanMpp"> <!-- 지금 파일 지정 -->
 
-	<resultMap id="resultMapObj"
-		type="com.owl.heybuddy.modules.plan.Plan"></resultMap> <!-- 결과 객체 저장 -->
+	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.plan.Plan"></resultMap> <!-- 결과 객체 저장 -->
 
 
 	<sql id="selectCommon">
@@ -14,17 +13,17 @@
 		LEFT JOIN
 		hybdSpace b ON a.hyplSeq = b.hyspSeq
 		WHERE 1=1
-		<choose>
-			<!-- <when test="shOptionDate == 0">AND a.regDateTime disabled #{shDateStart} 
-				AND #{shDateEnd}</when> -->
+	<!-- 	<choose>
+			<when test="shOptionDate == 0">AND a.regDateTime disabled #{shDateStart} 
+				AND #{shDateEnd}</when>
 			<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND
 				#{shDateEnd}</when>
 			<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND
 				#{shDateEnd}</when>
-			<!-- <when test="shOptionDate == 3">AND a.hyplDob BETWEEN #{shDateStart} 
-				AND #{shDateEnd}</when> -->
-			<!-- <when test="shJoinOption == 5">AND a.regDateTime LIKE concat('%',#{shJoinValue},'%')</when> -->
-			<!-- <when test="shJoinOption == 6">AND regDateTime LIKE concat('%',#{shJoinValue},'%')</when> -->
+			<when test="shOptionDate == 3">AND a.hyplDob BETWEEN #{shDateStart} 
+				AND #{shDateEnd}</when>
+			<when test="shJoinOption == 5">AND a.regDateTime LIKE concat('%',#{shJoinValue},'%')</when>
+			<when test="shJoinOption == 6">AND regDateTime LIKE concat('%',#{shJoinValue},'%')</when>
 		</choose>
 		<choose>
 			<when test="shOption == 1">AND a.hyplName LIKE concat('%',#{shValue}, '%')
@@ -34,9 +33,9 @@
 			</when>
 			<when test="shOption == 4">AND c.ifmeEmailFull LIKE concat('%',#{shValue}, '%')
 			</when>
-			<!-- <when test="shOption == 5">AND a.regDateTime LIKE concat('%',#{shValue}, 
-				'%')</when> -->
-		</choose>
+			<when test="shOption == 5">AND a.regDateTime LIKE concat('%',#{shValue}, 
+				'%')</when>
+		</choose> -->
 
 	</sql>
 
@@ -61,14 +60,6 @@
 		limit #{startRnumForMysql}, #{rowNumToShow}
 	</select>
 
-	<select id="" resultMap="resultMapObj">
-		SELECT
-		a.ifnSeq
-		,a.ifnName
-		FROM
-		hyplNationality a
-		WHERE 1 = 1
-	</select>
 
 
 
@@ -105,42 +96,10 @@
 		,a.hyplData
 		,a.hyplDesc
 		,a.hyplMemberName
-		,a.hyplMember
-		,(select ifcdName from hybdCode where ifcdSeq
-		= a.hyplEmailConsentNy) as hyplMarketing
-		,a.originalFileName
-		,a.uuidFileName
-		,b.ifmpNumber
-		,(select ifcdName from hybdCode where
-		ifcdSeq = b.ifmpTelecomCd) as ifmpTelecompany
-		,c.ifmeEmailFull
-		,d.ifmaAddress1
-		,d.ifmaAddress2
-		,d.ifmaZipcode
-		,d.ifmaLat
-		,d.ifmaLng
-		,(select ifnName from hyplNationality where ifnSeq = e.ifnSeq) as
-		ifnNation
-		,g.ifcdName
 		FROM
 		hybdPlan a
-		LEFT JOIN
-		hybdPlanPhone b ON
-		a.hyplSeq = b.hyplSeq
-		LEFT JOIN
-		hyplPlanEmail c ON a.hyplSeq =
-		c.hyplSeq
-		LEFT JOIN
-		hyplPlanAddress d ON a.hyplSeq = d.hyplSeq
-		LEFT
-		JOIN
-		hyplPlanNationality e ON a.hyplSeq = e.hyplSeq
-		LEFT JOIN
-		hyplCode
-		g ON g.ifcdSeq = a.hyplGenderCd
 		WHERE
 		1 = 1
-		AND a.hyplSeq = #{hyplSeq}
 	</select>
 
 
@@ -154,10 +113,8 @@
 		,hyplEmailConsentNy = #{hyplEmailConsentNy}
 		,hyplId = #{hyplId}
 		,hyplPassword = #{hyplPassword} <!-- 여기다 여러개 넣으면 여러개 수정 함께 가능 -->
-		,regDateTime = #{regDateTime}
 		WHERE
 		1 = 1
-		AND hyplSeq = #{hyplSeq}
 	</update>
 
 <!-- 	<update id="">

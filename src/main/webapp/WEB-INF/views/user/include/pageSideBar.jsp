@@ -87,12 +87,14 @@
 		<!--Aside-footer-->
 		<footer class="aside-footer position-relative p-3">
 			<ul class="nav flex-column collapse-group collapse d-flex">
-				<li class="nav-item"><a href="/setting/space"
-					class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-						<span class="sidebar-icon"> <i data-feather="settings"
-							class="fe-1x"></i>
-					</span> <span class="sidebar-text">환경 설정</span>
-				</a></li>
+				<c:if test="${hysmRoleCd eq 12}">
+					<li class="nav-item"><a href="/setting/space"
+						class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+							<span class="sidebar-icon"> <i data-feather="settings"
+								class="fe-1x"></i>
+						</span> <span class="sidebar-text">환경 설정</span>
+					</a></li>
+				</c:if>
 				<li class="nav-item"><a href="/mySpace/mySpaceList"
 					class="nav-link d-flex align-items-center text-truncate Sidebar-link">
 						<span class="sidebar-icon"> <i

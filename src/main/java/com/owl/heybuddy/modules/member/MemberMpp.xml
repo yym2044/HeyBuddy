@@ -106,10 +106,14 @@
 	<select id="selectOneSidebar" resultMap="resultMapObj">
 
 		SELECT
-		a.hyspName
+		a.hyspSeq
+		, a.hyspName
+		, b.hysmRoleCd
 
 		FROM hybdSpace a
-		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpaceMember b 
+		ON 
+			b.hyspSeq = a.hyspSeq
 
 		WHERE 1=1
 		AND b.hyspSeq = #{hyspSeq}
@@ -237,7 +241,7 @@
 		AND hymmSeq = #{hymmSeq}
 	</update>
 
-	<update id="updateUploaded"> <!-- 사진수정 -->
+    <update id="updateUploaded"> <!-- 사진수정 -->
 		UPDATE ${tableName} SET
 		defaultNy = 0 
 		,type  = #{type}
@@ -265,16 +269,21 @@
 	
 	<select id="selectOneLogin" resultMap="resultMapObj">
 	SELECT
-		 a.hymmSeq
-		 ,a.hymmId
-		 ,a.hymmName
-		 ,a.hymmDesc
-		 ,a.hymmPassword
-	 FROM
-	 	hybdMember a
-	 WHERE 1 = 1
-	 AND a.hymmId = #{hymmId}
-	 AND a.hymmPassword = #{hymmPassword}
+		a.hymmSeq
+		,a.hymmId
+		,a.hymmName
+		,a.hymmDesc
+		,a.hymmPassword
+		,b.uuidFileName
+		,b.path
+	FROM
+		hybdMember a
+	LEFT JOIN
+		hybdMemberUploaded b
+	ON b.pseq = a.hymmSeq
+		WHERE 1 = 1
+			AND a.hymmId = #{hymmId}
+			AND a.hymmPassword = #{hymmPassword}
 	</select>
 
 	

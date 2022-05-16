@@ -27,6 +27,8 @@ public class Member {
 	private String hyspName;
 	private Integer hysmActiveNy;
 	
+	private Integer hysmRoleCd;
+	
 	//RegMod
 	private String regIp;
 	private String regSeq;
@@ -318,6 +320,12 @@ public class Member {
 	}
 	public void setHyspName(String hyspName) {
 		this.hyspName = hyspName;
+	}
+	public Integer getHysmRoleCd() {
+		return hysmRoleCd;
+	}
+	public void setHysmRoleCd(Integer hysmRoleCd) {
+		this.hysmRoleCd = hysmRoleCd;
 	}
 	
 	

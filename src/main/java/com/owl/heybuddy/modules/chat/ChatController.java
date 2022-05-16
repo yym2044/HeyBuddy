@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ChatController {
-	
+
 	@Autowired
 	ChatServiceImpl service;
 
 	@RequestMapping(value = "/chat/chat")
-	public String chat() {
+	public String chat() throws Exception {
 
 		return "user/chat/chat";
 	}

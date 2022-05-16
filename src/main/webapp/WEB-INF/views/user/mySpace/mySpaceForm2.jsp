@@ -103,8 +103,16 @@ body {
 							<div class="col-md-8 col-lg-5 col-xl-4">
 								<!--Logo-->
 								<div style="text-align: center;">
-									<img src="/resources/user/images/gathering1.png" alt="..."
-										class="img-fluid rounded-circle" width="200px">
+								
+								<img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="/resources/user/images/gathering1.png">
+														<%-- <c:forEach items="${Uploaded}" var="Uploaded" varStatus="statusUploaded">
+						<c:choose>
+							<c:when test="${Uploaded.type eq 0 && Uploaded.size ne 0}"><img src="<c:out value="${Uploaded.path}"/><c:out value="${Uploaded.uuidFileName}"/>" alt="..." class="img-fluid rounded-circle" width="200px"></c:when>
+							<c:otherwise><img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="/resources/user/images/gathering1.png"></c:otherwise>
+						</c:choose>
+					</c:forEach> --%>
+									
+									
 								</div>
 								<!--Card-->
 

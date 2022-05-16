@@ -109,7 +109,7 @@ body {
 										id="previewImage" src="/resources/user/images/gathering1.png">
 								</label>
 								
-								<input id="newSpacePhoto" name="file0" type="file" style="display: none;">
+								<input id="newSpacePhoto" name="" type="file" style="display: none;">
 										<p class="p-2 fw-bold">스페이스 대표 사진</p></div>
 								<!--Card-->
 

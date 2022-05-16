@@ -7,11 +7,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ChatDao {
-	
+
 	@Inject
 	private SqlSession sqlSession;
-	  
-	private static String namespace = "com.owl.heybuddy.modules.chat.ChatMpp";
 
+	private static String namespace = "com.owl.heybuddy.modules.chat.ChatMpp";
 
 }

@@ -61,7 +61,7 @@ body {
 
 <body>
 	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
-	
+			<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
 	<ul class="navbar-nav d-flex align-items-center h-100">
@@ -123,59 +123,68 @@ body {
 						
 						
 					<div class="row mySpaceZone">
-					<c:forEach items="${list}" var="item" varStatus="status">
-						<c:if test="${item.hymmSeq eq sessSeq}">
-						<!--col-->
-						<div class="col-sm-6 col-xl-4">
-							<!--card-->
-							<div class="card mb-4">
+							<c:forEach items="${list}" var="item" varStatus="status">
+								<c:if test="${item.hymmSeq eq sessSeq}">
+									<!--col-->
+									<div class="col-sm-6 col-xl-4">
+										<!--card-->
+										<div class="card mb-4">
 
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
+											<!--Card body-->
+											<div class="card-body">
+												<!--Contact-->
+												<div class="text-center">
 
-										<!-- Avatar --> 
-										<a class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
-											src="/resources/user/images/Beer-drinking.jpeg" alt="..."
-											class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a href="#!" class="text-reset"><c:out value="${item.hyspName}"/></a>
-										</h5>
+													<!-- Avatar -->
+													<a class="avatar mb-3 mx-auto xxl rounded-cirlce d-block">
+														<img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="/resources/user/images/gathering1.png"
+														alt="..." class="img-fluid rounded-circle">
+													</a>
+													<!-- Title -->
+													<h5 class="mb-0">
+														<a href="#!" class="text-reset"><c:out
+																value="${item.hyspName}" /></a>
+													</h5>
 
-										<!-- Email -->
-										<br>
-										<br>
-										<!-- Split dropdown user button -->
-										<div class="btn-group">
-											<button type="button" class="btn btn-gray" onclick="location.href = '/user/memberList'">
-												<c:if test="${item.hysmRoleCd eq 12}"><i class="fe-1x me-2" data-feather="award"></i></c:if> GO
-											</button>
-											<c:if test="${item.hysmRoleCd eq 12}"><button type="button"
-												class="btn btn-gray dropdown-toggle-split rounded-end"
-												data-bs-toggle="dropdown" aria-expanded="false">
-												<i class="fe-1x" data-feather="more-vertical"></i>
-											</button>
-											<ul class="dropdown-menu dropdown-menu-end">
-												<li><a class="dropdown-item" href="javascript:goPlusMember(<c:out value="${item.hyspSeq}"/>);"><i
-														class="fe-1x me-2 align-middle" data-feather="user-plus"></i>
-														멤버 초대 </a></li>
-												<li><a class="dropdown-item" href="#"><i
-														class="fe-1x me-2 align-middle" data-feather="slash"></i>
-														스페이스 삭제 </a></li>
-											</ul></c:if>
+													<!-- Email -->
+													<br> <br>
+													<!-- Split dropdown user button -->
+													<div class="btn-group">
+														<a
+															href="javascript:goSpace(<c:out value="${item.hyspSeq}"/>);">
+															<button type="button" class="btn btn-gray">
+																<c:if test="${item.hysmRoleCd eq 12}">
+																	<i class="fe-1x me-2" data-feather="award"></i>
+																</c:if>
+																GO
+															</button>
+														</a>
+														<c:if test="${item.hysmRoleCd eq 12}">
+															<button type="button"
+																class="btn btn-gray dropdown-toggle-split rounded-end"
+																data-bs-toggle="dropdown" aria-expanded="false">
+																<i class="fe-1x" data-feather="more-vertical"></i>
+															</button>
+															<ul class="dropdown-menu dropdown-menu-end">
+																<li><a class="dropdown-item"
+																	href="javascript:goPlusMember(<c:out value="${item.hyspSeq}"/>);"><i
+																		class="fe-1x me-2 align-middle"
+																		data-feather="user-plus"></i> 멤버 초대 </a></li>
+																<li><a class="dropdown-item" href="#"><i
+																		class="fe-1x me-2 align-middle" data-feather="slash"></i>
+																		스페이스 삭제 </a></li>
+															</ul>
+														</c:if>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-						</div>
-</c:if>
-					</c:forEach>
-						
+								</c:if>
+							</c:forEach>
 
-						<!--col-->
+
+							<!--col-->
 						<div class="col-sm-6 col-xl-4">
 							<!--card-->
 							<div class="card mb-4" style="background-color: #119C8D; box-shadow: 2px 5px 10px white;">
@@ -222,6 +231,12 @@ body {
 	<script type="text/javascript">
 	goForm = function() {
 		$("#mySpaceList").attr("action", "/mySpace/mySpaceForm");
+		$("#mySpaceList").submit();
+	}
+	
+	goSpace = function(seq) {
+		$("#hyspSeq").val(seq);
+		$("#mySpaceList").attr("action", "/user/memberList");
 		$("#mySpaceList").submit();
 	}
 	</script>

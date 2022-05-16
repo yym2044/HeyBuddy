@@ -6,7 +6,7 @@
 
 <mapper namespace="com.owl.heybuddy.modules.chat.ChatMpp"> <!-- 지금 파일 지정 -->
 
-	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
- 
-	
+	<resultMap id="resultMapObj"
+		type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
+
 </mapper>

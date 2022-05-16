@@ -185,7 +185,7 @@
 										<label for="profilePhoto" style="cursor: pointer;"> <img id="img" src="/resources//user/images/profileUpload.png" style="width: 70px;">
 										</label>
 										<input id="profilePhoto" name="file0" type="file" style="display: none;">
-										<p class="p-2 fw-bold">프로필 사진</p>
+										<p class="p-2 fw-bold">프로필 </p>
 									</div>
 									
 									<!-- 	<table id="setTable"

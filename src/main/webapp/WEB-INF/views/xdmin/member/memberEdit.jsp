@@ -200,13 +200,14 @@
  
 
 							<div class="table-responsive">
-								<div class="text-center">
-										<label for="profilePhoto" style="cursor: pointer;"> <img id="img" src="/resources//user/images/profileUpload.png" style="width: 100px;">
+							<div class="text-center">
+										<label for="profilePhoto" style="cursor: pointer;"> 
+										<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px;" />
 										</label>
 										<input id="profilePhoto" name="file0" type="file" style="display: none;">
-										<p class="p-2 fw-bold">프로필</p>
+										<p class="p-2 fw-bold">프로필 </p>
 									</div>
-
+							
 										
 										
 								<table id="setTable"

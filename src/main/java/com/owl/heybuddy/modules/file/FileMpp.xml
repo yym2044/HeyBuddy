@@ -14,33 +14,12 @@
 <!--  ************************* 문서관련mpp*************************  -->
 <!--  ************************* 문서관련mpp*************************  -->
  
- <select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
-		select
-		*
-		,b.hymmName
-		from
-		hybdDocument a
-		left join hybdMember b on b.hymmSeq = a.hymmSeq 
-		where
-		1=1
-		<choose>
-			<when test="shHydcDelNy == 1">AND hydcDelNy = 1 </when>   
-			<when test="shHydcDelNy == 0">AND hydcDelNy = 0 </when>  
-		</choose>
-		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
-		
-		<choose>
-			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
-		</choose>
-		limit  #{startRnumForMysql} , #{rowNumToShow}
-	
-	</select>
+ 
 	
 		<sql id="selectCommon"> <!-- 공통 -->
 		FROM
 		hybdMember a
-		WHERE 1 = 1
+		WHERE 1 = 1 
 		<choose>
 			<when test="shHydcDelNy == 1">AND hydcDelNy = 1 </when>   
 			<when test="shHydcDelNy == 0">AND hydcDelNy = 0 </when>  
@@ -61,6 +40,27 @@
 		<include refid="selectCommon"/>
 	</select>
 
+
+<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
+		select
+		*
+		,b.hymmName
+		,b.hymmEmail
+		from
+		hybdDocument a
+		left join hybdMember b on b.hymmSeq = a.hymmSeq 
+		where
+		hydcDelNy = 0
+		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
+		
+		<choose>
+			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
+		</choose>
+		limit  #{startRnumForMysql} , #{rowNumToShow}
+	
+	</select>
+	
 	
  	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select

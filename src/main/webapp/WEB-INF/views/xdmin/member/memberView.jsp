@@ -189,13 +189,13 @@
 							<div class="table-responsive">
 								<div class="text-center">
 									<label for="profilePhoto" style="cursor: pointer;"> 
-									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0"  />
+									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 70px;" />
 						<br>		
 						<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" 
 						download="<c:out value="${uploaded.path}"/><c:out value="${uploaded.originalFileName}"/>">
 						다운로드 </a>
 									</label> 
-									<p class="p-2 fw-bold">프로필 사진</p>
+									<p class="p-2 fw-bold">프로필</p>
 								</div>
 
 								<table id="setTable"
@@ -216,6 +216,14 @@
 										<td class="tableText">이름</td>
 										<th><c:out value="${item.hymmName}" /></th>
 									</tr>
+										<tr>
+																				<td class="tableText">성별</td>
+									<td class=""><c:if
+																			test="${item.hymmGenderCd eq 1}">
+																			<c:out value="남성" />
+																		</c:if> <c:if test="${item.hymmGenderCd eq 2}">
+																			<c:out value="여성" />
+																		</c:if></td>		</tr>
 										<tr>
 										<td class="tableText">생일</td>
 										<th><c:out value="${item.hymmDob}" /></th>

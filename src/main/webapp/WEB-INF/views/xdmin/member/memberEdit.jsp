@@ -201,14 +201,11 @@
 
 							<div class="table-responsive">
 								<div class="text-center">
-									<label for="file0" style="cursor: pointer;"> <!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
-										<img src="/resources/assets/media/avatars/08.jpg"
-										class="avatar rounded-pill flex-shrink-0" alt="Customer">
-									</label> 
-									<input  class="form-control" id="file0" name="file0" type="file" 
-												multiple="multiple" style="display:none;" onChange="upload(0,2);">
-									<p class="p-2 fw-bold">프로필 사진</p>
-								</div>
+										<label for="profilePhoto" style="cursor: pointer;"> <img id="img" src="/resources//user/images/profileUpload.png" style="width: 100px;">
+										</label>
+										<input id="profilePhoto" name="file0" type="file" style="display: none;">
+										<p class="p-2 fw-bold">프로필</p>
+									</div>
 
 										
 										
@@ -216,15 +213,15 @@
 									class="table table-sm table-nowrap table-card">
 									<tr>
 										<td class="tableText">상태</td>
-										<td><input class="form-check-input" type="radio"
-											id="hymmDormancyNy" name="hymmDormancyNy" checked> <label
-											class="form-check-label" for="flexRadioDefault5"> 활성
-										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="hymmDormancyNy" name="hymmDormancyNy"
-											checked> <label class="form-check-label"
-											for="flexRadioDefault5"> 휴먼 </label></td>
-											
-											
+										
+											<td>
+												<select class="form-control"
+						aria-label="Default select example" name="hymmDormancyNy">
+							<option value="">선택</option>
+							<option value="1" <c:if test="${item.hymmDormancyNy eq 1}">selected</c:if>>휴먼</option>
+							<option value="0" <c:if test="${item.hymmDormancyNy eq 0}">selected</c:if>>활성</option>
+					</select> </td>
+	
 								
 									</tr>
 									<tr>
@@ -235,11 +232,18 @@
 										<td class="tableText">이름</td>
 										<td><c:out value="${item.hymmName}" /></td>
 									</tr>
-							
 									<tr>
-										<td class="tableText">연락처</td>
+									<td class="tableText">성별</td>
+								<td><select class="form-control" name="hymmGenderCd" required>
+										<option value="3"
+											<c:if test="${item.hymmGenderCd eq 1}">selected</c:if>>남성</option>
+										<option value="4"
+											<c:if test="${item.hymmGenderCd eq 2}">selected</c:if>>여성</option>
+								</select></td>
+									<tr>
+										<td class="tableText" >연락처</td>
 										<td><input type="text" class="form-control"
-											name="hymmNumber" value="<c:out value="${item.hymmNumber}"/>"></td>
+											name="hymmNumber" value="<c:out value="${item.hymmNumber}"/>" required></td>
 											
 											
 											
@@ -274,67 +278,55 @@
 											name="hymmDesc" value="<c:out value="${item.hymmDesc}"/>"></td>
 								
 									</tr>
+										
 									<tr>
 										<td>개인정보유효기간</td>
-										<td><div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="hymmSaveCd" value="6"> <label
-													class="form-check-label" for="flexRadioDefault5">1년
-												</label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="hymmSaveCd" value="8"> <label
-													class="form-check-label" for="flexRadioDefault6">
-													3년 </label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="hymmSaveCd" value="9"> <label
-													class="form-check-label" for="flexRadioDefault6">5년
-												</label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="hymmSaveCd" value="10"> <label
-													class="form-check-label" for="flexRadioDefault6">10년
-												</label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="hymmSaveCd" value="11"> <label
-													class="form-check-label" for="flexRadioDefault6">탈퇴시
-												</label>
-											</div></td>
+								
+										 <td><select class="form-control"
+						aria-label="Default select example" name="hymmSaveCd">
+							<option value="">선택</option>
+							<option value="6" <c:if test="${item.hymmSaveCd eq 6}">selected</c:if>>1년</option>
+							<option value="7" <c:if test="${item.hymmSaveCd eq 7}">selected</c:if>>2년</option>
+							<option value="8" <c:if test="${item.hymmSaveCd eq 8}">selected</c:if>>3년</option>
+							<option value="9" <c:if test="${item.hymmSaveCd eq 9}">selected</c:if>>5년</option>
+							<option value="10" <c:if test="${item.hymmSaveCd eq 10}">selected</c:if>>10년</option>
+							<option value="11" <c:if test="${item.hymmSaveCd eq 11}">selected</c:if>>탈퇴시</option>
+					</select></td>
+				
 									</tr>
 									<tr>
 										<td>SMS 마케팅동의</td>
-										<td><input class="form-check-input" type="radio"
-											id="hymmSmsConsentNy" name="hymmSmsConsentNy" checked> <label
-											class="form-check-label" for="flexRadioDefault5"> Yes
-										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="hymmSmsConsentNy" name="hymmSmsConsentNy"
-											checked> <label class="form-check-label"
-											for="flexRadioDefault5"> No </label></td>
+										
+										<td>
+												
+												<select class="form-control"
+						aria-label="Default select example" name="hymmSmsConsentNy">
+							<option value="">선택</option>
+							<option value="1" <c:if test="${item.hymmSmsConsentNy eq 1}">selected</c:if>>YES</option>
+							<option value="0" <c:if test="${item.hymmSmsConsentNy eq 0}">selected</c:if>>NO</option>
+					</select> </td>
+					
+												
+								
 									</tr>
 									<tr>
 										<td>이메일 마케팅동의</td>
-										<td><input class="form-check-input" type="radio"
-											id="hymmEmailConsentNy" name="hymmEmailConsentNy" checked> <label
-											class="form-check-label" for="flexRadioDefault5"> Yes
-										</label> &nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input"
-											type="radio" id="hymmEmailConsentNy" name="hymmEmailConsentNy"
-											checked> <label class="form-check-label"
-											for="flexRadioDefault5"> No </label></td>
+										<td>
+												<select class="form-control"
+						aria-label="Default select example" name="hymmEmailConsentNy">
+							<option value="">선택</option>
+							<option value="1" <c:if test="${item.hymmEmailConsentNy eq 1}">selected</c:if>>YES</option>
+							<option value="0" <c:if test="${item.hymmEmailConsentNy eq 0}">selected</c:if>>NO</option>
+					</select> </td>
 
 									</tr>
 									<tr>
 										<td class="tableText">가입일</td>
-										<td><c:out value="${item.regDateTime}"/></td>
+										<td><fmt:formatDate value="${item.regDateTime }"/></td>
 									</tr>
 									<tr>
 										<td class="tableText">수정일</td>
-										<td><c:out value="${item.modDateTime}"/></td>
+										<td><fmt:formatDate value="${item.modDateTime }"/></td>
 									</tr>
 
 
@@ -438,6 +430,27 @@
 
 	</script>
 	
+	<script src="/resources/common/js/commonXdmin.js"></script>
+	<script src="/resources/common/js/constantsXdmin.js"></script>
+	<script src="/resources/common/js/common.js"></script>
+				
+	<!-- 프로필사진 이미지 프리뷰 바꾸는 script! 링크걸어서 사용해도 될 듯 -->
+	<script type="text/javascript">
+	let profileInput = document.getElementById("profilePhoto");
+	let img = document.querySelector('label[for=profilePhoto] img')
+	
+	profileInput.onchange = (e) => {
+		
+		var ext = $("#profilePhoto")[0].files[0].name.split('.').pop().toLowerCase();
+		if(extArrayImage.indexOf(ext) == -1){
+			alert("허용된 확장자가 아닙니다.");
+			return false;
+		}
+		
+		img.classList.add('preview');
+		img.src = URL.createObjectURL(e.target.files[0]);
+	}
+	</script>
 	
 </body>
 

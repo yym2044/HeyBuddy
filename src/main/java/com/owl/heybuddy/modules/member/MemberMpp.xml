@@ -219,8 +219,7 @@
 	
 	<update id="updateMember">  <!-- 회원수정 -->
 		UPDATE hybdMember SET
-		hymmPassword  =  #{hymmPassword}
-		,hymmGenderCd =  #{hymmGenderCd}
+		hymmGenderCd =  #{hymmGenderCd}
 		,hymmDelny =  0
 		,hymmSaveCd =  #{hymmSaveCd}
         ,hymmDob = #{hymmDob}

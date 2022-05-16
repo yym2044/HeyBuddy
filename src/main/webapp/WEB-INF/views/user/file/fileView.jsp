@@ -84,7 +84,7 @@
 	<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>">
 	<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>">
 	<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
-</form>
+
 
 
                       <!--//Page content//-->
@@ -325,7 +325,7 @@
                 <!--///////////Page content wrapper End///////////////-->
             </div>
         </div>
-        
+        </form>
         <!--////////////Theme Core scripts Start/////////////////-->
 
         <script src="/resources/assets/vendor/feather.min.js"></script>

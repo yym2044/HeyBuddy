@@ -148,13 +148,15 @@
 								</tr>e
 							</c:when>
 							<c:otherwise>
-								<c:forEach items="${list}" var="item" varStatus="status">
+								
 
 
 									<div class="flex-grow-1 overflow-hidden pe-4">
 
 										<!--Inbox mail list-->
 										<div class="list-group px-4 px-lg-8 mb-4 list">
+										
+										<c:forEach items="${list}" var="item" varStatus="status">
 											<!--Inbox-item-->
 											<div class="list-group-item list-group-item-action">
 												<div class="d-flex align-items-center">
@@ -223,12 +225,13 @@
 													</div>
 												</div>
 											</div>
+											</c:forEach>
 										</div>
 									</div>
 
 
 
-								</c:forEach>
+								
 							</c:otherwise>
 						</c:choose>
 		<!--포스트 페이징과 버튼 -->

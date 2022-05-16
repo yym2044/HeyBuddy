@@ -16,7 +16,7 @@ async function getMedia(){
 	} catch (e) {
 		console.log(e);
 	}
-}
+};
 
 getMedia();
 

@@ -216,8 +216,8 @@
 						<i class="fe-1x me-3" data-feather="list"></i>Tasks
 					</a>
 					<hr class="my-2">
-					<a href="page-auth-signin.html" class="dropdown-item d-flex align-items-center">
-						<i class="fe-1x me-3" data-feather="log-out"></i> Sign out
+					<a href="javascript:logOut();" class="dropdown-item d-flex align-items-center">
+						<i class="fe-1x me-3" data-feather="log-out"></i> 로그아웃
 					</a>
 				</div>
 			</div></li>
@@ -227,3 +227,26 @@
 	</ul>
 </header>
 <!--Main Header End-->
+
+<script type="text/javascript">
+logOut = function(){
+	
+	$.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+		,url: "/member/logoutProc"
+		,success: function(response) {
+			if(response.rt == "success") {
+				location.href="/login/userLogin";
+			} else {
+				alert("로그아웃 실패");
+			}
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+	});
+	
+}
+</script>

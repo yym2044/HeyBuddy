@@ -46,10 +46,21 @@
     }
 </style>
 
+<link rel="shortcut icon" href="#">
+
 <body>
 
 <div class="container">
+    
+    <!-- 
     <h1>A Demo for messaging in WebRTC</h1>
+     -->
+    
+    <h1>방 아이디 : <c:out value="${rt.hymrRoomId}"/></h1> 
+    <h1>방 이름 : <c:out value="${rt.hymrRoomName}"/></h1> 
+     
+    <input id="msg" type="text" placeholder="send a msg">
+    <button type="button" onclick="SendMsgToSig()">Send</button>
 
     <h3>
         Run two instances of this webpage along with the server to test this
@@ -59,13 +70,13 @@
     <div class="row">
     
 		<div class="col-6">
-			<h1>You</h1>
+			<h1 id="myName"><c:out value="${sessName}"/></h1>
 			<video id="myFace" autoplay style="width:400px; height:300px;"></video>
 			<div class="text-center pb-3" style="width: 100%;">
-				 <button id="btnMic" class="btn btn-lg rounded-circle" style="background-color: white">
+				 <button type="button" id="btnMic" class="btn btn-lg rounded-circle" style="background-color: white">
 				 	<i class="bi bi-mic"></i>
 				 </button>
-				 <button id="btnCam" class="btn btn-lg rounded-circle" style="background-color: white">
+				 <button type="button" id="btnCam" class="btn btn-lg rounded-circle" style="background-color: white">
 				 	<i class="bi bi-camera-video"></i>
 				 </button>
 			</div>
@@ -112,10 +123,46 @@
 	connect();
 	
 	</script> -->
-
-	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 	
-    <script src="/resources/user/js/client.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+    <!-- <script src="/resources/user/js/client.js"></script> -->
+    
+    <script type="text/javascript">
+    const socket = new SockJS('/stompTest');
+    const client = Stomp.over(socket);
+    const myName = document.querySelector("#myName").innerText;
+
+    let msg;
+
+    function SendMsgToSig(){
+    	msg = document.querySelector('#msg');
+    	client.send("/pub/TTT", {}, JSON.stringify({
+    		roomId : "<c:out value="${rt.hymrRoomId}"/>",
+    		writer : myName,
+    		message : msg.value
+    	}));
+    	msg.value = "";
+    	
+    	
+    	
+    }
+
+    client.connect({}, function () {
+    	console.log("Connected stompTest!");
+    	
+    	// Controller's MessageMapping, header, message(자유형식)
+    	client.subscribe("/sub/message/<c:out value="${rt.hymrRoomId}"/>", function(event) {
+    		console.log("subscribing room ~ ", event);
+    	});
+    	
+    	client.send("/pub/TTT", {}, "<c:out value="${sessName}"/>님이 입장하셨습니다.");
+    	
+    	
+    });
+    </script>
+	    
     <!--WebRTC related code-->
 
 	

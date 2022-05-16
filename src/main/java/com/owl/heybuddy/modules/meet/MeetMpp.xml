@@ -7,6 +7,62 @@
 <mapper namespace="com.owl.heybuddy.modules.meet.MeetMpp"> <!-- 지금 파일 지정 -->
 
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.meet.Meet"></resultMap> <!-- 결과 객체 저장 -->
+	
+	<sql id="insertRegMod">
+		, regDateTime
+		, modDateTime
+	</sql>
+	
+	<sql id="insertRegModValue">
+		,#{regDateTime}
+		,#{modDateTime}
+	</sql>
+	
+	<select id="selectOneCount" resultType="Integer">
+	SELECT
+		count(*)
+	FROM
+		hybdMeetRoom
+	WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+	</select>
  
+ 	<select id="selectListRoom" resultMap="resultMapObj">
+ 	
+ 	SELECT
+ 		*
+ 	FROM
+ 		hybdMeetRoom
+ 	WHERE 1=1
+ 		AND hyspSeq = #{hyspSeq}
+ 	
+ 	</select>
+ 
+ 	<select id="selectOneRoom" resultMap="resultMapObj">
+ 	SELECT
+ 		*
+ 	FROM
+ 		hybdMeetRoom
+ 	WHERE 1=1
+ 		AND hyspSeq = #{hyspSeq}
+ 		AND hymrSeq = #{hymrSeq}
+ 	</select>
+ 
+	<insert id="insertRoom">
+	INSERT INTO 
+		hybdMeetRoom (
+			hymrRoomId
+			, hymrRoomName
+			, hyspSeq
+			<include refid="insertRegMod"/>
+		) VALUES (
+			#{hymrRoomId}
+			, #{hymrRoomName}
+			, "1"
+			<include refid="insertRegModValue"/>
+		)
+	
+	</insert>
+	
 	
 </mapper>

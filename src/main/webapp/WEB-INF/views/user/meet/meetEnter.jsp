@@ -38,6 +38,10 @@
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <body>
 
+	<form id="meetEnterForm" method="post">
+	
+	<input type="hidden" id="hymrSeq" name="hymrSeq" value="${rt.hymrSeq}">
+
 	<%@include file="../include/loader.jsp"%>
 
 	<!--App Start-->
@@ -83,7 +87,7 @@
 						<div class="row mb-3">
 							<div class="col text-center justify-content-center">
 								<h4>
-									홍길동의 회의실<a></a>
+									<c:out value="${rt.hymrRoomName}"/>
 								</h4>
 							</div>
 						</div>
@@ -95,18 +99,22 @@
 									style="width: 720px; height: 400px; margin-left: 28px;">
 								</video>
 								<div class="text-center pb-3" style="width: 720px; margin-left: 28px;">
-									 <button id="btnMic" class="btn rounded-circle" style="background-color: white">
+									 <button type="button" id="btnMic" class="btn rounded-circle" style="background-color: white">
 									 	<i class="bi bi-mic"></i>
 									 </button>
-									 <button id="btnCam" class="btn rounded-circle" style="background-color: white">
+									 <button type="button" id="btnCam" class="btn rounded-circle" style="background-color: white">
 									 	<i class="bi bi-camera-video"></i>
 									 </button>
 								</div>
-
+								
+								<input id="meetUrl_clipboard" type="text" value="meeting.kakaowork.com/iqd-sad-mgm" style="position:absolute;top:-9999em;">
 								<ul class="list-unstyled fs-4" style="margin-left: 28px;">
-									<li><i class="bi bi-globe2 pe-2"></i><span
-										class="fs-5 text-primary">meeting.kakaowork.com/iqd-sad-mgm<i
-											class="bi bi-clipboard ps-1"></i></span></li>
+									<li><i class="bi bi-globe2 pe-2"></i>
+									<span id="meetUrl" class="fs-5 text-primary"></span>
+										<a href="javascript:copyClipboard();">
+											<i id="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="copy to clipboard" class="bi bi-clipboard ps-1"></i>
+										</a>
+											</li>
 									<li><i class="bi bi-people pe-2"></i><span class="fs-5">1명
 											참여 중 (최대 15명)</span></li>
 									<li><i class="bi bi-clock pe-2"></i><span class="fs-5">20분
@@ -114,7 +122,7 @@
 								</ul>
 								<div style="width: 720px; margin-left: 28px;" class="text-end">
 									<a href="meetList" class="btn btn-gray me-2">뒤로</a>
-									<a href="meetRoom" class="btn btn-success">회의 입장</a>
+									<a href="javascript:goRoom();" class="btn btn-success">회의 입장</a>
 								</div>
 							</div>
 						</div>
@@ -141,6 +149,8 @@
 		</div>
 	</div>
 
+	</form>
+
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>
@@ -157,6 +167,31 @@
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
 		sidebarLink[2].className += ' current';
+	</script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		const meetUrl = "localhost:8091/meet/meetRoom?" + "<c:out value="${rt.hymrRoomId}"/>";
+		
+		document.querySelector('#meetUrl').innerText = meetUrl;
+		$("#meetUrl_clipboard").val(meetUrl);
+		
+		
+	});	
+		
+	copyClipboard = function() {
+		document.querySelector('#meetUrl_clipboard').select();
+		document.execCommand('copy');
+		$("#icon").attr("data-bs-original-title", "copied!!");
+		$("#icon").tooltip('show');
+	}
+	
+	goRoom = function(){
+		$("#meetEnterForm").attr("action", "/meet/meetRoom").submit();
+	}
+	
 	</script>
 
 </body>

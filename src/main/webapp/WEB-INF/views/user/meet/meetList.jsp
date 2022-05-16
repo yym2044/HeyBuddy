@@ -36,6 +36,11 @@
 </head>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <body>
+
+	<form id="meetListForm" method="post">
+	
+	<input type="hidden" id="hymrSeq" name="hymrSeq">
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 
@@ -98,9 +103,47 @@
 			                                        </tr>
 			                                    </thead> -->
 											<tbody>
+												
+												<c:forEach items="${list}" var="room" varStatus="status">
+													<tr>
+														<td class="text-center" style="width: 200px;">
+															<div class="avatar-group justify-content-end">
+																<a href="#!.html"
+																	class="avatar-group-item avatar rounded-circle"
+																	data-bs-toggle="tooltip" title=""
+																	data-bs-original-title="Gabriel H"> <img
+																	src="/resources/assets/media/avatars/04.jpg" alt="..."
+																	class="avatar-group-img rounded-circle">
+																</a> <a href="#!.html"
+																	class="avatar-group-item avatar rounded-circle"
+																	data-bs-toggle="tooltip" title=""
+																	data-bs-original-title="Emily Doe"> <img
+																	src="/resources/assets/media/avatars/02.jpg" alt="..."
+																	class="avatar-group-img rounded-circle">
+																</a> <a href="#!.html"
+																	class="avatar-group-item avatar rounded-circle"
+																	data-bs-toggle="tooltip" title=""
+																	data-bs-original-title="Adam Howkins"> <img
+																	src="/resources/assets/media/avatars/03.jpg" alt="..."
+																	class="avatar-group-img rounded-circle">
+																</a>
+															</div>
+														</td>
+														<td style="width: 700px;"><span class="fw-bold fs-4"><c:out value="${room.hymrRoomName}"/><i class="bi bi-lock ps-2"></i>
+														</span><br>홍길동, 김하나, 김둘</td>
+														<td class="text-end"
+															style="width: 200px; vertical-align: middle;"><i
+															class="bi bi-alarm pe-1"></i>12:34</td>
+														<td style="vertical-align: middle;"><a
+															href="javascript:enterRoom(<c:out value="${room.hymrSeq}"/>);"
+															class="btn rounded-pill btn-primary text-truncate">회의 참여</a></td>
+													</tr>
+												</c:forEach>
+											
+												<!-- 
 												<tr>
 													<td class="text-center" style="width: 200px;">
-														<!-- <img style="width:50px;" src="/resources/assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle"> -->
+														<img style="width:50px;" src="/resources/assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
 														<div class="avatar-group justify-content-end">
 															<a href="#!.html"
 																class="avatar-group-item avatar rounded-circle"
@@ -135,7 +178,7 @@
 												</tr>
 												<tr>
 													<td class="text-center" style="width: 200px;">
-														<!-- <img style="width:50px;" src="/resources/assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle"> -->
+														<img style="width:50px;" src="/resources/assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
 														<div class="avatar-group justify-content-end">
 															<a href="#!.html"
 																class="avatar-group-item avatar rounded-circle"
@@ -167,6 +210,7 @@
 														class="btn rounded-pill btn-primary text-truncate">회의
 															참여</a></td>
 												</tr>
+												 -->
 											</tbody>
 										</table>
 									</div>
@@ -181,8 +225,7 @@
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
 							<div class="col-md-12 text-md-end" style="padding-right: 30px;">
-								<a href="meetStart"
-									class="btn rounded-pill btn-danger text-truncate">회의 시작</a>
+								<a href="meetStart" class="btn rounded-pill btn-danger text-truncate">회의 시작</a>
 							</div>
 						</div>
 					</div>
@@ -204,6 +247,8 @@
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -219,6 +264,12 @@
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
 		sidebarLink[2].className += ' current';
+	</script>
+	<script type="text/javascript">
+	enterRoom = function(seq){
+		$("#hymrSeq").val(seq);
+		$("#meetListForm").attr("action", "/meet/meetEnter").submit();
+	}
 	</script>
 </body>
 

@@ -120,12 +120,12 @@ body {
 									<hr class="mt-4">
 									<select class="form-select form-select-lg mb-3"
 										aria-label=".form-select-lg example">
-										<option selected>어떤 용도의 스페이스인가요?</option>
-										<option value="">맥주</option>
-										<option value="">칵테일</option>
-										<option value="">소주</option>
-										<option value="">위스키</option>
-										<option value="">와인</option>
+										<option value="" selected>어떤 용도의 스페이스인가요?</option>
+										<option value="">업무용</option>
+										<option value="">학교</option>
+										<option value="">친목</option>
+										<option value="">취미</option>
+										<option value="">기타</option>
 									</select>
 									
 

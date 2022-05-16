@@ -112,9 +112,9 @@ body {
 
 									<!-- Avatar -->
 
-									<h5 class="mb-0">Welcome 👋</h5>
+									<h5 class="mb-0">Welcome 👋 <c:out value="${item.hymmName}" />님</h5>
 									<br>
-									<h5>최고의 팀 '팀부엉'으로부터 초대되었습니다.</h5>
+									<h5>최고의 팀 '<c:out value="${item.hyspName}" />'으로부터 초대되었습니다.</h5>
 									<hr>
 									<a href="#!"
 										class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
@@ -123,7 +123,7 @@ body {
 									</a>
 									<!-- Title -->
 									<h5 class="mb-0">
-										<a href="#!" class="text-reset"> 팀부엉 </a>
+										<a href="#!" class="text-reset"> <c:out value="${item.hyspName}" /> </a>
 									</h5>
 
 									<small> 현재가입자수 : 4 명</small>

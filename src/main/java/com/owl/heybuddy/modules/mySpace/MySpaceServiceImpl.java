@@ -17,8 +17,18 @@ public class MySpaceServiceImpl implements MySpaceService {
 	}
 
 	@Override
+	public List<MySpace> selectListReceive(MySpaceVo vo) throws Exception { // 초대받은리스트
+		return dao.selectListReceive(vo);
+	}
+
+	@Override
 	public MySpace selectOneMySpace(MySpaceVo vo) throws Exception { // 스페이스뷰
 		return dao.selectOneMySpace(vo);
+	}
+
+	@Override
+	public MySpace selectOneReceive(MySpaceVo vo) throws Exception { // 초대뷰
+		return dao.selectOneReceive(vo);
 	}
 
 	@Override

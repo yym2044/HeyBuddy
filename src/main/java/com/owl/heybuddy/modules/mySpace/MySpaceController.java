@@ -18,20 +18,20 @@ public class MySpaceController {
 	MySpaceServiceImpl service;
 
 	@RequestMapping(value = "/user/myProfile")
-	public String myProfile() {
+	public String myProfile() throws Exception {
 		return "/user/member/myProfile";
 	}
 
 	/******************************* 호스트 메뉴 Start *******************************/
 
 	@RequestMapping(value = "/setting/profile")
-	public String profile() {
+	public String profile() throws Exception {
 
 		return "user/setting/profile";
 	}
 
 	@RequestMapping(value = "/setting/space")
-	public String space() {
+	public String space() throws Exception {
 
 		return "user/setting/space";
 	}
@@ -39,20 +39,15 @@ public class MySpaceController {
 	/******************************* 호스트 메뉴 End *******************************/
 
 	@RequestMapping(value = "/mySpace/mySpaceList")
-	public String mySpaceList(MySpaceVo vo, Model model) throws Exception {
-
+	public String mySpaceList(MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		List<MySpace> list = service.selectListMySpace(vo);
 		model.addAttribute("list", list);
-
+		
 		vo.setHyspSeq(vo.getHyspSeq());
 		vo.setHyspName(vo.getHyspName());
-		vo.setHymmSeq(vo.getHymmSeq());
 		
-		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
-		System.out.println("vo.getHymmName :" + vo.getHymmName());
-		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
-		System.out.println("vo.getHyspName :" + vo.getHyspName());
-		
+
 		return "user/mySpace/mySpaceList";
 	}
 
@@ -63,9 +58,11 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceInst")
-	public String mySpaceInst(@ModelAttribute("vo") MySpaceVo vo, MySpace dto, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+	public String mySpaceInst(MySpaceVo vo, MySpace dto, Model model,
+			RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
 		service.insertMySpace(dto);
+		
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 
@@ -85,13 +82,13 @@ public class MySpaceController {
 
 		MySpace rt = service.selectOneMySpace(vo);
 		model.addAttribute("item", rt);
-		
 
 		return "user/mySpace/mySpaceForm2";
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceInstMember")
-	public String mySpaceInstMember(@ModelAttribute("vo") MySpaceVo vo, MySpace dto, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+	public String mySpaceInstMember(MySpaceVo vo, MySpace dto, Model model,
+			RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
 		service.insertMySpaceMember(dto);
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
@@ -102,25 +99,42 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceReceive")
-	public String mySpaceReceive() {
-
+	public String mySpaceReceive(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
+		vo.setHyspSeq(vo.getHyspSeq());
+		vo.setHyspName(vo.getHyspName());
+		vo.setHymmSeq(vo.getHymmSeq());
+		MySpace rt = service.selectOneReceive(vo);
+		model.addAttribute("item", rt);
+		
 		return "user/mySpace/mySpaceReceive";
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceReceiveList")
-	public String mySpaceReceiveList() {
+	public String mySpaceReceiveList(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
+		
+	
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 
+		
+		List<MySpace> list = service.selectListReceive(vo);
+		model.addAttribute("list", list);
+	
+		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
+		System.out.println("vo.getHymmName :" + vo.getHymmName());
+		
+		
 		return "user/mySpace/mySpaceReceiveList";
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceSend")
-	public String mySpaceSend() {
+	public String mySpaceSend() throws Exception {
 
 		return "user/mySpace/mySpaceSend";
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceSendList")
-	public String mySpaceSendList() {
+	public String mySpaceSendList() throws Exception {
 
 		return "user/mySpace/mySpaceSendList";
 	}

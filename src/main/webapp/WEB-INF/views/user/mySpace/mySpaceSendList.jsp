@@ -194,8 +194,7 @@ body {
 									</a>
 
 									<!--Chat User-->
-									<a href="#!"
-										class="list-group-item px-3 align-items-left list-group-item-action border-0 d-flex py-3">
+									<a href="#!" class="list-group-item px-3 align-items-left list-group-item-action border-0 d-flex py-3">
 										<div class="flex-shrink-0">
 											<div class="avatar-status status-offline me-3 avatar">
 												<img src="/resources/assets/media/avatars/06.jpg"

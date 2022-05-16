@@ -62,6 +62,7 @@ body {
 <body>
 	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
 			<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+			<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>">
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
 	<ul class="navbar-nav d-flex align-items-center h-100">
@@ -88,7 +89,7 @@ body {
 			</a></li>
 			<li
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-				href="/mySpace/mySpaceReceiveList"
+				href="javascript:goReceive(<c:out value="${item.hymmSeq}"/>);"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 					<i data-feather="mail" class="fe-1x"></i>
 			</a></li>
@@ -237,6 +238,11 @@ body {
 	goSpace = function(seq) {
 		$("#hyspSeq").val(seq);
 		$("#mySpaceList").attr("action", "/user/memberList");
+		$("#mySpaceList").submit();
+	}
+	goReceive = function(seq) {
+		$("#hymmSeq").val(seq);
+		$("#mySpaceList").attr("action", "/mySpace/mySpaceReceiveList");
 		$("#mySpaceList").submit();
 	}
 	</script>

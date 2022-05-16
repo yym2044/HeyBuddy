@@ -5,7 +5,11 @@ import java.util.List;
 public interface MySpaceService {
 	public List<MySpace> selectListMySpace(MySpaceVo vo) throws Exception; // 스페이스리스트
 
+	public List<MySpace> selectListReceive(MySpaceVo vo) throws Exception; // 초대받은리스트
+
 	public MySpace selectOneMySpace(MySpaceVo vo) throws Exception; // 스페이스뷰
+
+	public MySpace selectOneReceive(MySpaceVo vo) throws Exception; // 초대뷰
 
 	public int insertMySpace(MySpace dto) throws Exception; // 스페이스등록
 

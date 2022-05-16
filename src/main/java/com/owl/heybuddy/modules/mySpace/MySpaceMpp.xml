@@ -28,31 +28,66 @@
 
 		FROM hybdSpaceMember b
 		LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace c
-		on c.hyspSeq = b.hyspSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		
+		WHERE 1=1 
+		AND b.hysmAcceptedNy = '1'
+		AND b.hysmExitNy = '0'
+		
 
 	</select>
 
+	<select id="selectListReceive" resultMap="resultMapObj">
+	
+		SELECT
+		a.hyspSeq
+		, a.hyspName
+
+		FROM hybdSpace a
+		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+
+		WHERE 1=1
+		AND b.hymmSeq = #{hymmSeq}
+		ORDER BY hysmSeq DESC
+		
+	</select>
+	
+	<select id="selectOneReceive" resultMap="resultMapObj">
+	
+		SELECT
+		a.hyspName
+		, a.hyspSeq
+		, b.hysmSeq
+		, c.hymmName
+
+		FROM hybdSpace a
+		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+
+		WHERE 1=1
+		AND b.hyspSeq = #{hyspSeq}
+		AND c.hymmSeq = #{hymmSeq}
+
+		
+	</select>
 
 	<select id="selectOneMySpace" resultMap="resultMapObj">
 
 		SELECT
 		a. hyspSeq
-		,
-		a.hyspTypeCd
+		, a.hyspTypeCd
 		, a.hyspName
 		, b.hymmName
 		, c.hysmRoleCd
 
-		FROM hybdSpaceMember
-		c
+		FROM hybdSpaceMember c
 
 		LEFT JOIN hybdMember b on b.hymmSeq = c.hymmSeq
-		LEFT JOIN hybdSpace a
-		on a.hyspSeq = c.hyspSeq
+		LEFT JOIN hybdSpace a on a.hyspSeq = c.hyspSeq
 
 		WHERE 1=1
 		AND a.hyspSeq = #{hyspSeq}
+		AND b.hymmSeq = #{hymmSeq}
 	</select>
 
 	<insert id="insertMySpace">
@@ -62,14 +97,12 @@
 		, hyspName
 		, hyspDelNy
 		, regDateTime
-		,
-		regDateTimeSvr
+		, regDateTimeSvr
 		, modDateTime
 		, modDateTimeSvr
 		) VALUES (
 		#{hyspTypeCd}
-		,
-		#{hyspName}
+		, #{hyspName}
 		, 0
 		, now()
 		, now()
@@ -117,11 +150,9 @@
 		UPDATE hybdSpace
 		SET
 		hyspTypeCd = #{hyspTypeCd}
-		,
-		hyspUseNy = #{hyspUseNy}
+		, hyspUseNy = #{hyspUseNy}
 		, hyspName = #{hyspName}
-		, modDateTime =
-		#{modDateTime}
+		, modDateTime = #{modDateTime}
 		, modDateTimeSvr = #{modDateTimeSvr}
 
 		WHERE 1=1
@@ -133,11 +164,9 @@
 		UPDATE hybdSpaceMember
 		SET
 		hysmRoleCd = #{hysmRoleCd}
-		,
-		hysmAcceptedNy = #{hysmAcceptedNy}
+		, hysmAcceptedNy = #{hysmAcceptedNy}
 		, hysmExitNy = #{hysmExitNy}
-		,
-		hysmActiveNy = #{hysmActiveNy}
+		, hysmActiveNy = #{hysmActiveNy}
 
 		WHERE 1=1
 		AND hysmSeq = #{hysmSeq}
@@ -148,15 +177,13 @@
 		SET
 		hyspDelNy = 1
 		WHERE 1=1
-		AND hyspSeq
-		= #{hyspSeq}
+		AND hyspSeq = #{hyspSeq}
 	</update>
 
 	<delete id="deleteMySpace">
 		DELETE FROM hybdSpace
 		WHERE 1=1
-		AND hyspSeq =
-		#{hyspSeq}
+		AND hyspSeq = #{hyspSeq}
 	</delete>
 
 </mapper>

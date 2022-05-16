@@ -19,8 +19,16 @@ public class MySpaceDao {
 		return sqlSession.selectList(namespace + ".selectListMySpace", vo); // 스페이스리스트
 	}
 
+	public List<MySpace> selectListReceive(MySpaceVo vo) {
+		return sqlSession.selectList(namespace + ".selectListReceive", vo); // 초대받은리스트
+	}
+
 	public MySpace selectOneMySpace(MySpaceVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneMySpace", vo); // 스페이스뷰
+	}
+	
+	public MySpace selectOneReceive(MySpaceVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneReceive", vo); // 초대뷰
 	}
 
 	public int insertMySpace(MySpace dto) {

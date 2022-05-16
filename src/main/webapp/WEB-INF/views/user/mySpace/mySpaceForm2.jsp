@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -103,16 +104,17 @@ body {
 							<div class="col-md-8 col-lg-5 col-xl-4">
 								<!--Logo-->
 								<div style="text-align: center;">
-								
-								<img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="/resources/user/images/gathering1.png">
-														<%-- <c:forEach items="${Uploaded}" var="Uploaded" varStatus="statusUploaded">
+
+									<img class="img-fluid rounded-circle" style="width: 200px;"
+										id="previewImage" src="/resources/user/images/gathering1.png">
+									<%-- <c:forEach items="${Uploaded}" var="Uploaded" varStatus="statusUploaded">
 						<c:choose>
 							<c:when test="${Uploaded.type eq 0 && Uploaded.size ne 0}"><img src="<c:out value="${Uploaded.path}"/><c:out value="${Uploaded.uuidFileName}"/>" alt="..." class="img-fluid rounded-circle" width="200px"></c:when>
 							<c:otherwise><img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="/resources/user/images/gathering1.png"></c:otherwise>
 						</c:choose>
 					</c:forEach> --%>
-									
-									
+
+
 								</div>
 								<!--Card-->
 
@@ -126,14 +128,25 @@ body {
 										value="<c:out value="${vo.hymmSeq}"/>">
 									<hr class="mt-4">
 
+									<div style="text-align: center;">
 
-									
-<h2><span>반가워요!</span></h2><h1><i class="fe-1x me-2" data-feather="award" style="width: 35px; height: 35px; color: #FFB900;"></i><c:out value="${vo.hymmName}"/>님</h1>
-<h1><c:out value="${vo.hyspName}"/></h1><h3>에 오신것을 환영해요 🙌</h3>
-							
-											
-										
-									
+										<h2>
+											<span>반가워요!</span>
+										</h2>
+										<h1>
+											<i class="fe-1x me-2" data-feather="award"
+												style="width: 35px; height: 35px; color: #FFB900;"></i>
+											<c:out value="${vo.hymmName}" />
+											님
+										</h1>
+										<h1>
+											<c:out value="${vo.hyspName}" />
+										</h1>
+										<h3>에 오신것을 환영해요 🙌</h3>
+									</div>
+
+
+
 
 
 
@@ -182,7 +195,6 @@ body {
 			$("#newMySpace2").attr("action", "/mySpace/mySpaceInstMember");
 			$("#newMySpace2").submit();
 		}
-
 	</script>
 
 </body>

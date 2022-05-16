@@ -111,9 +111,7 @@
 		, b.hysmRoleCd
 
 		FROM hybdSpace a
-		LEFT JOIN hybdSpaceMember b 
-		ON 
-			b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpaceMember b ON  b.hyspSeq = a.hyspSeq
 
 		WHERE 1=1
 		AND b.hyspSeq = #{hyspSeq}

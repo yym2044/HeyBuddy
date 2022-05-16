@@ -175,7 +175,7 @@
 		,uuidFileName
 		,ext
  		,size 
-		,delNY
+		,delNy
 		,pseq
 		,path
 		)
@@ -237,6 +237,21 @@
 		AND hymmSeq = #{hymmSeq}
 	</update>
 
+	<update id="updateUploaded"> <!-- 사진수정 -->
+		UPDATE ${tableName} SET
+		defaultNy = 0 
+		,type  = #{type}
+		,sort = #{type}
+		,originalFileName = #{type}
+		,uuidFileName = #{type}
+		,ext = #{ext}
+ 		,size  = #{size}
+		,delNy = 0
+		,pseq = #{pseq}
+		,path = #{path}
+			WHERE 1 = 1
+		AND hymmSeq = #{hymmSeq}
+	</update>
 
 	<select id="selectOneIdUser" resultMap="resultMapObj">
 	SELECT

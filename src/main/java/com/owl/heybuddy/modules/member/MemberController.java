@@ -75,7 +75,6 @@ public class MemberController {
 	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
 	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo) throws Exception {
 	 service.updateMember(dto); 
-	 service.updateUploaded(dto);
 	 return "redirect:/xdmin/memberView"; 
 	 }
 

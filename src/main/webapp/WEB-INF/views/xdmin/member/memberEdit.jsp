@@ -202,9 +202,10 @@
 							<div class="table-responsive">
 							<div class="text-center">
 										<label for="profilePhoto" style="cursor: pointer;"> 
-										<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px;" />
-										</label>
+										<img id="img" src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
+									height: 100px;" />
 										<input id="profilePhoto" name="file0" type="file" style="display: none;">
+											</label> 
 										<p class="p-2 fw-bold">프로필 </p>
 									</div>
 							
@@ -235,12 +236,12 @@
 									</tr>
 									<tr>
 									<td class="tableText">성별</td>
-								<td><select class="form-control" name="hymmGenderCd" required>
+								<th><select class="form-control" name="hymmGenderCd" required>
 										<option value="3"
 											<c:if test="${item.hymmGenderCd eq 1}">selected</c:if>>남성</option>
 										<option value="4"
 											<c:if test="${item.hymmGenderCd eq 2}">selected</c:if>>여성</option>
-								</select></td>
+								</select></th>
 									<tr>
 										<td class="tableText" >연락처</td>
 										<td><input type="text" class="form-control"

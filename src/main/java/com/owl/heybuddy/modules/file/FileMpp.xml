@@ -45,7 +45,6 @@
 		select
 		*
 		,b.hymmName
-		,b.hymmEmail
 		from
 		hybdDocument a
 		left join hybdMember b on b.hymmSeq = a.hymmSeq 

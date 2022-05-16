@@ -176,8 +176,14 @@
 														class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
 														<div
 															class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
-															<img src="/resources/assets/media/avatars/02.jpg"
-																class="img-fluid rounded-circle" alt="">
+															
+															
+															<label for="profilePhoto" style="cursor: pointer;"> 
+									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
+									height: 100px;" /> </label>
+									
+									<label for="profilePhoto" style="cursor: pointer;"> <img id="img" src="/resources//user/images/profileUpload.png" style="width: 70px;">
+										</label>
 														</div>
 
 														<!--name class for search results-->
@@ -200,14 +206,14 @@
 														<div class="flex-shrink-0">
 															<div class="d-flex flex-column align-items-end">
 																<!--New indicator-->
-																<div class="d-flex align-items-center mb-2">
+																<div class="d-flex align-items-end">
 																	<i data-feather="paperclip" class="fe-1x "></i>
 
 																</div>
 
 																<!--Time-->
-																<div align="right">
-																	<span class="block small text-muted">Just Now</span>
+																<div>
+																	<span class="block small text-muted"><fmt:formatDate value="${item.regDateTime }"/></span>
 																</div>
 
 															</div>

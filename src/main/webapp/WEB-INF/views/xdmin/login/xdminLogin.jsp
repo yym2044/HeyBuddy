@@ -154,7 +154,9 @@ main {
 											class="d-flex align-items-center justify-content-between mb-3">
 
 										</div>
-										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/xdmin/memberList'">로그인</button>
+										<button class="w-100 btn btn-lg btn-success" id="btnLogin" name="btnLogin" type="button">로그인</button>
+										
+																	
 										<hr class="mt-4 mb-3">
 
 
@@ -193,6 +195,40 @@ main {
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
+<!-- *********************로그인S******************************** -->
+	<script>
+		$("#btnLogin").on(
+				"click",
+				function() {
+					/* 	if(validation()==false) return false;
+					if(!checkNull($("hymmId"), $.trim($("#hymmId").val()), "아이디를 확인해 주세요!")) return false;
+					if(!checkNull($("hymmPassword"), $.trim($("#hymmPassword").val()), "비밀번호를 확인해 주세요!")) return false; */
+					$.ajax({
+						async : true,
+						cache : false,
+						type : "post",
+						url : "/member/loginProc",
+						data : {
+							"hymmId" : $("#hymmId").val(),
+							"hymmPassword" : $("#hymmPassword").val()
+						},
+						success : function(response) {
+							if (response.rt == "success") {
+								location.href = "/xdmin/memberList";
+							} else {
+								alert("아이디 및 비밀번호를 확인해주세요");
+							}
+						},
+						error : function(jqXHR, textStatus, errorThrown) {
+							alert("ajaxUpdate " + jqXHR.textStatus + " : "
+									+ jqXHR.errorThrown);
+						}
+					});
+				});
+
+</script>
+	<!-- *********************로그인E******************************** -->
+	
 </body>
 
 </html>

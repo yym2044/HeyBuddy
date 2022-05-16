@@ -77,15 +77,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int updateMember(Member dto) throws Exception { //회원수정
 		dao.updateMember(dto);
-		return 1;
-	}
-	
-	@Override
-	public int updateUploaded(Member dto) throws Exception { //회원수정
 		dao.updateUploaded(dto);
 		return 1;
 	}
 	
+
 	@Override
 	public int deleteMember(MemberVo vo) {   //회원삭제
 		return dao.deleteMember(vo);	

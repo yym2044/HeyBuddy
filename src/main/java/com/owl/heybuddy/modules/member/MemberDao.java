@@ -64,11 +64,11 @@ public class MemberDao {
 	}
 
 	public int insertUploaded(Member dto) {
-		return sqlSession.insert(namespace + ".insertUploaded", dto); // 회원등록(프로필사진)
+		return sqlSession.insert(namespace + ".insertUploaded", dto); // 회원사진 등록
 	}
 	
 	public int updateUploaded(Member dto) {
-		return sqlSession.insert(namespace + ".updateUploaded", dto); // 회원사진 수정
+		return sqlSession.update(namespace + ".updateUploaded", dto); // 회원사진 수정
 	}
 
 	// 영민 추가

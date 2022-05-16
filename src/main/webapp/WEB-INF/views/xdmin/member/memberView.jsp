@@ -189,7 +189,8 @@
 							<div class="table-responsive">
 								<div class="text-center">
 									<label for="profilePhoto" style="cursor: pointer;"> 
-									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px;" />
+									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
+									height: 100px;" />
 						<br>		
 						<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" 
 						download="<c:out value="${uploaded.path}"/><c:out value="${uploaded.originalFileName}"/>">

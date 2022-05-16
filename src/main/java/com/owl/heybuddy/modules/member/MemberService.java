@@ -12,7 +12,6 @@ public interface MemberService {
 	public Member memberView(MemberVo vo) throws Exception;  //회원뷰
 	public int insertMember(Member dto) throws Exception;  //회원등록
 	int updateMember(Member dto) throws Exception; //회원수정
-	int updateUploaded(Member dto) throws Exception; //회원수정
 	public Member profileUploaded(MemberVo vo) throws Exception; //회원사진
 	Member selectOneLogin(Member dto) throws Exception;  //회원로그인
 	int deleteMember(MemberVo vo) throws Exception;  //회원삭제

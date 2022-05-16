@@ -86,7 +86,7 @@ public class FileServiceImpl implements FileService {
 	}
 	
 	@Override
-	public int deleteDocument(FileVo vo) {   //문서삭제
+	public int deleteDocument(FileVo vo) throws Exception  {   //문서삭제
 		return dao.deleteDocument(vo);	
 	}
 	@Override

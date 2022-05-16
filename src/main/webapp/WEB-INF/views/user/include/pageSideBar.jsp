@@ -12,7 +12,8 @@
 					<span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-success fw-bold"> 팀 </span>
 					<span class="sidebar-text">
 						<!--Sidebar-text-->
-						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${item.hyspName}"/></span>
+						<%-- <span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${item.hyspName}"/></span> --%>
+						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${hyspName}"/></span>
 					</span>
 				</div>
 			</a>
@@ -87,7 +88,7 @@
 		<!--Aside-footer-->
 		<footer class="aside-footer position-relative p-3">
 			<ul class="nav flex-column collapse-group collapse d-flex">
-				<c:if test="${hysmRoleCd eq 12}">
+				<c:if test="${hostNy eq 1}">
 					<li class="nav-item"><a href="/setting/space"
 						class="nav-link d-flex align-items-center text-truncate Sidebar-link">
 							<span class="sidebar-icon"> <i data-feather="settings"

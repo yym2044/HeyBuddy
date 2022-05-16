@@ -165,7 +165,6 @@ public class MemberController {
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 		
-		
 		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
 		System.out.println("vo.getHymmName :" + vo.getHymmName());
 		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
@@ -177,12 +176,15 @@ public class MemberController {
 		Member rt = service.selectOneSidebar(vo);
 		model.addAttribute("item", rt);
 		
-		// 스페이스 입장 하면서 세션에 스페이스Seq 값 세팅
-//		httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
-//		if(rt.getHysmRoleCd() == 12) {
-//			httpSession.setAttribute("", rt)
-//		}
-		//
+//		스페이스 입장 하면서 세션에 스페이스이름 값 세팅 => 사이드바 include 파일에서 활용
+		httpSession.setAttribute("hyspName", rt.getHyspName());
+		
+		if(rt.getHysmRoleCd() == 12) {
+			httpSession.setAttribute("hostNy", 1);
+		} else {
+			httpSession.setAttribute("hostNy", 0);
+		}
+		
 		
 		return "user/member/memberList";
 	}

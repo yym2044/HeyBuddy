@@ -9,7 +9,7 @@
 			<a href="#" class="d-block">
 				<div class="d-flex align-items-center flex-no-wrap text-truncate">
 					<!--Sidebar-icon-->
-					<span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-success fw-bold"> 팀 </span>
+					<span id="sidebarIcon" class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-success fw-bold"></span>
 					<span class="sidebar-text">
 						<!--Sidebar-text-->
 						<%-- <span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${item.hyspName}"/></span> --%>
@@ -113,3 +113,9 @@
 	<a href="#"></a>
 </div>
 <!--///.Sidebar close end///-->
+
+<script type="text/javascript">
+
+document.querySelector('#sidebarIcon').innerText = "<c:out value="${hyspName}"/>".charAt(0);
+
+</script>

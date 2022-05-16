@@ -321,7 +321,7 @@
                       </div>
                     </footer>
                     <!--/.Page Footer End-->
-                </main>
+                 </main>
                 <!--///////////Page content wrapper End///////////////-->
             </div>
         </div>

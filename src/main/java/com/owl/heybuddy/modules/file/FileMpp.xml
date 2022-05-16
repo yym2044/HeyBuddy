@@ -39,7 +39,7 @@
 		count(*)
 		<include refid="selectCommon"/>
 	</select>
-
+ 
 
 <select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
 		select

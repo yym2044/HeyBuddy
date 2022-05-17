@@ -15,6 +15,10 @@ public class MySpaceDao {
 
 	private static String namespace = "com.owl.heybuddy.modules.mySpace.MySpaceMpp";
 
+	public int selectOneCount(MySpaceVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo); // counting
+	}
+
 	public List<MySpace> selectListMySpace(MySpaceVo vo) {
 		return sqlSession.selectList(namespace + ".selectListMySpace", vo); // 스페이스리스트
 	}
@@ -26,7 +30,7 @@ public class MySpaceDao {
 	public MySpace selectOneMySpace(MySpaceVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneMySpace", vo); // 스페이스뷰
 	}
-	
+
 	public MySpace selectOneReceive(MySpaceVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneReceive", vo); // 초대뷰
 	}

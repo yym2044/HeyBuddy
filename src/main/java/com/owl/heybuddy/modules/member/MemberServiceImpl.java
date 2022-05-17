@@ -28,6 +28,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.selectOneCount(vo);
 	}
 	@Override
+	public int selectOneCountSpaceMember(MemberVo vo) throws Exception {   //스페이스멤버
+		return dao.selectOneCountSpaceMember(vo);
+	}
+	@Override
 	public Member selectOneSidebar(MemberVo vo) throws Exception { // 사이드바상단
 		return dao.selectOneSidebar(vo);
 	}

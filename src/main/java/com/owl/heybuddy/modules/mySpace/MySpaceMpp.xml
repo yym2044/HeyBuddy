@@ -66,7 +66,7 @@
 
 		WHERE 1=1
 		AND b.hyspSeq = #{hyspSeq}
-		AND c.hymmSeq = #{hymmSeq}
+		AND b.hymmSeq = #{hymmSeq}
 
 		
 	</select>
@@ -89,7 +89,18 @@
 		AND a.hyspSeq = #{hyspSeq}
 		AND b.hymmSeq = #{hymmSeq}
 	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
 
+		SELECT
+		count(*)
+		FROM hybdSpaceMember
+		WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+		AND hysmAcceptedNy = '1'
+
+	</select>
+	
 	<insert id="insertMySpace">
 
 		INSERT INTO hybdSpace (

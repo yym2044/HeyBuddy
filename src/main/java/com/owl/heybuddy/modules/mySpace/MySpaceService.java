@@ -3,6 +3,9 @@ package com.owl.heybuddy.modules.mySpace;
 import java.util.List;
 
 public interface MySpaceService {
+
+	public int selectOneCount(MySpaceVo vo) throws Exception; // counting
+
 	public List<MySpace> selectListMySpace(MySpaceVo vo) throws Exception; // 스페이스리스트
 
 	public List<MySpace> selectListReceive(MySpaceVo vo) throws Exception; // 초대받은리스트

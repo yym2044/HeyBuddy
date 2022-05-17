@@ -100,9 +100,17 @@ public class MySpaceController {
 
 	@RequestMapping(value = "/mySpace/mySpaceReceive")
 	public String mySpaceReceive(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
+		
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		
 		vo.setHyspSeq(vo.getHyspSeq());
 		vo.setHyspName(vo.getHyspName());
 		vo.setHymmSeq(vo.getHymmSeq());
+		
+		int totalMembers = service.selectOneCount(vo);
+		vo.setTotalMembers(totalMembers);
+		
 		MySpace rt = service.selectOneReceive(vo);
 		model.addAttribute("item", rt);
 		

@@ -40,6 +40,17 @@
 		<include refid="selectCommon"/>
 	</select>
 
+	<select id="selectOneCountSpaceMember" resultType="Integer">
+
+		SELECT
+		count(*)
+		FROM hybdSpaceMember
+		WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+		AND hysmAcceptedNy = '1'
+
+	</select>
+	
 	<select id="memberList" resultMap="resultMapObj">  <!-- 멤버리스트-->
 		select
 		*

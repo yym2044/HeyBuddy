@@ -112,7 +112,7 @@ body {
 
 									<!-- Avatar -->
 
-									<h5 class="mb-0">Welcome 👋 <c:out value="${item.hymmName}" />님</h5>
+									<h5 class="mb-0">Welcome 👋 <c:out value="${sessName}" />님</h5>
 									<br>
 									<h5>최고의 팀 '<c:out value="${item.hyspName}" />'으로부터 초대되었습니다.</h5>
 									<hr>
@@ -126,7 +126,7 @@ body {
 										<a href="#!" class="text-reset"> <c:out value="${item.hyspName}" /> </a>
 									</h5>
 
-									<small> 현재가입자수 : 4 명</small>
+									<small> 현재 멤버수 : <c:out value="${vo.totalMembers}" /> 명</small>
 
 									<!-- Email -->
 									<br> <br>

@@ -82,7 +82,7 @@
 								<!--Search results list-->
 								<div class="list-group mb-4">
 									<div class="list-group-item p-4">
-										<small class="text-muted">About 54 results for member
+										<small class="text-muted">About <c:out value="${vo.totalRows}" /> results for member
 										</small>
 									</div>
 									
@@ -109,7 +109,7 @@
 
 								</div>
 
-								<!--Pagination-->
+		<!-- 						Pagination
 								<nav aria-label="Page navigation example" class="d-flex justify-content-end">
 									<ul class="pagination">
 										<li class="page-item disabled"><a class="page-link" href="#!">Previous</a></li>
@@ -118,7 +118,7 @@
 										<li class="page-item"><a class="page-link" href="#!">3</a></li>
 										<li class="page-item"><a class="page-link" href="#!">Next</a></li>
 									</ul>
-								</nav>
+								</nav> -->
 							</div>
 						
 					

@@ -175,6 +175,9 @@ public class MemberController {
 		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
 		System.out.println("vo.getHyspName :" + vo.getHyspName());
 		
+		int totalMembers = service.selectOneCountSpaceMember(vo);
+		vo.setTotalRows(totalMembers);
+		
 		List<Member> list = service.selectListSpaceMember(vo);
 		model.addAttribute("list", list);
 		

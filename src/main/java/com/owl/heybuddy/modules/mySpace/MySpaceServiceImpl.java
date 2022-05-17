@@ -22,6 +22,11 @@ public class MySpaceServiceImpl implements MySpaceService {
 	}
 
 	@Override
+	public List<MySpace> selectListSend(MySpaceVo vo) throws Exception { // 초대리스트
+		return dao.selectListSend(vo);
+	}
+
+	@Override
 	public MySpace selectOneMySpace(MySpaceVo vo) throws Exception { // 스페이스뷰
 		return dao.selectOneMySpace(vo);
 	}
@@ -51,6 +56,16 @@ public class MySpaceServiceImpl implements MySpaceService {
 	@Override
 	public int updateMySpace(MySpace dto) throws Exception { // 스페이스수정
 		return dao.updateMySpace(dto);
+	}
+
+	@Override
+	public int updateReceiveYes(MySpace dto) throws Exception { // 초대수락
+		return dao.updateReceiveYes(dto);
+	}
+
+	@Override
+	public int updateReceiveNo(MySpace dto) throws Exception { // 초대거절
+		return dao.updateReceiveNo(dto);
 	}
 
 	@Override

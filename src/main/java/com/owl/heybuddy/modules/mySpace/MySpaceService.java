@@ -10,6 +10,8 @@ public interface MySpaceService {
 
 	public List<MySpace> selectListReceive(MySpaceVo vo) throws Exception; // 초대받은리스트
 
+	public List<MySpace> selectListSend(MySpaceVo vo) throws Exception; // 초대리스트
+
 	public MySpace selectOneMySpace(MySpaceVo vo) throws Exception; // 스페이스뷰
 
 	public MySpace selectOneReceive(MySpaceVo vo) throws Exception; // 초대뷰
@@ -19,6 +21,10 @@ public interface MySpaceService {
 	public int insertMySpaceMember(MySpace dto) throws Exception; // 스페이스등록
 
 	int updateMySpace(MySpace dto) throws Exception; // 스페이스수정
+
+	int updateReceiveYes(MySpace dto) throws Exception; // 초대수락
+
+	int updateReceiveNo(MySpace dto) throws Exception; // 초대거절
 
 	int deleteMySpace(MySpaceVo vo) throws Exception; // 스페이스삭제
 

@@ -63,6 +63,7 @@ body {
 	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
 			<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
 			<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>">
+			<input type="hidden" id="hymmName" name="hymmName" value="<c:out value="${item.hymmName}"/>">
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
 	<ul class="navbar-nav d-flex align-items-center h-100">
@@ -151,8 +152,7 @@ body {
 													<br> <br>
 													<!-- Split dropdown user button -->
 													<div class="btn-group">
-														<a
-															href="javascript:goSpace(<c:out value="${item.hyspSeq}"/>);">
+														<a href="javascript:goSpace(<c:out value="${item.hyspSeq}"/>);">
 															<button type="button" class="btn btn-gray">
 																<c:if test="${item.hysmRoleCd eq 12}">
 																	<i class="fe-1x me-2" data-feather="award"></i>

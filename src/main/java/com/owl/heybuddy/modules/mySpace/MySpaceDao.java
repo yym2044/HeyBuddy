@@ -27,6 +27,10 @@ public class MySpaceDao {
 		return sqlSession.selectList(namespace + ".selectListReceive", vo); // 초대받은리스트
 	}
 
+	public List<MySpace> selectListSend(MySpaceVo vo) {
+		return sqlSession.selectList(namespace + ".selectListSend", vo); // 초대리스트
+	}
+
 	public MySpace selectOneMySpace(MySpaceVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneMySpace", vo); // 스페이스뷰
 	}
@@ -46,6 +50,14 @@ public class MySpaceDao {
 
 	public int updateMySpace(MySpace dto) {
 		return sqlSession.update(namespace + ".updateMySpace", dto); // 스페이스수정
+	}
+
+	public int updateReceiveYes(MySpace dto) {
+		return sqlSession.update(namespace + ".updateReceiveYes", dto); // 허락
+	}
+
+	public int updateReceiveNo(MySpace dto) {
+		return sqlSession.update(namespace + ".updateReceiveNo", dto); // 거절
 	}
 
 	public int deleteMySpace(MySpaceVo vo) {

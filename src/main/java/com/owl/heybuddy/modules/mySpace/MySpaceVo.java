@@ -8,6 +8,7 @@ public class MySpaceVo {
 	private String hymmName;
 	private String hyspName;
 	private int totalMembers;
+	private int hysmAcceptedNy;
 
 	public String getHyspSeq() {
 		return hyspSeq;
@@ -55,6 +56,14 @@ public class MySpaceVo {
 
 	public void setTotalMembers(int totalMembers) {
 		this.totalMembers = totalMembers;
+	}
+
+	public int getHysmAcceptedNy() {
+		return hysmAcceptedNy;
+	}
+
+	public void setHysmAcceptedNy(int hysmAcceptedNy) {
+		this.hysmAcceptedNy = hysmAcceptedNy;
 	}
 
 }

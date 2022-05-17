@@ -42,16 +42,34 @@
 		SELECT
 		a.hyspSeq
 		, a.hyspName
+		, b.hysmAcceptedNy
 
 		FROM hybdSpace a
-		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpaceMember b on b.hysmRoleCd = 13 AND b.hyspSeq = a.hyspSeq
 
 		WHERE 1=1
 		AND b.hymmSeq = #{hymmSeq}
 		ORDER BY hysmSeq DESC
 		
 	</select>
-	
+
+	<select id="selectListSend" resultMap="resultMapObj">
+		SELECT
+		a.hyspName
+		, b.hymmSeq
+		, b.hysmAcceptedNy
+		, c.hymmName
+
+		FROM hybdSpace a
+		LEFT JOIN hybdSpaceMember b on b.hysmRoleCd = 13 AND b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+
+		WHERE 1=1
+		AND b.hysmHost
+		= 2
+		ORDER BY hysmSeq DESC
+	</select>
+		
 	<select id="selectOneReceive" resultMap="resultMapObj">
 	
 		SELECT
@@ -138,6 +156,7 @@
 		, hysmActiveNy
 		, hysmAcceptedNy
 		, hysmExitNy
+		, hysmHost
 		, hysmDelNy
 		) VALUES (
 		#{hymmSeq}
@@ -146,6 +165,7 @@
 		, 1
 		, 1
 		, 0
+		, #{hymmSeq}
 		, 0
 		)
 
@@ -181,6 +201,30 @@
 
 		WHERE 1=1
 		AND hysmSeq = #{hysmSeq}
+	</update>
+	
+	<update id="updateReceiveYes">
+		UPDATE hybdSpaceMember
+		SET
+		hysmAcceptedNy = 1
+		, hysmExitNy = 0
+		, hysmActiveNy = 1
+
+		WHERE 1=1
+		AND hysmSeq = #{hysmSeq}
+		AND hyspSeq = #{hyspSeq}
+	</update>
+
+	<update id="updateReceiveNo">
+		UPDATE hybdSpaceMember
+		SET
+		hysmAcceptedNy = 0
+		, hysmExitNy = 0
+		, hysmActiveNy = 1
+
+		WHERE 1=1
+		AND hysmSeq = #{hysmSeq}
+		AND hyspSeq = #{hyspSeq}
 	</update>
 
 	<update id="ueleteMySpace">

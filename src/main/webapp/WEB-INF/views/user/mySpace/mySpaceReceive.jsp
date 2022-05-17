@@ -51,6 +51,9 @@ body {
 </style>
 
 <body>
+	<form id="Receive" name="Receive" method="post" action="/mySpace/mySpaceReceive">
+	<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+	<input type="hidden" id="hysmSeq" name="hysmSeq" value="<c:out value="${item.hysmSeq}"/>">
 <!--//page-header//-->
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -132,18 +135,15 @@ body {
 									<br> <br>
 
 									<div class="btn-group">
-										<button type="button" class="btn btn-gray"
-											onclick="location.href = '/mySpace/mySpaceList'">
-											<i class="fe-1x me-2" data-feather="thumbs-up"></i> I'm in!
-										</button>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-gray"
-											onclick="location.href = '/mySpace/mySpaceList'">
-											<i class="fe-1x me-2" data-feather="thumbs-down"></i> I'm
-											Sorry
-										</button>
+									<a href="javascript:goReceive1(<c:out value="${item.hyspSeq}"/>);">
+										<button type="button" class="btn btn-gray">
+												<i class="fe-1x me-2" data-feather="thumbs-up"></i> I'm in! </button>
+									</a></div>
 
+									<div class="btn-group">
+									<a href="javascript:goReceive2(<c:out value="${item.hyspSeq}"/>);">
+									<button type="button" class="btn btn-gray">
+												<i class="fe-1x me-2" data-feather="thumbs-down"></i> I'm Sorry </button></a>
 									</div>
 								</div>
 							</div>
@@ -173,6 +173,7 @@ body {
 		</main>
 		</div>
 	</div>
+	</form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>
@@ -182,7 +183,47 @@ body {
 	</script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
+	
+	<script type="text/javascript">
 
+	goReceive1 = function(seq) {
+		$("#hyspSeq").val(seq);
+        $("#hysmAcceptedNy").val(1);
+		$("#Receive").attr("action", "/mySpace/mySpaceUpdt1");
+		$("#Receive").submit();
+	}
+	goReceive2 = function(seq) {
+		$("#hyspSeq").val(seq);
+        $("#hysmAcceptedNy").val(0);
+		$("#Receive").attr("action", "/mySpace/mySpaceUpdt2");
+		$("#Receive").submit();
+	}
+	
+/* 	$(document).on('click','#hysmAcceptedNy', function () {
+
+		$("#hyspAcceptedNy").attr("action", "/mySpace/mySpaceUpdt");
+		$("#hyspAcceptedNy").submit();
+	}); */
+	
+	
+	
+	/* $("#inputHyspAcceptedNy_n").on("click", function(){
+		inputHyspAcceptedNy_n();
+		$("#hyspAcceptedNy").attr("action", "/mySpace/mySpaceUpdt");
+		$("#hyspAcceptedNy").submit();
+	});
+	$("#inputHyspAcceptedNy_y").on("click", function(){
+		inputHyspAcceptedNy_y();
+		$("#hyspAcceptedNy").attr("action", "/mySpace/mySpaceUpdt");
+		$("#hyspAcceptedNy").submit();
+	});
+	function inputHyspAcceptedNy_n() {
+		document.getElementById('hyspAcceptedNy').value = 0;
+	}
+	function inputHyspAcceptedNy_y() {
+		document.getElementById('hyspAcceptedNy').value = 1;
+	} */
+	</script>
 </body>
 
 </html>

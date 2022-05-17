@@ -124,14 +124,21 @@ body {
 											class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
 											<div class="flex-shrink-0">
 												<div class="me-3 avatar">
-													<img src="/resources/user/images/Beer-drinking.jpeg"
+													<img src="/resources/user/images/gathering1.png"
 														class="rounded-circle img-fluid" alt="">
 
 												</div>
 											</div>
 											<div class="overflow-hidden flex-grow-1">
 												<div class="d-flex">
-													<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!</h6>
+													<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!	<c:choose>
+												<c:when test="${item.hysmAcceptedNy eq 1}">
+													<i style="color:green;" data-feather="thumbs-up" class="fe-1x"></i>
+												</c:when>
+												<c:otherwise>
+													
+												</c:otherwise>
+											</c:choose></h6>
 													<small class=" opacity-75 ms-auto"><c:out
 															value="${item.hyspName}" /></small>
 												</div>

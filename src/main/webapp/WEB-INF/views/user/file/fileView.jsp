@@ -200,8 +200,8 @@ pageContext.setAttribute("br", "\n");
 												</span>
 											</span> <!--File description--> <span
 												class="d-block small text-body text-truncate">
-														<c:out value="${uploaded.originalFileName}" /> </span> <span
-												class="d-block small text-muted text-truncate"> 	<c:out value="${uploaded.size}" />
+														<c:out value="${fileUploaded.originalFileName}" /> </span> <span
+												class="d-block small text-muted text-truncate"> 	<c:out value="${fileUploaded.size}" />
 											</span>
 											</a>
 										</div>

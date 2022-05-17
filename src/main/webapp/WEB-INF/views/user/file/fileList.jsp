@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
- 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -128,7 +128,7 @@
 												<input type="text" class="form-control search ps-8"
 													placeholder="제목,등록자 검색">
 											</form>
-								<%-- 			<div
+											<%-- 			<div
 												class="btn btn-primary btn-sm d-inline-flex align-items-center">
 												<i data-feather="edit-3" class="fe-2x me-md-2"></i> <span
 													class="d-md-inline-block d-none"> <a
@@ -148,14 +148,14 @@
 								</tr>e
 							</c:when>
 							<c:otherwise>
-								
 
 
-									<div class="flex-grow-1 overflow-hidden pe-4">
 
-										<!--Inbox mail list-->
-										<div class="list-group px-4 px-lg-8 mb-4 list">
-										
+								<div class="flex-grow-1 overflow-hidden pe-4">
+
+									<!--Inbox mail list-->
+									<div class="list-group px-4 px-lg-8 mb-4 list">
+
 										<c:forEach items="${list}" var="item" varStatus="status">
 											<!--Inbox-item-->
 											<div class="list-group-item list-group-item-action">
@@ -178,12 +178,24 @@
 														class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
 														<div
 															class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
-															
-															
-															<label for="profilePhoto" style="cursor: pointer;"> 
-									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="rounded-circle" style="width: 100px; 
-									height: 100px;" /> </label>
-								
+
+
+															<label for="profilePhoto" style="">
+																<c:choose>
+																	<c:when test="${empty uploaded.uuidFileName}">
+																		<img src="/resources/user/images/profileUpload.png"
+																			class="avatar rounded-pill flex-shrink-0" alt="">
+																	</c:when>
+																	<c:otherwise>
+																		<img
+																			src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"
+																			class="avatar rounded-pill flex-shrink-0"
+																			style="width: 100px; height: 100px;" />
+																	</c:otherwise>
+
+																</c:choose>
+															</label>
+
 														</div>
 
 														<!--name class for search results-->
@@ -213,7 +225,8 @@
 
 																<!--Time-->
 																<div>
-																	<span class="block small text-muted"><fmt:formatDate value="${item.regDateTime }"/></span>
+																	<span class="block small text-muted"><fmt:formatDate
+																			value="${item.regDateTime }" /></span>
 																</div>
 
 															</div>
@@ -223,68 +236,67 @@
 													</div>
 												</div>
 											</div>
-											</c:forEach>
-										</div>
+										</c:forEach>
 									</div>
+								</div>
 							</c:otherwise>
 						</c:choose>
-		<!--포스트 페이징과 버튼 -->
-											<div class="row text-center" style="width: 100%">
-												<div style="width: 100%; float: none; margin: 0 auto">
-													<br> <br>
-													<nav aria-label="...">
-														<ul class="pagination  justify-content-center">
-															<c:if test="${vo.startPage gt vo.pageNumToShow}">
-																<li class="page-item"><a class="page-link"
-																	href="javascript:goFileList( <c:out value='${vo.startPage - 1}'/>);">
-																		Previous</a></li>
-															</c:if>
-															<c:forEach begin="${vo.startPage}" end="${vo.endPage}"
-																varStatus="i">
-																<c:choose>
-																	<c:when test="${i.index eq vo.thisPage}">
-																		<li class="page-item active"><a class="page-link"
-																			href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
-																	</c:when>
-																	<c:otherwise>
-																		<li class="page-item"><a class="page-link"
-																			href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
-																	</c:otherwise>
-																</c:choose>
-															</c:forEach>
-															<c:if test="${vo.endPage ne vo.totalPages}">
-																<li class="page-item"><a class="page-link"
-																	href="javascript:goFileList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>
-															</c:if>
-														</ul>
-													</nav>
+						<!--포스트 페이징과 버튼 -->
+						<div class="row text-center" style="width: 100%">
+							<div style="width: 100%; float: none; margin: 0 auto">
+								<br> <br>
+								<nav aria-label="...">
+									<ul class="pagination  justify-content-center">
+										<c:if test="${vo.startPage gt vo.pageNumToShow}">
+											<li class="page-item"><a class="page-link"
+												href="javascript:goFileList( <c:out value='${vo.startPage - 1}'/>);">
+													Previous</a></li>
+										</c:if>
+										<c:forEach begin="${vo.startPage}" end="${vo.endPage}"
+											varStatus="i">
+											<c:choose>
+												<c:when test="${i.index eq vo.thisPage}">
+													<li class="page-item active"><a class="page-link"
+														href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+												</c:when>
+												<c:otherwise>
+													<li class="page-item"><a class="page-link"
+														href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+										<c:if test="${vo.endPage ne vo.totalPages}">
+											<li class="page-item"><a class="page-link"
+												href="javascript:goFileList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>
+										</c:if>
+									</ul>
+								</nav>
 
-													<a
-														href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">
-														<button type="button" id="goFileForm"
-															class="btn btn-success">문서등록</button>
-													</a> <br> <br>
-
-
-												</div>
-											</div>
-										</div>
-										</div>
-
-					<!--//Page content End//-->
+								<a
+									href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">
+									<button type="button" id="goFileForm" class="btn btn-success">문서등록</button>
+								</a> <br> <br>
 
 
-					<!--//Page-footer//-->
-					<footer class="pb-4 px-4 px-lg-8">
-						<div class="container-fluid px-0">
-							<span class="d-block lh-sm small text-muted text-end">
-								&copy; <script>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--//Page content End//-->
+
+
+				<!--//Page-footer//-->
+				<footer class="pb-4 px-4 px-lg-8">
+					<div class="container-fluid px-0">
+						<span class="d-block lh-sm small text-muted text-end">
+							&copy; <script>
                               document.write(new Date().getFullYear())
                             </script> . Hey, Buddy All rights reserved.
-							</span>
-						</div>
-					</footer>
-					<!--/.Page Footer End-->
+						</span>
+					</div>
+				</footer>
+				<!--/.Page Footer End-->
 			</main>
 			<!--///////////Page content wrapper End///////////////-->
 		</div>

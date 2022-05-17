@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.owl.heybuddy.common.util.UtilUpload;
 
+
 @Service
 public class FileServiceImpl implements FileService { 
 	
@@ -27,19 +28,15 @@ public class FileServiceImpl implements FileService {
 	public File documentView(FileVo vo) throws Exception { //문서뷰
 		return dao.documentView(vo);
 	}
+	
 	@Override
-	public File fileView(FileVo vo) throws Exception { //파일뷰
-		return dao.fileView(vo);
+	public File fileUploaded(FileVo vo) throws Exception { //파일뷰
+		return dao.fileUploaded(vo);
 	}
 	
 	@Override
-	public int insertDocument(File dto) throws Exception {  //문서등록
-		return dao.insertDocument(dto);
-	}
-		
-	@Override
-	public int insertFile(File dto) throws Exception {  //파일등록
-		dao.insertFile(dto);
+	public int insertDocument(File dto) throws Exception {  //문서 + 파일 등록
+		dao.insertDocument(dto);
 
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0()) {
@@ -61,7 +58,7 @@ public class FileServiceImpl implements FileService {
 			for(MultipartFile multipartFile : dto.getFile1()) {
 				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
 				
-				UtilUpload.uploadFile(multipartFile, pathModule, dto);
+			UtilUpload.uploadFile(multipartFile, pathModule, dto);
 
 				dto.setTableName("hybdFileUploaded");
 				dto.setType(1);
@@ -73,12 +70,7 @@ public class FileServiceImpl implements FileService {
 	}
 		return 1;
 	}
-	
-	@Override
-	public File fileUploaded(FileVo vo) throws Exception { //파일확인
-		return dao.fileUploaded(vo);
-	}
-	
+		
 	@Override
 	public int updateDocument(File dto) throws Exception { //문서수정
 		dao.updateDocument(dto);
@@ -93,6 +85,8 @@ public class FileServiceImpl implements FileService {
 	public int updateDeleteDocument(FileVo vo) throws Exception { // 문서가짜삭제 
 		return dao.updateDeleteDocument(vo);
 	}
+
+
 
 
 }

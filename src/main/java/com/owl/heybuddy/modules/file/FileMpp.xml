@@ -16,7 +16,7 @@
  
  
 	
-		<sql id="selectCommon"> <!-- 공통 -->
+	<sql id="selectCommon"> <!-- 공통 -->
 		FROM
 		hybdDocument a
 		WHERE 1 = 1 
@@ -65,8 +65,7 @@
 		select
 		*
 		from
-		hybdDocument a
-		left join hybdMember b on b.hymmSeq = a.hymmSeq 
+		hybdDocument
 		where 1=1
 		and hydcDelNy = 0
 		and hymmSeq = #{hymmSeq}
@@ -88,7 +87,7 @@
 		VALUES(
 		#{hybdTitle}
 		,#{hybdText} 
-		,#{hybdDelNy}
+		,0
 		,#{regIp}
 		,#{regSeq}
 		,#{regDevice}
@@ -98,9 +97,6 @@
 		,#{hymmSeq}
 		)
 </insert>
-
-
-
 
 	<update id="updateDocument">  <!-- 문서수정 -->
 		UPDATE hybdDocument SET
@@ -152,12 +148,12 @@
 		)
 </insert>
 
-	<select id="FileUploaded" resultMap = "resultMapObj"> <!--파일뷰 -->
+	<select id="fileUploaded" resultMap = "resultMapObj"> <!--파일뷰 -->
 		SELECT
 			seq
-			, type
+<!-- 			, type -->
 			, defaultNy
-			, sort
+<!-- 			, sort -->
 			, originalFileName
 			, uuidFileName 
 			, ext

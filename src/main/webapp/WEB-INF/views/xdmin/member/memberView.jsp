@@ -192,7 +192,7 @@
 									
 						
 								<c:choose>
-									<c:when test="${empty uuidFileName}">
+									<c:when test="${empty uploaded.uuidFileName}">
 								<img src="/resources/user/images/profileUpload.png" class="avatar rounded-pill flex-shrink-0" alt="">
 									</c:when>
 								<c:otherwise>

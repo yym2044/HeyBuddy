@@ -45,14 +45,12 @@ public class MemberController {
 		return "xdmin/member/memberView";
 	}
 
-
 	@RequestMapping(value = "/xdmin/memberForm") // 회원등록 
 	public String memberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-	Member rt = service.memberView(vo); model.addAttribute("item", rt); 
+	Member rt = service.memberView(vo); 
 	model.addAttribute("item", rt);
 	return "xdmin/member/memberForm"; 
 	}
-
 
 	 @RequestMapping(value = "/xdmin/memberInst") // 회원등록받음 
 	 public String memberInst(MemberVo vo, Model model, Member dto, RedirectAttributes redirectAttributes) throws Exception {
@@ -62,24 +60,20 @@ public class MemberController {
 	 return "redirect:/xdmin/memberView";
 	 }
 	 
-		
-	
 	@RequestMapping(value = "/xdmin/memberEdit") // 회원수정 
 	 public String memberEdit(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 	 Member rt = service.memberView(vo); 
 	 model.addAttribute("item", rt); 
+	 model.addAttribute("uploaded", service.profileUploaded(vo));
+		
 	 return "xdmin/member/memberEdit"; 
 	 }
-
 	
 	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
 	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo) throws Exception {
 	 service.updateMember(dto); 
-
 	 return "redirect:/xdmin/memberView"; 
 	 }
-
-
 
 	  public String makeQueryString(MemberVo vo) { String tmp = "&thisPage=" +
 	  vo.getThisPage() + "&shOption=" + vo.getShMemberOption() + "&shMemberValue="
@@ -96,8 +90,6 @@ public class MemberController {
 		return "/xdmin/login/xdminLogin";
 	}
 
-
-	
 	 @ResponseBody
 	 @RequestMapping(value = "/member/loginProc") // 기본로그인 PR 
 	 public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
@@ -117,8 +109,6 @@ public class MemberController {
 	 returnMap.put("rt", "success"); } else { returnMap.put("rt", "fail"); } }
 	 else { returnMap.put("rt", "fail"); } return returnMap; }
 	 
-
-
 	 @ResponseBody
 	 @RequestMapping(value = "/member/logoutProc") // 로그아웃 
 	 public Map<String,Object> logoutProc(HttpSession httpSession) throws Exception {
@@ -128,7 +118,6 @@ public class MemberController {
 	 }
 
 
-	
 	  @RequestMapping(value = "/xdmin/memberDele") // 회원삭제 
 	  public String memberDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception { 
 	 service.deleteMember(vo); redirectAttributes.addAttribute("thisPage", vo.getThisPage());

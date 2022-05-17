@@ -202,14 +202,14 @@
 							<div class="table-responsive">
 							<div class="text-center">
 										<label for="profilePhoto" style="cursor: pointer;"> 
-										<img id="img" src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
+										<img id="img"  src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
 									height: 100px;" />
 										<input id="profilePhoto" name="file0" type="file" style="display: none;">
 											</label> 
 										<p class="p-2 fw-bold">프로필 </p>
 									</div>
 							
-										
+									
 										
 								<table id="setTable"
 									class="table table-sm table-nowrap table-card">
@@ -453,6 +453,26 @@
 		img.src = URL.createObjectURL(e.target.files[0]);
 	}
 	</script>
+	
+	
+		<!-- 프로필사진 이미지 프리뷰 바꾸는 script! 링크걸어서 사용해도 될 듯 -->
+	<script type="text/javascript">
+	let profileInput = document.getElementById("profilePhoto");
+	let img = document.querySelector('label[for=profilePhoto] img')
+	
+	profileInput.onchange = (e) => {
+		
+		var ext = $("#profilePhoto")[0].files[0].name.split('.').pop().toLowerCase();
+		if(extArrayImage.indexOf(ext) == -1){
+			alert("허용된 확장자가 아닙니다.");
+			return false;
+		}
+		
+		img.classList.add('preview');
+		img.src = URL.createObjectURL(e.target.files[0]);
+	}
+	</script>
+	
 	
 </body>
 

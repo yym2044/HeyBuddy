@@ -181,11 +181,9 @@
 															
 															
 															<label for="profilePhoto" style="cursor: pointer;"> 
-									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
+									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="rounded-circle" style="width: 100px; 
 									height: 100px;" /> </label>
-									
-									<label for="profilePhoto" style="cursor: pointer;"> <img id="img" src="/resources//user/images/profileUpload.png" style="width: 70px;">
-										</label>
+								
 														</div>
 
 														<!--name class for search results-->
@@ -228,10 +226,6 @@
 											</c:forEach>
 										</div>
 									</div>
-
-
-
-								
 							</c:otherwise>
 						</c:choose>
 		<!--포스트 페이징과 버튼 -->

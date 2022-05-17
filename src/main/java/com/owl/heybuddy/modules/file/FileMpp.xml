@@ -18,7 +18,7 @@
 	
 		<sql id="selectCommon"> <!-- 공통 -->
 		FROM
-		hybdMember a
+		hybdDocument a
 		WHERE 1 = 1 
 		<choose>
 			<when test="shHydcDelNy == 1">AND hydcDelNy = 1 </when>   

@@ -189,12 +189,34 @@
 							<div class="table-responsive">
 								<div class="text-center">
 									<label for="profilePhoto" style="cursor: pointer;"> 
-									<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
+									
+						
+								<c:choose>
+									<c:when test="${empty uuidFileName}">
+								<img src="/resources/user/images/profileUpload.png" class="avatar rounded-pill flex-shrink-0" alt="">
+									</c:when>
+								<c:otherwise>
+									 <img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" 
+										style="width: 100px; height: 100px;" />
+								</c:otherwise>
+								
+								</c:choose>
+			
+									
+									<!-- <img id="img" src="/resources//user/images/profileUpload.png" style="width: 70px;"> -->
+						<%-- 			<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
 									height: 100px;" />
+						 --%>
+						
+						
+						
 						<br>		
 						<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" 
 						download="<c:out value="${uploaded.path}"/><c:out value="${uploaded.originalFileName}"/>">
 						다운로드 </a>
+						
+						
+						
 									</label> 
 									<p class="p-2 fw-bold">프로필</p>
 								</div>
@@ -219,12 +241,12 @@
 									</tr>
 										<tr>
 																				<td class="tableText">성별</td>
-									<td class=""><c:if
+									<th class=""><c:if
 																			test="${item.hymmGenderCd eq 1}">
 																			<c:out value="남성" />
 																		</c:if> <c:if test="${item.hymmGenderCd eq 2}">
 																			<c:out value="여성" />
-																		</c:if></td>		</tr>
+																		</c:if></th>		</tr>
 										<tr>
 										<td class="tableText">생일</td>
 										<th><c:out value="${item.hymmDob}" /></th>

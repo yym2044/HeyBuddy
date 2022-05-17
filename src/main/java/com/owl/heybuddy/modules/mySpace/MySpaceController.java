@@ -17,11 +17,6 @@ public class MySpaceController {
 	@Autowired
 	MySpaceServiceImpl service;
 
-	@RequestMapping(value = "/user/myProfile")
-	public String myProfile() throws Exception {
-		return "/user/member/myProfile";
-	}
-
 	/******************************* 호스트 메뉴 Start *******************************/
 
 	@RequestMapping(value = "/setting/profile")

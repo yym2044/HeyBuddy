@@ -59,16 +59,16 @@ public class MemberController {
 	 redirectAttributes.addFlashAttribute("vo", vo); 
 	 return "redirect:/xdmin/memberView";
 	 }
-	 
+	 	
 	@RequestMapping(value = "/xdmin/memberEdit") // 회원수정 
 	 public String memberEdit(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 	 Member rt = service.memberView(vo); 
 	 model.addAttribute("item", rt); 
-	 model.addAttribute("uploaded", service.profileUploaded(vo));
-		
+     model.addAttribute("uploaded", service.profileUploaded(vo));
+
 	 return "xdmin/member/memberEdit"; 
 	 }
-	
+
 	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
 	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo) throws Exception {
 	 service.updateMember(dto); 
@@ -89,7 +89,7 @@ public class MemberController {
 	public String xdminLogin() throws Exception {
 		return "/xdmin/login/xdminLogin";
 	}
-
+	
 	 @ResponseBody
 	 @RequestMapping(value = "/member/loginProc") // 기본로그인 PR 
 	 public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
@@ -117,7 +117,7 @@ public class MemberController {
 	 return returnMap; 
 	 }
 
-
+	
 	  @RequestMapping(value = "/xdmin/memberDele") // 회원삭제 
 	  public String memberDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception { 
 	 service.deleteMember(vo); redirectAttributes.addAttribute("thisPage", vo.getThisPage());
@@ -164,9 +164,9 @@ public class MemberController {
 		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
 		System.out.println("vo.getHyspName :" + vo.getHyspName());
 		
-		int totalMembers = service.selectOneCountSpaceMember(vo);
+        int totalMembers = service.selectOneCountSpaceMember(vo);
 		vo.setTotalRows(totalMembers);
-		
+
 		List<Member> list = service.selectListSpaceMember(vo);
 		model.addAttribute("list", list);
 		
@@ -185,6 +185,29 @@ public class MemberController {
 		
 		return "user/member/memberList";
 	}
+	
+	@RequestMapping(value = "/user/myProfile")
+	public String myProfile(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
+		vo.setHymmSeq((String)httpSession.getAttribute("sessSeq"));
+		
+		model.addAttribute("rt", service.selectOneMemberInSpace(vo));
+		
+		return "/user/member/myProfile";
+	}
+	
+	@RequestMapping(value = "/user/myProfileUpdt")
+	public String myProfileUpdt(Member dto, HttpSession httpSession) throws Exception {
+		
+		service.updateMemberProfile(dto); 
+		
+		httpSession.setAttribute("uuidFileName", dto.getUuidFileName());
+		httpSession.setAttribute("path", dto.getPath());
+		
+		return "redirect:/user/myProfile";
+	}
+	
 
 	/******************************* 호스트 메뉴 Start *******************************/
 

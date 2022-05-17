@@ -1,5 +1,7 @@
 package com.owl.heybuddy.modules.meet;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +23,9 @@ public class MeetController {
 	}
 	
 	@RequestMapping(value = "/meet/meetList")
-	public String meetList(Model model, MeetVo vo) throws Exception {
+	public String meetList(Model model, MeetVo vo, HttpSession httpSession) throws Exception {
 		
-		vo.setHyspSeq("1");
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		model.addAttribute("list", service.selectListRoom(vo));
 		
@@ -47,18 +49,18 @@ public class MeetController {
 	
 	
 	@RequestMapping(value = "/meet/meetEnter")
-	public String meetEnter(Model model, @ModelAttribute("vo") MeetVo vo) throws Exception {
+	public String meetEnter(Model model, @ModelAttribute("vo") MeetVo vo, HttpSession httpSession) throws Exception {
 		
-		vo.setHyspSeq("1");
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		model.addAttribute("rt", service.selectOneRoom(vo));
 		
 		return "user/meet/meetEnter";
 	}
 	@RequestMapping(value = "/meet/meetRoom")
-	public String meetRoom(Model model, @ModelAttribute("vo") MeetVo vo, Meet dto) throws Exception {
+	public String meetRoom(Model model, @ModelAttribute("vo") MeetVo vo, Meet dto, HttpSession httpSession) throws Exception {
 		
-		vo.setHyspSeq("1");
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		model.addAttribute("rt", service.selectOneRoom(vo));
 		

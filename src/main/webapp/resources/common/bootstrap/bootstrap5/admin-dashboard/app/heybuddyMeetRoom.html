@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="./meetRoom/style.css">
+<title>Yoom</title>
+</head>
+<body>
+	<header>
+		<i class="fab fa-pied-piper-square fa-2x"></i>
+		<h1>Yoom</h1>
+	</header>
+	<main>
+		<div class="call" id="call">
+			<div id="streamBox">
+				<div id="streams">
+					<div class="people1" id="myStream">
+						<video id="myFace" autoplay playsinline width="400" height="400"></video>
+						<h3 id="userNickname"></h3>
+					</div>
+				</div>
+				<div id="controlers">
+					<div id="controlers__column">
+						<select id="cameras"></select>
+					</div>
+					<div id="controlers__column">
+						<div id="buttons">
+							<button id="mute">
+								<i class="fas fa-microphone fa-2x unMuteIcon"></i><i class="fas fa-microphone-slash fa-2x muteIcon"></i>
+							</button>
+							<button id="camera">
+								<i class="fas fa-video fa-2x cameraIcon"></i><i class="fas fa-video-slash fa-2x unCameraIcon"></i>
+							</button>
+						</div>
+					</div>
+					<div id="controlers__column">
+						<button id="leave">Leave</button>
+					</div>
+				</div>
+			</div>
+			<div id="chatRoom">
+				<ul id="chatBox"></ul>
+				<form id="chatForm">
+					<input required type="text" placeholder="Write your chat">
+					<button>Send</button>
+				</form>
+			</div>
+		</div>
+	</main>
+	<aside class="modal hidden">
+		<div class="modal__box">
+			<h2 class="modal__text"></h2>
+			<button class="modal__btn">OK</button>
+		</div>
+	</aside>
+</body>
+</html>

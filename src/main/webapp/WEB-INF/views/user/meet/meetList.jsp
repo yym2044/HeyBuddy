@@ -103,7 +103,6 @@
 			                                        </tr>
 			                                    </thead> -->
 											<tbody>
-												
 												<c:forEach items="${list}" var="room" varStatus="status">
 													<tr>
 														<td class="text-center" style="width: 200px;">

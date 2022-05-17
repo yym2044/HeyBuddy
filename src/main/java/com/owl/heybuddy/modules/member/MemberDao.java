@@ -18,8 +18,8 @@ public class MemberDao {
 	public int selectOneCount(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo); // 회원검색
 	}
-	
-	public int selectOneCountSpaceMember(MemberVo vo) {
+
+    public int selectOneCountSpaceMember(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCountSpaceMember", vo); // 회원검색
 	}
 
@@ -98,5 +98,13 @@ public class MemberDao {
 
 	public Member selectOneSpace(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneSpace", vo);
+	}
+	
+	public int updateMemberProfile(Member dto) {
+		return sqlSession.update(namespace + ".updateMemberProfile", dto);
+	}
+	
+	public int updateUploaded_2(Member dto) {
+		return sqlSession.update(namespace + ".updateUploaded_2", dto); 
 	}
 }

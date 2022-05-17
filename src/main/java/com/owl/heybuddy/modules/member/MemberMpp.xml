@@ -40,7 +40,7 @@
 		<include refid="selectCommon"/>
 	</select>
 
-	<select id="selectOneCountSpaceMember" resultType="Integer">
+    <select id="selectOneCountSpaceMember" resultType="Integer">
 
 		SELECT
 		count(*)
@@ -50,7 +50,7 @@
 		AND hysmAcceptedNy = '1'
 
 	</select>
-	
+    
 	<select id="memberList" resultMap="resultMapObj">  <!-- 멤버리스트-->
 		select
 		*
@@ -254,9 +254,9 @@
 		UPDATE ${tableName} SET
 		defaultNy = 0 
 		,type  = #{type}
-		,sort = #{type}
-		,originalFileName = #{type}
-		,uuidFileName = #{type}
+		,sort = #{sort}
+		,originalFileName = #{originalFileName}
+		,uuidFileName = #{uuidFileName}
 		,ext = #{ext}
  		,size  = #{size}
 		,delNy = 0
@@ -453,5 +453,32 @@
 	WHERE 1=1
 		AND a.hyspSeq = #{hyspSeq}
 	</select>
+	
+	<update id="updateMemberProfile">
+	UPDATE
+		hybdMember
+	SET
+		hymmNumber = #{hymmNumber}
+		, hymmEmail = #{hymmEmail}
+		, hymmDob = #{hymmDob}
+		, hymmDesc = #{hymmDesc}
+	WHERE 1=1
+		AND hymmSeq = #{hymmSeq}
+	</update>
+	
+	
+	<update id="updateUploaded_2">
+	UPDATE
+		${tableName}
+	SET
+		originalFileName = #{originalFileName}
+		, uuidFileName = #{uuidFileName}
+		, ext = #{ext}
+		, size = #{size}
+		, path = #{path}
+	WHERE 1=1
+		AND pseq = #{pseq}
+		
+	</update>
 	
 </mapper>

@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.selectOneCount(vo);
 	}
 	@Override
-	public int selectOneCountSpaceMember(MemberVo vo) throws Exception {   //스페이스멤버
+    public int selectOneCountSpaceMember(MemberVo vo) throws Exception {   //스페이스멤버
 		return dao.selectOneCountSpaceMember(vo);
 	}
 	@Override
@@ -127,6 +127,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 	public Member selectOneSpace(MemberVo vo) throws Exception {
 		return dao.selectOneSpace(vo);
+	}
+	public int updateMemberProfile(Member dto) throws Exception {
+		
+		dao.updateMemberProfile(dto);
+		
+		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
+		
+		UtilUpload.uploadProfile(dto.getFile0()[0], pathModule, dto);
+
+		dto.setTableName("hybdMemberUploaded");
+		dto.setPseq(dto.getHymmSeq());
+		 
+		dao.updateUploaded_2(dto);
+
+		
+		return 1;
 	}
 }
 

@@ -187,10 +187,10 @@
 					<div class="avatar-status status-online me-sm-2 avatar xs">
 						<c:choose>
 							<c:when test="${empty uuidFileName}">
-								<img src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">
+								<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">
 							</c:when>
 							<c:otherwise>
-								<img src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="rounded-circle img-fluid" alt="">
+								<img style="width: 100%; height:100%;" src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="rounded-circle img-fluid" alt="">
 							</c:otherwise>
 						</c:choose>
 					</div>

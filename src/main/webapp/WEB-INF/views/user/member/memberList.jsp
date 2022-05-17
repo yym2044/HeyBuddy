@@ -95,7 +95,17 @@
 									<!--Search result item-->
 									<a href="/chat/chat" class="list-group-item p-4 list-group-item-action">
 										<div class="d-flex align-items-center">
-											<img src="/resources/assets/media/avatars/01.jpg" class="flex-shrink-0 rounded-3 width-80" alt="">
+											
+											<c:choose>
+												<c:when test="${empty item.uuidFileName}">
+													<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="flex-shrink-0 rounded-3 width-80" alt="">
+												</c:when>
+												<c:otherwise>
+													<img style="width: 100%; height:100%;" src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="flex-shrink-0 rounded-3 width-80" alt="">
+												</c:otherwise>
+											</c:choose>
+											<!-- <img src="/resources/assets/media/avatars/01.jpg" class="flex-shrink-0 rounded-3 width-80" alt=""> -->
+											
 											<div class="ps-3 flex-grow-1 overflow-hidden">
 												<span class="fw-semibold d-block mb-1 text-truncate"></span>
 

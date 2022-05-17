@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.owl.heybuddy.modules.member.Member;
 import com.owl.heybuddy.modules.plan.Plan;
 import com.owl.heybuddy.modules.plan.PlanVo;
 
@@ -25,6 +24,10 @@ public class PlanController {
 	@RequestMapping(value = "/plan/planList")
 	public String planList(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model, HttpSession httpSession) throws Exception {
 		
+		 List<Plan> selectListMember = service.selectListMember(); 
+			
+		 model.addAttribute("selectListMember", selectListMember); 
+
 		
 		if(vo.getHyspSeq() != null) {
 			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
@@ -41,11 +44,8 @@ public class PlanController {
 		System.out.println("vo.getHyspName :" + vo.getHyspName());
 		
 		
-		/* List<Plan> selectListSpace = service.selectListSpace(); */
-		
-		/* model.addAttribute("selectListSpace", selectListSpace); */
 	
-		
+
 		return "user/plan/planList";
 	}
 	
@@ -98,5 +98,17 @@ public class PlanController {
 	public String planEdit() throws Exception {
 
 		return "user/plan/planEdit";
+	}
+	@RequestMapping(value = "/plan/test")
+	public String test(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model) throws Exception {
+		
+
+		 List<Plan> selectListMember = service.selectListMember(); 
+			
+		 model.addAttribute("selectListMember", selectListMember); 
+
+		
+		
+		return "user/plan/test";
 	}
 }

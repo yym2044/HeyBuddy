@@ -30,6 +30,10 @@ public class PlanServiceImpl implements PlanService {
 	public List<Plan> selectListSpace() throws Exception {
 		return dao.selectListSpace();
 	}
+	@Override
+	public List<Plan> selectListMember() throws Exception {
+		return dao.selectListMember();
+	}
 
 	@Override
 	public int insert(Plan dto) throws Exception {

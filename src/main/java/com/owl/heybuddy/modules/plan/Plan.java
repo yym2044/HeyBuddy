@@ -14,6 +14,16 @@ public class Plan {
 	private String hyplDesc;
 	private Integer hyplDelNy;
 	
+	// hybdMember
+	
+	private Integer hymmSeq;
+	private String hymmName;
+	
+	
+	// hybdSpaceMember
+
+	
+	
 	// HybdSpace
 	
 	private Integer hyspSeq;
@@ -87,6 +97,18 @@ public class Plan {
 		this.hyplDelNy = hyplDelNy;
 	}
 	
+	public Integer getHymmSeq() {
+		return hymmSeq;
+	}
+	public void setHymmSeq(Integer hymmSeq) {
+		this.hymmSeq = hymmSeq;
+	}
+	public String getHymmName() {
+		return hymmName;
+	}
+	public void setHymmName(String hymmName) {
+		this.hymmName = hymmName;
+	}
 	public Integer getHyspSeq() {
 		return hyspSeq;
 	}

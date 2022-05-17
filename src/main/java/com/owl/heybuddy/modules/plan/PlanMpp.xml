@@ -70,18 +70,18 @@
 		WHERE	1 = 1
 	</select>
 
-<!-- 	<select id="selectListMember" resultMap="resultMapObj">
-		SELECT
-			a.
-			,a.
-			
-			,b.hymmSeq
-			,b.hymmName
+	<select id="selectListMember" resultMap="resultMapObj">
+		SELECT distinct
+			c.hymmSeq
+			,c.hymmName
 		FROM 
 			hybdSpaceMember AS a
-		LEFT JOIN hybd
-		WHERE	1 = 1
-	</select> -->
+		LEFT JOIN hybdSpace AS b
+		ON a.hyspSeq= b.hyspSeq
+        LEFT JOIN hybdMember AS c
+        ON c.hymmSeq = a.hymmSeq
+		WHERE	1 = 1;
+	</select>
 
 
 

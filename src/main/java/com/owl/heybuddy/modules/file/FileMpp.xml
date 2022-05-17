@@ -168,7 +168,7 @@
 		FROM
 			hybdFileUploaded
 		WHERE 1=1
-			AND pseq = #{hymmSeq}
+			AND pseq = #{hydcSeq}
 	</select>
 	
 	

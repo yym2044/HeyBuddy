@@ -180,17 +180,12 @@
 
 															<label for="profilePhoto" style="">
 																<c:choose>
-																	<c:when test="${empty uploaded.uuidFileName}">
-																		<img src="/resources/user/images/profileUpload.png"
-																			class="avatar rounded-pill flex-shrink-0" alt="">
-																	</c:when>
-																	<c:otherwise>
-																		<img
-																			src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"
-																			class="avatar rounded-pill flex-shrink-0"
-																			style="width: 100px; height: 100px;" />
-																	</c:otherwise>
-
+																		<c:when test="${empty uploaded.uuidFileName}">
+								<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle" alt="">
+									</c:when>
+								<c:otherwise>
+									 <img style="width: 100px; height:100px;" src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0"  />
+								</c:otherwise>
 																</c:choose>
 															</label>
 
@@ -447,16 +442,25 @@ var userList = new List('mailList', options);
 
 	<script type="text/javascript">
 		var seq = $("input:hidden[name=hydcSeq]");
-
-
+		
+		goFileList = function(seq) {
+			alert(seq);
+			$("#thisPage").val(seq);
+			$("#formList").submit();
+		};
+		
 		goFileView = function(seq) {
 			alert(seq);
-			$("#hymmSeq").val(seq);
+			$("#hydcSeq").val(seq);
 			$("#formList").attr("action", "/file/fileView");
 			$("#formList").submit();
 		};
 		goFileForm = function(seq) {
 			$("#formList").attr("action", "/file/fileForm");
+			$("#formList").submit();
+		};
+		goFileMultiNelete = function(seq) {
+			$("#formList").attr("action", "/file/fileMultiNele");
 			$("#formList").submit();
 		};
 		</script>

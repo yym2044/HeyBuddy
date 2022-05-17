@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.owl.heybuddy.modules.member.Member;
+
 
 
 @Repository
@@ -37,6 +39,9 @@ public class FileDao {
 	}
 	public int updateDocument(File dto) {
 		return sqlSession.update(namespace + ".updateDocument", dto); // 문서수정
+	}
+	public int updateUploaded(File dto) {
+		return sqlSession.update(namespace + ".updateUploaded", dto); // 파일수정
 	}
 
 	public int deleteDocument(FileVo vo) {

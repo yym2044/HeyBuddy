@@ -453,7 +453,7 @@
 			});
 			</script>
 
-						<script type="text/javascript">
+	<script type="text/javascript">
 		var seq = $("input:hidden[name=hymmSeq]");
 
 		goMemberList = function(seq) {

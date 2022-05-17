@@ -191,11 +191,10 @@
 						
 								<c:choose>
 									<c:when test="${empty uploaded.uuidFileName}">
-								<img src="/resources/user/images/profileUpload.png" class="avatar rounded-pill flex-shrink-0" alt="">
+								<img style="width: 80px; height:80px;" src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">
 									</c:when>
 								<c:otherwise>
-									 <img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" 
-										style="width: 100px; height: 100px;" />
+									 <img style="width: 100px; height:100px;" src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0"  />
 								</c:otherwise>
 								
 								</c:choose>

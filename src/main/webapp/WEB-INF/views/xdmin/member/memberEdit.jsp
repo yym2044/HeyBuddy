@@ -203,9 +203,12 @@
 							<div class="text-center">
 										<label for="profilePhoto" style="cursor: pointer;"> 
 										
+						
+								
+								
 								<c:choose>
 									<c:when test="${empty uploaded.uuidFileName}">
-								<img src="/resources/user/images/profileUpload.png" class="avatar rounded-pill flex-shrink-0" alt="">
+									<img style="width: 80px; height:80px;" src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">
 								<input id="profilePhoto" name="file0" type="file" style="display: none;">
 									</c:when>
 								<c:otherwise>

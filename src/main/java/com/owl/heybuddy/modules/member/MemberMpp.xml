@@ -253,20 +253,17 @@
 		AND hymmSeq = #{hymmSeq}
 	</update>
 
-    <update id="updateUploaded"> <!-- 사진수정 -->
-		UPDATE ${tableName} SET
-		defaultNy = 0 
-		,type  = #{type}
-		,sort = #{sort}
-		,originalFileName = #{originalFileName}
-		,uuidFileName = #{uuidFileName}
-		,ext = #{ext}
- 		,size  = #{size}
-		,delNy = 0
-		,pseq = #{pseq}
-		,path = #{path}
-			WHERE 1 = 1
-		AND hymmSeq = #{hymmSeq}
+  	<update id="updateUploaded"> <!-- 프로필사진수정 -->
+	UPDATE ${tableName}
+	SET
+		originalFileName = #{originalFileName}
+		, uuidFileName = #{uuidFileName}
+		, ext = #{ext}
+		, size = #{size}
+		, path = #{path}
+	WHERE 1=1
+		AND pseq = #{pseq}
+		
 	</update>
 
 	<select id="selectOneIdUser" resultMap="resultMapObj">

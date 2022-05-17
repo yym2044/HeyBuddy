@@ -74,6 +74,7 @@ public class FileServiceImpl implements FileService {
 	@Override
 	public int updateDocument(File dto) throws Exception { //문서수정
 		dao.updateDocument(dto);
+		dao.updateUploaded(dto);
 		return 1;
 	}
 	

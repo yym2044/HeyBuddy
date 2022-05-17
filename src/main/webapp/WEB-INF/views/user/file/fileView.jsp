@@ -88,7 +88,7 @@ pageContext.setAttribute("br", "\n");
 				<form id="formView" action="" method="post">
 					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>"> 
 						<input	type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>"> 
-						<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.hymmSeq}"/>">
+						<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
 						<input type="hidden" id="shHydcDelNy" name="shHydcDelNy" value="<c:out value="${vo.shHydcDelNy}"/>"> 
 						<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>"> 
 						<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>"> 
@@ -143,8 +143,17 @@ pageContext.setAttribute("br", "\n");
 											<div class="col-md d-flex mb-4 mb-md-0 align-items-center">
 												<div class="avatar">
 												
-									<img  class="rounded-circle" src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="rounded-circle" style="width: 100px; 
-									height: 100px;" />
+												
+									<label for="profilePhoto" style="">
+																<c:choose>
+																		<c:when test="${empty uploaded.uuidFileName}">
+								<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle" alt="">
+									</c:when>
+								<c:otherwise>
+									 <img style="width: 100px; height:100px;" src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0"  />
+								</c:otherwise>
+																</c:choose>
+															</label>
 												</div>
 												<div class="flex-1 ms-2">
 													<h5 class="mb-0">
@@ -196,7 +205,7 @@ pageContext.setAttribute("br", "\n");
 											</span> <!--File description--> <span
 												class="d-block small text-body text-truncate">
 														<c:out value="${fileUploaded.originalFileName}" /> </span> <span
-												class="d-block small text-muted text-truncate"> 	<c:out value="${fileUploaded.size}" />
+												class="d-block small text-muted text-truncate"> <c:out value="${fileUploaded.size}" />
 											</span>
 											</a>
 										</div>

@@ -3,8 +3,8 @@ package com.owl.heybuddy.modules.plan;
 
 import java.util.List;
 
-import com.owl.heybuddy.modules.member.Member;
-import com.owl.heybuddy.modules.member.MemberVo;
+import com.owl.heybuddy.modules.plan.Plan;
+import com.owl.heybuddy.modules.plan.PlanVo;
 
 public interface PlanService {
 
@@ -13,6 +13,7 @@ public interface PlanService {
 	
 	public int selectOneCount(PlanVo vo) throws Exception;
 	public List<Plan> selectList(PlanVo vo) throws Exception; 
+	public List<Plan> selectListSpace() throws Exception; 
 	public Plan selectOne(PlanVo vo) throws Exception;
 	public Plan selectOneLogin(Plan dto) throws Exception;
 	/* public Member selectGender(MemberVo vo) throws Exception; */

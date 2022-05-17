@@ -13,7 +13,12 @@ public class Plan {
 	private Integer hyplTypeCd;
 	private String hyplDesc;
 	private Integer hyplDelNy;
-
+	
+	// HybdSpace
+	
+	private Integer hyspSeq;
+	
+	
 	// RegMod
 	private String regIp;
 	private String regSeq;
@@ -80,6 +85,13 @@ public class Plan {
 	}
 	public void setHyplDelNy(Integer hyplDelNy) {
 		this.hyplDelNy = hyplDelNy;
+	}
+	
+	public Integer getHyspSeq() {
+		return hyspSeq;
+	}
+	public void setHyspSeq(Integer hyspSeq) {
+		this.hyspSeq = hyspSeq;
 	}
 	public String getRegIp() {
 		return regIp;

@@ -21,6 +21,7 @@ public class PlanDao {
 	
 	public int selectOneCount(PlanVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 	public List<Plan> selectList(PlanVo vo){ List<Plan> list = sqlSession.selectList(namespace + ".selectList", vo); return list;}
+	public List<Plan> selectListSpace(){ List<Plan> list = sqlSession.selectList(namespace + ".selectListSpace", ""); return list;}
 	/*
 	 * public Plan selectOne(PlanVo vo) { return sqlSession.selectOne(namespace +
 	 * ".selectOne", vo);} public Plan selectOneLogin(Plan dto) { return

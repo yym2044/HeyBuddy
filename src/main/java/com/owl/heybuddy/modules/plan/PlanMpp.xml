@@ -45,20 +45,43 @@
 		<include refid="selectCommon" />
 
 	</select>
-
+	
+	<!-- 그냥 plan 작동하기 위해서 selectList는 필수 넣어놔야되는거같음 없으면 애러-->
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-		a.hyplSeq
-		,a.hyplDefaultNy
-		,a.hyplName
-		,a.hyplData
-		,a.hyplDesc
-		,a.hyplMemberName
-		,a.hyplMember
-		<!-- ,a.hyplPassword -->
-		<include refid="selectCommon" />
-		limit #{startRnumForMysql}, #{rowNumToShow}
+			hyplName
+			,hyplDefaultNy
+			,hyplDelNy
+			,hyplDate
+			,hyplDesc
+			,hyplMemberName
+		FROM
+			 hybdPlan
+		WHERE 
+			1 = 1
 	</select>
+
+	<select id="selectListSpace" resultMap="resultMapObj">
+		SELECT
+			a.hyspSeq
+			,a.hyspName
+		FROM 
+			hybdSpace AS a
+		WHERE	1 = 1
+	</select>
+
+<!-- 	<select id="selectListMember" resultMap="resultMapObj">
+		SELECT
+			a.
+			,a.
+			
+			,b.hymmSeq
+			,b.hymmName
+		FROM 
+			hybdSpaceMember AS a
+		LEFT JOIN hybd
+		WHERE	1 = 1
+	</select> -->
 
 
 
@@ -77,7 +100,7 @@
 		#{hyplName}
 		,#{hyplDefaultNy}
 		,#{hyplDelNy}
-		,#{hyplData}
+		,#{hyplDate}
 		,#{hyplDesc}
 		,#{hyplMemberName}
 		)
@@ -93,7 +116,7 @@
 		,a.hyplName
 		,a.hyplDefaultNy
 		,a.hyplName
-		,a.hyplData
+		,a.hyplDate
 		,a.hyplDesc
 		,a.hyplMemberName
 		FROM

@@ -91,7 +91,7 @@ public class PlanController {
 		model.addAttribute("rt", rt);
 		/* model.addAttribute("item", item); */
 		
-		return "user/plan/planList";
+		return "user/plan/planView";
 	}
 
 	@RequestMapping(value = "/plan/planEdit")

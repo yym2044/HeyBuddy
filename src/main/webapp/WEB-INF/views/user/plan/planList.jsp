@@ -5,7 +5,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head> 
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,25 +33,15 @@
 
         <!--Main style-->
         <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
-        <style>
-			
-			 .planinst :hover{
-			 			background: white;
-			 			color: black;
-			}
-			 .planupdt :hover{
-			  			background: white;
-			 			color: black;
-			}
-			 .plandele :hover{
-			  			background: white;
-			 			color: red;
-			}
-			
-		</style>
     </head>
 
     <body>
+     
+     	<form id="formList" name="formList" method="POST" action="/plan/planInst" enctype="multipart/form-data">
+		<input type="hidden" id="hyplSeq" name="hyplSeq">
+		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+		<%-- <input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>"> --%>
+		
         <!--////////////////// PreLoader Start//////////////////////-->
             <!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
@@ -104,39 +94,43 @@
 					      </div>
 					      <div class="modal-body">
 	                    	<h5>제목</h5>
-	                    	<input class="form-control mb-3" type="text" id="" name="" placeholder="일정 제목을 입력해주세요">
+	                    	<input class="form-control mb-3" type="text" id="hyplName" name="hyplName" placeholder="일정 제목을 입력해주세요" autocomplete="off">
 	                    	<br>
 	                    	<h5>일정내용</h5> 
-	                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
+	                    	<input class="form-control mb-3" type="text" id="hyplDesc" name="hyplDesc" style="height: 100px;" placeholder="일정을 입력하세요" autocomplete="off">
 	                    	<br>
 	                    	<h5>날짜</h5>
-	                    	<input class="form-control mb-3 shDate" type="text" id="shDate" name="" placeholder="날짜를 등록해주세요">
+	                    	<input class="form-control mb-3 shDate" type="text" id="hyplDate" name="hyplDate" placeholder="날짜를 등록해주세요" autocomplete="off">
 	                    	<br>
 	                    	<h5>공유자</h5>
 	                   	     <div class="form-control mb-3">
 	                            <div class="card card-body">
-	                                <select multiple class="form-control"
-	                                    data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
-	                                    <option value="1">김나리</option>
-	                                    <option value="2">윤영민</option>
-	                                    <option value="3">정미림</option>
-	                                    <option value="4">이건우</option>
-	                                    <option value="5">피터틸</option>  
-	                                </select>
-	                            </div>
+	                              <select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hymmSeq" name="hymmSeq">
+				                                <c:forEach items="${selectListMember}" var="item" varStatus="status">
+											<option value="<c:out value="${item.hymmSeq}"/>"><c:out value="${item.hymmName}"/>
+												</c:forEach>
+	                                </select> 
+                                </div>
 	                        </div>
-					      </div>
+	                        <%-- 	<h5>스페이스</h5>
+			            		 <div class="form-control mb-3">
+	                                <select class="form-control" id="hyspSeq" name="hyspSeq">
+											<option selected>::		스페이스		::
+				                                <c:forEach items="${selectListSpace}" var="item" varStatus="status">
+											<option value="<c:out value="${item.hyspSeq}"/>"><c:out value="${item.hyspName}"/>
+												</c:forEach>
+	                                </select>
+                                </div> --%>
+							</div>
 					      <div class="modal-footer planinst container">
-                    	<a class="btn btn-danger me-2" href="planList" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
- 						<a class="btn btn-primary me-2" href="planList" style="width: 100px; font-size: 1em; text-align: center; float: right;">등록하기</a>
+                    	<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
+ 						<input type="submit"  class="btn btn-primary me-2"  style="width: 100px; font-size: 1em; text-align: center; float: right;" id="btnSubmit" value="등록하기"> 
 					      </div>
 					    </div>
 					  </div>
 					</div>
-												
-                    	<a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a>
+                    	<!-- <a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a> -->
                     	<!-- <a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a> -->
-                    
 						<!-- Button trigger modal -->
 		                 <a class="btn btn-danger plandele" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a>
 						
@@ -158,8 +152,6 @@
 						    </div>
 						  </div>
 						</div>
-						                    
-                    
                     </div>   
                     <!--//달력 윗부분 끝 End//-->
 
@@ -187,6 +179,7 @@
                       <!--/.Page Footer End-->
                 </main>
                 <!--///////////Page content wrapper End///////////////-->
+                </form>
          </body>
         <!--////////////Theme Core scripts Start/////////////////-->
 		<script src="/resources/user/js/backgroundImg.js"></script>
@@ -333,6 +326,25 @@
 	    yearSuffix: '년'
 	});
 	</script>
-   
+	
+	
+	<!-- 벨리데이션 값 넣었을때 나오는 벨리데이션  -->   
+<!--    	 <script type = "text/javascript">
+		$("#btnSubmit").on("click", function() {
+			
+			if(!checkNull($("#hyplName"), $("#hyplName").val(), "제목을 입력해주세요")) return false;
+			if(!checkNull($("#hyplDesc"), $("#hyplDesc").val(), "상세일정을 입력해주세요")) return false;
+			if(!checkNull($("#hyplDate"), $("#hyplDate").val(), "날짜를 입력해주세요")) return false;
+
+			});
+	</script>  -->
+	
+	<!-- 	<script type="text/javascript">
+	goInst = function() {
+		$("#planList").attr("action", "/plan/planList");
+		$("#planList").submit();
+	}
+	
+	</script> -->
 
 </html>

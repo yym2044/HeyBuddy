@@ -41,7 +41,7 @@
 	</select>
  
 
-<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
+	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
 		select
 		*
 		,b.hymmName
@@ -68,10 +68,11 @@
 		hybdDocument
 		where 1=1
 		and hydcDelNy = 0
-		and hymmSeq = #{hymmSeq}
+		and hydcSeq = #{hydcSeq}
 	</select>
 	
-		<insert id="insertDocument">  <!-- 문서등록 -->
+		
+	<insert id="insertDocument">  <!-- 문서등록 -->
 		INSERT INTO hybdDocument(
 		hybdTitle
 		,hybdText
@@ -96,6 +97,9 @@
 		,#{hyspSeq} 
 		,#{hymmSeq}
 		)
+		<selectKey resultType="String" keyProperty="hymmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 </insert>
 
 	<update id="updateDocument">  <!-- 문서수정 -->
@@ -110,7 +114,7 @@
 		,modDateTime =  now()
 		,modDateTimeSvr =  now()
 		WHERE 1 = 1
-		AND hymmSeq = #{hymmSeq}
+		AND hydcSeq = #{hydcSeq}
 	</update>
 
 
@@ -131,7 +135,7 @@
 		,delNY
 		,pseq
 		,path
-		,hymmSeq
+
 		)
 		VALUES(
 		#{defaultNy}
@@ -144,16 +148,16 @@
 		,0
 		,#{pseq}
 		,#{path}
-		,#{hymmSeq}
+	
 		)
 </insert>
 
 	<select id="fileUploaded" resultMap = "resultMapObj"> <!--파일뷰 -->
 		SELECT
 			seq
-<!-- 			, type -->
+			, type 
 			, defaultNy
-<!-- 			, sort -->
+			, sort 
 			, originalFileName
 			, uuidFileName 
 			, ext

@@ -86,18 +86,13 @@ pageContext.setAttribute("br", "\n");
 
 				<!-- 히든처리 -->
 				<form id="formView" action="" method="post">
-					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}"/>"> <input
-						type="hidden" id="hydcSeq" name="hydcSeq"
-						value="<c:out value="${vo.hydcSeq}"/>"> <input
-						type="hidden" id="shHydcDelNy" name="shHydcDelNy"
-						value="<c:out value="${vo.shHydcDelNy}"/>"> <input
-						type="hidden" id="shHydcTitle" name="shHydcTitle"
-						value="<c:out value="${vo.shHydcTitle}"/>"> <input
-						type="hidden" id="shHydcOption" name="shHydcOption"
-						value="<c:out value="${vo.shHydcOption}"/>"> <input
-						type="hidden" id="shHydcValue" name="shHydcValue"
-						value="<c:out value="${vo.shHydcValue}"/>">
+					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>"> 
+						<input	type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>"> 
+						<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.hymmSeq}"/>">
+						<input type="hidden" id="shHydcDelNy" name="shHydcDelNy" value="<c:out value="${vo.shHydcDelNy}"/>"> 
+						<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>"> 
+						<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>"> 
+						<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
 
 
 
@@ -355,7 +350,22 @@ pageContext.setAttribute("br", "\n");
 	</script>
 
 
-	>
+		<script type="text/javascript">
+		goFileList = function(){
+	$("#formView").attr("action", "/file/fileList");
+	$("#formView").submit();
+		};
+
+		goFileEdit = function(){
+	$("#formView").attr("action", "/file/fileEdit");
+	$("#formView").submit();
+		};
+		
+		goFileNelete = function(seq){
+	$("#formView").attr("action", "/file/fileNele");
+	$("#formView").submit();
+		};
+	</script>
 
 </body>
 

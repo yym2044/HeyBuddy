@@ -73,16 +73,14 @@
 				<!--//Page Toolbar End//-->
 
 				<!-- post방식 -->
-				<form id="formList" name="formList" method="post"
-					action="/file/fileList">
-					<input type="hidden" id="rowNumToShow" name="rowNumToShow"
-						value="<c:out value="${vo.rowNumToShow}"/>"> <input
-						type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
-					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}" default="1"/>"> <input
-						type="hidden" id="hydcSeq" name="hydcSeq">
-				</form>
+				<form id="formList" name="formList" method="post" action="/file/fileList">
+					<input type="hidden" id="rowNumToShow" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+					<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>"> 
+					<input type="hidden" id="hydcSeq" name="hydcSeq">
+					<input type="hidden" id="hymmSeq" name="hymmSeq">
 
+				</form>
 
 				<!--//Page content//-->
 				<div
@@ -210,7 +208,7 @@
 														<p class="small fw-bold mb-0"></p>
 														<p class="lh-sm text-truncate mb-0">
 															<span class="fw-bolder me-2 me-lg-4"> <a
-																href="javaScript:goFileView('<c:out value="${item.hymmSeq}"/>')">
+																href="javaScript:goFileView('<c:out value="${item.hydcSeq}"/>')">
 																	<c:out value="${item.hydcTitle}" />
 															</a>
 															</span>
@@ -241,6 +239,8 @@
 								</div>
 							</c:otherwise>
 						</c:choose>
+						
+						
 						<!--포스트 페이징과 버튼 -->
 						<div class="row text-center" style="width: 100%">
 							<div style="width: 100%; float: none; margin: 0 auto">

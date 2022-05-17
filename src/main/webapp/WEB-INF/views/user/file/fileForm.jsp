@@ -377,6 +377,18 @@
 				<!--//Page Toolbar End//-->
 
 
+
+				<form id="formList" name="formList" method="post" action="/file/fileInst" enctype="multipart/form-data">
+
+					<!-- 기본값히든처리 -->
+					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
+					<input type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>">
+					<input type="hidden" id="shHymmDelNy" name="shHymmDelNy" value="<c:out value="${vo.shHymmDelNy}"/>">
+					<input type="hidden" id="shHymmName" name="shHymmName" value="<c:out value="${vo.shHymmName}"/>">
+					<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
+					<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
+
+
 				<!--//Page content//-->
 				<div
 					class="content overflow-hidden position-relative d-flex flex-column-fluid">

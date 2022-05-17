@@ -176,7 +176,7 @@
 				<!--//Page Toolbar End//-->
 
 
-		<form id="formEdit" name="formEdit" method="post" action="/xdmin/memberUpdt">
+		<form id="formEdit" name="formEdit" method="post" action="/xdmin/memberUpdt"  enctype="multipart/form-data">
 		<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" />">
 		<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
 		<input type="hidden" id="shHymmDelNy" name="shHymmDelNy" value="<c:out value="${vo.shHymmDelNy}"/>">
@@ -202,9 +202,22 @@
 							<div class="table-responsive">
 							<div class="text-center">
 										<label for="profilePhoto" style="cursor: pointer;"> 
-										<img id="img"  src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" style="width: 100px; 
-									height: 100px;" />
+										
+								<c:choose>
+									<c:when test="${empty uploaded.uuidFileName}">
+								<img src="/resources/user/images/profileUpload.png" class="avatar rounded-pill flex-shrink-0" alt="">
+								<input id="profilePhoto" name="file0" type="file" style="display: none;">
+									</c:when>
+								<c:otherwise>
+									 <img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" 
+										style="width: 100px; height: 100px;" />
 										<input id="profilePhoto" name="file0" type="file" style="display: none;">
+								</c:otherwise>
+								
+								</c:choose>
+					
+											
+											
 											</label> 
 										<p class="p-2 fw-bold">프로필 </p>
 									</div>
@@ -217,7 +230,7 @@
 										<td class="tableText">상태</td>
 										
 											<td>
-												<select class="form-control"
+					<select class="form-control"
 						aria-label="Default select example" name="hymmDormancyNy">
 							<option value="">선택</option>
 							<option value="1" <c:if test="${item.hymmDormancyNy eq 1}">selected</c:if>>휴먼</option>

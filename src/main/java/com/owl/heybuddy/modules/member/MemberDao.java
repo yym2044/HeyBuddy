@@ -47,6 +47,19 @@ public class MemberDao {
 		return sqlSession.update(namespace + ".updateMember", dto); // 회원수정
 	}
 
+
+	public Member profileUploaded(MemberVo vo) {
+		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
+	}
+
+	public int insertUploaded(Member dto) {
+		return sqlSession.insert(namespace + ".insertUploaded", dto); // 회원사진 등록
+	}
+	
+	public int updateUploaded(Member dto) {
+		return sqlSession.update(namespace + ".updateUploaded", dto); // 회원사진 수정
+	}
+	
 	public Member selectOneId(Member dto) {
 		return sqlSession.selectOne(namespace + ".selectOneId", dto); // 사원로그인셀렉
 	}
@@ -63,17 +76,6 @@ public class MemberDao {
 		return sqlSession.update(namespace + ".updateDeleteMember", vo); // 가짜삭제
 	}
 
-	public Member profileUploaded(MemberVo vo) {
-		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
-	}
-
-	public int insertUploaded(Member dto) {
-		return sqlSession.insert(namespace + ".insertUploaded", dto); // 회원사진 등록
-	}
-	
-	public int updateUploaded(Member dto) {
-		return sqlSession.update(namespace + ".updateUploaded", dto); // 회원사진 수정
-	}
 
 	// 영민 추가
 	public int selectOneCountMemberInSpace(MemberVo vo) {

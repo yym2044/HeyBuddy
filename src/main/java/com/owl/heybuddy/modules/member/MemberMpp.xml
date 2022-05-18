@@ -20,17 +20,12 @@
 			<when test="shHymmDormancyNy == 1">AND hymmDormancyNy = 1 </when> 
 			<when test="shHymmDormancyNy == 0">AND hymmDormancyNy = 0 </when>  
 		</choose>
-		<choose>
-			<when test="shMemberOptionDate == 1">AND a.regDateTime BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd}  </when> 
-			<when test="shMemberOptionDate == 2">AND a.modDateTime BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd}  </when>
-			<when test="shMemberOptionDate == 3">AND a.hymmDob BETWEEN #{shMemberDateStart} AND  #{shMemberDateEnd} </when>  
-		</choose>  
 		<if test="shHymmName != null and !shHymmName.equals('')"> AND hymmName LIKE concat('%',#{shHymmName},'%')</if>
+		
 		<choose>
 			<when test="shMemberOption == 1">AND hymmName LIKE concat('%',#{shMemberValue},'%')</when>
 			<when test="shMemberOption == 2">AND hymmId LIKE concat('%',#{shMemberValue},'%')</when>
-			<when test="shMemberOption == 3">AND hymmNickname LIKE concat('%',#{shMemberValue},'%')	</when>
-			<when test="shMemberOption == 4">AND hymmNumber LIKE concat('%',#{shMemberValue},'%')</when>  
+			<when test="shMemberOption == 3">AND hymmNumber LIKE concat('%',#{shMemberValue},'%')	</when>
 		</choose>
 	</sql>
 
@@ -230,9 +225,6 @@
 	</select>
 	
 
-	
-	
-	
 	<update id="updateMember">  <!-- 회원수정 -->
 		UPDATE hybdMember SET
 		hymmGenderCd =  #{hymmGenderCd}
@@ -252,10 +244,10 @@
 		WHERE 1 = 1
 		AND hymmSeq = #{hymmSeq}
 	</update>
+	
 
   	<update id="updateUploaded"> <!-- 프로필사진수정 -->
-	UPDATE ${tableName}
-	SET
+	UPDATE ${tableName} SET
 		originalFileName = #{originalFileName}
 		, uuidFileName = #{uuidFileName}
 		, ext = #{ext}

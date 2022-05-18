@@ -37,8 +37,7 @@
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
-<!-- jquery ui CSS 220510
-추가-->
+<!-- jquery ui CSS 220510 추가-->
 <link
 	href="/infra/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
 	rel="stylesheet">
@@ -159,15 +158,12 @@
 
 
 				<!-- post방식 -->
-				<form id="formList" name="formList" method="post"
-					action="/xdmin/memberList">
-					<input type="hidden" id="rowNumToShow" name="rowNumToShow"
-						value="<c:out value="${vo.rowNumToShow}"/>"> <input
-						type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
-					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}" default="1"/>"> <input
-						type="hidden" id="hymmSeq" name="hymmSeq">
-				</form>
+				<form id="formList" name="formList" method="post" action="/xdmin/memberList">
+					<input type="hidden" id="rowNumToShow" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>"> 
+					<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+					<input type="hidden" id="hymmSeq" name="hymmSeq">
+			
 
 
 				<!--//Page Toolbar//-->
@@ -197,67 +193,46 @@
 											<thead class="small text-uppercase text-muted">
 												<tr>
 													<th><select
-														class="form-select form-select-sm" name="shHymmDelNy"
+														class="form-select form-select" name="shHymmDelNy"
 														id="shHymmDelNy" style="">
 															<option value="">삭제여부
 															<option value="1"
 																<c:if test="${vo.shHymmDelNy eq 1 }">selected </c:if>>Y
 
-
-															
 															<option value="0"
 																<c:if test="${vo.shHymmDelNy eq 0 }">selected </c:if>>N
 
-
-
-															
 													</select></th>
 													<th><select
-														class="form-select form-select-sm" name="shHymmDormancyNy"
+														class="form-select form-select" name="shHymmDormancyNy"
 														id="shHymmDormancyNy" style="">
 															<option value="">휴먼여부
 															<option value="0"
 																<c:if test="${vo.shHymmDormancyNy eq 0 }"> selected</c:if>>N
 
-
-
-															
 															<option value="1"
 																<c:if test="${vo.shHymmDormancyNy eq 1 }"> selected</c:if>>Y
 
-
-
-
-
-															
 													</select></th>
 													<th><select
-														class="form-select form-select-sm" name="shMemberOption"
+														class="form-select form-select" name="shMemberOption"
 														id="shMemberOption" style="">
 															<option value="">검색구문
 															<option value="1"
 																<c:if test="${vo.shMemberOption eq 1 }"> selected</c:if>>이름
 
-
-
-															
 															<option value="2"
 																<c:if test="${vo.shMemberOption eq 2 }"> selected</c:if>>아이디
 
-
-
-															
-															<option value="4"
+															<option value="3"
 																<c:if test="${vo.shMemberOption eq 3 }"> selected</c:if>>연락처
-
-
-
 															
 													</select></th>
 													<th><input
-														class="form-control form-control-sm" type="text"
+														class="form-control form-control" type="text"
 														name="shMemberValue" id="shMemberValue" style="" value=""
 														placeholder="검색어를입력해주세요"></th>
+														
 													<th class="text-end" rowspan="2"><button
 															class="btn btn-primary" type="submit" name="search"
 															id="btnSearch">검색</button></th>
@@ -291,7 +266,7 @@
 															<tbody id="mainTable_tbody">
 																<tr>
 
-																	<td scope="" class="text-center">
+																	<td  class="text-center">
 																		<%-- <div class="m_check_wrap">
 																			<input type="checkbox" id="checkboxSeq"
 																				name="checkboxSeq"
@@ -392,14 +367,9 @@
 								</div>
 							</div>
 						</div>
-</div>
-</div>
-
-
-
-
-
-
+						</div>
+						</div> 
+	</form>
 						<!--//Page-footer//-->
 						<footer class="pb-4 px-4 px-lg-8">
 							<div class="container-fluid px-0">
@@ -419,30 +389,14 @@
 						<script src="/resources/assets/vendor/feather.min.js"></script>
 						<script src="/resources/assets/js/theme.bundle.js"></script>
 						<script>
-		feather.replace()
-	</script>
+						feather.replace()
+						</script>
 
 						<!--////////////Theme Core scripts End/////////////////-->
 
 
-						<!--Datatables-->
-						<script
-							src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
-						<script
-							src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap5.min.js"></script>
-						<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Datatables Responsive
-			$("#datatable").DataTable({
-				"filter" : false,
-				"length" : false
-			});
-		});
-	</script>
-
-						<script type="text/javascript">
-	
-		$("#btnSearch").on( 
+	<script type="text/javascript">
+		$("#btnSearch").on(
 				"click", function() {
 				if (!checkNull($("#shMemberOption"), $("#shMemberOption").val(),"검색구문을 선택해 주세요!")) 
 					return

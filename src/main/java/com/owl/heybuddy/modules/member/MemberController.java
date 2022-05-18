@@ -70,16 +70,17 @@ public class MemberController {
 	 }
 
 	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
-	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo) throws Exception {
+	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo, HttpSession httpSession) throws Exception {
 	 service.updateMember(dto); 
+	 
+		httpSession.setAttribute("uuidFileName", dto.getUuidFileName());
+		httpSession.setAttribute("path", dto.getPath());
+		
 	 return "redirect:/xdmin/memberView"; 
 	 }
-
-	  public String makeQueryString(MemberVo vo) { String tmp = "&thisPage=" +
-	  vo.getThisPage() + "&shOption=" + vo.getShMemberOption() + "&shMemberValue="
-	 + vo.getShMemberValue(); return tmp; }
-	 
-
+			
+	
+		
 	@RequestMapping(value = "/login/userLogin") // 회원로그인
 	 public String userLogin(Member dto, Model model) throws Exception { 
 		return "/user/login/login";

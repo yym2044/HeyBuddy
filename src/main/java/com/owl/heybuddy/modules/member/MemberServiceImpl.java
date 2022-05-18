@@ -60,31 +60,23 @@ public class MemberServiceImpl implements MemberService {
 
 			j++;
 		}
-//		    j = 0;
-//			for(MultipartFile multipartFile : dto.getFile1()) {
-//				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
-//				
-//				UtilUpload.uploadProfile(multipartFile, pathModule, dto);
-//
-//				dto.setTableName("hybdMemberUploaded");
-//				dto.setType(1);
-//				dto.setDefaultNy(0);
-//				dto.setSort(j);
-//				dto.setPseq(dto.getHymmSeq());
-//				 
-//				j++;
-//	}
 		return 1;
 	}
+
 	
-	
-	@Override
-	public int updateMember(Member dto) throws Exception { //회원수정
+public int updateMember(Member dto) throws Exception { //회원수정
+		
 		dao.updateMember(dto);
+		
+		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", ""); 
+		UtilUpload.uploadProfile(dto.getFile0()[0], pathModule, dto);
+
+		dto.setTableName("hybdMemberUploaded");
+		dto.setPseq(dto.getHymmSeq());
 		dao.updateUploaded(dto);
 		return 1;
 	}
-	
+
 
 	@Override
 	public int deleteMember(MemberVo vo) {   //회원삭제

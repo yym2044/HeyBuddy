@@ -126,6 +126,30 @@
 												<input type="text" class="form-control search ps-8"
 													placeholder="제목,등록자 검색">
 											</form>
+											
+									<%-- 		     <div class="table-responsive">
+                              <select class="form-select form-select"
+                                          name="shHydcOption" id="shHydcOption" style="">
+                                             <option value="">검색구문
+                                             <option value="1"
+                                                <c:if test="${vo.shHydcOption eq 1 }"> selected</c:if>>제목
+
+                                             <option value="2"
+                                                <c:if test="${vo.shHydcOption eq 2 }"> selected</c:if>>내용
+
+                                             <option value="3"
+                                                <c:if test="${vo.shHydcOption eq 3 }"> selected</c:if>>작성자
+
+                                       </select> <input class="form-control form-control" type="text"
+                                          name="shHydcValue" id="shHydcValue" style="" value=""
+                                          placeholder="제목,내용,작성자 검색">
+
+                                          <button class="btn btn-primary" type="submit"
+                                             name="search" id="btnSearch">검색</button>
+                                    
+                           </div> --%>
+                           
+                           
 											<%-- 			<div
 												class="btn btn-primary btn-sm d-inline-flex align-items-center">
 												<i data-feather="edit-3" class="fe-2x me-md-2"></i> <span

@@ -140,14 +140,14 @@ main {
 										<hr class="mt-4 mb-3">
 										<div class="form-floating mb-3">
 											<input type="email" class="form-control" required=""
-												id="floatingInput" placeholder="name@example.com"> <label
-												for="floatingInput">사원번호</label> <span
+												id="hymmId" name="hymmId" placeholder="name@example.com"> <label
+												for="hymmId">아이디</label> <span
 												class="invalid-feedback">Please enter a valid account</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"
-												id="floatingPassword" placeholder="Password"> <label
-												for="floatingPassword">비밀번호</label> <span
+											id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
+												for="hymmPassword">비밀번호</label> <span
 												class="invalid-feedback">Enter the password</span>
 										</div>
 										<div
@@ -203,7 +203,7 @@ main {
 					/* 	if(validation()==false) return false;
 					if(!checkNull($("hymmId"), $.trim($("#hymmId").val()), "아이디를 확인해 주세요!")) return false;
 					if(!checkNull($("hymmPassword"), $.trim($("#hymmPassword").val()), "비밀번호를 확인해 주세요!")) return false; */
-					$.ajax({
+					$.ajax(`{
 						async : true,
 						cache : false,
 						type : "post",

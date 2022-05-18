@@ -145,8 +145,8 @@ pageContext.setAttribute("br", "\n");
 												
 												
 									<label for="profilePhoto" style="">
-																<c:choose>
-																		<c:when test="${empty uploaded.uuidFileName}">
+								<c:choose>
+									<c:when test="${empty uploaded.uuidFileName}">
 								<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle" alt="">
 									</c:when>
 								<c:otherwise>

@@ -234,13 +234,12 @@
 										
 											<td>
 					<select class="form-control"
-						aria-label="Default select example" name="hymmDormancyNy">
+						aria-label="Default select example" name="hymmDormancyNy" required>
 							<option value="">선택</option>
 							<option value="1" <c:if test="${item.hymmDormancyNy eq 1}">selected</c:if>>휴먼</option>
 							<option value="0" <c:if test="${item.hymmDormancyNy eq 0}">selected</c:if>>활성</option>
 					</select> </td>
-	
-								
+					
 									</tr>
 									<tr>
 										<td class="tableText">아이디</td>
@@ -253,9 +252,9 @@
 									<tr>
 									<td class="tableText">성별</td>
 								<th><select class="form-control" name="hymmGenderCd" required>
-										<option value="3"
+										<option value="1"
 											<c:if test="${item.hymmGenderCd eq 1}">selected</c:if>>남성</option>
-										<option value="4"
+										<option value="2"
 											<c:if test="${item.hymmGenderCd eq 2}">selected</c:if>>여성</option>
 								</select></th>
 									<tr>
@@ -317,8 +316,8 @@
 										
 										<td>
 												
-												<select class="form-control"
-						aria-label="Default select example" name="hymmSmsConsentNy">
+					<select class="form-control"
+						aria-label="Default select example" name="hymmSmsConsentNy" required>
 							<option value="">선택</option>
 							<option value="1" <c:if test="${item.hymmSmsConsentNy eq 1}">selected</c:if>>YES</option>
 							<option value="0" <c:if test="${item.hymmSmsConsentNy eq 0}">selected</c:if>>NO</option>
@@ -330,8 +329,8 @@
 									<tr>
 										<td>이메일 마케팅동의</td>
 										<td>
-												<select class="form-control"
-						aria-label="Default select example" name="hymmEmailConsentNy">
+					<select class="form-control"
+						aria-label="Default select example" name="hymmEmailConsentNy" required>
 							<option value="">선택</option>
 							<option value="1" <c:if test="${item.hymmEmailConsentNy eq 1}">selected</c:if>>YES</option>
 							<option value="0" <c:if test="${item.hymmEmailConsentNy eq 0}">selected</c:if>>NO</option>
@@ -471,23 +470,7 @@
 	</script>
 	
 	
-		<!-- 프로필사진 이미지 프리뷰 바꾸는 script! 링크걸어서 사용해도 될 듯 -->
-	<script type="text/javascript">
-	let profileInput = document.getElementById("profilePhoto");
-	let img = document.querySelector('label[for=profilePhoto] img')
-	
-	profileInput.onchange = (e) => {
 		
-		var ext = $("#profilePhoto")[0].files[0].name.split('.').pop().toLowerCase();
-		if(extArrayImage.indexOf(ext) == -1){
-			alert("허용된 확장자가 아닙니다.");
-			return false;
-		}
-		
-		img.classList.add('preview');
-		img.src = URL.createObjectURL(e.target.files[0]);
-	}
-	</script>
 	
 	
 </body>

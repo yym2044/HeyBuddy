@@ -61,11 +61,11 @@ public class MemberDao {
 	}
 	
 	public Member selectOneId(Member dto) {
-		return sqlSession.selectOne(namespace + ".selectOneId", dto); // 사원로그인셀렉
+		return sqlSession.selectOne(namespace + ".selectOneId", dto); // 로그인셀렉
 	}
 
 	public Member selectOneLogin(Member dto) {
-		return sqlSession.selectOne(namespace + ".selectOneLogin", dto); // 사원로그인
+		return sqlSession.selectOne(namespace + ".selectOneLogin", dto); // 로그인
 	}
 
 	public int deleteMember(MemberVo vo) {

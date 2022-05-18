@@ -87,7 +87,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/login/xdminLogin") // 관리자로그인
-	public String xdminLogin() throws Exception {
+	public String xdminLogin(Member dto, Model model) throws Exception {
 		return "/xdmin/login/xdminLogin";
 	}
 	

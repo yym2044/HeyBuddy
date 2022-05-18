@@ -246,7 +246,7 @@ function kakaoLogin() {
 							if (response.rt == "success") {
 								location.href = "/mySpace/mySpaceList";
 							} else {
-								alert("회원없음");
+								alert("아이디 및 비밀번호를 확인해주세요");
 							}
 						},
 						error : function(jqXHR, textStatus, errorThrown) {

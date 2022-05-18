@@ -15,12 +15,16 @@ public class CheckLoginSessionInterception extends HandlerInterceptorAdapter{
 		if (request.getSession().getAttribute("sessSeq") != null) {
 			// by pass
 		} else {
-			response.sendRedirect("/login/userLogin"); /* 여기안에 로그인창주소 memberFormAdmin */
-            return false;
+			response.sendRedirect("/login/userLogin"); 
+			
+			return false; 
+		
 		}
 		
 		
 		return super.preHandle(request, response, handler);
 	}
 	
+	
+
 } 

@@ -44,30 +44,7 @@ main {
 </style>
 
 <body>
-<!--//page-header//-->
-<header class="navbar py-0 page-header navbar-expand navbar-light">
 
-	<ul class="navbar-nav d-flex align-items-center h-100">
-		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/login/login" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-				<i data-feather="home" class="fe-1x"></i>
-			</a></li>
-		
-	</ul>
-	
-	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
-		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
-			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
-				<a href="#" class="mode_dark text-reset p-0">
-					<i data-feather="sun" class="fe-1x"></i>
-				</a>
-				<a href="#" class="mode_light text-reset p-0">
-					<i data-feather="moon" class="fe-1x"></i>
-				</a>
-			</div>
-		</li>
-		
-	</ul>
-</header>
 
 
 	<!--////////////////// PreLoader Start//////////////////////-->
@@ -134,19 +111,18 @@ main {
 
 								<!--Card-->
 
-									<form action="index.html"
-										class=" z-index-1 position-relative needs-validation"
+									<form action="/login/xdminLogin" class=" z-index-1 position-relative needs-validation"
 										novalidate="">
 										<hr class="mt-4 mb-3">
 										<div class="form-floating mb-3">
-											<input type="email" class="form-control" required=""
-												id="hymmId" name="hymmId" placeholder="name@example.com"> <label
+											<input type="text" class="form-control" 
+												id="hymmId" name="hymmId"  required> <label
 												for="hymmId">아이디</label> <span
 												class="invalid-feedback">Please enter a valid account</span>
 										</div>
 										<div class="form-floating mb-3">
-											<input type="password" required="" class="form-control"
-											id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
+											<input type="password" class="form-control" 
+											id="hymmPassword" name="hymmPassword"  required > <label
 												for="hymmPassword">비밀번호</label> <span
 												class="invalid-feedback">Enter the password</span>
 										</div>
@@ -156,12 +132,12 @@ main {
 										</div>
 										<button class="w-100 btn btn-lg btn-success" id="btnLogin" name="btnLogin" type="button">로그인</button>
 										
-																	
+											
 										<hr class="mt-4 mb-3">
-
-
-
 									</form>
+								
+								
+								
 								
 							</div>
 						</div>
@@ -200,9 +176,7 @@ main {
 		$("#btnLogin").on(
 				"click",
 				function() {
-					/* 	if(validation()==false) return false;
-					if(!checkNull($("hymmId"), $.trim($("#hymmId").val()), "아이디를 확인해 주세요!")) return false;
-					if(!checkNull($("hymmPassword"), $.trim($("#hymmPassword").val()), "비밀번호를 확인해 주세요!")) return false; */
+				
 					$.ajax(`{
 						async : true,
 						cache : false,
@@ -227,6 +201,9 @@ main {
 				});
 
 </script>
+
+	
+
 	<!-- *********************로그인E******************************** -->
 	
 </body>

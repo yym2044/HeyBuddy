@@ -120,7 +120,15 @@ table tr .form-control {
 
 									<div class="table-responsive">
 										<div class="text-center">
-											<label for="profilePhoto" style="cursor: pointer;"> <!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> --> <img src="/resources/assets/media/avatars/08.jpg" class="avatar rounded-pill flex-shrink-0" alt="Customer">
+											<label for="profilePhoto" style="cursor: pointer;">
+												<c:choose>
+													<c:when test="${empty uploaded.uuidFileName}">
+														<img src="/resources/user/images/profileDefault.png" class="avatar rounded-pill flex-shrink-0 flex-shrink-0">
+													</c:when>
+													<c:otherwise>
+														<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" />
+													</c:otherwise>
+												</c:choose>
 											</label>
 											<input id="profilePhoto" type="file" style="display: none;">
 											<p class="p-2 fw-bold">프로필 사진</p>
@@ -263,6 +271,28 @@ table tr .form-control {
 		$("#formEdit").attr("action", "/setting/memberView").submit();
 	}
 	
+	</script>
+	
+	<script src="/resources/common/js/commonXdmin.js"></script>
+	<script src="/resources/common/js/constantsXdmin.js"></script>
+	<script src="/resources/common/js/common.js"></script>
+	
+	<!-- 프로필사진 이미지 프리뷰 바꾸는 script! 링크걸어서 사용해도 될 듯 -->
+	<script type="text/javascript">
+	let profileInput = document.getElementById("profilePhoto");
+	let img = document.querySelector('label[for=profilePhoto] img')
+	
+	profileInput.onchange = (e) => {
+		
+		var ext = $("#profilePhoto")[0].files[0].name.split('.').pop().toLowerCase();
+		if(extArrayImage.indexOf(ext) == -1){
+			alert("허용된 확장자가 아닙니다.");
+			return false;
+		}
+		
+		img.classList.add('preview');
+		img.src = URL.createObjectURL(e.target.files[0]);
+	}
 	</script>
 
 </body>

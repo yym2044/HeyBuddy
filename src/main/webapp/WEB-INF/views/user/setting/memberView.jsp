@@ -121,12 +121,16 @@ table tr .form-control {
 									
 									<div class="table-responsive">
 										<div class="text-center">
-											<label for="profilePhoto" style="cursor: pointer;">
-												<!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
-												<!-- <img src="/resources/assets/media/avatars/08.jpg" class="avatar rounded-pill flex-shrink-0" alt="Customer"> -->
-												<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" />
-											</label>
-											<input id="profilePhoto" type="file" style="display:none;">
+											<!-- <img src="../../../../../user/images/profileUpload.png" style="width: 70px;"> -->
+											<!-- <img src="/resources/assets/media/avatars/08.jpg" class="avatar rounded-pill flex-shrink-0" alt="Customer"> -->
+											<c:choose>
+												<c:when test="${empty uploaded.uuidFileName}">
+													<img src="/resources/user/images/profileDefault.png" class="avatar rounded-pill flex-shrink-0">
+												</c:when>
+												<c:otherwise>
+													<img src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0" />
+												</c:otherwise>
+											</c:choose>
 											<p class="p-2 fw-bold">프로필 사진</p>
 										</div>
 										

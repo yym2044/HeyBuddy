@@ -9,6 +9,15 @@ public class MySpaceVo {
 	private String hyspName;
 	private int totalMembers;
 	private int hysmAcceptedNy;
+	private String hysmHost;
+
+	public String getHysmHost() {
+		return hysmHost;
+	}
+
+	public void setHysmHost(String hysmHost) {
+		this.hysmHost = hysmHost;
+	}
 
 	public String getHyspSeq() {
 		return hyspSeq;

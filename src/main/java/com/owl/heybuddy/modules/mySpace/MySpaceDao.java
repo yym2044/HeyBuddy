@@ -23,12 +23,20 @@ public class MySpaceDao {
 		return sqlSession.selectList(namespace + ".selectListMySpace", vo); // 스페이스리스트
 	}
 
+	public List<MySpace> selectListMember(MySpaceVo vo) {
+		return sqlSession.selectList(namespace + ".selectListMember", vo); // 멤버리스트
+	}
+
 	public List<MySpace> selectListReceive(MySpaceVo vo) {
 		return sqlSession.selectList(namespace + ".selectListReceive", vo); // 초대받은리스트
 	}
 
 	public List<MySpace> selectListSend(MySpaceVo vo) {
 		return sqlSession.selectList(namespace + ".selectListSend", vo); // 초대리스트
+	}
+
+	public MySpace selectOneMember(MySpaceVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneMember", vo); // 이름으로멤버찾기
 	}
 
 	public MySpace selectOneMySpace(MySpaceVo vo) {
@@ -43,9 +51,14 @@ public class MySpaceDao {
 		return sqlSession.insert(namespace + ".insertMySpace", dto); // 스페이스등록
 	}
 
-	public int insertMySpaceMember(MySpace dto) {
+	public int insertMySpaceHost(MySpace dto) {
 
-		return sqlSession.insert(namespace + ".insertMySpaceMember", dto); // 스페이스등록
+		return sqlSession.insert(namespace + ".insertMySpaceHost", dto); // 스페이스등록(호스트등록)
+	}
+
+	public int insertMySpaceGuest(MySpace dto) {
+
+		return sqlSession.insert(namespace + ".insertMySpaceGuest", dto); // 스페이스멤버초대
 	}
 
 	public int updateMySpace(MySpace dto) {

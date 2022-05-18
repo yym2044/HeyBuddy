@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -7,7 +8,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +22,11 @@
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css"
+	id="switchThemeStyle">
 
 </head>
 
@@ -42,102 +46,109 @@ body {
 </style>
 
 <body>
-<!--//page-header//-->
-<header class="navbar py-0 page-header navbar-expand navbar-light">
+	<form id="mySpaceSend" name="mySpaceSend" method="post"
+		action="/mySpace/mySpaceSend"
+		class="z-index-1 position-relative needs-validation" novalidate="">
+		<input type="hidden" id="hyspSeq" name="hyspSeq"
+			value="<c:out value="${item.hyspSeq}"/>"> <input type="hidden"
+			id="hymmName" name="hymmName"
+			value="<c:out value="${item.hymmName}"/>">
+		<!--//page-header//-->
+		<header class="navbar py-0 page-header navbar-expand navbar-light">
 
-	<ul class="navbar-nav d-flex align-items-center h-100">
-		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/mySpace/mySpaceList" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-				<i data-feather="arrow-left" class="fe-1x"></i>
-			</a></li>
-		
-	</ul>
-	
-	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
-		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
-			<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
-				<a href="#" class="mode_dark text-reset p-0">
-					<i data-feather="sun" class="fe-1x"></i>
-				</a>
-				<a href="#" class="mode_light text-reset p-0">
-					<i data-feather="moon" class="fe-1x"></i>
-				</a>
-			</div>
-		</li>
-		
+			<ul class="navbar-nav d-flex align-items-center h-100">
 				<li
-				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-				href="/login/login"
-				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-					<i data-feather="log-out" class="fe-1x"></i>
-			</a></li>	
-	</ul>
-</header>
-<!--Main Header End-->
+					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+					href="/mySpace/mySpaceList"
+					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+						<i data-feather="arrow-left" class="fe-1x"></i>
+				</a></li>
+
+			</ul>
+
+			<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+				<li
+					class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+					<div
+						class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+						<a href="#" class="mode_dark text-reset p-0"> <i
+							data-feather="sun" class="fe-1x"></i>
+						</a> <a href="#" class="mode_light text-reset p-0"> <i
+							data-feather="moon" class="fe-1x"></i>
+						</a>
+					</div>
+				</li>
+
+				<li
+					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+					href="/login/login"
+					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+						<i data-feather="log-out" class="fe-1x"></i>
+				</a></li>
+			</ul>
+		</header>
+		<!--Main Header End-->
 
 
-	<%@include file="../include/loader.jsp"%>
+		<%@include file="../include/loader.jsp"%>
 
-	<div class="d-flex flex-column flex-root">
-		<!--Page-->
-		<div class="page d-flex flex-row flex-column-fluid">
+		<div class="d-flex flex-column flex-root">
+			<!--Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
 
-			<!--///////////Page content wrapper///////////////-->
-			<main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
-				<!--//content//-->
-				<div class="content p-1 d-flex flex-column-fluid position-relative">
-					<div class="container py-4">
-						<div class="row h-100 align-items-center justify-content-center">
-							<div style="text-align: center;">
-								<img src="/resources/user/images/newcome.png" alt="..."
-									width="700px">
-							</div>
-					
-							<div class="col-md-8 col-lg-5 col-xl-4">
-								<!--Logo-->
-							
-								<!--Card-->
-								<form id="mySpaceSend" name="mySpaceSend" method="post"
-									action="/mySpace/mySpaceSend" class="z-index-1 position-relative needs-validation"
-									novalidate="">
-										<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>">
+				<!--///////////Page content wrapper///////////////-->
+				<main
+					class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+					<!--//content//-->
+					<div class="content p-1 d-flex flex-column-fluid position-relative">
+						<div class="container py-4">
+							<div class="row h-100 align-items-center justify-content-center">
+								<div style="text-align: center;">
+									<img src="/resources/user/images/newcome.png" alt="..."
+										width="700px">
+								</div>
+
+								<div class="col-md-8 col-lg-5 col-xl-4">
+									<!--Logo-->
+
+									<!--Card-->
 
 
-										<div class="form-floating mb-3">
-											<input type="email" class="form-control" required="" id="hymmId" name="hymmId"
-												placeholder="name@example.com"> <label
-												for="hymmId">To..</label>
-												<span
-												class="invalid-feedback"></span>
-										</div>
-										
-										<a href="javaScript:goSend();">
-										<button class="w-100 btn btn-lg btn-success" type="submit">
-											SEND </button></a>
+
+									<div class="form-floating mb-3">
+										<input type="text" class="form-control" id="hymmSeq"
+											name="hymmSeq" placeholder="이름을 입력해주세요"> <label
+											for="hymmSeq">To..</label> <span class="invalid-feedback"></span>
+									</div>
 
 
-									</form>
+									<button id="plusMember" class="w-100 btn btn-lg btn-success"
+										type="button">SEND</button>
+
+
+
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<!--///////////Page content wrapper end///////////////-->
+					<!--///////////Page content wrapper end///////////////-->
 
-				<!--//Page-footer//-->
-				<footer class="pb-4 px-4 px-lg-8">
-					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">&copy;
-							<script>
-								document.write(new Date().getFullYear())
-							</script>. Hey, Buddy All rights reserved.
-						</span>
-					</div>
-				</footer>
-				<!--/.Page Footer End-->
-			</main>
+					<!--//Page-footer//-->
+					<footer class="pb-4 px-4 px-lg-8">
+						<div class="container-fluid px-0">
+							<span class="d-block lh-sm small text-muted text-end">&copy;
+								<script>
+									document.write(new Date().getFullYear())
+								</script>. Hey, Buddy All rights reserved.
+							</span>
+						</div>
+					</footer>
+					<!--/.Page Footer End-->
+				</main>
+			</div>
 		</div>
-	</div>
-
+	</form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>
@@ -147,12 +158,39 @@ body {
 	</script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
+
+
 	<script type="text/javascript">
-		goSend = function() {
-			$("#mySpaceSend").attr("action", "/mySpace/mySpacePlusMember");
-			$("#mySpaceSend").submit();
-		}
+		$("#plusMember").on(
+				"click",
+				function(seq) {
+
+					$.ajax({
+						async : true,
+						cache : false,
+						type : "post",
+						url : "/mySpace/mySpaceCheckMember",
+						dataType : "JSON",
+						data : {
+							"hymmSeq" : $("#hymmSeq").val()
+						},
+						success : function(data) {
+							alert(data);
+							alert(JSON.stringify(data));
+							alert(JSON.stringify(data['idList'][0]['hymmName']));
+							/* alert(JSON.stringify(data['idList'][0]['hymmName'])); */
+							location.href = "/mySpace/mySpacePlusMember";
+						},
+						error : function(jqXHR, textStatus, errorThrown) {
+							alert("ajaxUpdate " + jqXHR.textStatus + " : "
+									+ jqXHR.errorThrown);
+						}
+					});
+
+				});
 	</script>
+
+
 </body>
 
 </html>

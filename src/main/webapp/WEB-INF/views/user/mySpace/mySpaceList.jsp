@@ -64,6 +64,7 @@ body {
 			<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
 			<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>">
 			<input type="hidden" id="hymmName" name="hymmName" value="<c:out value="${item.hymmName}"/>">
+			<input type="hidden" id="hysmHost" name="hysmHost" value="<c:out value="${item.hysmHost}"/>">
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
 	<ul class="navbar-nav d-flex align-items-center h-100">
@@ -243,6 +244,10 @@ body {
 	goReceive = function(seq) {
 		$("#hymmSeq").val(seq);
 		$("#mySpaceList").attr("action", "/mySpace/mySpaceReceiveList");
+		$("#mySpaceList").submit();
+	}
+	goPlusMember = function() {
+		$("#mySpaceList").attr("action", "/mySpace/mySpaceSend");
 		$("#mySpaceList").submit();
 	}
 	</script>

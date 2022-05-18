@@ -21,6 +21,7 @@
 		, b.hyspSeq
 		, b.hymmSeq
 		, b.hysmRoleCd
+		, b.hysmHost
 		, b.hysmDelNy
 		, c.hyspSeq
 		, c.hyspName
@@ -65,13 +66,35 @@
 		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
 
 		WHERE 1=1
-		AND b.hysmHost
-		= 2
+		AND b.hysmHost = #{hymmSeq}
 		ORDER BY hysmSeq DESC
 	</select>
+
+
+	<select id="selectListMember" resultMap="resultMapObj">
+		SELECT
+		hymmSeq
+		,hymmName
+
+		FROM hybdMember
 		
-	<select id="selectOneReceive" resultMap="resultMapObj">
+		WHERE 1=1
+		AND hymmSeq = #{hymmSeq}
+	</select>
 	
+	<select id="selectOneMember" resultMap="resultMapObj">
+		SELECT
+		hymmSeq
+
+		FROM hybdMember
+
+		WHERE 1=1
+		AND hymmName = #{hymmName}
+	</select>
+
+
+	<select id="selectOneReceive" resultMap="resultMapObj">
+
 		SELECT
 		a.hyspName
 		, a.hyspSeq
@@ -79,12 +102,15 @@
 		, c.hymmName
 
 		FROM hybdSpace a
-		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+		LEFT JOIN
+		hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMember c on
+		c.hymmSeq = b.hymmSeq
 
 		WHERE 1=1
 		AND b.hyspSeq = #{hyspSeq}
-		AND b.hymmSeq = #{hymmSeq}
+		AND b.hymmSeq
+		= #{hymmSeq}
 
 		
 	</select>
@@ -147,7 +173,7 @@
 
 
 
-	<insert id="insertMySpaceMember">
+	<insert id="insertMySpaceHost">
 
 		INSERT INTO hybdSpaceMember (
 		hymmSeq
@@ -166,6 +192,32 @@
 		, 1
 		, 0
 		, #{hymmSeq}
+		, 0
+		)
+
+
+		<selectKey resultType="String" keyProperty="hyspSeq"
+			order="AFTER">
+			SELECT last_insert_id()
+
+		</selectKey>
+	</insert>
+	
+	<insert id="insertMySpaceGuest">
+
+		INSERT INTO hybdSpaceMember (
+		hymmSeq
+		, hysmRoleCd
+		, hyspSeq
+		, hysmHost
+		, hysmActiveNy
+		, hysmDelNy
+		) VALUES (
+		#{hymmSeq}
+		, 13
+		, 1
+		, 2
+		, 1
 		, 0
 		)
 

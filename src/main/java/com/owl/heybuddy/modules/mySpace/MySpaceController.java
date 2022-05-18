@@ -1,6 +1,8 @@
 package com.owl.heybuddy.modules.mySpace;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -84,7 +87,7 @@ public class MySpaceController {
 	public String mySpaceInstMember(MySpaceVo vo, MySpace dto, Model model, RedirectAttributes redirectAttributes,
 			HttpSession httpSession) throws Exception {
 
-		service.insertMySpaceMember(dto);
+		service.insertMySpaceHost(dto);
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 
 		vo.setHyspSeq(dto.getHyspSeq());
@@ -168,15 +171,44 @@ public class MySpaceController {
 		return "user/mySpace/mySpaceSend";
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "mySpace/mySpaceCheckMember")
+	public Map<String, Object> getId(MySpaceVo vo, MySpace dto, HttpSession httpSession, Model model) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+
+//		Member rtMember = service.selectOneId(dto);
+//		model.addAttribute("rtMember", rtMember);
+
+		List<MySpace> idList = service.selectListMember(vo);
+		model.addAttribute("idList", idList);
+
+		returnMap.put("idList", idList);
+		returnMap.put("rt", "success");
+
+		return returnMap;
+	}
+
+	@RequestMapping(value = "/mySpace/mySpacePlusMember")
+	public String mySpaceSend(@ModelAttribute("vo") MySpaceVo vo, Model model, MySpace dto,
+			RedirectAttributes redirectAttributes) throws Exception {
+
+		service.insertMySpaceGuest(dto);
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/mySpace/mySpaceSendList";
+	}
+
 	@RequestMapping(value = "/mySpace/mySpaceSendList")
-	public String mySpaceSendList(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
-		
+	public String mySpaceSendList(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession)
+			throws Exception {
+
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
-		
+
 		List<MySpace> list = service.selectListSend(vo);
 		model.addAttribute("list", list);
-		
+
 		return "user/mySpace/mySpaceSendList";
 	}
 }

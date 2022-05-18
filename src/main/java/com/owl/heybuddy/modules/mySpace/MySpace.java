@@ -34,6 +34,8 @@ public class MySpace {
 	private String hysmSeq;
 	private String hysmRoleCd;
 	private int hysmAcceptedNy;
+	private String hysmHost;
+	private int hysmActiveNy;
 
 	// RegMod
 	private String regIp;
@@ -70,6 +72,22 @@ public class MySpace {
 
 	public String getHyspSeq() {
 		return hyspSeq;
+	}
+
+	public int getHysmActiveNy() {
+		return hysmActiveNy;
+	}
+
+	public void setHysmActiveNy(int hysmActiveNy) {
+		this.hysmActiveNy = hysmActiveNy;
+	}
+
+	public String getHysmHost() {
+		return hysmHost;
+	}
+
+	public void setHysmHost(String hysmHost) {
+		this.hysmHost = hysmHost;
 	}
 
 	public int getHysmAcceptedNy() {

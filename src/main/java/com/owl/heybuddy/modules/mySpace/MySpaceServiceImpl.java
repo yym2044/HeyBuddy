@@ -17,6 +17,11 @@ public class MySpaceServiceImpl implements MySpaceService {
 	}
 
 	@Override
+	public List<MySpace> selectListMember(MySpaceVo vo) throws Exception { // 멤버리스트
+		return dao.selectListMember(vo);
+	}
+
+	@Override
 	public List<MySpace> selectListReceive(MySpaceVo vo) throws Exception { // 초대받은리스트
 		return dao.selectListReceive(vo);
 	}
@@ -24,6 +29,11 @@ public class MySpaceServiceImpl implements MySpaceService {
 	@Override
 	public List<MySpace> selectListSend(MySpaceVo vo) throws Exception { // 초대리스트
 		return dao.selectListSend(vo);
+	}
+
+	@Override
+	public MySpace selectOneMember(MySpaceVo vo) throws Exception { // 이름으로멤버찾기
+		return dao.selectOneMember(vo);
 	}
 
 	@Override
@@ -48,9 +58,15 @@ public class MySpaceServiceImpl implements MySpaceService {
 	}
 
 	@Override
-	public int insertMySpaceMember(MySpace dto) throws Exception { // 스페이스등록
+	public int insertMySpaceHost(MySpace dto) throws Exception { // 스페이스등록(호스트등록)
 
-		return dao.insertMySpaceMember(dto);
+		return dao.insertMySpaceHost(dto);
+	}
+
+	@Override
+	public int insertMySpaceGuest(MySpace dto) throws Exception { // 스페이스멤버초대
+
+		return dao.insertMySpaceGuest(dto);
 	}
 
 	@Override

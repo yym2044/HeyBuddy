@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.owl.heybuddy.common.util.UtilUpload;
 
 
+
 @Service
 public class FileServiceImpl implements FileService { 
 	
@@ -20,6 +21,15 @@ public class FileServiceImpl implements FileService {
 	public List<File> documentList(FileVo vo) throws Exception { //문서리스트
 		return dao.documentList(vo);
 	}
+	@Override
+	public List<File> selectListSpace() throws Exception {
+		return dao.selectListSpace();
+	}
+	@Override
+	public List<File> selectListMember() throws Exception {
+		return dao.selectListMember();
+	}
+	
 	@Override
 	public int selectOneCount(FileVo vo) throws Exception {   //문서검색
 		return dao.selectOneCount(vo);

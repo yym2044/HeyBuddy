@@ -232,7 +232,17 @@
 															</a>
 															</span>
 														</p>
-														<div class="flex-shrink-0">
+														
+														<!--Time-->
+																<div>
+																	<span class="block small text-muted">
+																	<fmt:formatDate
+																			value="${item.regDateTime }" /></span>
+																</div>
+														
+														
+														
+<%-- 														<div class="flex-shrink-0">
 															<div class="d-flex flex-column align-items-end">
 																<!--New indicator-->
 																<div class="d-flex align-items-end">
@@ -248,7 +258,7 @@
 
 															</div>
 														</div>
-
+ --%>
 
 													</div>
 												</div>

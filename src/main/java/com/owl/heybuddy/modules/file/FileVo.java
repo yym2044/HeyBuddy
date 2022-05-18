@@ -6,12 +6,23 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileVo { 
 
+
+
 		private String hydcSeq;
 		private String hyspSeq;
 		private String hymmSeq;
 		private String hydcTitle;
 		private String hydcText;
 		private Integer hydcDelNy;
+		
+		
+		// 스페이스
+
+		private String hysmSeq;
+		private String hyspName;
+
+		
+		
 	
 		// RegMod
 		private String regIp;
@@ -639,6 +650,17 @@ this.path = path;
 }
 
 	
-
+public String getHysmSeq() {
+return hysmSeq;
+}
+public void setHysmSeq(String hysmSeq) {
+this.hysmSeq = hysmSeq;
+}
+public String getHyspName() {
+return hyspName;
+}
+public void setHyspName(String hyspName) {
+this.hyspName = hyspName;
+}
 	
 }

@@ -134,7 +134,7 @@ pageContext.setAttribute("br", "\n");
 
 								</div>
 							</div>
-							<!--Inbox Details-->
+									<!--Inbox Details-->
 							<div
 								class="px-4 position-relative px-lg-8 mb-4 h-100 flex-grow-1">
 								<div class="card h-100">
@@ -144,7 +144,7 @@ pageContext.setAttribute("br", "\n");
 												<div class="avatar">
 												
 												
-									<label for="profilePhoto" style="">
+							 			<label for="profilePhoto" style="">
 								<c:choose>
 									<c:when test="${empty uploaded.uuidFileName}">
 								<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle" alt="">
@@ -152,10 +152,13 @@ pageContext.setAttribute("br", "\n");
 								<c:otherwise>
 									 <img style="width: 100px; height:100px;" src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" class="avatar rounded-pill flex-shrink-0"  />
 								</c:otherwise>
-																</c:choose>
-															</label>
+										</c:choose>
+									</label>
+									  
+									
 												</div>
-												<div class="flex-1 ms-2">
+								
+													<div class="flex-1 ms-2">
 													<h5 class="mb-0">
 														<c:out value="${item.hydcTitle}" />
 													</h5>
@@ -191,7 +194,7 @@ pageContext.setAttribute("br", "\n");
 
 										<hr>
 										<p>첨부파일</p>
-										<div class="d-flex flex-wrap">
+								<div class="d-flex flex-wrap">
 											<!--Attachment image-->
 											<a href="#!"
 												class="card-hover me-2 position-relative width-90"> <span
@@ -209,6 +212,7 @@ pageContext.setAttribute("br", "\n");
 											</span>
 											</a>
 										</div>
+										
 									</div>
 
 

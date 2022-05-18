@@ -2,6 +2,8 @@ package com.owl.heybuddy.modules.file;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.owl.heybuddy.modules.member.Member;
 import com.owl.heybuddy.modules.member.MemberVo;
+import com.owl.heybuddy.modules.plan.Plan;
 
 
 @Controller
@@ -19,7 +23,23 @@ public class FileController {
 	FileServiceImpl service;
 
 	@RequestMapping(value = "/file/fileList") // 문서리스트
-	public String fileList(@ModelAttribute("vo") FileVo vo, Model model) throws Exception {
+	public String fileList(@ModelAttribute("vo") FileVo vo, Model model, HttpSession httpSession) throws Exception {
+	
+		
+		 List<File> selectListMember = service.selectListMember(); 
+			
+		 model.addAttribute("selectListMember", selectListMember); 
+
+		
+		if(vo.getHyspSeq() != null) {
+			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
+		}
+		
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
+		
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
@@ -33,11 +53,12 @@ public class FileController {
 	
 	@RequestMapping(value = "/file/fileView") // 문서학인
 	public String fileView(@ModelAttribute("vo") FileVo vo,  Model model) throws Exception {
-		File rt = service.documentView(vo);
 		
+		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("fileUploaded", service.fileUploaded(vo));
 		return "user/file/fileView";
+		
 	}
 	
 	@RequestMapping(value = "/file/fileForm") // 문서등록

@@ -60,6 +60,21 @@
 	
 	</select>
 	
+		<select id="selectListMember" resultMap="resultMapObj">
+		SELECT distinct
+			c.hymmSeq
+			,c.hymmName
+		FROM 
+			hybdSpaceMember AS a 
+		LEFT JOIN hybdSpace AS b
+		ON a.hyspSeq= b.hyspSeq
+        LEFT JOIN hybdMember AS c
+        ON c.hymmSeq = a.hymmSeq
+		WHERE	1 = 1;
+	</select>
+
+	
+	
 	
  	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select
@@ -97,7 +112,7 @@
 		,#{hyspSeq} 
 		,#{hymmSeq}
 		)
-		<selectKey resultType="String" keyProperty="hymmSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 </insert>
@@ -171,5 +186,20 @@
 			AND pseq = #{hydcSeq}
 	</select>
 	
+	
+		
+	<update id="updateUploaded"> <!--파일수정 -->
+	UPDATE
+		${tableName}
+	SET
+		originalFileName = #{originalFileName}
+		, uuidFileName = #{uuidFileName}
+		, ext = #{ext}
+		, size = #{size}
+		, path = #{path}
+	WHERE 1=1
+		AND pseq = #{pseq}
+		
+	</update>
 	
 </mapper>

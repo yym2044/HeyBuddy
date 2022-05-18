@@ -399,13 +399,13 @@
 		$("#btnSearch").on(
 				"click", function() {
 				if (!checkNull($("#shMemberOption"), $("#shMemberOption").val(),"검색구문을 선택해 주세요!")) 
-					return
+					return 
 					false;
 				if (!checkNull($("#shMemberValue"), $("#shMemberValue").val(),"검색어를 입력 해 주세요!"))
-					retrun
-				false;
+					return 
+					false;
 			});
-			</script>
+	</script>
 
 	<script type="text/javascript">
 		var seq = $("input:hidden[name=hymmSeq]");

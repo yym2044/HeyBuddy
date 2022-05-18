@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.owl.heybuddy.modules.member.Member;
+import com.owl.heybuddy.modules.plan.Plan;
 
 
 
@@ -25,6 +26,13 @@ public class FileDao {
 	public List<File> documentList(FileVo vo) {
 		return sqlSession.selectList(namespace + ".documentList", vo); //  문서리스트
 	}
+	
+	public List<File> selectListSpace(){ List<File> list = sqlSession.selectList(namespace + ".selectListSpace", ""); return list;}
+	public List<File> selectListMember(){ List<File> list = sqlSession.selectList(namespace + ".selectListMember", ""); return list;}
+	public List<File> selectListMemberInSpace(){ List<File> list = sqlSession.selectList(namespace + ".selectListMemberInSpace", ""); return list;}
+	public List<File> selectListMySpace(){ List<File> list = sqlSession.selectList(namespace + ".selectListMySpace", ""); return list;}
+	
+	
 	public File documentView(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentView", vo); // 문서뷰
 	}

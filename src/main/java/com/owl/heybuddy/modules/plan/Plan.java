@@ -16,18 +16,31 @@ public class Plan {
 	
 	// hybdMember
 	
-	private Integer hymmSeq;
+	private String hymmSeq;
 	private String hymmName;
 	
 	
 	// hybdSpaceMember
-
+	private Integer hysmActiveNy;
+	private Integer hysmRoleCd;
 	
 	
 	// HybdSpace
 	
-	private Integer hyspSeq;
-	
+	private String hyspSeq;
+	private Integer hymmAdminNy;
+	private Integer hymmDormancyNy;
+	private String hymmId;
+	private String hymmPassword;
+	private Integer hymmGenderCd;
+	private String hymmNumber;
+	private String hymmEmail;
+	private String hymmDob;
+	private Integer hymmSaveCd;
+	private Integer hymmEmailConsentNy;
+	private Integer hymmSmsConsentNy;
+	private String hymmDesc;
+	private Integer hymmDelNy;
 	
 	// RegMod
 	private String regIp;
@@ -41,7 +54,10 @@ public class Plan {
 	private Date modDateTime;
 	private Date modDateTimeSvr;
 	
+
 	/******************************* Getter & Setter *******************************/
+
+
 	public String getHyplSeq() {
 		return hyplSeq;
 	}
@@ -96,11 +112,10 @@ public class Plan {
 	public void setHyplDelNy(Integer hyplDelNy) {
 		this.hyplDelNy = hyplDelNy;
 	}
-	
-	public Integer getHymmSeq() {
+	public String getHymmSeq() {
 		return hymmSeq;
 	}
-	public void setHymmSeq(Integer hymmSeq) {
+	public void setHymmSeq(String hymmSeq) {
 		this.hymmSeq = hymmSeq;
 	}
 	public String getHymmName() {
@@ -109,11 +124,101 @@ public class Plan {
 	public void setHymmName(String hymmName) {
 		this.hymmName = hymmName;
 	}
-	public Integer getHyspSeq() {
+	public Integer getHysmActiveNy() {
+		return hysmActiveNy;
+	}
+	public void setHysmActiveNy(Integer hysmActiveNy) {
+		this.hysmActiveNy = hysmActiveNy;
+	}
+	public Integer getHysmRoleCd() {
+		return hysmRoleCd;
+	}
+	public void setHysmRoleCd(Integer hysmRoleCd) {
+		this.hysmRoleCd = hysmRoleCd;
+	}
+	public String getHyspSeq() {
 		return hyspSeq;
 	}
-	public void setHyspSeq(Integer hyspSeq) {
+	public void setHyspSeq(String hyspSeq) {
 		this.hyspSeq = hyspSeq;
+	}
+	public Integer getHymmAdminNy() {
+		return hymmAdminNy;
+	}
+	public void setHymmAdminNy(Integer hymmAdminNy) {
+		this.hymmAdminNy = hymmAdminNy;
+	}
+	public Integer getHymmDormancyNy() {
+		return hymmDormancyNy;
+	}
+	public void setHymmDormancyNy(Integer hymmDormancyNy) {
+		this.hymmDormancyNy = hymmDormancyNy;
+	}
+	public String getHymmId() {
+		return hymmId;
+	}
+	public void setHymmId(String hymmId) {
+		this.hymmId = hymmId;
+	}
+	public String getHymmPassword() {
+		return hymmPassword;
+	}
+	public void setHymmPassword(String hymmPassword) {
+		this.hymmPassword = hymmPassword;
+	}
+	public Integer getHymmGenderCd() {
+		return hymmGenderCd;
+	}
+	public void setHymmGenderCd(Integer hymmGenderCd) {
+		this.hymmGenderCd = hymmGenderCd;
+	}
+	public String getHymmNumber() {
+		return hymmNumber;
+	}
+	public void setHymmNumber(String hymmNumber) {
+		this.hymmNumber = hymmNumber;
+	}
+	public String getHymmEmail() {
+		return hymmEmail;
+	}
+	public void setHymmEmail(String hymmEmail) {
+		this.hymmEmail = hymmEmail;
+	}
+	public String getHymmDob() {
+		return hymmDob;
+	}
+	public void setHymmDob(String hymmDob) {
+		this.hymmDob = hymmDob;
+	}
+	public Integer getHymmSaveCd() {
+		return hymmSaveCd;
+	}
+	public void setHymmSaveCd(Integer hymmSaveCd) {
+		this.hymmSaveCd = hymmSaveCd;
+	}
+	public Integer getHymmEmailConsentNy() {
+		return hymmEmailConsentNy;
+	}
+	public void setHymmEmailConsentNy(Integer hymmEmailConsentNy) {
+		this.hymmEmailConsentNy = hymmEmailConsentNy;
+	}
+	public Integer getHymmSmsConsentNy() {
+		return hymmSmsConsentNy;
+	}
+	public void setHymmSmsConsentNy(Integer hymmSmsConsentNy) {
+		this.hymmSmsConsentNy = hymmSmsConsentNy;
+	}
+	public String getHymmDesc() {
+		return hymmDesc;
+	}
+	public void setHymmDesc(String hymmDesc) {
+		this.hymmDesc = hymmDesc;
+	}
+	public Integer getHymmDelNy() {
+		return hymmDelNy;
+	}
+	public void setHymmDelNy(Integer hymmDelNy) {
+		this.hymmDelNy = hymmDelNy;
 	}
 	public String getRegIp() {
 		return regIp;
@@ -175,6 +280,8 @@ public class Plan {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
+	
+	
 	
 
 	

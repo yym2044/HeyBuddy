@@ -185,36 +185,52 @@
 												<td>호스트</td>
 												<td>
 												<div class="d-flex align-items-center">
-					                                <img src="/resources/assets/media/avatars/08.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
+					                                <c:choose>
+														<c:when test="${empty uuidFileName}">
+															<img src="/resources/user/images/profileDefault.png" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+														</c:when>
+														<c:otherwise>
+															<img src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+														</c:otherwise>
+													</c:choose>
 					                                <div>
-					                                    <div class="h6 mb-0 lh-1">윤영민 yym2044@gmail.com</div>
+					                                    <div class="h6 mb-0 lh-1"><c:out value="${sessName}"/> <c:out value="${sessEmail}"/></div>
 					                                </div>
 					                            </div>
 												</td>
-												<td><button class="btn btn-info">변경하기</button></td>
+												<td></td>
+												<!-- <td><button class="btn btn-info">변경하기</button></td> -->
 											</tr>
 											<tr>
 												<td>마이스페이스 이름</td>
-												<td colspan="2"><input class="form-control" value="팀부엉"></td>
+												<td colspan="2"><input class="form-control" value="<c:out value="${hyspName}"/>"></td>
 											</tr>
 											<tr>
 												<td>마이스페이스 아이디</td>
-												<td colspan="2">__kakaowork@1649227056_3FF8122770C2CDE1D2321C959890155C__</td>
+												<td colspan="2">__heybuddy@1649227056_3FF8122770C2CDE1D2321C959890155C__</td>
 											</tr>
 											<tr>
 												<td>마이스페이스 로고</td>
 												<td>
-													<input id="hybdLogo" type="file" class="form-control" style="display: none;">
-													<input type="text" class="form-control" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다. 배경화면은 투명으로 제작해주세요.">
+													<input id="spaceLogo" type="file" class="form-control" style="display: none;">
+													<!-- <input id="spaceLogoText" type="text" class="form-control" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다. 배경화면은 투명으로 제작해주세요."> -->
+													
+													<div class="position-relative flex-grow-1 me-2 me-lg-4">
+														<!--Img-->
+														<span id="sidebarIcon2" class="sidebar-icon lh-1 text-white rounded-circle bg-success fw-bold fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;"></span>
+														<!-- <img class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;" src="/resources/user/images/profileDefault.png"> -->
+														<input id="spaceLogoText" type="text" class="form-control ps-8" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다.">
+													</div>
+													
 												</td>
-												<td><label for="hybdLogo"><a class="btn btn-info">찾아보기</a></label></td>
+												<td><label for="spaceLogo"><a class="btn btn-info">찾아보기</a></label></td>
 											</tr>
 											<tr>
 												<td>스페이스 색상</td>
 												<td colspan="2">
 													<div class="custom-radios">
 													  <div>
-													    <input type="radio" id="color-1" name="spaceColor" value="color-1">
+													    <input type="radio" id="color-1" name="spaceColor" value="color-1" checked>
 													    <label for="color-1">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -259,8 +275,12 @@
 										</table>
 										<div class="text-center pb-3">
 											<button class="btn btn-lg btn-secondary me-1">원래대로</button>
-											<button id="btnApply" class="btn btn-lg btn-info">적용</button>
+											<button id="btnApply" data-bs-toggle="modal" data-bs-target="#saveModal" class="btn btn-lg btn-info">적용</button>
 										</div>
+										
+										<!-- SaveModal -->
+										<%@include file="../include/saveModal.jsp"%>
+										
 									</div>
 								</div>
 							</div>
@@ -336,6 +356,16 @@
 	console.log(sidebarLink[6]);
 	
 	sidebarLink[5].className += ' current';
+	</script>
+	
+	<script type="text/javascript">
+	$("#spaceLogo").on("change", function(){
+		$("#spaceLogoText").val($(this)[0].files[0].name);
+	});
+	</script>
+    
+    <script type="text/javascript">
+	document.querySelector('#sidebarIcon2').innerText = "<c:out value="${hyspName}"/>".charAt(0);
 	</script>
     
 </body>

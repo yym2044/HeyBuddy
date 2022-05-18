@@ -139,7 +139,7 @@ table tr .form-control {
 											<input id="profilePhoto" type="file" style="display: none;">
 											<p class="p-2 fw-bold">프로필 사진</p>
 										</div>
-
+										
 										<table id="setTable" class="table table-sm table-nowrap table-card text-center">
 											<tr>
 												<td>이메일<span class="text-danger ps-2">*</span></td>
@@ -288,6 +288,28 @@ table tr .form-control {
 		}
 		
 	});
+	</script>
+	
+	<script src="/resources/common/js/commonXdmin.js"></script>
+	<script src="/resources/common/js/constantsXdmin.js"></script>
+	<script src="/resources/common/js/common.js"></script>
+	
+	<script type="text/javascript">
+	let profileInput = document.getElementById("profilePhoto");
+	let img = document.querySelector('label[for=profilePhoto] img')
+	
+	profileInput.onchange = (e) => {
+		
+		var ext = $("#profilePhoto")[0].files[0].name.split('.').pop().toLowerCase();
+		if(extArrayImage.indexOf(ext) == -1){
+			alert("허용된 확장자가 아닙니다.");
+			$("#profilePhoto").val(null);
+			return false;
+		}
+		
+		img.classList.add('preview');
+		img.src = URL.createObjectURL(e.target.files[0]);
+	}
 	</script>
 	
 </body>

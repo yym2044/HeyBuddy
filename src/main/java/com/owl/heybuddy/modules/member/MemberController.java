@@ -72,15 +72,15 @@ public class MemberController {
 	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
 	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo, HttpSession httpSession) throws Exception {
 	 service.updateMember(dto); 
-	 
+
 		httpSession.setAttribute("uuidFileName", dto.getUuidFileName());
 		httpSession.setAttribute("path", dto.getPath());
-		
+
 	 return "redirect:/xdmin/memberView"; 
 	 }
-			
-	
-		
+
+
+	 
 	@RequestMapping(value = "/login/userLogin") // 회원로그인
 	 public String userLogin(Member dto, Model model) throws Exception { 
 		return "/user/login/login";
@@ -102,8 +102,10 @@ public class MemberController {
 
 	 
 	 httpSession.setAttribute("sessSeq", rtMember.getHymmSeq());
+	 httpSession.setAttribute("sessAdminNy", rtMember.getHymmAdminNy());
 	 httpSession.setAttribute("sessId", rtMember.getHymmId());
 	 httpSession.setAttribute("sessName", rtMember.getHymmName());
+	 httpSession.setAttribute("sessEmail", rtMember.getHymmEmail());
 	 httpSession.setAttribute("uuidFileName", rtMember.getUuidFileName());
 	 httpSession.setAttribute("path", rtMember.getPath());
 	 
@@ -237,10 +239,9 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/memberEdit")
-	public String memberEditHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	public String memberEditHost(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
 
-		//임시로 스페이스 지정
-		vo.setHyspSeq("1");
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);
@@ -258,10 +259,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/setting/memberInst")
-	public String memberInstHost(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	public String memberInstHost(Member dto, MemberVo vo, HttpSession httpSession, RedirectAttributes redirectAttributes) throws Exception {
 		
-		//임시로 스페이스 지정
-		dto.setHyspSeq("1");
+		dto.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		service.insertMemberInSpace(dto);
 		
@@ -272,10 +272,9 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/memberList")
-	public String memberListHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	public String memberListHost(@ModelAttribute("vo") MemberVo vo, HttpSession httpSession, Model model) throws Exception {
 		
-		//임시로 스페이스 지정
-		vo.setHyspSeq("1");
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		int count = service.selectOneCountMemberInSpace(vo);
 		vo.setParamsPaging(count);
@@ -291,10 +290,9 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/memberView")
-	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, HttpSession httpSession, Model model) throws Exception {
 
-		//임시로 스페이스 지정
-		vo.setHyspSeq("1");
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);

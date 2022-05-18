@@ -136,7 +136,14 @@
 												<tr>
 													<td class="">
 														<div class="d-flex align-items-center">
-															<img src="/resources/assets/media/avatars/08.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+															<c:choose>
+																<c:when test="${empty item.uuidFileName}">
+																	<img src="/resources/user/images/profileDefault.png" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+																</c:when>
+																<c:otherwise>
+																	<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+																</c:otherwise>
+															</c:choose>
 															<div>
 																<div class="h6 mb-0 lh-1">
 																	<a href="javascript:goView(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/></a>

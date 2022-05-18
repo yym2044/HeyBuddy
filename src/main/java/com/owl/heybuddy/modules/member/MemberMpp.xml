@@ -19,9 +19,9 @@
 		<choose>
 			<when test="shHymmDormancyNy == 1">AND hymmDormancyNy = 1 </when> 
 			<when test="shHymmDormancyNy == 0">AND hymmDormancyNy = 0 </when>  
-		</choose>
+		</choose> 
 		<if test="shHymmName != null and !shHymmName.equals('')"> AND hymmName LIKE concat('%',#{shHymmName},'%')</if>
-		
+
 		<choose>
 			<when test="shMemberOption == 1">AND hymmName LIKE concat('%',#{shMemberValue},'%')</when>
 			<when test="shMemberOption == 2">AND hymmId LIKE concat('%',#{shMemberValue},'%')</when>
@@ -244,7 +244,7 @@
 		WHERE 1 = 1
 		AND hymmSeq = #{hymmSeq}
 	</update>
-	
+
 
   	<update id="updateUploaded"> <!-- 프로필사진수정 -->
 	UPDATE ${tableName} SET
@@ -271,8 +271,10 @@
 	<select id="selectOneLogin" resultMap="resultMapObj">
 	SELECT
 		a.hymmSeq
+		,a.hymmAdminNy
 		,a.hymmId
 		,a.hymmName
+		,a.hymmEmail
 		,a.hymmDesc
 		,a.hymmPassword
 		,b.uuidFileName
@@ -321,6 +323,10 @@
 		hybdSpaceMember b
 	ON 
 		b.hymmSeq = a.hymmSeq
+	LEFT JOIN 
+		hybdMemberUploaded c 
+	ON 
+		c.pseq = a.hymmSeq
 	WHERE 1=1
 		AND b.hyspSeq = #{hyspSeq} 
 	</sql>
@@ -342,6 +348,8 @@
 		, a.hymmDob
 		, a.hymmDesc
 		, b.hysmActiveNy
+		, c.uuidFileName
+		, c.path
 		
 		, a.regDateTime
 		, a.modDateTime

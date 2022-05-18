@@ -227,16 +227,15 @@
 														<input type="text" id="hymmDesc" name="hymmDesc" class="form-control" value="<c:out value="${rt.hymmDesc}"/>">
 													</div>
 												</div>
+												<!-- 
 												<div class="row">
 													<div class="col-12 col-md-6 mb-3">
 
-														<!-- Profile public or private -->
 														<div class="p-3 border rounded">
 
 															<div class="row">
 																<div class="col-auto">
 
-																	<!-- Check / Uncheck -->
 																	<div class="form-check">
 																		<input class="form-check-input" type="checkbox" id="switchVisible">
 																		<label class="form-check-label" for="switchVisible">Public profile</label>
@@ -244,18 +243,15 @@
 
 																</div>
 															</div>
-															<!-- / .row -->
 														</div>
 
 													</div>
 													<div class="col-12 col-md-6 mb-3">
 
-														<!-- Profile available for hire -->
 														<div class="p-3 border rounded">
 															<div class="row">
 																<div class="col-auto">
 
-																	<!-- Check / Uncheck -->
 																	<div class="form-check">
 																		<input class="form-check-input" type="checkbox" id="switchTwo" checked="">
 																		<label class="form-check-label" for="switchTwo">Available for hire</label>
@@ -263,32 +259,17 @@
 
 																</div>
 															</div>
-															<!-- / .row -->
 														</div>
 
 													</div>
 												</div>
+												 -->
 												<div class="text-end">
 													<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveModal">Save Changes</button>
 												</div>
-
-												<!-- Modal -->
-												<div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">확인</h5>
-																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-															</div>
-															<div class="modal-body">변경 내용을 저장합니다.</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-																<button id="btnSubmit" type="button" class="btn btn-primary">Save changes</button>
-															</div>
-														</div>
-													</div>
-												</div>
-
+												
+												<!-- SaveModal -->
+												<%@include file="../include/saveModal.jsp"%>
 											
 										</div>
 									</div>
@@ -334,7 +315,7 @@
 												<div class="col-auto">
 
 													<!--Delete Button -->
-													<button style="width: 116px;" class="btn btn-danger">Delete</button>
+													<button type="button" style="width: 116px;" class="btn btn-danger">Delete</button>
 
 												</div>
 											</div>

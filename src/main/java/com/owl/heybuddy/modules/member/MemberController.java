@@ -38,7 +38,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/xdmin/memberView") // 회원뷰
-	public String xdminMemberView(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	public String xdminMemberView(@ModelAttribute("vo") MemberVo vo, Member dto, Model model) throws Exception {
+		
 		Member rt = service.memberView(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("uploaded", service.profileUploaded(vo));
@@ -70,11 +71,11 @@ public class MemberController {
 	 }
 
 	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
-	 public String  memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo, HttpSession httpSession) throws Exception {
+	 public String  memberUpdt(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		 
 	 service.updateMember(dto); 
-
-		httpSession.setAttribute("uuidFileName", dto.getUuidFileName());
-		httpSession.setAttribute("path", dto.getPath());
+	 
+	 redirectAttributes.addFlashAttribute("vo", vo);
 
 	 return "redirect:/xdmin/memberView"; 
 	 }

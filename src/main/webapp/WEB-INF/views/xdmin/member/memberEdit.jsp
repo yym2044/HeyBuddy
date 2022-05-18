@@ -406,8 +406,7 @@
 
 
 				<!-- jquery ui -->
-				<script
-					src="/infra/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+				<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 					<!--Page script begin-->
 	<script src="/resources/assets/vendor/inputmask.min.js"></script>
@@ -440,7 +439,7 @@
 		
 
 		goMemberUpdt = function(seq){
-					$("#hymmSeq").val(seq)	
+					/* $("#hymmSeq").val(seq) */	
 					$("#formEdit").attr("action","/xdmin/memberUpdt");
 					$("#formEdit").submit();
 			};

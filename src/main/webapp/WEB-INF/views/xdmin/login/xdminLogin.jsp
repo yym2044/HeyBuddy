@@ -173,11 +173,9 @@ main {
 
 <!-- *********************로그인S******************************** -->
 	<script>
-		$("#btnLogin").on(
-				"click",
-				function() {
+		$("#btnLogin").on("click", function() {
 				
-					$.ajax(`{
+					$.ajax({
 						async : true,
 						cache : false,
 						type : "post",

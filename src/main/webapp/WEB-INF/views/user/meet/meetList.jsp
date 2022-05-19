@@ -103,7 +103,7 @@
 			                                        </tr>
 			                                    </thead> -->
 											<tbody>
-												<c:forEach items="${list}" var="room" varStatus="status">
+												<c:forEach items="${roomList}" var="room" varStatus="status">
 													<tr>
 														<td class="text-center" style="width: 200px;">
 															<div class="avatar-group justify-content-end">
@@ -129,7 +129,7 @@
 															</div>
 														</td>
 														<td style="width: 700px;"><span class="fw-bold fs-4"><c:out value="${room.hymrRoomName}"/><i class="bi bi-lock ps-2"></i>
-														</span><br>홍길동, 김하나, 김둘</td>
+														</span><br><span id="memberInRoom${room.hymrSeq}">1</span></td>
 														<td class="text-end"
 															style="width: 200px; vertical-align: middle;"><i
 															class="bi bi-alarm pe-1"></i>12:34</td>
@@ -270,6 +270,57 @@
 		$("#meetListForm").attr("action", "/meet/meetEnter").submit();
 	}
 	</script>
+	
+	<script type="text/javascript">
+	//DB에 저장하고 끌어다쓰는 방법.. 실시간 처리가 어렵다. 2022.05.18
+	$(document).ready(function(){
+		
+		<c:forEach items="${roomList}" var="room" varStatus="statusRoom">
+			
+			var roomMember${room.hymrSeq} = new Array();
+			
+			<c:forEach items="${memberList}" var="member" varStatus="statusMember">
+				
+				<c:if test="${member.hymrSeq eq room.hymrSeq}">
+					
+					roomMember${room.hymrSeq}.push(" ${member.hymmName}");
+				
+				</c:if>
+					
+			</c:forEach>
+			
+			console.log(roomMember${room.hymrSeq});
+			$("#memberInRoom" + ${room.hymrSeq}).text(roomMember${room.hymrSeq});
+			
+		</c:forEach>
+		
+	});
+	</script>
+	 
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+	<!-- 
+	<script type="text/javascript">
+	const socket = new SockJS('/stompTest');
+	const client = Stomp.over(socket);
+
+	client.connect({}, function() {
+		console.log("Connected stompTest!");
+
+		client.send("/pub/meetRoomList", {}, "give me the list");
+		
+		// Controller's MessageMapping, header, message(자유형식)
+		client.subscribe("/sub/meetRoomList", function(event) {
+			console.log("subscribing room list ~ , ", event);
+			
+		});
+
+		
+	});
+	</script>
+	 -->
+	 
 </body>
 
 </html>

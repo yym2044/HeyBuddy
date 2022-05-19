@@ -3,6 +3,8 @@ package com.owl.heybuddy.modules.meet;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +16,36 @@ public class MeetController {
 	
 	@Autowired
 	MeetServiceImpl service;
+	
+	private final SimpMessagingTemplate template;
+	
+	public MeetController(final SimpMessagingTemplate template) {
+		this.template = template;
+	}
+	
+	@MessageMapping("/joinRoom")
+	public void joinRoom(Message message, Meet dto) throws Exception {
+		
+		System.out.println(message.getRoomId() + ", " + message.getWriter() + ", " + message.getMsg());
+		
+		template.convertAndSend("/sub/message/notice/" + message.getRoomId(), message.getMsg());
+	}
+	
+	@MessageMapping("/chat")
+	public void chat(Message message) throws Exception {
+		template.convertAndSend("/sub/message/chat/" + message.getRoomId(), message);
+	}
+	
+	
+	
+	@MessageMapping("/meetRoomList")
+	public void meetRoomList(String msg) throws Exception {
+		
+		
+		template.convertAndSend("/sub/meetRoomList", "roger that");
+	}
+	
+	
 	
 	@RequestMapping(value = "/meet/index")
 	public String index() {
@@ -27,7 +59,8 @@ public class MeetController {
 		
 		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
-		model.addAttribute("list", service.selectListRoom(vo));
+		model.addAttribute("roomList", service.selectListRoom(vo));
+		model.addAttribute("memberList", service.selectListRoomMember());
 		
 		return "user/meet/meetList";
 	}
@@ -44,7 +77,7 @@ public class MeetController {
 		
 		service.insertRoom(dto);
 		
-		return "redirect:/meet/meetRoom?" + dto.gethymrRoomId();
+		return "redirect:/meet/meetRoom?" + dto.getHymrRoomId();
 	}
 	
 	

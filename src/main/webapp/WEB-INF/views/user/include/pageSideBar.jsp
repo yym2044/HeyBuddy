@@ -91,14 +91,14 @@
 				<c:if test="${hostNy eq 1}">
 					<li class="nav-item"><a href="/setting/space"
 						class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-							<span class="sidebar-icon"> <i data-feather="settings"
+							<span class="sidebar-icon iconic"> <i data-feather="settings"
 								class="fe-1x"></i>
 						</span> <span class="sidebar-text">환경 설정</span>
 					</a></li>
 				</c:if>
 				<li class="nav-item"><a href="/mySpace/mySpaceList"
 					class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-						<span class="sidebar-icon"> <i
+						<span class="sidebar-icon iconic"> <i
 							class="bi bi-arrow-left-right" class="fe-1x"></i>
 					</span> <span class="sidebar-text">마이스페이스</span>
 				</a></li>

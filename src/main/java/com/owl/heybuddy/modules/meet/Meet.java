@@ -13,6 +13,11 @@ public class Meet {
 	
 	private String hyspSeq;
 	
+	// Member
+	private String hymmSeq;
+	private String hymmName;
+	private Integer hostNy;
+	
 	// RegMod
 	private String regIp;
 	private String regSeq;
@@ -33,11 +38,17 @@ public class Meet {
 	public void setHymrSeq(String hymrSeq) {
 		this.hymrSeq = hymrSeq;
 	}
-	public String gethymrRoomId() {
+	public String getHymrRoomId() {
 		return hymrRoomId;
 	}
-	public void sethymrRoomId(String hymrRoomId) {
+	public void setHymrRoomId(String hymrRoomId) {
 		this.hymrRoomId = hymrRoomId;
+	}
+	public String getHymrRoomName() {
+		return hymrRoomName;
+	}
+	public void setHymrRoomName(String hymrRoomName) {
+		this.hymrRoomName = hymrRoomName;
 	}
 	public Integer getHymrOrder() {
 		return hymrOrder;
@@ -56,6 +67,24 @@ public class Meet {
 	}
 	public void setHymrPwd(String hymrPwd) {
 		this.hymrPwd = hymrPwd;
+	}
+	public String getHyspSeq() {
+		return hyspSeq;
+	}
+	public void setHyspSeq(String hyspSeq) {
+		this.hyspSeq = hyspSeq;
+	}
+	public String getHymmSeq() {
+		return hymmSeq;
+	}
+	public void setHymmSeq(String hymmSeq) {
+		this.hymmSeq = hymmSeq;
+	}
+	public String getHymmName() {
+		return hymmName;
+	}
+	public void setHymmName(String hymmName) {
+		this.hymmName = hymmName;
 	}
 	public String getRegIp() {
 		return regIp;
@@ -117,17 +146,11 @@ public class Meet {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
-	public String getHyspSeq() {
-		return hyspSeq;
+	public Integer getHostNy() {
+		return hostNy;
 	}
-	public void setHyspSeq(String hyspSeq) {
-		this.hyspSeq = hyspSeq;
-	}
-	public String getHymrRoomName() {
-		return hymrRoomName;
-	}
-	public void setHymrRoomName(String hymrRoomName) {
-		this.hymrRoomName = hymrRoomName;
+	public void setHostNy(Integer hostNy) {
+		this.hostNy = hostNy;
 	}
 	
 	

@@ -37,6 +37,15 @@
  		AND hyspSeq = #{hyspSeq}
  	
  	</select>
+ 	<select id="selectListRoomMember" resultMap="resultMapObj">
+ 	SELECT
+ 		*
+ 	FROM
+ 		hybdMeetRoomMember
+ 	WHERE 1=1
+ 	ORDER BY
+ 		hostNy DESC
+ 	</select>
  
  	<select id="selectOneRoom" resultMap="resultMapObj">
  	SELECT
@@ -45,6 +54,14 @@
  		hybdMeetRoom
  	WHERE 1=1
  		AND hyspSeq = #{hyspSeq}
+ 		AND hymrSeq = #{hymrSeq}
+ 	</select>
+ 	<select id="selectListOneRoomMember" resultMap="resultMapObj">
+ 	SELECT
+ 		*
+ 	FROM
+ 		hybdMeetRoomMember
+ 	WHERE 1=1
  		AND hymrSeq = #{hymrSeq}
  	</select>
  

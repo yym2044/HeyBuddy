@@ -146,7 +146,7 @@
 															</c:choose>
 															<div>
 																<div class="h6 mb-0 lh-1">
-																	<a href="javascript:goView(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/></a>
+																	<a href="javascript:goView(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/><c:if test="${item.hymmName eq sessName}"></c:if></a>
 																</div>
 															</div>
 														</div>

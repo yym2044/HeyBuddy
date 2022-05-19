@@ -32,7 +32,7 @@
 				<div id="streams">
 					<div class="people1" id="myStream">
 						<video id="myFace" autoplay playsinline width="400" height="400"></video>
-						<h3 id="userNickname"></h3>
+						<h3 id="userNickname"><c:out value="${sessName}"/></h3>
 					</div>
 				</div>
 				<div id="controlers">
@@ -210,19 +210,83 @@
 	
 	/////////////////////////////////
 	
+	const chatForm = document.querySelector("#chatForm");
+	const chatBox = document.querySelector("#chatBox");
+	
+	const MYCHAT_CN = "myChat";
+	const NOTICE_CN = "noticeChat";
+	
+	chatForm.addEventListener("submit", handleChatSubmit);
+	
+	function handleChatSubmit(event) {
+		event.preventDefault();
+		const chatInput = chatForm.querySelector("input");
+		const message = chatInput.value;
+		chatInput.value = "";
+		client.send("/pub/chat", {}, JSON.stringify({
+			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
+			"writer" : "<c:out value='${sessName}'/>",
+			"msg" : message
+		}));
+	}
+	
+	function writeChat(message, className = null){
+		const li = document.createElement("li");
+		const span = document.createElement("span");
+		span.innerText = message;
+		li.appendChild(span);
+		li.classList.add(className);
+		chatBox.prepend(li);
+	}
+	/////////////////////////////////
+	
+	const leaveBtn = document.querySelector("#leave");
+	
+	function leaveRoom() {
+		client.disconnect();
+		
+	}
+	
+	leaveBtn.addEventListener("click", leaveRoom);
+	
+	/////////////////////////////////
+	
 	const socket = new SockJS('/stompTest');
 	const client = Stomp.over(socket);
 
 	client.connect({}, function() {
 		console.log("Connected stompTest!");
-
+		
+		/* 
+		//MeetList 업데이트 해주기
+		client.send("/pub/meetRoomList", {}, "give me the list (i'm in meetRoom)");
+		 */
+		 
 		// Controller's MessageMapping, header, message(자유형식)
-		client.subscribe("/sub/message/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
-			console.log("subscribing room ~ ", event);
+		client.subscribe("/sub/message/notice/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
+			console.log("subscribing room notice ~ ", event);
+			writeChat("Notice!", NOTICE_CN);
+			writeChat(event.body);
 		});
+		 
+		 client.subscribe("/sub/message/chat/<c:out value='${rt.hymrRoomId}'/>", function(event) {
+			console.log("subscribing room chat ~ ", event);
+			
+			const msg = JSON.parse(event.body);
+			
+			if(msg.writer == "<c:out value='${sessName}'/>"){
+				writeChat(msg.writer + " : " + msg.msg, MYCHAT_CN);
+			} else {
+				writeChat(msg.writer + " : " + msg.msg);
+			}
+			
+		 })
 
-		client.send("/pub/TTT", {}, "<c:out value='${ sessName }'/>님이 입장하셨습니다.");
-
+		client.send("/pub/joinRoom", {}, JSON.stringify({
+			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
+			"msg" : "<c:out value='${ sessName }'/>님이 입장하셨습니다."
+		}));
+		
 	});
 	</script>
 </body>

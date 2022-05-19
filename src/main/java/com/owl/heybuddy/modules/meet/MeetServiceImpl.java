@@ -18,11 +18,17 @@ public class MeetServiceImpl implements MeetService {
 		return dao.selectListRoom(vo);
 		
 	}
+	public List<Meet> selectListRoomMember() throws Exception {
+		return dao.selectListRoomMember();
+	}
 	public int selectOneCount(MeetVo vo) throws Exception {
 		return dao.selectOneCount(vo);
 	}
 	public Meet selectOneRoom(MeetVo vo) throws Exception {
 		return dao.selectOneRoom(vo);
+	}
+	public List<Meet> selectListOneRoomMember(MeetVo vo) throws Exception {
+		return dao.selectListOneRoomMember(vo);
 	}
 	public int insertRoom(Meet dto) throws Exception {
 		

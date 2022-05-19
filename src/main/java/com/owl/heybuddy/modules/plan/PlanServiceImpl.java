@@ -31,8 +31,16 @@ public class PlanServiceImpl implements PlanService {
 		return dao.selectListSpace();
 	}
 	@Override
-	public List<Plan> selectListMember() throws Exception {
-		return dao.selectListMember();
+	public List<Plan> selectListMember(PlanVo vo) throws Exception {
+		return dao.selectListMember(vo);
+	}
+	@Override
+	public List<Plan> selectListMemberInSpace() throws Exception {
+		return dao.selectListMemberInSpace();
+	}
+	@Override
+	public List<Plan> selectListMySpace() throws Exception {
+		return dao.selectListMySpace();
 	}
 
 	@Override

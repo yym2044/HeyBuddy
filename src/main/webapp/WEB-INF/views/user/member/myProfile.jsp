@@ -89,13 +89,13 @@
 											<li class="nav-item"><a href="account-general.html" class="nav-link active px-3">
 													<i data-feather="user" class="fe-1x align-middle me-2"></i>내 정보
 												</a></li>
-											<li class="nav-item"><a href="account-billing.html" class="nav-link px-3">
+											<li class="nav-item"><a href="javascript:noService();" class="nav-link px-3">
 													<i data-feather="file-text" class="fe-1x align-middle me-2"></i>결제
 												</a></li>
-											<li class="nav-item"><a href="account-security.html" class="nav-link px-3">
+											<li class="nav-item"><a href="javascript:noService();" class="nav-link px-3">
 													<i data-feather="shield" class="fe-1x align-middle me-2"></i>보안
 												</a></li>
-											<li class="nav-item"><a href="account-notifications.html" class="nav-link px-3">
+											<li class="nav-item"><a href="javascript:noService();" class="nav-link px-3">
 													<i data-feather="bell" class="fe-1x align-middle me-2"></i>알림
 												</a></li>
 										</ul>
@@ -459,7 +459,12 @@ if (toastTrigger) {
 		});
 		
 		</script>
-
+	
+	<script type="text/javascript">
+	noService = function(){
+		alert("미구현 메뉴");
+	}
+	</script>
 
 </body>
 

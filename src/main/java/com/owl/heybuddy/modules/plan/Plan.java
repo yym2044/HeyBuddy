@@ -21,7 +21,6 @@ public class Plan {
 	
 	
 	// hybdSpaceMember
-	private Integer hysmActiveNy;
 	private Integer hysmRoleCd;
 	private String hysmSeq;
 	private String hyspName;
@@ -131,12 +130,6 @@ public class Plan {
 	}
 	public void setHymmName(String hymmName) {
 		this.hymmName = hymmName;
-	}
-	public Integer getHysmActiveNy() {
-		return hysmActiveNy;
-	}
-	public void setHysmActiveNy(Integer hysmActiveNy) {
-		this.hysmActiveNy = hysmActiveNy;
 	}
 	public Integer getHysmRoleCd() {
 		return hysmRoleCd;

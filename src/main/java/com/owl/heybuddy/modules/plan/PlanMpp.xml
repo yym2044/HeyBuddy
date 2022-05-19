@@ -80,7 +80,6 @@
 		, a.hymmEmail
 		, a.hymmDob
 		, a.hymmDesc
-		, b.hysmActiveNy
 		, a.regDateTime
 		, a.modDateTime
 	<include refid="selectCommonInSpace"/>

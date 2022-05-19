@@ -7,7 +7,7 @@ public class Plan {
 	private String hyplSeq;
 	private Integer hyplDefaultNy;
 	private String hyplName;
-	private Date hyplDate;
+	private String hyplDate;
 	private int hyplMember;
 	private String hyplMemberName;
 	private Integer hyplTypeCd;
@@ -23,11 +23,17 @@ public class Plan {
 	// hybdSpaceMember
 	private Integer hysmActiveNy;
 	private Integer hysmRoleCd;
-	
+	private String hysmSeq;
+	private String hyspName;
+	private Integer hysmDelNy;
 	
 	// HybdSpace
 	
+	private Integer hyspDelNy;
 	private String hyspSeq;
+	
+	
+	// hybdMember
 	private Integer hymmAdminNy;
 	private Integer hymmDormancyNy;
 	private String hymmId;
@@ -56,7 +62,8 @@ public class Plan {
 	
 
 	/******************************* Getter & Setter *******************************/
-
+	
+	
 
 	public String getHyplSeq() {
 		return hyplSeq;
@@ -76,10 +83,11 @@ public class Plan {
 	public void setHyplName(String hyplName) {
 		this.hyplName = hyplName;
 	}
-	public Date getHyplDate() {
+	
+	public String getHyplDate() {
 		return hyplDate;
 	}
-	public void setHyplDate(Date hyplDate) {
+	public void setHyplDate(String hyplDate) {
 		this.hyplDate = hyplDate;
 	}
 	public int getHyplMember() {
@@ -135,6 +143,30 @@ public class Plan {
 	}
 	public void setHysmRoleCd(Integer hysmRoleCd) {
 		this.hysmRoleCd = hysmRoleCd;
+	}
+	public String getHysmSeq() {
+		return hysmSeq;
+	}
+	public void setHysmSeq(String hysmSeq) {
+		this.hysmSeq = hysmSeq;
+	}
+	public String getHyspName() {
+		return hyspName;
+	}
+	public void setHyspName(String hyspName) {
+		this.hyspName = hyspName;
+	}
+	public Integer getHysmDelNy() {
+		return hysmDelNy;
+	}
+	public void setHysmDelNy(Integer hysmDelNy) {
+		this.hysmDelNy = hysmDelNy;
+	}
+	public Integer getHyspDelNy() {
+		return hyspDelNy;
+	}
+	public void setHyspDelNy(Integer hyspDelNy) {
+		this.hyspDelNy = hyspDelNy;
 	}
 	public String getHyspSeq() {
 		return hyspSeq;
@@ -280,9 +312,7 @@ public class Plan {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
-	
-	
-	
+
 
 	
 	

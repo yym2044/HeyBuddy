@@ -32,14 +32,11 @@
 		</choose>
 	</sql>
 	
-
-
 	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
 		select
 		count(*)
 		<include refid="selectCommon"/>
 	</select>
- 
 
 	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
 		select
@@ -50,34 +47,34 @@
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
-		LEFT JOIN hybdSpaceMember c on c.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace d on d.hyspSeq = c.hyspSeq
+		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
 		where
 		a. hydcDelNy = 0
+		AND 
+		d.hyspSeq = #{hyspSeq}
 		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
 		<choose>
 			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
 			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
 		</choose>
 		limit  #{startRnumForMysql} , #{rowNumToShow}
-	
+
 	</select>
-	
-	
+			
 	<select id="selectListMember" resultMap="resultMapObj">
-		SELECT distinct
+		SELECT
 			c.hymmSeq
 			,c.hymmName
 		FROM 
 			hybdSpaceMember AS a
 		LEFT JOIN hybdSpace AS b
-		ON a.hyspSeq= b.hyspSeq
+			ON a.hyspSeq= b.hyspSeq
         LEFT JOIN hybdMember AS c
-        ON c.hymmSeq = a.hymmSeq
-		WHERE	1 = 1;
+        	ON c.hymmSeq = a.hymmSeq
+		WHERE	1 = 1
+        	AND a.hyspSeq = #{hyspSeq}
 	</select>
 	
-
 	<select id="documentListTemp" resultMap="resultMapObj">  <!-- 임시저장문서리스트-->
 		select
 		*
@@ -97,7 +94,27 @@
 		and hydcSeq = #{hydcSeq}
 	</select>
 	
-		
+	
+		<select id="profileUploaded" resultMap = "resultMapObj"> <!-- 프로필뷰 -->
+		SELECT
+			seq
+<!-- 			, type -->
+			, defaultNy
+			, sort
+			, originalFileName
+			, uuidFileName 
+			, ext
+<!-- 			, size  -->
+			, delNy
+			, pseq
+			, path
+		FROM
+			hybdMemberUploaded
+		WHERE 1=1
+			AND pseq = #{hymmSeq}
+	</select>
+	
+	
 	<insert id="insertDocument">  <!-- 문서등록 -->
 		INSERT INTO hybdDocument(
 		hybdTitle

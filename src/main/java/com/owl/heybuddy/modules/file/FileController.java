@@ -16,7 +16,6 @@ import com.owl.heybuddy.modules.member.MemberVo;
 
 
 
-
 @Controller
 public class FileController {  
 	 
@@ -27,11 +26,6 @@ public class FileController {
 	public String fileList(@ModelAttribute("vo") FileVo vo, Model model, HttpSession httpSession) throws Exception {
 	
 		
-		 List<File> selectListMember = service.selectListMember(); 
-			
-		 model.addAttribute("selectListMember", selectListMember); 
-
-		
 		if(vo.getHyspSeq() != null) {
 			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
 		}
@@ -41,6 +35,15 @@ public class FileController {
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
 		
+		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
+		System.out.println("vo.getHymmName :" + vo.getHymmName());
+		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
+		System.out.println("vo.getHyspName :" + vo.getHyspName());
+		
+		
+	    List<File> selectListMember = service.selectListMember(vo); 
+	    model.addAttribute("selectListMember", selectListMember); 
+	    
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
@@ -57,14 +60,15 @@ public class FileController {
 		
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
-		model.addAttribute("uploaded", service.profileUploaded(mo));  //멤버사진
-		model.addAttribute("fileUploaded", service.fileUploaded(vo));  //파일
+		/*
+		 * model.addAttribute("uploaded", service.profileUploaded(mo)); //멤버사진
+		 */		model.addAttribute("fileUploaded", service.fileUploaded(vo));  //파일
 		return "user/file/fileView";
 		
 	}
 	
 	@RequestMapping(value = "/file/fileForm") // 문서등록
-	public String fileForm(@ModelAttribute("vo") FileVo vo,  Model model) throws Exception {
+	public String fileForm(@ModelAttribute("vo") FileVo vo,  Model model, HttpSession httpSession) throws Exception {
 		
 		File rt = service.documentView(vo); 
 		model.addAttribute("item", rt);
@@ -76,11 +80,9 @@ public class FileController {
 			 HttpSession httpSession) throws Exception {
 	 service.insertDocument(dto);
 	 
-	vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-	vo.setHymmName((String) httpSession.getAttribute("sessName"));
+	 httpSession.setAttribute("uuidFileName", dto.getUuidFileName());
+	 httpSession.setAttribute("path", dto.getPath());
 		
-	 vo.setHydcSeq(dto.getHydcSeq());
-	 redirectAttributes.addFlashAttribute("vo", vo); 
 	 return "redirect:/file/fileView";
 	 }
 
@@ -125,19 +127,14 @@ public class FileController {
 
 	//임시저장등록은 그냥 등록하는페이지랑 넘어가는거 똑같이..
 
-
-	 @RequestMapping(value = "/file/fileNele") // 문서가짜삭제 
-	 public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception { 
-	 service.updateDeleteDocument(vo);
-	 redirectAttributes.addAttribute("thisPage", vo.getThisPage());
-	 redirectAttributes.addAttribute("hybdmmSeq", vo.getHydcSeq());
-	 redirectAttributes.addAttribute("hybdmmDelNy", vo.getHydcDelNy());
-	 redirectAttributes.addAttribute("hybdmmName", vo.getHydcTitle());
-	 redirectAttributes.addAttribute("shMemberOption", vo.getShHydcOption());
-	 redirectAttributes.addAttribute("shMemberValue", vo.getShHydcValue());
-	 return "redirect:/file/fileList"; 
-	 }
-	 
-	
-	
+		@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제
+		public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
+			String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+			for (String checkboxSeq : checkboxSeqArray) {
+				vo.setHydcSeq(checkboxSeq);
+				 service.updateDeleteDocument(vo);
+			}
+			redirectAttributes.addFlashAttribute("vo", vo);
+			return "redirect:/file/fileList";
+		}
 }

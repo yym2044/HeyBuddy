@@ -67,7 +67,6 @@ public class File {
 	private Integer hymmDelNy;
 	
 	// hybdSpaceMember
-	private Integer hysmActiveNy;
 	private Integer hysmRoleCd;
 	
 	
@@ -380,12 +379,7 @@ public void setHymmDelNy(Integer hymmDelNy) {
 	this.hymmDelNy = hymmDelNy;
 }
 
-public Integer getHysmActiveNy() {
-	return hysmActiveNy;
-}
-public void setHysmActiveNy(Integer hysmActiveNy) {
-	this.hysmActiveNy = hysmActiveNy;
-}
+
 public Integer getHysmRoleCd() {
 	return hysmRoleCd;
 }

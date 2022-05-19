@@ -27,12 +27,11 @@ public class FileDao {
 		return sqlSession.selectList(namespace + ".documentList", vo); //  문서리스트
 	}
 	
-	public List<File> selectListSpace(){ List<File> list = sqlSession.selectList(namespace + ".selectListSpace", ""); return list;}
-	public List<File> selectListMember(){ List<File> list = sqlSession.selectList(namespace + ".selectListMember", ""); return list;}
-	public List<File> selectListMemberInSpace(){ List<File> list = sqlSession.selectList(namespace + ".selectListMemberInSpace", ""); return list;}
-	public List<File> selectListMySpace(){ List<File> list = sqlSession.selectList(namespace + ".selectListMySpace", ""); return list;}
-	
-	
+	public List<File> selectListMember(FileVo vo){
+	List<File> list = sqlSession.selectList(namespace + ".selectListMember", vo);  //문서리스트 스페이스멤버만
+	return list;
+	}
+
 	public File documentView(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentView", vo); // 문서뷰
 	}

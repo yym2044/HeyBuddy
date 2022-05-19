@@ -166,8 +166,8 @@
 						<c:choose>
 							<c:when test="${fn:length(list) eq 0}">
 								<tr>
-									<td class="text-centr" colspan="9">There is no data!</td>
-								</tr>e
+									<td class="text-centr" colspan="9"> 아직 등록된 문서가 없어요 :) </td>
+								</tr>
 							</c:when>
 							<c:otherwise>
 
@@ -302,9 +302,39 @@
 								</nav>
 
 								<a
-									href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">
+									href="javascript:goFileForm('<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">
 									<button type="button" id="goFileForm" class="btn btn-success">문서등록</button>
-								</a> <br> <br>
+								</a> 
+								
+								<button type="button" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#btnModalNelete"> 삭제 </button> 
+	
+	<div class="modal fade" id="btnModalNelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modal-title">
+										<i class="fas fa-exclamation-circle"></i>삭제 확인!
+									</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">정말 삭제하시겠습니까?</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									
+									<a href="javascript:goFileMultiNelete
+									('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>',
+									'<c:out value="${vo.shHydcValue}"/>' );"> 
+	<button type="button" class="btn btn-primary" id=""  >확인</button></a>
+								</div>
+							</div>
+						</div>
+					</div>   
+					
+								
+								
+								
+								<br> <br>
 
 
 							</div>
@@ -499,7 +529,19 @@ var userList = new List('mailList', options);
 		};
 		</script>
 
+		 <script type="text/javascript">
+		$("#checkboxAll").click(function() {  //전체선택
+		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+		else $("input[name=checkboxSeq]").prop("checked", false);
+		});
 
+		$("input[name=checkboxSeq]:checked").each(function() { 
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+			if(total != checked) $("#checkboxAll").prop("checked", false);
+			else $("#checkboxAll").prop("checked", true);
+		});
+		</script>
 </body>
 
 </html>

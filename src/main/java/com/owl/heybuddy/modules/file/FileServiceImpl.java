@@ -12,6 +12,7 @@ import com.owl.heybuddy.modules.member.MemberVo;
 
 
 
+
 @Service
 public class FileServiceImpl implements FileService { 
 	
@@ -23,15 +24,11 @@ public class FileServiceImpl implements FileService {
 	public List<File> documentList(FileVo vo) throws Exception { //문서리스트
 		return dao.documentList(vo);
 	}
-	@Override
-	public List<File> selectListSpace() throws Exception {
-		return dao.selectListSpace();
-	}
-	@Override
-	public List<File> selectListMember() throws Exception {
-		return dao.selectListMember();
-	}
 	
+	@Override
+	public List<File> selectListMember(FileVo vo) throws Exception {
+		return dao.selectListMember(vo);
+	}
 	@Override
 	public int selectOneCount(FileVo vo) throws Exception {   //문서검색
 		return dao.selectOneCount(vo);
@@ -102,7 +99,6 @@ public class FileServiceImpl implements FileService {
 	public int updateDeleteDocument(FileVo vo) throws Exception { // 문서가짜삭제 
 		return dao.updateDeleteDocument(vo);
 	}
-
 
 
 

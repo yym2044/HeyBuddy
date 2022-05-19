@@ -36,7 +36,10 @@ public class FileVo {
 		private Date modDateTime;
 		private Date modDateTimeSvr;
 		
-	
+
+		//선택삭제
+		private String[] checkboxSeqArray;
+
 	
 		//common
 		private String shHydcOption;
@@ -663,4 +666,14 @@ public void setHyspName(String hyspName) {
 this.hyspName = hyspName;
 }
 	
+
+public String[] getCheckboxSeqArray() {
+return checkboxSeqArray;
+}
+public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+this.checkboxSeqArray = checkboxSeqArray;
+}
+
+
+
 }

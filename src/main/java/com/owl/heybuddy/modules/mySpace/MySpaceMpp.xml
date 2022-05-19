@@ -81,12 +81,13 @@
 		WHERE 1=1
 		AND hymmSeq = #{hymmSeq}
 	</select>
-	
+
 	<select id="selectOneMember" resultMap="resultMapObj">
 		SELECT
 		hymmSeq
 
-		FROM hybdMember
+		FROM
+		hybdMember
 
 		WHERE 1=1
 		AND hymmName = #{hymmName}
@@ -215,8 +216,8 @@
 		) VALUES (
 		#{hymmSeq}
 		, 13
-		, 1
-		, 2
+		, #{hyspSeq}
+		, #{hysmHost}
 		, 1
 		, 0
 		)

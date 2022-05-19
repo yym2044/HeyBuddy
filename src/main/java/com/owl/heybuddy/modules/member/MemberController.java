@@ -190,15 +190,15 @@ public class MemberController {
 		return "user/member/memberList";
 	}
 	
-	@RequestMapping(value = "/user/myProfile")
-	public String myProfile(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
+	@RequestMapping(value = "/user/myProfile2") // 프로필예시
+	public String myProfile2(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
 		
 		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String)httpSession.getAttribute("sessSeq"));
 		
 		model.addAttribute("rt", service.selectOneMemberInSpace(vo));
 		
-		return "/user/member/myProfile";
+		return "/user/member/myProfile2";
 	}
 	
 	@RequestMapping(value = "/user/myProfileUpdt")

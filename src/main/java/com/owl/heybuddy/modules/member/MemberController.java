@@ -135,12 +135,12 @@ public class MemberController {
 	 public String memberNele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception { 
 	 service.updateDeleteMember(vo);
 	 redirectAttributes.addAttribute("thisPage", vo.getThisPage());
-	 redirectAttributes.addAttribute("hybdmmSeq", vo.getHymmSeq());
-	 redirectAttributes.addAttribute("hybdmmDelNy", vo.getHymmDelNy());
-	 redirectAttributes.addAttribute("hybdmmName", vo.getHymmName());
+	 redirectAttributes.addAttribute("hymmSeq", vo.getHymmSeq());
+	 redirectAttributes.addAttribute("hymmDelNy", vo.getHymmDelNy());
+	 redirectAttributes.addAttribute("hymmName", vo.getHymmName());
 	 redirectAttributes.addAttribute("shMemberOption", vo.getShMemberOption());
 	 redirectAttributes.addAttribute("shMemberValue", vo.getShMemberValue());
-	 return "redirect:/xdmin/member/memberList"; 
+	 return "redirect:/xdmin/memberList"; 
 	 }
 	 
 

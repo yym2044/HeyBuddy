@@ -52,7 +52,7 @@
 		from
 		hybdMember a
 		where
-		1=1
+		hymmDelNy = 0
 		<choose>
 			<when test="shHymmDelNy == 1">AND hymmDelNy = 1 </when>   
 			<when test="shHymmDelNy == 0">AND hymmDelNy = 0 </when>  
@@ -98,7 +98,6 @@
 		from
 		hybdMember
 		where 1=1
-		and hymmDelNy = 0
 		and hymmSeq = #{hymmSeq}
 	</select>
 	

@@ -192,7 +192,7 @@
 
 											<thead class="small text-uppercase text-muted">
 												<tr>
-													<th><select
+												<%-- 	<th><select
 														class="form-select form-select" name="shHymmDelNy"
 														id="shHymmDelNy" style="">
 															<option value="">삭제여부
@@ -202,7 +202,7 @@
 															<option value="0"
 																<c:if test="${vo.shHymmDelNy eq 0 }">selected </c:if>>N
 
-													</select></th>
+													</select></th> --%>
 													<th><select
 														class="form-select form-select" name="shHymmDormancyNy"
 														id="shHymmDormancyNy" style="">

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.owl.heybuddy.common.util.UtilUpload;
+import com.owl.heybuddy.modules.member.Member;
+import com.owl.heybuddy.modules.member.MemberVo;
 
 
 
@@ -37,6 +39,10 @@ public class FileServiceImpl implements FileService {
 	@Override
 	public File documentView(FileVo vo) throws Exception { //문서뷰
 		return dao.documentView(vo);
+	}
+	@Override
+	public Member profileUploaded(MemberVo vo) throws Exception { //회원사진
+		return dao.profileUploaded(vo);
 	}
 	
 	@Override
@@ -96,6 +102,7 @@ public class FileServiceImpl implements FileService {
 	public int updateDeleteDocument(FileVo vo) throws Exception { // 문서가짜삭제 
 		return dao.updateDeleteDocument(vo);
 	}
+
 
 
 

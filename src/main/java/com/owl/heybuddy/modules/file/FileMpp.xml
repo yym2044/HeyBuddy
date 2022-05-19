@@ -45,13 +45,16 @@
 		select
 		*
 		,b.hymmName
+		,b.hymmEmail
+		,b.hymmNumber
 		from
 		hybdDocument a
-		left join hybdMember b on b.hymmSeq = a.hymmSeq 
+		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
+		LEFT JOIN hybdSpaceMember c on c.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpace d on d.hyspSeq = c.hyspSeq
 		where
-		hydcDelNy = 0
+		a. hydcDelNy = 0
 		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
-		
 		<choose>
 			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
 			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
@@ -60,22 +63,30 @@
 	
 	</select>
 	
-		<select id="selectListMember" resultMap="resultMapObj">
+	
+	<select id="selectListMember" resultMap="resultMapObj">
 		SELECT distinct
 			c.hymmSeq
 			,c.hymmName
 		FROM 
-			hybdSpaceMember AS a 
+			hybdSpaceMember AS a
 		LEFT JOIN hybdSpace AS b
 		ON a.hyspSeq= b.hyspSeq
         LEFT JOIN hybdMember AS c
         ON c.hymmSeq = a.hymmSeq
 		WHERE	1 = 1;
 	</select>
+	
 
-	
-	
-	
+	<select id="documentListTemp" resultMap="resultMapObj">  <!-- 임시저장문서리스트-->
+		select
+		*
+		from
+		hybdDocument a
+		where
+		hydcTempNy = 1
+	</select>
+
  	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select
 		*

@@ -383,10 +383,10 @@
 					<!-- 기본값히든처리 -->
 					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
 					<input type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>">
-					<input type="hidden" id="shHymmDelNy" name="shHymmDelNy" value="<c:out value="${vo.shHymmDelNy}"/>">
-					<input type="hidden" id="shHymmName" name="shHymmName" value="<c:out value="${vo.shHymmName}"/>">
-					<input type="hidden" id="shMemberOption" name="shMemberOption" value="<c:out value="${vo.shMemberOption}"/>">
-					<input type="hidden" id="shMemberValue" name="shMemberValue" value="<c:out value="${vo.shMemberValue}"/>">
+					<input type="hidden" id="shHydcDelNy" name="shHydcDelNy" value="<c:out value="${vo.shHydcDelNy}"/>">
+					<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>">
+					<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>">
+					<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
 
 
 				<!--//Page content//-->
@@ -491,6 +491,8 @@
 
 					</div>
 				</div>
+				
+				</form>
 				<!--//Page content End//-->
 
 
@@ -549,6 +551,14 @@
     	
     	sidebarLink[4].className += ' current';
     </script>
+    
+    	<script type="text/javascript">
+					goFileList = function() {
+						$("#formList").attr("action", "/file/fileList");
+						$("#formList").submit();
+					};
+		</script>
+    
 
 </body>
 

@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.owl.heybuddy.modules.member.Member;
+
 import com.owl.heybuddy.modules.member.MemberVo;
-import com.owl.heybuddy.modules.plan.Plan;
+
+
 
 
 @Controller
@@ -51,12 +52,13 @@ public class FileController {
 		return "user/file/fileList";
 	}
 	
-	@RequestMapping(value = "/file/fileView") // 문서학인
-	public String fileView(@ModelAttribute("vo") FileVo vo,  Model model) throws Exception {
+	@RequestMapping(value = "/file/fileView") // 문서확인
+	public String fileView(@ModelAttribute("vo") FileVo vo, MemberVo mo, Model model) throws Exception {
 		
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
-		model.addAttribute("fileUploaded", service.fileUploaded(vo));
+		model.addAttribute("uploaded", service.profileUploaded(mo));  //멤버사진
+		model.addAttribute("fileUploaded", service.fileUploaded(vo));  //파일
 		return "user/file/fileView";
 		
 	}
@@ -70,13 +72,18 @@ public class FileController {
 	}
 	
 	 @RequestMapping(value = "/file/fileInst") // 문서등록받음 
-	 public String fileInst(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes) throws Exception {
+	 public String fileInst(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes,
+			 HttpSession httpSession) throws Exception {
 	 service.insertDocument(dto);
+	 
+	vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+	vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		
 	 vo.setHydcSeq(dto.getHydcSeq());
 	 redirectAttributes.addFlashAttribute("vo", vo); 
 	 return "redirect:/file/fileView";
 	 }
-	 
+
 
 	@RequestMapping(value = "/file/fileEdit") // 문서수정
 	public String fileEdit(@ModelAttribute("vo") FileVo vo, Model model) throws Exception {
@@ -95,28 +102,40 @@ public class FileController {
 	 }
 
 	 
-	@RequestMapping(value = "/file/fileListTemp") // 문서 임시저장 리스트
+	@RequestMapping(value = "/file/fileListTemp") // 임시저장 문서 리스트
 	public String fileListTemp() throws Exception {
 		return "user/file/fileListTemp";
 	}
 	
-	@RequestMapping(value = "/file/fileEditTemp") // 문서 임시저장 등록페이지
-	public String fileEditTemp() throws Exception {
-		return "user/file/fileEditTemp";
+	@RequestMapping(value = "/file/fileViewTemp") // 임시저장 문서 학인
+	public String fileViewTemp(@ModelAttribute("vo") FileVo vo, MemberVo mo, Model model) throws Exception {
+		File rt = service.documentView(vo);
+		model.addAttribute("item", rt);
+		model.addAttribute("fileUploaded", service.fileUploaded(vo));  //파일
+		return "user/file/fileViewTemp";
 	}
 	
+	@RequestMapping(value = "/file/fileEditTemp") // 문서 임시저장 등록페이지
+	public String fileEditTemp(@ModelAttribute("vo") FileVo vo,  Model model) throws Exception {
+		File rt = service.documentView(vo); 
+		model.addAttribute("item", rt);
+		
+		return "user/file/fileEditTemp";
+	}
+
+	//임시저장등록은 그냥 등록하는페이지랑 넘어가는거 똑같이..
 
 
 	 @RequestMapping(value = "/file/fileNele") // 문서가짜삭제 
 	 public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception { 
 	 service.updateDeleteDocument(vo);
 	 redirectAttributes.addAttribute("thisPage", vo.getThisPage());
-	 redirectAttributes.addAttribute("hybdmmSeq", vo.getHymmSeq());
-	 redirectAttributes.addAttribute("hybdmmDelNy", vo.getHymmDelNy());
-	 redirectAttributes.addAttribute("hybdmmName", vo.getHymmName());
+	 redirectAttributes.addAttribute("hybdmmSeq", vo.getHydcSeq());
+	 redirectAttributes.addAttribute("hybdmmDelNy", vo.getHydcDelNy());
+	 redirectAttributes.addAttribute("hybdmmName", vo.getHydcTitle());
 	 redirectAttributes.addAttribute("shMemberOption", vo.getShHydcOption());
 	 redirectAttributes.addAttribute("shMemberValue", vo.getShHydcValue());
-	 return "redirect:/xdmin/member/memberList"; 
+	 return "redirect:/file/fileList"; 
 	 }
 	 
 	

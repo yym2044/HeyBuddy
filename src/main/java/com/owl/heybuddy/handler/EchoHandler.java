@@ -13,7 +13,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @Component
 public class EchoHandler extends TextWebSocketHandler {
 	
-	List<WebSocketSession> sessions = new ArrayList<>();
+	List<WebSocketSession> sessions = new ArrayList<WebSocketSession>();
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {

@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.owl.heybuddy.modules.member.Member;
-import com.owl.heybuddy.modules.plan.Plan;
+import com.owl.heybuddy.modules.member.MemberVo;
 
 
 
@@ -36,14 +36,17 @@ public class FileDao {
 	public File documentView(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentView", vo); // 문서뷰
 	}
+	public Member profileUploaded(MemberVo vo) {
+		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
+	}
+	public File fileUploaded(FileVo vo) {
+		return sqlSession.selectOne(namespace + ".fileUploaded", vo); // 파일확인
+	}
 	public int insertDocument(File dto) {
 		return sqlSession.insert(namespace + ".insertDocument", dto); // 문서등록
 	}
 	public int insertUploaded(File dto) {
 		return sqlSession.insert(namespace + ".insertUploaded", dto); // 파일등록 
-	}
-	public File fileUploaded(FileVo vo) {
-		return sqlSession.selectOne(namespace + ".fileUploaded", vo); // 파일확인
 	}
 	public int updateDocument(File dto) {
 		return sqlSession.update(namespace + ".updateDocument", dto); // 문서수정

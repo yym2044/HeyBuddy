@@ -86,8 +86,9 @@ pageContext.setAttribute("br", "\n");
 
 				<!-- 히든처리 -->
 				<form id="formView" action="" method="post">
-					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>"> 
-						<input	type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>"> 
+				
+ 					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>"> 
+						<input type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>"> 
 						<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
 						<input type="hidden" id="shHydcDelNy" name="shHydcDelNy" value="<c:out value="${vo.shHydcDelNy}"/>"> 
 						<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>"> 
@@ -135,7 +136,7 @@ pageContext.setAttribute("br", "\n");
 								</div>
 							</div>
 									<!--Inbox Details-->
-							<div
+				 		<div
 								class="px-4 position-relative px-lg-8 mb-4 h-100 flex-grow-1">
 								<div class="card h-100">
 									<div class="card-header">
@@ -284,7 +285,7 @@ pageContext.setAttribute("br", "\n");
 													</div>
 												</div>
 											</div>
-										</li>
+										</li> 
 										<li class="list-group-item">
 											<div class="d-flex align-items-stretch">
 												<a href="#!" class="flex-shrink-0 d-block me-2"> <img

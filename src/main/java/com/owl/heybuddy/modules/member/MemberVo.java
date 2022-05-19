@@ -18,7 +18,7 @@ public class MemberVo {
 	// Search
 	private Integer shHymmDelNy;
 	private String shHymmName;
-	private Integer shHymmDormancyNy;
+	private Integer shHymmDormancyNy; 
 
 	private Integer ShMemberOptionDate;
 	private String ShMemberDateEnd;

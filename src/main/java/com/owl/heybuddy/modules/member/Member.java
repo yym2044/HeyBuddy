@@ -17,7 +17,7 @@ public class Member {
 	private String hymmNumber;
 	private String hymmEmail;
 	private String hymmDob;
-	private Integer hymmSaveCd;
+	private Integer hymmSaveCd; 
 	private Integer hymmEmailConsentNy;
 	private Integer hymmSmsConsentNy;
 	private String hymmDesc;
@@ -25,7 +25,10 @@ public class Member {
 	//스페이스
 	private String hyspSeq;
 	private String hyspName;
-	private Integer hysmActiveNy;
+	private String hysmHost;
+	private Integer hysmAcceptedNy;
+	private Integer hysmExitNy;
+	private Integer hymmActiveNy;
 	
 	private Integer hysmRoleCd;
 	
@@ -309,11 +312,11 @@ public class Member {
 	public void setHyspSeq(String hyspSeq) {
 		this.hyspSeq = hyspSeq;
 	}
-	public Integer getHysmActiveNy() {
-		return hysmActiveNy;
+	public Integer getHymmActiveNy() {
+		return hymmActiveNy;
 	}
-	public void setHysmActiveNy(Integer hysmActiveNy) {
-		this.hysmActiveNy = hysmActiveNy;
+	public void setHymmActiveNy(Integer hymmActiveNy) {
+		this.hymmActiveNy = hymmActiveNy;
 	}
 	public String getHyspName() {
 		return hyspName;
@@ -326,6 +329,24 @@ public class Member {
 	}
 	public void setHysmRoleCd(Integer hysmRoleCd) {
 		this.hysmRoleCd = hysmRoleCd;
+	}
+	public Integer getHysmAcceptedNy() {
+		return hysmAcceptedNy;
+	}
+	public void setHysmAcceptedNy(Integer hysmAcceptedNy) {
+		this.hysmAcceptedNy = hysmAcceptedNy;
+	}
+	public Integer getHysmExitNy() {
+		return hysmExitNy;
+	}
+	public void setHysmExitNy(Integer hysmExitNy) {
+		this.hysmExitNy = hysmExitNy;
+	}
+	public String getHysmHost() {
+		return hysmHost;
+	}
+	public void setHysmHost(String hysmHost) {
+		this.hysmHost = hysmHost;
 	}
 	
 	

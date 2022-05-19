@@ -16,7 +16,7 @@
 			<when test="shHymmDelNy == 1">AND hymmDelNy = 1 </when>   
 			<when test="shHymmDelNy == 0">AND hymmDelNy = 0 </when>  
 		</choose>
-		<choose>
+		<choose> 
 			<when test="shHymmDormancyNy == 1">AND hymmDormancyNy = 1 </when> 
 			<when test="shHymmDormancyNy == 0">AND hymmDormancyNy = 0 </when>  
 		</choose> 
@@ -346,7 +346,10 @@
 		, a.hymmEmail
 		, a.hymmDob
 		, a.hymmDesc
-		, b.hysmActiveNy
+		, a.hymmActiveNy
+		, b.hysmRoleCd
+		, b.hysmAcceptedNy
+		, b.hysmExitNy
 		, c.uuidFileName
 		, c.path
 		
@@ -365,7 +368,9 @@
 		, a.hymmEmail
 		, a.hymmDob
 		, a.hymmDesc
-		, b.hysmActiveNy
+		, b.hysmRoleCd
+		, b.hysmAcceptedNy
+		, b.hysmExitNy
 		
 		, a.regDateTime
 		, a.modDateTime
@@ -418,16 +423,16 @@
 			hyspSeq
 			, hymmSeq
 			, hysmRoleCd
+			, hysmHost
 			, hysmAcceptedNy
 			, hysmExitNy
-			, hysmActiveNy
 			, hysmDelNy
 			<include refid="insertRegMod"/>
 		) VALUES (
 			#{hyspSeq}
 			, #{hymmSeq}
 			, 13
-			, 0
+			, #{hysmHost}
 			, 0
 			, 0
 			, 0
@@ -439,6 +444,7 @@
 	SELECT
 		a.hyspSeq
 		, a.hyspName
+		, c.hymmSeq
 		, c.hymmName
 	FROM
 		hybdSpace a

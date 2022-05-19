@@ -28,7 +28,7 @@ public class MemberController {
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
-		if (count != 0) {
+		if (count != 0) { 
 			List<Member> list = service.memberList(vo);
 			model.addAttribute("list", list);
 		} else {
@@ -188,6 +188,17 @@ public class MemberController {
 		
 		
 		return "user/member/memberList";
+	}
+	
+	@RequestMapping(value = "/user/myProfile")
+	public String myProfile(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
+		vo.setHymmSeq((String)httpSession.getAttribute("sessSeq"));
+		
+		model.addAttribute("rt", service.selectOneMemberInSpace(vo));
+		
+		return "/user/member/myProfile";
 	}
 	
 	@RequestMapping(value = "/user/myProfile2") // 프로필예시

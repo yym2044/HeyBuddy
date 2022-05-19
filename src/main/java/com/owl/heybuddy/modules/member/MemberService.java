@@ -16,7 +16,7 @@ public interface MemberService {
 	public Member profileUploaded(MemberVo vo) throws Exception; //회원사진
 	public Member selectOneLogin(Member dto) throws Exception;  // 로그인
 	public int deleteMember(MemberVo vo) throws Exception;  //회원삭제
-	public int updateDeleteMember(MemberVo vo) throws Exception; //회원가짜삭제 
+	public int updateDeleteMember(MemberVo vo) throws Exception; //회원가짜삭제  
 	
 //	영민 추가
 	public int selectOneCountMemberInSpace(MemberVo vo) throws Exception;

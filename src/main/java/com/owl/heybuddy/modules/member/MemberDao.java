@@ -23,7 +23,7 @@ public class MemberDao {
 		return sqlSession.selectOne(namespace + ".selectOneCountSpaceMember", vo); // 회원검색
 	}
 
-	public Member selectOneSidebar(MemberVo vo) {
+	public Member selectOneSidebar(MemberVo vo) { 
 		return sqlSession.selectOne(namespace + ".selectOneSidebar", vo); // 사이드바뷰
 	}
 

@@ -35,6 +35,25 @@
 
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 
+
+<script type="text/javascript">
+
+    const colorCd = "<c:out value='${hyspColorCd}'/>";
+    
+    if(colorCd == null || colorCd == ""){
+    	localStorage.removeItem('backUrl');
+    } else if(colorCd == 14){
+    	localStorage.setItem("backUrl", 1);
+    } else if(colorCd == 15){
+    	localStorage.setItem("backUrl", 2);
+    } else if(colorCd == 16){
+    	localStorage.setItem("backUrl", 3);
+    } else if(colorCd == 17){
+    	localStorage.setItem("backUrl", 4);
+    }
+    
+</script>
+
 <body>
 <form id="chatList" name="chatList" method="post" action="/member/memberList">
 <input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
@@ -170,6 +189,7 @@
     	
     	sidebarLink[0].className += ' current';
     </script>
+    
 </body>
 
 

@@ -38,8 +38,8 @@
     <body>
      
      	<form id="formList" name="formList" method="POST" action="/plan/planInst" enctype="multipart/form-data">
-		<input type="hidden" id="hyplSeq" name="hyplSeq">
-		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+		<!-- <input type="hidden" id="hyplSeq" name="hyplSeq"> -->
+		<!-- <input type="hidden" id="hyspSeq" name="hyspSeq"> -->
 		<%-- <input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>"> --%>
 		
         <!--////////////////// PreLoader Start//////////////////////-->
@@ -63,7 +63,6 @@
                         <div class="position-relative container-fluid px-0">
                             <div class="row align-items-center position-relative">
                                 <div class="col-md-8 mb-3 mb-lg-0">
-                                    <h3 class="mb-2 ">일정</h3>
                                    <!--  <p class="mb-0 text-muted">일정을 등록해 주세요</p> -->
 
 
@@ -123,7 +122,7 @@
                                 </div> --%>
 							</div>
 					      <div class="modal-footer planinst container">
-                    	<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;">취소</a>
+                    	<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a>
  						<input type="submit"  class="btn btn-primary me-2"  style="width: 100px; font-size: 1em; text-align: center; float: right;" id="btnSubmit" value="등록하기"> 
 					      </div>
 					    </div>
@@ -326,7 +325,6 @@
 	    yearSuffix: '년'
 	});
 	</script>
-	
 	
 	<!-- 벨리데이션 값 넣었을때 나오는 벨리데이션  -->   
 <!--    	 <script type = "text/javascript">

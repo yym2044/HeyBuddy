@@ -22,7 +22,7 @@ public class PlanDao {
 	public int selectOneCount(PlanVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 	public List<Plan> selectList(PlanVo vo){ List<Plan> list = sqlSession.selectList(namespace + ".selectList", vo); return list;}
 	public List<Plan> selectListSpace(){ List<Plan> list = sqlSession.selectList(namespace + ".selectListSpace", ""); return list;}
-	public List<Plan> selectListMember(){ List<Plan> list = sqlSession.selectList(namespace + ".selectListMember", ""); return list;}
+	public List<Plan> selectListMember(PlanVo vo){ List<Plan> list = sqlSession.selectList(namespace + ".selectListMember", vo); return list;}
 	public List<Plan> selectListMemberInSpace(){ List<Plan> list = sqlSession.selectList(namespace + ".selectListMemberInSpace", ""); return list;}
 	public List<Plan> selectListMySpace(){ List<Plan> list = sqlSession.selectList(namespace + ".selectListMySpace", ""); return list;}
 	/*

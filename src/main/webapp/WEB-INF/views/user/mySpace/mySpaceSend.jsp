@@ -46,13 +46,10 @@ body {
 </style>
 
 <body>
-	<form id="mySpaceSend" name="mySpaceSend" method="post"
-		action="/mySpace/mySpaceSend"
+	<form id="mySpaceSend" name="mySpaceSend" method="post" action="/mySpace/mySpaceSend"
 		class="z-index-1 position-relative needs-validation" novalidate="">
-		<input type="hidden" id="hyspSeq" name="hyspSeq"
-			value="<c:out value="${item.hyspSeq}"/>"> <input type="hidden"
-			id="hymmName" name="hymmName"
-			value="<c:out value="${item.hymmName}"/>">
+		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>">
+		<input type="hidden" id=hysmHost name="hysmHost" value="<c:out value="${vo.hysmHost}"/>">
 		<!--//page-header//-->
 		<header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -116,14 +113,15 @@ body {
 
 
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="hymmSeq"
-											name="hymmSeq" placeholder="이름을 입력해주세요"> <label
-											for="hymmSeq">To..</label> <span class="invalid-feedback"></span>
+										<input type="text" class="form-control" id="hymmName"
+											name="hymmName" placeholder="이름을 입력해주세요"> <label
+											for="hymmName">To..</label> <span class="invalid-feedback"></span>
 									</div>
 
-
-									<button id="plusMember" class="w-100 btn btn-lg btn-success"
-										type="button">SEND</button>
+									<a href="javascript:goSend();">
+										<button id="plusMember" class="w-100 btn btn-lg btn-success"
+											type="button">SEND</button>
+									</a>
 
 
 
@@ -159,8 +157,14 @@ body {
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
-
 	<script type="text/javascript">
+		goSend = function() {
+
+			$("#mySpaceSend").attr("action", "/mySpace/mySpacePlusMember");
+			$("#mySpaceSend").submit();
+		}
+	</script>
+	<!-- 	<script type="text/javascript">
 		$("#plusMember").on(
 				"click",
 				function(seq) {
@@ -177,8 +181,8 @@ body {
 						success : function(data) {
 							alert(data);
 							alert(JSON.stringify(data));
+							alert(JSON.stringify(data['idList'][0]['hymmSeq']));
 							alert(JSON.stringify(data['idList'][0]['hymmName']));
-							/* alert(JSON.stringify(data['idList'][0]['hymmName'])); */
 							location.href = "/mySpace/mySpacePlusMember";
 						},
 						error : function(jqXHR, textStatus, errorThrown) {
@@ -188,7 +192,7 @@ body {
 					});
 
 				});
-	</script>
+	</script> -->
 
 
 </body>

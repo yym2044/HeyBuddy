@@ -38,13 +38,15 @@ public class MySpaceController {
 
 	@RequestMapping(value = "/mySpace/mySpaceList")
 	public String mySpaceList(MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
+		
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		List<MySpace> list = service.selectListMySpace(vo);
 		model.addAttribute("list", list);
-
+		
 		vo.setHyspSeq(vo.getHyspSeq());
 		vo.setHyspName(vo.getHyspName());
-
+		vo.setHysmHost(vo.getHysmHost());
+	
 		return "user/mySpace/mySpaceList";
 	}
 
@@ -166,8 +168,13 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceSend")
-	public String mySpaceSend() throws Exception {
-
+	public String mySpaceSend(@ModelAttribute("vo") MySpaceVo vo, HttpSession httpSession) throws Exception {
+		
+		
+		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
+		System.out.println("vo.getHysmHost :" + vo.getHysmHost());
+		
+		
 		return "user/mySpace/mySpaceSend";
 	}
 
@@ -192,8 +199,13 @@ public class MySpaceController {
 	public String mySpaceSend(@ModelAttribute("vo") MySpaceVo vo, Model model, MySpace dto,
 			RedirectAttributes redirectAttributes) throws Exception {
 
+		MySpace rt = service.selectOneMember(vo);
+		model.addAttribute("item", rt);
+		
+		dto.setHymmSeq(rt.getHymmSeq());
+		
 		service.insertMySpaceGuest(dto);
-
+		
 		redirectAttributes.addFlashAttribute("vo", vo);
 
 		return "redirect:/mySpace/mySpaceSendList";

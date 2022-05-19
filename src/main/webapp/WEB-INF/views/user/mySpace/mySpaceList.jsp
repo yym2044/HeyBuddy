@@ -61,10 +61,10 @@ body {
 
 <body>
 	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
-			<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
-			<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>">
-			<input type="hidden" id="hymmName" name="hymmName" value="<c:out value="${item.hymmName}"/>">
-			<input type="hidden" id="hysmHost" name="hysmHost" value="<c:out value="${item.hysmHost}"/>">
+			<input type="hidden" id="hyspSeq" name="hyspSeq">
+			<input type="hidden" id="hymmSeq" name="hymmSeq">
+			<input type="hidden" id="hymmName" name="hymmName">
+			<input type="hidden" id="hysmHost" name="hysmHost">
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
 	<ul class="navbar-nav d-flex align-items-center h-100">
@@ -169,7 +169,7 @@ body {
 															</button>
 															<ul class="dropdown-menu dropdown-menu-end">
 																<li><a class="dropdown-item"
-																	href="javascript:goPlusMember(<c:out value="${item.hyspSeq}"/>);"><i
+																	href="javascript:goPlusMember(<c:out value="${item.hyspSeq},${item.hysmHost}"/>);"><i
 																		class="fe-1x me-2 align-middle"
 																		data-feather="user-plus"></i> 멤버 초대 </a></li>
 																<li><a class="dropdown-item" href="#"><i
@@ -246,7 +246,9 @@ body {
 		$("#mySpaceList").attr("action", "/mySpace/mySpaceReceiveList");
 		$("#mySpaceList").submit();
 	}
-	goPlusMember = function() {
+	goPlusMember = function(seq0, seq1) {
+		$("#hyspSeq").val(seq0);
+		$("#hysmHost").val(seq1);
 		$("#mySpaceList").attr("action", "/mySpace/mySpaceSend");
 		$("#mySpaceList").submit();
 	}

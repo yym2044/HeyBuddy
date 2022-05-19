@@ -1,6 +1,7 @@
 package com.owl.heybuddy.modules.plan;
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -24,10 +25,13 @@ public class PlanController {
 	@RequestMapping(value = "/plan/planList")
 	public String planList(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model, HttpSession httpSession) throws Exception {
 		
-		 List<Plan> selectListMember = service.selectListMember(); 
-			
-		 model.addAttribute("selectListMember", selectListMember); 
-
+//		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+//		List<Plan> list = service.selectListMemberInSpace();
+//		model.addAttribute("list", list);
+//		
+//		List<Plan> list1 = service.selectListMySpace();
+//		model.addAttribute("list", list1);
+				
 		
 		if(vo.getHyspSeq() != null) {
 			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
@@ -43,7 +47,9 @@ public class PlanController {
 		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
 		System.out.println("vo.getHyspName :" + vo.getHyspName());
 		
-		
+		 List<Plan> selectListMember = service.selectListMember(vo); 
+			
+		 model.addAttribute("selectListMember", selectListMember); 
 	
 
 		return "user/plan/planList";
@@ -57,16 +63,23 @@ public class PlanController {
 	}
 
 	@RequestMapping(value = "/plan/planInst")
-	public String memberInst(Model model, Plan dto, PlanVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	public String memberInst(Model model, Plan dto, PlanVo vo, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 		
-		System.out.println("dto.gethyplSeq(): " + dto.getHyplSeq());
+//		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+//		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
+		
+		
 		System.out.println("dto.gethyplName(): " + dto.getHyplName());
 		System.out.println("dto.gethyplDefaultyNy(): " + dto.getHyplDefaultNy());
 		System.out.println("dto.gethyplDate(): " + dto.getHyplDate());
 		System.out.println("dto.gethyplDesc(): " + dto.getHyplDesc());
 		System.out.println("dto.gethyplMemberName(): " + dto.getHyplMemberName());
+		System.out.println("vo.getHyspSeq(): " + vo.getHyspSeq());
+		
+		dto.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		
+		service.insert(dto);
 		 /* int result = service.insert(dto); */
 		 
 		 /* System.out.println("result: " + result); */
@@ -74,22 +87,27 @@ public class PlanController {
 		/* redirectAttributes.addFlashAttribute("dto", dto); */
 
 		vo.setHyplSeq(dto.getHyplSeq());
-
+		
 		redirectAttributes.addFlashAttribute("vo", vo);
 		
-		return "redirect:user/plan/planView";
+		return "redirect:/plan/planView";
 	}
 	
 	@RequestMapping(value = "/plan/planView")
-	public String planView(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model) throws Exception {
+	public String planView(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model,HttpSession httpSession) throws Exception {
 
-		Plan rt = service.selectOne(vo);
+//		Plan rt = service.selectOne(vo);
 
 		// 가지고 온 값을 jsp로 넘겨준다
 		/* Member item = service.selectGender(vo); */
 
-		model.addAttribute("rt", rt);
+//		model.addAttribute("rt", rt);
 		/* model.addAttribute("item", item); */
+		
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
 		
 		return "user/plan/planView";
 	}
@@ -103,9 +121,9 @@ public class PlanController {
 	public String test(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model) throws Exception {
 		
 
-		 List<Plan> selectListMember = service.selectListMember(); 
-			
-		 model.addAttribute("selectListMember", selectListMember); 
+//		 List<Plan> selectListMember = service.selectListMember(); 
+//			
+//		 model.addAttribute("selectListMember", selectListMember); 
 
 		
 		

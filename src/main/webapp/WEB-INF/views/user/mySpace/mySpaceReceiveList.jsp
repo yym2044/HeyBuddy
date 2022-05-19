@@ -56,9 +56,12 @@ body {
 </style>
 
 <body>
-	<form id="ReceiveList" name="ReceiveList" method="post" action="/mySpace/mySpaceReceiveList">
-	<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
-	<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>">
+	<form id="ReceiveList" name="ReceiveList" method="post"
+		action="/mySpace/mySpaceReceiveList">
+		<input type="hidden" id="hyspSeq" name="hyspSeq"
+			value="<c:out value="${item.hyspSeq}"/>"> <input
+			type="hidden" id="hymmSeq" name="hymmSeq"
+			value="<c:out value="${item.hymmSeq}"/>">
 		<!--//page-header//-->
 		<header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -87,7 +90,7 @@ body {
 
 				<li
 					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-					href="/login/login"
+					href="javascript:logOut();"
 					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 						<i data-feather="log-out" class="fe-1x"></i>
 				</a></li>
@@ -119,7 +122,8 @@ body {
 								<div class="list-group list-group-flush mb-0">
 									<c:forEach items="${list}" var="item" varStatus="status">
 										<!--Chat User-->
-										<a href="javascript:goReceive(<c:out value="${item.hyspSeq}"/>);"
+										<a
+											href="javascript:goReceive(<c:out value="${item.hyspSeq}"/>);"
 											class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
 											<div class="flex-shrink-0">
 												<div class="me-3 avatar">
@@ -130,14 +134,18 @@ body {
 											</div>
 											<div class="overflow-hidden flex-grow-1">
 												<div class="d-flex">
-													<h6 class="mb-0 text-reset flex-grow-1">당신을 초대합니다!	<c:choose>
-												<c:when test="${item.hysmAcceptedNy eq 1}">
-													<i style="color:green;" data-feather="thumbs-up" class="fe-1x"></i>
-												</c:when>
-												<c:otherwise>
-													
-												</c:otherwise>
-											</c:choose></h6>
+													<h6 class="mb-0 text-reset flex-grow-1">
+														당신을 초대합니다!
+														<c:choose>
+															<c:when test="${item.hysmAcceptedNy eq 1}">
+																<i style="color: green;" data-feather="thumbs-up"
+																	class="fe-1x"></i>
+															</c:when>
+															<c:otherwise>
+
+															</c:otherwise>
+														</c:choose>
+													</h6>
 													<small class=" opacity-75 ms-auto"><c:out
 															value="${item.hyspName}" /></small>
 												</div>
@@ -192,6 +200,29 @@ body {
 			$("#hyspSeq").val(seq);
 			$("#ReceiveList").attr("action", "/mySpace/mySpaceReceive");
 			$("#ReceiveList").submit();
+		}
+	</script>
+	<script type="text/javascript">
+		logOut = function() {
+
+			$.ajax({
+				async : true,
+				cache : false,
+				type : "post",
+				url : "/member/logoutProc",
+				success : function(response) {
+					if (response.rt == "success") {
+						location.href = "/login/userLogin";
+					} else {
+						alert("로그아웃 실패");
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("ajaxUpdate " + jqXHR.textStatus + " : "
+							+ jqXHR.errorThrown);
+				}
+			});
+
 		}
 	</script>
 

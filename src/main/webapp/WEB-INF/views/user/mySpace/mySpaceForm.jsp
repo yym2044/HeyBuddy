@@ -47,7 +47,7 @@ body {
 
 <body>
 
-		
+
 	<!--//page-header//-->
 	<header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -75,7 +75,7 @@ body {
 			</li>
 			<li
 				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-				href="/login/login"
+				href="javascript:logOut();"
 				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 					<i data-feather="log-out" class="fe-1x"></i>
 			</a></li>
@@ -104,19 +104,21 @@ body {
 							<div class="col-md-8 col-lg-5 col-xl-4">
 								<!--Logo-->
 								<div style="text-align: center;">
-								<label for="newSpacePhoto" style="cursor: pointer;">
-									<img class="img-fluid rounded-circle" style="width: 200px;"
+									<label for="newSpacePhoto" style="cursor: pointer;"> <img
+										class="img-fluid rounded-circle" style="width: 200px;"
 										id="previewImage" src="/resources/user/images/gathering1.png">
-								</label>
-								
-								<input id="newSpacePhoto" name="" type="file" style="display: none;">
-										<p class="p-2 fw-bold">스페이스 대표 사진</p></div>
+									</label> <input id="newSpacePhoto" name="" type="file"
+										style="display: none;">
+									<p class="p-2 fw-bold">스페이스 대표 사진</p>
+								</div>
 								<!--Card-->
 
 								<form id="newMySpace" name="newMySpace" method="post"
-									action="/mySpace/mySpaceForm" class="z-index-1 position-relative needs-validation"
+									action="/mySpace/mySpaceForm"
+									class="z-index-1 position-relative needs-validation"
 									novalidate="">
-									<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>">
+									<input type="hidden" id="hyspSeq" name="hyspSeq"
+										value="<c:out value="${vo.hyspSeq}"/>">
 									<hr class="mt-4">
 									<select class="form-select form-select-lg mb-3"
 										aria-label=".form-select-lg example">
@@ -127,7 +129,7 @@ body {
 										<option value="">취미</option>
 										<option value="">기타</option>
 									</select>
-									
+
 
 									<div class="form-floating mb-3">
 										<input type="text" class="form-control" required=""
@@ -167,7 +169,7 @@ body {
 	</div>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
-	
+
 	<script src="/resources/assets/vendor/feather.min.js"></script>
 	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
@@ -201,8 +203,30 @@ body {
 		    readImage(e.target);
 		})
 	</script>
+	<script type="text/javascript">
+			logOut = function() {
 
-	
+				$.ajax({
+					async : true,
+					cache : false,
+					type : "post",
+					url : "/member/logoutProc",
+					success : function(response) {
+						if (response.rt == "success") {
+							location.href = "/login/userLogin";
+						} else {
+							alert("로그아웃 실패");
+						}
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("ajaxUpdate " + jqXHR.textStatus + " : "
+								+ jqXHR.errorThrown);
+					}
+				});
+
+			}
+		</script>
+
 </body>
 
 </html>

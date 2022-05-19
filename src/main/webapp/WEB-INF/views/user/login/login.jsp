@@ -97,14 +97,14 @@ body {
 										novalidate="">
 										<div class="form-floating mb-3">
 											<input type="text" class="form-control" required=""
-												id="hymmId" name="hymmId" placeholder="name@example.com"> <label
-												for="hymmId">Email address</label> <span
+												id="hymmId" name="hymmId" value="userTest"> <label
+												for="hymmId">Account</label> <span
 												class="invalid-feedback">Please enter a valid email
 												address</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"
-												id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
+												id="hymmPassword" name="hymmPassword" value="userTest"> <label
 												for="hymmPassword">Password</label> <span
 												class="invalid-feedback">Enter the password</span>
 										</div>

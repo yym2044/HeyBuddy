@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -7,7 +8,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +22,11 @@
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css"
+	id="switchThemeStyle">
 
 </head>
 
@@ -60,72 +64,72 @@ body {
 </style>
 
 <body>
-	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
-			<input type="hidden" id="hyspSeq" name="hyspSeq">
-			<input type="hidden" id="hymmSeq" name="hymmSeq">
-			<input type="hidden" id="hymmName" name="hymmName">
-			<input type="hidden" id="hysmHost" name="hysmHost">
-<header class="navbar py-0 page-header navbar-expand navbar-light">
+	<form id="mySpaceList" name="mySpaceList" method="post"
+		action="/mySpace/mySpaceList">
+		<input type="hidden" id="hyspSeq" name="hyspSeq"> <input
+			type="hidden" id="hymmSeq" name="hymmSeq"> <input
+			type="hidden" id="hymmName" name="hymmName"> <input
+			type="hidden" id="hysmHost" name="hysmHost">
+		<header class="navbar py-0 page-header navbar-expand navbar-light">
 
-	<ul class="navbar-nav d-flex align-items-center h-100">
-		
-	</ul>
+			<ul class="navbar-nav d-flex align-items-center h-100">
 
-		<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
-			<li
-				class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
-				<div
-					class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
-					<a href="#" class="mode_dark text-reset p-0"> <i
-						data-feather="sun" class="fe-1x"></i>
-					</a> <a href="#" class="mode_light text-reset p-0"> <i
-						data-feather="moon" class="fe-1x"></i>
-					</a>
-				</div>
-			</li>
-			<li
-				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-				href="/mySpace/mySpaceSendList"
-				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-					<i data-feather="user-check" class="fe-1x"></i>
-			</a></li>
-			<li
-				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-				href="javascript:goReceive(<c:out value="${item.hymmSeq}"/>);"
-				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-					<i data-feather="mail" class="fe-1x"></i>
-			</a></li>
+			</ul>
 
-			<li
-				class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-				href="/login/login"
-				class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-					<i data-feather="log-out" class="fe-1x"></i>
-			</a></li>
-		</ul>
-	</header>
+			<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+				<li
+					class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+					<div
+						class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+						<a href="#" class="mode_dark text-reset p-0"> <i
+							data-feather="sun" class="fe-1x"></i>
+						</a> <a href="#" class="mode_light text-reset p-0"> <i
+							data-feather="moon" class="fe-1x"></i>
+						</a>
+					</div>
+				</li>
+				<li
+					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+					href="/mySpace/mySpaceSendList"
+					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+						<i data-feather="user-check" class="fe-1x"></i>
+				</a></li>
+				<li
+					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+					href="javascript:goReceive(<c:out value="${item.hymmSeq}"/>);"
+					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+						<i data-feather="mail" class="fe-1x"></i>
+				</a></li>
+
+				<li
+					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
+					href="javascript:logOut();" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+						<i data-feather="log-out" class="fe-1x"></i>
+				</a></li>
+			</ul>
+		</header>
 
 
 		<%@include file="../include/loader.jsp"%>
 
-	<div class="d-flex flex-column flex-root">
-		<!--Page-->
-		<div class="page d-flex flex-row flex-column-fluid">
+		<div class="d-flex flex-column flex-root">
+			<!--Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
 
-			<!--///////////Page content wrapper///////////////-->
-			<main
-				class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+				<!--///////////Page content wrapper///////////////-->
+				<main
+					class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
 
-				<div class="container-fluid px-0">
+					<div class="container-fluid px-0">
 
-	<div style="text-align: center;">
+						<div style="text-align: center;">
 							<img src="/resources/user/images/newMySpace.PNG" alt="..."
 								width="800px">
-							
+
 						</div>
-						
-						
-					<div class="row mySpaceZone">
+
+
+						<div class="row mySpaceZone">
 							<c:forEach items="${list}" var="item" varStatus="status">
 								<c:if test="${item.hymmSeq eq sessSeq}">
 									<!--col-->
@@ -140,8 +144,10 @@ body {
 
 													<!-- Avatar -->
 													<a class="avatar mb-3 mx-auto xxl rounded-cirlce d-block">
-														<img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="/resources/user/images/gathering1.png"
-														alt="..." class="img-fluid rounded-circle">
+														<img class="img-fluid rounded-circle"
+														style="width: 200px;" id="previewImage"
+														src="/resources/user/images/gathering1.png" alt="..."
+														class="img-fluid rounded-circle">
 													</a>
 													<!-- Title -->
 													<h5 class="mb-0">
@@ -153,7 +159,8 @@ body {
 													<br> <br>
 													<!-- Split dropdown user button -->
 													<div class="btn-group">
-														<a href="javascript:goSpace(<c:out value="${item.hyspSeq}"/>);">
+														<a
+															href="javascript:goSpace(<c:out value="${item.hyspSeq}"/>);">
 															<button type="button" class="btn btn-gray">
 																<c:if test="${item.hysmRoleCd eq 12}">
 																	<i class="fe-1x me-2" data-feather="award"></i>
@@ -187,73 +194,98 @@ body {
 
 
 							<!--col-->
-						<div class="col-sm-6 col-xl-4">
-							<!--card-->
-							<div class="card mb-4" style="background-color: #119C8D; box-shadow: 2px 5px 10px white;">
-<br>
+							<div class="col-sm-6 col-xl-4">
+								<!--card-->
+								<div class="card mb-4"
+									style="background-color: #119C8D; box-shadow: 2px 5px 10px white;">
+									<br>
 
-										<!-- Avatar -->
-										<a href="javascript:goForm();"> <img
-											src="/resources/user/images/newNewSpace.PNG" alt="..." class="newSpace">
-										</a>
-									
+									<!-- Avatar -->
+									<a href="javascript:goForm();"> <img
+										src="/resources/user/images/newNewSpace.PNG" alt="..."
+										class="newSpace">
+									</a>
 
+
+								</div>
+								<!--/.row-->
 							</div>
-							<!--/.row-->
 						</div>
 					</div>
-				</div>
-				<!--///////////Page content wrapper end///////////////-->
+					<!--///////////Page content wrapper end///////////////-->
 
-				<!--//Page-footer//-->
-				<footer class="pb-4 px-4 px-lg-8">
-					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">&copy;
-							<script>
-								document.write(new Date().getFullYear())
-							</script>. Hey, Buddy All rights reserved.
-						</span>
-					</div>
-				</footer>
-				<!--/.Page Footer End-->
-			</main>
+					<!--//Page-footer//-->
+					<footer class="pb-4 px-4 px-lg-8">
+						<div class="container-fluid px-0">
+							<span class="d-block lh-sm small text-muted text-end">&copy;
+								<script>
+									document.write(new Date().getFullYear())
+								</script>. Hey, Buddy All rights reserved.
+							</span>
+						</div>
+					</footer>
+					<!--/.Page Footer End-->
+				</main>
+			</div>
 		</div>
-	</div>
 
-	<!--////////////Theme Core scripts Start/////////////////-->
+		<!--////////////Theme Core scripts Start/////////////////-->
 
-	<script src="/resources/assets/vendor/feather.min.js"></script>
-	<script src="/resources/assets/js/theme.bundle.js"></script>
-	<script>
-		feather.replace()
-	</script>
+		<script src="/resources/assets/vendor/feather.min.js"></script>
+		<script src="/resources/assets/js/theme.bundle.js"></script>
+		<script>
+			feather.replace()
+		</script>
 
-	<!--////////////Theme Core scripts End/////////////////-->
-	
-	<script type="text/javascript">
-	goForm = function() {
-		$("#mySpaceList").attr("action", "/mySpace/mySpaceForm");
-		$("#mySpaceList").submit();
-	}
-	
-	goSpace = function(seq) {
-		$("#hyspSeq").val(seq);
-		$("#mySpaceList").attr("action", "/user/memberList");
-		$("#mySpaceList").submit();
-	}
-	goReceive = function(seq) {
-		$("#hymmSeq").val(seq);
-		$("#mySpaceList").attr("action", "/mySpace/mySpaceReceiveList");
-		$("#mySpaceList").submit();
-	}
-	goPlusMember = function(seq0, seq1) {
-		$("#hyspSeq").val(seq0);
-		$("#hysmHost").val(seq1);
-		$("#mySpaceList").attr("action", "/mySpace/mySpaceSend");
-		$("#mySpaceList").submit();
-	}
-	</script>
-</form>
+		<!--////////////Theme Core scripts End/////////////////-->
+
+		<script type="text/javascript">
+			goForm = function() {
+				$("#mySpaceList").attr("action", "/mySpace/mySpaceForm");
+				$("#mySpaceList").submit();
+			}
+
+			goSpace = function(seq) {
+				$("#hyspSeq").val(seq);
+				$("#mySpaceList").attr("action", "/user/memberList");
+				$("#mySpaceList").submit();
+			}
+			goReceive = function(seq) {
+				$("#hymmSeq").val(seq);
+				$("#mySpaceList").attr("action", "/mySpace/mySpaceReceiveList");
+				$("#mySpaceList").submit();
+			}
+			goPlusMember = function(seq0, seq1) {
+				$("#hyspSeq").val(seq0);
+				$("#hysmHost").val(seq1);
+				$("#mySpaceList").attr("action", "/mySpace/mySpaceSend");
+				$("#mySpaceList").submit();
+			}
+		</script>
+		<script type="text/javascript">
+			logOut = function() {
+
+				$.ajax({
+					async : true,
+					cache : false,
+					type : "post",
+					url : "/member/logoutProc",
+					success : function(response) {
+						if (response.rt == "success") {
+							location.href = "/login/userLogin";
+						} else {
+							alert("로그아웃 실패");
+						}
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("ajaxUpdate " + jqXHR.textStatus + " : "
+								+ jqXHR.errorThrown);
+					}
+				});
+
+			}
+		</script>
+	</form>
 </body>
 
 </html>

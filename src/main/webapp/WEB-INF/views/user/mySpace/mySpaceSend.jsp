@@ -46,10 +46,12 @@ body {
 </style>
 
 <body>
-	<form id="mySpaceSend" name="mySpaceSend" method="post" action="/mySpace/mySpaceSend"
+	<form id="mySpaceSend" name="mySpaceSend" method="post"
+		action="/mySpace/mySpaceSend"
 		class="z-index-1 position-relative needs-validation" novalidate="">
-		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>">
-		<input type="hidden" id=hysmHost name="hysmHost" value="<c:out value="${vo.hysmHost}"/>">
+		<input type="hidden" id="hyspSeq" name="hyspSeq"
+			value="<c:out value="${vo.hyspSeq}"/>"> <input type="hidden"
+			id=hysmHost name="hysmHost" value="<c:out value="${vo.hysmHost}"/>">
 		<!--//page-header//-->
 		<header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -78,7 +80,7 @@ body {
 
 				<li
 					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-					href="/login/login"
+					href="javascript:logOut();"
 					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 						<i data-feather="log-out" class="fe-1x"></i>
 				</a></li>
@@ -193,7 +195,29 @@ body {
 
 				});
 	</script> -->
+	<script type="text/javascript">
+		logOut = function() {
 
+			$.ajax({
+				async : true,
+				cache : false,
+				type : "post",
+				url : "/member/logoutProc",
+				success : function(response) {
+					if (response.rt == "success") {
+						location.href = "/login/userLogin";
+					} else {
+						alert("로그아웃 실패");
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("ajaxUpdate " + jqXHR.textStatus + " : "
+							+ jqXHR.errorThrown);
+				}
+			});
+
+		}
+	</script>
 
 </body>
 

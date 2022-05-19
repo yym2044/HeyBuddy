@@ -294,4 +294,28 @@
 		AND hyspSeq = #{hyspSeq}
 	</delete>
 
+	<!-- 호스트 설정 부분 -->
+	<update id="updateMySpaceHost">
+	UPDATE 
+		hybdSpace
+	SET
+		hyspName = #{hyspName}
+		, hyspColorCd = #{hyspColorCd}
+	WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+	</update>
+	<select id="selectOneMySpaceHost" resultMap="resultMapObj">
+	
+	SELECT
+		hyspSeq
+		, hyspName
+		, hyspColorCd
+		, regDateTime
+		, modDateTime
+	FROM
+		hybdSpace
+	WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+	</select>
+
 </mapper>

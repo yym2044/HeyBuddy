@@ -10,8 +10,6 @@
 	<sql id="selectCommon">
 		FROM
 		hybdPlan a
-		LEFT JOIN
-		hybdSpace b ON a.hyplSeq = b.hyspSeq
 		WHERE 1=1
 	<!-- 	<choose>
 			<when test="shOptionDate == 0">AND a.regDateTime disabled #{shDateStart} 
@@ -39,6 +37,17 @@
 
 	</sql>
 
+	<sql id="selectCommonInSpace"> <!-- 공통 -->
+		FROM
+		hybdMember a
+	LEFT JOIN
+		hybdSpaceMember b
+	ON 
+		b.hymmSeq = a.hymmSeq
+	WHERE 1=1
+		AND b.hyspSeq = #{hyspSeq} 
+	</sql>
+	
 	<select id="selectOneCount" resultType="Integer">
 		SELECT
 		count(*)
@@ -60,7 +69,24 @@
 		WHERE 
 			1 = 1
 	</select>
-
+	
+	<select id="selectListMemberInSpace" resultMap="resultMapObj">
+	SELECT 
+		a.hymmSeq
+		, a.hymmName
+		, a.hymmId
+		, a.hymmGenderCd
+		, a.hymmNumber
+		, a.hymmEmail
+		, a.hymmDob
+		, a.hymmDesc
+		, b.hysmActiveNy
+		, a.regDateTime
+		, a.modDateTime
+	<include refid="selectCommonInSpace"/>
+	
+	</select>
+	
 	<select id="selectListSpace" resultMap="resultMapObj">
 		SELECT
 			a.hyspSeq
@@ -71,19 +97,44 @@
 	</select>
 
 	<select id="selectListMember" resultMap="resultMapObj">
-		SELECT distinct
+		SELECT
 			c.hymmSeq
 			,c.hymmName
 		FROM 
 			hybdSpaceMember AS a
 		LEFT JOIN hybdSpace AS b
-		ON a.hyspSeq= b.hyspSeq
+			ON a.hyspSeq= b.hyspSeq
         LEFT JOIN hybdMember AS c
-        ON c.hymmSeq = a.hymmSeq
-		WHERE	1 = 1;
+        	ON c.hymmSeq = a.hymmSeq
+		WHERE	1 = 1
+        	AND a.hyspSeq = #{hyspSeq}
 	</select>
 
+		<select id="selectListMySpace" resultMap="resultMapObj">
 
+		SELECT
+		a.hymmSeq
+		, a.hymmName
+		, a.hymmId
+		, a.hymmDelNy
+		, b.hysmSeq
+		, b.hyspSeq
+		, b.hymmSeq
+		, b.hysmRoleCd
+		, b.hysmDelNy
+		, c.hyspSeq
+		, c.hyspName
+		, c.hyspDelNy
+
+		FROM hybdSpaceMember b
+		LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		
+		WHERE 1=1 
+		AND b.hysmAcceptedNy = '1'
+		AND b.hysmExitNy = '0'
+
+	</select>
 
 
 
@@ -95,6 +146,7 @@
 		,hyplDate
 		,hyplDesc
 		,hyplMemberName
+		,hyspSeq
 		)
 		VALUES (
 		#{hyplName}
@@ -103,6 +155,8 @@
 		,#{hyplDate}
 		,#{hyplDesc}
 		,#{hyplMemberName}
+		,#{hyspSeq}
+		
 		)
 		<selectKey resultType="String" keyProperty="hyplSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -140,21 +194,5 @@
 		1 = 1
 	</update>
 
-<!-- 	<update id="">
-		UPDATE
-		hybdPlanPhone
-		SET
-		ifmpNumber = #{ifmpNumber}
-		,ifmpTelecomCd = #{ifmpTelecomCd}
-		WHERE
-		1 = 1
-		AND hyplSeq = #{hyplSeq}
-	</update>
- -->
-
-	<!-- <delete id="delete">
-		DELETE FROM hybdPlan WHERE 1=1 AND hyplSeq = #{hyplSeq} 시퀀스가 같은 것을 
-			삭제시키겠다.
-	</delete> -->
 
 </mapper>

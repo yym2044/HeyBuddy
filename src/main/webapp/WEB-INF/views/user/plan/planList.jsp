@@ -38,8 +38,8 @@
     <body>
      
      	<form id="formList" name="formList" method="POST" action="/plan/planInst" enctype="multipart/form-data">
-		<!-- <input type="hidden" id="hyplSeq" name="hyplSeq"> -->
-		<!-- <input type="hidden" id="hyspSeq" name="hyspSeq"> -->
+		<!-- <input type="hidden" id="hyplSeq" name="hyplSeq"> --> <!-- Auto_Implements 기 때문에 필요없음-->
+		<!-- <input type="hidden" id="hyspSeq" name="hyspSeq"> -->	<!-- httpSession 받기때문에 hidden input이 필요없음-->
 		<%-- <input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>"> --%>
 		
         <!--////////////////// PreLoader Start//////////////////////-->
@@ -104,9 +104,9 @@
 	                    	<h5>공유자</h5>
 	                   	     <div class="form-control mb-3">
 	                            <div class="card card-body">
-	                              <select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hymmSeq" name="hymmSeq">
+	                              <select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hyplMemberName" name="hyplMemberName">
 				                                <c:forEach items="${selectListMember}" var="item" varStatus="status">
-											<option value="<c:out value="${item.hymmSeq}"/>"><c:out value="${item.hymmName}"/>
+											<option value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}"/>
 												</c:forEach>
 	                                </select> 
                                 </div>
@@ -128,7 +128,7 @@
 					    </div>
 					  </div>
 					</div>
-                    	<!-- <a class="btn btn-secondary" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정변경</a> -->
+                    	<a class="btn btn-secondary" href="javascript:goView()" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">임시 일정상세</a>
                     	<!-- <a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a> -->
 						<!-- Button trigger modal -->
 		                 <a class="btn btn-danger plandele" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a>
@@ -177,21 +177,26 @@
                       </footer>
                       <!--/.Page Footer End-->
                 </main>
-                <!--///////////Page content wrapper End///////////////-->
                 </form>
-         </body>
+                <!--///////////Page content wrapper End///////////////-->
+       
         <!--////////////Theme Core scripts Start/////////////////-->
-		<script src="/resources/user/js/backgroundImg.js"></script>
-        <script src="/resources/assets/vendor/feather.min.js"></script>
+         <script src="/resources/assets/vendor/feather.min.js"></script>
         <script src="/resources/assets/js/theme.bundle.js"></script>
-        <script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
-		<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet"/>
         <script>
           feather.replace()
         </script>
+        
+        
+        
+		<script src="/resources/user/js/backgroundImg.js"></script>
+        <script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+
+       
 
         <!--App calendar Plugin-->
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
@@ -337,12 +342,14 @@
 			});
 	</script>  -->
 	
-	<!-- 	<script type="text/javascript">
-	goInst = function() {
-		$("#planList").attr("action", "/plan/planList");
+		<script type="text/javascript">
+	goView = function(seq) {
+		$("#hyplSeq").val(seq);
+		$("#planList").attr("action", "/plan/planView");
 		$("#planList").submit();
 	}
 	
-	</script> -->
-
+	</script>
+	
+  </body>
 </html>

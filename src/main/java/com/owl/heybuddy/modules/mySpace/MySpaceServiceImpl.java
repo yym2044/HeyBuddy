@@ -85,7 +85,7 @@ public class MySpaceServiceImpl implements MySpaceService {
 	}
 
 	@Override
-	public int deleteMySpace(MySpaceVo vo) { // 스페이스삭제
+	public int deleteMySpace(MySpaceVo vo) throws Exception { // 스페이스삭제
 		return dao.deleteMySpace(vo);
 	}
 

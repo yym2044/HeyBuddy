@@ -37,9 +37,9 @@
 </head>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <style>
-.mySpaceZone {
-	margin-left: 30%;
-	margin-right: 30%;
+.content {
+	justify-content: center; /* 수평 정렬 */
+	align-items: center; /* 수직 정렬 */ 
 }
 
 .card {
@@ -102,11 +102,20 @@
 
 					<!--//Page content//-->
 					<div class="content pt-4 px-4 px-lg-8 pb-0 d-flex flex-column-fluid">
-						<div class="container-fluid px-0 h-100">
+						
 
 
-							<div class="row mySpaceZone">
 
+							
+
+							<div class="row mySpaceZone" style="justify-content: center;">
+
+								
+									<div style="text-align: center;">
+								<img src="/resources/user/images/profile.png" alt="..."
+									width="400px" style="padding-bottom: 20px;">
+
+							</div>
 
 
 
@@ -124,22 +133,25 @@
 												<!-- Avatar -->
 												<c:choose>
 													<c:when test="${empty uuidFileName}">
-														<img id="profilePhoto" src="/resources/user/images/profileDefault.png" class="img-fluid rounded-circle">
+														<img id="profilePhoto"
+															src="/resources/user/images/profileDefault.png"
+															class="img-fluid rounded-circle">
 													</c:when>
 													<c:otherwise>
-														<img id="profilePhoto" src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="img-fluid rounded-circle">
+														<img id="profilePhoto"
+															src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>"
+															class="img-fluid rounded-circle">
 													</c:otherwise>
 												</c:choose>
 												<!-- Title -->
 												<h5 class="mt-3">
-													<a class="text-reset">
-														<c:out value="${rt.hymmName}" />
+													<a class="text-reset"> <c:out value="${rt.hymmName}" />
 													</a>
 												</h5>
 												<!-- Email -->
 												<p class="small mb-1">
-													<a class="d-block text-reset text-truncate">
-														<c:out value="${rt.hymmId}" />
+													<a class="d-block text-reset text-truncate"> <c:out
+															value="${rt.hymmId}" />
 													</a>
 												</p>
 											</div>
@@ -148,22 +160,22 @@
 												<table id="table" class="w-100 text-start mt-4">
 													<tr>
 														<td class="text-muted">휴대전화</td>
-														<td>
-															<c:choose>
+														<td><c:choose>
 																<c:when test="${fn:length(rt.hymmNumber) eq 10 }">
-																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out value="${fn:substring(rt.hymmNumber,3,6)}" />-<c:out value="${fn:substring(rt.hymmNumber,6,10)}" />
+																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out
+																		value="${fn:substring(rt.hymmNumber,3,6)}" />-<c:out
+																		value="${fn:substring(rt.hymmNumber,6,10)}" />
 																</c:when>
 																<c:otherwise>
-																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out value="${fn:substring(rt.hymmNumber,3,7)}" />-<c:out value="${fn:substring(rt.hymmNumber,7,11)}" />
+																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out
+																		value="${fn:substring(rt.hymmNumber,3,7)}" />-<c:out
+																		value="${fn:substring(rt.hymmNumber,7,11)}" />
 																</c:otherwise>
-															</c:choose>
-														</td>
+															</c:choose></td>
 													</tr>
 													<tr>
 														<td class="text-muted">이메일</td>
-														<td>
-															<c:out value="${rt.hymmEmail}" />
-														</td>
+														<td><c:out value="${rt.hymmEmail}" /></td>
 													</tr>
 												</table>
 											</div>
@@ -171,7 +183,7 @@
 									</div>
 								</div>
 
-
+</div>
 
 								<!-- ////////////////////////////////////////////////////////////// -->
 							</div>

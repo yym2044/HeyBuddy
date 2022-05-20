@@ -123,8 +123,8 @@ body {
 										</div>
 										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"
-												id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
-												for="hymmPassword">Confirm Password</label> <span
+												id="Password" name="Password" placeholder="Password"> <label
+												for="Password">Confirm Password</label> <span
 												class="invalid-feedback">Enter the same password as
 												above</span>
 										</div>

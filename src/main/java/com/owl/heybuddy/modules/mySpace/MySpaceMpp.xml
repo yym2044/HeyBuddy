@@ -34,6 +34,7 @@
 		WHERE 1=1 
 		AND b.hysmAcceptedNy = '1'
 		AND b.hysmExitNy = '0'
+		AND c.hyspDelNy = '0'
 		
 
 	</select>

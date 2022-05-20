@@ -2,6 +2,7 @@ package com.owl.heybuddy.modules.plan;
 
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,13 +26,16 @@ public class PlanController {
 	@RequestMapping(value = "/plan/planList")
 	public String planList(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model, HttpSession httpSession) throws Exception {
 		
-//		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-//		List<Plan> list = service.selectListMemberInSpace();
-//		model.addAttribute("list", list);
-//		
-//		List<Plan> list1 = service.selectListMySpace();
-//		model.addAttribute("list", list1);
-				
+		
+		List<Plan> list = service.selectList(vo);
+		model.addAttribute("list", list);
+		
+		System.out.println("############일정 #########");
+		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
+		dto.setHyplName((String)httpSession.getAttribute("hyplName"));
+		dto.setHyplDate((String)httpSession.getAttribute("hyplDate"));
+		dto.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
+		dto.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
 		
 		if(vo.getHyspSeq() != null) {
 			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
@@ -42,6 +46,7 @@ public class PlanController {
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
 		
+		System.out.println("############회원시퀀, 이름, 스페이스시퀀, 스페이스이름 #########");
 		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
 		System.out.println("vo.getHymmName :" + vo.getHymmName());
 		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
@@ -51,7 +56,8 @@ public class PlanController {
 			
 		 model.addAttribute("selectListMember", selectListMember); 
 	
-
+		 
+		 
 		return "user/plan/planList";
 	}
 	

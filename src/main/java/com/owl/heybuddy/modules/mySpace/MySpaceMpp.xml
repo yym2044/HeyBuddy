@@ -181,7 +181,6 @@
 		hymmSeq
 		, hysmRoleCd
 		, hyspSeq
-		, hysmActiveNy
 		, hysmAcceptedNy
 		, hysmExitNy
 		, hysmHost
@@ -190,7 +189,6 @@
 		#{hymmSeq}
 		, 12
 		, #{hyspSeq}
-		, 1
 		, 1
 		, 0
 		, #{hymmSeq}
@@ -212,14 +210,12 @@
 		, hysmRoleCd
 		, hyspSeq
 		, hysmHost
-		, hysmActiveNy
 		, hysmDelNy
 		) VALUES (
 		#{hymmSeq}
 		, 13
 		, #{hyspSeq}
 		, #{hysmHost}
-		, 1
 		, 0
 		)
 
@@ -251,7 +247,6 @@
 		hysmRoleCd = #{hysmRoleCd}
 		, hysmAcceptedNy = #{hysmAcceptedNy}
 		, hysmExitNy = #{hysmExitNy}
-		, hysmActiveNy = #{hysmActiveNy}
 
 		WHERE 1=1
 		AND hysmSeq = #{hysmSeq}
@@ -262,7 +257,6 @@
 		SET
 		hysmAcceptedNy = 1
 		, hysmExitNy = 0
-		, hysmActiveNy = 1
 
 		WHERE 1=1
 		AND hysmSeq = #{hysmSeq}
@@ -274,7 +268,6 @@
 		SET
 		hysmAcceptedNy = 0
 		, hysmExitNy = 0
-		, hysmActiveNy = 1
 
 		WHERE 1=1
 		AND hysmSeq = #{hysmSeq}

@@ -120,9 +120,9 @@
 		hybdTitle
 		,hybdText
 		,hybdDelNy
-		,regIp
+<!-- 		,regIp
 		,regSeq
-		,regDevice
+		,regDevice -->
 		,regDateTime
 		,regDateTimeSvr
 		,hyspSeq
@@ -132,12 +132,12 @@
 		#{hybdTitle}
 		,#{hybdText} 
 		,0
-		,#{regIp}
+<!-- 		,#{regIp}
 		,#{regSeq}
-		,#{regDevice}
-		,#{regDateTime} 
-		,#{regDateTimeSvr} 
-		,#{hyspSeq} 
+		,#{regDevice} -->
+		,now()
+		,now()
+		,now()
 		,#{hymmSeq}
 		)
 		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
@@ -149,8 +149,8 @@
 		UPDATE hybdDocument SET
 		hybdTitle  =  #{hybdTitle}
 		,hybdText =  #{hybdText}
-		,hybdmmDelny =  0
-		,hybdmmDesc = #{hybdmmDesc}
+		,hymmDelny =  0
+		,hymmDesc = #{hymmDesc}
 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}
 		,modDevice =  #{modDevice}
@@ -161,6 +161,12 @@
 	</update>
 
 
+	<update id="updateDeleteDocument">    <!-- 가짜삭제 -->
+	UPDATE hybdDocument SET 
+		hydcDelNy = 1 
+		WHERE
+		hydcSeq= #{hydcSeq}
+	</update>
 <!--  ************************* 파일관련mpp*************************  -->
 <!--  ************************* 파일관련mpp*************************  -->
 <!--  ************************* 파일관련mpp*************************  -->

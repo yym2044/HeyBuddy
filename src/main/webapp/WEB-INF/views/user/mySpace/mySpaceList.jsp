@@ -179,7 +179,7 @@ body {
 																	href="javascript:goPlusMember(<c:out value="${item.hyspSeq},${item.hysmHost}"/>);"><i
 																		class="fe-1x me-2 align-middle"
 																		data-feather="user-plus"></i> 멤버 초대 </a></li>
-																<li><a class="dropdown-item" href="#"><i
+																<li><a class="dropdown-item" href="javascript:goFelete(<c:out value="${item.hyspSeq}"/>);"><i
 																		class="fe-1x me-2 align-middle" data-feather="slash"></i>
 																		스페이스 삭제 </a></li>
 															</ul>
@@ -259,6 +259,11 @@ body {
 				$("#hyspSeq").val(seq0);
 				$("#hysmHost").val(seq1);
 				$("#mySpaceList").attr("action", "/mySpace/mySpaceSend");
+				$("#mySpaceList").submit();
+			}
+			goFelete = function(seq) {
+				$("#hyspSeq").val(seq);
+				$("#mySpaceList").attr("action", "/mySpace/mySpaceFelete");
 				$("#mySpaceList").submit();
 			}
 		</script>

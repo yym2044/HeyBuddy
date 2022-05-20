@@ -11,7 +11,8 @@ public interface MemberService {
 	public List<Member> selectListSpaceMember(MemberVo vo) throws Exception; // 스페이스리스트
 	public List<Member> memberList(MemberVo vo) throws Exception; //회원리스트
 	public Member memberView(MemberVo vo) throws Exception;  //회원뷰
-	public int insertMember(Member dto) throws Exception;  //회원등록
+	public int insertSignUp(Member dto) throws Exception; //회원SighUp
+	public int insertMember(Member dto) throws Exception; //회원등록
 	public int updateMember(Member dto) throws Exception; //회원수정
 	public Member profileUploaded(MemberVo vo) throws Exception; //회원사진
 	public Member selectOneLogin(Member dto) throws Exception;  // 로그인

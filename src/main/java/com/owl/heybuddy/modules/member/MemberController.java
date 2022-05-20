@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 import com.owl.heybuddy.common.constants.Constants;
+
 @Controller
 public class MemberController {
 
@@ -28,7 +28,7 @@ public class MemberController {
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
-		if (count != 0) { 
+		if (count != 0) {
 			List<Member> list = service.memberList(vo);
 			model.addAttribute("list", list);
 		} else {
@@ -39,51 +39,50 @@ public class MemberController {
 
 	@RequestMapping(value = "/xdmin/memberView") // 회원뷰
 	public String xdminMemberView(@ModelAttribute("vo") MemberVo vo, Member dto, Model model) throws Exception {
-		
+
 		Member rt = service.memberView(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("uploaded", service.profileUploaded(vo));
 		return "xdmin/member/memberView";
 	}
 
-	@RequestMapping(value = "/xdmin/memberForm") // 회원등록 
+	@RequestMapping(value = "/xdmin/memberForm") // 회원등록
 	public String memberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-	Member rt = service.memberView(vo); 
-	model.addAttribute("item", rt);
-	return "xdmin/member/memberForm"; 
+		Member rt = service.memberView(vo);
+		model.addAttribute("item", rt);
+		return "xdmin/member/memberForm";
 	}
 
-	 @RequestMapping(value = "/xdmin/memberInst") // 회원등록받음 
-	 public String memberInst(MemberVo vo, Model model, Member dto, RedirectAttributes redirectAttributes) throws Exception {
-	 service.insertMember(dto);
-	 vo.setHymmSeq(dto.getHymmSeq());
-	 redirectAttributes.addFlashAttribute("vo", vo); 
-	 return "redirect:/xdmin/memberView";
-	 }
-	 	
-	@RequestMapping(value = "/xdmin/memberEdit") // 회원수정 
-	 public String memberEdit(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-	 Member rt = service.memberView(vo); 
-	 model.addAttribute("item", rt); 
-     model.addAttribute("uploaded", service.profileUploaded(vo));
+	@RequestMapping(value = "/xdmin/memberInst") // 회원등록받음
+	public String memberInst(MemberVo vo, Model model, Member dto, RedirectAttributes redirectAttributes)
+			throws Exception {
+		service.insertMember(dto);
+		vo.setHymmSeq(dto.getHymmSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/xdmin/memberView";
+	}
 
-	 return "xdmin/member/memberEdit"; 
-	 }
+	@RequestMapping(value = "/xdmin/memberEdit") // 회원수정
+	public String memberEdit(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		Member rt = service.memberView(vo);
+		model.addAttribute("item", rt);
+		model.addAttribute("uploaded", service.profileUploaded(vo));
 
-	 @RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음 
-	 public String  memberUpdt(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
-		 
-	 service.updateMember(dto); 
-	 
-	 redirectAttributes.addFlashAttribute("vo", vo);
+		return "xdmin/member/memberEdit";
+	}
 
-	 return "redirect:/xdmin/memberView"; 
-	 }
+	@RequestMapping(value = "/xdmin/memberUpdt") // 회원수정받음
+	public String memberUpdt(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 
+		service.updateMember(dto);
 
-	 
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/xdmin/memberView";
+	}
+
 	@RequestMapping(value = "/login/userLogin") // 회원로그인
-	 public String userLogin(Member dto, Model model) throws Exception { 
+	public String userLogin(Member dto, Model model) throws Exception {
 		return "/user/login/login";
 	}
 
@@ -91,138 +90,152 @@ public class MemberController {
 	public String xdminLogin(Member dto, Model model) throws Exception {
 		return "/xdmin/login/xdminLogin";
 	}
-	
-	 @ResponseBody
-	 @RequestMapping(value = "/member/loginProc") // 기본로그인 PR 
-	 public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
-	 Map<String, Object> returnMap = new HashMap<String, Object>();
-	 Member rtMember = service.selectOneLogin(dto);
-	 if (rtMember != null) { 
-	 if (rtMember.getHymmSeq() != null) { httpSession.setMaxInactiveInterval(60 *
-	 Constants.SESSION_MINUTE); 
 
-	 
-	 httpSession.setAttribute("sessSeq", rtMember.getHymmSeq());
-	 httpSession.setAttribute("sessAdminNy", rtMember.getHymmAdminNy());
-	 httpSession.setAttribute("sessId", rtMember.getHymmId());
-	 httpSession.setAttribute("sessName", rtMember.getHymmName());
-	 httpSession.setAttribute("sessEmail", rtMember.getHymmEmail());
-	 httpSession.setAttribute("uuidFileName", rtMember.getUuidFileName());
-	 httpSession.setAttribute("path", rtMember.getPath());
-	 
-	 returnMap.put("rt", "success"); } else { returnMap.put("rt", "fail"); } }
-	 else { returnMap.put("rt", "fail"); } return returnMap; }
-	 
-	 @ResponseBody
-	 @RequestMapping(value = "/member/logoutProc") // 로그아웃 
-	 public Map<String,Object> logoutProc(HttpSession httpSession) throws Exception {
-	 Map<String, Object> returnMap = new HashMap<String, Object>(); httpSession.invalidate();
-	 returnMap.put("rt", "success"); 
-	 return returnMap; 
-	 }
+	@ResponseBody
+	@RequestMapping(value = "/member/loginProc") // 기본로그인 PR
+	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		Member rtMember = service.selectOneLogin(dto);
+		if (rtMember != null) {
+			if (rtMember.getHymmSeq() != null) {
+				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
 
-	
-	  @RequestMapping(value = "/xdmin/memberDele") // 회원삭제 
-	  public String memberDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception { 
-	 service.deleteMember(vo); redirectAttributes.addAttribute("thisPage", vo.getThisPage());
-	 redirectAttributes.addAttribute("shMemberOption", vo.getShMemberOption());
-	 redirectAttributes.addAttribute("shMemberValue", vo.getShMemberValue());
-	 return "redirect:/xdmin/member/memberList"; 
-	 }
+				httpSession.setAttribute("sessSeq", rtMember.getHymmSeq());
+				httpSession.setAttribute("sessAdminNy", rtMember.getHymmAdminNy());
+				httpSession.setAttribute("sessId", rtMember.getHymmId());
+				httpSession.setAttribute("sessName", rtMember.getHymmName());
+				httpSession.setAttribute("sessEmail", rtMember.getHymmEmail());
+				httpSession.setAttribute("uuidFileName", rtMember.getUuidFileName());
+				httpSession.setAttribute("path", rtMember.getPath());
 
+				returnMap.put("rt", "success");
+			} else {
+				returnMap.put("rt", "fail");
+			}
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+	}
 
-	 @RequestMapping(value = "/xdmin/memberNele") // 회원가짜삭제 
-	 public String memberNele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception { 
-	 service.updateDeleteMember(vo);
-	 redirectAttributes.addAttribute("thisPage", vo.getThisPage());
-	 redirectAttributes.addAttribute("hymmSeq", vo.getHymmSeq());
-	 redirectAttributes.addAttribute("hymmDelNy", vo.getHymmDelNy());
-	 redirectAttributes.addAttribute("hymmName", vo.getHymmName());
-	 redirectAttributes.addAttribute("shMemberOption", vo.getShMemberOption());
-	 redirectAttributes.addAttribute("shMemberValue", vo.getShMemberValue());
-	 return "redirect:/xdmin/memberList"; 
-	 }
-	 
+	@ResponseBody
+	@RequestMapping(value = "/member/logoutProc") // 로그아웃
+	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
+
+	@RequestMapping(value = "/xdmin/memberDele") // 회원삭제
+	public String memberDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.deleteMember(vo);
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage());
+		redirectAttributes.addAttribute("shMemberOption", vo.getShMemberOption());
+		redirectAttributes.addAttribute("shMemberValue", vo.getShMemberValue());
+		return "redirect:/xdmin/member/memberList";
+	}
+
+	@RequestMapping(value = "/xdmin/memberNele") // 회원가짜삭제
+	public String memberNele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.updateDeleteMember(vo);
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage());
+		redirectAttributes.addAttribute("hymmSeq", vo.getHymmSeq());
+		redirectAttributes.addAttribute("hymmDelNy", vo.getHymmDelNy());
+		redirectAttributes.addAttribute("hymmName", vo.getHymmName());
+		redirectAttributes.addAttribute("shMemberOption", vo.getShMemberOption());
+		redirectAttributes.addAttribute("shMemberValue", vo.getShMemberValue());
+		return "redirect:/xdmin/memberList";
+	}
 
 	/******************************* 사용자 *******************************/
-
 
 	@RequestMapping(value = "/user/memberForm") // 회원등록
 	public String memberForm() throws Exception {
 		return "user/member/memberForm";
 	}
 
+	@RequestMapping(value = "/user/memberSignUp") // 회원등록
+	public String memberSignUp(MemberVo vo, Member dto, Model model, RedirectAttributes redirectAttributes)
+			throws Exception {
+
+		service.insertSignUp(dto);
+
+		vo.setHymmSeq(dto.getHymmSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/user/memberForm";
+	}
+
 	@RequestMapping(value = "/user/memberList")
 	public String chatList(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
-		
-		if(vo.getHyspSeq() != null) {
+
+		if (vo.getHyspSeq() != null) {
 			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
 		}
-		
+
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		
+
 		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
 		System.out.println("vo.getHymmName :" + vo.getHymmName());
 		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
 		System.out.println("vo.getHyspName :" + vo.getHyspName());
-		
-        int totalMembers = service.selectOneCountSpaceMember(vo);
+
+		int totalMembers = service.selectOneCountSpaceMember(vo);
 		vo.setTotalRows(totalMembers);
 
 		List<Member> list = service.selectListSpaceMember(vo);
 		model.addAttribute("list", list);
-		
+
 		Member rt = service.selectOneSidebar(vo);
 		model.addAttribute("item", rt);
-		
+
 //		스페이스 입장 하면서 세션에 스페이스이름 값 세팅 => 사이드바 include 파일에서 활용
 		httpSession.setAttribute("hyspName", rt.getHyspName());
-		
-		if(rt.getHysmRoleCd() == 12) {
+
+		if (rt.getHysmRoleCd() == 12) {
 			httpSession.setAttribute("hostNy", 1);
 		} else {
 			httpSession.setAttribute("hostNy", 0);
 		}
-		
-		
+
 		return "user/member/memberList";
 	}
-	
+
 	@RequestMapping(value = "/user/myProfile")
 	public String myProfile(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
-		
-		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
-		vo.setHymmSeq((String)httpSession.getAttribute("sessSeq"));
-		
+
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+
 		model.addAttribute("rt", service.selectOneMemberInSpace(vo));
-		
+
 		return "/user/member/myProfile";
 	}
-	
+
 	@RequestMapping(value = "/user/myProfile2") // 프로필예시
 	public String myProfile2(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
-		
-		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
-		vo.setHymmSeq((String)httpSession.getAttribute("sessSeq"));
-		
+
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+
 		model.addAttribute("rt", service.selectOneMemberInSpace(vo));
-		
+
 		return "/user/member/myProfile2";
 	}
-	
+
 	@RequestMapping(value = "/user/myProfileUpdt")
 	public String myProfileUpdt(Member dto, HttpSession httpSession) throws Exception {
-		
-		service.updateMemberProfile(dto); 
-		
+
+		service.updateMemberProfile(dto);
+
 		httpSession.setAttribute("uuidFileName", dto.getUuidFileName());
 		httpSession.setAttribute("path", dto.getPath());
-		
+
 		return "redirect:/user/myProfile";
 	}
-	
 
 	/******************************* 호스트 메뉴 Start *******************************/
 
@@ -251,43 +264,46 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/memberEdit")
-	public String memberEditHost(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
+	public String memberEditHost(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession)
+			throws Exception {
 
-		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
-		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+
 		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("uploaded", service.profileUploaded(vo));
-		
+
 		return "user/setting/memberEdit";
 	}
 
 	@RequestMapping(value = "/setting/memberForm")
 	public String memberFormHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-		
+
 		model.addAttribute("space", service.selectOneSpace(vo));
 
 		return "user/setting/memberForm";
 	}
-	
+
 	@RequestMapping(value = "/setting/memberInst")
-	public String memberInstHost(Member dto, MemberVo vo, HttpSession httpSession, RedirectAttributes redirectAttributes) throws Exception {
-		
-		dto.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
-		
+	public String memberInstHost(Member dto, MemberVo vo, HttpSession httpSession,
+			RedirectAttributes redirectAttributes) throws Exception {
+
+		dto.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+
 		service.insertMemberInSpace(dto);
-		
+
 		redirectAttributes.addFlashAttribute("vo", vo);
-		
+
 		return "redirect:/setting/memberList";
-		
+
 	}
 
 	@RequestMapping(value = "/setting/memberList")
-	public String memberListHost(@ModelAttribute("vo") MemberVo vo, HttpSession httpSession, Model model) throws Exception {
-		
-		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
-		
+	public String memberListHost(@ModelAttribute("vo") MemberVo vo, HttpSession httpSession, Model model)
+			throws Exception {
+
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+
 		int count = service.selectOneCountMemberInSpace(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
@@ -296,20 +312,20 @@ public class MemberController {
 		} else {
 			// by pass
 		}
-		
-		
+
 		return "user/setting/memberList";
 	}
 
 	@RequestMapping(value = "/setting/memberView")
-	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, HttpSession httpSession, Model model) throws Exception {
+	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, HttpSession httpSession, Model model)
+			throws Exception {
 
-		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
-		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+
 		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("uploaded", service.profileUploaded(vo));
-		
+
 		return "user/setting/memberView";
 	}
 

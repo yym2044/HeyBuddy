@@ -19,11 +19,11 @@ public class MemberDao {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo); // 회원검색
 	}
 
-    public int selectOneCountSpaceMember(MemberVo vo) {
+	public int selectOneCountSpaceMember(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCountSpaceMember", vo); // 회원검색
 	}
 
-	public Member selectOneSidebar(MemberVo vo) { 
+	public Member selectOneSidebar(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneSidebar", vo); // 사이드바뷰
 	}
 
@@ -43,10 +43,13 @@ public class MemberDao {
 		return sqlSession.insert(namespace + ".insertMember", dto); // 회원등록
 	}
 
+	public int insertSignUp(Member dto) {
+		return sqlSession.insert(namespace + ".insertSignUp", dto); // 회원등록
+	}
+
 	public int updateMember(Member dto) {
 		return sqlSession.update(namespace + ".updateMember", dto); // 회원수정
 	}
-
 
 	public Member profileUploaded(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
@@ -55,11 +58,11 @@ public class MemberDao {
 	public int insertUploaded(Member dto) {
 		return sqlSession.insert(namespace + ".insertUploaded", dto); // 회원사진 등록
 	}
-	
+
 	public int updateUploaded(Member dto) {
 		return sqlSession.update(namespace + ".updateUploaded", dto); // 회원사진 수정
 	}
-	
+
 	public Member selectOneId(Member dto) {
 		return sqlSession.selectOne(namespace + ".selectOneId", dto); // 로그인셀렉
 	}
@@ -75,7 +78,6 @@ public class MemberDao {
 	public int updateDeleteMember(MemberVo vo) {
 		return sqlSession.update(namespace + ".updateDeleteMember", vo); // 가짜삭제
 	}
-
 
 	// 영민 추가
 	public int selectOneCountMemberInSpace(MemberVo vo) {
@@ -101,12 +103,12 @@ public class MemberDao {
 	public Member selectOneSpace(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneSpace", vo);
 	}
-	
+
 	public int updateMemberProfile(Member dto) {
 		return sqlSession.update(namespace + ".updateMemberProfile", dto);
 	}
-	
+
 	public int updateUploaded_2(Member dto) {
-		return sqlSession.update(namespace + ".updateUploaded_2", dto); 
+		return sqlSession.update(namespace + ".updateUploaded_2", dto);
 	}
 }

@@ -126,6 +126,34 @@
 		AND b.hymmSeq = #{hymmSeq}
 
 	</select>
+
+	
+	<insert id="insertSignUp">  <!-- 멤버등록 -->
+	INSERT INTO hybdMember(
+		hymmAdminNy
+		,hymmDormancyNy
+		,hymmId
+		,hymmPassword
+		,hymmEmail
+		,hymmDelny
+		,regDateTime
+		,modDateTime
+		)
+		VALUES (
+		0
+		,0
+		,#{hymmId}
+		,#{hymmPassword}
+		,#{hymmEmail}
+		,0
+		,now()
+		,now()
+		)
+		<selectKey resultType="String" keyProperty="hymmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
 	
 	<insert id="insertMember">  <!-- 멤버등록 -->
 	INSERT INTO hybdMember(

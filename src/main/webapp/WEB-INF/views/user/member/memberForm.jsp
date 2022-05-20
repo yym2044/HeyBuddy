@@ -48,6 +48,7 @@ body {
 }
 </style>
 <body>
+	<form id="memberSignUp" name="memberSignUp" method="post" class="z-index-1 position-relative needs-validation" novalidate="">
 <!--//page-header//-->
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -100,32 +101,30 @@ body {
 								<div class="card card-body p-4" data-aos="fade-up"
 									data-aos-duration="1200">
 
-									<form action="index.html"
-										class="z-index-1 position-relative needs-validation"
-										novalidate="">
+									
 										<div class="form-floating mb-3">
 											<input type="text" class="form-control" required=""
-												id="floatingInputName" placeholder="John Doe"> <label
-												for="floatingInputName">Full Name</label> <span
+												id="hymmId" name="hymmId" placeholder="John Doe"> <label
+												for="floatingInputName">Account</label> <span
 												class="invalid-feedback">Please enter your name</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="email" class="form-control" required=""
-												id="floatingInputEmail" placeholder="name@example.com">
-											<label for="floatingInputEmail">Email address</label> <span
+												id="hymmEmail" name="hymmEmail" placeholder="name@example.com">
+											<label for="hymmEmail">Email address</label> <span
 												class="invalid-feedback">Please enter a valid email
 												address</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"
-												id="floatingPassword" placeholder="Password"> <label
-												for="floatingPassword">Password</label> <span
+												id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
+												for="hymmPassword">Password</label> <span
 												class="invalid-feedback">Enter the password</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"
-												id="floatingPassword2" placeholder="Password"> <label
-												for="floatingPassword2">Confirm Password</label> <span
+												id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
+												for="hymmPassword">Confirm Password</label> <span
 												class="invalid-feedback">Enter the same password as
 												above</span>
 										</div>
@@ -140,8 +139,8 @@ body {
 													& conditions</span> 
 											</div> 
 										</div>
-										<button class="w-100 btn btn-lg btn-success" type="submit" onclick="location.href = '/login/login'">Sign
-											Up</button>
+										<a href="javascript:goInst();"><button class="w-100 btn btn-lg btn-success" type="button">Sign
+											Up</button></a>
 										<div class="d-flex align-items-center pb-3">
 											<span class="flex-grow-1 border-bottom pt-1"></span> <span
 												class="d-inline-flex align-items-center justify-content-center lh-1 size-30 rounded-circle text-mono">or</span>
@@ -152,7 +151,7 @@ body {
 											src="/resources/user/images/kakao_login_medium_wide.png"
 											alt="..." width="100%"></a>
 
-									</form>
+									
 								</div>
 							</div>
 						</div>
@@ -175,7 +174,7 @@ body {
 			</main>
 		</div>
 	</div>
-
+</form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>
@@ -187,9 +186,14 @@ body {
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
+	<script type="text/javascript">
+		goInst = function() {
+			$("#memberSignUp").attr("action", "/user/memberSignUp");
+			$("#memberSignUp").submit();
+		}
+	</script>
 
-
- 		<!-- 사이드바 Hover 유지시켜주는 작업-->
+	<!-- 사이드바 Hover 유지시켜주는 작업-->
       <script type="text/javascript">
     	const sidebarLink = document.querySelectorAll('.Sidebar-link');
     	console.log(sidebarLink);

@@ -37,21 +37,32 @@
 </head>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <style>
-
 .mySpaceZone {
 	margin-left: 30%;
 	margin-right: 30%;
 }
-.card {
-width: 350px;
 
-height: 600px;
+.card {
+	width: 350px;
+	height: 600px;
+}
+
+#profilePhoto {
+	width: 200px;
+	height: 200px;
+}
+
+#table tr {
+	height: 45px;
+}
+#grayArea {
+	background-color: #c5c9c6;
 }
 </style>
 <body>
 
 	<form id="myProfileForm" method="post" enctype="multipart/form-data">
-	
+
 		<input type="hidden" name="hymmSeq" id="hymmSeq" value="${sessSeq}">
 
 		<!-- include 처리 1번 -->
@@ -72,7 +83,7 @@ height: 600px;
 					<%@include file="../include/pageHeader.jsp"%>
 
 					<!--//Page Toolbar//-->
-				<!-- 	<div class="toolbar pt-4 px-4 px-lg-8 pb-0">
+					<!-- 	<div class="toolbar pt-4 px-4 px-lg-8 pb-0">
 						<div class="position-relative container-fluid px-0">
 							<div class="row align-items-center position-relative">
 								<div class="col-md-8 mb-3 mb-lg-0">
@@ -94,28 +105,76 @@ height: 600px;
 						<div class="container-fluid px-0 h-100">
 
 
-			<div class="row mySpaceZone">
-						
+							<div class="row mySpaceZone">
 
 
 
-						<!--card-->
-						<div class="card mb-4">
 
-							<!--Card body-->
-							<div class="card-body">
-								<!--Contact-->
-								<div class="text-center">
+								<!-- ////////////////////////////////////////////////////////////// -->
 
-								
-							
-								
 
-							
+								<!--card-->
+								<div class="card px-0">
+
+									<!--Card body-->
+									<div class="card-body px-0">
+										<!--Contact-->
+										<div class="text-center pt-5">
+											<div id="grayArea" class="py-2">
+												<!-- Avatar -->
+												<c:choose>
+													<c:when test="${empty uuidFileName}">
+														<img id="profilePhoto" src="/resources/user/images/profileDefault.png" class="img-fluid rounded-circle">
+													</c:when>
+													<c:otherwise>
+														<img id="profilePhoto" src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="img-fluid rounded-circle">
+													</c:otherwise>
+												</c:choose>
+												<!-- Title -->
+												<h5 class="mt-3">
+													<a class="text-reset">
+														<c:out value="${rt.hymmName}" />
+													</a>
+												</h5>
+												<!-- Email -->
+												<p class="small mb-1">
+													<a class="d-block text-reset text-truncate">
+														<c:out value="${rt.hymmId}" />
+													</a>
+												</p>
+											</div>
+											<div class="px-6">
+
+												<table id="table" class="w-100 text-start mt-4">
+													<tr>
+														<td class="text-muted">휴대전화</td>
+														<td>
+															<c:choose>
+																<c:when test="${fn:length(rt.hymmNumber) eq 10 }">
+																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out value="${fn:substring(rt.hymmNumber,3,6)}" />-<c:out value="${fn:substring(rt.hymmNumber,6,10)}" />
+																</c:when>
+																<c:otherwise>
+																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out value="${fn:substring(rt.hymmNumber,3,7)}" />-<c:out value="${fn:substring(rt.hymmNumber,7,11)}" />
+																</c:otherwise>
+															</c:choose>
+														</td>
+													</tr>
+													<tr>
+														<td class="text-muted">이메일</td>
+														<td>
+															<c:out value="${rt.hymmEmail}" />
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
 								</div>
+
+
+
+								<!-- ////////////////////////////////////////////////////////////// -->
 							</div>
-						</div>
-					</div>
 
 						</div>
 					</div>
@@ -127,8 +186,8 @@ height: 600px;
 							<span class="d-block lh-sm small text-muted text-end">
 								&copy;
 								<script>
-                              document.write(new Date().getFullYear())
-                            </script>
+									document.write(new Date().getFullYear())
+								</script>
 								. Hey, Buddy All rights reserved.
 							</span>
 						</div>
@@ -159,8 +218,8 @@ height: 600px;
 	<script src="/resources/assets/vendor/feather.min.js"></script>
 	<script src="/resources/assets/js/theme.bundle.js"></script>
 	<script>
-          feather.replace()
-        </script>
+		feather.replace()
+	</script>
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
@@ -168,56 +227,58 @@ height: 600px;
 
 	<!--Toast notification-->
 	<script>
-                      var toastTrigger = document.getElementById('profile_save')
-var toastLiveExample = document.getElementById('profile_notification_saved')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', function () {
-    var toast = new bootstrap.Toast(toastLiveExample)
+		var toastTrigger = document.getElementById('profile_save')
+		var toastLiveExample = document
+				.getElementById('profile_notification_saved')
+		if (toastTrigger) {
+			toastTrigger.addEventListener('click', function() {
+				var toast = new bootstrap.Toast(toastLiveExample)
 
-    toast.show()
-  })
-}
-        </script>
+				toast.show()
+			})
+		}
+	</script>
 	<!--Page script begin-->
 	<script src="/resources/assets/vendor/inputmask.min.js"></script>
 	<script>
-            Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
-        </script>
+		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
+	</script>
 
 	<!--Birthday Calendar-->
 	<script src="/resources/assets/vendor/moment.min.js"></script>
 	<script src="/resources/assets/vendor/daterangepicker.js"></script>
 	<script>
-            $(function () {
-                $('input[name="birthday"]').daterangepicker({
-                    singleDatePicker: true,
-                    showDropdowns: true,
-                    minYear: 1901,
-                    maxYear: parseInt(moment().format('YYYY'), 10)
-                });
-            });
-        </script>
+		$(function() {
+			$('input[name="birthday"]').daterangepicker({
+				singleDatePicker : true,
+				showDropdowns : true,
+				minYear : 1901,
+				maxYear : parseInt(moment().format('YYYY'), 10)
+			});
+		});
+	</script>
 
 	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 	<script>
-		$(document).ready(function(){
+		$(document).ready(function() {
 			$("#hymmDob").datepicker();
 		});
-		
+
 		$.datepicker.setDefaults({
-		    dateFormat: 'yy-mm-dd',
-		    prevText: '이전 달',
-		    nextText: '다음 달',
-		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		    showMonthAfterYear: true,
-		    yearSuffix: '년'
+			dateFormat : 'yy-mm-dd',
+			prevText : '이전 달',
+			nextText : '다음 달',
+			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+					'9월', '10월', '11월', '12월' ],
+			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+					'9월', '10월', '11월', '12월' ],
+			dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+			showMonthAfterYear : true,
+			yearSuffix : '년'
 		});
-		
-		</script>
+	</script>
 
 
 	<script src="/resources/common/js/commonXdmin.js"></script>
@@ -225,34 +286,10 @@ if (toastTrigger) {
 	<script src="/resources/common/js/common.js"></script>
 
 	<script type="text/javascript">
-		let profileInput = document.getElementById("profile-upload");
-		let img = document.querySelector('#profilePhoto');
-		
-		profileInput.onchange = (e) => {
-			
-			var ext = $("#profile-upload")[0].files[0].name.split('.').pop().toLowerCase();
-			if(extArrayImage.indexOf(ext) == -1){
-				alert("허용된 확장자가 아닙니다.");
-				return false;
-			}
-			
-			img.classList.add('preview');
-			img.src = URL.createObjectURL(e.target.files[0]);
-		}
-		
-		deletePhoto = function(){
-			img.src = "/resources/user/images/profileDefault.png";
-			profileInput.value = null;
-		}
-	</script>
-
-	<script type="text/javascript">
-		
-		$("#btnSubmit").on("click", function(){
+		$("#btnSubmit").on("click", function() {
 			$("#myProfileForm").attr("action", "/user/myProfileUpdt").submit();
 		});
-		
-		</script>
+	</script>
 
 
 </body>

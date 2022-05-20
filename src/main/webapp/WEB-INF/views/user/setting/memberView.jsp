@@ -180,7 +180,9 @@ table tr .form-control {
 										<div class="text-center pb-4">
 											<a class="btn btn-secondary" href="memberList">목록</a>
 											<a class="btn btn-info" href="javascript:goEdit(<c:out value="${item.hymmSeq}"/>);">수정</a>
-											<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</a>
+											<c:if test="${item.hysmRoleCd ne 12}">
+												<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</a>
+											</c:if>
 										</div>
 									</div>
 								</div>

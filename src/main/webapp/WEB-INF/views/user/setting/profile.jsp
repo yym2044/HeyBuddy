@@ -110,33 +110,30 @@
 											class="table table-sm table-nowrap table-card">
 
 											<tr>
-												<td colspan="4"><input class="form-check-input" type="checkbox"
+												<td><input class="form-check-input" type="checkbox"
 													value="" id="checkName" checked=""> <label
 													class="form-check-label" for="checkName"> 이름 </label></td>
-											</tr>
-											<tr>
-												<td><input class="form-check-input" type="checkbox"
+												<td colspan="3"><input class="form-check-input" type="checkbox"
 													value="" id="checkProfilePhoto" checked=""> <label
 													class="form-check-label" for="checkProfilePhoto">
 														프로필 사진 </label></td>
+											</tr>
+											<tr>
 												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkJo" checked=""> <label
+													value="" id="checkJo" disabled> <label
 													class="form-check-label" for="checkJo"> 조직 </label></td>
 												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkJc" checked=""> <label
+													value="" id="checkJc" disabled> <label
 													class="form-check-label" for="checkJc"> 직책 </label></td>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkJc2" checked=""> <label
+												<td colspan="2"><input class="form-check-input" type="checkbox"
+													value="" id="checkJc2" disabled> <label
 													class="form-check-label" for="checkJc2"> 직위 </label></td>
 											</tr>
 											<tr>
 												<td><input class="form-check-input" type="checkbox"
 													value="" id="checkPhone" checked=""> <label
 													class="form-check-label" for="checkPhone"> 휴대폰 </label></td>
-												<td><input class="form-check-input" type="checkbox"
-													value="" id="checkHome" checked=""> <label
-													class="form-check-label" for="checkHome"> 유선전화 </label></td>
-												<td colspan="2"><input class="form-check-input"
+												<td colspan="3"><input class="form-check-input"
 													type="checkbox" value="" id="checkEmail" checked="">
 													<label class="form-check-label" for="checkEmail">
 														이메일 </label></td>

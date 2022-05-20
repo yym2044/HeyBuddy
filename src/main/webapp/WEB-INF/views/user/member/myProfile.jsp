@@ -462,7 +462,7 @@ if (toastTrigger) {
 	
 	<script type="text/javascript">
 	noService = function(){
-		alert("미구현 메뉴");
+		alert("준비중입니다.");
 	}
 	</script>
 

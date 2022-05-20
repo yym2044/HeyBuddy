@@ -213,14 +213,11 @@
 					</div>
 				</div>
 				<div class="pt-2">
-					<a href="profile.html" class="dropdown-item">
+					<a href="/user/myProfile2" class="dropdown-item">
 						<i class="fe-1x me-3" data-feather="user"></i>Profile
 					</a>
 					<a href="/user/myProfile" class="dropdown-item">
 						<i class="fe-1x me-3" data-feather="tool"></i>Settings
-					</a>
-					<a href="page-tasks.html" class="dropdown-item">
-						<i class="fe-1x me-3" data-feather="list"></i>Tasks
 					</a>
 					<hr class="my-2">
 					<a href="javascript:logOut();" class="dropdown-item d-flex align-items-center">

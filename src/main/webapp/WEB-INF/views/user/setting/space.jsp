@@ -118,6 +118,9 @@
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 <body>
+
+	<form id="spaceForm" method="post">
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 	
@@ -136,6 +139,7 @@
 				<%@include file="../include/pageHeader.jsp"%>
 				
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -153,6 +157,7 @@
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
 				
 				
@@ -203,7 +208,7 @@
 											</tr>
 											<tr>
 												<td>마이스페이스 이름</td>
-												<td colspan="2"><input class="form-control" value="<c:out value="${hyspName}"/>"></td>
+												<td colspan="2"><input name="hyspName" class="form-control" value="<c:out value="${hyspName}"/>"></td>
 											</tr>
 											<tr>
 												<td>마이스페이스 아이디</td>
@@ -218,7 +223,7 @@
 													<div class="position-relative flex-grow-1 me-2 me-lg-4">
 														<!--Img-->
 														<span id="sidebarIcon2" class="sidebar-icon lh-1 text-white rounded-circle bg-success fw-bold fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;"></span>
-														<!-- <img class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;" src="/resources/user/images/profileDefault.png"> -->
+														<!-- <img id="sidebarLogoPreview" class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;" src="/resources/user/images/profileDefault.png"> -->
 														<input id="spaceLogoText" type="text" class="form-control ps-8" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다.">
 													</div>
 													
@@ -230,7 +235,7 @@
 												<td colspan="2">
 													<div class="custom-radios">
 													  <div>
-													    <input type="radio" id="color-1" name="spaceColor" value="color-1" checked>
+													    <input type="radio" id="color-1" name="hyspColorCd" value="14" <c:if test="${space.hyspColorCd eq 14 or empty space.hyspColorCd}">checked</c:if>>
 													    <label for="color-1">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -239,7 +244,7 @@
 													  </div>
 													  
 													  <div>
-													    <input type="radio" id="color-2" name="spaceColor" value="color-2">
+													    <input type="radio" id="color-2" name="hyspColorCd" value="15" <c:if test="${space.hyspColorCd eq 15}">checked</c:if>>
 													    <label for="color-2">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -248,7 +253,7 @@
 													  </div>
 													  
 													  <div>
-													    <input type="radio" id="color-3" name="spaceColor" value="color-3">
+													    <input type="radio" id="color-3" name="hyspColorCd" value="16" <c:if test="${space.hyspColorCd eq 16}">checked</c:if>>
 													    <label for="color-3">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -257,7 +262,7 @@
 													  </div>
 													
 													  <div>
-													    <input type="radio" id="color-4" name="spaceColor" value="color-4">
+													    <input type="radio" id="color-4" name="hyspColorCd" value="17" <c:if test="${space.hyspColorCd eq 17}">checked</c:if>>
 													    <label for="color-4">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -275,7 +280,7 @@
 										</table>
 										<div class="text-center pb-3">
 											<button class="btn btn-lg btn-secondary me-1">원래대로</button>
-											<button id="btnApply" data-bs-toggle="modal" data-bs-target="#saveModal" class="btn btn-lg btn-info">적용</button>
+											<button type="button" id="btnApply" data-bs-toggle="modal" data-bs-target="#saveModal" class="btn btn-lg btn-info">적용</button>
 										</div>
 										
 										<!-- SaveModal -->
@@ -305,6 +310,7 @@
 		</div>
 	</div>
 
+	</form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>
@@ -328,23 +334,23 @@
     
     let backUrl;
     
-    $("input[name='spaceColor']").on("click", function(){
-    	if($(this).val() == 'color-1'){
+    $("input[name='hyspColorCd']").on("click", function(){
+    	if($(this).val() == '14'){
     		backUrl = 1;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround.jpg')";
-    	} else if($(this).val() == 'color-2'){
+    	} else if($(this).val() == '15'){
     		backUrl = 2;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround2.png')";
-    	} else if($(this).val() == 'color-3'){
+    	} else if($(this).val() == '16'){
     		backUrl = 3;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround3.jpg')";
-    	} else if($(this).val() == 'color-4'){
+    	} else if($(this).val() == '17'){
     		backUrl = 4;
     		document.body.style.backgroundImage = "url('/resources/user/images/allround4.png')";
     	}
     });
     
-	$("#btnApply").on("click", function(){
+	$("#btnSubmit").on("click", function(){
 		localStorage.setItem("backUrl", backUrl);
 	});
     
@@ -366,6 +372,12 @@
     
     <script type="text/javascript">
 	document.querySelector('#sidebarIcon2').innerText = "<c:out value="${hyspName}"/>".charAt(0);
+	</script>
+	
+	<script type="text/javascript">
+	$("#btnSubmit").on("click", function(){
+		$("#spaceForm").attr("action", "/setting/updateMySpaceHost").submit();
+	});
 	</script>
     
 </body>

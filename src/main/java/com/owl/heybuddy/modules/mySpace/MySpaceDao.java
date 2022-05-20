@@ -81,4 +81,12 @@ public class MySpaceDao {
 		return sqlSession.update(namespace + ".ueleteMySpace", vo); // 스페이스가짜삭제
 	}
 
+	
+	// 호스트 설정 부분
+	public int updateMySpaceHost(MySpace dto) {
+		return sqlSession.update(namespace + ".updateMySpaceHost", dto);
+	}
+	public MySpace selectOneMySpaceHost(MySpaceVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneMySpaceHost", vo); 
+	}
 }

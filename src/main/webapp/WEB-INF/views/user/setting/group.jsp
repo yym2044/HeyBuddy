@@ -191,6 +191,7 @@ label {
 				<%@include file="../include/pageHeader.jsp"%>
 
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -206,6 +207,7 @@ label {
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
 
 
@@ -231,7 +233,7 @@ label {
 									<div class="row ps-6">
 										<div class="col-lg-5">
 											<div class="row">
-												<p class="fw-bold my-3 px-3">팀부엉(4명)</p>
+												<p class="fw-bold my-3 px-3"><c:out value="${hyspName}"/>(4명)</p>
 
 												<div class="card overflow-hidden">
 													<div class="card-header d-flex align-items-center">
@@ -246,7 +248,7 @@ label {
 
 														<div class="tree-box box-border">
 															<ul class="trees">
-																<li class="has-child"><input id="tree-controll1" type="checkbox" checked> <span class="tree-control"></span> <label> <a href="javascript:void(0);">팀부엉 (4)</a>
+																<li class="has-child"><input id="tree-controll1" type="checkbox" checked> <span class="tree-control"></span> <label> <a href="javascript:void(0);"><c:out value="${hyspName}"/> (4)</a>
 																</label>
 																	<ul class="p-1">
 																		<li class="has-child"><input type="checkbox" checked> <span class="tree-control"></span> <label> <a href="javascript:void(0);">1조 (0)</a>
@@ -290,7 +292,7 @@ label {
 										<div class="col-lg">
 											<div class="card" style="margin-top: 50px; margin-bottom: 10px;">
 												<div class="card-header d-flex align-items-center" style="height: 60px;">
-													<span class="fw-bold">팀부엉(4)</span>
+													<span class="fw-bold"><c:out value="${hyspName}"/>(4)</span>
 												</div>
 												<div class="card-body" style="height: 16rem; overflow-y: auto;">
 													<ul class="list-unstyled">

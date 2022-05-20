@@ -116,6 +116,7 @@
 		SELECT
 		a.hyspSeq
 		, a.hyspName
+		, a.hyspColorCd
 		, b.hysmRoleCd
 
 		FROM hybdSpace a

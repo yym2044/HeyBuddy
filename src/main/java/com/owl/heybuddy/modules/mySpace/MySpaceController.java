@@ -29,9 +29,24 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/setting/space")
-	public String space() throws Exception {
-
+	public String space(Model model, MySpaceVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
+		
+		model.addAttribute("space", service.selectOneMySpaceHost(vo));
+		
 		return "user/setting/space";
+	}
+	
+	@RequestMapping(value = "/setting/updateMySpaceHost")
+	public String updateMySpaceHost(MySpace dto, HttpSession httpSession) throws Exception {
+		
+		dto.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
+		service.updateMySpaceHost(dto);
+		
+		httpSession.setAttribute("hyspName", dto.getHyspName());
+		
+		return "redirect:/setting/space";
 	}
 
 	/******************************* 호스트 메뉴 End *******************************/

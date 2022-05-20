@@ -76,6 +76,8 @@ table tr .form-control {
     <input type="hidden" name="hyspName" placeholder="스페이스 이름" value="${space.hyspName}">
     <input type="hidden" name="hostName" placeholder="호스트 이름" value="${space.hymmName}">
 	
+	<input type="hidden" name="hysmHost" value="${space.hymmSeq}">
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 
@@ -94,6 +96,7 @@ table tr .form-control {
 				<%@include file="../include/pageHeader.jsp"%>
 
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -109,6 +112,7 @@ table tr .form-control {
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
 
 
@@ -277,13 +281,14 @@ table tr .form-control {
 		var confirmNy = confirm("해당 메일로 이메일을 전송합니다.");
 		
 		if(confirmNy){
+			/* 
 			emailjs.sendForm('contact_service', 'contact_form', document.getElementById('formForm'))
 	        .then(function() {
 	            console.log('이메일 전송 SUCCESS!');
 	        }, function(error) {
 	            console.log('이메일 전송 FAILED...', error);
 	        });
-			
+			 */
 			$("#formForm").attr("action", "/setting/memberInst").submit();
 		}
 		

@@ -6,7 +6,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
 <meta charset="UTF-8">
@@ -61,6 +61,7 @@
 				<%@include file="../include/pageHeader.jsp"%>
 
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -76,6 +77,7 @@
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
 
 
@@ -114,40 +116,46 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>
-														<div class="d-flex align-items-center">
-															<img src="/resources/assets/media/avatars/08.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
-															<div class="h6 mb-0 lh-1 d-flex align-items-center">
-																<a href="#modalMember3" data-bs-toggle="modal">윤영민</a>
-																<span class="badge bg-danger ms-1">S</span>
-															</div>
-														</div>
-													</td>
-													<td>스페이스 환경(2), 스페이스 멤버(3)</td>
-													<td>
-														<a href="">호스트 변경</a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="d-flex align-items-center">
-															<img src="/resources/assets/media/avatars/03.jpg" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
-															<div class="h6 mb-0 lh-1">
-																<a href="#modalMember4" data-bs-toggle="modal">이건우</a>
-															</div>
-														</div>
-													</td>
-													<td>스페이스 멤버(3)</td>
-													<td>
-														<a class="btn btn-info position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" href="authEdit">
-															<i class="bi bi-pencil-square"></i>
-														</a>
-														<a class="btn btn-danger position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" data-bs-toggle="modal" data-bs-target="#deleteModal">
-															<i class="bi bi-trash3"></i>
-														</a>
-													</td>
-												</tr>
+												<c:forEach items="${list}" var="item" varStatus="status">
+													<c:if test="${item.hysmAcceptedNy eq 1 and item.hymmActiveNy eq 1 }">
+														<tr>
+															<td>
+																<div class="d-flex align-items-center">
+																	<c:choose>
+																		<c:when test="${empty item.uuidFileName}">
+																			<img src="/resources/user/images/profileDefault.png" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+																		</c:when>
+																		<c:otherwise>
+																			<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+																		</c:otherwise>
+																	</c:choose>
+																	<div class="h6 mb-0 lh-1 d-flex align-items-center">
+																		<a href="#modalMember3" data-bs-toggle="modal"><c:out value="${item.hymmName}"/></a>
+																		<c:if test="${item.hysmRoleCd eq 12}">
+																			<span class="badge bg-danger ms-1">S</span>
+																		</c:if>
+																	</div>
+																</div>
+															</td>
+															<td>스페이스 환경(2), 스페이스 멤버(3)</td>
+															<td>
+																<c:choose>
+																	<c:when test="${item.hysmRoleCd eq 12}">
+																		<a href="">호스트 변경</a>
+																	</c:when>
+																	<c:otherwise>
+																		<a class="btn btn-info position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" href="authEdit">
+																			<i class="bi bi-pencil-square"></i>
+																		</a>
+																		<a class="btn btn-danger position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" data-bs-toggle="modal" data-bs-target="#deleteModal">
+																			<i class="bi bi-trash3"></i>
+																		</a>
+																	</c:otherwise>
+																</c:choose>
+															</td>
+														</tr>
+													</c:if>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
@@ -346,14 +354,14 @@
 	<script>
 		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
 	</script>
-	
-	 
-	
+
+
+
 	<script type="text/javascript">
-	const sidebarLink = document.querySelectorAll('.Sidebar-link');
-	
-	sidebarLink[5].className += ' current';
-</script>
+		const sidebarLink = document.querySelectorAll('.Sidebar-link');
+
+		sidebarLink[5].className += ' current';
+	</script>
 
 </body>
 

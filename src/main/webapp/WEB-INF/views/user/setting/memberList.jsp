@@ -39,6 +39,9 @@
 #setTable tr {
 	vertical-align: middle;
 }
+#setTable {
+	text-align: center;
+}
 </style>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
@@ -67,6 +70,7 @@
 				<%@include file="../include/pageHeader.jsp"%>
 
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -82,6 +86,7 @@
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
 
 
@@ -129,6 +134,7 @@
 													<td>Email</td>
 													<td>계정 생성일</td>
 													<td>멤버 상태</td>
+													<td>계정 활성화</td>
 												</tr>
 											</thead>
 											<tbody>
@@ -147,6 +153,9 @@
 															<div>
 																<div class="h6 mb-0 lh-1">
 																	<a href="javascript:goView(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/><c:if test="${item.hymmName eq sessName}"></c:if></a>
+																	<c:if test="${item.hysmRoleCd eq 12}">
+																		<span class="badge bg-danger ms-1">S</span>
+																	</c:if>
 																</div>
 															</div>
 														</div>
@@ -165,11 +174,21 @@
 													<td><fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd" /></td>
 													<td>
 														<c:choose>
-															<c:when test="${item.hysmActiveNy eq 1}">
+															<c:when test="${item.hysmAcceptedNy eq 1}">
 																참여중
 															</c:when>
 															<c:otherwise>
 																대기중
+															</c:otherwise>
+														</c:choose>
+													</td>
+													<td>
+														<c:choose>
+															<c:when test="${item.hymmActiveNy eq 1}">
+																활성
+															</c:when>
+															<c:otherwise>
+																비활성
 															</c:otherwise>
 														</c:choose>
 													</td>

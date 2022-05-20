@@ -81,6 +81,7 @@ table tr .form-control {
 				<%@include file="../include/pageHeader.jsp"%>
 				
 				<!--//Page Toolbar//-->
+				<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -96,6 +97,7 @@ table tr .form-control {
 						</div>
 					</div>
 				</div>
+				 -->
 				<!--//Page Toolbar End//-->
 
 
@@ -135,6 +137,10 @@ table tr .form-control {
 										</div>
 										
 										<table id="setTable" class="table table-sm table-nowrap table-card">
+											<tr>
+												<td class="tableText">구분</td>
+												<td><c:choose><c:when test="${item.hysmRoleCd eq 12}">호스트</c:when><c:otherwise>게스트</c:otherwise></c:choose></td>
+											</tr>
 											<tr>
 												<td class="tableText">아이디</td>
 												<td><c:out value="${item.hymmId}"/></td>

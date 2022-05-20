@@ -35,4 +35,9 @@ public interface MySpaceService {
 	int deleteMySpace(MySpaceVo vo) throws Exception; // 스페이스삭제
 
 	int ueleteMySpace(MySpaceVo vo) throws Exception; // 스페이스가짜삭제
+	
+	// 호스트 설정 부분
+	
+	public int updateMySpaceHost(MySpace dto) throws Exception;
+	public MySpace selectOneMySpaceHost(MySpaceVo vo) throws Exception;
 }

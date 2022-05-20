@@ -194,8 +194,15 @@ public class MemberController {
 
 //		스페이스 입장 하면서 세션에 스페이스이름 값 세팅 => 사이드바 include 파일에서 활용
 		httpSession.setAttribute("hyspName", rt.getHyspName());
+<<<<<<< HEAD
 
 		if (rt.getHysmRoleCd() == 12) {
+=======
+		// 스페이스 색상 추가
+		httpSession.setAttribute("hyspColorCd", rt.getHyspColorCd());
+		
+		if(rt.getHysmRoleCd() == 12) {
+>>>>>>> branch 'main' of https://github.com/yym2044/HeyBuddy.git
 			httpSession.setAttribute("hostNy", 1);
 		} else {
 			httpSession.setAttribute("hostNy", 0);
@@ -252,8 +259,19 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/authList")
-	public String authList() {
+	public String authList(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
 
+		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
+		
+		int count = service.selectOneCountMemberInSpace(vo);
+		vo.setParamsPaging(count);
+		if (count != 0) {
+			List<Member> list = service.selectListMemberInSpace(vo);
+			model.addAttribute("list", list);
+		} else {
+			// by pass
+		}
+		
 		return "user/setting/authList";
 	}
 

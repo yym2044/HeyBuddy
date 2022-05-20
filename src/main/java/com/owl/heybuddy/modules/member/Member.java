@@ -25,6 +25,8 @@ public class Member {
 	//스페이스
 	private String hyspSeq;
 	private String hyspName;
+	private Integer hyspColorCd;
+	//스페이스 멤버
 	private String hysmHost;
 	private Integer hysmAcceptedNy;
 	private Integer hysmExitNy;
@@ -347,6 +349,12 @@ public class Member {
 	}
 	public void setHysmHost(String hysmHost) {
 		this.hysmHost = hysmHost;
+	}
+	public Integer getHyspColorCd() {
+		return hyspColorCd;
+	}
+	public void setHyspColorCd(Integer hyspColorCd) {
+		this.hyspColorCd = hyspColorCd;
 	}
 	
 	

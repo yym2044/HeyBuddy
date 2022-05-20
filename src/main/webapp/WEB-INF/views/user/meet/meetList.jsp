@@ -88,131 +88,72 @@
 					<div class="container-fluid px-0">
 						<div class="row">
 							<div class="col-12">
-								<div class="card">
-									<div class="table-responsive">
-										<table id="datatable"
-											class="table mt-0 table-hover table-card table-nowrap">
-											<!-- <thead class="text-uppercase small text-muted">
-			                                        <tr>
-			                                            <th>Name</th>
-			                                            <th>Position</th>
-			                                            <th>Office</th>
-			                                            <th>Age</th>
-			                                            <th>Start date</th>
-			                                            <th>Salary</th>
-			                                        </tr>
-			                                    </thead> -->
-											<tbody>
-												<c:forEach items="${roomList}" var="room" varStatus="status">
-													<tr>
-														<td class="text-center" style="width: 200px;">
-															<div class="avatar-group justify-content-end">
-																<a href="#!.html"
-																	class="avatar-group-item avatar rounded-circle"
-																	data-bs-toggle="tooltip" title=""
-																	data-bs-original-title="Gabriel H"> <img
-																	src="/resources/assets/media/avatars/04.jpg" alt="..."
-																	class="avatar-group-img rounded-circle">
-																</a> <a href="#!.html"
-																	class="avatar-group-item avatar rounded-circle"
-																	data-bs-toggle="tooltip" title=""
-																	data-bs-original-title="Emily Doe"> <img
-																	src="/resources/assets/media/avatars/02.jpg" alt="..."
-																	class="avatar-group-img rounded-circle">
-																</a> <a href="#!.html"
-																	class="avatar-group-item avatar rounded-circle"
-																	data-bs-toggle="tooltip" title=""
-																	data-bs-original-title="Adam Howkins"> <img
-																	src="/resources/assets/media/avatars/03.jpg" alt="..."
-																	class="avatar-group-img rounded-circle">
-																</a>
-															</div>
-														</td>
-														<td style="width: 700px;"><span class="fw-bold fs-4"><c:out value="${room.hymrRoomName}"/><i class="bi bi-lock ps-2"></i>
-														</span><br><span id="memberInRoom${room.hymrSeq}">1</span></td>
-														<td class="text-end"
-															style="width: 200px; vertical-align: middle;"><i
-															class="bi bi-alarm pe-1"></i>12:34</td>
-														<td style="vertical-align: middle;"><a
-															href="javascript:enterRoom(<c:out value="${room.hymrSeq}"/>);"
-															class="btn rounded-pill btn-primary text-truncate">회의 참여</a></td>
-													</tr>
-												</c:forEach>
-											
-												<!-- 
-												<tr>
-													<td class="text-center" style="width: 200px;">
-														<img style="width:50px;" src="/resources/assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
-														<div class="avatar-group justify-content-end">
-															<a href="#!.html"
-																class="avatar-group-item avatar rounded-circle"
-																data-bs-toggle="tooltip" title=""
-																data-bs-original-title="Gabriel H"> <img
-																src="/resources/assets/media/avatars/04.jpg" alt="..."
-																class="avatar-group-img rounded-circle">
-															</a> <a href="#!.html"
-																class="avatar-group-item avatar rounded-circle"
-																data-bs-toggle="tooltip" title=""
-																data-bs-original-title="Emily Doe"> <img
-																src="/resources/assets/media/avatars/02.jpg" alt="..."
-																class="avatar-group-img rounded-circle">
-															</a> <a href="#!.html"
-																class="avatar-group-item avatar rounded-circle"
-																data-bs-toggle="tooltip" title=""
-																data-bs-original-title="Adam Howkins"> <img
-																src="/resources/assets/media/avatars/03.jpg" alt="..."
-																class="avatar-group-img rounded-circle">
-															</a>
-														</div>
-													</td>
-													<td style="width: 700px;"><span class="fw-bold fs-4">홍길동의
-															회의실<i class="bi bi-lock ps-2"></i>
-													</span><br>홍길동, 김하나, 김둘</td>
-													<td class="text-end"
-														style="width: 200px; vertical-align: middle;"><i
-														class="bi bi-alarm pe-1"></i>12:34</td>
-													<td style="vertical-align: middle;"><a
-														href="meetEnter"
-														class="btn rounded-pill btn-primary text-truncate">회의 참여</a></td>
-												</tr>
-												<tr>
-													<td class="text-center" style="width: 200px;">
-														<img style="width:50px;" src="/resources/assets/media/avatars/04.jpg" alt="..." class="avatar-group-img rounded-circle">
-														<div class="avatar-group justify-content-end">
-															<a href="#!.html"
-																class="avatar-group-item avatar rounded-circle"
-																data-bs-toggle="tooltip" title=""
-																data-bs-original-title="Gabriel H"> <img
-																src="/resources/assets/media/avatars/04.jpg" alt="..."
-																class="avatar-group-img rounded-circle">
-															</a> <a href="#!.html"
-																class="avatar-group-item avatar rounded-circle"
-																data-bs-toggle="tooltip" title=""
-																data-bs-original-title="Emily Doe"> <img
-																src="/resources/assets/media/avatars/02.jpg" alt="..."
-																class="avatar-group-img rounded-circle">
-															</a> <a href="#!.html"
-																class="avatar-group-item avatar rounded-circle"
-																data-bs-toggle="tooltip" title=""
-																data-bs-original-title="Adam Howkins"> <img
-																src="/resources/assets/media/avatars/03.jpg" alt="..."
-																class="avatar-group-img rounded-circle">
-															</a>
-														</div>
-													</td>
-													<td style="width: 700px;"><span class="fw-bold fs-4">철수의
-															회의실</span><br>영희, 홍조, 경민</td>
-													<td class="text-end"
-														style="width: 200px; vertical-align: middle;"><i
-														class="bi bi-alarm pe-1"></i>31:23</td>
-													<td style="vertical-align: middle;"><a href="#!.html"
-														class="btn rounded-pill btn-primary text-truncate">회의
-															참여</a></td>
-												</tr>
-												 -->
-											</tbody>
-										</table>
-									</div>
+								<div class="card" style="min-height: 490px;">
+									<c:choose>
+										<c:when test="${fn:length(roomList) eq 0}">
+											<div style="height: 490px;" class="d-flex align-items-center justify-content-center">
+												<div class="text-center">
+													<h1 class="d-block">진행 중인 미팅이 없습니다</h1>
+													<img src="/resources/user/images/cuteOwl.png" style="width: 200px;">
+												</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<div class="table-responsive">
+												<table id="datatable"
+													class="table mt-0 table-hover table-card table-nowrap">
+													<!-- <thead class="text-uppercase small text-muted">
+					                                        <tr>
+					                                            <th>Name</th>
+					                                            <th>Position</th>
+					                                            <th>Office</th>
+					                                            <th>Age</th>
+					                                            <th>Start date</th>
+					                                            <th>Salary</th>
+					                                        </tr>
+					                                    </thead> -->
+													<tbody>
+														<c:forEach items="${roomList}" var="room" varStatus="status">
+															<tr>
+																<td class="text-center" style="width: 200px;">
+																	<div class="avatar-group justify-content-end">
+																		<a href="#!.html"
+																			class="avatar-group-item avatar rounded-circle"
+																			data-bs-toggle="tooltip" title=""
+																			data-bs-original-title="Gabriel H"> <img
+																			src="/resources/assets/media/avatars/04.jpg" alt="..."
+																			class="avatar-group-img rounded-circle">
+																		</a> <a href="#!.html"
+																			class="avatar-group-item avatar rounded-circle"
+																			data-bs-toggle="tooltip" title=""
+																			data-bs-original-title="Emily Doe"> <img
+																			src="/resources/assets/media/avatars/02.jpg" alt="..."
+																			class="avatar-group-img rounded-circle">
+																		</a> <a href="#!.html"
+																			class="avatar-group-item avatar rounded-circle"
+																			data-bs-toggle="tooltip" title=""
+																			data-bs-original-title="Adam Howkins"> <img
+																			src="/resources/assets/media/avatars/03.jpg" alt="..."
+																			class="avatar-group-img rounded-circle">
+																		</a>
+																	</div>
+																</td>
+																<td style="width: 700px;"><span class="fw-bold fs-4"><c:out value="${room.hymrRoomName}"/><i class="bi bi-lock ps-2"></i>
+																</span><br><span id="memberInRoom${room.hymrSeq}">1</span></td>
+																<td class="text-end"
+																	style="width: 200px; vertical-align: middle;"><i
+																	class="bi bi-alarm pe-1"></i>12:34</td>
+																<td style="vertical-align: middle;"><a
+																	href="javascript:enterRoom(<c:out value="${room.hymrSeq}"/>);"
+																	class="btn rounded-pill btn-primary text-truncate">회의 참여</a></td>
+															</tr>
+														</c:forEach>
+													
+													</tbody>
+												</table>
+											</div>
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</div>
 						</div>

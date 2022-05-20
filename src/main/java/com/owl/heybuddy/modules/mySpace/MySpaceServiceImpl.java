@@ -93,4 +93,15 @@ public class MySpaceServiceImpl implements MySpaceService {
 	public int ueleteMySpace(MySpaceVo vo) throws Exception { // 스페이스가짜삭제
 		return dao.ueleteMySpace(vo);
 	}
+	
+	// 호스트 설정 부분
+	
+	@Override
+	public int updateMySpaceHost(MySpace dto) throws Exception {
+		return dao.updateMySpaceHost(dto);
+	}
+	@Override
+	public MySpace selectOneMySpaceHost(MySpaceVo vo) throws Exception {
+		return dao.selectOneMySpaceHost(vo);
+	}
 }

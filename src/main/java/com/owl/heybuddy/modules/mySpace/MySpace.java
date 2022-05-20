@@ -27,6 +27,7 @@ public class MySpace {
 	private String hyspName;
 	private Integer hyspTypeCd;
 	private Integer hyspOrder;
+	private Integer hyspColorCd;
 	private Integer hyspUseNy;
 	private Integer hyspDelNy;
 
@@ -476,6 +477,14 @@ public class MySpace {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public Integer getHyspColorCd() {
+		return hyspColorCd;
+	}
+
+	public void setHyspColorCd(Integer hyspColorCd) {
+		this.hyspColorCd = hyspColorCd;
 	}
 
 }

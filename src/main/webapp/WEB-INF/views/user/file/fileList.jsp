@@ -110,9 +110,7 @@
 				</div>
 				<!--//Page Toolbar End//-->
 												
-				<!--//Page content//-->
-				<div
-					class="content overflow-hidden position-relative d-flex flex-column-fluid">
+
 					<!--Inbox content-->
 					<div id="mailList"
 						class="position-absolute left-0 top-0 d-flex flex-column w-100 h-100"

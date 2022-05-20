@@ -8,14 +8,7 @@
 
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.file.File"></resultMap> <!-- 결과 객체 저장 -->
  
-  
- 
-<!--  ************************* 문서관련mpp*************************  -->
-<!--  ************************* 문서관련mpp*************************  -->
-<!--  ************************* 문서관련mpp*************************  -->
- 
- 
-	
+
 	<sql id="selectCommon"> <!-- 공통 -->
 		FROM
 		hybdDocument a
@@ -87,8 +80,12 @@
  	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select
 		*
+		,b.hymmName
+		,b.hymmEmail
 		from
-		hybdDocument
+		hybdDocument a
+		LEFT JOIN hybdMember AS b
+        ON b.hymmSeq = a.hymmSeq
 		where 1=1
 		and hydcDelNy = 0
 		and hydcSeq = #{hydcSeq}
@@ -125,8 +122,6 @@
 		,regDevice -->
 		,regDateTime
 		,regDateTimeSvr
-		,hyspSeq
-		,hymmSeq
 		)
 		VALUES(
 		#{hybdTitle}
@@ -137,13 +132,57 @@
 		,#{regDevice} -->
 		,now()
 		,now()
-		,now()
-		,#{hymmSeq}
 		)
 		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 </insert>
+
+
+	<insert id="insertUploaded">  <!-- 파일등록 -->
+		INSERT INTO ${tableName}(
+		defaultNy
+		,type 
+		,sort
+		,originalFileName
+		,uuidFileName
+		,ext
+ 		,size 
+		,delNY
+		,pseq
+		,path
+		)
+		VALUES(
+		#{defaultNy}
+		,#{type} 
+		,#{sort}
+		,#{originalFileName}
+		,#{uuidFileName}
+		,#{ext}
+		,#{size} 
+		,0
+		,#{pseq}
+		,#{path}
+		)
+</insert>
+
+	<select id="selectOneSpace" resultMap="resultMapObj">
+	SELECT
+		a.hyspSeq
+		, a.hyspName
+		, c.hymmSeq
+		, c.hymmName
+	FROM
+		hybdSpace a
+	LEFT JOIN
+		hybdSpaceMember b 
+	ON b.hyspSeq = a.hyspSeq
+	LEFT JOIN
+		hybdMember c
+	ON c.hymmSeq = b.hymmSeq 
+	WHERE 1=1
+		AND a.hyspSeq = #{hyspSeq}
+	</select>
 
 	<update id="updateDocument">  <!-- 문서수정 -->
 		UPDATE hybdDocument SET
@@ -167,39 +206,8 @@
 		WHERE
 		hydcSeq= #{hydcSeq}
 	</update>
-<!--  ************************* 파일관련mpp*************************  -->
-<!--  ************************* 파일관련mpp*************************  -->
-<!--  ************************* 파일관련mpp*************************  -->
 
 
-	<insert id="insertUploaded">  <!-- 파일등록 -->
-		INSERT INTO ${tableName}(
-		defaultNy
-		,type 
-		,sort
-		,originalFileName
-		,uuidFileName
-		,ext
- 		,size 
-		,delNY
-		,pseq
-		,path
-
-		)
-		VALUES(
-		#{defaultNy}
-		,#{type} 
-		,#{sort}
-		,#{originalFileName}
-		,#{uuidFileName}
-		,#{ext}
-		,#{size} 
-		,0
-		,#{pseq}
-		,#{path}
-	
-		)
-</insert>
 
 	<select id="fileUploaded" resultMap = "resultMapObj"> <!--파일뷰 -->
 		SELECT

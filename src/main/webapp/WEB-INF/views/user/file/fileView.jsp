@@ -97,13 +97,8 @@ pageContext.setAttribute("br", "\n");
 
 
 
-					<!--//Page content//-->
-					<div
-						class="content overflow-hidden position-relative d-flex flex-column-fluid">
-						<!--Inbox content-->
-						<div id="mailList"
-							class="position-absolute left-0 top-0 d-flex flex-column w-100 h-100 align-items-stretch"
-							data-simplebar>
+			
+
 							<!--Email Header-->
 							<div
 								class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
@@ -176,7 +171,7 @@ pageContext.setAttribute("br", "\n");
 												<a href="#!" data-bs-toggle="tooltip"
 													data-bs-placement="top" title="Print"
 													class="d-inline-block me-3"><i class="bi bi-printer"></i></a>
-												<small><c:out value="${item.regDateTime}" /></small>
+												<small> <fmt:formatDate  value="${item.regDateTime}" /></small>
 												<div data-bs-toggle="tooltip" data-bs-placement="top"
 													title="Star" class="form-star ms-3">
 													<input type="checkbox" class="form-star-input"

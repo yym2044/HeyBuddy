@@ -41,6 +41,9 @@ public class FileDao {
 	public File fileUploaded(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".fileUploaded", vo); // 파일확인
 	}
+	public Member selectOneSpace(FileVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneSpace", vo);
+	}
 	public int insertDocument(File dto) {
 		return sqlSession.insert(namespace + ".insertDocument", dto); // 문서등록
 	}

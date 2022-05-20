@@ -13,6 +13,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import com.owl.heybuddy.modules.member.MemberVo;
+import com.owl.heybuddy.modules.mySpace.MySpace;
+import com.owl.heybuddy.modules.mySpace.MySpaceVo;
 
 
 
@@ -56,13 +58,12 @@ public class FileController {
 	}
 	
 	@RequestMapping(value = "/file/fileView") // 문서확인
-	public String fileView(@ModelAttribute("vo") FileVo vo, MemberVo mo, Model model) throws Exception {
+	public String fileView(@ModelAttribute("vo") FileVo vo, MemberVo mo,File dto, Model model) throws Exception {
 		
 		File rt = service.documentView(vo);
-		model.addAttribute("item", rt);
-		/*
-		 * model.addAttribute("uploaded", service.profileUploaded(mo)); //멤버사진
-		 */		model.addAttribute("fileUploaded", service.fileUploaded(vo));  //파일
+		 model.addAttribute("item", rt);
+		 model.addAttribute("uploaded", service.profileUploaded(mo)); //멤버사진
+		 model.addAttribute("fileUploaded", service.fileUploaded(vo));  //파일
 		return "user/file/fileView";
 		
 	}
@@ -70,22 +71,26 @@ public class FileController {
 	@RequestMapping(value = "/file/fileForm") // 문서등록
 	public String fileForm(@ModelAttribute("vo") FileVo vo,  Model model, HttpSession httpSession) throws Exception {
 		
-		File rt = service.documentView(vo); 
-		model.addAttribute("item", rt);
+		model.addAttribute("space", service.selectOneSpace(vo));
+
 		return "user/file/fileForm";
 	}
 	
 	 @RequestMapping(value = "/file/fileInst") // 문서등록받음 
 	 public String fileInst(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes,
 			 HttpSession httpSession) throws Exception {
-	 service.insertDocument(dto);
-	 
-	 httpSession.setAttribute("uuidFileName", dto.getUuidFileName());
-	 httpSession.setAttribute("path", dto.getPath());
-		
+
+			dto.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+			
+			service.insertDocument(dto);
+			
+			vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+			vo.setHyspSeq(dto.getHyspSeq());
+			
+			redirectAttributes.addFlashAttribute("vo", vo);
+			
 	 return "redirect:/file/fileView";
 	 }
-
 
 	@RequestMapping(value = "/file/fileEdit") // 문서수정
 	public String fileEdit(@ModelAttribute("vo") FileVo vo, Model model) throws Exception {
@@ -103,6 +108,8 @@ public class FileController {
 	 return "redirect:/file/fileView"; 
 	 }
 
+		//임시저장등록
+		//임시저장등록inst
 	 
 	@RequestMapping(value = "/file/fileListTemp") // 임시저장 문서 리스트
 	public String fileListTemp() throws Exception {

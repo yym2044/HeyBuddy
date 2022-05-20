@@ -46,7 +46,10 @@ public class FileServiceImpl implements FileService {
 	public File fileUploaded(FileVo vo) throws Exception { //파일뷰
 		return dao.fileUploaded(vo);
 	}
-	
+
+	public Member selectOneSpace(FileVo vo) throws Exception {
+		return dao.selectOneSpace(vo);
+	}
 	@Override
 	public int insertDocument(File dto) throws Exception {  //문서 + 파일 등록
 		dao.insertDocument(dto);
@@ -87,6 +90,12 @@ public class FileServiceImpl implements FileService {
 	@Override
 	public int updateDocument(File dto) throws Exception { //문서수정
 		dao.updateDocument(dto);
+		
+		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+		UtilUpload.uploadFile(dto.getFile0()[0], pathModule, dto);
+
+		dto.setTableName("hybdMemberUploaded");
+		dto.setPseq(dto.getHymmSeq());
 		dao.updateUploaded(dto);
 		return 1;
 	}

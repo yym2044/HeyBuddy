@@ -314,7 +314,7 @@
 								class="dropdown-menu mt-0 p-0 dropdown-menu-end overflow-hidden">
 								<!--User meta-->
 								<div
-									class="position-relative overflow-hidden px-3 pt-4 pb-9 bg-gradient-primary text-white">
+									class="position overflow-hidden px-3 pt-4 pb-9 bg-gradient-primary text-white">
 									<!--Divider-->
 									<svg style="transform: rotate(-180deg);"
 										preserveAspectRatio="none"
@@ -389,13 +389,7 @@
 					<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
 
 
-				<!--//Page content//-->
-				<div
-					class="content overflow-hidden position-relative d-flex flex-column-fluid">
-					<!--Inbox content-->
-					<div id="mailList"
-						class="position-absolute left-0 top-0 d-flex flex-column w-100 h-100 align-items-stretch"
-						data-simplebar>
+		
 						<!--Email Header-->
 						<div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
 							<div
@@ -437,15 +431,16 @@
 												</select> 
 
 												<div class="col-md-12 mb-3">
-													제목 <input type="text" class="form-control mb-3"
-														placeholder="">
+												제목
+												<input type="text" class="form-control" name="hydcTitle" placeholder="" value="" required>
+												<div class="invalid-feedback">제목을 입력해주세요.</div>
 												</div>
 												
 												<div class="col-md-12 mb-3">
 													<div class="form-floating">
 														내용 <input type="text" class="form-control"
-															style="height: 100px" autocomplete="off" id="ifmmDesc"
-															name="ifmmDesc" value="" placeholder="">
+															style="height: 100px" autocomplete="off" id="hydcText"
+															name="hydcText" value="" placeholder="">
 													</div>
 												</div>
 
@@ -468,12 +463,37 @@
 											</label> <input class="form-control" id="file0" name="file0"
 												type="file" multiple="multiple" style="display: none;"
 												onChange="upload(0,2);">
+												
+										
 											<div class="addScroll">
 												<ul id="ulFile0" class="list-group"></ul>
 											</div>
 										</div>
 									</div>
 
+
+												<div class="row">
+											<div class="col-md-6 mb-3" >
+												<label for="file0" class="form-label input-file-button">이미지 첨부</label> 
+												<input  class="form-control" id="file0" name="file0" type="file" 
+												multiple="multiple" style="display:none;" onChange="upload(0,2);">
+											<div class="addScroll">
+											<ul id="ulFile0" class="list-group"></ul>
+											</div>
+										</div>
+		
+										
+									<div class="col-md-6 mb-3" >
+												<label for="file1" class="form-label input-file-button">파일 첨부 </label> 
+												<input  class="form-control" id="file1" name="file1" type="file" 
+												multiple="multiple" style="display:none;" onChange="upload(1,1);">
+											<div class="addScroll">
+											<ul id="ulFile1" class="list-group"></ul>
+											</div>
+										</div>  
+									</div>
+									
+									
 
 								</div>
 								<div class="row text-center" style="width: 100%">
@@ -558,8 +578,89 @@
 						$("#formList").submit();
 					};
 		</script>
-    
+    	<!-- 프로필사진 이미지 프리뷰 바꾸는 script! 링크걸어서 사용해도 될 듯 -->
+	<script type="text/javascript">
+	let profileInput = document.getElementById("profilePhoto");
+	let img = document.querySelector('label[for=profilePhoto] img')
+	
+	profileInput.onchange = (e) => {
+		
+		var ext = $("#profilePhoto")[0].files[0].name.split('.').pop().toLowerCase();
+		if(extArrayImage.indexOf(ext) == -1){
+			alert("허용된 확장자가 아닙니다.");
+			return false;
+		}
+		
+		img.classList.add('preview');
+		img.src = URL.createObjectURL(e.target.files[0]);
+	}
+	</script>
 
+	<script type="text/javascript">
+		
+		upload = function(seq,div){
+			
+		$("#ulFile"+ seq).children().remove();
+		
+		var fileCount = $("input[type=file]")[seq].files.length;
+		
+		if(checkUploadedTotalFileNumber(fileCount,seq) == false) {return false;}
+		
+		var totalFileSize;
+		for (var i = 0; i < fileCount; i++){
+			if(div == 1){
+				if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name,seq)==false) {return false;}
+			}else if (div == 2){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name,seq)==false) {return false;}
+			}else{
+				return false;
+			}
+			
+			if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name,seq)==false) {return false;}
+			totalFileSize += $("input[type=file]")[seq].files[i].size;
+		}
+		if(checkUploadedTotalFileSize(totalFileSize,seq)==false) {return false;}
+		
+		for (var i = 0 ; i<fileCount ; i ++){
+			addUploadLi(seq,i,$("input[type=file]")[seq].files[i].name);
+		}
+		}	
+		
+		addUploadLi = function (seq, index, name){
+			
+			var ul_list = $("#ulFile0");
+			
+			li = '<li id= "li_  '+ seq +'_' + index + ' "class="list-group-item d-flex justify-content-between align-items-center"> ';
+			li = li + name; 
+			li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi(' + seq + ',' +  index + ')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
+			li = li + '</li>';
+
+			$("#ulFile" + seq).append(li);
+		}
+		
+			delLi = function (seq,index){
+			$("#li_" + seq +"_"+index).remove();
+		}
+			
+		addUploadLi = function (seq, index, name){
+	
+			var ul_list = $("#ulFile1");
+			
+			li = '<li id="li_'+seq+'_'+index+'"class="list-group-item d-flex justify-content-between align-items-center"> ';
+			li = li + name; 
+			li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+  index +')"><i class="fa-solid fa-x" style="cursor : pointer;"></i></span>';
+			li = li + '</li>';
+
+			$("#ulFile"+seq).append(li);
+		}
+		
+			delLi = function(seq,index){
+			$("#li_" +seq+"_"+index).remove();
+		}
+			
+			
+		</script> 
+		
 </body>
 
 </html>

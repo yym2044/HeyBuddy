@@ -315,7 +315,7 @@
 																			href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
 																	</c:otherwise>
 																</c:choose>
-															</c:forEach>
+															</c:forEach> 
 															<c:if test="${vo.endPage ne vo.totalPages}">
 																<li class="page-item"><a class="page-link"
 																	href="javascript:goFileList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>

@@ -515,4 +515,14 @@
 		
 	</update>
 	
+	<delete id="deleteMemberFromMySpace">
+	
+		DELETE FROM
+			hybdSpaceMember
+		WHERE 1=1
+			AND hymmSeq = #{hymmSeq}
+			AND hyspSeq = #{hyspSeq}
+	
+		
+	</delete>
 </mapper>

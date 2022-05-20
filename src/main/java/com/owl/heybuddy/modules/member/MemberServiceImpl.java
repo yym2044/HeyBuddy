@@ -150,4 +150,7 @@ public class MemberServiceImpl implements MemberService {
 
 		return 1;
 	}
+	public int deleteMemberFromMySpace(MemberVo vo) throws Exception {
+		return dao.deleteMemberFromMySpace(vo);
+	}
 }

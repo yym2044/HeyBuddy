@@ -111,4 +111,8 @@ public class MemberDao {
 	public int updateUploaded_2(Member dto) {
 		return sqlSession.update(namespace + ".updateUploaded_2", dto);
 	}
+	
+	public int deleteMemberFromMySpace(MemberVo vo) {
+		return sqlSession.delete(namespace + ".deleteMemberFromMySpace", vo);
+	}
 }

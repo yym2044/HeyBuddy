@@ -341,6 +341,16 @@ public class MemberController {
 
 		return "user/setting/memberView";
 	}
+	
+	@RequestMapping(value = "/setting/deleteMemberFromMySpace")
+	public String deleteMemberFromMySpace(MemberVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		service.deleteMemberFromMySpace(vo);
+		
+		return "redirect:/setting/memberList";
+	}
 
 	/******************************* 호스트 메뉴 End *******************************/
 

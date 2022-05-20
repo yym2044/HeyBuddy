@@ -279,6 +279,11 @@ goEdit = function(hymmSeq){
 	$("#formView").attr("action", "/setting/memberEdit").submit();
 }
 
+goDelete = function(hymmSeq){
+	$("#hymmSeq").val(hymmSeq);
+	$("#formView").attr("action", "/setting/deleteMemberFromMySpace").submit();
+}
+
 </script>    
     
 </body>

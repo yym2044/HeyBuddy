@@ -26,4 +26,5 @@ public interface MemberService {
 	public int insertMemberInSpace(Member dto) throws Exception;
 	public Member selectOneSpace(MemberVo vo) throws Exception;
 	public int updateMemberProfile(Member dto) throws Exception;
+	public int deleteMemberFromMySpace(MemberVo vo) throws Exception;
 }

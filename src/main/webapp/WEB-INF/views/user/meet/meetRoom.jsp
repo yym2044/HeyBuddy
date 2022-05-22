@@ -14,9 +14,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <link rel="stylesheet" href="/resources/user/css/meet/meetRoom/style.css">
+
+<!--Main style-->
+<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+
 <title>hey, Buddy!</title>
 </head>
 <body>
+
+	<%@include file="../include/loader.jsp"%>
+	
 	<header>
 		<i class="fab fa-pied-piper-square fa-2x"></i>
 		<h1>
@@ -50,7 +57,7 @@
 						</div>
 					</div>
 					<div id="controlers__column">
-						<button id="leave">Leave</button>
+						<button id="leave" data-bs-target="#leaveModal" data-bs-toggle="modal">Leave</button>
 					</div>
 				</div>
 			</div>
@@ -63,6 +70,31 @@
 			</div>
 		</div>
 	</main>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="leaveModal" tabindex="-1" aria-labelledby="leaveModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-center" id="exampleModalLabel">회의를 나갑니다</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">회의를 나갑니다.</div>
+				<div class="modal-footer d-flex justify-content-center">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button id="btnLeave" type="button" class="btn btn-primary">Leave</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<form id="meetRoomForm" method="post">
+	<input name="hymrSeq" type="hidden" value="${rt.hymrSeq}">
+	<input name="hymmSeq" type="hidden" value="${sessSeq}">
+	<input name="hostNy" type="hidden" value="${meetRoomHostNy}">
+	</form>
+	
+	
 	<aside class="modal hidden">
 		<div class="modal__box">
 			<h2 class="modal__text"></h2>
@@ -153,6 +185,29 @@
 		  }
 		}
 	
+	async function initCall() {
+		await getMedia();
+		makeConnection();
+		
+		const offer = await myPeerConnection.createOffer();
+		myPeerConnection.setLocalDescription(offer);
+	    console.log("sent the offer");
+	    console.log(offer);
+	    
+	  	client.subscribe("/sub/offer/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
+	    	console.log("got an offer");
+	    	console.log(event);
+	    	console.dir(event);
+	    	console.log("시발");
+	    	console.log(JSON.parse(event.body));
+	    })
+	    
+	    client.send("/pub/offer", {} , JSON.stringify(offer));
+	    
+	}
+	
+	
+	
 	function handleMuteClick() {
 		  myStream //
 		    .getAudioTracks()
@@ -205,7 +260,7 @@
 		cameraBtn.addEventListener("click", handleCameraClick);
 		camerasSelect.addEventListener("input", handleCameraChange);
 		
-		getMedia();
+		/* getMedia(); */
 	
 	
 	/////////////////////////////////
@@ -240,35 +295,73 @@
 	}
 	/////////////////////////////////
 	
-	const leaveBtn = document.querySelector("#leave");
-	
-	function leaveRoom() {
-		client.disconnect();
-		
-	}
+	const leaveBtn = document.querySelector("#btnLeave");
 	
 	leaveBtn.addEventListener("click", leaveRoom);
+	/* window.addEventListener('beforeunload', leaveRoom); */
+	
+	function leaveRoom() {
+		
+		client.send("/pub/leaveRoom", {}, JSON.stringify({
+			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
+			"msg" : "<c:out value='${ sessName }'/>님이 퇴장하셨습니다.",
+			"hostNy" : "${meetRoomHostNy}"
+		}));
+		
+		
+		$("#meetRoomForm").attr("action", "/meet/meetLeave").submit();
+
+		/* client.disconnect(); */
+	}
+	
+	
+	
+	/////////////////////////////////
+	function getUserList() {
+	
+		client.send("/pub/userList", {}, JSON.stringify({
+			"hymrSeq" : "<c:out value='${rt.hymrSeq}'/>",
+			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>"
+		}));
+		
+	};
 	
 	/////////////////////////////////
 	
 	const socket = new SockJS('/stompTest');
 	const client = Stomp.over(socket);
-
+	
 	client.connect({}, function() {
 		console.log("Connected stompTest!");
+		console.log(client);
+		console.dir(client);
 		
-		/* 
 		//MeetList 업데이트 해주기
-		client.send("/pub/meetRoomList", {}, "give me the list (i'm in meetRoom)");
-		 */
+		client.send("/pub/meetRoomList", {}, JSON.stringify({
+			"hyspSeq" : "<c:out value='${hyspSeq}'/>"
+		}));
+		
 		 
 		// Controller's MessageMapping, header, message(자유형식)
+		
+		// 입장, 퇴장할 떄 event
 		client.subscribe("/sub/message/notice/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
 			console.log("subscribing room notice ~ ", event);
 			writeChat("Notice!", NOTICE_CN);
-			writeChat(event.body);
+			
+			const msg = JSON.parse(event.body);
+			console.dir(msg);
+			
+			writeChat(msg.msg);
+			
+			// 회원이 퇴장한 후 db에서 불러오기 위해 setTimeout 설정 
+			if("<c:out value='${meetRoomHostNy}'/>" == "1"){
+				setTimeout(getUserList, 3000);
+			}
+			
 		});
 		 
+		// 채팅메세지 보낼 때 이벤트
 		 client.subscribe("/sub/message/chat/<c:out value='${rt.hymrRoomId}'/>", function(event) {
 			console.log("subscribing room chat ~ ", event);
 			
@@ -280,14 +373,85 @@
 				writeChat(msg.writer + " : " + msg.msg);
 			}
 			
-		 })
-
+		});
+		 
+		//유저리스트 받는 이벤트
+		client.subscribe("/sub/userList/<c:out value='${rt.hymrRoomId}'/>", function(event) {
+			console.log("-----------유저 리스트-----------")
+			const userArr = JSON.parse(event.body);
+			console.log(userArr);
+			console.log("-----------유저 리스트-----------")
+			
+			var length = userArr.length;
+						
+		});
+		 
 		client.send("/pub/joinRoom", {}, JSON.stringify({
 			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
-			"msg" : "<c:out value='${ sessName }'/>님이 입장하셨습니다."
+			"msg" : "<c:out value='${ sessName }'/>님이 입장하셨습니다.",
+			"hostNy" : "${meetRoomHostNy}"
+		}));
+		 
+		client.subscribe("/sub/initCall/<c:out value='${rt.hymrRoomId}'/>", function(event) {
+			console.log("------------------");
+			console.log(event);
+			initCall();
+			console.log("------------------");
+		});
+		 
+		client.send("/pub/initCall", {}, JSON.stringify({
+			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>"
 		}));
 		
 	});
+	/* 
+	window.addEventListener('beforeunload', (event) => {
+		// 명세에 따라 preventDefault는 호출해야하며, 기본 동작을 방지합니다. 
+		event.preventDefault(); 
+		// 대표적으로 Chrome에서는 returnValue 설정이 필요합니다. 
+		
+		leaveBtn.click();
+		
+		event.returnValue = 'sadf'; 
+	}); 
+	
+	 */
+	 
+	 ////////////////   RTC code   //////////////////
+	
+	 function makeConnection(){
+	    myPeerConnection = new RTCPeerConnection({
+	        iceServers: [
+	            {
+	                urls: [
+	                    "stun:stun.l.google.com:19302",
+	                    "stun:stun1.l.google.com:19302",
+	                    "stun:stun2.l.google.com:19302",
+	                    "stun:stun3.l.google.com:19302",
+	                    "stun:stun4.l.google.com:19302",
+	                ],
+	            },
+	        ],
+	    });
+        
+	    /* myPeerConnection.addEventListener("icecandidate", handleIce);
+	    myPeerConnection.addEventListener("addstream", handleAddstream);
+	    myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream)); */
+	}
+
+	 
+	 
 	</script>
+	
+	<!--////////////Theme Core scripts Start/////////////////-->
+
+	<script src="/resources/assets/vendor/feather.min.js"></script>
+	<script src="/resources/assets/js/theme.bundle.js"></script>
+	<script>
+          feather.replace()
+        </script>
+
+	<!--////////////Theme Core scripts End/////////////////-->
+	
 </body>
 </html>

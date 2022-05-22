@@ -4,6 +4,9 @@ public class MeetVo {
 	
 	private String hyspSeq;
 	private String hymrSeq;
+	private Integer hostNy;
+	
+	private String hymmSeq;
 
 	/******************************* Getter & Setter *******************************/
 	
@@ -19,5 +22,18 @@ public class MeetVo {
 	public void setHymrSeq(String hymrSeq) {
 		this.hymrSeq = hymrSeq;
 	}
+	public Integer getHostNy() {
+		return hostNy;
+	}
+	public void setHostNy(Integer hostNy) {
+		this.hostNy = hostNy;
+	}
+	public String getHymmSeq() {
+		return hymmSeq;
+	}
+	public void setHymmSeq(String hymmSeq) {
+		this.hymmSeq = hymmSeq;
+	}
+	
 	
 }

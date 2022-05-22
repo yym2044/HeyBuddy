@@ -41,6 +41,8 @@
 	<form id="meetEnterForm" method="post">
 	
 	<input type="hidden" id="hymrSeq" name="hymrSeq" value="${rt.hymrSeq}">
+	<input type="hidden" id="hymmSeq" name="hymmSeq" value="${sessSeq }">
+	<input type="hidden" id="hymmName" name="hymmName" value="${sessName }">
 
 	<%@include file="../include/loader.jsp"%>
 
@@ -187,9 +189,13 @@
 		$("#icon").attr("data-bs-original-title", "copied!!");
 		$("#icon").tooltip('show');
 	}
-	
+	/* 
 	goRoom = function(){
 		$("#meetEnterForm").attr("action", "/meet/meetRoom").submit();
+	}
+	 */
+	goRoom = function(){
+		$("#meetEnterForm").attr("action", "/meet/enterRoom").submit();
 	}
 	
 	</script>

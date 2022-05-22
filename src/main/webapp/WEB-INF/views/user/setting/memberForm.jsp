@@ -43,7 +43,7 @@
 <script type="text/javascript">
     (function() {
         // https://dashboard.emailjs.com/admin/account
-        emailjs.init('');
+        emailjs.init('FS25RLpmNBndCHTai');
     })();
 </script>
 
@@ -281,14 +281,16 @@ table tr .form-control {
 		var confirmNy = confirm("해당 메일로 이메일을 전송합니다.");
 		
 		if(confirmNy){
-			/* 
+			
+			
 			emailjs.sendForm('contact_service', 'contact_form', document.getElementById('formForm'))
 	        .then(function() {
 	            console.log('이메일 전송 SUCCESS!');
 	        }, function(error) {
 	            console.log('이메일 전송 FAILED...', error);
 	        });
-			 */
+			
+			
 			$("#formForm").attr("action", "/setting/memberInst").submit();
 		}
 		

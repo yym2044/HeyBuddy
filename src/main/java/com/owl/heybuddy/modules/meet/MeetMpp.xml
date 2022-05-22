@@ -39,9 +39,14 @@
  	</select>
  	<select id="selectListRoomMember" resultMap="resultMapObj">
  	SELECT
- 		*
+ 		a.*
+        , b.path
+        , b.uuidFileName
  	FROM
- 		hybdMeetRoomMember
+ 		hybdMeetRoomMember a
+	LEFT JOIN
+		hybdMemberUploaded b
+	ON b.pseq = a.hymmSeq
  	WHERE 1=1
  	ORDER BY
  		hostNy DESC
@@ -75,11 +80,48 @@
 		) VALUES (
 			#{hymrRoomId}
 			, #{hymrRoomName}
-			, "1"
+			, #{hyspSeq}
 			<include refid="insertRegModValue"/>
 		)
+		
+		<selectKey resultType="String" keyProperty="hymrSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	
 	</insert>
+	<insert id="insertRoomMember">
+	INSERT INTO
+		hybdMeetRoomMember (
+			hymrSeq
+			, hymmSeq
+			, hymmName
+			, hostNy
+		) VALUES (
+			#{hymrSeq}
+			, #{hymmSeq}
+			, #{hymmName}
+			, #{hostNy}
+		)
+	</insert>
 	
+	<delete id="deleteRoom">
+		DELETE FROM
+			hybdMeetRoom
+		WHERE 1=1
+			AND hymrSeq = #{hymrSeq}
+	</delete>
+	<delete id="deleteRoomMember">
+		DELETE FROM
+			hybdMeetRoomMember
+		WHERE 1=1
+			AND hymrSeq = #{hymrSeq}
+			AND hymmSeq = #{hymmSeq}
+	</delete>
+	<delete id="deleteRoomMemberAll">
+		DELETE FROM
+			hybdMeetRoomMember
+		WHERE 1=1
+			AND hymrSeq = #{hymrSeq}
+	</delete>
 	
 </mapper>

@@ -30,11 +30,38 @@ public class MeetServiceImpl implements MeetService {
 	public List<Meet> selectListOneRoomMember(MeetVo vo) throws Exception {
 		return dao.selectListOneRoomMember(vo);
 	}
-	public int insertRoom(Meet dto) throws Exception {
+	public int startRoom(Meet dto) throws Exception {
 		
 		dto.setRegDateTime(UtilDateTime.nowDate());
 		dto.setModDateTime(UtilDateTime.nowDate());
 		
-		return dao.insertRoom(dto);
+		dao.insertRoom(dto);
+		
+		
+		// 방장 넣기
+		dto.setHostNy(1);
+		dao.insertRoomMember(dto);
+		
+		return 1;
+	}
+	
+	public int enterRoom(Meet dto) throws Exception {
+		
+		dto.setHostNy(0);
+		dao.insertRoomMember(dto);
+		
+		return 1;
+	}
+	
+	public int leaveRoom(MeetVo vo) throws Exception {
+		
+		if(vo.getHostNy() == 1) {
+			dao.deleteRoomMemberAll(vo);
+			dao.deleteRoom(vo);
+		} else {
+			dao.deleteRoomMember(vo);
+		}
+		
+		return 1;
 	}
 }

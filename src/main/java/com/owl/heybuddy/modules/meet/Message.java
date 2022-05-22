@@ -5,7 +5,9 @@ public class Message {
 	private String roomId;
 	private String writer;
 	private String msg;
+	private String rtc;
 	
+	private Integer hostNy;
 	
 	public String getWriter() {
 		return writer;
@@ -24,6 +26,18 @@ public class Message {
 	}
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+	public Integer getHostNy() {
+		return hostNy;
+	}
+	public void setHostNy(Integer hostNy) {
+		this.hostNy = hostNy;
+	}
+	public String getRtc() {
+		return rtc;
+	}
+	public void setRtc(String rtc) {
+		this.rtc = rtc;
 	}
 	
 	

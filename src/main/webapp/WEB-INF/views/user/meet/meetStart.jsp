@@ -226,7 +226,7 @@
 	});
 	
 	goRoom = function(){
-		$("#meetStartForm").attr("action", "/meet/meetInst").submit();
+		$("#meetStartForm").attr("action", "/meet/startRoom").submit();
 	}
 	
 	

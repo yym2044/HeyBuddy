@@ -43,7 +43,11 @@
 <script type="text/javascript">
     (function() {
         // https://dashboard.emailjs.com/admin/account
+<<<<<<< HEAD
     	emailjs.init('FS25RLpmNBndCHTai');
+=======
+        emailjs.init('FS25RLpmNBndCHTai');
+>>>>>>> branch 'main' of https://github.com/yym2044/HeyBuddy.git
     })();
 </script>
 
@@ -281,14 +285,24 @@ table tr .form-control {
 		var confirmNy = confirm("해당 메일로 이메일을 전송합니다.");
 		
 		if(confirmNy){
+<<<<<<< HEAD
 			 
+=======
+			
+			
+>>>>>>> branch 'main' of https://github.com/yym2044/HeyBuddy.git
 			emailjs.sendForm('contact_service', 'contact_form', document.getElementById('formForm'))
 	        .then(function() {
 	            console.log('이메일 전송 SUCCESS!');
 	        }, function(error) {
 	            console.log('이메일 전송 FAILED...', error);
 	        });
+<<<<<<< HEAD
 			 
+=======
+			
+			
+>>>>>>> branch 'main' of https://github.com/yym2044/HeyBuddy.git
 			$("#formForm").attr("action", "/setting/memberInst").submit();
 		}
 		

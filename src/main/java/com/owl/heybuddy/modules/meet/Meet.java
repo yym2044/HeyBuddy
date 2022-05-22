@@ -18,6 +18,9 @@ public class Meet {
 	private String hymmName;
 	private Integer hostNy;
 	
+	private String path;
+	private String uuidFileName;
+	
 	// RegMod
 	private String regIp;
 	private String regSeq;
@@ -151,6 +154,18 @@ public class Meet {
 	}
 	public void setHostNy(Integer hostNy) {
 		this.hostNy = hostNy;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public String getUuidFileName() {
+		return uuidFileName;
+	}
+	public void setUuidFileName(String uuidFileName) {
+		this.uuidFileName = uuidFileName;
 	}
 	
 	

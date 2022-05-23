@@ -41,6 +41,7 @@ public class PlanController {
 			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
 		}
 		
+//		dto.setHysmAcceptedNy((String)httpSession.getAttribute("hysmAcceptedNy"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));

@@ -12,10 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.owl.heybuddy.modules.plan.Plan;
-import com.owl.heybuddy.modules.plan.PlanVo;
 
 @Controller
 public class PlanController {
@@ -136,4 +134,16 @@ public class PlanController {
 		
 		return "user/plan/test";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/plan/planListAjax")
+	public List<Plan> planListAjax(PlanVo vo) throws Exception {
+		
+		List<Plan> planList = service.selectList(vo);
+		
+		return planList;
+		
+	}
+	
+	
 }

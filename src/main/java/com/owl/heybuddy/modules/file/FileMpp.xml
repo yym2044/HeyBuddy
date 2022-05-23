@@ -114,24 +114,26 @@
 	
 	<insert id="insertDocument">  <!-- 문서등록 -->
 		INSERT INTO hybdDocument(
-		hybdTitle
-		,hybdText
-		,hybdDelNy
+		hydcTitle
+		,hydcText
+		,hydcDelNy
 <!-- 		,regIp
 		,regSeq
 		,regDevice -->
 		,regDateTime
 		,regDateTimeSvr
+		,hyspSeq
 		)
 		VALUES(
-		#{hybdTitle}
-		,#{hybdText} 
+		#{hydcTitle}
+		,#{hydcText} 
 		,0
 <!-- 		,#{regIp}
 		,#{regSeq}
 		,#{regDevice} -->
 		,now()
 		,now()
+		,#{hyspSeq}
 		)
 		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -184,12 +186,12 @@
 		AND a.hyspSeq = #{hyspSeq}
 	</select>
 
-	<update id="updateDocument">  <!-- 문서수정 -->
+	<update id="updateDocument">  <!-- 문서수정 or 임시저장등록할떄 -->
 		UPDATE hybdDocument SET
-		hybdTitle  =  #{hybdTitle}
-		,hybdText =  #{hybdText}
-		,hymmDelny =  0
-		,hymmDesc = #{hymmDesc}
+		hydcTitle  =  #{hydcTitle}
+		,hydcText =  #{hydcText}
+		,hydcDelny =  0
+		,hydcDesc = #{hydcDesc}
 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}
 		,modDevice =  #{modDevice}

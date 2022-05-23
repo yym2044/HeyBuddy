@@ -16,6 +16,7 @@ public interface FileService {
 	
 	int selectOneCount(FileVo vo) throws Exception;    //문서검색
 	public List<File> documentList(FileVo vo) throws Exception; //문서리스트
+	public List<File> documentListTemp(FileVo vo) throws Exception; //임시저장 문서리스트
 	public List<File> selectListMember(FileVo vo) throws Exception; 
 	
 	public File documentView(FileVo vo) throws Exception;  //문서뷰

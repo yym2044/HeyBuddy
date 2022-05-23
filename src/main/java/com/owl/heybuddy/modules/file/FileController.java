@@ -13,8 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import com.owl.heybuddy.modules.member.MemberVo;
-import com.owl.heybuddy.modules.mySpace.MySpace;
-import com.owl.heybuddy.modules.mySpace.MySpaceVo;
 
 
 
@@ -73,6 +71,7 @@ public class FileController {
 		
 		model.addAttribute("space", service.selectOneSpace(vo));
 
+
 		return "user/file/fileForm";
 	}
 	
@@ -84,32 +83,38 @@ public class FileController {
 			
 			service.insertDocument(dto);
 			
-			vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-			vo.setHyspSeq(dto.getHyspSeq());
-			
+			vo.setHydcSeq(dto.getHydcSeq());
+	
 			redirectAttributes.addFlashAttribute("vo", vo);
 			
 	 return "redirect:/file/fileView";
 	 }
 
+		
 	@RequestMapping(value = "/file/fileEdit") // 문서수정
-	public String fileEdit(@ModelAttribute("vo") FileVo vo, Model model) throws Exception {
+	public String fileEdit(@ModelAttribute("vo") FileVo vo, File dto, Model model
+			, HttpSession httpSession) throws Exception {
 	
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
 		 File rt = service.documentView(vo); 
 		 model.addAttribute("item", rt); 
-		 model.addAttribute("fileUploaded", service.fileUploaded(vo));
+		 model.addAttribute("fileUploaded", service.fileUploaded(vo));  //파일
 			
 		return "user/file/fileEdit";
 	}
 
 	 @RequestMapping(value = "/file/fileUpdt") // 문서수정받음 
-	 public String  fileUpdt(@ModelAttribute("vo") File dto, MemberVo vo) throws Exception {
-	 service.updateDocument(dto); 
+	 public String  fileUpdt(File dto, FileVo vo, RedirectAttributes redirectAttributes
+			 , HttpSession httpSession) throws Exception {
+	
+	dto.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+			
+	service.updateDocument(dto); 
+	
+	 redirectAttributes.addFlashAttribute("vo", vo);
 	 return "redirect:/file/fileView"; 
 	 }
-
-		//임시저장등록
-		//임시저장등록inst
 	 
 	@RequestMapping(value = "/file/fileListTemp") // 임시저장 문서 리스트
 	public String fileListTemp() throws Exception {
@@ -127,14 +132,20 @@ public class FileController {
 	@RequestMapping(value = "/file/fileEditTemp") // 문서 임시저장 등록페이지
 	public String fileEditTemp(@ModelAttribute("vo") FileVo vo,  Model model) throws Exception {
 		File rt = service.documentView(vo); 
-		model.addAttribute("item", rt);
+		 model.addAttribute("item", rt); 
+		 model.addAttribute("fileUploaded", service.fileUploaded(vo));
 		
 		return "user/file/fileEditTemp";
 	}
 
-	//임시저장등록은 그냥 등록하는페이지랑 넘어가는거 똑같이..
+	 @RequestMapping(value = "/file/fileUpdtTemp") // 문서 임시저장 수정받음
+	 public String  fileUpdtTemp(File dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	 service.updateDocument(dto); 
+	 redirectAttributes.addFlashAttribute("vo", vo);
+	 return "redirect:/file/fileView"; 
+	 }
 
-		@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제
+	@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제
 		public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
 			String[] checkboxSeqArray = vo.getCheckboxSeqArray();
 			for (String checkboxSeq : checkboxSeqArray) {

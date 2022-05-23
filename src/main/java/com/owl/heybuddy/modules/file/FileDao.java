@@ -26,6 +26,9 @@ public class FileDao {
 	public List<File> documentList(FileVo vo) {
 		return sqlSession.selectList(namespace + ".documentList", vo); //  문서리스트
 	}
+	public List<File> documentListTemp(FileVo vo) {
+		return sqlSession.selectList(namespace + ".documentListTemp", vo); //  문서리스트
+	}
 	
 	public List<File> selectListMember(FileVo vo){
 	List<File> list = sqlSession.selectList(namespace + ".selectListMember", vo);  //문서리스트 스페이스멤버만

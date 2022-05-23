@@ -78,7 +78,52 @@
 
 
 
-						<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
+					
+												
+					<!--//Page Toolbar//-->
+				<div class="toolbar py-4 px-4 px-lg-8">
+					<div class="position-relative container-fluid px-0">
+						<div class="row align-items-center position-relative">
+							<div class="col-md-8 mb-4 mb-lg-0">
+								<h3 class="mb-2">문서</h3>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--//Page Toolbar End//-->
+												
+												
+																	
+												<!--Email Header-->
+							<div
+								class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
+								<div
+									class="d-flex align-items-center pb-2 flex-row justify-content-between">
+
+									<div class="flex-grow-1">
+							
+
+										<div class="btn-group btn-group-sm">
+
+											<a href="#!" data-bs-placement="top" data-bs-toggle="tooltip"
+												title="아~ui고민중"
+												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+												<i class="bi bi-trash-fill"></i>
+											</a> <a href="fileEdit" data-bs-placement="top"
+												data-bs-toggle="tooltip" title="아~ui고민중"
+												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+												<i class="bi bi-pencil-fill"></i>
+											</a>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+	<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 							<div class="container-fluid px-0">
 								<div class="row">
 									<div class="col-12">
@@ -95,26 +140,10 @@
 													</div>
 												</c:when>
 												<c:otherwise> 
-												
-													<!--//Page Toolbar//-->
-				<div class="toolbar py-4 px-4 px-lg-8">
-					<div class="position-relative container-fluid px-0">
-						<div class="row align-items-center position-relative">
-							<div class="col-md-8 mb-4 mb-lg-0">
-								<h3 class="mb-2">문서</h3>
-
-
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--//Page Toolbar End//-->
-												
-
-					<!--Inbox content-->
-					<div id="mailList"
-						class="position-absolute left-0 top-0 d-flex flex-column w-100 h-100"
-						data-simplebar>
+					
+					
+					
+			
 						<!--Email Header-->
 						<div
 							class="px-4 px-lg-8 pb-2 position-sticky top-0 pt-4 z-index-fixed">
@@ -122,13 +151,13 @@
 								<div class="row align-items-center mx-n2">
 									<div class="col-md-6 col-xl-7 px-2 order-last">
 										<div class="d-flex align-items-center ps-3 ps-md-0">
-						<!-- 					<div class="form-check mb-0 me-2">
+											<div class="form-check mb-0 me-2">
 												<input type="checkbox" class="form-check-input"
 													id="check_all"> <label for="check_all"
 													class="form-check-label"></label>
 											</div>
 
-											Selected mails action
+											UI수정중!!!!!!!!!!!!!!!
 											<div class="d-flex align-items-center">
 
 												<div class="btn-group btn-group-sm">
@@ -139,9 +168,13 @@
 													</a>
 
 												</div>
-											</div> -->
+											</div> 
 										</div>
 									</div>
+										
+					
+							
+							
 									<div
 										class="col-md-6 col-xl-5 px-2 order-1 order-md-last mb-2 mb-md-0">
 										<div class="d-flex justify-content-end">
@@ -153,7 +186,7 @@
 													placeholder="제목,등록자 검색">
 											</form>
 
-											<%-- 		     <div class="table-responsive">
+											<%--  <div class="table-responsive">
                               <select class="form-select form-select"
                                           name="shHydcOption" id="shHydcOption" style="">
                                              <option value="">검색구문
@@ -171,18 +204,16 @@
                                           placeholder="제목,내용,작성자 검색">
 
                                           <button class="btn btn-primary" type="submit"
-                                             name="search" id="btnSearch">검색</button>
-                                    
-                           </div> --%>
+                                             name="search" id="btnSearch">검색</button>   </div> --%>
 
 
-											<%-- 			<div
+												<div
 												class="btn btn-primary btn-sm d-inline-flex align-items-center">
 												<i data-feather="edit-3" class="fe-2x me-md-2"></i> <span
 													class="d-md-inline-block d-none"> <a
 													href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>');">
 												</a></span>
-											</div> --%>
+											</div> 
 										</div>
 									</div>
 								</div>

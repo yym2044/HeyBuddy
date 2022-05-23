@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.owl.heybuddy.common.util.UtilDateTime;
 import com.owl.heybuddy.common.util.UtilUpload;
 import com.owl.heybuddy.modules.member.Member;
 import com.owl.heybuddy.modules.member.MemberVo;
@@ -24,7 +25,10 @@ public class FileServiceImpl implements FileService {
 	public List<File> documentList(FileVo vo) throws Exception { //문서리스트
 		return dao.documentList(vo);
 	}
-	
+	@Override
+	public List<File> documentListTemp(FileVo vo) throws Exception {
+		return dao.documentListTemp(vo);
+	}
 	@Override
 	public List<File> selectListMember(FileVo vo) throws Exception {
 		return dao.selectListMember(vo);
@@ -50,6 +54,8 @@ public class FileServiceImpl implements FileService {
 	public Member selectOneSpace(FileVo vo) throws Exception {
 		return dao.selectOneSpace(vo);
 	}
+	
+	
 	@Override
 	public int insertDocument(File dto) throws Exception {  //문서 + 파일 등록
 		dao.insertDocument(dto);
@@ -65,7 +71,7 @@ public class FileServiceImpl implements FileService {
 			dto.setDefaultNy(0);
 			dto.setSort(j);
 			dto.setPseq(dto.getHymmSeq());
-			 
+			
 			dao.insertUploaded(dto);
 
 			j++;

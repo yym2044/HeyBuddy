@@ -95,10 +95,6 @@ pageContext.setAttribute("br", "\n");
 						<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>"> 
 						<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
 
-
-
-			
-
 							<!--Email Header-->
 							<div
 								class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
@@ -306,23 +302,23 @@ pageContext.setAttribute("br", "\n");
 										<li class="list-group-item bg-body">
 											<!--Add comment-->
 											<h6>Add new comment</h6>
-											<form action="#!">
+							
 												<textarea name="addComment" rows="2"
 													class="form-control mb-2"></textarea>
 												<div class="text-end">
 													<button type="button" class="btn btn-primary btn-sm">등록</button>
 												</div>
-											</form>
+						
 										</li>
 									</ul>
 
 								</div>
 							</div>
-
+							</form>
 						</div>
 					</div>
 					<!--//Page content End//-->
-				</form>
+	
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">

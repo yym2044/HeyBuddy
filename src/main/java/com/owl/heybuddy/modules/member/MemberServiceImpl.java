@@ -153,4 +153,11 @@ public class MemberServiceImpl implements MemberService {
 	public int deleteMemberFromMySpace(MemberVo vo) throws Exception {
 		return dao.deleteMemberFromMySpace(vo);
 	}
+	
+	public Member selectOneMemberWithEmail(MemberVo vo) throws Exception {
+		return dao.selectOneMemberWithEmail(vo);
+	}
+	public int updateMemberPwd(Member dto) throws Exception {
+		return dao.updateMemberPwd(dto);
+	}
 }

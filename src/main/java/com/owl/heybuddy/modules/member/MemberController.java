@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -353,5 +354,50 @@ public class MemberController {
 	}
 
 	/******************************* 호스트 메뉴 End *******************************/
+	
+	@RequestMapping(value = "/login/setPassword/{hymmEmail}")
+	public String setPasswordRedirect(@PathVariable String hymmEmail, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		
+		
+		vo.setHymmEmail(hymmEmail);
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/login/setPassword";
+	}
+	
+	@RequestMapping(value = "/login/setPassword")
+	public String setPassword(Model model, @ModelAttribute("vo") MemberVo vo) throws Exception {
+		
+		return "/user/login/setPassword";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/member/updatePwd") // 비밀번호 설정 후 로그인페이지로! (ajax)
+	public Map<String, Object> updatePwd(MemberVo vo, Member dto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		Member rtMember = service.selectOneMemberWithEmail(vo);
+
+		dto.setHymmSeq(rtMember.getHymmSeq());
+		
+		if (rtMember != null) {
+			if (rtMember.getHymmSeq() != null) {
+
+				if(service.updateMemberPwd(dto) > 0) {
+					returnMap.put("rt", "success");
+				} else {
+					returnMap.put("rt", "fail");
+				}
+				
+			} else {
+				returnMap.put("rt", "fail");
+			}
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+	}
+	
 
 }

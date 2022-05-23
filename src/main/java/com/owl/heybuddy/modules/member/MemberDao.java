@@ -115,4 +115,10 @@ public class MemberDao {
 	public int deleteMemberFromMySpace(MemberVo vo) {
 		return sqlSession.delete(namespace + ".deleteMemberFromMySpace", vo);
 	}
+	
+	public Member selectOneMemberWithEmail(MemberVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneMemberWithEmail", vo);
+	}
+	
+	public int updateMemberPwd(Member dto) {return sqlSession.update(namespace + ".updateMemberPwd", dto); }
 }

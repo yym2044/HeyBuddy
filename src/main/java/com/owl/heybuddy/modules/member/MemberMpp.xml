@@ -525,4 +525,22 @@
 	
 		
 	</delete>
+	
+	<select id="selectOneMemberWithEmail" resultMap="resultMapObj">
+	SELECT
+		*
+	FROM
+		hybdMember
+	WHERE 1=1
+		AND hymmEmail = #{hymmEmail}
+	</select>
+	<update id="updateMemberPwd">
+	UPDATE
+		hybdMember
+	SET
+		hymmPassword = #{hymmPassword}
+		, hymmActiveNy = 1
+	WHERE 1=1
+		AND hymmSeq = #{hymmSeq}
+	</update>
 </mapper>

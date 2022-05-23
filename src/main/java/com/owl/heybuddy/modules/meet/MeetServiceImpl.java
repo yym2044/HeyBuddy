@@ -19,7 +19,7 @@ public class MeetServiceImpl implements MeetService {
 		
 	}
 	public List<Meet> selectListRoomMember() throws Exception {
-		return dao.selectListRoomMember();
+		return dao.selectListRoomMember();  
 	}
 	public int selectOneCount(MeetVo vo) throws Exception {
 		return dao.selectOneCount(vo);

@@ -12,7 +12,7 @@
 		, regDateTime
 		, modDateTime
 	</sql>
-	
+	  
 	<sql id="insertRegModValue">
 		,#{regDateTime}
 		,#{modDateTime}

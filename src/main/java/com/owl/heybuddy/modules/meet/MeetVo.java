@@ -11,7 +11,7 @@ public class MeetVo {
 	/******************************* Getter & Setter *******************************/
 	
 	public String getHyspSeq() {
-		return hyspSeq;
+		return hyspSeq;  
 	}
 	public void setHyspSeq(String hyspSeq) {
 		this.hyspSeq = hyspSeq;

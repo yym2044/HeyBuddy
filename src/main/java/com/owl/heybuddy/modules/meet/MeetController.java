@@ -21,7 +21,7 @@ public class MeetController {
 	@Autowired
 	MeetServiceImpl service;
 	
-	private final SimpMessagingTemplate template;
+	private final SimpMessagingTemplate template;  
 	
 	Message message = new Message();
 	

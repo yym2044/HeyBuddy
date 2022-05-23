@@ -10,7 +10,7 @@ public class Meet {
 	private Integer hymrOrder;
 	private Integer hymrLockNy;
 	private String hymrPwd;
-	
+	  
 	private String hyspSeq;
 	
 	// Member

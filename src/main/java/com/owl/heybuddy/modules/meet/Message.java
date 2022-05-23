@@ -11,7 +11,7 @@ public class Message {
 	
 	public String getWriter() {
 		return writer;
-	}
+	}  
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}

@@ -90,7 +90,7 @@ body {
 
 									<form class=" z-index-1 position-relative needs-validation" novalidate="">
 									
-										<input type="text" id="hymmEmail" name="hymmEmail" value="${vo.hymmEmail}">
+										<input type="hidden" id="hymmEmail" name="hymmEmail" value="${vo.hymmEmail}">
 										
 										<div class="form-floating mb-3">
 											<input type="text" class="form-control" id="hymmPassword" name="hymmPassword" value="">

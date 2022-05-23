@@ -381,18 +381,14 @@ public class MemberController {
 
 		dto.setHymmSeq(rtMember.getHymmSeq());
 		
-		if (rtMember != null) {
-			if (rtMember.getHymmSeq() != null) {
+		if (rtMember.getHymmSeq() != null) {
 
-				if(service.updateMemberPwd(dto) > 0) {
-					returnMap.put("rt", "success");
-				} else {
-					returnMap.put("rt", "fail");
-				}
-				
+			if(service.updateMemberPwd(dto) > 0) {
+				returnMap.put("rt", "success");
 			} else {
 				returnMap.put("rt", "fail");
 			}
+			
 		} else {
 			returnMap.put("rt", "fail");
 		}

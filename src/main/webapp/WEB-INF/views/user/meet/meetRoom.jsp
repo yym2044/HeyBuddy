@@ -70,7 +70,7 @@
 			</div>
 		</div>
 	</main>
-	
+	  
 	<!-- Modal -->
 	<div class="modal fade" id="leaveModal" tabindex="-1" aria-labelledby="leaveModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -186,24 +186,30 @@
 		}
 	
 	async function initCall() {
+		
 		await getMedia();
 		makeConnection();
 		
-		const offer = await myPeerConnection.createOffer();
-		myPeerConnection.setLocalDescription(offer);
-	    console.log("sent the offer");
-	    console.log(offer);
-	    
-	  	client.subscribe("/sub/offer/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
-	    	console.log("got an offer");
-	    	console.log(event);
-	    	console.dir(event);
-	    	console.log("시발");
-	    	console.log(JSON.parse(event.body));
-	    })
-	    
-	    client.send("/pub/offer", {} , JSON.stringify(offer));
-	    
+		if("${meetRoomHostNy}" == 1){
+			
+			const offer = await myPeerConnection.createOffer();
+			myPeerConnection.setLocalDescription(offer);
+		    console.log("sent the offer");
+		    console.log(offer);
+		    
+		    
+		    client.send("/pub/offer", {} , JSON.stringify(offer));
+			
+		} else {
+		  	client.subscribe("/sub/offer/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
+		    	console.log("got an offer");
+		    	console.log(event);
+		    	console.dir(event);
+		    	console.log(JSON.parse(event.body));
+		    })
+		}
+		
+		
 	}
 	
 	
@@ -391,14 +397,14 @@
 			"msg" : "<c:out value='${ sessName }'/>님이 입장하셨습니다.",
 			"hostNy" : "${meetRoomHostNy}"
 		}));
-		 
+		
 		client.subscribe("/sub/initCall/<c:out value='${rt.hymrRoomId}'/>", function(event) {
 			console.log("------------------");
 			console.log(event);
 			initCall();
 			console.log("------------------");
 		});
-		 
+		
 		client.send("/pub/initCall", {}, JSON.stringify({
 			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>"
 		}));
@@ -428,7 +434,7 @@
 	                    "stun:stun1.l.google.com:19302",
 	                    "stun:stun2.l.google.com:19302",
 	                    "stun:stun3.l.google.com:19302",
-	                    "stun:stun4.l.google.com:19302",
+	                    /* "stun:stun4.l.google.com:19302", */
 	                ],
 	            },
 	        ],
@@ -436,7 +442,9 @@
         
 	    /* myPeerConnection.addEventListener("icecandidate", handleIce);
 	    myPeerConnection.addEventListener("addstream", handleAddstream);
-	    myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream)); */
+	    */
+	    
+	    myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream)); 
 	}
 
 	 

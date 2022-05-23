@@ -13,7 +13,7 @@ public class MeetDao {
 	@Inject
 	private SqlSession sqlSession;
 	  
-	private static String namespace = "com.owl.heybuddy.modules.meet.MeetMpp";
+	private static String namespace = "com.owl.heybuddy.modules.meet.MeetMpp";  
 	
 	public List<Meet> selectListRoom(MeetVo vo) {return sqlSession.selectList(namespace + ".selectListRoom", vo); }
 	public List<Meet> selectListRoomMember() {return sqlSession.selectList(namespace + ".selectListRoomMember"); }

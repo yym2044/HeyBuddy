@@ -14,9 +14,11 @@ public class PlanVo {
 	private String hyplDesc;
 	private Integer hyplDelNy;
 	
+	
 	// 스페이스
 	private String hyspSeq;
 	private String hysmSeq;
+	private Integer hysmAcceptedNy;
 	private String hymmSeq;
 	private String hymmName;
 	private String hyspName;
@@ -114,6 +116,13 @@ public class PlanVo {
 	}
 	public void setHysmSeq(String hysmSeq) {
 		this.hysmSeq = hysmSeq;
+	}
+	
+	public Integer getHysmAcceptedNy() {
+		return hysmAcceptedNy;
+	}
+	public void setHysmAcceptedNy(Integer hysmAcceptedNy) {
+		this.hysmAcceptedNy = hysmAcceptedNy;
 	}
 	public String getHymmSeq() {
 		return hymmSeq;

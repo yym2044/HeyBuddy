@@ -107,6 +107,7 @@
         	ON c.hymmSeq = a.hymmSeq
 		WHERE	1 = 1
         	AND a.hyspSeq = #{hyspSeq}
+        	AND a.hysmAcceptedNy = 1
 	</select>
 
 		<select id="selectListMySpace" resultMap="resultMapObj">

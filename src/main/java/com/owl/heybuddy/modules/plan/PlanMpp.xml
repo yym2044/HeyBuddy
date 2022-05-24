@@ -66,9 +66,9 @@
 			,a.hyplMemberName
 		FROM
 			hybdPlan AS a
-		LEFT JOIN hybdSpace AS b ON a.hyspSeq= b.hyspSeq
+		LEFT JOIN hybdSpace AS b ON a.hyspSeq = b.hyspSeq
 		WHERE 	1 = 1
-		AND a.hyspSeq = #{hyspSeq}
+        	AND a.hyplDelNy = 0
 	</select>
 	
 	<select id="selectListMemberInSpace" resultMap="resultMapObj">
@@ -107,7 +107,7 @@
         LEFT JOIN hybdMember AS c
         	ON c.hymmSeq = a.hymmSeq
 		WHERE	1 = 1
-        	AND a.hyspSeq = #{hyspSeq}
+        	AND b.hyspSeq = #{hyspSeq}
         	AND a.hysmAcceptedNy = 1
 	</select>
 

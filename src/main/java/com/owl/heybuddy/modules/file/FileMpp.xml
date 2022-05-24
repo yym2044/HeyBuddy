@@ -42,7 +42,9 @@
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
 		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
 		where
-		a. hydcDelNy = 0
+		a. hydcDelNy = 0 
+		AND
+		a. hydcTempNy = 0
 		AND 
 		d.hyspSeq = #{hyspSeq}
 		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
@@ -53,8 +55,11 @@
 		limit  #{startRnumForMysql} , #{rowNumToShow}
 
 	</select>
+	
+	
+	
 			
-	<select id="selectListMember" resultMap="resultMapObj">
+	<select id="selectListMemberInSpace" resultMap="resultMapObj">
 		SELECT
 			c.hymmSeq
 			,c.hymmName
@@ -73,9 +78,14 @@
 		*
 		from
 		hybdDocument a
+		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
+		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
 		where
-		hydcTempNy = 1
+		a. hydcDelNy = 0
+		and
+		a. hydcTempNy = 1
 	</select>
+	
 
  	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select
@@ -139,7 +149,6 @@
 			SELECT last_insert_id()
 		</selectKey>
 </insert>
-
 
 	<insert id="insertUploaded">  <!-- 파일등록 -->
 		INSERT INTO ${tableName}(
@@ -209,8 +218,6 @@
 		hydcSeq= #{hydcSeq}
 	</update>
 
-
-
 	<select id="fileUploaded" resultMap = "resultMapObj"> <!--파일뷰 -->
 		SELECT
 			seq
@@ -230,8 +237,6 @@
 			AND pseq = #{hydcSeq}
 	</select>
 	
-	
-		
 	<update id="updateUploaded"> <!--파일수정 -->
 	UPDATE
 		${tableName}

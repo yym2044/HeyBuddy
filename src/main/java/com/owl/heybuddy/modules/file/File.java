@@ -6,13 +6,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class File { 
 
-	
+
 	private String hydcSeq;
 	private String hyspSeq;
 	private String hymmSeq;
 	private String hydcTitle;
 	private String hydcText;
-	private Integer hydcDelNy;
+	private String hydcDelNy;
+	private String hydcTempNy;
+	
 
 	// RegMod
 	private String regIp;
@@ -104,11 +106,11 @@ public class File {
 	public void setHydcText(String hydcText) {
 		this.hydcText = hydcText;
 	}
-	public Integer getHydcDelNy() {
+	public String getHydcDelNy() {
 		return hydcDelNy;
 	}
-	public void setHydcDelNy(Integer hydcDelNy) {
-		this.hydcDelNy = hydcDelNy;
+	public void setHydcDelNy(String string) {
+		this.hydcDelNy = string;
 	}
 	public String getRegIp() {
 		return regIp;
@@ -386,5 +388,14 @@ public Integer getHysmRoleCd() {
 public void setHysmRoleCd(Integer hysmRoleCd) {
 	this.hysmRoleCd = hysmRoleCd;
 }
+
+
+public String getHydcTempNy() {
+	return hydcTempNy;
+}
+public void setHydcTempNy(String string) {
+	this.hydcTempNy = string;
+}
+
 	
 }

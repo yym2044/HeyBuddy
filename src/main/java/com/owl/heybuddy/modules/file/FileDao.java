@@ -12,6 +12,7 @@ import com.owl.heybuddy.modules.member.MemberVo;
 
 
 
+
 @Repository
 public class FileDao { 
 
@@ -27,14 +28,17 @@ public class FileDao {
 		return sqlSession.selectList(namespace + ".documentList", vo); //  문서리스트
 	}
 	public List<File> documentListTemp(FileVo vo) {
-		return sqlSession.selectList(namespace + ".documentListTemp", vo); //  문서리스트
+		return sqlSession.selectList(namespace + ".documentListTemp", vo); //  임시저장 문서리스트
 	}
-	
-	public List<File> selectListMember(FileVo vo){
-	List<File> list = sqlSession.selectList(namespace + ".selectListMember", vo);  //문서리스트 스페이스멤버만
-	return list;
+	public List<File> selectListSpaceMember(FileVo vo) {
+		return sqlSession.selectList(namespace + ".selectListSpaceMember", vo); // 스페이스멤버리스트
 	}
-
+	public List<File> selectListMemberInSpace(FileVo vo) {
+		return sqlSession.selectList(namespace + ".selectListMemberInSpace", vo);
+	}
+	public int selectOneCountSpaceMember(FileVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCountSpaceMember", vo); // 회원검색 (공유자검색시)
+	}
 	public File documentView(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentView", vo); // 문서뷰
 	}

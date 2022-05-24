@@ -95,33 +95,7 @@
 				<!--//Page Toolbar End//-->
 												
 												
-																	
-												<!--Email Header-->
-							<div
-								class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
-								<div
-									class="d-flex align-items-center pb-2 flex-row justify-content-between">
-
-									<div class="flex-grow-1">
-							
-
-										<div class="btn-group btn-group-sm">
-
-											<a href="#!" data-bs-placement="top" data-bs-toggle="tooltip"
-												title="아~ui고민중"
-												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-												<i class="bi bi-trash-fill"></i>
-											</a> <a href="fileEdit" data-bs-placement="top"
-												data-bs-toggle="tooltip" title="아~ui고민중"
-												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-												<i class="bi bi-pencil-fill"></i>
-											</a>
-
-										</div>
-									</div>
-
-								</div>
-							</div>
+			
 
 	<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 							<div class="container-fluid px-0">
@@ -141,84 +115,38 @@
 												</c:when>
 												<c:otherwise> 
 					
-					
-					
-			
-						<!--Email Header-->
-						<div
-							class="px-4 px-lg-8 pb-2 position-sticky top-0 pt-4 z-index-fixed">
-							<div class="rounded-3 w-100 ps-md-3 top-0">
-								<div class="row align-items-center mx-n2">
-									<div class="col-md-6 col-xl-7 px-2 order-last">
-										<div class="d-flex align-items-center ps-3 ps-md-0">
-											<div class="form-check mb-0 me-2">
-												<input type="checkbox" class="form-check-input"
-													id="check_all"> <label for="check_all"
-													class="form-check-label"></label>
-											</div>
-
-											UI수정중!!!!!!!!!!!!!!!
-											<div class="d-flex align-items-center">
-
-												<div class="btn-group btn-group-sm">
-
-													<a href="#!"
-														class="btn border hover-bg-secondary size-30 p-0 d-flex align-items-center justify-content-center">
-														<i data-feather="trash-2" class="fe-1x"></i>
-													</a>
-
-												</div>
-											</div> 
-										</div>
-									</div>
-										
+		
+							
+					      <!--Email Header-->
+                            <div class="px-4 px-lg-8 pb-2 position-sticky top-0 pt-4 z-index-fixed">
+                                <div class="rounded-3 w-100 ps-md-3 top-0">
+                                    <div class="row align-items-center mx-n2">
+                                        <div class="col-md-6 col-xl-7 px-2 order-last">
+                                            <div class="d-flex align-items-center ps-3 ps-md-0">
+                                                <div class="form-check mb-0 me-2">
+                                                    <input type="checkbox" class="form-check-input" id="check_all">
+                                                <label for="check_all" class="form-check-label"></label>
+                                                </div>
+                                             
+                                                <!--Selected mails action-->
+                                                <div class="d-flex align-items-center">
+                                                  
+                                                    <div class="btn-group btn-group-sm">
+                                           
+                                                        <a href="#!" class="btn border hover-bg-secondary size-30 p-0 d-flex align-items-center justify-content-center">
+                                                            <i data-feather="trash-2" class="fe-1x"></i>
+                                                        </a>
+                                                 
+                                                    </div>
+                                                </div>
+                                               </div>
+                                   	     </div>
+                                 
+                                    </div>
+                                </div>
+                            </div>
 					
 							
-							
-									<div
-										class="col-md-6 col-xl-5 px-2 order-1 order-md-last mb-2 mb-md-0">
-										<div class="d-flex justify-content-end">
-											<form action="" class="position-relative flex-grow-1 me-2">
-												<!--Icon-->
-												<i data-feather="search"
-													class="fe-1x position-absolute start-0 top-50 translate-middle-y ms-3"></i>
-												<input type="text" class="form-control search ps-8"
-													placeholder="제목,등록자 검색">
-											</form>
-
-											<%--  <div class="table-responsive">
-                              <select class="form-select form-select"
-                                          name="shHydcOption" id="shHydcOption" style="">
-                                             <option value="">검색구문
-                                             <option value="1"
-                                                <c:if test="${vo.shHydcOption eq 1 }"> selected</c:if>>제목
-
-                                             <option value="2"
-                                                <c:if test="${vo.shHydcOption eq 2 }"> selected</c:if>>내용
-
-                                             <option value="3"
-                                                <c:if test="${vo.shHydcOption eq 3 }"> selected</c:if>>작성자
-
-                                       </select> <input class="form-control form-control" type="text"
-                                          name="shHydcValue" id="shHydcValue" style="" value=""
-                                          placeholder="제목,내용,작성자 검색">
-
-                                          <button class="btn btn-primary" type="submit"
-                                             name="search" id="btnSearch">검색</button>   </div> --%>
-
-
-												<div
-												class="btn btn-primary btn-sm d-inline-flex align-items-center">
-												<i data-feather="edit-3" class="fe-2x me-md-2"></i> <span
-													class="d-md-inline-block d-none"> <a
-													href="javascript:goFileForm('<c:out value="${item.hymmSeq}"/>','<c:out value="${vo.thisPage}"/>');">
-												</a></span>
-											</div> 
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 
 
 

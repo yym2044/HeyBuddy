@@ -13,11 +13,15 @@ import com.owl.heybuddy.modules.member.MemberVo;
 
 public interface FileService { 
 
+
 	
 	int selectOneCount(FileVo vo) throws Exception;    //문서검색
 	public List<File> documentList(FileVo vo) throws Exception; //문서리스트
 	public List<File> documentListTemp(FileVo vo) throws Exception; //임시저장 문서리스트
-	public List<File> selectListMember(FileVo vo) throws Exception; 
+	public  int selectOneCountSpaceMember(FileVo vo) throws Exception;    //스페이스멤버
+	public List<File> selectListSpaceMember(FileVo vo) throws Exception; // 스페이스리스트
+
+
 	
 	public File documentView(FileVo vo) throws Exception;  //문서뷰
 	public File fileUploaded(FileVo vo) throws Exception; // 파일뷰

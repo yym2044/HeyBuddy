@@ -89,30 +89,20 @@
 
 
 
-				<form id="formList" name="formList" method="post"
-					action="/file/fileInst" enctype="multipart/form-data">
+				<form id="formList" name="formList" method="post" action="/file/fileInst" enctype="multipart/form-data">
 
 					<!-- 기본값히든처리 -->
-					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}"/>"> 
-					 <input type="hidden" name="hyspName" placeholder="스페이스 이름" value="${space.hyspName}">
-						<input
-						type="hidden" id="hydcSeq" name="hydcSeq"
-						value="<c:out value="${vo.hydcSeq}"/>"> 
-						<input
-						type="hidden" id="hymmSeq" name="hymmSeq"
-						value="<c:out value="${vo.hymmSeq}"/>"> 
-						<input
-						type="hidden" id="shHydcTitle" name="shHydcTitle"
-						value="<c:out value="${vo.shHydcTitle}"/>"> 
-						<input
-						type="hidden" id="shHydcOption" name="shHydcOption"
-						value="<c:out value="${vo.shHydcOption}"/>"> 
-						<input
-						type="hidden" id="shHydcValue" name="shHydcValue"
-						value="<c:out value="${vo.shHydcValue}"/>">
-
-
+						<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
+						<input type="hidden" id="hymmSeq" name="hymmSeq" value="${vo.hymmSeq}">
+						
+					 	<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>"> 
+						<input type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>"> 
+						<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>"> 
+						
+						<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>"> 
+						<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>"> 
+						<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>"> 
+						<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
 
 					<!--Email Header-->
 					<div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
@@ -155,23 +145,6 @@
 
 											</select>
 
-
-
-
-											<%-- <div class="card card-body">
-										<select multiple class="form-control"
-											data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'
-											id="" name="">
-											<c:forEach items="${selectListMember}" var="item"
-												varStatus="status">
-												<option value="<c:out value="${item.hymmName}"/>"><c:out
-														value="${item.hymmName}" />
-											</c:forEach>
-										</select>
-									</div> --%>
-
-
-
 											<div class="col-md-12 mb-3">
 												제목 <input type="text" class="form-control" name="hydcTitle"
 													placeholder="" value="" required>
@@ -186,11 +159,6 @@
 													<div class="invalid-feedback">내용을 입력해주세요.</div>
 												</div>
 											</div>
-
-
-
-
-
 										</div>
 									</div>
 								</div>
@@ -201,23 +169,31 @@
 								<!--Attachment image-->
 								<div class="row">
 									<div class="col-md-12 mb-3">
-										<label for="file0" class="form-label input-file-button">
-											이미지파일둘다합쳐서하기 <i data-feather="paperclip" class="fe-1x "></i>
-										</label> <input class="form-control" id="file0" name="file0"
+										<label for="file" class="form-label input-file-button">
+											첨부파일 수정중 <i data-feather="paperclip" class="fe-1x "></i>
+										</label>
+													
+										 <input class="form-control" id="file" name="file0"
 											type="file" multiple="multiple" style="display: none;"
-											onChange="upload(0,2);"> <input class="form-control"
+											onChange="upload(0,2);"> 
+										
+										
+							<!-- 			
+										 <input class="form-control" id="file0" name="file0"
+											type="file" multiple="multiple" style="display: none;"
+											onChange="upload(0,2);"> 
+										
+										 <input class="form-control"
 											id="file1" name="file1" type="file" multiple="multiple"
-											style="display: none;" onChange="upload(1,1);">
+											style="display: none;" onChange="upload(1,1);"> -->
 
 										<div class="addScroll">
 											<ul id="ulFile0" class="list-group"></ul>
-											<ul id="ulFile1" class="list-group"></ul>
+									
+						<!-- 					<ul id="ulFile1" class="list-group"></ul> -->
 										</div>
 									</div>
 								</div>
-
-
-
 
 							</div>
 							<div class="row text-center" style="width: 100%">

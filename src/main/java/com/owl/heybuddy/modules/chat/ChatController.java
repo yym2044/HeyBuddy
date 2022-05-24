@@ -10,10 +10,10 @@ public class ChatController {
 	@Autowired
 	ChatServiceImpl service;
 
-	@RequestMapping(value = "/chat/chat2")
+	@RequestMapping(value = "/chat/chat")
 	public String chat() throws Exception {
 
-		return "user/chat/chat2";
+		return "user/chat/chat";
 	}
 
 }

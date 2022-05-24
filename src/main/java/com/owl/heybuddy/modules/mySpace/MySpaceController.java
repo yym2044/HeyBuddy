@@ -32,7 +32,9 @@ public class MySpaceController {
 	public String space(Model model, MySpaceVo vo, HttpSession httpSession) throws Exception {
 
 		httpSession.setAttribute("sessAuth", httpSession.getAttribute("sessAuth"));
-
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
 		model.addAttribute("space", service.selectOneMySpaceHost(vo));
 
 		return "user/setting/space";

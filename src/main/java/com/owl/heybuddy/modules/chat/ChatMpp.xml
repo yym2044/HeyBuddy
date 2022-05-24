@@ -9,4 +9,24 @@
 	<resultMap id="resultMapObj"
 		type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
 
+	<select id="selectListChatMember" resultMap="resultMapObj">
+
+		SELECT
+		a.hymmName
+		, d.uuidFileName
+		, d.path
+
+		FROM hybdMember a
+		LEFT JOIN hybdSpaceMember b on b.hymmSeq = a.hymmSeq
+		LEFT
+		JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		LEFT JOIN hybdMemberUploaded
+		d on d.pseq = a.hymmSeq
+
+		WHERE 1=1
+		AND b.hysmAcceptedNy = '1'
+		AND b.hysmExitNy = '0'
+		AND b.hyspSeq = #{hyspSeq}
+
+	</select>
 </mapper>

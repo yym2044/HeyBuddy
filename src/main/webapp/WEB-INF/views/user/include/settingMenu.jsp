@@ -13,7 +13,7 @@
 						<li class="sidebar-item"><a class="nav-link" href="space"> 기본정보</a></li>
 						<!-- <li class="sidebar-item"><a class="nav-link" href="profile"> 프로필정보</a></li> -->
 					</ul>
-				</li>
+				</li>  
 			</c:if>
 			<c:if test="${sessAuth ne 5}">
 				<li class="nav-item"><a href="#component-forms2" data-bs-toggle="collapse" aria-expanded="false" class="nav-link d-flex align-items-center text-truncate fw-bold">

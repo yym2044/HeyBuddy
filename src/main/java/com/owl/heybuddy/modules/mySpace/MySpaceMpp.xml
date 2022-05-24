@@ -300,7 +300,7 @@
 	</update>
 	<select id="selectOneMySpaceHost" resultMap="resultMapObj">
 	
-	SELECT
+	SELECT  
 		a.hyspSeq
         , c.hymmName
         , c.hymmEmail

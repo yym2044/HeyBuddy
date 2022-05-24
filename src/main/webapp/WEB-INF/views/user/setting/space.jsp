@@ -226,7 +226,7 @@
 														<!-- <img id="sidebarLogoPreview" class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;" src="/resources/user/images/profileDefault.png"> -->
 														<input id="spaceLogoText" type="text" class="form-control ps-8" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다.">
 													</div>
-													
+													  
 												</td>
 												<td><label for="spaceLogo"><a class="btn btn-info">찾아보기</a></label></td>
 											</tr>

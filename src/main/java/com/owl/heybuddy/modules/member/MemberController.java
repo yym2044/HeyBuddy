@@ -189,7 +189,7 @@ public class MemberController {
 
 		List<Member> list = service.selectListSpaceMember(vo);
 		model.addAttribute("list", list);
-
+  
 		Member rt = service.selectOneSidebar(vo);
 		model.addAttribute("item", rt);
 

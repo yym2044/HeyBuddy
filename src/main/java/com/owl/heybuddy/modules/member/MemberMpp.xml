@@ -115,7 +115,7 @@
 
 		SELECT
 		a.hyspSeq
-		, a.hyspName
+		, a.hyspName  
 		, a.hyspColorCd
 		, b.hysmRoleCd
 		, b.hysmAuthCd

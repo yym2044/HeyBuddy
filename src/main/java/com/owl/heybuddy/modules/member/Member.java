@@ -27,12 +27,14 @@ public class Member {
 	private String hyspName;
 	private Integer hyspColorCd;
 	//스페이스 멤버
+	private String hysmSeq;
 	private String hysmHost;
 	private Integer hysmAcceptedNy;
 	private Integer hysmExitNy;
 	private Integer hymmActiveNy;
 	
 	private Integer hysmRoleCd;
+	private Integer hysmAuthCd;
 	
 	//RegMod
 	private String regIp;
@@ -355,6 +357,18 @@ public class Member {
 	}
 	public void setHyspColorCd(Integer hyspColorCd) {
 		this.hyspColorCd = hyspColorCd;
+	}
+	public Integer getHysmAuthCd() {
+		return hysmAuthCd;
+	}
+	public void setHysmAuthCd(Integer hysmAuthCd) {
+		this.hysmAuthCd = hysmAuthCd;
+	}
+	public String getHysmSeq() {
+		return hysmSeq;
+	}
+	public void setHysmSeq(String hysmSeq) {
+		this.hysmSeq = hysmSeq;
 	}
 	
 	

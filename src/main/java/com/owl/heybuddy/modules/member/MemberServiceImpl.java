@@ -160,4 +160,7 @@ public class MemberServiceImpl implements MemberService {
 	public int updateMemberPwd(Member dto) throws Exception {
 		return dao.updateMemberPwd(dto);
 	}
+	public int updateMemberAuth(Member dto) throws Exception {
+		return dao.updateMemberAuth(dto);
+	}
 }

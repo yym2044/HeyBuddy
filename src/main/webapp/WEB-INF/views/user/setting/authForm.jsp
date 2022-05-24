@@ -43,6 +43,11 @@
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 <body>
+
+	<form id="authFormForm" method="post">
+	
+		<input type="hidden" id="hysmAuthCd" name="hysmAuthCd" value="0">
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 
@@ -103,12 +108,13 @@
 											<div class="card card-body">
 												<label for="Searchable" class="form-label">멤버를 선택하세요..</label>
 												<div>
-													<select id="Searchable" class="form-control" data-choices='{"searchEnabled":true}'>
-														<option value="">멤버</option>
-														<option value="1">김나리</option>
-														<option value="2">정미림</option>
-														<option value="3">이건우</option>
-														<option value="4">윤영민</option>
+													<select id="Searchable" name="hysmSeq" class="form-control" data-choices='{"searchEnabled":true}'>
+														<option disabled>멤버</option>
+														<c:forEach items="${list}" var="item" varStatus="status">
+															<c:if test="${item.hysmRoleCd ne 12 and item.hysmAuthCd eq 0}">
+																<option value="${item.hysmSeq}"><c:out value="${item.hymmName}"/></option>
+															</c:if>
+														</c:forEach>
 													</select>
 												</div>
 											</div>
@@ -140,7 +146,7 @@
 														<label for="checkboxAll1" class="form-check-label fw-bold fs-5">스페이스 환경</label>
 														<ul class="nav p-2">
 															<li><input id="checkbox1_1" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_1" class="form-check-label">기본설정</label></li>
-															<li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li>
+															<!-- <li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li> -->
 														</ul>
 													</div>
 												</div>
@@ -155,7 +161,7 @@
 														<label for="checkboxAll2" class="form-check-label fw-bold fs-5">스페이스 멤버</label>
 														<ul class="nav p-2">
 															<li><input id="checkbox2_1" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_1" class="form-check-label">멤버관리</label></li>
-															<li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_2" class="form-check-label">그룹관리</label></li>
+															<!-- <li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_2" class="form-check-label">그룹관리</label></li> -->
 															<li><input id="checkbox2_3" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_3" class="form-check-label">관리자설정</label></li>
 														</ul>
 													</div>
@@ -166,7 +172,7 @@
 
 									<div class="text-center pb-3">
 										<a href="authList" class="btn btn-lg btn-secondary me-1">취소</a>
-										<a href="authList" class="btn btn-lg btn-info">등록</a>
+										<a href="javascript:goInstAuth();" class="btn btn-lg btn-info">등록</a>
 									</div>
 								</div>
 							</div>
@@ -193,6 +199,8 @@
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -256,6 +264,41 @@
 
 		sidebarLink[5].className += ' current';
 	</script>
+	
+	<script type="text/javascript">
+	const check1 = document.querySelector("#checkbox1_1");
+	const check2 = document.querySelector("#checkbox2_1");
+	const check3 = document.querySelector("#checkbox2_3");
+	
+	
+	
+	$("input[type=checkbox]").on("click", function(){
+		
+		if(check1.checked == true && check2.checked == true && check3.checked == true){
+			$("#hysmAuthCd").val(1);
+		} else if(check1.checked == true && check2.checked == true){
+			$("#hysmAuthCd").val(2);
+		} else if(check1.checked == true && check3.checked == true){
+			$("#hysmAuthCd").val(3);
+		} else if(check2.checked == true && check3.checked == true){
+			$("#hysmAuthCd").val(4);
+		} else if(check1.checked == true){
+			$("#hysmAuthCd").val(5);
+		} else if(check2.checked == true){
+			$("#hysmAuthCd").val(6);
+		} else if(check3.checked == true){
+			$("#hysmAuthCd").val(7);
+		} else {
+			$("#hysmAuthCd").val(0);
+		}
+	});
+
+	goInstAuth = function(){
+		$("#authFormForm").attr("action", "/setting/authUpdt").submit();
+	}
+	
+	</script>
+	
 </body>
 
 </html>

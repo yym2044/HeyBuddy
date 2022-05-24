@@ -203,7 +203,10 @@ public class MemberController {
 		} else {
 			httpSession.setAttribute("hostNy", 0);
 		}
-
+		
+		httpSession.setAttribute("sessAuth", rt.getHysmAuthCd());
+		
+		
 		return "user/member/memberList";
 	}
 
@@ -243,15 +246,32 @@ public class MemberController {
 	/******************************* 호스트 메뉴 Start *******************************/
 
 	@RequestMapping(value = "/setting/authEdit")
-	public String authEdit() {
+	public String authEdit(Model model, MemberVo vo, HttpSession httpSession) throws Exception{
 
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		model.addAttribute("rt", service.selectOneMemberInSpace(vo));
+		
 		return "/user/setting/authEdit";
 	}
 
 	@RequestMapping(value = "/setting/authForm")
-	public String authForm() {
+	public String authForm(Model model, MemberVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		List<Member> list = service.selectListMemberInSpace(vo);
+		model.addAttribute("list", list);
 
 		return "user/setting/authForm";
+	}
+	
+	@RequestMapping(value = "/setting/authUpdt")
+	public String authUpdt(Member dto) throws Exception {
+		
+		service.updateMemberAuth(dto);
+		
+		return "redirect:/setting/authList";
 	}
 
 	@RequestMapping(value = "/setting/authList")
@@ -269,6 +289,18 @@ public class MemberController {
 		}
 
 		return "user/setting/authList";
+	}
+	
+	// 프로필 카드 정보 뽑기용 아작스
+	@ResponseBody
+	@RequestMapping(value = "/user/selectOneAjax")
+	public Member selectOneAjax(MemberVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		Member rt = service.selectOneMemberInSpace(vo);
+		
+		return rt;
 	}
 
 	@RequestMapping(value = "/setting/group")

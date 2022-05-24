@@ -104,8 +104,18 @@
 									<div class="row">
 										<div class="col-4 ps-5">
 											<div class="d-flex align-items-center">
-												<img src="/resources/assets/media/avatars/03.jpg" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
-												<div class="h6 mb-0 lh-1">이건우</div>
+											
+												<c:choose>
+													<c:when test="${empty rt.uuidFileName}">
+														<img src="/resources/user/images/profileDefault.png" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
+													</c:when>
+													<c:otherwise>
+														<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidFileName}"/>" class="avatar rounded-pill me-3 flex-shrink-0" alt="Customer">
+													</c:otherwise>
+												</c:choose>
+												
+												
+												<div class="h6 mb-0 lh-1"><c:out value="${rt.hymmName}"/></div>
 											</div>
 										</div>
 										<div class="col-12 p-3">
@@ -135,7 +145,7 @@
 														<label for="checkboxAll1" class="form-check-label fw-bold fs-5">스페이스 환경</label>
 														<ul class="nav p-2">
 															<li><input id="checkbox1_1" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_1" class="form-check-label">기본설정</label></li>
-															<li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li>
+															<!-- <li><input id="checkbox1_2" name="checkbox1" type="checkbox" class="form-check-input mx-2"><label for="checkbox1_2" class="form-check-label">프로필설정</label></li> -->
 														</ul>
 													</div>
 												</div>
@@ -149,9 +159,9 @@
 														<input id="checkboxAll2" name="" type="checkbox" class="form-check-input mx-2">
 														<label for="checkboxAll2" class="form-check-label fw-bold fs-5">스페이스 멤버</label>
 														<ul class="nav p-2">
-															<li><input id="checkbox2_1" name="checkbox2" type="checkbox" class="form-check-input mx-2" checked><label for="checkbox2_1" class="form-check-label">멤버관리</label></li>
-															<li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2" checked><label for="checkbox2_2" class="form-check-label">그룹관리</label></li>
-															<li><input id="checkbox2_3" name="checkbox2" type="checkbox" class="form-check-input mx-2" checked><label for="checkbox2_3" class="form-check-label">관리자설정</label></li>
+															<li><input id="checkbox2_1" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_1" class="form-check-label">멤버관리</label></li>
+															<!-- <li><input id="checkbox2_2" name="checkbox2" type="checkbox" class="form-check-input mx-2" checked><label for="checkbox2_2" class="form-check-label">그룹관리</label></li> -->
+															<li><input id="checkbox2_3" name="checkbox2" type="checkbox" class="form-check-input mx-2"><label for="checkbox2_3" class="form-check-label">관리자설정</label></li>
 														</ul>
 													</div>
 												</div>
@@ -161,7 +171,7 @@
 
 									<div class="text-center pb-3">
 										<a href="authList" class="btn btn-lg btn-secondary me-1">취소</a>
-										<a href="authList" class="btn btn-lg btn-info">변경</a>
+										<a href="javascript:showModal();" class="btn btn-lg btn-info">변경</a>
 									</div>
 								</div>
 							</div>
@@ -169,6 +179,42 @@
 					</div>
 				</div>
 				<!--//Page content End//-->
+				
+				<!-- Update Modal -->
+				<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">확인</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">관리 권한을 변경합니다.</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+								<a href="javascript:goUpdtAuth();" type="button" class="btn btn-primary">확인</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Update Modal End -->
+				
+				<!-- Delete Modal -->
+				<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">확인</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">관리 권한을 삭제합니다.</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+								<a href="javascript:goUpdtAuth();" type="button" class="btn btn-primary">확인</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Delete Modal End -->
 
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
@@ -187,6 +233,11 @@
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	
+	<form id="authEditForm" method="post">
+		<input type="hidden" name="hysmSeq" value="${rt.hysmSeq}">
+		<input type="hidden" id="hysmAuthCd" name="hysmAuthCd" value="${rt.hysmAuthCd}">
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -267,12 +318,77 @@
 				$("#checkboxAll2").prop("checked", true);
 			}
 		})
+		
 	</script>
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
 		sidebarLink[5].className += ' current';
 	</script>
+	
+	<script type="text/javascript">
+	const check1 = document.querySelector("#checkbox1_1");
+	const check2 = document.querySelector("#checkbox2_1");
+	const check3 = document.querySelector("#checkbox2_3");
+	
+	if('<c:out value="${rt.hysmAuthCd}"/>' == 1){
+		check1.checked = true;
+		check2.checked = true;
+		check3.checked = true;
+	} else if('<c:out value="${rt.hysmAuthCd}"/>' == 2){
+		check1.checked = true;
+		check2.checked = true;
+	} else if('<c:out value="${rt.hysmAuthCd}"/>' == 3){
+		check1.checked = true;
+		check3.checked = true;
+	} else if('<c:out value="${rt.hysmAuthCd}"/>' == 4){
+		check2.checked = true;
+		check3.checked = true;
+	} else if('<c:out value="${rt.hysmAuthCd}"/>' == 5){
+		check1.checked = true;
+	} else if('<c:out value="${rt.hysmAuthCd}"/>' == 6){
+		check2.checked = true;
+	} else if('<c:out value="${rt.hysmAuthCd}"/>' == 7){
+		check3.checked = true;
+	}
+	
+	$("input[type=checkbox]").on("click", function(){
+		
+		if(check1.checked == true && check2.checked == true && check3.checked == true){
+			$("#hysmAuthCd").val(1);
+		} else if(check1.checked == true && check2.checked == true){
+			$("#hysmAuthCd").val(2);
+		} else if(check1.checked == true && check3.checked == true){
+			$("#hysmAuthCd").val(3);
+		} else if(check2.checked == true && check3.checked == true){
+			$("#hysmAuthCd").val(4);
+		} else if(check1.checked == true){
+			$("#hysmAuthCd").val(5);
+		} else if(check2.checked == true){
+			$("#hysmAuthCd").val(6);
+		} else if(check3.checked == true){
+			$("#hysmAuthCd").val(7);
+		} else {
+			$("#hysmAuthCd").val(0);
+		}
+	});
+
+	showModal = function(){
+		
+		if($("#hysmAuthCd").val() == 0){
+			$("#deleteModal").modal('show');
+		} else {
+			$("#updateModal").modal('show');
+		}
+		
+	}
+	
+	goUpdtAuth = function(){
+		$("#authEditForm").attr("action", "/setting/authUpdt").submit();
+	}
+	
+	</script>
+	
 
 </body>
 

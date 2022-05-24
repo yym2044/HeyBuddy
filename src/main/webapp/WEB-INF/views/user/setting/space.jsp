@@ -191,15 +191,15 @@
 												<td>
 												<div class="d-flex align-items-center">
 					                                <c:choose>
-														<c:when test="${empty uuidFileName}">
+														<c:when test="${empty space.uuidFileName}">
 															<img src="/resources/user/images/profileDefault.png" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
 														</c:when>
 														<c:otherwise>
-															<img src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+															<img src="<c:out value="${space.path}"/><c:out value="${space.uuidFileName}"/>" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
 														</c:otherwise>
 													</c:choose>
 					                                <div>
-					                                    <div class="h6 mb-0 lh-1"><c:out value="${sessName}"/> <c:out value="${sessEmail}"/></div>
+					                                    <div class="h6 mb-0 lh-1"><c:out value="${space.hymmName}"/> <c:out value="${space.hymmEmail}"/></div>
 					                                </div>
 					                            </div>
 												</td>
@@ -208,7 +208,7 @@
 											</tr>
 											<tr>
 												<td>마이스페이스 이름</td>
-												<td colspan="2"><input name="hyspName" class="form-control" value="<c:out value="${hyspName}"/>"></td>
+												<td colspan="2"><input name="hyspName" class="form-control" value="<c:out value="${space.hyspName}"/>"></td>
 											</tr>
 											<tr>
 												<td>마이스페이스 아이디</td>

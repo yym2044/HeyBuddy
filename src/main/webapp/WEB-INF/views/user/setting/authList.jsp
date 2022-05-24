@@ -43,6 +43,7 @@
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 </head>
 <body>
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 
@@ -117,7 +118,7 @@
 											</thead>
 											<tbody>
 												<c:forEach items="${list}" var="item" varStatus="status">
-													<c:if test="${item.hysmAcceptedNy eq 1 and item.hymmActiveNy eq 1 }">
+													<c:if test="${item.hysmAcceptedNy eq 1 and item.hymmActiveNy eq 1 and (item.hysmAuthCd ne 0 or item.hysmRoleCd eq 12)}">
 														<tr>
 															<td>
 																<div class="d-flex align-items-center">
@@ -130,26 +131,39 @@
 																		</c:otherwise>
 																	</c:choose>
 																	<div class="h6 mb-0 lh-1 d-flex align-items-center">
-																		<a href="#modalMember3" data-bs-toggle="modal"><c:out value="${item.hymmName}"/></a>
+																		<a href="javascript:showModal(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/></a>
 																		<c:if test="${item.hysmRoleCd eq 12}">
 																			<span class="badge bg-danger ms-1">S</span>
 																		</c:if>
 																	</div>
 																</div>
 															</td>
-															<td>스페이스 환경(2), 스페이스 멤버(3)</td>
+															<td id="authMenu${status.index}">
+																<c:choose>
+																	<c:when test="${item.hysmRoleCd eq 12}">기본정보, 멤버관리, 관리자설정</c:when>
+																	<c:otherwise>
+																		<c:if test="${item.hysmAuthCd eq 1}">기본정보, 멤버관리, 관리자설정</c:if>
+																		<c:if test="${item.hysmAuthCd eq 2}">기본정보, 멤버관리</c:if>
+																		<c:if test="${item.hysmAuthCd eq 3}">기본정보, 관리자설정</c:if>
+																		<c:if test="${item.hysmAuthCd eq 4}">멤버관리, 관리자설정</c:if>
+																		<c:if test="${item.hysmAuthCd eq 5}">기본정보</c:if>
+																		<c:if test="${item.hysmAuthCd eq 6}">멤버관리</c:if>
+																		<c:if test="${item.hysmAuthCd eq 7}">관리자설정</c:if>
+																	</c:otherwise>
+																</c:choose>
+															</td>
 															<td>
 																<c:choose>
 																	<c:when test="${item.hysmRoleCd eq 12}">
 																		<a href="">호스트 변경</a>
 																	</c:when>
 																	<c:otherwise>
-																		<a class="btn btn-info position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" href="authEdit">
+																		<a class="btn btn-info position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" href="javascript:goEdit(<c:out value="${item.hymmSeq}"/>)">
 																			<i class="bi bi-pencil-square"></i>
 																		</a>
-																		<a class="btn btn-danger position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" data-bs-toggle="modal" data-bs-target="#deleteModal">
+																		<button onclick="javascript:showDeleteModal(<c:out value="${item.hysmSeq}"/>)" class="btn btn-danger position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" data-bs-toggle="modal" data-bs-target="#deleteModal">
 																			<i class="bi bi-trash3"></i>
-																		</a>
+																		</button>
 																	</c:otherwise>
 																</c:choose>
 															</td>
@@ -177,7 +191,7 @@
 							<div class="modal-body">관리 권한을 삭제합니다.</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-								<button type="button" class="btn btn-primary">확인</button>
+								<button id="btnAuthDelete" type="button" class="btn btn-primary">확인</button>
 							</div>
 						</div>
 					</div>
@@ -185,7 +199,7 @@
 				<!-- Delete Modal End -->
 
 				<!-- Member Modal Start -->
-				<div class="modal fade" id="modalMember3" tabindex="-1">
+				<div class="modal fade" id="modalMemberCard" tabindex="-1">
 					<div class="modal-dialog">
 						<div class="modal-content border-0">
 
@@ -197,88 +211,22 @@
 									<div class="text-center">
 
 										<!-- Avatar -->
-										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
-											<img src="/resources/assets/media/avatars/08.jpg" alt="..." class="img-fluid rounded-circle">
+										<a class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
+											<img id="modalAvatar" src="" alt="..." class="img-fluid rounded-circle">
 										</a>
 										<!-- Title -->
 										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 윤영민</a>
+											<a id="modalName" class="text-reset"></a>
 										</h5>
 
 										<!-- Email -->
 										<p class="small text-muted mb-0">
-											<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com"> noah.pierre@mail.com</a>
+											<a id="modalEmail" class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">no registered email.</a>
 										</p>
 
 										<!-- Phone -->
 										<p class="small text-muted mb-3">
-											<a class="d-block text-reset text-truncate" href="#"> 010-1234-5678</a>
-										</p>
-
-
-										<!-- Split dropdown user button -->
-										<div class="btn-group">
-											<button type="button" class="btn btn-outline-gray text-body">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
-													<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-												Send Message
-											</button>
-											<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
-													<circle cx="12" cy="12" r="1"></circle>
-													<circle cx="12" cy="5" r="1"></circle>
-													<circle cx="12" cy="19" r="1"></circle></svg>
-											</button>
-											<ul class="dropdown-menu dropdown-menu-end" style="">
-												<li><a class="dropdown-item" href="#">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
-															<circle cx="12" cy="12" r="10"></circle>
-															<line x1="12" y1="16" x2="12" y2="12"></line>
-															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-														View detail
-													</a></li>
-												<li><a class="dropdown-item" href="#">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
-															<circle cx="12" cy="12" r="10"></circle>
-															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-														Block contact
-													</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="modalMember4" tabindex="-1">
-					<div class="modal-dialog">
-						<div class="modal-content border-0">
-
-							<div class="card">
-
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
-
-										<!-- Avatar -->
-										<a href="#!" class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
-											<img src="/resources/assets/media/avatars/03.jpg" alt="..." class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> 이건우</a>
-										</h5>
-
-										<!-- Email -->
-										<p class="small text-muted mb-0">
-											<a class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com"> noah.pierre@mail.com</a>
-										</p>
-
-										<!-- Phone -->
-										<p class="small text-muted mb-3">
-											<a class="d-block text-reset text-truncate" href="#"> 010-1234-5678</a>
+											<a id="modalNumber" class="d-block text-reset text-truncate" href="#">no registered number.</a>
 										</p>
 
 
@@ -337,6 +285,12 @@
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	
+	<form id="authListForm" method="post">
+		<input type="hidden" name="hymmSeq" id="hymmSeq">
+		<input type="hidden" name="hysmAuthCd" value="0">
+		<input type="hidden" name="hysmSeq" id="hysmSeq">
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -362,6 +316,68 @@
 
 		sidebarLink[5].className += ' current';
 	</script>
+	
+	<script type="text/javascript">
+	
+	function showModal(seq){
+		
+		$.ajax({
+			async: false
+			,cache: false
+			,type: "post"
+			,url: "/user/selectOneAjax"
+			,data : { "hymmSeq" : seq }
+			,success: function(data){
+				
+				if(data.uuidFileName != null){
+					$("#modalAvatar").attr("src", data.path + data.uuidFileName);
+				} else {
+					$("#modalAvatar").attr("src", "/resources/user/images/profileDefault.png");
+				}
+				
+				if(data.hymmName != null){
+					$("#modalName").text(data.hymmName);
+				}
+				if(data.hymmEmail != null){
+					$("#modalEmail").text(data.hymmEmail);
+					$("#modalEmail").attr("href", "#!mailto:" + data.hymmEmail);
+				}
+				if(data.hymmNumber != null){
+					$("#modalNumber").text(data.hymmNumber);
+				}
+				
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+		
+		
+		$("#modalMemberCard").modal('show');
+		
+	}
+	
+	</script>
+	
+	<script type="text/javascript">
+	
+	showDeleteModal = function(hysmSeq){
+		$("#hysmSeq").val(hysmSeq);
+	}
+	
+	$("#btnAuthDelete").on("click", function(){
+		$("#authListForm").attr("action", "/setting/authUpdt").submit();
+	});
+	
+	
+	goEdit = function(hymmSeq){
+		$("#hymmSeq").val(hymmSeq);
+		$("#authListForm").attr("action", "/setting/authEdit").submit();
+	}
+	
+	</script>
+	
+	
 
 </body>
 

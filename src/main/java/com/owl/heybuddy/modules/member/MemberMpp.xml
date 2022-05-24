@@ -118,6 +118,7 @@
 		, a.hyspName
 		, a.hyspColorCd
 		, b.hysmRoleCd
+		, b.hysmAuthCd
 
 		FROM hybdSpace a
 		LEFT JOIN hybdSpaceMember b ON  b.hyspSeq = a.hyspSeq
@@ -376,7 +377,9 @@
 		, a.hymmDob
 		, a.hymmDesc
 		, a.hymmActiveNy
+		, b.hysmSeq
 		, b.hysmRoleCd
+		, b.hysmAuthCd
 		, b.hysmAcceptedNy
 		, b.hysmExitNy
 		, c.uuidFileName
@@ -397,9 +400,13 @@
 		, a.hymmEmail
 		, a.hymmDob
 		, a.hymmDesc
+		, b.hysmSeq
 		, b.hysmRoleCd
+		, b.hysmAuthCd
 		, b.hysmAcceptedNy
 		, b.hysmExitNy
+		, c.path
+		, c.uuidFileName
 		
 		, a.regDateTime
 		, a.modDateTime
@@ -409,6 +416,10 @@
 		hybdSpaceMember b
 	ON 
 		b.hymmSeq = a.hymmSeq
+	LEFT JOIN 
+		hybdMemberUploaded c 
+	ON 
+		c.pseq = a.hymmSeq
 	WHERE 1=1
 		AND a.hymmSeq = #{hymmSeq}
 		AND b.hyspSeq = #{hyspSeq} 
@@ -533,6 +544,9 @@
 		hybdMember
 	WHERE 1=1
 		AND hymmEmail = #{hymmEmail}
+	ORDER BY 
+		hymmSeq DESC
+    LIMIT 1
 	</select>
 	<update id="updateMemberPwd">
 	UPDATE
@@ -543,4 +557,14 @@
 	WHERE 1=1
 		AND hymmSeq = #{hymmSeq}
 	</update>
+	
+	<update id="updateMemberAuth">
+	UPDATE
+		hybdSpaceMember
+	SET
+		hysmAuthCd = #{hysmAuthCd}
+	WHERE 1=1
+		AND hysmSeq = #{hysmSeq}
+	</update>
+	
 </mapper>

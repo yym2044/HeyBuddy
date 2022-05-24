@@ -29,4 +29,5 @@ public interface MemberService {
 	public int deleteMemberFromMySpace(MemberVo vo) throws Exception;
 	public Member selectOneMemberWithEmail(MemberVo vo) throws Exception;
 	public int updateMemberPwd(Member dto) throws Exception;
+	public int updateMemberAuth(Member dto) throws Exception;
 }

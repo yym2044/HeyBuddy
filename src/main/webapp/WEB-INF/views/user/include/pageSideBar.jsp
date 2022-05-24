@@ -88,7 +88,7 @@
 		<!--Aside-footer-->
 		<footer class="aside-footer position-relative p-3">
 			<ul class="nav flex-column collapse-group collapse d-flex">
-				<c:if test="${hostNy eq 1}">
+				<c:if test="${hostNy eq 1 or sessAuth ne 0}">
 					<li class="nav-item"><a href="/setting/space"
 						class="nav-link d-flex align-items-center text-truncate Sidebar-link">
 							<span class="sidebar-icon iconic"> <i data-feather="settings"

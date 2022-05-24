@@ -10,6 +10,7 @@ public class MemberVo {
 	// space
 	private String hyspSeq;
 	private String hyspName;
+	private String hysmSeq;
 
 	// common
 	private String shMemberOption;
@@ -632,6 +633,14 @@ public class MemberVo {
 		this.file1 = file1;
 	}
 
+	public String getHysmSeq() {
+		return hysmSeq;
+	}
+
+	public void setHysmSeq(String hysmSeq) {
+		this.hysmSeq = hysmSeq;
+	}
+	
 	
 	
 }

@@ -301,15 +301,33 @@
 	<select id="selectOneMySpaceHost" resultMap="resultMapObj">
 	
 	SELECT
-		hyspSeq
-		, hyspName
-		, hyspColorCd
-		, regDateTime
-		, modDateTime
+		a.hyspSeq
+        , c.hymmName
+        , c.hymmEmail
+        , d.path
+        , d.uuidFileName
+         
+		, a.hyspName
+		, a.hyspColorCd
+		, a.regDateTime
+		, a.modDateTime
 	FROM
-		hybdSpace
+		hybdSpace a
+	LEFT JOIN
+		hybdSpaceMember b
+	ON 
+		b.hyspSeq = a.hyspSeq
+        AND b.hysmRoleCd = 12
+	LEFT JOIN
+		hybdMember c
+	ON
+		c.hymmSeq = b.hymmSeq
+	LEFT JOIN
+		hybdMemberUploaded d
+	ON 
+		d.pseq = c.hymmSeq
 	WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+		AND a.hyspSeq = #{hyspSeq}
 	</select>
 
 </mapper>

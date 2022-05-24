@@ -16,4 +16,10 @@ public class ChatController {
 		return "user/chat/chat";
 	}
 
+	@RequestMapping(value = "/chat/chat2")
+	public String chat2() throws Exception {
+
+		return "user/chat/chat2";
+	}
+
 }

@@ -58,16 +58,17 @@
 	<!-- 그냥 plan 작동하기 위해서 selectList는 필수 넣어놔야되는거같음 없으면 애러-->
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			hyplName
-			,hyplDefaultNy
-			,hyplDelNy
-			,hyplDate
-			,hyplDesc
-			,hyplMemberName
+			a.hyplName
+			,a.hyplDefaultNy
+			,a.hyplDelNy
+			,a.hyplDate
+			,a.hyplDesc
+			,a.hyplMemberName
 		FROM
-			 hybdPlan
-		WHERE 
-			1 = 1
+			hybdPlan AS a
+		LEFT JOIN hybdSpace AS b ON a.hyspSeq = b.hyspSeq
+		WHERE 	1 = 1
+        	AND a.hyplDelNy = 0
 	</select>
 	
 	<select id="selectListMemberInSpace" resultMap="resultMapObj">
@@ -106,7 +107,7 @@
         LEFT JOIN hybdMember AS c
         	ON c.hymmSeq = a.hymmSeq
 		WHERE	1 = 1
-        	AND a.hyspSeq = #{hyspSeq}
+        	AND b.hyspSeq = #{hyspSeq}
         	AND a.hysmAcceptedNy = 1
 	</select>
 

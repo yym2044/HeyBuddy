@@ -134,9 +134,11 @@
 	INSERT INTO hybdMember(
 		hymmAdminNy
 		,hymmDormancyNy
+		,hymmName
 		,hymmId
 		,hymmPassword
 		,hymmEmail
+		,hymmZoomAccount
 		,hymmDelny
 		,regDateTime
 		,modDateTime
@@ -144,9 +146,11 @@
 		VALUES (
 		0
 		,0
+		,#{hymmName}
 		,#{hymmId}
 		,#{hymmPassword}
 		,#{hymmEmail}
+		,#{hymmZoomAccount}
 		,0
 		,now()
 		,now()

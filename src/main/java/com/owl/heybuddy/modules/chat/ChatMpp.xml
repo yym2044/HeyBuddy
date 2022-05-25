@@ -18,10 +18,8 @@
 
 		FROM hybdMember a
 		LEFT JOIN hybdSpaceMember b on b.hymmSeq = a.hymmSeq
-		LEFT
-		JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
-		LEFT JOIN hybdMemberUploaded
-		d on d.pseq = a.hymmSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		LEFT JOIN hybdMemberUploaded d on d.pseq = a.hymmSeq
 
 		WHERE 1=1
 		AND b.hysmAcceptedNy = '1'

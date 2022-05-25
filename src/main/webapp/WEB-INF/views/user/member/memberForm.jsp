@@ -99,21 +99,33 @@ body {
 
 								<!--Card-->
 								<div class="card card-body p-4" data-aos="fade-up"
-									data-aos-duration="1200">
-
-									
+									data-aos-duration="1200">										
+										
 										<div class="form-floating mb-3">
 											<input type="text" class="form-control" required=""
-												id="hymmId" name="hymmId" placeholder="John Doe"> <label
-												for="floatingInputName">Account</label> <span
+												id="hymmName" name="hymmName" placeholder="name@example.com">
+											<label for="hymmName">이름</label> <span
 												class="invalid-feedback">Please enter your name</span>
+										</div>
+										<div class="form-floating mb-3">
+											<input type="text" class="form-control" required=""
+												id="hymmId" name="hymmId" placeholder="name@example.com">
+											<label for="hymmId">아이디</label> <span
+												class="invalid-feedback">Please enter your ID</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="email" class="form-control" required=""
 												id="hymmEmail" name="hymmEmail" placeholder="name@example.com">
-											<label for="hymmEmail">Email address</label> <span
-												class="invalid-feedback">Please enter a valid email
+											<label for="hymmEmail">이메일</label> <span
+												class="invalid-feedback">Please enter a valid full email
 												address</span>
+										</div>
+										<div class="form-floating mb-3">
+											<input type="email" class="form-control" required=""
+												id="hymmZoomAccount" name="hymmZoomAccount" placeholder="name@example.com">
+											<label for="hymmZoomAccount">줌계정</label> <span
+												class="invalid-feedback">Please enter a valid zoom
+												account</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"

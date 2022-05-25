@@ -168,6 +168,7 @@
 		,hymmGenderCd
 		,hymmNumber
 		,hymmEmail
+		,hymmZoomAccount
 		,hymmDelny
 		,hymmDesc
 		,hymmSaveCd
@@ -189,6 +190,7 @@
 		,#{hymmGenderCd}
 		,#{hymmNumber}
 		,#{hymmEmail}
+		,#{hymmZoomAccount}
 		,0
 		,#{hymmDesc}
 		,#{hymmSaveCd}

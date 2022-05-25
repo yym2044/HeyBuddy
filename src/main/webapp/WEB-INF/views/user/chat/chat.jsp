@@ -400,104 +400,7 @@ p, dt {
 									</div>
 
 									<!--Chat sender-->
-									<div class="chat_in mb-4">
-										<!--Chat box-->
-										<div class="chat_content">
-											<!--More dropdown-->
-											<div
-												class="dropdown chat_dropdown position-absolute end-0 top-0 me-2 mt-1">
-												<a href="#" data-bs-toggle="dropdown"> <i
-													data-feather="chevron-down" class="fe-2x"></i>
-												</a>
-												<!-- <div class="dropdown-menu dropdown-menu-end">
-													<a href="#!" class="dropdown-item">Info</a> <a href="#!"
-														class="dropdown-item">Reply</a> <a href="#!"
-														class="dropdown-item">Forward</a> <a href="#!"
-														class="dropdown-item">Delete</a>
-												</div> -->
-											</div>
-											<div class="d-flex">
-												<!--text-->
-												<div class="chat_text">Hi Noah, 🙂</div>
-												<!--time-->
-												<div class="chat_time">
-													<span>12:33 PM</span>
-												</div>
-											</div>
-										</div>
-										<!--Chat box-->
-										<div class="chat_content">
-											<!--More dropdown-->
-											<div
-												class="dropdown chat_dropdown position-absolute end-0 top-0 me-2 mt-1">
-												<a href="#" data-bs-toggle="dropdown"> <i
-													data-feather="chevron-down" class="fe-2x"></i>
-												</a>
-												<!-- <div class="dropdown-menu dropdown-menu-end">
-													<a href="#!" class="dropdown-item">Info</a> <a href="#!"
-														class="dropdown-item">Reply</a> <a href="#!"
-														class="dropdown-item">Forward</a> <a href="#!"
-														class="dropdown-item">Delete</a>
-												</div> -->
-											</div>
-											<div class="d-flex">
-												<!--text-->
-												<div class="chat_text">Lorem ipsum is placeholder text
-													commonly used in the graphic, print, and publishing
-													industries for previewing layouts and visual mockups.</div>
-												<!--time-->
-												<div class="chat_time">
-													<span>12:34 PM</span>
-												</div>
-											</div>
-										</div>
-									</div>
 
-									<!--Chat Self-->
-									<div class="chat_out">
-										<!--Chat box-->
-										<div class="chat_content">
-											<!--More dropdown-->
-											<div
-												class="dropdown chat_dropdown position-absolute end-0 top-0 me-2 mt-1">
-												<a class="text-reset" href="#" data-bs-toggle="dropdown">
-													<i data-feather="chevron-down" class="fe-2x"></i>
-												</a>
-												<!-- <div class="dropdown-menu dropdown-menu-end">
-													<a href="#!" class="dropdown-item">Info</a> <a href="#!"
-														class="dropdown-item">Reply</a> <a href="#!"
-														class="dropdown-item">Forward</a> <a href="#!"
-														class="dropdown-item">Delete</a>
-												</div> -->
-											</div>
-											<div class="d-flex">
-												<!--text-->
-												<div class="chat_text">Hi Noah, 🙂</div>
-												<!--time-->
-												<div class="chat_time">
-													<span>12:33 PM</span>
-												</div>
-											</div>
-										</div>
-										<!--Chat box-->
-										<div class="chat_content">
-											<!--More dropdown-->
-											<!-- 	<div
-												class="dropdown chat_dropdown position-absolute end-0 top-0 me-2 mt-1">
-												<a class="text-reset" href="#" data-bs-toggle="dropdown">
-													<i data-feather="chevron-down" class="fe-2x"></i>
-												</a>
-												<div class="dropdown-menu dropdown-menu-end">
-													<a href="#!" class="dropdown-item">Info</a> <a href="#!"
-														class="dropdown-item">Reply</a> <a href="#!"
-														class="dropdown-item">Forward</a> <a href="#!"
-														class="dropdown-item">Delete</a>
-												</div>
-											</div> -->
-
-										</div>
-
-									</div>
 
 									<div class="card-body msg_card_body" id="bodyContent"></div>
 								</div>
@@ -541,6 +444,7 @@ p, dt {
 								</form>
 							</div>
 						</div>
+
 
 
 
@@ -631,6 +535,8 @@ p, dt {
 		sidebarLink[1].className += ' current';
 	</script>
 
+
+
 </body>
 </html>
 <script type="module">
@@ -685,29 +591,38 @@ const app = initializeApp(firebaseConfig);
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
         if(data.val().name != myName) {
-            var divData = '<div class="d-flex justify-content-start mb-4" id="fromDiv">\n' +
-                '                        <div class="img_cont_msg">\n' +
-                '                            <img src=""\n' +
-                '                                 class="rounded-circle user_img_msg">\n' +
-                '                        </div>\n' +
-                '                        <div class="msg_cotainer" >\n' +
-                '                            '+data.val().message+'' +
-                '                            <span class="msg_time"></span>\n' +
-                '                        </div>\n' +
-                '                    </div>';
+            var divData = 
+	'<div class="chat_in">\n' +
+		'<div class="chat_content">\n' +
+			'<div class="d-flex">\n' +
+				'<div class="chat_text">\n'+ 
+''+data.val().message+'' +
+'</div>\n' +
+				'<div class="chat_time">\n' +
+					'<span></span>\n' +
+				'</div>\n' +
+		'</div>\n' +
+'</div>\n' +
+	'</div>';
+
+
+
+
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }else{
-            var divData = '<div class="d-flex justify-content-end mb-4">\n' +
-                '                        <div class="msg_cotainer_send" id="sendDiv">\n' +
-                '                            '+data.val().message+'' +
-                '                            <span class="msg_time_send">8:55 AM, Today</span>\n' +
-                '                        </div>\n' +
-                '                        <div class="img_cont_msg">\n' +
-                '                            <img src=""\n' +
-                '                                 class="rounded-circle user_img_msg">\n' +
-                '                        </div>\n' +
-                '                    </div>';
+            var divData = '<div class="chat_out">\n' +
+		'<div class="chat_content">\n' +
+			'<div class="d-flex">\n' + 
+				'<div class="chat_text">\n'+ 
+''+data.val().message+'' +
+'</div>\n' +
+				'<div class="chat_time">\n' +
+					'<span></span>\n' +
+				'</div>\n' +
+		'</div>\n' +
+'</div>\n' +
+	'</div>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }

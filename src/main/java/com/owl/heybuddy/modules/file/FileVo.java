@@ -14,7 +14,7 @@ public class FileVo {
 		private String hydcTitle;
 		private String hydcText;
 		private Integer hydcDelNy;
-		
+		 
 		
 		// 스페이스
 

@@ -41,7 +41,7 @@ public class FileDao {
 	}
 	public File documentView(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentView", vo); // 문서뷰
-	}
+	}   
 	public File documentViewTemp(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentViewTemp", vo); // 임시 문서뷰
 	}

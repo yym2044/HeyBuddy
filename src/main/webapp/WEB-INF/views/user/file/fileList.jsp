@@ -438,7 +438,7 @@ var userList = new List('mailList', options);
 			$("#hymmSeq").val(hymmSeq);
 			$("#formList").attr("action", "/file/fileView");
 			$("#formList").submit();
-		};
+		}; 
 		goFileForm = function(seq) {
 			$("#formList").attr("action", "/file/fileForm");
 			$("#formList").submit();

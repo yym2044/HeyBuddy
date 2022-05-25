@@ -29,7 +29,7 @@ public class FileServiceImpl implements FileService {
 	@Override
 	public List<File> documentListTemp(FileVo vo) throws Exception { //임시문서리스트
 		return dao.documentListTemp(vo);
-	}
+	} 
 	@Override
 	public int selectOneCount(FileVo vo) throws Exception {   //문서검색
 		return dao.selectOneCount(vo);

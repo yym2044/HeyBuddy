@@ -286,7 +286,7 @@
 			alert(seq);
 			$("#thisPage").val(seq);
 			$("#formList").submit();
-		};
+		}; 
 
 		goFileView = function(hydcSeq, hymmSeq) {
 			alert(hymmSeq + "번 멤버가 올린 문서 " + hydcSeq + "번");

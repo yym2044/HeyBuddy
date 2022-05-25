@@ -14,7 +14,7 @@ import com.owl.heybuddy.modules.member.MemberVo;
 public interface FileService { 
 
 
-	
+	 
 	int selectOneCount(FileVo vo) throws Exception;    //문서검색
 	public List<File> documentList(FileVo vo) throws Exception; //문서리스트
 	public List<File> documentListTemp(FileVo vo) throws Exception; //임시저장 문서리스트

@@ -287,48 +287,66 @@ p, dt {
 
 
 
-										<c:forEach items="${list}" var="item" varStatus="status">
-											<!--Chat User-->
-											<a href=""
-												class="list-group-item align-items-center active border-0 list-group-item-action px-3 d-flex py-3">
-												<div class="flex-shrink-0">
-													<div class="avatar-status status-online me-3 avatar">
-														<c:choose>
-															<c:when test="${empty item.uuidFileName}">
-																<img style="width: 100%; height: 100%;"
-																	src="/resources/user/images/profileDefault.png"
-																	class="flex-shrink-0 rounded-3 width-80" alt="">
+
+
+
+										<div class="list-group list-group-flush mb-0">
+
+											<c:forEach items="${list}" var="item" varStatus="status">
+												<!--Chat User-->
+												<a href="#!"
+													class="list-group-item align-items-center active border-0 list-group-item-action px-3 d-flex py-3">
+													<div class="flex-shrink-0">
+														<div class="avatar-status status-online me-3 avatar">
+															<c:choose>
+																<c:when test="${empty item.uuidFileName}">
+																	<img style="width: 100%; height: 100%;"
+																		src="/resources/user/images/profileDefault.png"
+																		class="flex-shrink-0 rounded-3 width-80" alt="">
+																</c:when>
+																<c:otherwise>
+																	<img style="width: 100%; height: 100%;"
+																		src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
+																		class="flex-shrink-0 rounded-3 width-80" alt="">
+																</c:otherwise>
+															</c:choose>
+														</div>
+													</div>
+													<div class="overflow-hidden flex-grow-1">
+														<div class="d-flex">
+															<h6 class="mb-0 flex-grow-1">
+																<c:out value="${item.hymmName}" />
+																<!--New message badge-->
+																<span
+																	class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
+															</h6>
+															<small class="opacity-75 ms-auto small"><c:choose>
+															<c:when test="${item.hymmSeq eq sessSeq}">
+																<span class="badge rounded-pill bg-primary">ME</span>
 															</c:when>
 															<c:otherwise>
-																<img style="width: 100%; height: 100%;"
-																	src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
-																	class="flex-shrink-0 rounded-3 width-80" alt="">
+
 															</c:otherwise>
-														</c:choose>
+														</c:choose></small>
+														</div>
+													
 													</div>
-												</div>
-												<div class="overflow-hidden flex-grow-1">
-													<div class="d-flex">
-														<h6 class="mb-0 flex-grow-1">
+												</a>
 
-															<!--New message badge-->
-															<span
-																class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
-														</h6>
-														<small class="opacity-75 ms-auto small">12:24 PM</small>
-													</div>
-													<p class="mb-0 text-truncate">
-														<span><c:out value="${item.hymmName}" /></span>
-													</p>
-												</div>
+											</c:forEach>
+
+
+
+
+
+
+											<!--Load more button-->
+											<a href="#!"
+												class="list-group-item px-3 align-items-center justify-content-center list-group-item-action d-flex py-3">
+												<span>Load more</span>
 											</a>
-										</c:forEach>
+										</div>
 
-										<!--Load more button-->
-										<a href="#!"
-											class="list-group-item px-3 align-items-center justify-content-center list-group-item-action d-flex py-3">
-											<span>Load more</span>
-										</a>
 									</div>
 								</div>
 

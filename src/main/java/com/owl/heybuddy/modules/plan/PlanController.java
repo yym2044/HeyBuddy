@@ -25,8 +25,6 @@ public class PlanController {
 	public String planList(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model, HttpSession httpSession) throws Exception {
 		
 		
-		List<Plan> list = service.selectList(vo);
-		model.addAttribute("list", list);
 		
 		System.out.println("############일정 #########");
 		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
@@ -55,7 +53,8 @@ public class PlanController {
 			
 		 model.addAttribute("selectListMember", selectListMember); 
 	
-		 
+//			List<Plan> list = service.selectList(vo);
+//			model.addAttribute("list", list);
 		 
 		return "user/plan/planList";
 	}
@@ -95,7 +94,7 @@ public class PlanController {
 		
 		redirectAttributes.addFlashAttribute("vo", vo);
 		
-		return "redirect:/plan/planView";
+		return "redirect:/plan/planList";
 	}
 	
 	@RequestMapping(value = "/plan/planView")
@@ -137,9 +136,14 @@ public class PlanController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/plan/planListAjax")
-	public List<Plan> planListAjax(PlanVo vo) throws Exception {
+	public List<Plan> planListAjax(PlanVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		
 		List<Plan> planList = service.selectList(vo);
+		
+		System.out.println("getHyspSeq : " + vo.getHyspSeq());
+		
 		
 		return planList;
 		

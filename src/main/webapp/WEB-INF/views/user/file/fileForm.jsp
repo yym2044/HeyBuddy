@@ -152,7 +152,7 @@
 								<!--Attachment image-->
 								<div class="row">
 									<div class="col-md-12 mb-3">
-										<label for="file0" class="form-label input-file-button"> 첨부파일 수정중 <i data-feather="paperclip" class="fe-1x "></i>
+										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
 										</label>
 										<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
 										
@@ -163,13 +163,15 @@
 										</div>
 									</div>
 								</div>
-
+								<!--Attachment image-->
+								
+								
 							</div>
 							<div class="row text-center" style="width: 100%">
 								<div style="width: 100%; float: none; margin: 0 auto">
 
 									<a href="javascript:goFileListTemp();">
-										<button type="button" class="btn btn-outline-secondary">임시저장</button>
+										<button type="submit" class="btn btn-outline-secondary">임시저장</button>
 									</a>
 
 									<button type="submit" class="btn btn-primary ms-2" id="btnSubmit">등록</button>
@@ -219,25 +221,7 @@
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
-	<!--Compose message editor-->
-	<!--  <script src="assets/vendor/quill.min.js"></script>
-<script>
-    var initQuill = document.querySelectorAll("[data-quill]");
-    initQuill.forEach((qe) => {
-        const qt = {
-            ...(qe.dataset.quill ? JSON.parse(qe.dataset.quill) : {}),
-            modules: {
-                toolbar: [
-                [{ header: [1, 2, false] }],
-                    ["bold", "underline"],
-                    ["link", "image"]
-                ]
-            },
-            theme: "snow"
-        };
-        new Quill(qe, qt);
-    });
-</script>  -->
+
 
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.owl.heybuddy.modules.member.Member;
 import com.owl.heybuddy.modules.member.MemberVo;
 
 @Controller
@@ -75,11 +76,13 @@ public class FileController {
 	public String fileEdit(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession)
 			throws Exception {
 
-		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("fileUploaded", service.fileUploaded(vo)); // 파일
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHydcSeq((String) httpSession.getAttribute("hydcSeq"));
+
 		return "user/file/fileEdit";
 	}
 
@@ -87,6 +90,8 @@ public class FileController {
 	public String fileUpdt(File dto, FileVo vo, RedirectAttributes redirectAttributes, HttpSession httpSession)
 			throws Exception {
 		dto.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		dto.setHydcSeq((String) httpSession.getAttribute("hydcSeq"));
+		
 		service.updateDocument(dto);
 
 		redirectAttributes.addFlashAttribute("vo", vo);
@@ -96,13 +101,9 @@ public class FileController {
 	@RequestMapping(value = "/file/fileListTemp") // 임시저장 문서 리스트
 	public String fileListTemp(@ModelAttribute("vo") FileVo vo, Model model, HttpSession httpSession) throws Exception {
 
-		if (vo.getHyspSeq() != null) {
-			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
+		if (vo.getHyspSeq() == null) {
+			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		}
-		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		vo.setHymmName((String) httpSession.getAttribute("sessName"));
-		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
 
 		List<File> selectListMember = service.selectListMemberInSpace(vo);
 		model.addAttribute("selectListMember", selectListMember);
@@ -117,15 +118,19 @@ public class FileController {
 		}
 		return "user/file/fileListTemp";
 	}
+	
+
 
 	@RequestMapping(value = "/file/fileViewTemp") // 임시저장 문서 학인
-	public String fileViewTemp(@ModelAttribute("vo") FileVo vo, MemberVo mo, Model model) throws Exception {
-		File rt = service.documentView(vo);
+	public String fileViewTemp(@ModelAttribute("vo") FileVo vo, MemberVo mo, File dto, Model model, HttpSession httpSession) throws Exception {
+		File rt = service.documentViewTemp(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("fileUploaded", service.fileUploaded(vo)); // 파일
 		return "user/file/fileViewTemp";
 	}
 
+
+	
 	@RequestMapping(value = "/file/fileEditTemp") // 문서 임시저장 등록페이지(수정개념)
 	public String fileEditTemp(@ModelAttribute("vo") FileVo vo, Model model) throws Exception {
 		File rt = service.documentView(vo);
@@ -142,6 +147,8 @@ public class FileController {
 		return "redirect:/file/fileView";
 	}
 
+
+	
 	@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제
 	public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		String[] checkboxSeqArray = vo.getCheckboxSeqArray();

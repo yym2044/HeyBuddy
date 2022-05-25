@@ -27,7 +27,7 @@ public class FileServiceImpl implements FileService {
 		return dao.documentList(vo);
 	}
 	@Override
-	public List<File> documentListTemp(FileVo vo) throws Exception {
+	public List<File> documentListTemp(FileVo vo) throws Exception { //임시문서리스트
 		return dao.documentListTemp(vo);
 	}
 	@Override
@@ -38,11 +38,14 @@ public class FileServiceImpl implements FileService {
 	public File documentView(FileVo vo) throws Exception { //문서뷰
 		return dao.documentView(vo);
 	}
+	public File documentViewTemp(FileVo vo) {  //임시문서 뷰
+		return dao.documentViewTemp(vo);
+	}
+
 	@Override
 	public Member profileUploaded(MemberVo mo) throws Exception { //회원사진
 		return dao.profileUploaded(mo);
 	}
-	
 	@Override
 	public List<File> fileUploaded(FileVo vo) throws Exception { //파일뷰
 		return dao.fileUploaded(vo);

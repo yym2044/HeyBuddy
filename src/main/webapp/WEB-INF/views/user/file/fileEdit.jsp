@@ -40,7 +40,7 @@
 <style>
 .addScroll {
 	overflow-y: auto;
-	height: 90px;
+	height: 180px;
 	background-color: gainsboro;
 }
 
@@ -49,7 +49,6 @@
 	cursor: pointer;
 }
 </style>
-
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 
 <body>
@@ -75,26 +74,27 @@
 
 
 				<!--//Page Toolbar//-->
-				<div class="toolbar py-4 px-4 px-lg-8">
+<!-- 				<div class="toolbar py-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-4 mb-lg-0">
 								<h3 class="mb-2">문서</h3>
-
-
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!--//Page Toolbar End//-->
 
 				<form id="formEdit" name="formEdit" method="post"
 					action="/file/fileUpdt" enctype="multipart/form-data">
 
 					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}"/>"> <input
+						value="<c:out value="${vo.thisPage}"/>"> 
+						<input
 						type="hidden" id="hydcSeq" name="hydcSeq"
-						value="<c:out value="${vo.hydcSeq}"/>"> <input
+						value="<c:out value="${vo.hydcSeq}"/>"> 
+						<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
+						<input
 						type="hidden" id="shHydcDelNy" name="shHydcDelNy"
 						value="<c:out value="${vo.shHydcDelNy}"/>"> <input
 						type="hidden" id="shHydcTitle" name="shHydcTitle"
@@ -112,14 +112,9 @@
 							class="d-flex align-items-center pb-2 flex-row justify-content-between">
 
 							<div class="flex-grow-1">
-
-
-
-
-
 								<a
 									href="javascript:goFileView('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
-									data-bs-placement="top" data-bs-toggle="tooltip" title="리스트"
+									data-bs-placement="top" data-bs-toggle="tooltip" title="돌아가기"
 									class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 									<i data-feather="arrow-left" class="fe-1x me-lg-1"></i> <span
 									class="d-none d-lg-inline-block">Back</span>
@@ -130,6 +125,9 @@
 
 						</div>
 					</div>
+					<!--Email Header-->
+									
+									
 					<!--Inbox Details-->
 					<div class="px-4 position-relative px-lg-8 mb-4 h-100 flex-grow-1">
 						<div class="card h-100">
@@ -137,38 +135,36 @@
 								<div class="row justify-content-md-between">
 
 
-									<div class="flex-1 ms-2">
-										<h5 class="mb-0">
-											<input type="text" class="form-control" name="hydcTitle"
-												value="<c:out value="${item.hydcTitle}"/>" required>
-										</h5>
+											<div class="col-md-12 mb-3">
+												제목
+												<input type="text" class="form-control" name="hydcTitle" placeholder="" 	value="<c:out value="${item.hydcTitle}"/>" required>
+												<div class="invalid-feedback">제목을 입력해주세요.</div>
+											</div>
 
-									</div>
-
-
-								</div>
-							</div>
-							<div class="card-body flex-grow-1">
-								<input type="text" class="form-control" name="hydcText"
-									value="<c:out value="${item.hydcText}"/>" required>
-
-								<hr>
-
-								<div class="d-flex flex-wrap"></div>
-
+											<div class="col-md-12 mb-3">
+												<div class="form-floating">
+													내용
+													<input type="text" class="form-control" style="height: 100px" autocomplete="off" id="hydcText" name="hydcText" value="<c:out value="${item.hydcText}"/>" required>
+													<div class="invalid-feedback">내용을 입력해주세요.</div>
+												</div>
+											</div>
+											
+								
 								<!--Attachment image-->
 								<div class="row">
 									<div class="col-md-12 mb-3">
-										<label for="file0" class="form-label input-file-button">첨부파일
-											<i data-feather="paperclip" class="fe-1x "></i>
-										</label> <input class="form-control" id="file0" name="file0"
-											type="file" multiple="multiple" style="display: none;"
-											onChange="upload(0,2);">
+										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
+										</label>
+										<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
+										
+										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);">
+										
 										<div class="addScroll">
 											<ul id="ulFile0" class="list-group"></ul>
 										</div>
 									</div>
 								</div>
+								<!--Attachment image-->
 
 
 								<div class="row text-center" style="width: 100%">

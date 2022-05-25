@@ -98,9 +98,24 @@
         ON b.hymmSeq = a.hymmSeq
 		where 1=1
 		and hydcDelNy = 0
+		and hydcTempNy = 0
 		and hydcSeq = #{hydcSeq}
 	</select>
 	
+	 	<select id="documentTempView" resultMap="resultMapObj">   <!-- 임시저장문서뷰 셀렉원 -->
+		select
+		*
+		,b.hymmName
+		,b.hymmEmail
+		from
+		hybdDocument a
+		LEFT JOIN hybdMember AS b
+        ON b.hymmSeq = a.hymmSeq
+		where 1=1
+		and hydcDelNy = 0
+		and hydcTempNy = 1
+		and hydcSeq = #{hydcSeq}
+	</select>
 	
 		<select id="profileUploaded" resultMap = "resultMapObj"> <!-- 프로필뷰 -->
 		SELECT
@@ -203,7 +218,7 @@
 		UPDATE hybdDocument SET
 		hydcTitle  =  #{hydcTitle}
 		,hydcText =  #{hydcText}
-		,hydcDelny =  0
+		,hydcTempNy =  0
 		,hydcDesc = #{hydcDesc}
 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}

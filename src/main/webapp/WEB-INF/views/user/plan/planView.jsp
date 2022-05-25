@@ -117,11 +117,12 @@
                     <div class="main_div mb-4">
 						<h4 style="text-align: center;">📌일정상세</h4>			
 						<br>			
+						<div class="row container">
                     	<h5>제목</h5>
-                    	<input class="form-control mb-3" type="text" id="" name=""  placeholder="일정 제목을 입력해주세요">
-                    	<br>
+                    	<input class="form-control" style="width: 130px;"  type="text" id="" name=""  placeholder="일정 제목을 입력해주세요">
                     	<h5>일정내용</h5> 
-                    	<input class="form-control mb-3" type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
+                    	<input class="form-control" style="width: 130px;"  type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
+                    	</div>
                     	<br> 
                     	<h5>기한</h5>
                     	<a class="form-control mb-3" type="text" id="" name=""  placeholder="기한을 등록해주세요" readOnly><img src="/resources/user/images/calendar.png" style="width: 50px; height: 50px;"></a>

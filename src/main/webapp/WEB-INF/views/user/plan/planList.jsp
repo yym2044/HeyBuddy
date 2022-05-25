@@ -216,20 +216,17 @@
 		var cDark = "var(--bs-gray-700)";
 		var cLight = "var(--bs-gray-100)";
 		// Example events
-		const currentMonth = ('0' + (new Date().getMonth() + 1)).slice(-2)
+		const currentMonth = ('0' + (new Date().getMonth() + 1)).slice(-2) /*  뒤에 00 표시하기위한 기능	*/
 		const currentYear = new Date().getFullYear()
 		
 		const exampleEvents = [ {
+			seq : '6',
 			title : '고추참치',
 			start : '2022-05-01 00:00:00',
 			backgroundColor : cGreen,
 			borderColor : cGreen,
 		}, {
-			title : '아기상어',
-			start : '2022-05-02',
-			backgroundColor : cGreen,
-			borderColor : cGreen,
-		}, {
+			seq : '5',
 			title : '아빠상어',
 			start : '2022-05-03',
 			end : '2022-05-06',
@@ -248,6 +245,7 @@
 					
 					const obj = new Object();
 					
+					obj.seq = data[i].hyplSeq;
 					obj.title = data[i].hyplName;
 					obj.start = data[i].hyplDate;
 					obj.backgroundColor = "var(--bs-success)";

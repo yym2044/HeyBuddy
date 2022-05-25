@@ -30,6 +30,8 @@
 			<exclude-mapping path="/login/xdminLogin" />
 			<exclude-mapping path="/member/loginProc" />
 			<exclude-mapping path="/member/logoutProc" />
+			<exclude-mapping path="/user/memberForm" />
+			<exclude-mapping path="/user/memberSignUp" />
 			<exclude-mapping path="/rest/**" />
 			<beans:bean id="checkLoginSessionInterception" class="com.owl.heybuddy.common.interceptor.CheckLoginSessionInterception"/>
 		</interceptor>

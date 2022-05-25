@@ -591,38 +591,33 @@ const app = initializeApp(firebaseConfig);
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
         if(data.val().name != myName) {
-            var divData = 
-	'<div class="chat_in">\n' +
-		'<div class="chat_content">\n' +
-			'<div class="d-flex">\n' +
-				'<div class="chat_text">\n'+ 
-''+data.val().message+'' +
-'</div>\n' +
-				'<div class="chat_time">\n' +
-					'<span></span>\n' +
-				'</div>\n' +
-		'</div>\n' +
-'</div>\n' +
-	'</div>';
-
-
-
-
-            var d1 = document.getElementById('bodyContent');
+            var divData = '<div class="chat_in">\n' +
+						'<div class="chat_content">\n' +
+						'<div class="d-flex">\n' +
+						'<div class="chat_text">\n'+ 
+						''+data.val().message+'' +
+						'</div>\n' +
+						'<div class="chat_time">\n' +
+						'<span>'+data.val().name+'</span>\n' +
+						'</div>\n' +
+						'</div>\n' +
+						'</div>\n' +
+						'</div>';
+			var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }else{
             var divData = '<div class="chat_out">\n' +
-		'<div class="chat_content">\n' +
-			'<div class="d-flex">\n' + 
-				'<div class="chat_text">\n'+ 
-''+data.val().message+'' +
-'</div>\n' +
-				'<div class="chat_time">\n' +
-					'<span></span>\n' +
-				'</div>\n' +
-		'</div>\n' +
-'</div>\n' +
-	'</div>';
+						'<div class="chat_content">\n' +
+						'<div class="d-flex">\n' + 
+						'<div class="chat_text">\n'+ 
+						''+data.val().message+'' +
+						'</div>\n' +
+						'<div class="chat_time">\n' +
+						'<span>'+data.val().name+'</span>\n' +
+						'</div>\n' +
+						'</div>\n' +
+						'</div>\n' +
+						'</div>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }

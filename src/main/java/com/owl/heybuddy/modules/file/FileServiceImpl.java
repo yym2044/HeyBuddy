@@ -39,12 +39,12 @@ public class FileServiceImpl implements FileService {
 		return dao.documentView(vo);
 	}
 	@Override
-	public Member profileUploaded(MemberVo vo) throws Exception { //회원사진
-		return dao.profileUploaded(vo);
+	public Member profileUploaded(MemberVo mo) throws Exception { //회원사진
+		return dao.profileUploaded(mo);
 	}
 	
 	@Override
-	public File fileUploaded(FileVo vo) throws Exception { //파일뷰
+	public List<File> fileUploaded(FileVo vo) throws Exception { //파일뷰
 		return dao.fileUploaded(vo);
 	}
 
@@ -67,34 +67,21 @@ public class FileServiceImpl implements FileService {
 
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0()) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
 			
 			UtilUpload.uploadFile(multipartFile, pathModule, dto);
 
 			dto.setTableName("hybdFileUploaded");
-			dto.setType(0);
+//			dto.setType(0);
 			dto.setDefaultNy(0);
 			dto.setSort(j);
-			dto.setPseq(dto.getHymmSeq());
+			dto.setPseq(dto.getHydcSeq());
 			
 			dao.insertUploaded(dto);
 
 			j++;
 		}
-		    j = 0;
-			for(MultipartFile multipartFile : dto.getFile1()) {
-				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace ("serviceimpl", "");
-				
-			UtilUpload.uploadFile(multipartFile, pathModule, dto);
-
-				dto.setTableName("hybdFileUploaded");
-				dto.setType(1);
-				dto.setDefaultNy(0);
-				dto.setSort(j);
-				dto.setPseq(dto.getHymmSeq());
-				 
-				j++;
-	}
+		
 		return 1;
 	}
 		

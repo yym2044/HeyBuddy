@@ -33,7 +33,7 @@
 
 	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
 		select
-		*
+		a.*
 		,b.hymmName
 		,b.hymmEmail
 		,b.hymmNumber
@@ -125,7 +125,9 @@
 	<insert id="insertDocument">  <!-- 문서등록 -->
 		INSERT INTO hybdDocument(
 		hydcTitle
+		,hymmSeq
 		,hydcText
+		,hydcTempNy
 		,hydcDelNy
 <!-- 		,regIp
 		,regSeq
@@ -136,7 +138,9 @@
 		)
 		VALUES(
 		#{hydcTitle}
+		,#{hymmSeq}
 		,#{hydcText} 
+		,0
 		,0
 <!-- 		,#{regIp}
 		,#{regSeq}

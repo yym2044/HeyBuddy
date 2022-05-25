@@ -1,8 +1,4 @@
 
-document.write("<script src='/resources/common/js/common.js'></script>");
-document.write("<script src='/resources/xdmin/js/commonXdmin.js'></script>");
-document.write("<script src='/resources/xdmin/js/constantsXdmin.js'></script>");
-
 /*checkUploadedTotalFileNumber = function(totalSize, seq){
 	if(totalSize > MAX_TOTAL_FILE_NUMBER){
 		alert("전체 파일 갯수는 5개까지 허용됩니다.");
@@ -22,6 +18,15 @@ checkUploadedTotalFileNumber = function(fileCount, seq) {
 checkUploadedImageExt = function(obj, seq){
 	var ext = obj.split('.').pop().toLowerCase();
 	if(extArrayImage.indexOf(ext) == -1){
+		alert("허용된 확장자가 아닙니다.");
+		$("#file"+seq).val("");
+		return false;
+	}
+}
+
+checkUploadedFileExt = function(obj, seq){
+	var ext = obj.split('.').pop().toLowerCase();
+	if(extArrayFile.indexOf(ext) == -1){
 		alert("허용된 확장자가 아닙니다.");
 		$("#file"+seq).val("");
 		return false;

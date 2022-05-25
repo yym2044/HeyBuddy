@@ -42,11 +42,11 @@ public class FileDao {
 	public File documentView(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentView", vo); // 문서뷰
 	}
-	public Member profileUploaded(MemberVo vo) {
-		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
+	public Member profileUploaded(MemberVo mo) {
+		return sqlSession.selectOne(namespace + ".profileUploaded", mo); // 회원사진 확인
 	}
-	public File fileUploaded(FileVo vo) {
-		return sqlSession.selectOne(namespace + ".fileUploaded", vo); // 파일확인
+	public List<File> fileUploaded(FileVo vo) {
+		return sqlSession.selectList(namespace + ".fileUploaded", vo); // 파일확인
 	}
 	public Member selectOneSpace(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneSpace", vo);

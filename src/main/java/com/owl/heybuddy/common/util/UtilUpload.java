@@ -14,7 +14,6 @@ import com.owl.heybuddy.modules.mySpace.MySpace;
 
 public class UtilUpload {
 
-	
 	/* 멤버 프로필사진업로드 */
 	
 	public static void uploadProfile(MultipartFile multipartFile, String className, Member dto) throws Exception {
@@ -94,7 +93,7 @@ public class UtilUpload {
 				+ nowString.substring(8, 10);
 		String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
 
-		createPath2(path);
+		createPath(path);
 
 		multipartFile.transferTo(new File(path + uuidFileName));
 
@@ -103,23 +102,22 @@ public class UtilUpload {
 		dto.setUuidFileName(uuidFileName);
 		dto.setExt(ext);
 		dto.setSize(multipartFile.getSize());
-
-	}
-	
-	 public static void createPath2 (String path) { 
-		 File uploadPath = new File(path);
-	 
-	 if (!uploadPath.exists()) { 
-		 uploadPath.mkdir(); 
-		 } else {// by pass } }
-	 
-	 }
-
-}
-
-
-
+		
+		String[] extArrayFile = {"txt","pdf","hwp","doc","docx","xls","xlsx","ppt","pptx"};
+		int temp = 0;
+		
+		for(int i = 0 ; i < extArrayFile.length ; i++) {
+			
+			if(ext.equals(extArrayFile[i])) {
+				temp++;
+			}
+			
+		}
+		
+		dto.setType(temp);
 		
 	}
+	
+}
 
 

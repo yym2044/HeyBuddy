@@ -5,7 +5,7 @@
 	<div class="card py-2">
 		<!--Account nav-->
 		<ul class="nav nav-tabs nav-vertical h-100">
-			<c:if test="${sessAuth eq 1 or sessAuth eq 2 or sessAuth eq 3 or sessAuth eq 5}">
+			<c:if test="${sessAuth eq 1 or sessAuth eq 2 or sessAuth eq 3 or sessAuth eq 5 or hostNy eq 1}">
 				<li class="nav-item"><a href="#component-forms1" data-bs-toggle="collapse" aria-expanded="false" class="nav-link d-flex align-items-center text-truncate fw-bold">
 						<i class="bi bi-sliders2-vertical align-middle me-2"></i>스페이스 환경
 					</a>

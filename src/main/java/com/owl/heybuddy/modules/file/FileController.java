@@ -29,7 +29,7 @@ public class FileController {
 
 		List<File> selectListMember = service.selectListMemberInSpace(vo);
 		model.addAttribute("selectListMember", selectListMember);
-
+	
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
@@ -44,6 +44,8 @@ public class FileController {
 	@RequestMapping(value = "/file/fileView") // 문서확인
 	public String fileView(@ModelAttribute("vo") FileVo vo, MemberVo mo, File dto, Model model, HttpSession httpSession) throws Exception {
 
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq")); //다른사람이올린문서수정삭제안되게구분하려고..
+		
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 //		model.addAttribute("uploaded", service.profileUploaded(mo)); // 멤버사진	임시로 주석 (05.24)

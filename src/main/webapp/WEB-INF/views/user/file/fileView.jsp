@@ -118,7 +118,7 @@ pageContext.setAttribute("br", "\n");
 									class="d-none d-lg-inline-block">Back</span>
 								</a>
 
-								<div class="btn-group btn-group-sm">
+							
 									<a
 										href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
@@ -126,14 +126,17 @@ pageContext.setAttribute("br", "\n");
 										class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 										<i class="bi bi-trash-fill" data-bs-toggle="modal"
 										data-bs-target="#btnModalNelete"></i>
-									</a> <a
+									</a> 
+									
+						    	<c:if test="${item.hymmSeq eq sessSeq}"> 			
+									<a
 										href="javascript:goFileEdit('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
 										data-bs-placement="top" data-bs-toggle="tooltip" title="수정"
 										class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 										<i class="bi bi-pencil-fill"></i>
 									</a>
-
+						 		</c:if> 
 
 									<div class="modal fade" id="btnModalNelete" tabindex="-1"
 										aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -161,7 +164,7 @@ pageContext.setAttribute("br", "\n");
 											</div>
 										</div>
 									</div>
-								</div>
+							
 							</div>
 						</div>
 					</div>

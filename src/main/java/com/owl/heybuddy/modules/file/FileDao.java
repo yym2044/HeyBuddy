@@ -45,7 +45,9 @@ public class FileDao {
 	public File documentViewTemp(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".documentViewTemp", vo); // 임시 문서뷰
 	}
-
+	public File selectOneMenu(FileVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneMenu", vo); // 메뉴달라짐
+	}
 	public Member profileUploaded(MemberVo mo) {
 		return sqlSession.selectOne(namespace + ".profileUploaded", mo); // 회원사진 확인
 	}
@@ -79,6 +81,4 @@ public class FileDao {
 		return sqlSession.update(namespace + ".updateDeleteDocument", vo); // 가짜삭제
 	}
 
-
-	
 }

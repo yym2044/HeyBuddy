@@ -14,16 +14,11 @@ public class FileVo {
 		private String hydcTitle;
 		private String hydcText;
 		private Integer hydcDelNy;
-		 
 		
 		// 스페이스
-
 		private String hysmSeq;
 		private String hyspName;
 
-		
-		
-	
 		// RegMod
 		private String regIp;
 		private String regSeq;

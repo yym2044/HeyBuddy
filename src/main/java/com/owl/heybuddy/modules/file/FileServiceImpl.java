@@ -41,7 +41,9 @@ public class FileServiceImpl implements FileService {
 	public File documentViewTemp(FileVo vo) {  //임시문서 뷰
 		return dao.documentViewTemp(vo);
 	}
-
+	public File selectOneMenu(FileVo vo)  throws Exception {  // 메뉴달라짐
+		return dao.selectOneMenu(vo);
+	}
 	@Override
 	public Member profileUploaded(MemberVo mo) throws Exception { //회원사진
 		return dao.profileUploaded(mo);

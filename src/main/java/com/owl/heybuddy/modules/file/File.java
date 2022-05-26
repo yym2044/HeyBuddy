@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class File { 
  
 
+	// document
 	private String hydcSeq;
 	private String hyspSeq;
 	private String hymmSeq;
@@ -70,7 +71,6 @@ public class File {
 	
 	// hybdSpaceMember
 	private Integer hysmRoleCd;
-	
 	
 
 	

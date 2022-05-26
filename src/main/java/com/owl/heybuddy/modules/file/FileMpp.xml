@@ -102,7 +102,7 @@
 		and hydcSeq = #{hydcSeq}
 	</select>
 	
-	 	<select id="documentTempView" resultMap="resultMapObj">   <!-- 임시저장문서뷰 셀렉원 -->
+	 	<select id="documentViewTemp" resultMap="resultMapObj">   <!-- 임시저장문서뷰 셀렉원 -->
 		select
 		*
 		,b.hymmName
@@ -194,6 +194,38 @@
 		,#{pseq}
 		,#{path}
 		)
+</insert>
+
+	<insert id="insertDocumentTemp">  <!--임시저장 문서등록 -->
+		INSERT INTO hybdDocument(
+		hydcTitle
+		,hymmSeq
+		,hydcText
+		,hydcTempNy
+		,hydcDelNy
+<!-- 		,regIp
+		,regSeq
+		,regDevice -->
+		,regDateTime
+		,regDateTimeSvr
+		,hyspSeq
+		)
+		VALUES(
+		#{hydcTitle}
+		,#{hymmSeq}
+		,#{hydcText} 
+		,1
+		,0
+<!-- 		,#{regIp}
+		,#{regSeq}
+		,#{regDevice} -->
+		,now()
+		,now()
+		,#{hyspSeq}
+		)
+		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 </insert>
 
 	<select id="selectOneSpace" resultMap="resultMapObj">

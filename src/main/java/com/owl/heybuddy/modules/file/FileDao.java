@@ -58,6 +58,10 @@ public class FileDao {
 	public int insertDocument(File dto) {
 		return sqlSession.insert(namespace + ".insertDocument", dto); // 문서등록
 	}
+	public int insertDocumentTemp(File dto) {
+		return sqlSession.insert(namespace + ".insertDocumentTemp", dto); // 임시문서등록
+		
+	}
 	public int insertUploaded(File dto) {
 		return sqlSession.insert(namespace + ".insertUploaded", dto); // 파일등록 
 	}

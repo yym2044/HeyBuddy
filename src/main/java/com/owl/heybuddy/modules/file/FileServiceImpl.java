@@ -115,7 +115,29 @@ public class FileServiceImpl implements FileService {
 		return dao.selectOneCountSpaceMember(vo);
 	}
 
-	
+	@Override
+	public int insertDocumentTemp(File dto) throws Exception {  // 임시 문서 + 파일 등록
+		dao.insertDocumentTemp(dto);
+
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0()) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			
+			UtilUpload.uploadFile(multipartFile, pathModule, dto);
+
+			dto.setTableName("hybdFileUploaded");
+//			dto.setType(0);
+			dto.setDefaultNy(0);
+			dto.setSort(j);
+			dto.setPseq(dto.getHydcSeq());
+			
+			dao.insertUploaded(dto);
+
+			j++;
+		}
+		
+		return 1;
+	}
 
 
 }

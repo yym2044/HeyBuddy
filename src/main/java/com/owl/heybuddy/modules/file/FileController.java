@@ -128,25 +128,16 @@ public class FileController {
 		model.addAttribute("fileUploaded", service.fileUploaded(vo)); // 파일
 		return "user/file/fileViewTemp";
 	}
+	@RequestMapping(value = "/file/fileInstTemp") // 임시 문서등록받음
+	public String fileInstTemp(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
-
-	
-	@RequestMapping(value = "/file/fileEditTemp") // 문서 임시저장 등록페이지(수정개념)
-	public String fileEditTemp(@ModelAttribute("vo") FileVo vo, Model model) throws Exception {
-		File rt = service.documentView(vo);
-		model.addAttribute("item", rt);
-		model.addAttribute("fileUploaded", service.fileUploaded(vo));
-
-		return "user/file/fileEditTemp";
-	}
-
-	@RequestMapping(value = "/file/fileUpdtTemp") // 문서 임시저장 등록받음 (업뎃개념)
-	public String fileUpdtTemp(File dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
-		service.updateDocument(dto);
+		service.insertDocumentTemp(dto);
+		
+		vo.setHydcSeq(dto.getHydcSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/file/fileView";
-	}
 
+		return "redirect:/file/fileListTemp";
+	}
 
 	
 	@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제

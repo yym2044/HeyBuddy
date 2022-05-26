@@ -25,9 +25,11 @@ public interface FileService {
 	public List<File> fileUploaded(FileVo vo) throws Exception; // 파일뷰
 	public Member profileUploaded(MemberVo vo) throws Exception; //회원사진
 	public int insertDocument(File dto) throws Exception;  //문서등록
+	int insertDocumentTemp(File dto) throws Exception; // 문서임시등록
 	int updateDocument(File dto) throws Exception; //문서수정 및 임시저장에서 진짜등록할때
 	int deleteDocument(FileVo vo) throws Exception;  //문서삭제
 	int updateDeleteDocument(FileVo vo) throws Exception; //문서가짜삭제 
+
 
 
 	

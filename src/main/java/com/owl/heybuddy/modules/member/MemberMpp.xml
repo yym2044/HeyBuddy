@@ -267,7 +267,7 @@
 		,#{pseq}
 		,#{path}
 		)
-</insert>
+	</insert>
 	
 	
 	<select id="profileUploaded" resultMap = "resultMapObj"> <!-- 프로필뷰 -->

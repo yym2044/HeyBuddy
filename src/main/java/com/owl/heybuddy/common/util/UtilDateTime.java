@@ -30,6 +30,15 @@ public class UtilDateTime {
 		return localDateTimeString;
 	}
 	
+	//Zoom 시간 입력용
+	public static String nowStringZoom () throws Exception {
+		LocalDateTime localDateTime = LocalDateTime.now();
+		String localDateString = localDateTime.format(DateTimeFormatter.ofPattern(Constants.DATE_FORMAT_BASIC));
+		String localTimeString = localDateTime.format(DateTimeFormatter.ofPattern(Constants.TIME_FORMAT_BASIC));
+		
+		return localDateString + "T" + localTimeString;
+	}
+	
 	public static String calculateDayString (LocalDateTime localDateTime, int day) throws Exception {
 		LocalDateTime localDateTimeNew;
 		

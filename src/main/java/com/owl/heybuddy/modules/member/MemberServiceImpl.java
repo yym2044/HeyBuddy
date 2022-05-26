@@ -146,14 +146,29 @@ public class MemberServiceImpl implements MemberService {
 
 		dao.updateMemberProfile(dto);
 
-		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-
-		UtilUpload.uploadProfile(dto.getFile0()[0], pathModule, dto);
-
-		dto.setTableName("hybdMemberUploaded");
-		dto.setPseq(dto.getHymmSeq());
-
-		dao.updateUploaded_2(dto);
+		if(!dto.getFile0()[0].isEmpty()) {
+			
+				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+				
+				UtilUpload.uploadProfile(dto.getFile0()[0], pathModule, dto);
+				
+				dto.setTableName("hybdMemberUploaded");
+				dto.setPseq(dto.getHymmSeq());
+				
+				dao.updateUploaded(dto);
+				
+		} else {
+			
+			dto.setTableName("hybdMemberUploaded");
+			dto.setOriginalFileName("profileDefault.png");
+			dto.setUuidFileName("profileDefault.png");
+			dto.setExt("png");
+			dto.setSize(33177);
+			dto.setPath("/resources/user/images/");
+			dto.setPseq(dto.getHymmSeq());
+			
+			dao.updateUploaded(dto);
+		}
 
 		return 1;
 	}

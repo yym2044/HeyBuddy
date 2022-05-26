@@ -37,7 +37,7 @@
 
 <body>
 
-	<form id="formList" name="formList" method="POST" action="/plan/planInst" enctype="multipart/form-data">
+	<form id="planList" name="planList" method="POST" enctype="multipart/form-data">
 		<!-- <input type="hidden" id="hyplSeq" name="hyplSeq"> -->
 		<!-- Auto_Implements 기 때문에 필요없음-->
 		<!-- <input type="hidden" id="hyspSeq" name="hyspSeq"> -->
@@ -126,7 +126,8 @@
 							</div>
 							<div class="modal-footer planinst container">
 								<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a>
-								<input type="submit" class="btn btn-primary me-2" style="width: 100px; font-size: 1em; text-align: center; float: right;" id="btnSubmit" value="등록하기">
+								<input href="javascript:goInst()" type="submit" class="btn btn-primary me-2" value="등록하기" id="btnSubmit">
+								<!-- <a href="javascript:goInst()" type="submit" class="btn btn-primary me-2" style="width: 100px; font-size: 1em; text-align: center; float: right;" id="btnSubmit" name="btnSubmit">등록하기</a> -->
 							</div>
 						</div>
 					</div>
@@ -290,11 +291,6 @@
 			editable : true, /*  편집 가능 불가능  */
 			droppable : true,
 			selectable: true,
-		/* 	titleClick: function(info){
-
-			}
-				 $("#title").click(/plan/planView); */
-			
 			dateClick: function(info) {  /* 클릭햇을때 일어나는 이벤트  */
 			    /* alert('Date: ' + info.dateStr); */
 			    console.log(info.dateStr);
@@ -302,12 +298,16 @@
 			    /* alert('Resource ID: ' + info.resource.id); */
 			    /* $("#title").click(/plan/planView); */
 			    $("#btnForm").click();
-			    
 			  }
+			
 		}).render()
 		
 	</script>
-
+	<script>
+		function newPage(obj){
+			window.location.href = '/plan/planView'
+		}
+	</script>
 
 	<!--  사이드바 강조 Hover 자바스크립트-->
 	<script type="text/javascript">
@@ -353,15 +353,15 @@
 	</script>
 
 	<!-- 벨리데이션 값 넣었을때 나오는 벨리데이션  -->
-	<!--    	 <script type = "text/javascript">
+   	 <script type = "text/javascript">
 		$("#btnSubmit").on("click", function() {
 			
 			if(!checkNull($("#hyplName"), $("#hyplName").val(), "제목을 입력해주세요")) return false;
-			if(!checkNull($("#hyplDesc"), $("#hyplDesc").val(), "상세일정을 입력해주세요")) return false;
 			if(!checkNull($("#hyplDate"), $("#hyplDate").val(), "날짜를 입력해주세요")) return false;
+			if(!checkNull($("#hyplDesc"), $("#hyplDesc").val(), "상세일정을 입력해주세요")) return false;
 
 			});
-	</script>  -->
+	</script> 
 
 	<script type="text/javascript">
 		goView = function(seq) {
@@ -369,6 +369,14 @@
 			$("#planList").attr("action", "/plan/planView");
 			$("#planList").submit();
 		}
+		
+		// POST 형식으로 데이터를 삽입 
+		goInst = function(seq) {
+			$("#hyplSeq").val(seq);
+			$("#planList").attr("action", "/plan/planInst");
+			$("#planList").submit();
+		}
+			//	$("#formList").submit(); // 그냥 공통적으로 submit는 실행해준다는 의미기 때문에 넣어줘야한다.
 	</script>
 
 </body>

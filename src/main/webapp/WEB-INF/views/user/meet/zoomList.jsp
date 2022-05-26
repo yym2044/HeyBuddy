@@ -42,7 +42,7 @@
 		<div class="page d-flex flex-row flex-column-fluid">
 
 			<%@include file="../include/pageSideBar.jsp"%>
-
+ 
 
 			<!--///////////Page content wrapper///////////////-->
 			<main class="page-content d-flex flex-column flex-row-fluid">

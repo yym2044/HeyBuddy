@@ -53,7 +53,7 @@ public class MeetController {
 		
 		conn.setRequestProperty("Content-Type", "application/json");
 		conn.setRequestProperty("Accept", "application/json");
-		conn.setDoOutput(true);
+		conn.setDoOutput(true); 
 		
 //		String json =  "{\"topic\": \"My Meeting\", \"duration\": 60, \"pre_schedule\": false, \"settings\": { \"jbh_time\": 0, \"join_before_host\": true, \"mute_upon_entry\": true }, \"type\": 2}";
 		

@@ -39,7 +39,7 @@
 						</a></li>
 
 					<li class="nav-item"><a href="/meet/zoomList" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-							<span class="sidebar-icon iconic">
+							<span class="sidebar-icon iconic"> 
 								<i data-feather="video" class="fe-1x"></i>
 							</span>
 							<span class="sidebar-text"> 화상 </span>

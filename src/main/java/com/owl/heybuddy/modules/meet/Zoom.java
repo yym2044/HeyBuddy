@@ -13,7 +13,7 @@ public class Zoom {
 	private String created_at;
 	private String join_url;
 	private String pmi;
-	private String agenda;
+	private String agenda; 
 	
 	
 	public String getUuid() {

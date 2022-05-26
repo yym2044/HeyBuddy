@@ -287,15 +287,20 @@
 				next : '❯',
 			},
 			dayMaxEvents : true, // allow "more" link when too many events
-			editable : true,
+			editable : true, /*  편집 가능 불가능  */
 			droppable : true,
 			selectable: true,
-			dateClick: function(info) {
+		/* 	titleClick: function(info){
+
+			}
+				 $("#title").click(/plan/planView); */
+			
+			dateClick: function(info) {  /* 클릭햇을때 일어나는 이벤트  */
 			    /* alert('Date: ' + info.dateStr); */
 			    console.log(info.dateStr);
 			    
 			    /* alert('Resource ID: ' + info.resource.id); */
-			    
+			    /* $("#title").click(/plan/planView); */
 			    $("#btnForm").click();
 			    
 			  }

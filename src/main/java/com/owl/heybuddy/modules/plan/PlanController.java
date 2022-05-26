@@ -121,6 +121,16 @@ public class PlanController {
 		
 		return "user/plan/planView";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/plan/planViewAjax")
+	public Plan planViewAjax(PlanVo vo) throws Exception {
+		
+		Plan rt = service.selectOne(vo);
+		
+		return rt;
+		
+	}
 
 	@RequestMapping(value = "/plan/planEdit")
 	public String planEdit() throws Exception {

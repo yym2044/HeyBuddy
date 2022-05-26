@@ -298,7 +298,30 @@
 			    /* alert('Resource ID: ' + info.resource.id); */
 			    /* $("#title").click(/plan/planView); */
 			    $("#btnForm").click();
-			  }
+			},
+			eventClick: function(info) {
+				const hyplSeq = info.event._def.extendedProps.seq;
+				console.log(hyplSeq);
+				
+				$.ajax({
+					async: false
+					,cache: false
+					,type: "post"
+					,url: "/plan/planViewAjax"
+					,data: {"hyplSeq" : hyplSeq}
+					,success: function(data){
+						
+						console.log(data);
+						
+					}
+					
+					,error : function(jqXHR, textStatus, errorThrown){
+						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+					}
+				});
+				
+				
+			}
 			
 		}).render()
 		

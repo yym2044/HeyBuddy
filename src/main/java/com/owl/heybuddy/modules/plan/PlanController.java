@@ -3,6 +3,7 @@ package com.owl.heybuddy.modules.plan;
 
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 @Controller
 public class PlanController {
@@ -83,6 +85,7 @@ public class PlanController {
 		dto.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		
+		
 		service.insert(dto);
 		 /* int result = service.insert(dto); */
 		 
@@ -99,15 +102,18 @@ public class PlanController {
 	
 	@RequestMapping(value = "/plan/planView")
 	public String planView(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model,HttpSession httpSession) throws Exception {
-
-//		Plan rt = service.selectOne(vo);
-
-		// 가지고 온 값을 jsp로 넘겨준다
-		/* Member item = service.selectGender(vo); */
-
-//		model.addAttribute("rt", rt);
-		/* model.addAttribute("item", item); */
 		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		Plan rt = service.selectOne(vo);
+		
+		model.addAttribute("rt", rt); 
+
+//		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
+//		dto.setHyplName((String)httpSession.getAttribute("hyplName"));
+//		dto.setHyplDate((String)httpSession.getAttribute("hyplDate"));
+//		dto.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
+//		dto.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));

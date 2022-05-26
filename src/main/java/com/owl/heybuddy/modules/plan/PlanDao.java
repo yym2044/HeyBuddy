@@ -1,6 +1,7 @@
 package com.owl.heybuddy.modules.plan;
 
 
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -25,6 +26,8 @@ public class PlanDao {
 	public List<Plan> selectListMember(PlanVo vo){ List<Plan> list = sqlSession.selectList(namespace + ".selectListMember", vo); return list;}
 	public List<Plan> selectListMemberInSpace(){ List<Plan> list = sqlSession.selectList(namespace + ".selectListMemberInSpace", ""); return list;}
 	public List<Plan> selectListMySpace(){ List<Plan> list = sqlSession.selectList(namespace + ".selectListMySpace", ""); return list;}
+	
+	public Plan selectOne(PlanVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo);}
 	/*
 	 * public Plan selectOne(PlanVo vo) { return sqlSession.selectOne(namespace +
 	 * ".selectOne", vo);} public Plan selectOneLogin(Plan dto) { return

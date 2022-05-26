@@ -116,17 +116,22 @@
                     </div> -->
                     <div class="main_div mb-4">
 						<h4 style="text-align: center;">📌일정상세</h4>			
-						<br>			
-						<div class="row container">
+						<div class="row mb-6">
+						<div class="col-6 p-2">
                     	<h5>제목</h5>
-                    	<input class="form-control" style="width: 130px;"  type="text" id="" name=""  placeholder="일정 제목을 입력해주세요">
-                    	<h5>일정내용</h5> 
-                    	<input class="form-control" style="width: 130px;"  type="text" id="" name="" style="height: 100px;" placeholder="일정을 입력하세요">
+                    	<input class="form-control" type="text" id="" name="" value="<c:out value="${rt.hyplName}"/>">
+<%--                     	<input class="form-control me-2" type="text" id="ifmmNameEng" name="ifmmNameEng"  value="${rt.ifmmNameEng}" autocomplete="off"/></td> --%>
                     	</div>
-                    	<br> 
+                    	<div class="col-6 p-2">
                     	<h5>기한</h5>
-                    	<a class="form-control mb-3" type="text" id="" name=""  placeholder="기한을 등록해주세요" readOnly><img src="/resources/user/images/calendar.png" style="width: 50px; height: 50px;"></a>
-                    	<br><br>
+                    	<input class="form-control" type="text" id="" name="" readOnly>
+                    	<br>
+                    	</div>
+                    	<div class="col-6 p-2">
+                    	<h5>일정내용</h5> 
+                    	<input class="form-control" type="text" style="height: 100px;"  id="" name="">
+                    	</div>
+                    	<div class="col-6 p-2">
                     	<h5>공유자</h5>
                    	     <div class="form-control mb-3">
                             <div class="card card-body">
@@ -139,6 +144,8 @@
                                 </select>
                             </div>  
                         </div>
+                    	</div>
+                    	</div>
                     <!-- 	<h5 style="margin-right: 1150px;">공유자</h5>
                     	<div class="d-flex" style="margin-right: 850px;"">
                     	<input class="form-control me-2" type="text" id="" name="" style="font-size: 1.5em;" readonly>

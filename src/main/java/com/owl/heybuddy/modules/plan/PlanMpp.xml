@@ -141,6 +141,26 @@
 
 
 
+	<select id="selectOne" resultMap="resultMapObj">
+		
+		SELECT
+			a.hyplSeq
+			,a.hyplName
+			,a.hyplDefaultNy
+			,a.hyplDate
+			,a.hyplDesc
+			,a.hyplMemberName
+			,b.hyspSeq
+		FROM
+			hybdPlan AS a
+		LEFT JOIN hybdSpace AS b ON a.hyspSeq = b.hyspSeq
+		WHERE 1 = 1
+            AND a.hyplSeq = #{hyplSeq}
+	
+	</select>
+
+
+
 	<insert id="insert">
 		INSERT INTO hybdPlan (
 		hyplName
@@ -167,20 +187,6 @@
 	</insert>
 
 
-	<select id="selectOne" resultMap="resultMapObj">
-		SELECT
-		hyplSeq
-		,a.hyplName
-		,a.hyplDefaultNy
-		,a.hyplName
-		,a.hyplDate
-		,a.hyplDesc
-		,a.hyplMemberName
-		FROM
-		hybdPlan a
-		WHERE
-		1 = 1
-	</select>
 
 
 	<update id="update">

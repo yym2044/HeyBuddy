@@ -17,6 +17,7 @@ public interface PlanService {
 	public List<Plan> selectListMember(PlanVo vo) throws Exception; 
 	public List<Plan> selectListMemberInSpace() throws Exception; 
 	public List<Plan> selectListMySpace() throws Exception; 
+
 	public Plan selectOne(PlanVo vo) throws Exception;
 	public Plan selectOneLogin(Plan dto) throws Exception;
 	/* public Member selectGender(MemberVo vo) throws Exception; */

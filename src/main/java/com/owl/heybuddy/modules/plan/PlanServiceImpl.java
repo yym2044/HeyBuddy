@@ -76,8 +76,8 @@ public class PlanServiceImpl implements PlanService {
 
 	@Override
 	public Plan selectOne(PlanVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+			
+		return dao.selectOne(vo);
 	}
 
 	@Override

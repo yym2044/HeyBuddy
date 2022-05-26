@@ -149,223 +149,117 @@
 				</div>
 				<!--Email Header-->
 
-
+	<!--//Page content//-->
 
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
-						<div class="row">
+						<div class="row text-center">
 							<div class="col-12">
-								<div class="card" style="min-height: 490px;">
-									<c:choose>
-										<c:when test="${fn:length(list) eq 0}">
-											<div style="height: 490px;"
-												class="d-flex align-items-center justify-content-center">
-												<div class="text-center">
-													<h1 class="d-block">등록된 문서가 없습니다</h1>
-													<img src="/resources/user/images/cuteOwl.png"
-														style="width: 200px;">
-												</div>
-											</div>
-										</c:when>
-										<c:otherwise>
+								<div class="card">
+									<div class="table-responsive">
+
+										<table
+											class="table-card align-middle table-nowrap mb-0 table table-borderless">
+
+											<thead class="small text-uppercase text-muted">
+												<tr>
 
 
 
-
-
-
-
-
-											<div class="flex-grow-1 overflow-hidden pe-4">
-
-												<!--Inbox mail list-->
-												<div class="list-group px-4 px-lg-8 mb-4 list">
-<br><br>
-													<input class="form-control form-control" type="text"
+											<th class="text-center"><input type="checkbox"
+														id="checkboxAll" name="checkboxAll">check All</th>
+										
+										<td></td>
+										<td></td>
+										<td>
+											<input class="form-control form-control" type="text"
 														name="shHydcValue" id="shHydcValue" style="" value=""
-														placeholder="검색어를입력해주세요">
+														placeholder="검색어를입력해주세요"> </td>
 
-													<button class="btn btn-primary" type="submit" name="search"
-														id="btnSearch">검색</button>
-
-<br>
-
-													<c:forEach items="${list}" var="item" varStatus="status">
-														<!--Inbox-item-->
-														<div class="list-group-item list-group-item-action">
-															<div class="d-flex align-items-center">
+										<td><button class="btn btn-primary" type="submit" name="search"
+														id="btnSearch">검색</button> </td>
+												</tr>
+											</thead>
+											<tbody>
 
 
 
-
-
-																<!--check-->
-																<div
-																	class="form-check shrink-0 mb-0 me-1 position-relative">
-																	<input type="checkbox" class="form-check-input"
-																		id="check_1"> <label for="check_1"
-																		class="form-check-label"></label>
-																</div>
-																<div
+												<c:choose>
+													<c:when test="${fn:length(list) eq 0}">
+														<div style="height: 490px;"
+															class="d-flex align-items-center justify-content-center">
+															<div class="text-center">
+																<h1 class="d-block">등록된 문서가 없습니다</h1>
+																<img src="/resources/user/images/cuteOwl.png"
+																	style="width: 200px;">
+															</div>
+														</div>
+													</c:when>
+													<c:otherwise>
+														<c:forEach items="${list}" var="item" varStatus="status">
+															<tbody id="mainTable_tbody">
+																<tr>
+																
+																<td> <div
 																	class="form-star shrink-0 mb-0 me-2 d-md-flex d-none position-relative">
 																	<input type="checkbox" class="form-star-input"
 																		id="starred_1"> <label for="starred_1"
 																		class="form-star-label"></label>
 																</div>
-																<div
-																	class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
-																	<div
-																		class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
 
-
-																		<label for="profilePhoto" style=""> <c:choose>
+																	<input type="checkbox"
+																		id="checkboxSeq" name="checkboxSeq"
+																		value="<c:out value="${item.hydcSeq}" />"> </td>
+																		
+																		
+																	<td class=""> 	<label for="profilePhoto" style=""> <c:choose>
 																				<c:when test="${empty uploaded.uuidFileName}">
-																					<img style="width: 100%; height: 100%;"
+																					<img style="width: 50px; height: 50px;"
 																						src="/resources/user/images/profileDefault.png"
 																						class="rounded-circle" alt="">
 																				</c:when>
 																				<c:otherwise>
-																					<img style="width: 100px; height: 100px;"
+																					<img style="width: 50px; height: 50px;"
 																						src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"
 																						class="avatar rounded-pill flex-shrink-0" />
 																				</c:otherwise>
 																			</c:choose>
-																		</label>
+																		</label></td>
 
-																	</div>
-
-																	<!--name class for search results-->
-																	<div class="d-flex align-items-center mb-1">
+																	<td class="">	<div class="d-flex align-items-center mb-1">
 																		<div class="mb-0 me-2 flex-shrink-0 name">
 																			<a href="#modalMember" data-bs-toggle="modal"> <c:out
 																					value="${item.hymmName}" />
 																			</a>
 																		</div>
 																		<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
-																	</div>
-																	<p class="small fw-bold mb-0"></p>
+																	</div> </td>
+																	
+																			<td class="">	<p class="small fw-bold mb-0"></p>
 																	<p class="lh-sm text-truncate mb-0">
 																		<span class="fw-bolder me-2 me-lg-4"> <a
 																			href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
 																				<c:out value="${item.hydcTitle}" />
 																		</a>
 																		</span>
-																	</p>
+																	</p></td>
+																			
+																			
+																	<td class=""><fmt:formatDate
+																			value="${item.regDateTime }" /></td>
+																			
+																					<td class=""> 
+																					<i class="bi-bi paperclip"></i>
+																					<i class="bi bi-image-fill"></i></td>
+																</tr>
+															</tbody>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+										</table>
 
-																	<!--Time-->
-																	<div>
-																		<span class="block small text-muted"> <fmt:formatDate
-																				value="${item.regDateTime }" />
-																		</span>
-																	</div>
-
-
-
-																	<%-- 														<div class="flex-shrink-0">
-															<div class="d-flex flex-column align-items-end">
-																<!--New indicator-->
-																<div class="d-flex align-items-end">
-																	<i data-feather="paperclip" class="fe-1x "></i>
-
-																</div>
-
-																<!--Time-->
-																<div>
-																	<span class="block small text-muted"><fmt:formatDate
-																			value="${item.regDateTime }" /></span>
-																</div>
-
-															</div>
-														</div>
- --%>
-
-																</div>
-															</div>
-														</div>
-													</c:forEach>
-												</div>
-											</div>
-										</c:otherwise>
-									</c:choose>
-
-
-									<!--포스트 페이징과 버튼 -->
-									<div class="row text-center" style="width: 100%">
-										<div style="width: 100%; float: none; margin: 0 auto">
-											<br> <br>
-											<nav aria-label="...">
-												<ul class="pagination  justify-content-center">
-													<c:if test="${vo.startPage gt vo.pageNumToShow}">
-														<li class="page-item"><a class="page-link"
-															href="javascript:goFileList( <c:out value='${vo.startPage - 1}'/>);">
-																Previous</a></li>
-													</c:if>
-													<c:forEach begin="${vo.startPage}" end="${vo.endPage}"
-														varStatus="i">
-														<c:choose>
-															<c:when test="${i.index eq vo.thisPage}">
-																<li class="page-item active"><a class="page-link"
-																	href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
-															</c:when>
-															<c:otherwise>
-																<li class="page-item"><a class="page-link"
-																	href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
-															</c:otherwise>
-														</c:choose>
-													</c:forEach>
-													<c:if test="${vo.endPage ne vo.totalPages}">
-														<li class="page-item"><a class="page-link"
-															href="javascript:goFileList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>
-													</c:if>
-												</ul>
-											</nav>
-
-<%-- 											<a
-												href="javascript:goFileForm('<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">
-												<button type="button" id="goFileForm"
-													class="btn btn-success">문서등록</button>
-											</a>
-
-											<button type="button" id="" class="btn btn-danger"
-												data-bs-toggle="modal" data-bs-target="#btnModalNelete">삭제</button>
-
-											<div class="modal fade" id="btnModalNelete" tabindex="-1"
-												aria-labelledby="exampleModalLabel" aria-hidden="true">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h5 class="modal-title" id="modal-title">
-																<i class="fas fa-exclamation-circle"></i>삭제 확인!
-															</h5>
-															<button type="button" class="btn-close"
-																data-bs-dismiss="modal" aria-label="Close"></button>
-														</div>
-														<div class="modal-body">정말 삭제하시겠습니까?</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-secondary"
-																data-bs-dismiss="modal">취소</button>
-
-															<a
-																href="javascript:goFileMultiNelete
-									('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>',
-									'<c:out value="${vo.shHydcValue}"/>' );">
-																<button type="button" class="btn btn-primary" id="">확인</button>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
- --%>
-
-
-
-											<br> <br>
-
-
-										</div>
-									</div>
-								</div>
-							</div>
+		
 
 							<!--//Page content End//-->
 

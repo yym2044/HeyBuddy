@@ -605,7 +605,7 @@ const app = initializeApp(firebaseConfig);
 			space: space
         });
         document.getElementById('message').value = "";
-//        alert('message has sent');
+        alert('message has sent');
 
     });
 

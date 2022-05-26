@@ -212,11 +212,7 @@ pageContext.setAttribute("br", "\n");
 								title="Print" class="d-inline-block me-3"> <i
 								class="bi bi-printer"></i>
 							</a> <small> <fmt:formatDate value="${item.regDateTime}" /></small>
-							<div data-bs-toggle="tooltip" data-bs-placement="top"
-								title="Star" class="form-star ms-3">
-								<input type="checkbox" class="form-star-input" id="starred_s">
-								<label for="starred_s" class="form-star-label"></label>
-							</div>
+							
 						</div>
 					</div>
 				</div>

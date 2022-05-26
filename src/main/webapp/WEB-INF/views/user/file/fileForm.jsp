@@ -68,7 +68,7 @@
 
 
 				<!--//Page Toolbar//-->
-				<div class="toolbar py-4 px-4 px-lg-8">
+	<!-- 			<div class="toolbar py-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-4 mb-lg-0">
@@ -77,7 +77,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!--//Page Toolbar End//-->
 
 
@@ -103,10 +103,10 @@
 									<i data-feather="arrow-left" class="fe-1x me-lg-1"></i>
 									<span class="d-none d-lg-inline-block">Back</span>
 								</a>
-								<a href="fileListTemp" data-bs-placement="top" data-bs-toggle="tooltip" title="임시저장불러오기" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+<!-- 								<a href="fileListTemp" data-bs-placement="top" data-bs-toggle="tooltip" title="임시저장불러오기" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 									<i class="bi bi-pencil-fill"></i>
 								</a>
-
+ -->
 							</div>
 						</div>
 					</div>
@@ -177,9 +177,6 @@
 									<button type="submit" class="btn btn-primary ms-2" id="btnSubmit">등록</button>
 
 								</div>
-
-								<br>
-								<br>
 
 							</div>
 						</div>

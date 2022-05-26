@@ -95,8 +95,12 @@
 	<select id="memberView" resultMap="resultMapObj">   <!-- 멤버뷰 셀렉원 -->
 		select
 		*
+		, d.uuidFileName
+		, d.path
+	
 		from
-		hybdMember
+		hybdMember a
+		LEFT JOIN hybdMemberUploaded d on d.pseq = a.hymmSeq
 		where 1=1
 		and hymmSeq = #{hymmSeq}
 	</select>

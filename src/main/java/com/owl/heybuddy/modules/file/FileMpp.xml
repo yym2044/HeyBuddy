@@ -55,9 +55,6 @@
 		limit  #{startRnumForMysql} , #{rowNumToShow}
 
 	</select>
-	
-	
-	
 			
 	<select id="selectListMemberInSpace" resultMap="resultMapObj">
 		SELECT
@@ -89,44 +86,52 @@
 
  	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select
-		*
+		a.*
 		,b.hymmName
 		,b.hymmEmail
+		,c.path
+		,c.uuidFileName
+		,d.path
+		,d.uuidFileName
 		from
 		hybdDocument a
-		LEFT JOIN hybdMember AS b
-        ON b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
+        LEFT JOIN hybdFileUploaded d ON d.pseq = b.hymmSeq
 		where 1=1
-		and hydcDelNy = 0
-		and hydcTempNy = 0
-		and hydcSeq = #{hydcSeq}
+		and a.hydcDelNy = 0
+		and a.hydcTempNy = 0
+		and a.hydcSeq = #{hydcSeq}
 	</select>
 	
-	 	<select id="documentViewTemp" resultMap="resultMapObj">   <!-- 임시저장문서뷰 셀렉원 -->
+	<select id="documentViewTemp" resultMap="resultMapObj">   <!-- 임시저장문서뷰 셀렉원 -->
 		select
-		*
+		a.*
 		,b.hymmName
 		,b.hymmEmail
+		,c.path
+		,c.uuidFileName
 		from
 		hybdDocument a
-		LEFT JOIN hybdMember AS b
-        ON b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
+        LEFT JOIN hybdFileUploaded c ON c.pseq = a.hymmSeq
 		where 1=1
-		and hydcDelNy = 0
-		and hydcTempNy = 1
-		and hydcSeq = #{hydcSeq}
+		and a.hydcDelNy = 0
+		and a.hydcTempNy = 1
+		and a.hydcSeq = #{hydcSeq}
 	</select>
+	
 	
 		<select id="profileUploaded" resultMap = "resultMapObj"> <!-- 프로필뷰 -->
 		SELECT
 			seq
-<!-- 			, type -->
+			, type 
 			, defaultNy
 			, sort
 			, originalFileName
 			, uuidFileName 
 			, ext
-<!-- 			, size  -->
+ 			, size  
 			, delNy
 			, pseq
 			, path

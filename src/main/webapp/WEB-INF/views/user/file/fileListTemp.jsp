@@ -64,11 +64,21 @@
 				<!-- include 처리 3번 -->
 				<%@include file="../include/pageHeader.jsp"%>
 
-
+				<!-- post방식 -->
+				<form id="formList" name="formList" method="post"
+					action="/file/fileList">
+					<input type="hidden" id="rowNumToShow" name="rowNumToShow"
+						value="<c:out value="${vo.rowNumToShow}"/>"> <input
+						type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+					<input type="hidden" id="thisPage" name="thisPage"
+						value="<c:out value="${vo.thisPage}" default="1"/>"> <input
+						type="hidden" id="hydcSeq" name="hydcSeq"> <input
+						type="hidden" id="hymmSeq" name="hymmSeq">
+				</form>
 
 
 				<!--//Page Toolbar//-->
-				<div class="toolbar py-4 px-4 px-lg-8">
+	<!-- 			<div class="toolbar py-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-4 mb-lg-0">
@@ -78,8 +88,68 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!--//Page Toolbar End//-->
+				
+		<!--Email Header-->
+					<div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
+						<div
+							class="d-flex align-items-center pb-2 flex-row justify-content-between">
+
+							<div class="flex-grow-1">
+								<a
+									href="javascript:goFileList('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
+								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+									data-bs-placement="top" data-bs-toggle="tooltip" title="뒤로"
+									class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+									<i data-feather="arrow-left" class="fe-1x me-lg-1"></i> <span
+									class="d-none d-lg-inline-block">Back</span>
+								</a>
+
+							
+									<a
+										href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
+								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+										data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
+										class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+										<i class="bi bi-trash-fill" data-bs-toggle="modal"
+										data-bs-target="#btnModalNelete"></i>
+									</a> 
+
+									<div class="modal fade" id="btnModalNelete" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="modal-title">
+														<i class="fas fa-exclamation-circle"></i>삭제 확인!
+													</h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">정말 삭제하시겠습니까?</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">취소</button>
+
+													<a
+														href="javascript:goFileNelete
+									('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>',
+									'<c:out value="${vo.shHydcValue}"/>' );">
+														<button type="button" class="btn btn-primary" id="">확인</button>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+				
+							</div>
+						</div>
+					</div>
+				<!--Email Header-->
+
+				
+				
 
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
@@ -99,37 +169,6 @@
 										</c:when>
 										<c:otherwise>
 
-											<!--Email Header-->
-											<div
-												class="px-4 px-lg-8 pb-2 position-sticky top-0 pt-4 z-index-fixed">
-												<div class="rounded-3 w-100 ps-md-3 top-0">
-													<div class="row align-items-center mx-n2">
-														<div class="col-md-6 col-xl-7 px-2 order-last">
-															<div class="d-flex align-items-center ps-3 ps-md-0">
-																<div class="form-check mb-0 me-2">
-																	<input type="checkbox" class="form-check-input"
-																		id="check_all"> <label for="check_all"
-																		class="form-check-label"></label>
-																</div>
-
-																<!--Selected mails action-->
-																<div class="d-flex align-items-center">
-
-																	<div class="btn-group btn-group-sm">
-
-																		<a href="#!"
-																			class="btn border hover-bg-secondary size-30 p-0 d-flex align-items-center justify-content-center">
-																			<i data-feather="trash-2" class="fe-1x"></i>
-																		</a>
-
-																	</div>
-																</div>
-															</div>
-														</div>
-
-													</div>
-												</div>
-											</div>
 
 											<!--Inbox mail list-->
 											<div class="list-group px-4 px-lg-8 mb-4 list">
@@ -154,26 +193,7 @@
 															</div>
 															<div
 																class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
-																<div
-																	class="size-35 me-2 me-lg-3 d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 overflow-hidden">
-
-
-																	<label for="profilePhoto" style=""> <c:choose>
-																			<c:when test="${empty uploaded.uuidFileName}">
-																				<img style="width: 100%; height: 100%;"
-																					src="/resources/user/images/profileDefault.png"
-																					class="rounded-circle" alt="">
-																			</c:when>
-																			<c:otherwise>
-																				<img style="width: 100px; height: 100px;"
-																					src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"
-																					class="avatar rounded-pill flex-shrink-0" />
-																			</c:otherwise>
-																		</c:choose>
-																	</label>
-
-																</div>
-
+	
 																<!--name class for search results-->
 																<div class="d-flex align-items-center mb-1">
 																	<div class="mb-0 me-2 flex-shrink-0 name">
@@ -186,7 +206,7 @@
 																<p class="small fw-bold mb-0"></p>
 																<p class="lh-sm text-truncate mb-0">
 																	<span class="fw-bolder me-2 me-lg-4"> <a
-																		href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
+																		href="javaScript:goFileEdit(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
 																			<c:out value="${item.hydcTitle}" />
 																	</a>
 																	</span>
@@ -282,19 +302,20 @@
 	<script type="text/javascript">
 		var seq = $("input:hidden[name=hydcSeq]");
 
-		goFileForm = function(seq) {
-			alert(seq);
-			$("#thisPage").val(seq);
+		goFileList = function(seq) {
+			$("#formList").attr("action", "/file/fileList");
 			$("#formList").submit();
 		}; 
+		
 
-		goFileView = function(hydcSeq, hymmSeq) {
+		goFileEdit = function(hydcSeq, hymmSeq) {
 			alert(hymmSeq + "번 멤버가 올린 문서 " + hydcSeq + "번");
 			$("#hydcSeq").val(hydcSeq);
 			$("#hymmSeq").val(hymmSeq);
-			$("#formList").attr("action", "/file/fileView");
+			$("#formList").attr("action", "/file/fileEditTemp");
 			$("#formList").submit();
 		};
+
 	</script>
 </body>
 

@@ -119,27 +119,21 @@ public class FileController {
 		return "user/file/fileListTemp";
 	}
 	
-
-
-	@RequestMapping(value = "/file/fileViewTemp") // 임시저장 문서 학인
-	public String fileViewTemp(@ModelAttribute("vo") FileVo vo, MemberVo mo, File dto, Model model, HttpSession httpSession) throws Exception {
+	@RequestMapping(value = "/file/fileEditTemp") // 임시저장 문서 학인 및 등록
+	public String fileEditTemp(@ModelAttribute("vo") FileVo vo,File dto, Model model, HttpSession httpSession) throws Exception {
 		File rt = service.documentViewTemp(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("fileUploaded", service.fileUploaded(vo)); // 파일
-		return "user/file/fileViewTemp";
+		return "user/file/fileEditTemp";
 	}
 	@RequestMapping(value = "/file/fileInstTemp") // 임시 문서등록받음
 	public String fileInstTemp(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
-
 		service.insertDocumentTemp(dto);
-		
 		vo.setHydcSeq(dto.getHydcSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
 
-		return "redirect:/file/fileListTemp";
+		return "redirect:/file/fileList";
 	}
-
-	
 	@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제
 	public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		String[] checkboxSeqArray = vo.getCheckboxSeqArray();

@@ -185,14 +185,7 @@
 
 					<!--Avatar with status-->
 					<div class="avatar-status status-online me-sm-2 avatar xs">
-						<c:choose>
-							<c:when test="${empty uuidFileName}">
-								<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">
-							</c:when>
-							<c:otherwise>
-								<img style="width: 100%; height:100%;" src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="rounded-circle img-fluid" alt="">
-							</c:otherwise>
-						</c:choose>
+						<img style="width: 100%; height:100%;" src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="rounded-circle img-fluid" alt="">
 					</div>
 					<span class="d-none d-md-inline-block"><c:out value="${sessName}"/></span>
 				</div>

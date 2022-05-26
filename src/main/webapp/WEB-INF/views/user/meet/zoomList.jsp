@@ -109,10 +109,16 @@
 						                                        </tr>
 						                                    </thead> -->
 														<tbody>
-															<c:forEach items="${list}" var="item" varStatus="varStatus">
+															<c:forEach items="${list}" var="item" varStatus="status">
 																<c:if test="${item.agenda eq hyspSeq}">
 																	<tr>
-																		<td class="text-center" style="width: 200px;">
+																		<td style="width: 900px; vertical-align: middle;">
+																			<span class="fw-bold fs-4">
+																				<c:out value="${item.topic}"/>
+																			</span>
+																		</td>
+																		<!-- 줌 계정 higher plan 필요 
+																		<td class="text-start" style="width: 700px;">
 																			<div class="avatar-group justify-content-end">
 																				<a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="홍길동">
 																					<img src="/resources/user/images/profileDefault.png" alt="..." class="avatar-group-img rounded-circle">
@@ -122,13 +128,12 @@
 																				</a>
 																			</div>
 																		</td>
-																		<td style="width: 700px; vertical-align: middle;">
-																			<span class="fw-bold fs-4">
-																				<c:out value="${item.topic}"/>
-																			</span>
-																		</td>
+																		 -->
 																		<td class="text-end" style="width: 200px; vertical-align: middle;">
-																			<i class="bi bi-alarm pe-1"></i>12:34
+																			<i class="bi bi-alarm pe-1"></i>
+																			<span id="zoomTimeSpan${status.index}">
+																				<%-- <c:out value="${fn:substring(item.start_time, 11, 19)}"/> --%>
+																			</span>
 																		</td>
 																		<td style="vertical-align: middle;">
 																			<a href="<c:out value="${item.join_url}"/>" target="_blank" class="btn rounded-pill btn-primary text-truncate">회의 참여</a>
@@ -213,6 +218,35 @@
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
+	<script type="text/javascript">
+	
+	convertTime = function(start_time){
+		
+		const hour_utc = Number(start_time.substr(0,2));
+		const hour_local = String(hour_utc + 9);
+		const start_time_zoom = hour_local +  start_time.substr(2,6)
+			
+		return start_time_zoom;		
+	}
+	
+	const TimesArray = new Array();
+	
+	let start_time = "";
+	let start_time_zoom = "";
+	
+	
+	<c:forEach items="${list}" var="item" varStatus="status">
+		
+		start_time = '<c:out value="${fn:substring(item.start_time, 11, 19)}"/>'	
+		TimesArray.push(convertTime(start_time));
+		
+	</c:forEach>
+
+	for(var i = 0 ; i < TimesArray.length; i++){
+		$("#zoomTimeSpan" + i).text(TimesArray[i]);
+	}
+	
+	</script>
 
 </body>
 

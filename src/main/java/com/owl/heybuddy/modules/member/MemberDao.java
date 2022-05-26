@@ -46,6 +46,10 @@ public class MemberDao {
 	public int insertSignUp(Member dto) {
 		return sqlSession.insert(namespace + ".insertSignUp", dto); // 회원등록
 	}
+	
+	public int signUpUploaded(Member dto) {
+		return sqlSession.insert(namespace + ".signUpUploaded", dto);
+	}
 
 	public int updateMember(Member dto) {
 		return sqlSession.update(namespace + ".updateMember", dto); // 회원수정

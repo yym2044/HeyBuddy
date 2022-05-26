@@ -47,7 +47,14 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int insertSignUp(Member dto) throws Exception { // 회원SignUp
-		return dao.insertSignUp(dto);
+		
+		dao.insertSignUp(dto);
+		
+		//기본 프로필 사진으로 저장
+		dao.signUpUploaded(dto);
+		
+		
+		return 1;
 	}
 
 	@Override

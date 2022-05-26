@@ -109,7 +109,7 @@
 												<label for="Searchable" class="form-label">멤버를 선택하세요..</label>
 												<div>
 													<select id="Searchable" name="hysmSeq" class="form-control" data-choices='{"searchEnabled":true}'>
-														<option disabled>멤버</option>
+														<!-- <option disabled>멤버</option> -->
 														<c:forEach items="${list}" var="item" varStatus="status">
 															<c:if test="${item.hysmRoleCd ne 12 and item.hysmAuthCd eq 0}">
 																<option value="${item.hysmSeq}"><c:out value="${item.hymmName}"/></option>

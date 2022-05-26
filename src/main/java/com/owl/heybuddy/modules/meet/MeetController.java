@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.owl.heybuddy.common.util.UtilDateTime;
 
 @Controller
 public class MeetController {
@@ -55,12 +56,9 @@ public class MeetController {
 		conn.setRequestProperty("Accept", "application/json");
 		conn.setDoOutput(true); 
 		
-//		String json =  "{\"topic\": \"My Meeting\", \"duration\": 60, \"pre_schedule\": false, \"settings\": { \"jbh_time\": 0, \"join_before_host\": true, \"mute_upon_entry\": true }, \"type\": 2}";
 		
 		
-		String json = "{\"agenda\" : \"" + dto.getAgenda() + "\", \"topic\": \"" + dto.getTopic() + "\", \"settings\": { \"jbh_time\": 0, \"join_before_host\": true, \"mute_upon_entry\": true }, \"type\": 2, \"start_time\": \"yyyy-MM-ddTHH:mm:ss\" }";
-		
-		
+		String json = "{\"agenda\" : \"" + dto.getAgenda() + "\", \"topic\": \"" + dto.getTopic() + "\", \"settings\": { \"jbh_time\": 0, \"join_before_host\": true, \"mute_upon_entry\": true }, \"type\": 2, \"start_time\": \" " + UtilDateTime.nowStringZoom() + "\" }";
 		
 		OutputStream os = conn.getOutputStream();
 		os.write(json.getBytes());
@@ -79,6 +77,8 @@ public class MeetController {
 		while ((line = bufferedReader.readLine()) != null) {
 			stringBuilder.append(line);
 		}
+		
+		
 	
 		bufferedReader.close();
 		conn.disconnect();
@@ -123,14 +123,13 @@ public class MeetController {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Map<String, Object> map = objectMapper.readValue(stringBuilder.toString(), Map.class);
 		
-		System.out.println("################################ map ################################");
-		
-		for (String key : map.keySet()) {
-			
-			String value = String.valueOf(map.get(key));
-			
-			System.out.println("[key] : " + key + ", [value] : " + value);
-		}
+//		System.out.println("################################ map ################################");
+//		for (String key : map.keySet()) {
+//			
+//			String value = String.valueOf(map.get(key));
+//			
+//			System.out.println("[key] : " + key + ", [value] : " + value);
+//		}
 		
 		List<Zoom> list = new ArrayList<Zoom>();
 		list = (List<Zoom>) map.get("meetings");
@@ -147,6 +146,23 @@ public class MeetController {
 		
 		return "user/meet/zoomList";
 	}
+	
+	@RequestMapping(value = "/meet/zoomDele")
+	public String zoomDele(Zoom dto) throws Exception {
+		
+		String apiUrl = "https://api.zoom.us/v2/meetings/" + dto.getId();
+		
+		URL url = new URL(apiUrl);
+		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+		httpURLConnection.setRequestMethod("DELETE");
+		httpURLConnection.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2NTQwNDg4MjMsImlhdCI6MTY1MzQ0NDAyM30.LvPYI6nF2idwcGhmgB_wUI7nCJc8Zk_0ci5ABJ7cxBE");
+		
+		httpURLConnection.disconnect();
+		
+		return "redirect:/meet/zoomList";
+	}
+	
+	//////////////// ZOOM ////////////////
 	
 	@RequestMapping(value = "/meet/meetList")
 	public String meetList(Model model, MeetVo vo, HttpSession httpSession) throws Exception {

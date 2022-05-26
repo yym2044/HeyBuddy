@@ -215,6 +215,32 @@
 		</selectKey>
 	</insert>
 	
+	<insert id="signUpUploaded">
+		INSERT INTO
+			hybdMemberUploaded (
+				defaultNy
+				, type
+				, sort
+				, originalFileName
+				, uuidFileName
+				, ext
+				, delNy
+				, pseq
+				, path
+				
+			) VALUES (
+				1
+				, 0
+				, 1
+				, "profileDefault.png"
+				, "profileDefault.png"
+				, "png"
+				, 0
+				, #{hymmSeq}
+				, "/resources/user/images/"
+			)
+		
+	</insert>
 	
 	<insert id="insertUploaded">
 		INSERT INTO ${tableName}(

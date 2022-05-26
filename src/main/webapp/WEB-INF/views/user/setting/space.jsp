@@ -190,7 +190,7 @@
 												<td>호스트</td>
 												<td>
 												<div class="d-flex align-items-center">
-					                                <c:choose>
+													<c:choose>
 														<c:when test="${empty space.uuidFileName}">
 															<img src="/resources/user/images/profileDefault.png" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
 														</c:when>

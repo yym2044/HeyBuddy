@@ -206,7 +206,6 @@ public class MemberController {
 		
 		httpSession.setAttribute("sessAuth", rt.getHysmAuthCd());
 		
-		
 		return "user/member/memberList";
 	}
 

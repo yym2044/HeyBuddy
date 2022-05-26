@@ -590,16 +590,19 @@ const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
 
    var myName = '<c:out value="${sessName}"/>';
+   var mySpace = '<c:out value="${hyspSeq}"/>';
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
         var name = myName;
+		var space = mySpace;
 
         const id = push(child(ref(database), 'messages')).key;
 
         set(ref(database, 'messages/' + id), {
             name: name,
-            message: message
+            message: message,
+			space: space
         });
         document.getElementById('message').value = "";
         alert('message has sent');
@@ -608,7 +611,7 @@ const app = initializeApp(firebaseConfig);
 
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-        if(data.val().name != myName) {
+        if(data.val().name != myName && data.val().space == mySpace) {
             var divData = '<div class="chat_in">\n' +
 						'<div class="chat_content">\n' +
 						'<div class="d-flex">\n' +
@@ -623,7 +626,7 @@ const app = initializeApp(firebaseConfig);
 						'</div>';
 			var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-        }else{
+        }else if(data.val().name == myName && data.val().space == mySpace){
             var divData = '<div class="chat_out">\n' +
 						'<div class="chat_content">\n' +
 						'<div class="d-flex">\n' + 

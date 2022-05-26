@@ -128,7 +128,14 @@
 											<div class="ps-3 flex-grow-1 overflow-hidden">
 												<span class="fw-semibold d-block mb-1 text-truncate"></span>
 
-												<h5 class="mb-1 text-truncate"><c:out value="${item.hymmName}" /></h5>
+												<h5 class="mb-1 text-truncate"><c:out value="${item.hymmName}" /><c:choose>
+															<c:when test="${item.hymmSeq eq sessSeq}">
+																<span class="badge rounded-pill bg-primary">ME</span>
+															</c:when>
+															<c:otherwise>
+
+															</c:otherwise>
+														</c:choose></h5>
 
 											</div>
 										</div>

@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class MySpaceController {
 
-	@Autowired  
+	@Autowired
 	MySpaceServiceImpl service;
 
 	/******************************* 호스트 메뉴 Start *******************************/
@@ -32,9 +32,9 @@ public class MySpaceController {
 	public String space(Model model, MySpaceVo vo, HttpSession httpSession) throws Exception {
 
 		httpSession.setAttribute("sessAuth", httpSession.getAttribute("sessAuth"));
-		
+
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		
+
 		model.addAttribute("space", service.selectOneMySpaceHost(vo));
 
 		return "user/setting/space";
@@ -193,6 +193,22 @@ public class MySpaceController {
 		return "user/mySpace/mySpaceSend";
 	}
 
+	@RequestMapping(value = "/mySpace/mySpacePlusMember")
+	public String mySpaceSend(@ModelAttribute("vo") MySpaceVo vo, Model model, MySpace dto,
+			RedirectAttributes redirectAttributes) throws Exception {
+
+		MySpace rt = service.selectOneMember(vo);
+		model.addAttribute("item", rt);
+
+		dto.setHymmSeq(rt.getHymmSeq());
+
+		service.insertMySpaceGuest(dto);
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/mySpace/mySpaceSendList";
+	}
+
 	@ResponseBody
 	@RequestMapping(value = "mySpace/mySpaceCheckMember")
 	public Map<String, Object> getId(MySpaceVo vo, MySpace dto, HttpSession httpSession, Model model) throws Exception {
@@ -208,22 +224,6 @@ public class MySpaceController {
 		returnMap.put("rt", "success");
 
 		return returnMap;
-	}
-
-	@RequestMapping(value = "/mySpace/mySpacePlusMember")
-	public String mySpaceSend(@ModelAttribute("vo") MySpaceVo vo, Model model, MySpace dto,
-			RedirectAttributes redirectAttributes) throws Exception {
-
-		MySpace rt = service.selectOneMember(vo);
-		model.addAttribute("item", rt);
-
-		dto.setHymmSeq(rt.getHymmSeq());
-
-		service.insertMySpaceGuest(dto);
-
-		redirectAttributes.addFlashAttribute("vo", vo);
-
-		return "redirect:/mySpace/mySpaceSendList";
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceSendList")
@@ -246,7 +246,7 @@ public class MySpaceController {
 
 		vo.setHyspSeq(dto.getHyspSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
-		
+
 		return "redirect:/mySpace/mySpaceList";
 	}
 }

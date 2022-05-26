@@ -136,6 +136,19 @@ public class FileController {
 
 		return "redirect:/file/fileList";
 	}
+	@RequestMapping(value = "/file/fileNele") // 파일 가짜삭제
+	public String memberNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.updateDeleteDocument(vo);
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage());
+		redirectAttributes.addAttribute("hydcSeq", vo.getHydcSeq());
+		redirectAttributes.addAttribute("hydcDelNy", vo.getHydcDelNy());
+		redirectAttributes.addAttribute("hydcTitle", vo.getHydcTitle());
+		redirectAttributes.addAttribute("hydcText", vo.getHydcText());
+		redirectAttributes.addAttribute("shHydcOption", vo.getShHydcOption());
+		redirectAttributes.addAttribute("shHydcValue", vo.getShHydcValue());
+		return "redirect:/file/fileList";
+	}
+	
 	@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제
 	public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		String[] checkboxSeqArray = vo.getCheckboxSeqArray();

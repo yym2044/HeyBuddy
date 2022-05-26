@@ -78,7 +78,7 @@
 
 
 				<!--//Page Toolbar//-->
-	<!-- 			<div class="toolbar py-4 px-4 px-lg-8">
+				<!-- 			<div class="toolbar py-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-4 mb-lg-0">
@@ -90,233 +90,239 @@
 					</div>
 				</div> -->
 				<!--//Page Toolbar End//-->
-				
-		<!--Email Header-->
-					<div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
-						<div
-							class="d-flex align-items-center pb-2 flex-row justify-content-between">
 
-							<div class="flex-grow-1">
-								<a
-									href="javascript:goFileList('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
+				<!--Email Header-->
+				<div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
+					<div
+						class="d-flex align-items-center pb-2 flex-row justify-content-between">
+
+						<div class="flex-grow-1">
+							<a
+								href="javascript:goFileList('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
-									data-bs-placement="top" data-bs-toggle="tooltip" title="뒤로"
-									class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-									<i data-feather="arrow-left" class="fe-1x me-lg-1"></i> <span
-									class="d-none d-lg-inline-block">Back</span>
-								</a>
-
-							
-									<a
-										href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
+								data-bs-placement="top" data-bs-toggle="tooltip" title="뒤로"
+								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+								<i data-feather="arrow-left" class="fe-1x me-lg-1"></i> <span
+								class="d-none d-lg-inline-block">Back</span>
+							</a> <a
+								href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
-										data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
-										class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-										<i class="bi bi-trash-fill" data-bs-toggle="modal"
-										data-bs-target="#btnModalNelete"></i>
-									</a> 
+								data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
+								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+								<i class="bi bi-trash-fill" data-bs-toggle="modal"
+								data-bs-target="#btnModalNelete"></i>
+							</a>
 
-									<div class="modal fade" id="btnModalNelete" tabindex="-1"
-										aria-labelledby="exampleModalLabel" aria-hidden="true">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="modal-title">
-														<i class="fas fa-exclamation-circle"></i>삭제 확인!
-													</h5>
-													<button type="button" class="btn-close"
-														data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">정말 삭제하시겠습니까?</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-secondary"
-														data-bs-dismiss="modal">취소</button>
+							<div class="modal fade" id="btnModalNelete" tabindex="-1"
+								aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="modal-title">
+												<i class="fas fa-exclamation-circle"></i>삭제 확인!
+											</h5>
+											<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">정말 삭제하시겠습니까?</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">취소</button>
 
-													<a
-														href="javascript:goFileNelete
+											<a
+												href="javascript:goFileNelete
 									('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>',
 									'<c:out value="${vo.shHydcValue}"/>' );">
-														<button type="button" class="btn btn-primary" id="">확인</button>
-													</a>
-												</div>
-											</div>
+												<button type="button" class="btn btn-primary" id="">확인</button>
+											</a>
 										</div>
 									</div>
-				
+								</div>
 							</div>
+
 						</div>
 					</div>
+				</div>
 				<!--Email Header-->
 
-				
-				
+				<!--//Page content//-->
 
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
-						<div class="row">
+						<div class="row text-center">
 							<div class="col-12">
-								<div class="card" style="min-height: 490px;">
-									<c:choose>
-										<c:when test="${fn:length(list) eq 0}">
-											<div style="height: 490px;"
-												class="d-flex align-items-center justify-content-center">
-												<div class="text-center">
-													<h1 class="d-block">등록된 문서가 없습니다</h1>
-													<img src="/resources/user/images/cuteOwl.png"
-														style="width: 200px;">
-												</div>
-											</div>
-										</c:when>
-										<c:otherwise>
+								<div class="card">
+									<div class="table-responsive">
+
+										<table
+											class="table-card align-middle table-nowrap mb-0 table table-borderless">
+
+											<thead class="small text-uppercase text-muted">
+												<tr>
 
 
-											<!--Inbox mail list-->
-											<div class="list-group px-4 px-lg-8 mb-4 list">
+													<!-- 	검색 -->
 
-												<c:forEach items="${list}" var="item" varStatus="status">
-													<!--Inbox-item-->
-													<div class="list-group-item list-group-item-action">
-														<div class="d-flex align-items-center">
+												</tr>
+											</thead>
+											<tbody>
 
-															<!--check-->
-															<div
-																class="form-check shrink-0 mb-0 me-1 position-relative">
-																<input type="checkbox" class="form-check-input"
-																	id="check_1"> <label for="check_1"
-																	class="form-check-label"></label>
-															</div>
-															<div
-																class="form-star shrink-0 mb-0 me-2 d-md-flex d-none position-relative">
-																<input type="checkbox" class="form-star-input"
-																	id="starred_1"> <label for="starred_1"
-																	class="form-star-label"></label>
-															</div>
-															<div
-																class="shrink-0 d-flex flex-grow-1 ms-1 overflow-hidden align-items-center justify-content-start">
-	
-																<!--name class for search results-->
-																<div class="d-flex align-items-center mb-1">
-																	<div class="mb-0 me-2 flex-shrink-0 name">
-																		<a href="#modalMember" data-bs-toggle="modal"> <c:out
-																				value="${item.hymmName}" />
-																		</a>
-																	</div>
-																	<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
-																</div>
-																<p class="small fw-bold mb-0"></p>
-																<p class="lh-sm text-truncate mb-0">
-																	<span class="fw-bolder me-2 me-lg-4"> <a
-																		href="javaScript:goFileEdit(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
-																			<c:out value="${item.hydcTitle}" />
-																	</a>
-																	</span>
-																</p>
+												<tr>
 
-																<!--Time-->
-																<div>
-																	<span class="block small text-muted"> <fmt:formatDate
-																			value="${item.regDateTime }" />
-																	</span>
-																</div>
+													<th class="text-center"><input type="checkbox"
+														id="checkboxAll" name="checkboxAll"></th>
+													<th class="text-center">이름(본인것만올라와야함추후삭제예정)</th>
+													<th class="text-center">제목</th>
+													<th class="text-center">등록일</th>
+
+												</tr>
+
+
+												<c:choose>
+													<c:when test="${fn:length(list) eq 0}">
+														<div style="height: 490px;"
+															class="d-flex align-items-center justify-content-center">
+															<div class="text-center">
+																<h1 class="d-block">등록된 문서가 없습니다</h1>
+																<img src="/resources/user/images/cuteOwl.png"
+																	style="width: 200px;">
 															</div>
 														</div>
-													</div>
-												</c:forEach>
+													</c:when>
+													<c:otherwise>
+														<c:forEach items="${list}" var="item" varStatus="status">
+															<tbody id="mainTable_tbody">
+																<tr>
+
+																	<td class="text-center"><input type="checkbox"
+																		id="checkboxSeq" name="checkboxSeq"
+																		value="<c:out value="${item.hydcSeq}" />"></td>
+																	<td class="text-center"><c:out
+																			value="${item.hymmName}" /></td>
+
+																	<td class="text-center"><span
+																		class="fw-bolder me-2 me-lg-4"> <a
+																			href="javaScript:goFileEdit(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
+																				<c:out value="${item.hydcTitle}" />
+																		</a>
+																	</span></td>
+																	<td class="text-center"><fmt:formatDate
+																			value="${item.regDateTime }" /></td>
+																</tr>
+															</tbody>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+										</table>
+
+										<!--포스트 페이징과 버튼 -->
+										<div class="row text-center" style="width: 100%">
+											<div style="width: 100%; float: none; margin: 0 auto">
+												<br> <br>
+												<nav aria-label="...">
+													<ul class="pagination  justify-content-center">
+														<c:if test="${vo.startPage gt vo.pageNumToShow}">
+															<li class="page-item"><a class="page-link"
+																href="javascript:goFileList( <c:out value='${vo.startPage - 1}'/>);">
+																	Previous</a></li>
+														</c:if>
+														<c:forEach begin="${vo.startPage}" end="${vo.endPage}"
+															varStatus="i">
+															<c:choose>
+																<c:when test="${i.index eq vo.thisPage}">
+																	<li class="page-item active"><a class="page-link"
+																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+																</c:when>
+																<c:otherwise>
+																	<li class="page-item"><a class="page-link"
+																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+																</c:otherwise>
+															</c:choose>
+														</c:forEach>
+														<c:if test="${vo.endPage ne vo.totalPages}">
+															<li class="page-item"><a class="page-link"
+																href="javascript:goFileList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>
+														</c:if>
+													</ul>
+												</nav>
+
+												<br> <br>
+
+
 											</div>
-										</c:otherwise>
-									</c:choose>
+										</div>
+									</div>
+
 								</div>
 
-
-
-
-							</div>
-						</div>
-					</div>
-				</div>
-		</div>
-		<!--Footer for emails-->
-		<div
-			class="d-flex justify-content-between align-items-center mb-4 px-4 px-lg-8">
-
-			<div>
-				<small>1-12 of 999</small>
-				<div class="btn-group btn-group-sm ms-3">
-					<button class="btn btn-white btn-sm" type="button"
-						disabled="disabled">
-						<i data-feather="arrow-left" class="fe-1x"></i>
-					</button>
-					<button class="btn btn-white btn-sm" type="button">
-						<i data-feather="arrow-right" class="fe-1x"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--//Page content End//-->
+								<!--//Page content End//-->
 
 
 
 
-	<!--////////////Theme Core scripts Start/////////////////-->
-	<script src="/resources/assets/vendor/feather.min.js"></script>
-	<script src="/resources/assets/js/theme.bundle.js"></script>
-	<script>
-		feather.replace()
-	</script>
-	<!--////////////Theme Core scripts End/////////////////-->
+								<!--////////////Theme Core scripts Start/////////////////-->
+								<script src="/resources/assets/vendor/feather.min.js"></script>
+								<script src="/resources/assets/js/theme.bundle.js"></script>
+								<script>
+									feather.replace()
+								</script>
+								<!--////////////Theme Core scripts End/////////////////-->
 
 
 
-	<!--//Page-footer//-->
-	<footer class="pb-4 px-4 px-lg-8">
-		<div class="container-fluid px-0">
-			<span class="d-block lh-sm small text-muted text-end">&copy; <script>
-				document.write(new Date().getFullYear())
-			</script>. Hey, Buddy All rights reserved.
-			</span>
-		</div>
-	</footer>
-	<!--/.Page Footer End-->
+								<!--//Page-footer//-->
+								<footer class="pb-4 px-4 px-lg-8">
+									<div class="container-fluid px-0">
+										<span class="d-block lh-sm small text-muted text-end">&copy;
+											<script>
+												document.write(new Date()
+														.getFullYear())
+											</script>. Hey, Buddy All rights reserved.
+										</span>
+									</div>
+								</footer>
+								<!--/.Page Footer End-->
 
 
-	<!--////////////Theme Core scripts Start/////////////////-->
+								<!--////////////Theme Core scripts Start/////////////////-->
 
-	<script src="/resources/assets/vendor/feather.min.js"></script>
-	<script src="/resources/assets/js/theme.bundle.js"></script>
-	<script>
-		feather.replace()
-	</script>
+								<script src="/resources/assets/vendor/feather.min.js"></script>
+								<script src="/resources/assets/js/theme.bundle.js"></script>
+								<script>
+									feather.replace()
+								</script>
 
-	<!--////////////Theme Core scripts End/////////////////-->
-	<script type="text/javascript">
-		const sidebarLink = document.querySelectorAll('.Sidebar-link');
-		console.log(sidebarLink);
+								<!--////////////Theme Core scripts End/////////////////-->
+								<script type="text/javascript">
+									const sidebarLink = document
+											.querySelectorAll('.Sidebar-link');
+									console.log(sidebarLink);
 
-		console.log(sidebarLink[4]);
+									console.log(sidebarLink[4]);
 
-		sidebarLink[4].className += ' current';
-	</script>
+									sidebarLink[4].className += ' current';
+								</script>
 
-	<script type="text/javascript">
-		var seq = $("input:hidden[name=hydcSeq]");
+								<script type="text/javascript">
+									var seq = $("input:hidden[name=hydcSeq]");
 
-		goFileList = function(seq) {
-			$("#formList").attr("action", "/file/fileList");
-			$("#formList").submit();
-		}; 
-		
+									goFileList = function(seq) {
+										$("#formList").attr("action",
+												"/file/fileListTemp");
+										$("#formList").submit();
+									};
 
-		goFileEdit = function(hydcSeq, hymmSeq) {
-			alert(hymmSeq + "번 멤버가 올린 문서 " + hydcSeq + "번");
-			$("#hydcSeq").val(hydcSeq);
-			$("#hymmSeq").val(hymmSeq);
-			$("#formList").attr("action", "/file/fileEditTemp");
-			$("#formList").submit();
-		};
-
-	</script>
+									goFileEdit = function(hydcSeq, hymmSeq) {
+										alert(hymmSeq + "번 멤버가 올린 문서 "
+												+ hydcSeq + "번");
+										$("#hydcSeq").val(hydcSeq);
+										$("#hymmSeq").val(hymmSeq);
+										$("#formList").attr("action",
+												"/file/fileEditTemp");
+										$("#formList").submit();
+									};
+								</script>
 </body>
 
 </html>

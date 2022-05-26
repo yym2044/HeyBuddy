@@ -67,31 +67,27 @@
                <!-- include 처리 3번 -->
 				<%@include file="../include/pageHeader.jsp"%>
 
+				<form id="formList" name="formList" method="post" action="/file/fileInst" enctype="multipart/form-data">
 
-                    <!--//Page Toolbar//-->
-                    <div class="toolbar py-4 px-4 px-lg-8">
-                        <div class="position-relative container-fluid px-0">
-                            <div class="row align-items-center position-relative">
-                                <div class="col-md-8 mb-4 mb-lg-0">
-                                    <h3 class="mb-2">문서</h3>
+					<!-- 기본값히든처리 -->
+					<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${hyspSeq}"/>">
+					<input type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>">
+					<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${sessSeq}"/>">
 
-           
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//Page Toolbar End//-->
+					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
+					<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>">
+					<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>">
+					<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
 
-                      <!--//Page content//-->
-                    <div class="content overflow-hidden position-relative d-flex flex-column-fluid">
-                        <!--Inbox content-->
-                        <div id="mailList" class="position-absolute left-0 top-0 d-flex flex-column w-100 h-100 align-items-stretch" data-simplebar>
+
+              
+                    
                             <!--Email Header-->
                             <div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
                                 <div class="d-flex align-items-center pb-2 flex-row justify-content-between">
                                     
                                     <div class="flex-grow-1">
-                                        <a href="app-inbox.html" data-bs-placement="top" data-bs-toggle="tooltip" title="리스트" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+                                        <a href="fileListTemp" data-bs-placement="top" data-bs-toggle="tooltip" title="리스트" class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
                                             <i data-feather="arrow-left" class="fe-1x me-lg-1"></i>   <span class="d-none d-lg-inline-block">Back</span>
                                         </a>
 
@@ -102,65 +98,71 @@
 
                                 </div>
                             </div>
-                            <!--Inbox Details-->
-                            <div class="px-4 position-relative px-lg-8 mb-4 h-100 flex-grow-1">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        <div class="row justify-content-md-between">
-                                        
-                                         <div class="card-body flex-grow-1">
-                                                <h5 class="mb-0"><input type="text" class="form-control"
-											placeholder="제목"> </h5>
-										
-                                              </div>
-                                   
-                                          </div>
-                                    </div>
-                                    <div class="card-body flex-grow-1">
-                                    <input type="text" class="form-control"
-											name="ifmpNumber" value="  안녕하세요.임시저장되었던 내용입니다. 등록해보세요~ ">
-                                       
-                                        <hr>
-                        
-                                        <div class="d-flex flex-wrap">
+                          	<!--Inbox Details-->
+					<div class="px-4 position-relative px-lg-8 mb-4 h-100 flex-grow-1">
+						<div class="card h-100">
+							<div class="card-header">
+								<div class="row justify-content-md-between">
 
-                                        </div>
-                                        
-                                            <!--Attachment image-->
-									<div class="row">
-										<div class="col-md-12 mb-3">
-											<label for="file0" class="form-label input-file-button">첨부파일
-												<i data-feather="paperclip" class="fe-1x "></i>
-											</label> <input class="form-control" id="file0" name="file0"
-												type="file" multiple="multiple" style="display: none;"
-												onChange="upload(0,2);">
-											<div class="addScroll">
-												<ul id="ulFile0" class="list-group"></ul>
+
+											<div class="col-md-12 mb-3">
+												제목
+												<input type="text" class="form-control" name="hydcTitle" placeholder="" 	value="<c:out value="${item.hydcTitle}"/>" required>
+												<div class="invalid-feedback">제목을 입력해주세요.</div>
 											</div>
+
+											<div class="col-md-12 mb-3">
+												<div class="form-floating">
+													내용
+													<input type="text" class="form-control" style="height: 100px" autocomplete="off" id="hydcText" name="hydcText" value="<c:out value="${item.hydcText}"/>" required>
+													<div class="invalid-feedback">내용을 입력해주세요.</div>
+												</div>
+											</div>
+											
+								
+								<!--Attachment image-->
+								<div class="row">
+									<div class="col-md-12 mb-3">
+										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
+										</label>
+										<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
+										
+										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);">
+										
+										<div class="addScroll">
+											<ul id="ulFile0" class="list-group"></ul>
 										</div>
 									</div>
-                                        
-                                                  
-                    			<div class="row text-center" style="width: 100%">
+								</div>
+								<!--Attachment image-->
+
+
+								<div class="row text-center" style="width: 100%">
 									<div style="width: 100%; float: none; margin: 0 auto">
-									<a href="fileList">	<button type="button" class="btn btn-outline-secondary">뒤로</button> </a>
-								<a href="fileView"> <button type="button" class="btn btn-primary ms-2">등록</button> </a>
+										<!-- <a href="fileList">
+												<button type="button" class="btn btn-outline-secondary">뒤로</button>
+											</a> -->
+
+
+										<a class="btn btn-primary ms-2"
+											href="javascript:goFileUpdt('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">저장</a>
+
 									</div>
-									
+
 									<br> <br>
 
 								</div>
-                                        
-                                        
-                                    </div>                
-                                </div>
-                            </div>
-                        
-                        
-                        </div>
-                    </div>
-                    <!--//Page content End//-->
-                    
+
+
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</main>
+		</div>
+
+	</div>
                     
           
 								
@@ -177,6 +179,7 @@
                       </div>
                     </footer>
                     <!--/.Page Footer End-->
+                    			</form>
                 </main>
                 <!--///////////Page content wrapper End///////////////-->
             </div>
@@ -200,6 +203,16 @@
     	
     	sidebarLink[4].className += ' current';
     </script>
+    
+    
+	<script type="text/javascript">
+
+		goFileListTemp = function() {
+			$("#formList").attr("action", "/file/fileListTemp");
+			$("#formList").submit();
+		};
+	</script>
+	
     </body>
 
 </html>

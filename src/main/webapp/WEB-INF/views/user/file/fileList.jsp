@@ -318,10 +318,10 @@
             var options = {
   valueNames: [ 'name', 'label', ]
 };
-
+ 
 var userList = new List('mailList', options);
         </script>
-
+ 
 			<!--Compose message editor-->
 			<script src="/resources/assets/vendor/quill.min.js"></script>
 			<script>

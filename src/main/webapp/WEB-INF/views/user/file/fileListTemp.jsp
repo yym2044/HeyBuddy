@@ -7,7 +7,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>

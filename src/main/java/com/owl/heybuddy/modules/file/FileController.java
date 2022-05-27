@@ -38,7 +38,7 @@ public class FileController {
 			model.addAttribute("profileUploaded", list); 
 			
 		} else {
-
+ 
 		}
 		return "user/file/fileList";
 	}

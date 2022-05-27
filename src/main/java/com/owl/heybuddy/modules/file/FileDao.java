@@ -16,7 +16,7 @@ public class FileDao {
 
 	@Inject
 	private SqlSession sqlSession;
-	  
+	   
 	private static String namespace = "com.owl.heybuddy.modules.file.FileMpp";
 
 	public int selectOneCount(FileVo vo) {

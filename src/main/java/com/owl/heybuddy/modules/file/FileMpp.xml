@@ -8,7 +8,7 @@
 
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.file.File"></resultMap> <!-- 결과 객체 저장 -->
  
-
+ 
 	<sql id="selectCommon"> <!-- 공통 -->
 		from
 		hybdDocument a

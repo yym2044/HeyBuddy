@@ -1,9 +1,6 @@
 package com.owl.heybuddy.modules.plan;
 
 
-
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -55,6 +52,13 @@ public class PlanController {
 			
 		 model.addAttribute("selectListMember", selectListMember); 
 	
+		 
+		 vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+			
+		 	Plan rt = service.selectOne(vo);
+			
+			model.addAttribute("rt", rt); 
+			
 //			List<Plan> list = service.selectList(vo);
 //			model.addAttribute("list", list);
 		 
@@ -124,7 +128,9 @@ public class PlanController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/plan/planViewAjax")
-	public Plan planViewAjax(PlanVo vo) throws Exception {
+	public Plan planViewAjax(PlanVo vo, HttpSession httpSession) throws Exception {
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		
 		Plan rt = service.selectOne(vo);
 		

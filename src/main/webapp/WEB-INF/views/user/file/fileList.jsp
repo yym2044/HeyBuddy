@@ -206,8 +206,6 @@
 											</thead> -->
 											<tbody>
 
-
-
 												<c:choose>
 													<c:when test="${fn:length(list) eq 0}">
 														<div style="height: 490px;"
@@ -265,11 +263,12 @@
 																			value="${item.regDateTime }" /></td>
 
 																	<td class="">
-																		<c:if test="${type eq 1}">
+																	
+																		<c:if test="${item.type eq 1}">
 																
 																				<i class="bi bi-paperclip"></i> <!--  파일이면클립아이콘 -->
 																		</c:if>
-																		<c:if test="${type eq 0}">
+																		<c:if test="${item.type eq 0}">
 																				<i class="bi bi-image-fill"></i> <!-- 사진이면이미지아이콘 -->
 																		</c:if>
 																		</td>

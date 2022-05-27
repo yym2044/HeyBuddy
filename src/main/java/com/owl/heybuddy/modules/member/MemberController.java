@@ -39,7 +39,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/xdmin/memberView") // 회원뷰
-	public String xdminMemberView(@ModelAttribute("vo") MemberVo vo, Member dto, Model model) throws Exception {
+	public String memberView(@ModelAttribute("vo") MemberVo vo, Member dto, Model model) throws Exception {
 
 		Member rt = service.memberView(vo);
 		model.addAttribute("item", rt);

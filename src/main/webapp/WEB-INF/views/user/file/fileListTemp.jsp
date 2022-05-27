@@ -167,15 +167,7 @@
 											</thead>
 											<tbody>
 
-												<tr>
-
-													<th class="text-center"><input type="checkbox"
-														id="checkboxAll" name="checkboxAll"></th>
-													<th class="text-center">이름(본인것만올라와야함추후삭제예정)</th>
-													<th class="text-center">제목</th>
-													<th class="text-center">등록일</th>
-
-												</tr>
+						
 
 
 												<c:choose>
@@ -192,6 +184,15 @@
 													<c:otherwise>
 														<c:forEach items="${list}" var="item" varStatus="status">
 															<tbody id="mainTable_tbody">
+																					<tr>
+
+													<th class="text-center"><input type="checkbox"
+														id="checkboxAll" name="checkboxAll"></th>
+													<th class="text-center">이름(본인것만올라와야함추후삭제예정)</th>
+													<th class="text-center">제목</th>
+													<th class="text-center">등록일</th>
+
+												</tr>
 																<tr>
 
 																	<td class="text-center"><input type="checkbox"

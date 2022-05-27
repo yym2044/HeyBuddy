@@ -236,14 +236,20 @@ pageContext.setAttribute("br", "\n");
 								</c:when>
 									<c:otherwise>
 
+						
+						
 									<div class="card-hover me-2 position-relative width-90">
 										<span
 											class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
 											<img
 											src="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"
-											width="200px" class="img-fluid" alt="" /> <span
-											class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
-												<span> <i data-feather="download" class="fe-2x"></i>
+											width="200px" class="img-fluid" alt="" />
+												
+												<span class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
+												
+												<span>
+												<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" 
+												download="<c:out value="${uploaded.path}"/><c:out value="${uploaded.originalFileName}"/>">  <i data-feather="download" class="fe-2x"></i> </a>
 											</span>
 										</span>
 										</span>
@@ -253,32 +259,20 @@ pageContext.setAttribute("br", "\n");
 												value="${fileUploaded.originalFileName}" />
 
 										</span> <span class="d-block small text-muted text-truncate">
-											<c:out value="${fileUploaded.size}" />
+											<c:out value="${fileUploaded.size}" /> mb
 
 										</span>
 									</div>
 							</c:otherwise>
 							</c:choose>
-
-
-
 						</c:forEach>
-
 					</div>
-
-
-
-
-
-
-					<%-- 				<img src="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>" width="200px" />
-						<br>		
-						<a href="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>" 
-						download="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.originalFileName}"/>">
-						다운로드 </a><br>   --%>
-
 				</div>
 
+
+<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"> 미리보기 </a>
+<br>
+<iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
 
 				<div class="d-flex mb-3 align-items-center small">
 

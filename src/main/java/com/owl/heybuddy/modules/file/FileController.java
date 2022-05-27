@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.owl.heybuddy.modules.chat.Chat;
+import com.owl.heybuddy.modules.member.Member;
+
 
 @Controller
 public class FileController {
@@ -30,12 +31,13 @@ public class FileController {
 		 * model.addAttribute("selectListMember", selectListMember);
 		 */
 
+		
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
 			List<File> list = service.documentList(vo);
 			model.addAttribute("list", list);
-			model.addAttribute("profileUploaded", list); 
+			model.addAttribute("profileUploaded",service.profileUploaded(vo));
 			
 		} else {
  
@@ -47,11 +49,13 @@ public class FileController {
 	public String fileView(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession) throws Exception {
 
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq")); //다른사람이올린문서수정삭제안되게 세션잡는건딩왜안대.
+	
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 
 		List<File> list = service.fileUploaded(vo);  //  멀티파일 떠야하는데왜안떠?
-		model.addAttribute("fileUploaded", list);
+		model.addAttribute("list", list); //안되서덕지덕지..
+		model.addAttribute("fileUploaded", service.fileUploaded(vo)); //안되서덕지덕지..
 		
 		return "user/file/fileView";
 
@@ -73,7 +77,7 @@ public class FileController {
 		vo.setHydcSeq(dto.getHydcSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
 
-		return "redirect:/file/fileList";
+		return "redirect:/file/fileView";
 	}
 
 	@RequestMapping(value = "/file/fileEdit") // 문서수정
@@ -138,6 +142,7 @@ public class FileController {
 
 		return "redirect:/file/fileList";
 	}
+	
 	@RequestMapping(value = "/file/fileNele") // 파일 가짜삭제
 	public String memberNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		service.updateDeleteDocument(vo);

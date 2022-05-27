@@ -12,7 +12,22 @@ public class ChatServiceImpl implements ChatService {
 	ChatDao dao;
 
 	@Override
-	public List<Chat> selectListChatMember(ChatVo vo) throws Exception { // 채팅멤버
-		return dao.selectListChatMember(vo);
+	public List<Chat> selectListChatRoom(ChatVo vo) throws Exception { // 채팅룸
+		return dao.selectListChatRoom(vo);
 	}
+
+	@Override
+	public int insertChatRoom(Chat dto) throws Exception { // 채팅방 등록
+
+		return dao.insertChatRoom(dto);
+
+	}
+
+	@Override
+	public int insertChatMember(Chat dto) throws Exception { // 채팅멤버 등록
+
+		return dao.insertChatMember(dto);
+
+	}
+
 }

@@ -15,8 +15,16 @@ public class ChatDao {
 
 	private static String namespace = "com.owl.heybuddy.modules.chat.ChatMpp";
 
-	public List<Chat> selectListChatMember(ChatVo vo) {
-		return sqlSession.selectList(namespace + ".selectListChatMember", vo); // 채팅멤버
+	public List<Chat> selectListChatRoom(ChatVo vo) {
+		return sqlSession.selectList(namespace + ".selectListChatRoom", vo); // 채팅룸
+	}
+
+	public int insertChatRoom(Chat dto) {
+		return sqlSession.insert(namespace + ".insertChatRoom", dto); // 채팅방등록
+	}
+
+	public int insertChatMember(Chat dto) {
+		return sqlSession.insert(namespace + ".insertChatMember", dto); // 채팅멤버등록
 	}
 
 }

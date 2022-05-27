@@ -9,9 +9,25 @@
 	<resultMap id="resultMapObj"
 		type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
 
-	<select id="selectListChatMember" resultMap="resultMapObj">
+	<select id="selectListChatRoom" resultMap="resultMapObj">
 
 		SELECT
+		a.hycrName
+        , b.hycmSeq
+        , b.hymmSeq
+        , c.hymmName
+
+		FROM hybdChatRoom a
+		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
+		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
+		
+		WHERE 1=1
+		AND d.hyspSeq = #{hyspSeq}
+		AND b.hymmSeq = #{hymmSeq}
+		group by d.hyspSeq , hycrName
+
+<!-- 		SELECT
 		a.hymmSeq
 		, a.hymmName
 		, d.uuidFileName
@@ -26,6 +42,50 @@
 		AND b.hysmAcceptedNy = '1'
 		AND b.hysmExitNy = '0'
 		AND b.hyspSeq = #{hyspSeq}
-
+ -->
 	</select>
+
+
+
+	<insert id="insertChatRoom">
+
+		INSERT INTO hybdChatRoom
+		(
+		hycrName
+		, hycrDelNy
+		, hyspSeq
+		) VALUES (
+		#{hycrName}
+		, 0
+		, #{hyspSeq}
+		)
+
+		<selectKey resultType="String" keyProperty="hycrSeq"
+			order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+
+	</insert>
+	
+	<insert id="insertChatMember">
+
+	INSERT INTO hybdChatMember
+	(
+	hycmDelNy
+	, hycrSeq
+	, hymmSeq
+	) VALUES (
+	#{hycmDelNy}
+	, #{hycrSeq}
+	, #{hymmSeq}
+	)
+
+	<selectKey resultType="String" keyProperty="hycmSeq"
+		order="AFTER">
+		SELECT last_insert_id()
+	</selectKey>
+
+	</insert>
+	
+	
 </mapper>

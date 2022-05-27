@@ -264,8 +264,9 @@ p, dt {
 								<!--content-sidebar-header-->
 								<div
 									class="content-sidebar-header p-0 border-bottom position-relative">
-									<form
-										class="position-relative w-100 p-3 height-60 d-flex align-items-center">
+									<form class="position-relative w-100 p-3 height-60 d-flex align-items-center"  method="post">
+									<input type="hidden" id="hycrSeq" name="hycrSeq">
+									<input type="hidden" id="hycrSeq" name="hycrSeq" value="<c:out value="${vo.hycrSeq}"/>">
 										<div
 											class="position-absolute start-0 top-50 translate-middle-y opacity-50 lh-1 ms-3">
 											<i data-feather="search" class="fe-1x"></i>
@@ -294,7 +295,7 @@ p, dt {
 
 											<c:forEach items="${list}" var="item" varStatus="status">
 												<!--Chat User-->
-												<a href="#!"
+												<a href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
 													class="list-group-item align-items-center border-0 list-group-item-action px-3 d-flex py-3">
 													<div class="flex-shrink-0">
 														<div class="avatar-status status-online me-3 avatar">
@@ -367,9 +368,10 @@ p, dt {
 									</button>
 								</div>
 								<div class="me-auto d-flex align-items-center">
-									<div
-										class="avatar-status d-none d-sm-flex status-online me-3 flex-shrink-0 avatar">
-										<img src="" class="rounded-circle img-fluid" alt="">
+									<div class="avatar-status d-none d-sm-flex status-online me-3 flex-shrink-0 avatar">
+										  <div class="addScroll" >
+	                    <ul id="showMember" class="list-group"></ul>
+	                    </div>
 									</div>
 									<div>
 										<h5 class="mb-0 lh-1" id="myName"></h5>
@@ -541,6 +543,33 @@ p, dt {
 									"content_sidebar_show");
 						});
 	</script>
+	<script>
+	goRoom = function(seq) {
+		$("#hycrSeq").val(seq);
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/chat/chatRoomProc"
+			,dataType : "JSON"
+			,data : { "hymmName" : $("#hymmName").val()}
+			,success: function(data) {
+					alert(data);
+					alert(JSON.stringify(data));
+	/* 				alert(JSON.stringify(data['chatList'][0]['hymmName']));
+					
+					for(var i = 0; i < data['chatList'].length; i++){	
+						$('#showMember').append('<p>' +data['chatList'][i]['hymmName']+ '</p>') ;
+						} */
+			}			
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				
+			}
+		});
+
+	}
+	</script>
 
 
 	<!-- 사이드바 Hover 유지시켜주는 작업-->
@@ -591,7 +620,7 @@ p, dt {
 const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
 
-   var myName = '<c:out value="${sessName}"/>';
+   var myName = '<c:out value="${sessSeq}"/>';
    var mySpace = '<c:out value="${hyspSeq}"/>';
    var myRoom = '<c:out value="${hycrSeq}"/>';
 

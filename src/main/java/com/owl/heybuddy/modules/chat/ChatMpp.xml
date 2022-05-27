@@ -12,37 +12,30 @@
 	<select id="selectListChatRoom" resultMap="resultMapObj">
 
 		SELECT
-		a.hycrName
-        , b.hycmSeq
-        , b.hymmSeq
-        , c.hymmName
+		a.hycrSeq
+		, a.hycrName	 
+		, b.hycmSeq
+		, b.hymmSeq
+		, c.hymmName
 
 		FROM hybdChatRoom a
-		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
+		LEFT JOIN hybdChatMember b on b.hycrSeq
+		= a.hycrSeq
 		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
-		
+		LEFT JOIN
+		hybdSpace d on d.hyspSeq = a.hyspSeq
+
 		WHERE 1=1
 		AND d.hyspSeq = #{hyspSeq}
 		AND b.hymmSeq = #{hymmSeq}
-		group by d.hyspSeq , hycrName
+		group by
+		d.hyspSeq , hycrName
 
-<!-- 		SELECT
-		a.hymmSeq
-		, a.hymmName
-		, d.uuidFileName
-		, d.path
-
-		FROM hybdMember a
-		LEFT JOIN hybdSpaceMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
-		LEFT JOIN hybdMemberUploaded d on d.pseq = a.hymmSeq
-
-		WHERE 1=1
-		AND b.hysmAcceptedNy = '1'
-		AND b.hysmExitNy = '0'
-		AND b.hyspSeq = #{hyspSeq}
- -->
+		<!-- SELECT a.hymmSeq , a.hymmName , d.uuidFileName , d.path FROM hybdMember 
+			a LEFT JOIN hybdSpaceMember b on b.hymmSeq = a.hymmSeq LEFT JOIN hybdSpace 
+			c on c.hyspSeq = b.hyspSeq LEFT JOIN hybdMemberUploaded d on d.pseq = a.hymmSeq 
+			WHERE 1=1 AND b.hysmAcceptedNy = '1' AND b.hysmExitNy = '0' AND b.hyspSeq 
+			= #{hyspSeq} -->
 	</select>
 
 
@@ -66,26 +59,42 @@
 		</selectKey>
 
 	</insert>
-	
+
 	<insert id="insertChatMember">
 
-	INSERT INTO hybdChatMember
-	(
-	hycmDelNy
-	, hycrSeq
-	, hymmSeq
-	) VALUES (
-	#{hycmDelNy}
-	, #{hycrSeq}
-	, #{hymmSeq}
-	)
+		INSERT INTO hybdChatMember
+		(
+		hycmDelNy
+		, hycrSeq
+		, hymmSeq
+		) VALUES (
+		#{hycmDelNy}
+		, #{hycrSeq}
+		, #{hymmSeq}
+		)
 
-	<selectKey resultType="String" keyProperty="hycmSeq"
-		order="AFTER">
-		SELECT last_insert_id()
-	</selectKey>
+		<selectKey resultType="String" keyProperty="hycmSeq"
+			order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 
 	</insert>
-	
-	
+
+	<select id="selectListChatMember" resultMap="resultMapObj">
+
+		SELECT
+		a.hymmName
+
+		FROM hybdMember a
+		LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
+		LEFT JOIN hybdSpace d on d.hyspSeq = c.hyspSeq
+
+		WHERE 1=1
+
+		AND d.hyspSeq = #{hyspSeq}
+		AND c.hycrSeq = #{hycrSeq}
+
+	</select>
+
 </mapper>

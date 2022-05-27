@@ -1,6 +1,8 @@
 package com.owl.heybuddy.modules.chat;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -18,14 +21,13 @@ public class ChatController {
 	ChatServiceImpl service;
 
 	@RequestMapping(value = "/chat/chat")
-	public String chat(@ModelAttribute("vo") ChatVo vo, Model model, HttpSession httpSession) throws Exception {
+	public String chat(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
 
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
-
+		
 		return "user/chat/chat";
 	}
 
@@ -44,6 +46,27 @@ public class ChatController {
 		redirectAttributes.addFlashAttribute("vo", vo);
 
 		return "redirect:/chat/chat";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "chat/chatRoomProc")
+	public Map<String, Object> getId(ChatVo vo, Chat dto, HttpSession httpSession, Model model) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHycrSeq(vo.getHycrSeq());
+		System.out.println("vo.getHycrSeq :" + vo.getHycrSeq());
+		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
+//		Member rtMember = service.selectOneId(dto);
+//		model.addAttribute("rtMember", rtMember);
+
+		List<Chat> chatList = service.selectListChatMember(vo);
+		model.addAttribute("chatList", chatList);
+
+		returnMap.put("chatList", chatList);
+		returnMap.put("rt", "success");
+
+		return returnMap;
 	}
 
 	@RequestMapping(value = "/chat/chat2")

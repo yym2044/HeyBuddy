@@ -6,6 +6,8 @@ public class ChatVo {
 	private String hyspName;
 	private String hysmSeq;
 	private String hymmSeq;
+	private String hycrSeq;
+	private String hycmSeq;
 
 	public String getHyspSeq() {
 		return hyspSeq;
@@ -37,6 +39,22 @@ public class ChatVo {
 
 	public void setHymmSeq(String hymmSeq) {
 		this.hymmSeq = hymmSeq;
+	}
+
+	public String getHycrSeq() {
+		return hycrSeq;
+	}
+
+	public void setHycrSeq(String hycrSeq) {
+		this.hycrSeq = hycrSeq;
+	}
+
+	public String getHycmSeq() {
+		return hycmSeq;
+	}
+
+	public void setHycmSeq(String hycmSeq) {
+		this.hycmSeq = hycmSeq;
 	}
 
 }

@@ -295,13 +295,13 @@ p, dt {
 											<c:forEach items="${list}" var="item" varStatus="status">
 												<!--Chat User-->
 												<a href="#!"
-													class="list-group-item align-items-center active border-0 list-group-item-action px-3 d-flex py-3">
+													class="list-group-item align-items-center border-0 list-group-item-action px-3 d-flex py-3">
 													<div class="flex-shrink-0">
 														<div class="avatar-status status-online me-3 avatar">
 															<c:choose>
 																<c:when test="${empty item.uuidFileName}">
 																	<img style="width: 100%; height: 100%;"
-																		src="/resources/user/images/profileDefault.png"
+																		src="/resources/user/images/gathering1.png"
 																		class="flex-shrink-0 rounded-3 width-80" alt="">
 																</c:when>
 																<c:otherwise>
@@ -315,19 +315,19 @@ p, dt {
 													<div class="overflow-hidden flex-grow-1">
 														<div class="d-flex">
 															<h6 class="mb-0 flex-grow-1">
-																<c:out value="${item.hymmName}" />
+																<c:out value="${item.hycrName}" />
 																<!--New message badge-->
 																<span
 																	class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
 															</h6>
-															<small class="opacity-75 ms-auto small"><c:choose>
+															<small class="opacity-75 ms-auto small"><%-- <c:choose>
 															<c:when test="${item.hymmSeq eq sessSeq}">
 																<span class="badge rounded-pill bg-primary">ME</span>
 															</c:when>
 															<c:otherwise>
 
 															</c:otherwise>
-														</c:choose></small>
+														</c:choose> --%></small>
 														</div>
 													
 													</div>
@@ -449,7 +449,7 @@ p, dt {
 													<i data-feather="paperclip" class="fe-1x"></i>
 												</button>
 												<button type="button"
-													class="btn p-0 size-40 btn-outline-gray border text-muted d-flex align-items-center justify-content-center">
+													class="btn p-0 size-40 btn-outline-gray border text-muted d-flex align-items-center justify-content-center file-submit">
 													<i class="fe-1x" data-feather="smile"></i>
 												</button>
 												<button type="button" id="submit"
@@ -554,13 +554,15 @@ p, dt {
 	</script>
 
 
-
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="script.js"></script>   
 </body>
 </html>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-    import {
+	import {
         getDatabase,
         set,
         ref,
@@ -591,19 +593,23 @@ const app = initializeApp(firebaseConfig);
 
    var myName = '<c:out value="${sessName}"/>';
    var mySpace = '<c:out value="${hyspSeq}"/>';
+   var myRoom = '<c:out value="${hycrSeq}"/>';
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
         var name = myName;
 		var space = mySpace;
+		var room = myRoom;
 
         const id = push(child(ref(database), 'messages')).key;
 
         set(ref(database, 'messages/' + id), {
             name: name,
             message: message,
-			space: space
+			space: space,
+			room: room
         });
+
         document.getElementById('message').value = "";
 //        alert('message has sent');
 
@@ -611,7 +617,7 @@ const app = initializeApp(firebaseConfig);
 
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-        if(data.val().name != myName && data.val().space == mySpace) {
+        if(data.val().name != myName && data.val().space == mySpace && data.val().room == myRoom ) {
             var divData = '<div class="chat_in">\n' +
 						'<div class="chat_content">\n' +
 						'<div class="d-flex">\n' +
@@ -626,7 +632,7 @@ const app = initializeApp(firebaseConfig);
 						'</div>';
 			var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-        }else if(data.val().name == myName && data.val().space == mySpace){
+        }else if(data.val().name == myName && data.val().space == mySpace && data.val().room == myRoom ){
             var divData = '<div class="chat_out">\n' +
 						'<div class="chat_content">\n' +
 						'<div class="d-flex">\n' + 
@@ -643,5 +649,7 @@ const app = initializeApp(firebaseConfig);
             d1.insertAdjacentHTML('beforebegin', divData);
         }
     });
+
+
 
 </script>

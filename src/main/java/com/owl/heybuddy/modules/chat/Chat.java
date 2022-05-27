@@ -6,6 +6,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Chat {
 
+	private String hycrSeq;
+	private String hycrName;
+	private Integer hycrDelNy;
+	private Integer hycmDelNy;
 	// hybdMember
 	private Integer hymmAdminNy;
 	private Integer hymmDormancyNy;
@@ -64,6 +68,38 @@ public class Chat {
 	private String hysmSeq;
 	private String hymmSeq;
 	private String hysmRoleCd;
+
+	public String getHycrSeq() {
+		return hycrSeq;
+	}
+
+	public void setHycrSeq(String hycrSeq) {
+		this.hycrSeq = hycrSeq;
+	}
+
+	public String getHycrName() {
+		return hycrName;
+	}
+
+	public void setHycrName(String hycrName) {
+		this.hycrName = hycrName;
+	}
+
+	public Integer getHycrDelNy() {
+		return hycrDelNy;
+	}
+
+	public void setHycrDelNy(Integer hycrDelNy) {
+		this.hycrDelNy = hycrDelNy;
+	}
+
+	public Integer getHycmDelNy() {
+		return hycmDelNy;
+	}
+
+	public void setHycmDelNy(Integer hycmDelNy) {
+		this.hycmDelNy = hycmDelNy;
+	}
 
 	public Integer getHymmAdminNy() {
 		return hymmAdminNy;

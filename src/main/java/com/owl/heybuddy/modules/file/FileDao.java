@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.owl.heybuddy.modules.member.Member;
-
+ 
 
 
 @Repository

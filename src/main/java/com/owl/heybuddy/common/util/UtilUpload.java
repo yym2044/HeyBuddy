@@ -91,13 +91,21 @@ public class UtilUpload {
 		String nowString = UtilDateTime.nowString();
 		String pathDate = nowString.substring(0, 4) + "/" + nowString.substring(5, 7) + "/"
 				+ nowString.substring(8, 10);
-		String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
+		String path = Constants.UPLOAD_PATH_PDF + "/" + pathModule + "/" + pathDate + "/";
 
 		createPath(path);
 
 		multipartFile.transferTo(new File(path + uuidFileName));
-
-		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
+		
+//		if (type eq 0()) {
+		//이미지파일이라면 아래경로 ?
+		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/"); 
+		//만약 PDF라면 아래경로 ?
+	//	} else {
+		dto.setPath("/resources/pdfjs-2.14.305-dist/web/" + pathModule + "/" + pathDate + "/");
+	//	}
+	
+		
 		dto.setOriginalFileName(fileName);
 		dto.setUuidFileName(uuidFileName);
 		dto.setExt(ext);
@@ -118,6 +126,8 @@ public class UtilUpload {
 		
 	}
 	
-}
+	}
+	
+
 
 

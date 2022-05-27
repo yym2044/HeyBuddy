@@ -44,6 +44,13 @@ pageContext.setAttribute("br", "\n");
 </head>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 
+<style>
+.pop_wrap{position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.5); font-size:0; text-align:center;}
+.pop_wrap:after{display:inline-block; height:100%; vertical-align:middle; content:'';}
+.pop_wrap .pop_inner{display:inline-block; padding:20px 30px; background:#fff; width:500px; vertical-align:middle; font-size:15px;}
+</style>
+
+
 <body>
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
@@ -213,7 +220,7 @@ pageContext.setAttribute("br", "\n");
 							<a href="#!" data-bs-toggle="tooltip" data-bs-placement="top"
 								title="Print" class="d-inline-block me-3"> <i
 								class="bi bi-printer"></i>
-							</a> <small> <fmt:formatDate value="${item.regDateTime}" /></small>
+							</a> <small> <fmt:formatDate pattern="yyyy-MM-dd hh:mm" value="${item.regDateTime}" /></small>
 							
 						</div>
 					</div>
@@ -248,8 +255,9 @@ pageContext.setAttribute("br", "\n");
 												<span class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
 												
 												<span>
-												<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" 
-												download="<c:out value="${uploaded.path}"/><c:out value="${uploaded.originalFileName}"/>">  <i data-feather="download" class="fe-2x"></i> </a>
+												<a href="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>" 
+												download="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.originalFileName}"/>"> 
+												 <i data-feather="download" class="fe-2x"></i> </a>
 											</span>
 										</span>
 										</span>
@@ -258,23 +266,49 @@ pageContext.setAttribute("br", "\n");
 										<span class="d-block small text-body text-truncate"> <c:out
 												value="${fileUploaded.originalFileName}" />
 
-										</span> <span class="d-block small text-muted text-truncate">
-											<c:out value="${fileUploaded.size}" /> mb
-
 										</span>
-									</div>
-							</c:otherwise>
+										<span class="d-block small text-muted text-truncate">
+											<c:out value="${fileUploaded.size}" /> mb
+										</span>
+										
+										<span class="d-block small text-muted text-truncate">
+								
+								
+								<!-- 이미지라면 -->
+									<c:if test="${fileUploaded.type eq 0}"> 
+										<a href="#pop" class="btn_open">	preview </a>										
+									</c:if>
+							
+										</span>
+										
+										<!-- 이미지팝업 -->
+										<div id="pop" class="pop_wrap" style="display:none;">
+										  <div class="pop_inner">
+										    <p class="dsc">Image Preview</p>
+										    	<img src="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"
+											width="500px" class="img-fluid" alt="" />
+										    <button type="button" class="btn_close">Close</button>
+										  </div>
+										</div>
+
+								<!-- pdf라면 -->
+									<c:if test="${fileUploaded.type eq 1}">
+										<a href="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"> preview </a>										
+									</c:if>
+							
+
+<!-- <a href="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf"> view</a> -->
+<%-- <iframe src="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
+<iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
+			 --%>					
+								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 					</div>
 				</div>
-
-
-<a href="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"> 미리보기 </a>
-<br>
-<iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
-
 				<div class="d-flex mb-3 align-items-center small">
+
+<br><br>
 
 					<!--Comments-->
 					<a href="#!"
@@ -291,15 +325,18 @@ pageContext.setAttribute("br", "\n");
 				</div>
 
 
+<br><br>
+
+
 				<!--Comments list-->
-				<ul class="list-group">
+	<!-- 			<ul class="list-group">
 					<li class="list-group-item">
 						<div class="d-flex align-items-stretch">
 							<a href="#!" class="flex-shrink-0 d-block me-2"> <img
 								src="/resources/assets/media/avatars/01.jpg"
 								class="avatar sm rounded-circle" alt="">
 							</a>
-							<!--Coomments and replies-->
+							Coomments and replies
 							<div>
 								<div class="py-2 mb-1 px-3 bg-body rounded-3">
 									<div class="d-flex justify-content-between">
@@ -308,13 +345,13 @@ pageContext.setAttribute("br", "\n");
 									</div>
 									<p class="mb-0">확인 했습니다.</p>
 								</div>
-								<!--Reply link-->
+								Reply link
 								<div class="mb-2 small">
 									<a href="#!" class="text-reset">Reply</a>
 								</div>
-								<!--Reply-->
+								Reply
 								<div class="d-flex align-items-stretch">
-									<!--Reply icon-->
+									Reply icon
 									<div class="me-2 text-muted">
 										<i data-feather="corner-down-right"
 											class="fe-1x me-1 align-middle"></i>
@@ -323,7 +360,7 @@ pageContext.setAttribute("br", "\n");
 										src="/resources/assets/media/avatars/02.jpg"
 										class="avatar xs rounded-circle" alt="">
 									</a>
-									<!--Reply-->
+									Reply
 									<div>
 										<div class="py-2 mb-1 px-3 bg-body rounded-3">
 											<div class="d-flex justify-content-between">
@@ -332,7 +369,7 @@ pageContext.setAttribute("br", "\n");
 											</div>
 											<p class="mb-0">감사합니다.</p>
 										</div>
-										<!--Reply link-->
+										Reply link
 										<div class="mb-0 small">
 											<a href="#!" class="text-reset">Reply</a>
 										</div>
@@ -348,7 +385,7 @@ pageContext.setAttribute("br", "\n");
 								src="/resources/assets/media/avatars/03.jpg"
 								class="avatar sm rounded-circle" alt="">
 							</a>
-							<!--Coomments and replies-->
+							Coomments and replies
 							<div>
 								<div class="py-2 mb-1 px-3 bg-body rounded-3">
 									<div class="d-flex justify-content-between">
@@ -357,7 +394,7 @@ pageContext.setAttribute("br", "\n");
 									</div>
 									<p class="mb-0">감사합니다. 😀</p>
 								</div>
-								<!--Reply link-->
+								Reply link
 								<div class="mb-2 small">
 									<a href="#!" class="text-reset">Reply</a>
 								</div>
@@ -365,7 +402,9 @@ pageContext.setAttribute("br", "\n");
 						</div>
 					</li>
 					<li class="list-group-item bg-body">
-						<!--Add comment-->
+					
+					
+						Add comment
 						<h6>Add new comment</h6> <textarea name="addComment" rows="2"
 							class="form-control mb-2"></textarea>
 						<div class="text-end">
@@ -373,7 +412,7 @@ pageContext.setAttribute("br", "\n");
 						</div>
 
 					</li>
-				</ul>
+				</ul> -->
 
 			</div>
 		</div>
@@ -432,6 +471,31 @@ pageContext.setAttribute("br", "\n");
 			$("#formView").submit();
 		};
 	</script>
+
+
+<!-- 이미지 팝업으로 크게보기 -->
+	<script>
+  // 팝업 열기
+var target = document.querySelectorAll('.btn_open');
+var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+var targetID;
+
+// 팝업 열기
+for(var i = 0; i < target.length; i++){
+  target[i].addEventListener('click', function(){
+    targetID = this.getAttribute('href');
+    document.querySelector(targetID).style.display = 'block';
+  });
+}
+
+// 팝업 닫기
+for(var j = 0; j < target.length; j++){
+  btnPopClose[j].addEventListener('click', function(){
+    this.parentNode.parentNode.style.display = 'none';
+  });
+}
+</script>
+<!-- 이미지 팝업으로 크게보기 -->
 
 </body>
 

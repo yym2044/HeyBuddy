@@ -259,7 +259,7 @@
 																	</td>
 
 
-																	<td class=""><fmt:formatDate
+																	<td class=""><fmt:formatDate pattern="yyyy-MM-dd hh:mm"
 																			value="${item.regDateTime }" /></td>
 
 																	<td class="">
@@ -281,7 +281,42 @@
 											</tbody>
 										</table>
 
+				<!--포스트 페이징과 버튼 -->
+										<div class="row text-center" style="width: 100%">
+											<div style="width: 100%; float: none; margin: 0 auto">
+												<br> <br>
+												<nav aria-label="...">
+													<ul class="pagination  justify-content-center">
+														<c:if test="${vo.startPage gt vo.pageNumToShow}">
+															<li class="page-item"><a class="page-link"
+																href="javascript:goFileList( <c:out value='${vo.startPage - 1}'/>);">
+																	Previous</a></li>
+														</c:if>
+														<c:forEach begin="${vo.startPage}" end="${vo.endPage}"
+															varStatus="i">
+															<c:choose>
+																<c:when test="${i.index eq vo.thisPage}">
+																	<li class="page-item active"><a class="page-link"
+																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+																</c:when>
+																<c:otherwise>
+																	<li class="page-item"><a class="page-link"
+																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
+																</c:otherwise>
+															</c:choose>
+														</c:forEach>
+														<c:if test="${vo.endPage ne vo.totalPages}">
+															<li class="page-item"><a class="page-link"
+																href="javascript:goFileList( <c:out value='${vo.endPage + 1 }'/>);">Next</a></li>
+														</c:if>
+													</ul>
+												</nav>
 
+												<br> <br>
+
+
+											</div>
+										</div>
 									</div>
 								</div>
 								<!--//Page content End//-->

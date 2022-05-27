@@ -179,21 +179,21 @@ pageContext.setAttribute("br", "\n");
 							<div class="avatar">
 
 
-								<label for="profilePhoto" style=""> <c:choose>
-										<c:when test="${empty uploaded.uuidFileName}">
+							
+								<c:choose>
+										<c:when test="${empty profileUploaded.uuidFileName}">
 											<img style="width: 100%; height: 100%;"
 												src="/resources/user/images/profileDefault.png"
 												class="rounded-circle" alt="">
 										</c:when>
 										<c:otherwise>
 											<img style="width: 100px; height: 100px;"
-												src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"
+												src="<c:out value="${profileUploaded.path}"/><c:out value="${profileUploaded.uuidFileName}"/>"
 												class="avatar rounded-pill flex-shrink-0" />
 										</c:otherwise>
 									</c:choose>
-
-								</label>
-
+							
+			
 
 							</div>
 
@@ -207,7 +207,6 @@ pageContext.setAttribute("br", "\n");
 											value="${item.hymmEmail}"></c:out> &gt;
 								</span>
 								</a>
-							</div>
 						</div>
 						<div
 							class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
@@ -232,7 +231,10 @@ pageContext.setAttribute("br", "\n");
 						<!--Attachment image-->
 						<c:forEach items="${list}" var="fileUploaded" varStatus="status">
 							<c:choose>
-								<c:when test="${fileUploaded.path ne 0}">
+								<c:when test="${empty fileUploaded.uuidFileName}">
+								<p>등록된 파일이 없습니다.</p>
+								</c:when>
+									<c:otherwise>
 
 									<div class="card-hover me-2 position-relative width-90">
 										<span
@@ -255,7 +257,7 @@ pageContext.setAttribute("br", "\n");
 
 										</span>
 									</div>
-								</c:when>
+							</c:otherwise>
 							</c:choose>
 
 

@@ -84,7 +84,7 @@
 		hybdDocument a
 		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
-        LEFT JOIN hybdFileUploaded d ON d.pseq = b.hymmSeq
+        LEFT JOIN hybdFileUploaded d ON d.pseq = a.hydcSeq
 		where 1=1
 		and a.hydcDelNy = 0
 		and a.hydcTempNy = 0
@@ -243,7 +243,7 @@
 		hydcTitle  =  #{hydcTitle}
 		,hydcText =  #{hydcText}
 		,hydcTempNy =  0
-		,hydcDesc = #{hydcDesc}
+
 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}
 		,modDevice =  #{modDevice}

@@ -13,6 +13,7 @@ public class File {
 	private String hymmSeq;
 	private String hydcTitle;
 	private String hydcText;
+
 	private String hydcDelNy;
 	private String hydcTempNy;
 	

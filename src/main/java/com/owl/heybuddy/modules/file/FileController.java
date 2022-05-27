@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.owl.heybuddy.modules.member.Member;
-import com.owl.heybuddy.modules.member.MemberVo;
+import com.owl.heybuddy.modules.chat.Chat;
 
 @Controller
 public class FileController {
@@ -26,15 +25,18 @@ public class FileController {
 		if (vo.getHyspSeq() == null) {
 			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		}
+		/*
+		 * List<File> selectListMember = service.selectListMemberInSpace(vo);
+		 * model.addAttribute("selectListMember", selectListMember);
+		 */
 
-		List<File> selectListMember = service.selectListMemberInSpace(vo);
-		model.addAttribute("selectListMember", selectListMember);
-	
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
 			List<File> list = service.documentList(vo);
 			model.addAttribute("list", list);
+			model.addAttribute("profileUploaded", list); 
+			
 		} else {
 
 		}
@@ -42,15 +44,15 @@ public class FileController {
 	}
 
 	@RequestMapping(value = "/file/fileView") // 문서확인
-	public String fileView(@ModelAttribute("vo") FileVo vo, MemberVo mo, File dto, Model model, HttpSession httpSession) throws Exception {
+	public String fileView(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession) throws Exception {
 
-		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq")); //다른사람이올린문서수정삭제안되게구분하려고..
-		
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq")); //다른사람이올린문서수정삭제안되게 세션잡는건딩왜안대.
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
-//		model.addAttribute("uploaded", service.profileUploaded(mo)); // 멤버사진	임시로 주석 (05.24)
-		model.addAttribute("fileUploaded", service.fileUploaded(vo)); // 파일
 
+		List<File> list = service.fileUploaded(vo);  //  멀티파일 떠야하는데왜안떠?
+		model.addAttribute("fileUploaded", list);
+		
 		return "user/file/fileView";
 
 	}

@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.owl.heybuddy.common.util.UtilUpload;
 import com.owl.heybuddy.modules.member.Member;
-import com.owl.heybuddy.modules.member.MemberVo;
+
 
 
 
@@ -25,6 +25,7 @@ public class FileServiceImpl implements FileService {
 	@Override
 	public List<File> documentList(FileVo vo) throws Exception { //문서리스트
 		return dao.documentList(vo);
+		
 	}
 	@Override
 	public List<File> documentListTemp(FileVo vo) throws Exception { //임시문서리스트
@@ -45,8 +46,8 @@ public class FileServiceImpl implements FileService {
 		return dao.selectOneMenu(vo);
 	}
 	@Override
-	public Member profileUploaded(MemberVo mo) throws Exception { //회원사진
-		return dao.profileUploaded(mo);
+	public List<File> profileUploaded(FileVo vo) throws Exception { //회원사진
+		return dao.profileUploaded(vo);
 	}
 	@Override
 	public List<File> fileUploaded(FileVo vo) throws Exception { //파일뷰
@@ -72,6 +73,9 @@ public class FileServiceImpl implements FileService {
 
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0()) {
+		
+			if(!multipartFile.isEmpty()) {
+			
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
 			
 			UtilUpload.uploadFile(multipartFile, pathModule, dto);
@@ -87,6 +91,7 @@ public class FileServiceImpl implements FileService {
 			j++;
 		}
 		
+		}
 		return 1;
 	}
 		
@@ -94,6 +99,8 @@ public class FileServiceImpl implements FileService {
 	public int updateDocument(File dto) throws Exception { //문서수정
 		dao.updateDocument(dto);
 		
+
+			
 		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
 		UtilUpload.uploadFile(dto.getFile0()[0], pathModule, dto);
 
@@ -140,6 +147,7 @@ public class FileServiceImpl implements FileService {
 		
 		return 1;
 	}
+
 
 
 }

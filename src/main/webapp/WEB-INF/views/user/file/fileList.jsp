@@ -71,18 +71,20 @@
 						type="hidden" id="hymmSeq" name="hymmSeq">
 				</form>
 
+
+
 				<!--//Page Toolbar//-->
-				<div class="toolbar py-4 px-4 px-lg-8">
+				<!-- 			<div class="toolbar py-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
 							<div class="col-md-8 mb-4 mb-lg-0">
-								<h3 class="mb-2">UI 공사중 으챠챠</h3>
+								<h3 class="mb-2">UI 공사중 ㅠㅠ</h3>
 
 
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>  -->
 				<!--//Page Toolbar End//-->
 
 				<!--Email Header-->
@@ -106,14 +108,12 @@
 								data-bs-placement="top" data-bs-toggle="tooltip" title="등록"
 								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 								<i class="bi bi-pencil-fill"></i>
-							</a>
-
-<a
+							</a> <a
 								href="javascript:goFileListTemp('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
-								data-bs-placement="top" data-bs-toggle="tooltip" title="임시저장불러오기(아이콘수정예정)"
+								data-bs-placement="top" data-bs-toggle="tooltip" title="임시저장리스트"
 								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-								<i class="bi bi-pencil-fill"></i>
+								<i class="bi bi-bookmark-check-fill"></i>
 							</a>
 
 
@@ -149,7 +149,31 @@
 				</div>
 				<!--Email Header-->
 
-	<!--//Page content//-->
+
+
+				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
+					<div class="col-md-12 mx-auto">
+						<div class="sticky-top top-0">
+
+							<!--Search form-->
+							<div class="pb-5">
+								<form class="position-relative">
+									<!--Icon-->
+									<span
+										class="d-flex size-20 rounded-circle ms-3 align-items-center justify-content-center position-absolute start-0 top-50 translate-middle-y">
+										<i data-feather="search" class="fe-1x opacity-50"></i>
+									</span>
+									<!--Input-->
+									<input type="text"
+										class="form-control shadow py-4 form-control-lg ps-9"
+										placeholder="UI공사중입니다~~">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--//Page content//-->
 
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
@@ -161,12 +185,12 @@
 										<table
 											class="table-card align-middle table-nowrap mb-0 table table-borderless">
 
-											<thead class="small text-uppercase text-muted">
+											<!-- 			<thead class="small text-uppercase text-muted">
 												<tr>
 
 
 
-											<th class="text-center"><input type="checkbox"
+											<th class=""><input type="checkbox"
 														id="checkboxAll" name="checkboxAll">check All</th>
 										
 										<td></td>
@@ -179,7 +203,7 @@
 										<td><button class="btn btn-primary" type="submit" name="search"
 														id="btnSearch">검색</button> </td>
 												</tr>
-											</thead>
+											</thead> -->
 											<tbody>
 
 
@@ -197,60 +221,59 @@
 													</c:when>
 													<c:otherwise>
 														<c:forEach items="${list}" var="item" varStatus="status">
-															<tbody id="mainTable_tbody">
+															<tbody id="">
 																<tr>
-																
-																<td> <div
-																	class="form-star shrink-0 mb-0 me-2 d-md-flex d-none position-relative">
-																	<input type="checkbox" class="form-star-input"
-																		id="starred_1"> <label for="starred_1"
-																		class="form-star-label"></label>
-																</div>
+																	<td><input type="checkbox" id="checkboxSeq"
+																		name="checkboxSeq"
+																		value="<c:out value="${item.hydcSeq}" />"></td>
 
-																	<input type="checkbox"
-																		id="checkboxSeq" name="checkboxSeq"
-																		value="<c:out value="${item.hydcSeq}" />"> </td>
-																		
-																		
-																	<td class=""> 	<label for="profilePhoto" style=""> <c:choose>
-																				<c:when test="${empty uploaded.uuidFileName}">
-																					<img style="width: 50px; height: 50px;"
-																						src="/resources/user/images/profileDefault.png"
-																						class="rounded-circle" alt="">
-																				</c:when>
-																				<c:otherwise>
-																					<img style="width: 50px; height: 50px;"
-																						src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>"
-																						class="avatar rounded-pill flex-shrink-0" />
-																				</c:otherwise>
-																			</c:choose>
-																		</label></td>
+																	<td class=""><c:choose>
+																			<c:when test="${empty item.uuidFileName}">
+																				<img style="width: 50px; height: 50px;"
+																					src="/resources/user/images/profileDefault.png"
+																					class="rounded-circle" alt="">
+																			</c:when>
+																			<c:otherwise>
+																				<img style="width: 50px; height: 50px;"
+																					src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
+																					class="avatar rounded-pill flex-shrink-0" />
+																			</c:otherwise>
+																		</c:choose></td>
 
-																	<td class="">	<div class="d-flex align-items-center mb-1">
+																	<td class="">
 																		<div class="mb-0 me-2 flex-shrink-0 name">
 																			<a href="#modalMember" data-bs-toggle="modal"> <c:out
 																					value="${item.hymmName}" />
 																			</a>
+
+																			<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
 																		</div>
-																		<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
-																	</div> </td>
-																	
-																			<td class="">	<p class="small fw-bold mb-0"></p>
-																	<p class="lh-sm text-truncate mb-0">
-																		<span class="fw-bolder me-2 me-lg-4"> <a
-																			href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
-																				<c:out value="${item.hydcTitle}" />
-																		</a>
-																		</span>
-																	</p></td>
-																			
-																			
+																	</td>
+
+																	<td class="">
+																		<p class="lh-sm text-truncate mb-0">
+																			<span class="fw-bolder me-2 me-lg-4"> <a
+																				href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
+																					<c:out value="${item.hydcTitle}" />
+																			</a>
+																			</span>
+																		</p>
+																	</td>
+
+
 																	<td class=""><fmt:formatDate
 																			value="${item.regDateTime }" /></td>
-																			
-																					<td class=""> 
-																					<i class="bi-bi paperclip"></i>
-																					<i class="bi bi-image-fill"></i></td>
+
+																	<td class="">
+																		<c:if test="${type eq 1}">
+																
+																				<i class="bi bi-paperclip"></i> <!--  파일이면클립아이콘 -->
+																		</c:if>
+																		<c:if test="${type eq 0}">
+																				<i class="bi bi-image-fill"></i> <!-- 사진이면이미지아이콘 -->
+																		</c:if>
+																		</td>
+
 																</tr>
 															</tbody>
 														</c:forEach>
@@ -259,134 +282,39 @@
 											</tbody>
 										</table>
 
-		
 
-							<!--//Page content End//-->
+									</div>
+								</div>
+								<!--//Page content End//-->
 
 
-							<!--//Page-footer//-->
-							<footer class="pb-4 px-4 px-lg-8">
-								<div class="container-fluid px-0">
-									<span class="d-block lh-sm small text-muted text-end">
-										&copy; <script>
+								<!--//Page-footer//-->
+								<footer class="pb-4 px-4 px-lg-8">
+									<div class="container-fluid px-0">
+										<span class="d-block lh-sm small text-muted text-end">
+											&copy; <script>
                               document.write(new Date().getFullYear())
                             </script> . Hey, Buddy All rights reserved.
-									</span>
-								</div>
-							</footer>
-							<!--/.Page Footer End-->
+										</span>
+									</div>
+								</footer>
+								<!--/.Page Footer End-->
 			</main>
 			<!--///////////Page content wrapper End///////////////-->
-		</div>
-	</div>
 
 
 
-
-
-
-	<div class="modal fade" id="modalMember" tabindex="-1">
-		<div class="modal-dialog">
-			<div class="modal-content border-0">
-
-				<div class="card">
-
-					<!--Card body-->
-					<div class="card-body">
-						<!--Contact-->
-						<div class="text-center">
-
-							<!-- Avatar -->
-							<a href="#!"
-								class="avatar mb-3 mx-auto xl rounded-cirlce d-block"> <img
-								src="/resources/assets/media/avatars/02.jpg" alt="..."
-								class="img-fluid rounded-circle">
-							</a>
-							<!-- Title -->
-							<h5 class="mb-0">
-								<a href="#!" class="text-reset"> 정미림</a>
-							</h5>
-
-							<!-- Email -->
-							<p class="small text-muted mb-0">
-								<a class="d-block text-reset text-truncate"
-									href="#!mailto:noah.pierre@company.com">
-									noah.pierre@mail.com</a>
-							</p>
-
-							<!-- Phone -->
-							<p class="small text-muted mb-3">
-								<a class="d-block text-reset text-truncate" href="#">
-									010-1234-5678</a>
-							</p>
-
-
-							<!-- Split dropdown user button -->
-							<div class="btn-group">
-								<button type="button" class="btn btn-outline-gray text-body">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-										viewBox="0 0 24 24" fill="none" stroke="currentColor"
-										stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round"
-										class="feather feather-message-square fe-1x me-2 align-middle">
-													<path
-											d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-									Send Message
-								</button>
-								<button type="button"
-									class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end"
-									data-bs-toggle="dropdown" aria-expanded="false">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-										viewBox="0 0 24 24" fill="none" stroke="currentColor"
-										stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round"
-										class="feather feather-more-vertical fe-1x">
-													<circle cx="12" cy="12" r="1"></circle>
-													<circle cx="12" cy="5" r="1"></circle>
-													<circle cx="12" cy="19" r="1"></circle></svg>
-								</button>
-								<ul class="dropdown-menu dropdown-menu-end" style="">
-									<li><a class="dropdown-item" href="#"> <svg
-												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-												viewBox="0 0 24 24" fill="none" stroke="currentColor"
-												stroke-width="2" stroke-linecap="round"
-												stroke-linejoin="round"
-												class="feather feather-info fe-1x align-middle me-2 opacity-50">
-															<circle cx="12" cy="12" r="10"></circle>
-															<line x1="12" y1="16" x2="12" y2="12"></line>
-															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg> View
-											detail
-									</a></li>
-									<li><a class="dropdown-item" href="#"> <svg
-												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-												viewBox="0 0 24 24" fill="none" stroke="currentColor"
-												stroke-width="2" stroke-linecap="round"
-												stroke-linejoin="round"
-												class="feather feather-slash fe-1x align-middle me-2 opacity-50">
-															<circle cx="12" cy="12" r="10"></circle>
-															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-											Block contact
-									</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--////////////Theme Core scripts Start/////////////////-->
-	<script src="/resources/assets/vendor/feather.min.js"></script>
-	<script src="/resources/assets/js/theme.bundle.js"></script>
-	<script>
+			<!--////////////Theme Core scripts Start/////////////////-->
+			<script src="/resources/assets/vendor/feather.min.js"></script>
+			<script src="/resources/assets/js/theme.bundle.js"></script>
+			<script>
           feather.replace()
         </script>
-	<!--////////////Theme Core scripts End/////////////////-->
+			<!--////////////Theme Core scripts End/////////////////-->
 
-	<!--Search email -->
-	<script src="/resources/assets/vendor/list.min.js"></script>
-	<script>
+			<!--Search email -->
+			<script src="/resources/assets/vendor/list.min.js"></script>
+			<script>
             var options = {
   valueNames: [ 'name', 'label', ]
 };
@@ -394,9 +322,9 @@
 var userList = new List('mailList', options);
         </script>
 
-	<!--Compose message editor-->
-	<script src="/resources/assets/vendor/quill.min.js"></script>
-	<script>
+			<!--Compose message editor-->
+			<script src="/resources/assets/vendor/quill.min.js"></script>
+			<script>
     var initQuill = document.querySelectorAll("[data-quill]");
     initQuill.forEach((qe) => {
         const qt = {
@@ -414,7 +342,7 @@ var userList = new List('mailList', options);
     });
 </script>
 
-	<script type="text/javascript">
+			<script type="text/javascript">
     	const sidebarLink = document.querySelectorAll('.Sidebar-link');
     	console.log(sidebarLink);
     	
@@ -423,7 +351,7 @@ var userList = new List('mailList', options);
     	sidebarLink[4].className += ' current';
     </script>
 
-	<script type="text/javascript">
+			<script type="text/javascript">
 		var seq = $("input:hidden[name=hydcSeq]");
 		
 		goFileList = function(seq) {
@@ -454,7 +382,7 @@ var userList = new List('mailList', options);
 		</script>
 
 
-	<script type="text/javascript">
+			<script type="text/javascript">
 		$("#checkboxAll").click(function() {  //전체선택
 		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 		else $("input[name=checkboxSeq]").prop("checked", false);

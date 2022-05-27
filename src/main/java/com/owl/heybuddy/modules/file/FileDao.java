@@ -8,8 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.owl.heybuddy.modules.member.Member;
-import com.owl.heybuddy.modules.member.MemberVo;
-
 
 
 
@@ -48,8 +46,8 @@ public class FileDao {
 	public File selectOneMenu(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneMenu", vo); // 메뉴달라짐
 	}
-	public Member profileUploaded(MemberVo mo) {
-		return sqlSession.selectOne(namespace + ".profileUploaded", mo); // 회원사진 확인
+	public List<File>  profileUploaded(FileVo vo) {
+		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
 	}
 	public List<File> fileUploaded(FileVo vo) {
 		return sqlSession.selectList(namespace + ".fileUploaded", vo); // 파일확인

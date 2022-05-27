@@ -54,6 +54,8 @@ public class File {
 	private String pseq;
 	private String path;
 
+	private String path2;
+	
 	//hybdMember
 	private Integer hymmAdminNy;
 	private Integer hymmDormancyNy;
@@ -398,5 +400,12 @@ public void setHydcTempNy(String string) {
 	this.hydcTempNy = string;
 }
 
+
+public String getPath2() {
+	return path2;
+}
+public void setPath2(String path2) {
+	this.path2 = path2;
+}
 	
 }

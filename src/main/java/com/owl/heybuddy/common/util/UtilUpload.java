@@ -91,19 +91,23 @@ public class UtilUpload {
 		String nowString = UtilDateTime.nowString();
 		String pathDate = nowString.substring(0, 4) + "/" + nowString.substring(5, 7) + "/"
 				+ nowString.substring(8, 10);
-		String path = Constants.UPLOAD_PATH_PDF + "/" + pathModule + "/" + pathDate + "/";
+		
+		
+		//이미지일떄
+		String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
+		//pdf일때
+		String path2 = Constants.UPLOAD_PATH_PDF + "/" + pathModule + "/" + pathDate + "/";
 
 		createPath(path);
-
+ 
+		//이미지파일이라면 아래경로 ? if어케쓰니~~?ㅠㅠ
 		multipartFile.transferTo(new File(path + uuidFileName));
-		
-//		if (type eq 0()) {
-		//이미지파일이라면 아래경로 ?
 		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/"); 
+		
 		//만약 PDF라면 아래경로 ?
-	//	} else {
-		dto.setPath("/resources/pdfjs-2.14.305-dist/web/" + pathModule + "/" + pathDate + "/");
-	//	}
+		multipartFile.transferTo(new File(path2 + uuidFileName));
+		dto.setPath2("/resources/pdfjs-2.14.305-dist/web/" + pathModule + "/" + pathDate + "/");
+
 	
 		
 		dto.setOriginalFileName(fileName);

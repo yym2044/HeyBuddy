@@ -10,33 +10,6 @@
  
 
 	<sql id="selectCommon"> <!-- 공통 -->
-		FROM
-		hybdDocument a
-		WHERE 1 = 1 
-		<choose>
-			<when test="shHydcDelNy == 1">AND hydcDelNy = 1 </when>   
-			<when test="shHydcDelNy == 0">AND hydcDelNy = 0 </when>  
-		</choose>
-			<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
-		
-		<choose>
-			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
-		</choose>
-	</sql>
-	
-	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
-		select
-		count(*)
-		<include refid="selectCommon"/>
-	</select>
-
-	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
-		select
-		a.*
-		,b.hymmName
-		,b.hymmEmail
-		,b.hymmNumber
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
@@ -53,7 +26,21 @@
 			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
 		</choose>
 		limit  #{startRnumForMysql} , #{rowNumToShow}
+	</sql>
+	
+	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
+		select
+		count(*)
+		<include refid="selectCommon"/>
+	</select>
 
+	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
+		select
+		a.*
+		,b.hymmName
+		,b.hymmEmail
+		,b.hymmNumber
+		<include refid="selectCommon"/>
 	</select>
 			
 	<select id="selectListMemberInSpace" resultMap="resultMapObj">

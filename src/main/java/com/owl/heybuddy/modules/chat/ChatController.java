@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.owl.heybuddy.modules.mySpace.MySpace;
+
 @Controller
 public class ChatController {
 
@@ -54,12 +56,8 @@ public class ChatController {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		vo.setHycrSeq(vo.getHycrSeq());
-		System.out.println("vo.getHycrSeq :" + vo.getHycrSeq());
-		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
-//		Member rtMember = service.selectOneId(dto);
-//		model.addAttribute("rtMember", rtMember);
-
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		
 		List<Chat> chatList = service.selectListChatMember(vo);
 		model.addAttribute("chatList", chatList);
 

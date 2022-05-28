@@ -13,23 +13,20 @@
 
 		SELECT
 		a.hycrSeq
-		, a.hycrName	 
+		, a.hycrName
 		, b.hycmSeq
 		, b.hymmSeq
 		, c.hymmName
 
 		FROM hybdChatRoom a
-		LEFT JOIN hybdChatMember b on b.hycrSeq
-		= a.hycrSeq
+		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
 		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-		LEFT JOIN
-		hybdSpace d on d.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
 
 		WHERE 1=1
 		AND d.hyspSeq = #{hyspSeq}
 		AND b.hymmSeq = #{hymmSeq}
-		group by
-		d.hyspSeq , hycrName
+		group by d.hyspSeq , a.hycrSeq
 
 		<!-- SELECT a.hymmSeq , a.hymmName , d.uuidFileName , d.path FROM hybdMember 
 			a LEFT JOIN hybdSpaceMember b on b.hymmSeq = a.hymmSeq LEFT JOIN hybdSpace 
@@ -84,11 +81,14 @@
 
 		SELECT
 		a.hymmName
+		, c.hycrName
+		, c.hycrSeq
 
 		FROM hybdMember a
 		LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
-		LEFT JOIN hybdSpace d on d.hyspSeq = c.hyspSeq
+		LEFT JOIN hybdSpace d
+		on d.hyspSeq = c.hyspSeq
 
 		WHERE 1=1
 
@@ -96,5 +96,18 @@
 		AND c.hycrSeq = #{hycrSeq}
 
 	</select>
+	
+	<select id="selectOneChatRoom" resultMap="resultMapObj">
+		SELECT
+		a.hycrName
 
+		FROM
+		hybdChatRoom a
+		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
+
+		WHERE 1=1
+		AND b.hymmSeq = #{hymmSeq}
+		AND a.hycrSeq = #{hycrSeq}
+	</select>
+	
 </mapper>

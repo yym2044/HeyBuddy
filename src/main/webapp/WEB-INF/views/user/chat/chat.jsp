@@ -264,9 +264,11 @@ p, dt {
 								<!--content-sidebar-header-->
 								<div
 									class="content-sidebar-header p-0 border-bottom position-relative">
-									<form class="position-relative w-100 p-3 height-60 d-flex align-items-center"  method="post">
-									<input type="hidden" id="hycrSeq" name="hycrSeq">
-									<input type="hidden" id="hycrSeq" name="hycrSeq" value="<c:out value="${vo.hycrSeq}"/>">
+									<form
+										class="position-relative w-100 p-3 height-60 d-flex align-items-center"
+										method="post">
+										<input type="hidden" id="hycrSeq" name="hycrSeq">
+
 										<div
 											class="position-absolute start-0 top-50 translate-middle-y opacity-50 lh-1 ms-3">
 											<i data-feather="search" class="fe-1x"></i>
@@ -295,7 +297,8 @@ p, dt {
 
 											<c:forEach items="${list}" var="item" varStatus="status">
 												<!--Chat User-->
-												<a href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
+												<a
+													href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
 													class="list-group-item align-items-center border-0 list-group-item-action px-3 d-flex py-3">
 													<div class="flex-shrink-0">
 														<div class="avatar-status status-online me-3 avatar">
@@ -321,16 +324,18 @@ p, dt {
 																<span
 																	class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
 															</h6>
-															<small class="opacity-75 ms-auto small"><%-- <c:choose>
+															<small class="opacity-75 ms-auto small">
+																<%-- <c:choose>
 															<c:when test="${item.hymmSeq eq sessSeq}">
 																<span class="badge rounded-pill bg-primary">ME</span>
 															</c:when>
 															<c:otherwise>
 
 															</c:otherwise>
-														</c:choose> --%></small>
+														</c:choose> --%>
+															</small>
 														</div>
-													
+
 													</div>
 												</a>
 
@@ -368,14 +373,24 @@ p, dt {
 									</button>
 								</div>
 								<div class="me-auto d-flex align-items-center">
-									<div class="avatar-status d-none d-sm-flex status-online me-3 flex-shrink-0 avatar">
-										  <div class="addScroll" >
-	                    <ul id="showMember" class="list-group"></ul>
-	                    </div>
+									<div
+										class="avatar-status d-none d-sm-flex status-online me-3 flex-shrink-0 avatar">
+										<c:choose>
+											<c:when test="${empty item.uuidFileName}">
+												<img style="width: 100%; height: 100%;"
+													src="/resources/user/images/gathering1.png"
+													class="flex-shrink-0 rounded-3 width-80" alt="">
+											</c:when>
+											<c:otherwise>
+												<img style="width: 100%; height: 100%;"
+													src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
+													class="flex-shrink-0 rounded-3 width-80" alt="">
+											</c:otherwise>
+										</c:choose>
 									</div>
 									<div>
-										<h5 class="mb-0 lh-1" id="myName"></h5>
-										<span class="small lh-sm d-none d-sm-block">Active now</span>
+										<h5 class="mb-0 lh-1" style="color: black;" id="chatRoomName"></h5>
+
 									</div>
 								</div>
 								<!--Buttons group-->
@@ -551,22 +566,31 @@ p, dt {
 			,cache: false
 			,type: "post"
 			,url: "/chat/chatRoomProc"
-			,dataType : "JSON"
-			,data : { "hymmName" : $("#hymmName").val()}
+			,dataType : "json"
+			,data : { 
+				"hycrSeq" : $("#hycrSeq").val()
+			}
 			,success: function(data) {
 					alert(data);
 					alert(JSON.stringify(data));
-	/* 				alert(JSON.stringify(data['chatList'][0]['hymmName']));
-					
-					for(var i = 0; i < data['chatList'].length; i++){	
-						$('#showMember').append('<p>' +data['chatList'][i]['hymmName']+ '</p>') ;
-						} */
+	 				alert(JSON.stringify(data['chatList'][0]['hycrName']));
+	 				$('#chatRoomName').empty();	// 기재된 내용 삭제
+	 				$('#chatRoomName').append(data['chatList'][0]['hycrName']) ;
+	 				
+					/* for(var i = 0; i < data['chatList'].length; i++){
+						
+						$('#submit').append(data['chatList'][i]['hymmName']) ;
+						
+						} */ 
 			}			
 			,error : function(jqXHR, textStatus, errorThrown){
 				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 				
 			}
 		});
+		
+
+
 
 	}
 	</script>
@@ -583,9 +607,10 @@ p, dt {
 	</script>
 
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="script.js"></script>   
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+	<script
+		src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
 <script type="module">
@@ -620,7 +645,7 @@ p, dt {
 const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
 
-   var myName = '<c:out value="${sessSeq}"/>';
+   var myName = '<c:out value="${sessName}"/>';
    var mySpace = '<c:out value="${hyspSeq}"/>';
    var myRoom = '<c:out value="${hycrSeq}"/>';
 

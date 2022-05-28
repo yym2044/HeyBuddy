@@ -23,6 +23,10 @@ public class ChatDao {
 		return sqlSession.selectList(namespace + ".selectListChatMember", vo); // 채팅멤버
 	}
 
+	public Chat selectOneChatRoom(ChatVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneChatRoom", vo); // 채팅룸선택
+	}
+
 	public int insertChatRoom(Chat dto) {
 		return sqlSession.insert(namespace + ".insertChatRoom", dto); // 채팅방등록
 	}

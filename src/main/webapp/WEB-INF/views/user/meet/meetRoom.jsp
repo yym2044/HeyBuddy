@@ -13,10 +13,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 <link rel="stylesheet" href="/resources/user/css/meet/meetRoom/style.css">
 
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+
+<link rel="shortcut icon" href="#">
 
 <title>hey, Buddy!</title>
 </head>
@@ -38,8 +41,8 @@
 			<div id="streamBox">
 				<div id="streams">
 					<div class="people1" id="myStream">
-						<video id="myFace" autoplay playsinline width="400" height="400"></video>
-						<h3 id="userNickname"><c:out value="${sessName}"/></h3>
+						<video id="myFace" autoplay playsinline width="400px" height="400px"></video>
+						<h3 class="userNickname"><c:out value="${sessName}"/></h3>
 					</div>
 				</div>
 				<div id="controlers">
@@ -166,7 +169,11 @@
 		  try {
 		    myStream = await navigator.mediaDevices.getUserMedia(
 		      deviceId ? cameraConstraints : initialConstraints
+		    		  
 		    );
+		    
+	    	console.log("myStream!!!!!!");
+	    	console.log(myStream);
 
 		    // stream을 mute하는 것이 아니라 HTML video element를 mute한다.
 		    myFace.srcObject = myStream;
@@ -184,35 +191,6 @@
 		    console.log(error);
 		  }
 		}
-	
-	async function initCall() {
-		
-		await getMedia();
-		makeConnection();
-		
-		if("${meetRoomHostNy}" == 1){
-			
-			const offer = await myPeerConnection.createOffer();
-			myPeerConnection.setLocalDescription(offer);
-		    console.log("sent the offer");
-		    console.log(offer);
-		    
-		    
-		    client.send("/pub/offer", {} , JSON.stringify(offer));
-			
-		} else {
-		  	client.subscribe("/sub/offer/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
-		    	console.log("got an offer");
-		    	console.log(event);
-		    	console.dir(event);
-		    	console.log(JSON.parse(event.body));
-		    })
-		}
-		
-		
-	}
-	
-	
 	
 	function handleMuteClick() {
 		  myStream //
@@ -247,6 +225,7 @@
 		async function handleCameraChange() {
 		  try {
 		    await getMedia(camerasSelect.value);
+		    /* 
 		    if (peerConnectionObjArr.length > 0) {
 		      const newVideoTrack = myStream.getVideoTracks()[0];
 		      peerConnectionObjArr.forEach((peerConnectionObj) => {
@@ -257,6 +236,7 @@
 		        peerVideoSender.replaceTrack(newVideoTrack);
 		      });
 		    }
+		     */
 		  } catch (error) {
 		    console.log(error);
 		  }
@@ -284,9 +264,10 @@
 		const chatInput = chatForm.querySelector("input");
 		const message = chatInput.value;
 		chatInput.value = "";
-		client.send("/pub/chat", {}, JSON.stringify({
+		client.send("/pub/chatBox", {}, JSON.stringify({
+			"type" : "chat",
 			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
-			"writer" : "<c:out value='${sessName}'/>",
+			"sender" : "<c:out value='${sessName}'/>",
 			"msg" : message
 		}));
 	}
@@ -308,19 +289,18 @@
 	
 	function leaveRoom() {
 		
-		client.send("/pub/leaveRoom", {}, JSON.stringify({
+		client.send("/pub/chatBox", {}, JSON.stringify({
+			"type" : "notice_leave",
 			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
-			"msg" : "<c:out value='${ sessName }'/>님이 퇴장하셨습니다.",
-			"hostNy" : "${meetRoomHostNy}"
+			"sender" : "<c:out value='${sessSeq}'/>",
+			"msg" : "<c:out value='${ sessName }'/>님이 퇴장하셨습니다."
 		}));
 		
+		client.disconnect();
 		
 		$("#meetRoomForm").attr("action", "/meet/meetLeave").submit();
 
-		/* client.disconnect(); */
 	}
-	
-	
 	
 	/////////////////////////////////
 	function getUserList() {
@@ -332,84 +312,155 @@
 		
 	};
 	
+	var length = 0;
+	
+	async function initCall() {
+		
+		await getMedia();
+		setTimeout(function(){
+			makeConnection();
+		}, 3000);
+		
+		console.log("initCall!!!!!!!!!!");
+		
+	}
+	
 	/////////////////////////////////
+	// Controller's MessageMapping, header, message(자유형식)
 	
 	const socket = new SockJS('/stompTest');
 	const client = Stomp.over(socket);
 	
 	client.connect({}, function() {
-		console.log("Connected stompTest!");
-		console.log(client);
-		console.dir(client);
+		console.log("Connected to stomp!");
 		
 		//MeetList 업데이트 해주기
 		client.send("/pub/meetRoomList", {}, JSON.stringify({
-			"hyspSeq" : "<c:out value='${hyspSeq}'/>"
+			"msg" : "give me rooms"
 		}));
 		
-		 
-		// Controller's MessageMapping, header, message(자유형식)
+		// Offer를 받고 Answer 만들고 전송
+		if("<c:out value='${meetRoomHostNy}'/>" != 1){
+			client.subscribe("/sub/offer/<c:out value='${rt.hymrRoomId}'/>", async function(event) {
+				console.log("got an offer!!!!");
+				const offer = JSON.parse(event.body);
+				console.log(offer);
+				
+			//	await initCall();
+				
+				myPeerConnection.setRemoteDescription(offer);
+				const answer = await myPeerConnection.createAnswer();
+				console.log("now I have an answer!!!!!!");
+				console.log(answer);
+				myPeerConnection.setLocalDescription(answer);
+				
+				client.send("/pub/answer", {}, JSON.stringify(answer));
+				console.log("sent the answer!!!!!")
+				
+			});
+		}
 		
-		// 입장, 퇴장할 떄 event
-		client.subscribe("/sub/message/notice/<c:out value='${ rt.hymrRoomId }'/>", function(event) {
-			console.log("subscribing room notice ~ ", event);
-			writeChat("Notice!", NOTICE_CN);
+		if("<c:out value='${meetRoomHostNy}'/>" == 1){
+			client.subscribe("/sub/answer/<c:out value='${rt.hymrRoomId}'/>", async function(event) {
+				
+				console.log("got an answer!!!!");
+				const answer = JSON.parse(event.body);
+				console.log(answer);
+				
+				myPeerConnection.setRemoteDescription(answer);
+				
+			});
+		}
+		
+		client.subscribe("/sub/ice/<c:out value='${rt.hymrRoomId}'/>", async function(event) {
 			
-			const msg = JSON.parse(event.body);
-			console.dir(msg);
+			console.log("got a candidate");
+			const ice = JSON.parse(event.body);
+			console.log(ice);
+			console.dir(ice);
 			
-			writeChat(msg.msg);
-			
-			// 회원이 퇴장한 후 db에서 불러오기 위해 setTimeout 설정 
-			if("<c:out value='${meetRoomHostNy}'/>" == "1"){
-				setTimeout(getUserList, 3000);
+			if(ice != null){
+				myPeerConnection.addIceCandidate(ice);
 			}
 			
 		});
-		 
-		// 채팅메세지 보낼 때 이벤트
-		 client.subscribe("/sub/message/chat/<c:out value='${rt.hymrRoomId}'/>", function(event) {
-			console.log("subscribing room chat ~ ", event);
-			
-			const msg = JSON.parse(event.body);
-			
-			if(msg.writer == "<c:out value='${sessName}'/>"){
-				writeChat(msg.writer + " : " + msg.msg, MYCHAT_CN);
-			} else {
-				writeChat(msg.writer + " : " + msg.msg);
-			}
-			
-		});
-		 
-		//유저리스트 받는 이벤트
+		
 		client.subscribe("/sub/userList/<c:out value='${rt.hymrRoomId}'/>", function(event) {
 			console.log("-----------유저 리스트-----------")
 			const userArr = JSON.parse(event.body);
 			console.log(userArr);
 			console.log("-----------유저 리스트-----------")
 			
-			var length = userArr.length;
+			length = userArr.length;
 						
 		});
-		 
-		client.send("/pub/joinRoom", {}, JSON.stringify({
-			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
-			"msg" : "<c:out value='${ sessName }'/>님이 입장하셨습니다.",
-			"hostNy" : "${meetRoomHostNy}"
-		}));
 		
-		client.subscribe("/sub/initCall/<c:out value='${rt.hymrRoomId}'/>", function(event) {
-			console.log("------------------");
-			console.log(event);
-			initCall();
-			console.log("------------------");
+		
+		// 채팅영역 이벤트
+		client.subscribe("/sub/chatBox/<c:out value='${rt.hymrRoomId}'/>", function(event) {
+			
+			const msg = JSON.parse(event.body);
+			
+			if(msg.type == "notice_enter" || msg.type == "notice_leave"){
+				
+				writeChat("Notice!", NOTICE_CN);
+				writeChat(msg.msg);
+				
+				// 회원이 퇴장한 후 db에서 불러오기 위해 setTimeout 설정 
+				if("<c:out value='${meetRoomHostNy}'/>" == "1"){
+					setTimeout(getUserList, 1000);
+				}
+				
+			} else if(msg.type == "chat"){
+				
+				if(msg.sender == "<c:out value='${sessName}'/>"){
+					writeChat(msg.sender + " : " + msg.msg, MYCHAT_CN);
+				} else {
+					writeChat(msg.sender + " : " + msg.msg);
+				}
+				
+			}
+			
+			if(msg.type == "notice_enter"){
+				
+				initCall();
+				
+				// 방장이 offer를 생성하고 보낸다.				
+				if("<c:out value='${meetRoomHostNy}'/>" == 1){
+					
+					if(length == 1){
+						
+						setTimeout(async function(){
+							const offer = await myPeerConnection.createOffer();
+							myPeerConnection.setLocalDescription(offer);
+							console.log("now I have an offer!!!!!!");
+							console.log(offer);
+							
+							// offer 보내기
+							client.send("/pub/offer", {}, JSON.stringify(offer));
+							console.log("sent the offer!!!!!");
+						}, 5000);
+						
+					}
+					
+				}
+			}
+			
+			
 		});
+		 
 		
-		client.send("/pub/initCall", {}, JSON.stringify({
-			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>"
+		
+		// 입장 Notice
+		client.send("/pub/chatBox", {}, JSON.stringify({
+			"type" : "notice_enter",
+			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
+			"sender" : "<c:out value='${sessSeq}'/>",
+			"msg" : "<c:out value='${ sessName }'/>님이 입장하셨습니다.",
 		}));
 		
 	});
+	
 	/* 
 	window.addEventListener('beforeunload', (event) => {
 		// 명세에 따라 preventDefault는 호출해야하며, 기본 동작을 방지합니다. 
@@ -439,15 +490,61 @@
 	            },
 	        ],
 	    });
-        
-	    /* myPeerConnection.addEventListener("icecandidate", handleIce);
-	    myPeerConnection.addEventListener("addstream", handleAddstream);
-	    */
 	    
+	    myPeerConnection.addEventListener("icecandidate", handleIce);
+	    myPeerConnection.addEventListener("addstream", handleAddstream);
 	    myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream)); 
 	}
-
-	 
+	
+	function handleIce(data) {
+		if(length >= 2){
+			
+			setTimeout(function(){
+				console.log("sent candidate");
+				client.send("/pub/ice", {}, JSON.stringify(data.candidate));
+			}, 5000);
+			
+		}
+	}
+	
+	function handleAddstream(data) {
+		if(length >= 2){
+			
+			console.log("handleAddstream Event Occured!!");
+			console.log(data);
+			
+			const peerFace = data.stream;
+			paintPeerFace(peerFace);
+		}
+	}
+	
+	
+	async function paintPeerFace(peerStream) {
+		const streams = document.querySelector("#streams");
+		const div = document.createElement("div");
+//		div.className = "people2";
+		const video = document.createElement("video");
+		video.autoplay = true;
+		video.playsInline = true;
+		video.width = "400px";
+		video.height = "400px";
+		video.srcObject = peerStream;
+		const nicknameContainer = document.createElement("h3");
+		nicknameContainer.className = "userNickname";
+		nicknameContainer.innerText = "상대방";
+		
+		div.appendChild(video);
+		div.appendChild(nicknameContainer);
+		streams.appendChild(div);
+		
+		sortStreams();
+	}
+	
+	function sortStreams(){
+		const streams = document.querySelector("#streams");
+		const streamArr = streams.querySelectorAll("div");
+		streamArr.forEach((stream) => (stream.className = 'people' + length));
+	}
 	 
 	</script>
 	

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface MeetService {
 	
-	public List<Meet> selectListRoom(MeetVo vo) throws Exception;
+	public List<Meet> selectListRoom() throws Exception;
 	public List<Meet> selectListRoomMember() throws Exception;
 	public int selectOneCount(MeetVo vo) throws Exception;
 	public Meet selectOneRoom(MeetVo vo) throws Exception;

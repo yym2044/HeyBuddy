@@ -13,7 +13,9 @@
 					<span class="sidebar-text">
 						<!--Sidebar-text-->
 						<%-- <span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${item.hyspName}"/></span> --%>
-						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${hyspName}"/></span>
+						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder">
+							<c:out value="${hyspName}" />
+						</span>
 					</span>
 				</div>
 			</a>
@@ -38,8 +40,8 @@
 							<span class="sidebar-text"> 채팅 </span>
 						</a></li>
 
-					<li class="nav-item"><a href="/meet/zoomList" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-							<span class="sidebar-icon iconic"> 
+					<li class="nav-item"><a href="" data-bs-toggle="modal" data-bs-target="#chooseType" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+							<span class="sidebar-icon iconic">
 								<i data-feather="video" class="fe-1x"></i>
 							</span>
 							<span class="sidebar-text"> 화상 </span>
@@ -85,23 +87,23 @@
 				</ul>
 			</nav>
 		</div>
-		<!--Aside-footer--> 
+		<!--Aside-footer-->
 		<footer class="aside-footer position-relative p-3">
 			<ul class="nav flex-column collapse-group collapse d-flex">
 				<c:if test="${hostNy eq 1 or sessAuth ne 0}">
-					<li class="nav-item"><a href="/setting/space"
-						class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-							<span class="sidebar-icon iconic"> <i data-feather="settings"
-								class="fe-1x"></i>
-						</span> <span class="sidebar-text">환경 설정</span>
-					</a></li>
+					<li class="nav-item"><a href="/setting/space" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+							<span class="sidebar-icon iconic">
+								<i data-feather="settings" class="fe-1x"></i>
+							</span>
+							<span class="sidebar-text">환경 설정</span>
+						</a></li>
 				</c:if>
-				<li class="nav-item"><a href="/mySpace/mySpaceList"
-					class="nav-link d-flex align-items-center text-truncate Sidebar-link">
-						<span class="sidebar-icon iconic"> <i
-							class="bi bi-arrow-left-right" class="fe-1x"></i>
-					</span> <span class="sidebar-text">마이스페이스</span>
-				</a></li>
+				<li class="nav-item"><a href="/mySpace/mySpaceList" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+						<span class="sidebar-icon iconic">
+							<i class="bi bi-arrow-left-right" class="fe-1x"></i>
+						</span>
+						<span class="sidebar-text">마이스페이스</span>
+					</a></li>
 			</ul>
 		</footer>
 	</div>
@@ -114,8 +116,20 @@
 </div>
 <!--///.Sidebar close end///-->
 
+<div class="modal fade " id="chooseType" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="card card-body d-flex justify-content-center">
+					<button onclick="location.href='/meet/zoomList'" type="button" class="btn btn-primary p-3">Zoom</button>
+					<button onclick="location.href='/meet/meetList'" type="button" class="btn btn-secondary p-3">Web-Socket</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <script type="text/javascript">
-
-document.querySelector('#sidebarIcon').innerText = "<c:out value="${hyspName}"/>".charAt(0);
-
+	document.querySelector('#sidebarIcon').innerText = "<c:out value="${hyspName}"/>".charAt(0);
 </script>

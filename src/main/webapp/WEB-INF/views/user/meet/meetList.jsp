@@ -172,7 +172,6 @@
 						</div>
 					</div>
 
-
 					<!--//Page-footer//-->
 					<footer class="pb-4 px-4 px-lg-8">
 						<div class="container-fluid px-0">
@@ -349,6 +348,13 @@
 			
 			room = JSON.parse(event.body);
 			
+			room = room.filter(function(item){
+				return item.hyspSeq == <c:out value='${hyspSeq}'/>;
+			})
+			
+			console.log(room);
+			console.dir(room);
+			
 			$("#meetListDiv").children().remove();
 			
 			let append = "";
@@ -401,10 +407,8 @@
 		
 		// Controller's MessageMapping, header, message(자유형식)
 		client.send("/pub/meetRoomList", {}, JSON.stringify({
-			"hyspSeq" : "<c:out value='${hyspSeq}'/>"
+			"msg" : "give me rooms"
 		}));
-		
-
 		
 	});
 	</script>

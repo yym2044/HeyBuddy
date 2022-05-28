@@ -175,7 +175,7 @@ main {
   height: 32%;
 }
 
-#streamBox #streams #userNickname {
+#streamBox #streams .userNickname {
   margin-top: 5px;
 
   text-align: center;

@@ -15,7 +15,7 @@ public class MeetDao {
 	  
 	private static String namespace = "com.owl.heybuddy.modules.meet.MeetMpp";  
 	
-	public List<Meet> selectListRoom(MeetVo vo) {return sqlSession.selectList(namespace + ".selectListRoom", vo); }
+	public List<Meet> selectListRoom() {return sqlSession.selectList(namespace + ".selectListRoom", ""); }
 	public List<Meet> selectListRoomMember() {return sqlSession.selectList(namespace + ".selectListRoomMember"); }
 	public int selectOneCount(MeetVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
 	public Meet selectOneRoom(MeetVo vo) {return sqlSession.selectOne(namespace + ".selectOneRoom", vo); }

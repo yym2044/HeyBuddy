@@ -74,8 +74,15 @@
 				 -->
 				<!--//Page Toolbar End//-->
 				
-				
-				
+				<c:set var="count" value="0"/>
+				<c:forEach items="${list}" var="item" varStatus="status">
+					<%-- 
+					<c:if test="${item.agenda eq hyspSeq}">
+					 --%>
+					<c:if test="${fn:split(item.agenda, '_')[0] eq hyspSeq}">
+						<c:set var="count" value="${count + 1}"/>
+					</c:if>
+				</c:forEach>
 				
 
 				<!--//Page content//-->
@@ -86,7 +93,7 @@
 								<div class="card">
 									<div id="zoomListDiv" class="card-body">
 										<c:choose>
-											<c:when test="${fn:length(list) eq 0}">
+											<c:when test="${count eq 0}">
 												<div style="height: 490px;" class="d-flex align-items-center justify-content-center">
 													<div class="text-center">
 														<h1 class="d-block">진행 중인 미팅이 없습니다</h1>
@@ -96,7 +103,7 @@
 											</c:when>
 											
 											<c:otherwise>
-												<div class="table-responsive">
+												<div class="table-responsive" style="min-height: 490px;">
 													<table id="datatable" class="table mt-0 table-hover table-card table-nowrap">
 														<!-- <thead class="text-uppercase small text-muted">
 						                                        <tr>
@@ -110,7 +117,8 @@
 						                                    </thead> -->
 														<tbody>
 															<c:forEach items="${list}" var="item" varStatus="status">
-																<c:if test="${item.agenda eq hyspSeq}">
+																<%-- <c:if test="${item.agenda eq hyspSeq}"> --%>
+																<c:if test="${fn:split(item.agenda, '_')[0] eq hyspSeq}">
 																	<tr>
 																		<td style="width: 900px; vertical-align: middle;">
 																			<span class="fw-bold fs-4">
@@ -167,7 +175,7 @@
 				
 				<form method="post" action="/meet/zoomInst">
 				
-					<input type="hidden" name="agenda" id="agenda" value="${hyspSeq}">
+					<input type="hidden" name="agenda" id="agenda">
 					<!-- startZoomModal Modal -->
 					<div class="modal fade" id="startZoomModal" tabindex="-1" aria-labelledby="startZoomModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -219,6 +227,8 @@
 	<!--////////////Theme Core scripts End/////////////////-->
 
 	<script type="text/javascript">
+	
+	$("#agenda").val("<c:out value="${hyspSeq}"/>_<c:out value="${sessSeq}"/>");
 	
 	convertTime = function(start_time){
 		

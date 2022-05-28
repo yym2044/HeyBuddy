@@ -13,9 +13,9 @@ public class MeetServiceImpl implements MeetService {
 	@Autowired
 	MeetDao dao;
 	
-	public List<Meet> selectListRoom(MeetVo vo) throws Exception {
+	public List<Meet> selectListRoom() throws Exception {
 		
-		return dao.selectListRoom(vo);
+		return dao.selectListRoom();
 		
 	}
 	public List<Meet> selectListRoomMember() throws Exception {

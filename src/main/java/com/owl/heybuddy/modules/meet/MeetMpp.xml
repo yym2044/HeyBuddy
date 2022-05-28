@@ -34,7 +34,7 @@
  	FROM
  		hybdMeetRoom
  	WHERE 1=1
- 		AND hyspSeq = #{hyspSeq}
+ 
  	
  	</select>
  	<select id="selectListRoomMember" resultMap="resultMapObj">

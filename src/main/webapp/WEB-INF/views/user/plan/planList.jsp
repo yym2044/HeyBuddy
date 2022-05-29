@@ -220,22 +220,20 @@
 			<!--  모달2 상세일정 만들기위한 모달 start -->
 			
 			<!-- 트리거 시키는 모달 버튼! 여기로 아작스 id를 갖게해야지 모달창이 뜸 신기하네 히든으로 됨, data-bas-toggle="modal" 이게 중요한듯 -->
-			<input id="btnForm2" type="hidden" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+			<input id="btnForm2" type="hidden" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"/>
 
 			<!-- <form id="modal2" name="modal2" method="POST" enctype="multipart/form-data"> -->
 			<div class="row planinst container">
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div
-						class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 						<!-- 이 위치에 넣어줘야 적용됨  -->
 						<div class="modal-content">
 							<div class="modal-header">
-								<h4 class="modal-title" id="exampleModalLabel"
-									style="text-align: center; float: center;">📌일정등록</h4>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
+								<h4 class="modal-title" id="exampleModalLabel" style="text-align: center; float: center;">📌일정등록</h4>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
+								<input type="hidden" id="hypleSeq" value="<c:out value="${rt.hyplSeq }"/>"/>
 								<h5>제목</h5>
 								<input class="form-control mb-3" type="text" id="hyplName" name="hyplName" value="${rt.hyplName}" autocomplete="off"> <br>
 								<h5>일정내용</h5>
@@ -255,12 +253,8 @@
 								</div>
 							</div>
 							<div class="modal-footer planinst container">
-								<a class="btn btn-danger me-2"
-									style="width: 60px; font-size: 1em; text-align: center; float: right;"
-									data-bs-dismiss="modal">취소</a> 
-									<input href="javascript:goUpdt()" type="submit"
-									class="btn btn-primary me-2" value="수정하기" id="btnSubmit1"
-									name="btnSubmit1">
+								<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
+									<input href="javascript:goUpdt()" type="submit" class="btn btn-primary me-2" value="수정하기" id="btnSubmit1" name="btnSubmit1">
 								<!-- <a href="javascript:goInst()" type="submit" class="btn btn-primary me-2" style="width: 100px; font-size: 1em; text-align: center; float: right;" id="btnSubmit" name="btnSubmit">등록하기</a> -->
 							</div>
 						</div>
@@ -290,19 +284,11 @@
 
 
 	<!-- <script src="/resources/user/js/backgroundImg.js"></script> -->
-	<script
-		href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
-	<link
-		href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
-		rel="stylesheet" />
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script
-		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+	<script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 
 
@@ -418,7 +404,9 @@
 					},
 					success : function(data) {
 						console.log(data);
+						
 						$("#btnForm2").click();
+
 					}
 
 					,
@@ -447,11 +435,13 @@
 	<script type="text/javascript">
 		var myModal = document.getElementById('myModal')
 		var myInput = document.getElementById('myInput')
+		$('#myModal').modal('show');
+		
 		/* 
 		myModal.addEventListener('shown.bs.modal', function() {
 			myInput.focus()
 		})
-		 */
+		 */ 
 	</script>
 
 	<!-- Jquery 달력  -->

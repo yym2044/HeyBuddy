@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.owl.heybuddy.modules.mySpace.MySpace;
-
 @Controller
 public class ChatController {
 
@@ -23,13 +21,14 @@ public class ChatController {
 	ChatServiceImpl service;
 
 	@RequestMapping(value = "/chat/chat")
-	public String chat(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
+	public String chat(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
+			throws Exception {
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
-		
+
 		return "user/chat/chat";
 	}
 
@@ -54,16 +53,17 @@ public class ChatController {
 	@RequestMapping(value = "chat/chatRoomProc")
 	public Map<String, Object> getId(ChatVo vo, Chat dto, HttpSession httpSession, Model model) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 		
 		List<Chat> chatList = service.selectListChatMember(vo);
 		model.addAttribute("chatList", chatList);
-
+		
 		returnMap.put("chatList", chatList);
 		returnMap.put("rt", "success");
-
+		
 		return returnMap;
 	}
 

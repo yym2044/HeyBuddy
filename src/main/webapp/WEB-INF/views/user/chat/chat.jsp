@@ -287,18 +287,11 @@ p, dt {
 								<div class="content-sidebar-body p-0 card-body">
 									<div class="list-group list-group-flush mb-0">
 
-
-
-
-
-
-
 										<div class="list-group list-group-flush mb-0">
 
 											<c:forEach items="${list}" var="item" varStatus="status">
 												<!--Chat User-->
-												<a
-													href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
+												<a href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
 													class="list-group-item align-items-center border-0 list-group-item-action px-3 d-flex py-3">
 													<div class="flex-shrink-0">
 														<div class="avatar-status status-online me-3 avatar">
@@ -340,11 +333,6 @@ p, dt {
 												</a>
 
 											</c:forEach>
-
-
-
-
-
 
 											<!--Load more button-->
 											<a href="#!"
@@ -390,6 +378,7 @@ p, dt {
 									</div>
 									<div>
 										<h5 class="mb-0 lh-1" style="color: black;" id="chatRoomName"></h5>
+										<h5 class="mb-0 lh-1" style="color: black;" id="chatRoom"></h5>
 
 									</div>
 								</div>
@@ -558,7 +547,7 @@ p, dt {
 									"content_sidebar_show");
 						});
 	</script>
-	<script>
+	<script type="text/javascript">
 	goRoom = function(seq) {
 		$("#hycrSeq").val(seq);
 		$.ajax({
@@ -575,8 +564,11 @@ p, dt {
 					alert(JSON.stringify(data));
 	 				alert(JSON.stringify(data['chatList'][0]['hycrName']));
 	 				$('#chatRoomName').empty();	// 기재된 내용 삭제
+	 				$('#chatRoom').empty();	// 기재된 내용 삭제
 	 				$('#chatRoomName').append(data['chatList'][0]['hycrName']) ;
+	 				$('#chatRoom').append(data['chatList'][0]['hycrSeq']) ;
 	 				
+	 				var myRoom = data['chatList'][0]['hycrSeq'];
 					/* for(var i = 0; i < data['chatList'].length; i++){
 						
 						$('#submit').append(data['chatList'][i]['hymmName']) ;
@@ -588,10 +580,7 @@ p, dt {
 				
 			}
 		});
-		
-
-
-
+	
 	}
 	</script>
 
@@ -607,10 +596,9 @@ p, dt {
 	</script>
 
 
-	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-	<script
-		src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-	<script src="script.js"></script>
+<!-- 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+	<script src="script.js"></script> -->
 </body>
 </html>
 <script type="module">
@@ -647,7 +635,9 @@ const app = initializeApp(firebaseConfig);
 
    var myName = '<c:out value="${sessName}"/>';
    var mySpace = '<c:out value="${hyspSeq}"/>';
-   var myRoom = '<c:out value="${hycrSeq}"/>';
+   var myRoom = '1';
+   var T = '<c:out value="${regDateTime}"/>';
+ 
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;

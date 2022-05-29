@@ -26,11 +26,11 @@ public class PlanController {
 		
 		
 		System.out.println("############일정 #########");
-		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
-		dto.setHyplName((String)httpSession.getAttribute("hyplName"));
-		dto.setHyplDate((String)httpSession.getAttribute("hyplDate"));
-		dto.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
-		dto.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
+//		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
+//		dto.setHyplName((String)httpSession.getAttribute("hyplName"));
+//		dto.setHyplDate((String)httpSession.getAttribute("hyplDate"));
+//		dto.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
+//		dto.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
 		
 		if(vo.getHyspSeq() != null) {
 			httpSession.setAttribute("hyspSeq", vo.getHyspSeq());
@@ -128,20 +128,39 @@ public class PlanController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/plan/planViewAjax")
-	public Plan planViewAjax(PlanVo vo, HttpSession httpSession) throws Exception {
+	public Plan planViewAjax(@ModelAttribute("vo") PlanVo vo, HttpSession httpSession, Model model) throws Exception {
 		
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHyplName((String)httpSession.getAttribute("hyplName"));
+		vo.setHyplDate((String)httpSession.getAttribute("hyplDate"));
+		vo.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
+		vo.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
+		
 		
 		Plan rt = service.selectOne(vo);
+		
+		model.addAttribute("rt", rt); 
 		
 		return rt;
 		
 	}
 
-	@RequestMapping(value = "/plan/planEdit")
-	public String planEdit() throws Exception {
-
-		return "user/plan/planEdit";
+	@ResponseBody
+	@RequestMapping(value = "/plan/planEditAjax")
+	public Plan planEditAjax(@ModelAttribute("vo") PlanVo vo, HttpSession httpSession) throws Exception {
+		
+//		System.out.println("getHyspSeq:" + getHyspSeq());
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHyplName((String)httpSession.getAttribute("hyplName"));
+		vo.setHyplDate((String)httpSession.getAttribute("hyplDate"));
+		vo.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
+		vo.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
+		
+		Plan rt = service.selectOne(vo);
+		
+		return rt;
+		
 	}
 	@RequestMapping(value = "/plan/test")
 	public String test(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model) throws Exception {

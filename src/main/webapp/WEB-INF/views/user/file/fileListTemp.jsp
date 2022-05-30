@@ -210,14 +210,11 @@
 																	<td class="text-center"><fmt:formatDate
 																			value="${item.regDateTime }" /></td>
 																</tr>
+																
+												
 															</tbody>
-														</c:forEach>
-													</c:otherwise>
-												</c:choose>
-											</tbody>
-										</table>
-
-										<!--포스트 페이징과 버튼 -->
+															
+																	<!--포스트 페이징과 버튼 -->
 										<div class="row text-center" style="width: 100%">
 											<div style="width: 100%; float: none; margin: 0 auto">
 												<br> <br>
@@ -253,6 +250,15 @@
 
 											</div>
 										</div>
+										
+										
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+										</table>
+
+								
 									</div>
 
 								</div>

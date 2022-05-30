@@ -150,12 +150,12 @@
 											</div>
 											
 								
-								<!--Attachment image-->
+							<!--Attachment image-->
 								<div class="row">
 									<div class="col-md-12 mb-3">
 										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
 										</label>
-										<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
+										<!-- <button type="button" id="btnCheckFiles">첨부파일 체크버튼</button> -->
 										
 										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);">
 										
@@ -165,13 +165,14 @@
 									</div>
 								</div>
 								<!--Attachment image-->
+								
+					
 
-
+									
+									
 								<div class="row text-center" style="width: 100%">
 									<div style="width: 100%; float: none; margin: 0 auto">
-										<!-- <a href="fileList">
-												<button type="button" class="btn btn-outline-secondary">뒤로</button>
-											</a> -->
+									
 
 
 										<a class="btn btn-primary ms-2"
@@ -218,6 +219,74 @@
 
 	<!--////////////Theme Core scripts End/////////////////-->
 
+
+	<script src="/resources/common/js/common.js"></script>
+	<script src="/resources/common/js/commonXdmin.js"></script>
+	<script src="/resources/common/js/constantsXdmin.js"></script>
+	<script type="text/javascript">
+	
+		upload = function(seq, div) {
+
+			$("#ulFile" + seq).children().remove();
+
+			var fileCount = $("input[type=file]")[seq].files.length;
+
+			if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
+				return false;
+			}
+
+			var totalFileSize;
+			for (var i = 0; i < fileCount; i++) {
+				if (div == 1) {
+					if (checkUploadedFileExt($("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else if (div == 2) {
+					if (checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else if (div == 3) {
+					if (checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else {
+					return false;
+				}
+
+				if (checkUploadedEachFileSize(
+						$("input[type=file]")[seq].files[i].name, seq) == false) {
+					return false;
+				}
+				totalFileSize += $("input[type=file]")[seq].files[i].size;
+			}
+			if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
+				return false;
+			}
+
+			for (var i = 0; i < fileCount; i++) {
+				addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+			}
+		}
+
+		addUploadLi = function(seq, index, name) {
+
+			var ul_list = $("#ulFile0");
+
+			li = '<li id= "li_'+ seq +'_' + index + '"class="list-group-item d-flex justify-content-between align-items-center"> ';
+			li = li + name;
+			li = li + '<span style="cursor : pointer;" class="badge bg-danger rounded-pill" onClick="delLi(' + seq + ',' + index + ')">X</span>';
+			li = li + '</li>';
+
+			$("#ulFile" + seq).append(li);
+		}
+
+		delLi = function(seq, index) {
+			$("#li_" + seq + "_" + index).remove();
+		}
+
+	</script>
+	
+	
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 		console.log(sidebarLink);

@@ -26,18 +26,12 @@ public class FileController {
 		if (vo.getHyspSeq() == null) {
 			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		}
-		/*
-		 * List<File> selectListMember = service.selectListMemberInSpace(vo);
-		 * model.addAttribute("selectListMember", selectListMember);
-		 */
 
-		
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {
 			List<File> list = service.documentList(vo);
 			model.addAttribute("list", list);
-			model.addAttribute("profileUploaded",service.profileUploaded(vo));
 			
 		} else {
  
@@ -48,14 +42,14 @@ public class FileController {
 	@RequestMapping(value = "/file/fileView") // 문서확인
 	public String fileView(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession) throws Exception {
 
-		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq")); //다른사람이올린문서수정삭제안되게 세션잡는건딩왜안대.
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq")); //다른사람이올린문서권한막기
 	
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 
-		List<File> list = service.fileUploaded(vo);  //  멀티파일 떠야하는데왜안떠?
-		model.addAttribute("list", list); //안되서덕지덕지..
-		model.addAttribute("fileUploaded", service.fileUploaded(vo)); //안되서덕지덕지..
+		List<File> list = service.fileUploaded(vo);  
+		model.addAttribute("list", list); 
+		model.addAttribute("fileUploaded", list); 
 		
 		return "user/file/fileView";
 

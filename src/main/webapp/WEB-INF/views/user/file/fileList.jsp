@@ -263,9 +263,10 @@
 																			value="${item.regDateTime }" /></td>
 
 																	<td class="">
-																	
+																		<c:if test="${empty item.type}">
+																			 파일없을때 넣을 아이콘찾기  <!-- 아무것도없으면 -->
+																		</c:if>
 																		<c:if test="${item.type eq 1}">
-																
 																				<i class="bi bi-paperclip"></i> <!--  파일이면클립아이콘 -->
 																		</c:if>
 																		<c:if test="${item.type eq 0}">

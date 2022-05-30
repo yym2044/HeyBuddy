@@ -123,9 +123,9 @@
 											공유자추가
 											<button type="button" id="btnCheckMember">공유자 체크 버튼</button>
 											<select multiple class="form-control" id="selectShare" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
-												<option value="1">김나리</option>
-												<option value="2">윤영민</option>
-												<option value="3">정미림</option>
+												<option value="2">김나리</option>
+												<option value="3">윤영민</option>
+												<option value="1">정미림</option>
 												<option value="4">이건우</option>
 											</select>
 
@@ -154,8 +154,8 @@
 									<div class="col-md-12 mb-3">
 										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
 										</label>
-										<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
-										
+						<!-- 				<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
+									 -->	
 										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);">
 										
 										<div class="addScroll">
@@ -315,6 +315,8 @@
 	<script type="text/javascript">
 		$("#btnCheckMember").on("click", function() {
 			alert($("#selectShare").val());
+
+	
 		});
 		$("#btnCheckFiles").on("click", function() {
 			alert($("#file0").val());

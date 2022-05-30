@@ -13,13 +13,15 @@
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
-		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
+        LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
 		where
 		a. hydcDelNy = 0 
 		AND
 		a. hydcTempNy = 0
 		AND 
-		d.hyspSeq = #{hyspSeq}
+		c.hyspSeq = #{hyspSeq}
 		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
 		<choose>
 			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
@@ -40,6 +42,8 @@
 		,b.hymmName
 		,b.hymmEmail
 		,b.hymmNumber
+		,c.*
+		,d.*
 		<include refid="selectCommon"/>
 	</select>
 			
@@ -63,7 +67,8 @@
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
-		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
 		where
 		a. hydcDelNy = 0
 		and
@@ -243,10 +248,7 @@
 		hydcTitle  =  #{hydcTitle}
 		,hydcText =  #{hydcText}
 		,hydcTempNy =  0
-
-		,modIp =  #{modIp}
-		,modSeq =  #{modSeq}
-		,modDevice =  #{modDevice}
+		,modSeq =  #{hymmSeq}
 		,modDateTime =  now()
 		,modDateTimeSvr =  now()
 		WHERE 1 = 1

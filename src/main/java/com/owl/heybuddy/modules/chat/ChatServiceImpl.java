@@ -22,7 +22,7 @@ public class ChatServiceImpl implements ChatService {
 	}
 
 	@Override
-	public Chat selectOneChatRoom(ChatVo vo) throws Exception { // 채팅룸 선택
+	public String selectOneChatRoom(ChatVo vo) throws Exception { // 채팅룸 선택
 		return dao.selectOneChatRoom(vo);
 	}
 

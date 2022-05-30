@@ -113,27 +113,18 @@
 							</div>
 							<div class="modal-body">
 								<h5>제목</h5>
-								<input class="form-control mb-3" type="text" id="hyplName"
-									name="hyplName" placeholder="일정 제목을 입력해주세요" autocomplete="off">
+								<input class="form-control mb-3" type="text" id="hyplName" name="hyplName" placeholder="일정 제목을 입력해주세요" autocomplete="off">
 								<br>
 								<h5>일정내용</h5>
-								<input class="form-control mb-3" type="text" id="hyplDesc"
-									name="hyplDesc" style="height: 100px;" placeholder="일정을 입력하세요"
-									autocomplete="off"> <br>
+								<input class="form-control mb-3" type="text" id="hyplDesc" name="hyplDesc" style="height: 100px;" placeholder="일정을 입력하세요" autocomplete="off"> <br>
 								<h5>날짜</h5>
-								<input class="form-control mb-3 shDate" type="text"
-									id="hyplDate" name="hyplDate" placeholder="날짜를 등록해주세요"
-									autocomplete="off"> <br>
+								<input class="form-control mb-3 shDate" type="text" id="hyplDate" name="hyplDate" placeholder="날짜를 등록해주세요" autocomplete="off"> <br>
 								<h5>공유자</h5>
 								<div class="form-control mb-3">
 									<div class="card card-body">
-										<select multiple class="form-control"
-											data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'
-											id="hyplMemberName" name="hyplMemberName">
-											<c:forEach items="${selectListMember}" var="item"
-												varStatus="status">
-												<option value="<c:out value="${item.hymmName}"/>"><c:out
-														value="${item.hymmName}" />
+										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hyplMemberName" name="hyplMemberName">
+											<c:forEach items="${selectListMember}" var="item" varStatus="status">
+												<option value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}" />
 											</c:forEach>
 										</select>
 									</div>
@@ -192,6 +183,7 @@
 					</div>
 				</div>
 			</div>
+			</form>
 			<!--//달력 윗부분 끝 End//-->
 
 
@@ -220,6 +212,7 @@
 			<!--  모달2 상세일정 만들기위한 모달 start -->
 			
 			<!-- 트리거 시키는 모달 버튼! 여기로 아작스 id를 갖게해야지 모달창이 뜸 신기하네 히든으로 됨, data-bas-toggle="modal" 이게 중요한듯 -->
+			<form id="planEdit" name="planEdit" method="POST" enctype="multipart/form-data">
 			<input id="btnForm2" type="hidden" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"/>
 
 			<!-- <form id="modal2" name="modal2" method="POST" enctype="multipart/form-data"> -->
@@ -233,21 +226,20 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<input type="hidden" id="hypleSeq" value="<c:out value="${rt.hyplSeq }"/>"/>
 								<h5>제목</h5>
-								<input class="form-control mb-3" type="text" id="hyplName" name="hyplName" value="${rt.hyplName}" autocomplete="off"> <br>
+								<input class="form-control mb-3" type="text" id="hyplName1" name="hyplName" autocomplete="off"> <br>
 								<h5>일정내용</h5>
-								<input class="form-control mb-3" type="text" id="hyplDesc" name="hyplDesc" style="height: 100px;" value="<c:out value="${rt.hyplDesc}"/>" autocomplete="off">
-								<br><c:out value="${rt.hyplDesc}"/>
+								<input class="form-control mb-3" type="text" id="hyplDesc1" name="hyplDesc" style="height: 100px;" autocomplete="off">
+								<br>
 								<h5>날짜</h5>
-								<input class="form-control mb-3 shDate" type="text" id="hyplDate" name="hyplDate" autocomplete="off"> <br>
+								<input class="form-control mb-3 shDate" type="text" id="hyplDate1" name="hyplDate" autocomplete="off"> <br>
 								<h5>공유자</h5>
 								<div class="form-control mb-3">
 									<div class="card card-body">
-										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hyplMemberName" name="hyplMemberName">
-											<c:forEach items="${selectListMember}" var="item" varStatus="status">
-												<option value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}" />
-											</c:forEach>
+										<select multiple class="form-control" id="hyplMemberName1" name="hyplMemberName" data-choices='{"removeItems": "true","removeItemButton": "true"}'>
+											<%-- 	<c:forEach items="${selectListMember}" var="item" varStatus="status">
+													<option <c:if test="${rt.hyplMemberName1 eq 'rt.hyplMemberName1'}">selected</c:if>value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}"/>
+											</c:forEach> --%>
 										</select>
 									</div>
 								</div>
@@ -261,7 +253,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- 	</form> -->
+			</form>
 			<!--  모달2 end -->
 
 
@@ -271,7 +263,6 @@
 
 
 		</main>
-	</form>
 	<!--///////////Page content wrapper End///////////////-->
 
 	<!--////////////Theme Core scripts Start/////////////////-->
@@ -390,6 +381,7 @@
 				/* $("#title").click(/plan/planView); */
 				$("#btnForm").click();
 			},
+			
 			eventClick : function(info) {
 				const hyplSeq = info.event._def.extendedProps.seq;
 				console.log(hyplSeq);
@@ -402,11 +394,53 @@
 					data : {
 						"hyplSeq" : hyplSeq
 					},
+					/* 컨트롤러갔다와서 실행 */
 					success : function(data) {
 						console.log(data);
 						
 						$("#btnForm2").click();
-
+						
+						$("#hyplName1").val(data.hyplName);
+						$("#hyplDesc1").val(data.hyplDesc);
+						$("#hyplDate1").val(data.hyplDate);
+						
+						var str = data.hyplMemberName;
+						var words = str.split(',');
+						
+						console.log(words);
+						
+				/* 		const select = document.getElementById("hyplMemberName1");
+						console.log(select);
+						
+						const option = document.createElement("option");
+						option.innerText = "윤영민"; 
+						select.appendChild(option);
+						*/
+						
+						const list = document.querySelector(".choices__list");
+						console.log(list);
+						
+						
+						const choice = document.createElement("div");
+						
+						choice.id = "choices--hyplMemberName-item-choice-1";
+						choice.setAttribute("class","choices__item dropdown-item choices__item--selectable is-highlighted");
+						choice.setAttribute("role", "option");
+						choice.setAttribute("data-choice", "");
+						choice.setAttribute("data-id", 1);
+						choice.setAttribute("data-choice-selectable", "");
+						choice.setAttribute("aria-selected", true);
+						choice.role = "option";
+						choice.setAttribute('data-value', '김나리');
+						choice.setAttribute('data-select-text', "Press to select");
+						choice.innerText = "김나리";
+						
+						list.appendChild(choice);
+						
+						// <div>김나리</div>
+						// <div data-choice="" data-id="1" data-choice-selectable="" aria-selected="true">김나리</div>
+						
+						
 					}
 
 					,
@@ -435,7 +469,7 @@
 	<script type="text/javascript">
 		var myModal = document.getElementById('myModal')
 		var myInput = document.getElementById('myInput')
-		$('#myModal').modal('show');
+	/* 	$('#myModal').modal('show'); */
 		
 		/* 
 		myModal.addEventListener('shown.bs.modal', function() {
@@ -472,15 +506,9 @@
 				"click",
 				function() {
 
-					if (!checkNull($("#hyplName"), $("#hyplName").val(),
-							"제목을 입력해주세요"))
-						return false;
-					if (!checkNull($("#hyplDate"), $("#hyplDate").val(),
-							"날짜를 입력해주세요"))
-						return false;
-					if (!checkNull($("#hyplDesc"), $("#hyplDesc").val(),
-							"상세일정을 입력해주세요"))
-						return false;
+					if (!checkNull($("#hyplName"), $("#hyplName").val(), "제목을 입력해주세요")) return false;
+					if (!checkNull($("#hyplDate"), $("#hyplDate").val(), "날짜를 입력해주세요")) return false;
+					if (!checkNull($("#hyplDesc"), $("#hyplDesc").val(), "상세일정을 입력해주세요")) return false;
 
 				});
 	</script>

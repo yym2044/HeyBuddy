@@ -122,7 +122,7 @@
 			<div class="modal-body">
 				<div class="card card-body d-flex justify-content-center">
 					<button onclick="location.href='/meet/zoomList'" type="button" class="btn btn-primary p-3">Zoom</button>
-					<button onclick="location.href='/meet/meetList'" type="button" class="btn btn-secondary p-3">Web-Socket</button>
+					<button onclick="location.href='/meet/meetList'" type="button" class="btn btn-secondary p-3">WebRTC</button>
 				</div>
 			</div>
 		</div>

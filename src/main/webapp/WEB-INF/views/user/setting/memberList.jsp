@@ -6,7 +6,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
 <meta charset="UTF-8">
@@ -39,6 +39,7 @@
 #setTable tr {
 	vertical-align: middle;
 }
+
 #setTable {
 	text-align: center;
 }
@@ -49,28 +50,29 @@
 
 	<form id="formList" method="post">
 
-	<input type="hidden" id="hymmSeq" name="hymmSeq">
-	<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
-	
-	<!-- include 처리 1번 -->
-	<%@include file="../include/loader.jsp"%>
+		<input type="hidden" id="hymmSeq" name="hymmSeq">
+		<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
+		<input type="hidden" id="thisPage" name="thisPage">
 
-	<!--App Start-->
-	<div class="d-flex flex-column flex-root">
-		<!--Page-->
-		<div class="page d-flex flex-row flex-column-fluid">
+		<!-- include 처리 1번 -->
+		<%@include file="../include/loader.jsp"%>
 
-			<!-- include 처리 2번 -->
-			<%@include file="../include/pageSideBar.jsp"%>
+		<!--App Start-->
+		<div class="d-flex flex-column flex-root">
+			<!--Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
 
-			<!--///////////Page content wrapper///////////////-->
-			<main class="page-content d-flex flex-column flex-row-fluid">
+				<!-- include 처리 2번 -->
+				<%@include file="../include/pageSideBar.jsp"%>
 
-				<!-- include 처리 3번 -->
-				<%@include file="../include/pageHeader.jsp"%>
+				<!--///////////Page content wrapper///////////////-->
+				<main class="page-content d-flex flex-column flex-row-fluid">
 
-				<!--//Page Toolbar//-->
-				<!-- 
+					<!-- include 처리 3번 -->
+					<%@include file="../include/pageHeader.jsp"%>
+
+					<!--//Page Toolbar//-->
+					<!-- 
 				<div class="toolbar pt-4 px-4 px-lg-8">
 					<div class="position-relative container-fluid px-0">
 						<div class="row align-items-center position-relative">
@@ -87,153 +89,158 @@
 					</div>
 				</div>
 				 -->
-				<!--//Page Toolbar End//-->
+					<!--//Page Toolbar End//-->
 
 
-				<!--//Page content//-->
-				<div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
-					<div class="container-fluid px-0">
+					<!--//Page content//-->
+					<div class="content pt-4 px-4 px-lg-8 d-flex flex-column-fluid">
+						<div class="container-fluid px-0">
 
-						<div class="row">
+							<div class="row">
 
-							<%@include file="../include/settingMenu.jsp"%>
+								<%@include file="../include/settingMenu.jsp"%>
 
-							<div class="col-lg-9 h-100" data-aos="fade-up" data-aos-duration="1200">
-								<!--card-->
-								<div class="card mb-4 p-3">
-									<div class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
+								<div class="col-lg-9 h-100" data-aos="fade-up" data-aos-duration="1200">
+									<!--card-->
+									<div class="card mb-4 p-3">
+										<div class="card-header border-bottom-0 d-md-flex align-items-md-center justify-content-md-between">
 
-										<!-- card title -->
-										<h3 class="card-title mb-md-0">멤버 관리</h3>
+											<!-- card title -->
+											<h3 class="card-title mb-md-0">멤버 관리</h3>
 
-									</div>
-									<h6 class="ps-4 mb-3">멤버를 등록하고 관리할 수 있습니다.</h6>
-									<div class="row p-3">
-										<div class="col-12"></div>
-										<div class="col">
-											<div class="position-relative flex-grow-1 me-2 me-lg-4">
-												<!--Icon-->
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
+										</div>
+										<h6 class="ps-4 mb-3">멤버를 등록하고 관리할 수 있습니다.</h6>
+										<div class="row p-3">
+											<div class="col-12"></div>
+											<div class="col">
+												<div class="position-relative flex-grow-1 me-2 me-lg-4">
+													<!--Icon-->
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2">
 													<circle cx="11" cy="11" r="8"></circle>
 													<line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-												<input type="text" class="form-control search ps-6 w-75" placeholder="멤버 이름을 검색해보세요">
+													<input type="text" class="form-control search ps-6 w-75" placeholder="멤버 이름을 검색해보세요">
+												</div>
+											</div>
+											<div class="col text-end">
+												<a class="btn btn-outline-danger" href="javascript:goForm()">멤버 등록</a>
+												<a class="btn btn-outline-success" href="#!">엑셀 파일</a>
 											</div>
 										</div>
-										<div class="col text-end">
-											<a class="btn btn-outline-danger" href="javascript:goForm()">멤버 등록</a>
-											<a class="btn btn-outline-success" href="#!">엑셀 파일</a>
-										</div>
-									</div>
 
-									<div class="table-responsive">
-										<table id="setTable" class="table table-sm table-nowrap table-card">
-											<thead class="bg-body text-muted">
-												<tr>
-													<td>이름</td>
-													<td>연락처</td>
-													<td>Email</td>
-													<td>계정 생성일</td>
-													<td>멤버 상태</td>
-													<td>계정 활성화</td>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${list}" var="item" varStatus="status">
-												<tr>
-													<td class="">
-														<div class="d-flex align-items-center">
-															<c:choose>
-																<c:when test="${empty item.uuidFileName}">
-																	<img src="/resources/user/images/profileDefault.png" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
-																</c:when>
-																<c:otherwise>
-																	<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
-																</c:otherwise>
-															</c:choose>
-															<div>
-																<div class="h6 mb-0 lh-1">
-																	<a href="javascript:goView(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/><c:if test="${item.hymmName eq sessName}"></c:if></a>
-																	<c:if test="${item.hysmRoleCd eq 12}">
-																		<span class="badge bg-danger ms-1">S</span>
-																	</c:if>
+										<div class="table-responsive">
+											<table id="setTable" class="table table-sm table-nowrap table-card">
+												<thead class="bg-body text-muted">
+													<tr>
+														<td>이름</td>
+														<td>연락처</td>
+														<td>Email</td>
+														<td>계정 생성일</td>
+														<td>멤버 상태</td>
+														<td>계정 활성화</td>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach items="${list}" var="item" varStatus="status">
+														<tr>
+															<td class="">
+																<div class="d-flex align-items-center">
+																	<c:choose>
+																		<c:when test="${empty item.uuidFileName}">
+																			<img src="/resources/user/images/profileDefault.png" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+																		</c:when>
+																		<c:otherwise>
+																			<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="avatar sm rounded-pill me-3 flex-shrink-0" alt="Customer">
+																		</c:otherwise>
+																	</c:choose>
+																	<div>
+																		<div class="h6 mb-0 lh-1">
+																			<a href="javascript:goView(<c:out value="${item.hymmSeq}"/>);">
+																				<c:out value="${item.hymmName}" />
+																				<c:if test="${item.hymmName eq sessName}"></c:if>
+																			</a>
+																			<c:if test="${item.hysmRoleCd eq 12}">
+																				<span class="badge bg-danger ms-1">S</span>
+																			</c:if>
+																		</div>
+																	</div>
 																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<c:choose>
-															<c:when test="${fn:length(item.hymmNumber) eq 10 }">
-																<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,6)}" />-<c:out value="${fn:substring(item.hymmNumber,6,10)}" />
-															</c:when>
-															<c:otherwise>
-																<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,7)}" />-<c:out value="${fn:substring(item.hymmNumber,7,11)}" />
-															</c:otherwise>
-														</c:choose>
-													</td>
-													<td><c:out value="${item.hymmEmail}"/></td>
-													<td><fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd" /></td>
-													<td>
-														<c:choose>
-															<c:when test="${item.hysmAcceptedNy eq 1}">
+															</td>
+															<td>
+																<c:choose>
+																	<c:when test="${fn:length(item.hymmNumber) eq 10 }">
+																		<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,6)}" />-<c:out value="${fn:substring(item.hymmNumber,6,10)}" />
+																	</c:when>
+																	<c:otherwise>
+																		<c:out value="${fn:substring(item.hymmNumber,0,3)}" />-<c:out value="${fn:substring(item.hymmNumber,3,7)}" />-<c:out value="${fn:substring(item.hymmNumber,7,11)}" />
+																	</c:otherwise>
+																</c:choose>
+															</td>
+															<td>
+																<c:out value="${item.hymmEmail}" />
+															</td>
+															<td>
+																<fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd" />
+															</td>
+															<td>
+																<c:choose>
+																	<c:when test="${item.hysmAcceptedNy eq 1}">
 																참여중
 															</c:when>
-															<c:otherwise>
+																	<c:otherwise>
 																대기중
 															</c:otherwise>
-														</c:choose>
-													</td>
-													<td>
-														<c:choose>
-															<c:when test="${item.hymmActiveNy eq 1}">
+																</c:choose>
+															</td>
+															<td>
+																<c:choose>
+																	<c:when test="${item.hymmActiveNy eq 1}">
 																활성
 															</c:when>
-															<c:otherwise>
+																	<c:otherwise>
 																비활성
 															</c:otherwise>
-														</c:choose>
-													</td>
-												</tr>
+																</c:choose>
+															</td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										</div>
+										<div class="d-flex justify-content-center">
+											<ul class="pagination">
+												
+												<li class="paginate_button page-item previous <c:if test="${vo.startPage le vo.pageNumToShow}">disabled</c:if>" id="datatable_previous"><a href="javascript:goPage(<c:out value="${vo.startPage - 1}"/>)" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+												<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+													<li class="paginate_button page-item <c:if test="${vo.thisPage eq i.index}">active</c:if>"><a href="javascript:goPage(<c:out value="${i.index}"/>)" aria-controls="datatable" data-dt-idx="1" tabindex="0" class="page-link"><c:out value="${i.index}"/></a></li>
 												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-									<div class="d-flex justify-content-center">
-										<ul class="pagination">
-											<li class="paginate_button page-item previous disabled" id="datatable_previous"><a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
-											<li class="paginate_button page-item active"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-											<!-- 
-											<li class="paginate_button page-item ">
-												<a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
-											</li>
-											 -->
-											<li class="paginate_button page-item next disabled" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
-										</ul>
+												<li class="paginate_button page-item next <c:if test="${vo.endPage eq vo.totalPages}">disabled</c:if>" id="datatable_next"><a href="javascript:goPage(<c:out value="${vo.endPage + 1}"/>)" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!--//Page content End//-->
+					<!--//Page content End//-->
 
-				<!--//Page-footer//-->
-				<footer class="pb-4 px-4 px-lg-8">
-					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">
-							&copy;
-							<script>
-								document.write(new Date().getFullYear())
-							</script>
-							. Hey, Buddy All rights reserved.
-						</span>
-					</div>
-				</footer>
-				<!--/.Page Footer End-->
-			</main>
-			<!--///////////Page content wrapper End///////////////-->
+					<!--//Page-footer//-->
+					<footer class="pb-4 px-4 px-lg-8">
+						<div class="container-fluid px-0">
+							<span class="d-block lh-sm small text-muted text-end">
+								&copy;
+								<script>
+									document.write(new Date().getFullYear())
+								</script>
+								. Hey, Buddy All rights reserved.
+							</span>
+						</div>
+					</footer>
+					<!--/.Page Footer End-->
+				</main>
+				<!--///////////Page content wrapper End///////////////-->
+			</div>
 		</div>
-	</div>
-	
+
 	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
@@ -252,24 +259,29 @@
 	<script>
 		Inputmask().mask(document.querySelectorAll("[data-inputmask]"));
 	</script>
-	
-	 
-	
+
+
+
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
 		sidebarLink[5].className += ' current';
 	</script>
-	
+
 	<script type="text/javascript">
-	goView = function(hymmSeq){
-		$("#hymmSeq").val(hymmSeq);
-		$("#formList").attr("action", "/setting/memberView").submit();
-	}
-	
-	goForm = function(){
-		$("#formList").attr("action", "/setting/memberForm").submit();
-	}
+		goView = function(hymmSeq) {
+			$("#hymmSeq").val(hymmSeq);
+			$("#formList").attr("action", "/setting/memberView").submit();
+		}
+
+		goForm = function() {
+			$("#formList").attr("action", "/setting/memberForm").submit();
+		}
+		
+		goPage = function(seq) {
+			$("#thisPage").val(seq);
+			$("#formList").attr("action", "/setting/memberList").submit();
+		}
 	</script>
 </body>
 

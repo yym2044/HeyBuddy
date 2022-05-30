@@ -98,7 +98,7 @@
 						<div class="row">
 							<div class="col offset-2">
 
-								<video id="myFace" autoplay class="bg-secondary d-flex align-items-end justify-content-center mb-3" style="width: 720px; height: 400px; margin-left: 28px;">
+								<video id="myFace" autoplay class="bg-secondary d-flex align-items-end justify-content-center mb-3" style="width: 720px; height: 400px; margin-left: 28px; transform: rotateY(180deg);">
 								</video>
 								<div class="text-center pb-3" style="width: 720px; margin-left: 28px;">
 									<button type="button" id="btnMic" class="btn rounded-circle" style="background-color: white">

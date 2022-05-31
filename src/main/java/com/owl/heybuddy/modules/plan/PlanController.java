@@ -25,7 +25,7 @@ public class PlanController {
 		
 		
 		
-		System.out.println("############일정 #########");
+//		System.out.println("############일정 #########");
 //		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
 //		dto.setHyplName((String)httpSession.getAttribute("hyplName"));
 //		dto.setHyplDate((String)httpSession.getAttribute("hyplDate"));
@@ -130,6 +130,11 @@ public class PlanController {
 	@RequestMapping(value = "/plan/planViewAjax")
 	public Plan planViewAjax(@ModelAttribute("vo") PlanVo vo, HttpSession httpSession, Model model) throws Exception {
 		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHyplName((String)httpSession.getAttribute("hyplName"));
+		vo.setHyplDate((String)httpSession.getAttribute("hyplDate"));
+		vo.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
+		vo.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
 		
 		Plan rt = service.selectOne(vo);
 		

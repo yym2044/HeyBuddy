@@ -222,7 +222,7 @@
 						<!-- 이 위치에 넣어줘야 적용됨  -->
 						<div class="modal-content">
 							<div class="modal-header">
-								<h4 class="modal-title" id="exampleModalLabel" style="text-align: center; float: center;">📌일정등록</h4>
+								<h4 class="modal-title" id="exampleModalLabel" style="text-align: center; float: center;">📝일정상세</h4>
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
@@ -231,15 +231,18 @@
 								<h5>일정내용</h5>
 								<input class="form-control mb-3" type="text" id="hyplDesc1" name="hyplDesc" style="height: 100px;" autocomplete="off">
 								<br>
-								<h5>날짜</h5>
+								<h5>📅날짜</h5>
 								<input class="form-control mb-3 shDate" type="text" id="hyplDate1" name="hyplDate" autocomplete="off"> <br>
-								<h5>공유자</h5>
+								<h5>👨‍👧‍👧공유된 멤버</h5>
+								<input class="form-control mb-3" type="text" id="hyplMemberName1" name="hyplMemberName" readOnly>
 								<div class="form-control mb-3">
+								<h5>공유자</h5>
+								
 									<div class="card card-body">
-										<select multiple class="form-control" id="hyplMemberName1" name="hyplMemberName" data-choices='{"removeItems": "true","removeItemButton": "true"}'>
-											<%-- 	<c:forEach items="${selectListMember}" var="item" varStatus="status">
-													<option <c:if test="${rt.hyplMemberName1 eq 'rt.hyplMemberName1'}">selected</c:if>value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}"/>
-											</c:forEach> --%>
+										<select multiple class="form-control" id="hyplMemberName" name="hyplMemberName" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
+												<c:forEach items="${selectListMember}" var="item" varStatus="status">
+												<option><c:out value="${item.hymmName}" />
+											</c:forEach>
 										</select>
 									</div>
 								</div>
@@ -382,10 +385,12 @@
 				$("#btnForm").click();
 			},
 			
+			
 			eventClick : function(info) {
 				const hyplSeq = info.event._def.extendedProps.seq;
 				console.log(hyplSeq);
 
+				
 				$.ajax({
 					async : false,
 					cache : false,
@@ -398,47 +403,27 @@
 					success : function(data) {
 						console.log(data);
 						
-						$("#btnForm2").click();
+					$("#btnForm2").click(); 
 						
 						$("#hyplName1").val(data.hyplName);
 						$("#hyplDesc1").val(data.hyplDesc);
 						$("#hyplDate1").val(data.hyplDate);
+						$("#hyplMemberName1").val(data.hyplMemberName);
+						/* 
 						
 						var str = data.hyplMemberName;
 						var words = str.split(',');
 						
 						console.log(words);
 						
-				/* 		const select = document.getElementById("hyplMemberName1");
+				 		const select = document.getElementById("hyplMemberName1");
 						console.log(select);
 						
 						const option = document.createElement("option");
-						option.innerText = "윤영민"; 
-						select.appendChild(option);
-						*/
-						
-						const list = document.querySelector(".choices__list");
-						console.log(list);
+						option.innerText = words; 
+						select.appendChild(option); */
 						
 						
-						const choice = document.createElement("div");
-						
-						choice.id = "choices--hyplMemberName-item-choice-1";
-						choice.setAttribute("class","choices__item dropdown-item choices__item--selectable is-highlighted");
-						choice.setAttribute("role", "option");
-						choice.setAttribute("data-choice", "");
-						choice.setAttribute("data-id", 1);
-						choice.setAttribute("data-choice-selectable", "");
-						choice.setAttribute("aria-selected", true);
-						choice.role = "option";
-						choice.setAttribute('data-value', '김나리');
-						choice.setAttribute('data-select-text', "Press to select");
-						choice.innerText = "김나리";
-						
-						list.appendChild(choice);
-						
-						// <div>김나리</div>
-						// <div data-choice="" data-id="1" data-choice-selectable="" aria-selected="true">김나리</div>
 						
 						
 					}
@@ -469,13 +454,11 @@
 	<script type="text/javascript">
 		var myModal = document.getElementById('myModal')
 		var myInput = document.getElementById('myInput')
-	/* 	$('#myModal').modal('show'); */
-		
-		/* 
-		myModal.addEventListener('shown.bs.modal', function() {
+		 
+		myModal.addEventListener('shown.bs.modal', function(event) {
 			myInput.focus()
 		})
-		 */ 
+		  
 	</script>
 
 	<!-- Jquery 달력  -->
@@ -514,10 +497,10 @@
 	</script>
 
 	<script type="text/javascript">
-		goView = function(seq) {
-			$("#hyplSeq").val(seq);
-			$("#planList").attr("action", "/plan/planView");
-			$("#planList").submit();
+	/* 	goView = function(seq) {
+			$("#btnForm2").click(); */
+		/* 	$("#planList").attr("action", "/plan/planView"); */
+		/* 	$("#planList").submit(); */
 		}
 
 		// POST 형식으로 데이터를 삽입 
@@ -529,5 +512,12 @@
 		//	$("#formList").submit(); // 그냥 공통적으로 submit는 실행해준다는 의미기 때문에 넣어줘야한다.
 	</script>
 
+<!-- 	<script>
+		
+		
+	
+		$("#btnForm2").click();
+	
+	</script> -->
 </body>
 </html>

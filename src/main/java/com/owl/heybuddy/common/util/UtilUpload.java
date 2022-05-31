@@ -128,14 +128,14 @@ public class UtilUpload {
 			String path = Constants.UPLOAD_PATH_PDF + "/" + pathModule + "/" + pathDate + "/";
 			createPath(path);
 			multipartFile.transferTo(new File(path + uuidFileName));
-			dto.setPath(path);
+			dto.setPath("/resources/pdfjs-2.14.305-dist/web/" + pathModule + "/" + pathDate + "/");
 			
 		} else {
 			
 			String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
 			createPath(path);
 			multipartFile.transferTo(new File(path + uuidFileName));
-			dto.setPath(path);
+			dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
 			
 		}
 		

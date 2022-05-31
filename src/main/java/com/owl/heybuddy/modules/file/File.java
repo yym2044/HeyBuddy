@@ -14,8 +14,8 @@ public class File {
 	private String hydcTitle;
 	private String hydcText;
 
-	private String hydcDelNy;
-	private String hydcTempNy;
+	private Integer hydcDelNy;
+	private Integer hydcTempNy;
 	
 
 	// RegMod
@@ -109,12 +109,7 @@ public class File {
 	public void setHydcText(String hydcText) {
 		this.hydcText = hydcText;
 	}
-	public String getHydcDelNy() {
-		return hydcDelNy;
-	}
-	public void setHydcDelNy(String string) {
-		this.hydcDelNy = string;
-	}
+
 	public String getRegIp() {
 		return regIp;
 	}
@@ -383,8 +378,8 @@ public Integer getHymmDelNy() {
 public void setHymmDelNy(Integer hymmDelNy) {
 	this.hymmDelNy = hymmDelNy;
 }
-
-
+ 
+ 
 public Integer getHysmRoleCd() {
 	return hysmRoleCd;
 }
@@ -393,11 +388,18 @@ public void setHysmRoleCd(Integer hysmRoleCd) {
 }
 
 
-public String getHydcTempNy() {
+
+public Integer getHydcDelNy() {
+	return hydcDelNy;
+}
+public void setHydcDelNy(Integer hydcDelNy) {
+	this.hydcDelNy = hydcDelNy;
+}
+public Integer getHydcTempNy() {
 	return hydcTempNy;
 }
-public void setHydcTempNy(String string) {
-	this.hydcTempNy = string;
+public void setHydcTempNy(Integer hydcTempNy) {
+	this.hydcTempNy = hydcTempNy;
 }
 
 

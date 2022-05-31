@@ -188,7 +188,7 @@
 
 													<th class="text-center"><input type="checkbox"
 														id="checkboxAll" name="checkboxAll"></th>
-													<th class="text-center">이름(본인것만올라와야함추후삭제예정)</th>
+												
 													<th class="text-center">제목</th>
 													<th class="text-center">등록일</th>
 
@@ -198,8 +198,7 @@
 																	<td class="text-center"><input type="checkbox"
 																		id="checkboxSeq" name="checkboxSeq"
 																		value="<c:out value="${item.hydcSeq}" />"></td>
-																	<td class="text-center"><c:out
-																			value="${item.hymmName}" /></td>
+																
 
 																	<td class="text-center"><span
 																		class="fw-bolder me-2 me-lg-4"> <a
@@ -213,7 +212,14 @@
 																
 												
 															</tbody>
-															
+									
+										
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+										</table>
+						
 																	<!--포스트 페이징과 버튼 -->
 										<div class="row text-center" style="width: 100%">
 											<div style="width: 100%; float: none; margin: 0 auto">
@@ -231,8 +237,8 @@
 																<c:when test="${i.index eq vo.thisPage}">
 																	<li class="page-item active"><a class="page-link"
 																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
-																</c:when>
-																<c:otherwise>
+					 											</c:when>
+																 <c:otherwise>
 																	<li class="page-item"><a class="page-link"
 																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
 																</c:otherwise>
@@ -251,13 +257,6 @@
 											</div>
 										</div>
 										
-										
-														</c:forEach>
-													</c:otherwise>
-												</c:choose>
-											</tbody>
-										</table>
-
 								
 									</div>
 
@@ -316,7 +315,7 @@
 
 									goFileList = function(seq) {
 										$("#formList").attr("action",
-												"/file/fileListTemp");
+												"/file/fileList");
 										$("#formList").submit();
 									};
 

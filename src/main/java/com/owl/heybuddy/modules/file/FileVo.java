@@ -8,12 +8,28 @@ public class FileVo {
 
 
 
+
+		public Integer getHydcDelNy() {
+		return hydcDelNy;
+	}
+	public void setHydcDelNy(Integer hydcDelNy) {
+		this.hydcDelNy = hydcDelNy;
+	}
+	public Integer getHydcTempNy() {
+		return hydcTempNy;
+	}
+	public void setHydcTempNy(Integer hydcTempNy) {
+		this.hydcTempNy = hydcTempNy;
+	}
+
 		private String hydcSeq;
 		private String hyspSeq;
 		private String hymmSeq;
 		private String hydcTitle;
 		private String hydcText;
 		private Integer hydcDelNy;
+		private Integer hydcTempNy;
+		
 		
 		// 스페이스
 		private String hysmSeq;
@@ -174,12 +190,7 @@ public class FileVo {
 	public void setHydcText(String hydcText) {
 		this.hydcText = hydcText;
 	}
-	public Integer getHydcDelNy() {
-		return hydcDelNy;
-	}
-	public void setHydcDelNy(Integer hydcDelNy) {
-		this.hydcDelNy = hydcDelNy;
-	}
+
 	public String getRegIp() {
 		return regIp;
 	}
@@ -653,7 +664,7 @@ return hysmSeq;
 }
 public void setHysmSeq(String hysmSeq) {
 this.hysmSeq = hysmSeq;
-}
+}  
 public String getHyspName() {
 return hyspName;
 }
@@ -668,6 +679,10 @@ return checkboxSeqArray;
 public void setCheckboxSeqArray(String[] checkboxSeqArray) {
 this.checkboxSeqArray = checkboxSeqArray;
 }
+
+
+
+
 
 
 

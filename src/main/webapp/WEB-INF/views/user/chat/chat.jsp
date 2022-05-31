@@ -268,7 +268,7 @@ p, dt {
 										class="position-relative w-100 p-3 height-60 d-flex align-items-center"
 										method="post">
 										<input type="hidden" id="hycrSeq" name="hycrSeq">
-
+										<input type="hidden" id="chatRoom" name="chatRoom">
 										<div
 											class="position-absolute start-0 top-50 translate-middle-y opacity-50 lh-1 ms-3">
 											<i data-feather="search" class="fe-1x"></i>
@@ -378,7 +378,6 @@ p, dt {
 									</div>
 									<div>
 										<h5 class="mb-0 lh-1" style="color: black;" id="chatRoomName"></h5>
-										<h5 class="mb-0 lh-1" style="color: black;" id="chatRoom"></h5>
 
 									</div>
 								</div>
@@ -564,11 +563,9 @@ p, dt {
 					alert(JSON.stringify(data));
 	 				alert(JSON.stringify(data['chatList'][0]['hycrName']));
 	 				$('#chatRoomName').empty();	// 기재된 내용 삭제
-	 				$('#chatRoom').empty();	// 기재된 내용 삭제
 	 				$('#chatRoomName').append(data['chatList'][0]['hycrName']) ;
-	 				$('#chatRoom').append(data['chatList'][0]['hycrSeq']) ;
+
 	 				
-	 				var myRoom = data['chatList'][0]['hycrSeq'];
 					/* for(var i = 0; i < data['chatList'].length; i++){
 						
 						$('#submit').append(data['chatList'][i]['hymmName']) ;
@@ -635,9 +632,7 @@ const app = initializeApp(firebaseConfig);
 
    var myName = '<c:out value="${sessName}"/>';
    var mySpace = '<c:out value="${hyspSeq}"/>';
-   var myRoom = '1';
-   var T = '<c:out value="${regDateTime}"/>';
- 
+   var myRoom = '<c:out value="${vo.roomNum}" />';
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;

@@ -9,6 +9,15 @@ public class ChatVo {
 	private String hycrSeq;
 	private String hycmSeq;
 	private String hymmName;
+	private String roomNum;
+
+	public String getRoomNum() {
+		return roomNum;
+	}
+
+	public void setRoomNum(String roomNum) {
+		this.roomNum = roomNum;
+	}
 
 	public String getHyspSeq() {
 		return hyspSeq;

@@ -171,11 +171,13 @@
 								<div style="width: 100%; float: none; margin: 0 auto">
 
 									<a href="javascript:goFileListTemp();">
-										<button type="submit" class="btn btn-outline-secondary">임시저장</button>
+										<button type="button" class="btn btn-outline-secondary">임시저장</button>
 									</a>
 
-									<button type="submit" class="btn btn-primary ms-2" id="btnSubmit">등록</button>
-
+									<a href="javascript:goFileList();">
+									<button type="button" class="btn btn-primary ms-2" id="btnSubmit">등록</button>
+									</a>
+									
 								</div>
 
 							</div>
@@ -228,14 +230,16 @@
 
 		sidebarLink[4].className += ' current';
 	</script>
-
+ 
 	<script type="text/javascript">
 		goFileList = function() {
-			$("#formList").attr("action", "/file/fileList");
+			$("#hydcTempNy").val(0);
+			$("#formList").attr("action", "/file/fileInst1");
 			$("#formList").submit();
 		};
 		goFileListTemp = function() {
-			$("#formList").attr("action", "/file/fileListTemp");
+			$("#hydcTempNy").val(1);
+			$("#formList").attr("action", "/file/fileInst2");
 			$("#formList").submit();
 		};
 		goFileView = function() {

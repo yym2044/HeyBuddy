@@ -378,8 +378,8 @@ public Integer getHymmDelNy() {
 public void setHymmDelNy(Integer hymmDelNy) {
 	this.hymmDelNy = hymmDelNy;
 }
-
-
+ 
+ 
 public Integer getHysmRoleCd() {
 	return hysmRoleCd;
 }

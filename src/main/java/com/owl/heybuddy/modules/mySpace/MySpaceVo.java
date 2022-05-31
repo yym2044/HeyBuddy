@@ -3,7 +3,7 @@ package com.owl.heybuddy.modules.mySpace;
 public class MySpaceVo {
 
 	private String hyspSeq;
-	private String hysmSeq;
+	private String hysmSeq; 
 	private String hymmSeq;
 	private String hymmName;
 	private String hyspName;

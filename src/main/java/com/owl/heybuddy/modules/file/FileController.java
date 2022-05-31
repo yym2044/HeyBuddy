@@ -69,7 +69,7 @@ public class FileController {
 
 		System.out.println("vo.getHydcTempNy :" + vo.getHydcTempNy());
 		
-		/*
+		/* 
 		 * if (vo.getHydcTempNy() == 0) { service.insertDocument(dto); } else {
 		 * service.insertDocumentTemp(dto); }
 		 */

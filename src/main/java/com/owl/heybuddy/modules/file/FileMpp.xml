@@ -234,7 +234,7 @@
 	FROM
 		hybdSpace a
 	LEFT JOIN
-		hybdSpaceMember b 
+		hybdSpaceMember b  
 	ON b.hyspSeq = a.hyspSeq
 	LEFT JOIN
 		hybdMember c

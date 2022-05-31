@@ -664,7 +664,7 @@ return hysmSeq;
 }
 public void setHysmSeq(String hysmSeq) {
 this.hysmSeq = hysmSeq;
-}
+}  
 public String getHyspName() {
 return hyspName;
 }

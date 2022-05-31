@@ -237,8 +237,8 @@
 																<c:when test="${i.index eq vo.thisPage}">
 																	<li class="page-item active"><a class="page-link"
 																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
-																</c:when>
-																<c:otherwise>
+					 											</c:when>
+																 <c:otherwise>
 																	<li class="page-item"><a class="page-link"
 																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
 																</c:otherwise>

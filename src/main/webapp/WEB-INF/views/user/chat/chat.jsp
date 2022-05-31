@@ -252,11 +252,11 @@ p, dt {
 				<%@include file="../include/pageHeader.jsp"%>
 
 				<!--//Page content//-->
-				<div class="px-4 px-lg-8">
-					<div class="content content-wrapper content-expand-md">
+				<div class="px-auto px-lg-12">
+					<div class="content content-wrapper content-expand">
 						<!--Content-wrapper-overlay when sidebar open for 768px down width-->
 						<div class="content-wrapper-overlay"></div>
-						<!--Content-sidebar-->
+						<%-- <!--Content-sidebar-->
 						<div class="content-left border-end">
 							<div
 								class="content-sidebar card rounded-0 align-items-stretch h-100"
@@ -318,14 +318,14 @@ p, dt {
 																	class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
 															</h6>
 															<small class="opacity-75 ms-auto small">
-																<%-- <c:choose>
+																<c:choose>
 															<c:when test="${item.hymmSeq eq sessSeq}">
 																<span class="badge rounded-pill bg-primary">ME</span>
 															</c:when>
 															<c:otherwise>
 
 															</c:otherwise>
-														</c:choose> --%>
+														</c:choose>
 															</small>
 														</div>
 
@@ -345,7 +345,7 @@ p, dt {
 								</div>
 
 							</div>
-						</div>
+						</div> --%>
 
 						<!--content-right-->
 						<div
@@ -546,7 +546,7 @@ p, dt {
 									"content_sidebar_show");
 						});
 	</script>
-	<script type="text/javascript">
+<!-- 	<script type="text/javascript">
 	goRoom = function(seq) {
 		$("#hycrSeq").val(seq);
 		$.ajax({
@@ -562,9 +562,10 @@ p, dt {
 					alert(data);
 					alert(JSON.stringify(data));
 	 				alert(JSON.stringify(data['chatList'][0]['hycrName']));
+	 				alert("myRoom: "+ myRoom);
 	 				$('#chatRoomName').empty();	// 기재된 내용 삭제
 	 				$('#chatRoomName').append(data['chatList'][0]['hycrName']) ;
-
+					
 	 				
 					/* for(var i = 0; i < data['chatList'].length; i++){
 						
@@ -579,7 +580,7 @@ p, dt {
 		});
 	
 	}
-	</script>
+	</script> -->
 
 
 	<!-- 사이드바 Hover 유지시켜주는 작업-->
@@ -632,7 +633,7 @@ const app = initializeApp(firebaseConfig);
 
    var myName = '<c:out value="${sessName}"/>';
    var mySpace = '<c:out value="${hyspSeq}"/>';
-   var myRoom = '<c:out value="${vo.roomNum}" />';
+   var myRoom = '<c:out value="${vo.hycrSeq}" />';
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;

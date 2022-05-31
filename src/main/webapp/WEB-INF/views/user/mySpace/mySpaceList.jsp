@@ -64,8 +64,7 @@ body {
 </style>
 
 <body>
-	<form id="mySpaceList" name="mySpaceList" method="post"
-		action="/mySpace/mySpaceList">
+	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
 		<input type="hidden" id="hyspSeq" name="hyspSeq"> <input
 			type="hidden" id="hymmSeq" name="hymmSeq"> <input
 			type="hidden" id="hymmName" name="hymmName"> <input

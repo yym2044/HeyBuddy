@@ -33,7 +33,7 @@
 							<span class="sidebar-text"> 멤버 </span>
 						</a></li>
 
-					<li class="nav-item"><a href="/chat/chat" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+					<li class="nav-item"><a href="/chat/chatRoom" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
 							<span class="sidebar-icon iconic">
 								<i data-feather="message-circle" class="fe-1x"></i>
 							</span>

@@ -55,7 +55,7 @@
 </script>
 
 <body>
-<form id="chatList" name="chatList" method="post" action="/member/memberList">
+<form id="chatList" name="chatList" method="post">
 <input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
 <input type="hidden" id="hyspName" name="hyspName" value="<c:out value="${item.hyspName}"/>">
 
@@ -84,14 +84,7 @@
 									<div class="pb-5">
 										<form class="position-relative">
 											<!--Icon-->
-											<span
-												class="d-flex size-20 rounded-circle ms-3 align-items-center justify-content-center position-absolute start-0 top-50 translate-middle-y">
-												<i data-feather="search" class="fe-1x opacity-50"></i>
-											</span>
-											<!--Input-->
-											<input type="text"
-												class="form-control shadow py-4 form-control-lg ps-9"
-												placeholder="">
+								
 										</form>
 									</div>
 								</div>
@@ -101,15 +94,10 @@
 								<!--Search results list-->
 								<div class="list-group mb-4">
 									<div class="list-group-item p-4">
-										<small class="text-muted">About <c:out value="${vo.totalRows}" /> results for member
-										</small>
+										<h5 class="text-muted">About <span style="color:#119C8D;"><c:out value="${vo.totalRows}" /></span> results for member
+										</h5>
 									</div>
-									
-							
-									
-							
-
-
+								
 							<c:forEach items="${list}" var="item" varStatus="status">
 									<!--Search result item-->
 									<a href="/chat/chat" class="list-group-item p-4 list-group-item-action">
@@ -196,7 +184,14 @@
     	
     	sidebarLink[0].className += ' current';
     </script>
-    
+	<script type="text/javascipt">
+goRoom = function(seq) {
+				$("#hycrSeq").val(seq);
+				$("#chatRoom").attr("action", "/chat/chat");
+				$("#chatRoom").submit();
+			}
+
+</script>
 </body>
 
 

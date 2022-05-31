@@ -26,6 +26,7 @@
 		WHERE 1=1
 		AND d.hyspSeq = #{hyspSeq}
 		AND b.hymmSeq = #{hymmSeq}
+		
 		group by d.hyspSeq , a.hycrSeq
 
 		<!-- SELECT a.hymmSeq , a.hymmName , d.uuidFileName , d.path FROM hybdMember 
@@ -34,6 +35,7 @@
 			WHERE 1=1 AND b.hysmAcceptedNy = '1' AND b.hysmExitNy = '0' AND b.hyspSeq 
 			= #{hyspSeq} -->
 	</select>
+
 
 
 
@@ -99,7 +101,7 @@
 	
 	<select id="selectOneChatRoom" resultMap="resultMapObj">
 		SELECT
-		a.hycrName
+		a.hycrSeq
 
 		FROM
 		hybdChatRoom a

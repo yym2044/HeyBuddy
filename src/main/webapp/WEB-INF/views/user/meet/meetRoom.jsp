@@ -298,8 +298,22 @@
 		
 		client.disconnect();
 		
+		
+		
 		$("#meetRoomForm").attr("action", "/meet/meetLeave").submit();
 
+	}
+	
+	function removeStream(leavedHymmSeq){
+		const streams = document.querySelector("#streams");
+		const streamArr = streams.querySelectorAll("div");
+		streamArr.forEach((stream) => {
+			if (stream.id === leavedHymmSeq) {
+				streams.removeChild(stream);
+			}
+		});
+		
+		sortStreams();
 	}
 	
 	/////////////////////////////////
@@ -355,10 +369,27 @@
 				myPeerConnection.setLocalDescription(answer);
 				
 				client.send("/pub/answer", {}, JSON.stringify(answer));
-				console.log("sent the answer!!!!!")
+				console.log("sent the answer!!!!!");
 				
 			});
+			
 		}
+		
+		/* 
+		client.subscribe("/sub/offer/<c:out value='${sessSeq}'/>", async function(event) {
+			console.log("got an offer!!!!");
+			const offer = JSON.parse(event.body);
+			console.log(offer);
+			
+			myPeerConnection.setRemoteDescription(offer);
+			const answer = await myPeerConnection.createAnswer();
+			console.log(answer);
+			myPeerConnection.setLocalDescription(answer);
+			
+			client.send("/pub/answer", {}, JSON.stringify(answer));
+			console.log("sent the answer!!!");
+		});
+		 */
 		
 		if("<c:out value='${meetRoomHostNy}'/>" == 1){
 			client.subscribe("/sub/answer/<c:out value='${rt.hymrRoomId}'/>", async function(event) {
@@ -428,7 +459,7 @@
 				// 방장이 offer를 생성하고 보낸다.				
 				if("<c:out value='${meetRoomHostNy}'/>" == 1){
 					
-					if(length == 1){
+					if(length >= 1){
 						
 						setTimeout(async function(){
 							const offer = await myPeerConnection.createOffer();
@@ -444,6 +475,11 @@
 					}
 					
 				}
+			}
+			
+			if(msg.type == "notice_leave") {
+				removeStream("peerStream");
+				document.querySelector("#myStream").className = "people1";
 			}
 			
 			
@@ -499,10 +535,14 @@
 	function handleIce(data) {
 		if(length >= 2){
 			
-			setTimeout(function(){
-				console.log("sent candidate");
-				client.send("/pub/ice", {}, JSON.stringify(data.candidate));
-			}, 5000);
+			if(data.candidate){
+				
+				setTimeout(function(){
+					console.log("sent candidate");
+					client.send("/pub/ice", {}, JSON.stringify(data.candidate));
+				}, 5000);
+				
+			}
 			
 		}
 	}
@@ -518,11 +558,10 @@
 		}
 	}
 	
-	
-	async function paintPeerFace(peerStream) {
+	function paintPeerFace(peerStream) {
 		const streams = document.querySelector("#streams");
 		const div = document.createElement("div");
-//		div.className = "people2";
+		div.id = "peerStream";
 		const video = document.createElement("video");
 		video.autoplay = true;
 		video.playsInline = true;
@@ -545,7 +584,7 @@
 		const streamArr = streams.querySelectorAll("div");
 		streamArr.forEach((stream) => (stream.className = 'people' + length));
 	}
-	 
+	
 	</script>
 	
 	<!--////////////Theme Core scripts Start/////////////////-->

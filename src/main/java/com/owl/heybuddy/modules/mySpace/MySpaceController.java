@@ -50,6 +50,14 @@ public class MySpaceController {
 
 		return "redirect:/setting/space";
 	}
+	
+	@RequestMapping(value = "/setting/deleteMySpace")
+	public String deleteMySpace(MySpaceVo vo) throws Exception {
+		
+		service.ueleteMySpace(vo);
+		
+		return "redirect:/mySpace/mySpaceList";
+	}
 
 	/******************************* 호스트 메뉴 End *******************************/
 

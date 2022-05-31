@@ -143,6 +143,7 @@
 		,hymmPassword
 		,hymmEmail
 		,hymmZoomAccount
+		,hymmActiveNy
 		,hymmDelny
 		,regDateTime
 		,modDateTime
@@ -155,6 +156,7 @@
 		,#{hymmPassword}
 		,#{hymmEmail}
 		,#{hymmZoomAccount}
+		,1
 		,0
 		,now()
 		,now()
@@ -424,6 +426,7 @@
 		, a.regDateTime
 		, a.modDateTime
 	<include refid="selectCommonInSpace"/>
+		limit #{startRnumForMysql} , #{rowNumToShow}
 	</select>
 	
 	<select id="selectOneMemberInSpace" resultMap="resultMapObj">

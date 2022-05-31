@@ -104,42 +104,36 @@ public class PlanController {
 		return "redirect:/plan/planList";
 	}
 	
-	@RequestMapping(value = "/plan/planView")
-	public String planView(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model,HttpSession httpSession) throws Exception {
-		
-		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		
-		Plan rt = service.selectOne(vo);
-		
-		model.addAttribute("rt", rt); 
-
-//		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
-//		dto.setHyplName((String)httpSession.getAttribute("hyplName"));
-//		dto.setHyplDate((String)httpSession.getAttribute("hyplDate"));
-//		dto.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
-//		dto.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
-		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		vo.setHymmName((String) httpSession.getAttribute("sessName"));
-		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
-		
-		return "user/plan/planView";
-	}
-	
+//	@RequestMapping(value = "/plan/planView")
+//	public String planView(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model,HttpSession httpSession) throws Exception {
+//		
+//		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+//		
+//		Plan rt = service.selectOne(vo);
+//		
+//		model.addAttribute("rt", rt); 
+//
+////		dto.setHyplSeq((String)httpSession.getAttribute("hyplSeq"));
+////		dto.setHyplName((String)httpSession.getAttribute("hyplName"));
+////		dto.setHyplDate((String)httpSession.getAttribute("hyplDate"));
+////		dto.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
+////		dto.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
+//		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+//		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+//		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+//		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
+//		
+//		return "user/plan/planView";
+//	}
+//	
 	@ResponseBody
 	@RequestMapping(value = "/plan/planViewAjax")
 	public Plan planViewAjax(@ModelAttribute("vo") PlanVo vo, HttpSession httpSession, Model model) throws Exception {
 		
-		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		vo.setHyplName((String)httpSession.getAttribute("hyplName"));
-		vo.setHyplDate((String)httpSession.getAttribute("hyplDate"));
-		vo.setHyplDesc((String)httpSession.getAttribute("hyplDesc"));
-		vo.setHyplMemberName((String)httpSession.getAttribute("hyplMemberName"));
-		
 		
 		Plan rt = service.selectOne(vo);
 		
-		model.addAttribute("rt", rt); 
+//		model.addAttribute("rt", rt);  model.add...페이지가 로드될때
 		
 		return rt;
 		

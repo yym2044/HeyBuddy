@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -53,19 +54,39 @@ public class ChatController {
 	@RequestMapping(value = "chat/chatRoomProc")
 	public Map<String, Object> getId(ChatVo vo, Chat dto, HttpSession httpSession, Model model) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-		
+
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
-		
+
 		List<Chat> chatList = service.selectListChatMember(vo);
 		model.addAttribute("chatList", chatList);
-		
+
+		httpSession.setAttribute("chatRoom", vo.getHycrSeq());
+
+		System.out.println("vo.getHycrSeq :" + vo.getHycrSeq());
+
 		returnMap.put("chatList", chatList);
 		returnMap.put("rt", "success");
 		
+		
 		return returnMap;
 	}
+	
+	/*
+	 * @RequestMapping(value = "/chat/chatRoom", method = RequestMethod.GET) public
+	 * String chatRoom(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model,
+	 * HttpSession httpSession, RedirectAttributes redirectAttributes) throws
+	 * Exception { vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+	 * vo.setHycrSeq((String) httpSession.getAttribute("chatRoom"));
+	 * 
+	 * String roomNum = service.selectOneChatRoom(vo); vo.setRoomNum(roomNum);
+	 * 
+	 * vo.setHycrSeq(vo.getHycrSeq()); redirectAttributes.addFlashAttribute("vo",
+	 * vo);
+	 * 
+	 * return "redirect:/chat/chat"; }
+	 */
 
 	@RequestMapping(value = "/chat/chat2")
 	public String chat2() throws Exception {

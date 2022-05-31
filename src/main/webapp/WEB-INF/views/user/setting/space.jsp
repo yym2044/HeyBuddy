@@ -121,6 +121,8 @@
 
 	<form id="spaceForm" method="post">
 	
+	<input type="hidden" id="hyspSeq" name="hyspSeq">
+	
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 	
@@ -223,12 +225,15 @@
 													<div class="position-relative flex-grow-1 me-2 me-lg-4">
 														<!--Img-->
 														<span id="sidebarIcon2" class="sidebar-icon lh-1 text-white rounded-circle bg-success fw-bold fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;"></span>
-														<!-- <img id="sidebarLogoPreview" class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;" src="/resources/user/images/profileDefault.png"> -->
+														<img id="sidebarLogoPreview" class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="display: none; width: 24px; height: 24px;" src="/resources/user/images/profileDefault.png">
 														<input id="spaceLogoText" type="text" class="form-control ps-8" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다.">
 													</div>
 													  
 												</td>
-												<td><label for="spaceLogo"><a class="btn btn-info">찾아보기</a></label></td>
+												<td style="width: 100px;">
+													
+													<label for="spaceLogo"><a class="btn btn-info">찾아보기</a></label>
+												</td>
 											</tr>
 											<tr>
 												<td>스페이스 색상</td>
@@ -274,9 +279,8 @@
 											</tr>
 											<tr>
 												<td>서비스 탈퇴</td>
-												<td colspan="2"><button class="btn btn-danger">서비스 탈퇴</button></td>
+												<td colspan="2"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">서비스 탈퇴</button></td>
 											</tr>
-
 										</table>
 										<div class="text-center pb-3">
 											<button class="btn btn-lg btn-secondary me-1">원래대로</button>
@@ -285,6 +289,29 @@
 										
 										<!-- SaveModal -->
 										<%@include file="../include/saveModal.jsp"%>
+										
+										<!-- Modal -->
+										<div class="modal fade" id="deleteModal" tabindex="-1"
+							                aria-labelledby="exampleModalLabel" aria-hidden="true">
+							                <div class="modal-dialog">
+							                    <div class="modal-content">
+							                        <div class="modal-header">
+							                            <h5 class="modal-title" id="exampleModalLabel">확인
+							                            </h5>
+							                            <button type="button" class="btn-close"
+							                                data-bs-dismiss="modal" aria-label="Close"></button>
+							                        </div>
+							                        <div class="modal-body">
+							                            스페이스를 삭제합니다.
+							                        </div>
+							                        <div class="modal-footer">
+							                            <button type="button" class="btn btn-secondary"
+							                                data-bs-dismiss="modal">취소</button>
+							                            <a href="javascript:goDeleteSpace(<c:out value="${hyspSeq}"/>)" type="button" class="btn btn-danger">확인</a>
+							                        </div>
+							                    </div>
+							                </div>
+							            </div>
 										
 									</div>
 								</div>
@@ -365,9 +392,16 @@
 	</script>
 	
 	<script type="text/javascript">
-	$("#spaceLogo").on("change", function(){
+	$("#spaceLogo").on("change", function(e){
 		$("#spaceLogoText").val($(this)[0].files[0].name);
+		
+		$("#sidebarIcon2").hide();
+		document.querySelector("#sidebarLogoPreview").src = URL.createObjectURL(e.target.files[0]);
+		$("#sidebarLogoPreview").show();
 	});
+	
+	
+	
 	</script>
     
     <script type="text/javascript">
@@ -378,6 +412,11 @@
 	$("#btnSubmit").on("click", function(){
 		$("#spaceForm").attr("action", "/setting/updateMySpaceHost").submit();
 	});
+	
+	goDeleteSpace = function(hyspSeq){
+		$("#hyspSeq").val(hyspSeq);
+		$("#spaceForm").attr("action", "/setting/deleteMySpace").submit();
+	}
 	</script>
     
 </body>

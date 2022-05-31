@@ -275,13 +275,13 @@
 	<select id="profileUploaded" resultMap = "resultMapObj"> <!-- 프로필뷰 -->
 		SELECT
 			seq
-<!-- 			, type -->
+			, type 
 			, defaultNy
 			, sort
 			, originalFileName
 			, uuidFileName 
 			, ext
-<!-- 			, size  -->
+ 			, size 
 			, delNy
 			, pseq
 			, path
@@ -303,9 +303,9 @@
 		,hymmEmailConsentNy =  #{hymmEmailConsentNy}
 		,hymmSmsConsentNy =  #{hymmSmsConsentNy}
 		,hymmDesc = #{hymmDesc}
-<!-- 		,modIp =  #{modIp}
+ 		,modIp =  #{modIp}
 		,modSeq =  #{modSeq}
-		,modDevice =  #{modDevice} -->
+		,modDevice =  #{modDevice} 
 		,modDateTime =  now()
 		,modDateTimeSvr =  now()
 		WHERE 1 = 1

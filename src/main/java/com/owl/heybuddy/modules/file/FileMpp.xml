@@ -27,6 +27,8 @@
 			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
 			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
 		</choose>
+		ORDER BY 
+		a.modDateTime DESC
 		limit  #{startRnumForMysql} , #{rowNumToShow}
 	</sql>
 	
@@ -141,11 +143,16 @@
 		,hydcText
 		,hydcTempNy
 		,hydcDelNy
-<!-- 		,regIp
+		,regIp
 		,regSeq
-		,regDevice -->
+		,regDevice 
 		,regDateTime
 		,regDateTimeSvr
+		,modIp 
+		,modSeq 
+		,modDevice
+		,modDateTime 
+		,modDateTimeSvr 
 		,hyspSeq
 		)
 		VALUES(
@@ -154,9 +161,14 @@
 		,#{hydcText} 
 		,0
 		,0
-<!-- 		,#{regIp}
+ 		,#{regIp}
 		,#{regSeq}
-		,#{regDevice} -->
+		,#{regDevice} 
+		,now()
+		,now()
+ 		,#{modIp}
+ 		,#{modSeq}
+ 		,#{modDevice}
 		,now()
 		,now()
 		,#{hyspSeq}

@@ -252,8 +252,16 @@
 																		<p class="lh-sm text-truncate mb-0">
 																			<span class="fw-bolder me-2 me-lg-4"> <a
 																				href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
-																					<c:out value="${item.hydcTitle}" />
-																			</a>
+																					<c:out value="${item.hydcTitle}" /> 
+																					</a>
+																		
+																		<c:if test="${item.type eq 1}">
+																				<i class="bi bi-paperclip"></i> <!--  파일이면클립아이콘 -->
+																		</c:if>
+																		<c:if test="${item.type eq 0}">
+																				<i class="bi bi-image-fill"></i> <!-- 사진이면이미지아이콘 -->
+																		</c:if>
+																		
 																			</span>
 																		</p>
 																	</td>
@@ -262,17 +270,9 @@
 																	<td class=""><fmt:formatDate pattern="yyyy-MM-dd hh:mm"
 																			value="${item.regDateTime }" /></td>
 
-																	<td class="">
-																		<c:if test="${empty item.type}">
-																			 파일없을때 넣을 아이콘찾기  <!-- 아무것도없으면 -->
-																		</c:if>
-																		<c:if test="${item.type eq 1}">
-																				<i class="bi bi-paperclip"></i> <!--  파일이면클립아이콘 -->
-																		</c:if>
-																		<c:if test="${item.type eq 0}">
-																				<i class="bi bi-image-fill"></i> <!-- 사진이면이미지아이콘 -->
-																		</c:if>
-																		</td>
+																										
+																		
+																	
 
 																</tr>
 															</tbody>

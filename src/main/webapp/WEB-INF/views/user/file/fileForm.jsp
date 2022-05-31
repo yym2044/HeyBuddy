@@ -82,7 +82,7 @@
 
 
 
-				<form id="formList" name="formList" method="post" action="/file/fileInst" enctype="multipart/form-data">
+				<form id="formList" name="formList" method="post" action="" enctype="multipart/form-data">
 
 					<!-- 기본값히든처리 -->
 					<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${hyspSeq}"/>">

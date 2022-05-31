@@ -90,12 +90,7 @@ public class FileController {
 	public String fileInst(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
 		System.out.println("vo.getHydcTempNy :" + vo.getHydcTempNy());
-		
-		/* 
-		 * if (vo.getHydcTempNy() == 0) { service.insertDocument(dto); } else {
-		 * service.insertDocumentTemp(dto); }
-		 */
-		
+
 		service.insertDocument(dto);
 		vo.setHydcSeq(dto.getHydcSeq());
 		

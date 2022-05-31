@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.owl.heybuddy.modules.member.Member;
+
  
 
 @Controller
@@ -57,22 +57,44 @@ public class FileController {
 
 	@RequestMapping(value = "/file/fileForm") // 문서등록
 	public String fileForm(@ModelAttribute("vo") FileVo vo, Model model, HttpSession httpSession) throws Exception {
+		
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 
 		return "user/file/fileForm";
 	}
 
-	@RequestMapping(value = "/file/fileInst") // 문서등록받음
+	@RequestMapping(value = "/file/fileInst1") // 문서 등록 받음 
 	public String fileInst(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
-		service.insertDocument(dto);
+		System.out.println("vo.getHydcTempNy :" + vo.getHydcTempNy());
 		
+		/*
+		 * if (vo.getHydcTempNy() == 0) { service.insertDocument(dto); } else {
+		 * service.insertDocumentTemp(dto); }
+		 */
+		
+		service.insertDocument(dto);
 		vo.setHydcSeq(dto.getHydcSeq());
+		
 		redirectAttributes.addFlashAttribute("vo", vo);
 
-		return "redirect:/file/fileView";
+		return "redirect:/file/fileList";
 	}
+	
+	@RequestMapping(value = "/file/fileInst2") // 임시등록 받음 
+	public String fileInst2(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+
+		System.out.println("vo.getHydcTempNy :" + vo.getHydcTempNy());
+	
+		service.insertDocumentTemp(dto);
+		vo.setHydcSeq(dto.getHydcSeq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/file/fileList";
+	}
+
 
 	@RequestMapping(value = "/file/fileEdit") // 문서수정
 	public String fileEdit(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession)
@@ -121,21 +143,22 @@ public class FileController {
 		return "user/file/fileListTemp";
 	}
 	
-	@RequestMapping(value = "/file/fileEditTemp") // 임시저장 문서 학인 및 등록
+	@RequestMapping(value = "/file/fileEditTemp") // 임시저장 등록 (업뎃개념)
 	public String fileEditTemp(@ModelAttribute("vo") FileVo vo,File dto, Model model, HttpSession httpSession) throws Exception {
 		File rt = service.documentViewTemp(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("fileUploaded", service.fileUploaded(vo)); // 파일
 		return "user/file/fileEditTemp";
 	}
-	@RequestMapping(value = "/file/fileInstTemp") // 임시 문서등록받음
+	@RequestMapping(value = "/file/fileInstTemp") // 임시 등록받음 (수정받는개념)
 	public String fileInstTemp(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 		service.insertDocumentTemp(dto);
 		vo.setHydcSeq(dto.getHydcSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
 
-		return "redirect:/file/fileList";
+		return "redirect:/file/fileListTemp";
 	}
+
 	
 	@RequestMapping(value = "/file/fileNele") // 파일 가짜삭제
 	public String memberNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {

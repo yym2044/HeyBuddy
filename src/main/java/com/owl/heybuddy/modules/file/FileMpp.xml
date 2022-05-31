@@ -17,9 +17,9 @@
 		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
         LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
 		where
-		a. hydcDelNy = 0 
+		a.hydcDelNy = 0 
 		AND
-		a. hydcTempNy = 0
+		a.hydcTempNy = 0
 		AND 
 		c.hyspSeq = #{hyspSeq}
 		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
@@ -70,9 +70,9 @@
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
 		where
-		a. hydcDelNy = 0
+		a.hydcDelNy = 0
 		and
-		a. hydcTempNy = 1
+		a.hydcTempNy = 1
 	</select>
 	
 

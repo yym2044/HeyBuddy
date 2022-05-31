@@ -146,7 +146,11 @@ pageContext.setAttribute("br", "\n");
 									class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 									<i data-feather="arrow-left" class="fe-1x me-lg-1"></i> <span
 									class="d-none d-lg-inline-block">Back</span>
-								</a> <a
+								</a> 
+								
+													<c:if test="${item.hymmSeq eq sessSeq}">
+													
+													<a
 									href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
 									data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
@@ -155,7 +159,7 @@ pageContext.setAttribute("br", "\n");
 									data-bs-target="#btnModalNelete"></i>
 								</a>
 
-								<c:if test="${item.hymmSeq eq sessSeq}">
+			
 									<a
 										href="javascript:goFileEdit('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"

@@ -206,7 +206,7 @@
 																				<c:out value="${item.hydcTitle}" />
 																		</a>
 																	</span></td>
-																	<td class="text-center"><fmt:formatDate
+																	<td class="text-center"><fmt:formatDate pattern="yyyy-MM-dd hh:mm"
 																			value="${item.regDateTime }" /></td>
 																</tr>
 																
@@ -220,7 +220,9 @@
 											</tbody>
 										</table>
 						
-																	<!--포스트 페이징과 버튼 -->
+															
+															
+															<!--포스트 페이징과 버튼 -->
 										<div class="row text-center" style="width: 100%">
 											<div style="width: 100%; float: none; margin: 0 auto">
 												<br> <br>

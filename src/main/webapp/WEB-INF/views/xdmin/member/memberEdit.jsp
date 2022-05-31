@@ -201,11 +201,7 @@
 
 							<div class="table-responsive">
 							<div class="text-center">
-										<label for="profilePhoto" style="cursor: pointer;"> 
-										
-						
-								
-								
+								<label for="profilePhoto" style="cursor: pointer;"> 
 								<c:choose>
 									<c:when test="${empty uploaded.uuidFileName}">
 									<img style="width: 80px; height:80px;" src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">
@@ -216,12 +212,8 @@
 										style="width: 100px; height: 100px;" />
 										<input id="profilePhoto" name="file0" type="file" style="display: none;">
 								</c:otherwise>
-								
 								</c:choose>
-					
-											
-											
-											</label> 
+								</label> 
 										<p class="p-2 fw-bold">프로필 </p>
 									</div>
 							
@@ -436,10 +428,8 @@
 					$("#formEdit").attr("action","/xdmin/memberView");
 					$("#formEdit").submit();
 			};
-		
-
+	
 		goMemberUpdt = function(seq){
-					/* $("#hymmSeq").val(seq) */	
 					$("#formEdit").attr("action","/xdmin/memberUpdt");
 					$("#formEdit").submit();
 			};

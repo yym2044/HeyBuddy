@@ -67,17 +67,24 @@
                <!-- include 처리 3번 -->
 				<%@include file="../include/pageHeader.jsp"%>
 
-				<form id="formList" name="formList" method="post" action="/file/fileInst" enctype="multipart/form-data">
+				<form id="formEdit" name="formEdit" method="post"
+					action="/file/fileUpdt" enctype="multipart/form-data">
 
-					<!-- 기본값히든처리 -->
-					<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${hyspSeq}"/>">
-					<input type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>">
-					<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${sessSeq}"/>">
-
-					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
-					<input type="hidden" id="shHydcTitle" name="shHydcTitle" value="<c:out value="${vo.shHydcTitle}"/>">
-					<input type="hidden" id="shHydcOption" name="shHydcOption" value="<c:out value="${vo.shHydcOption}"/>">
-					<input type="hidden" id="shHydcValue" name="shHydcValue" value="<c:out value="${vo.shHydcValue}"/>">
+					<input type="hidden" id="thisPage" name="thisPage"
+						value="<c:out value="${vo.thisPage}"/>"> 
+						<input
+						type="hidden" id="hydcSeq" name="hydcSeq"
+						value="<c:out value="${vo.hydcSeq}"/>"> 
+						<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
+						<input
+						type="hidden" id="shHydcDelNy" name="shHydcDelNy"
+						value="<c:out value="${vo.shHydcDelNy}"/>"> <input
+						type="hidden" id="shHydcTitle" name="shHydcTitle"
+						value="<c:out value="${vo.shHydcTitle}"/>"> <input
+						type="hidden" id="shHydcOption" name="shHydcOption"
+						value="<c:out value="${vo.shHydcOption}"/>"> <input
+						type="hidden" id="shHydcValue" name="shHydcValue"
+						value="<c:out value="${vo.shHydcValue}"/>">
 
 
               
@@ -125,7 +132,7 @@
 									<div class="col-md-12 mb-3">
 										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
 										</label>
-										<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
+									<!-- 	<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button> -->
 										
 										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);">
 										
@@ -164,7 +171,6 @@
 
 	</div>
                     
-          
 								
 								
 
@@ -179,11 +185,7 @@
                       </div>
                     </footer>
                     <!--/.Page Footer End-->
-                    			</form>
-                </main>
-                <!--///////////Page content wrapper End///////////////-->
-            </div>
-        </div>
+            
         
         <!--////////////Theme Core scripts Start/////////////////-->
 
@@ -204,12 +206,93 @@
     	sidebarLink[4].className += ' current';
     </script>
     
-    
+    <script src="/resources/common/js/common.js"></script>
+	<script src="/resources/common/js/commonXdmin.js"></script>
+	<script src="/resources/common/js/constantsXdmin.js"></script>
+	<script type="text/javascript">
+	
+		upload = function(seq, div) {
+
+			$("#ulFile" + seq).children().remove();
+
+			var fileCount = $("input[type=file]")[seq].files.length;
+
+			if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
+				return false;
+			}
+
+			var totalFileSize;
+			for (var i = 0; i < fileCount; i++) {
+				if (div == 1) {
+					if (checkUploadedFileExt($("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else if (div == 2) {
+					if (checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else if (div == 3) {
+					if (checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else {
+					return false;
+				}
+
+				if (checkUploadedEachFileSize(
+						$("input[type=file]")[seq].files[i].name, seq) == false) {
+					return false;
+				}
+				totalFileSize += $("input[type=file]")[seq].files[i].size;
+			}
+			if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
+				return false;
+			}
+
+			for (var i = 0; i < fileCount; i++) {
+				addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+			}
+		}
+
+		addUploadLi = function(seq, index, name) {
+
+			var ul_list = $("#ulFile0");
+
+			li = '<li id= "li_'+ seq +'_' + index + '"class="list-group-item d-flex justify-content-between align-items-center"> ';
+			li = li + name;
+			li = li + '<span style="cursor : pointer;" class="badge bg-danger rounded-pill" onClick="delLi(' + seq + ',' + index + ')">X</span>';
+			li = li + '</li>';
+
+			$("#ulFile" + seq).append(li);
+		}
+
+		delLi = function(seq, index) {
+			$("#li_" + seq + "_" + index).remove();
+		}
+
+	</script>
+	
+		<script type="text/javascript">
+		const sidebarLink = document.querySelectorAll('.Sidebar-link');
+		console.log(sidebarLink);
+
+		console.log(sidebarLink[4]);
+
+		sidebarLink[4].className += ' current';
+	</script>
+	
+	
+	
 	<script type="text/javascript">
 
 		goFileListTemp = function() {
 			$("#formList").attr("action", "/file/fileListTemp");
 			$("#formList").submit();
+		};
+		
+		goFileUpdt = function(seq) {
+			$("#formEdit").attr("action", "/file/fileInstTemp");
+			$("#formEdit").submit();
 		};
 	</script>
 	

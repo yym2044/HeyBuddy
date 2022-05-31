@@ -88,14 +88,10 @@
 				<form id="formEdit" name="formEdit" method="post"
 					action="/file/fileUpdt" enctype="multipart/form-data">
 
-					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}"/>"> 
-						<input
-						type="hidden" id="hydcSeq" name="hydcSeq"
-						value="<c:out value="${vo.hydcSeq}"/>"> 
+					<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>"> 
+						<input type="hidden" id="hydcSeq" name="hydcSeq" value="<c:out value="${vo.hydcSeq}"/>"> 
 						<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${vo.hymmSeq}"/>">
-						<input
-						type="hidden" id="shHydcDelNy" name="shHydcDelNy"
+						<input type="hidden" id="shHydcDelNy" name="shHydcDelNy"
 						value="<c:out value="${vo.shHydcDelNy}"/>"> <input
 						type="hidden" id="shHydcTitle" name="shHydcTitle"
 						value="<c:out value="${vo.shHydcTitle}"/>"> <input
@@ -157,7 +153,8 @@
 										</label>
 										<!-- <button type="button" id="btnCheckFiles">첨부파일 체크버튼</button> -->
 										
-										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);">
+										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);"
+										<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>>
 										
 										<div class="addScroll">
 											<ul id="ulFile0" class="list-group"></ul>
@@ -166,25 +163,20 @@
 								</div>
 								<!--Attachment image-->
 								
-					
 
-									
-									
+								
+							
 								<div class="row text-center" style="width: 100%">
 									<div style="width: 100%; float: none; margin: 0 auto">
-									
-
-
+						
 										<a class="btn btn-primary ms-2"
 											href="javascript:goFileUpdt('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">저장</a>
-
+									
+									
+									
 									</div>
-
 									<br> <br>
-
 								</div>
-
-
 							</div>
 						</div>
 					</div>
@@ -192,7 +184,6 @@
 				</form>
 			</main>
 		</div>
-
 	</div>
 
 	<!--//Page content End//-->

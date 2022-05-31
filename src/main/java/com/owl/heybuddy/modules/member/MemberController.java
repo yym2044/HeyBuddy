@@ -76,9 +76,7 @@ public class MemberController {
 	public String memberUpdt(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 
 		service.updateMember(dto);
-
 		redirectAttributes.addFlashAttribute("vo", vo);
-
 		return "redirect:/xdmin/memberView";
 	}
 

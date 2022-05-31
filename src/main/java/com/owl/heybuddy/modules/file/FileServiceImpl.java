@@ -99,14 +99,18 @@ public class FileServiceImpl implements FileService {
 	public int updateDocument(File dto) throws Exception { //문서수정
 		dao.updateDocument(dto);
 		
-
-			
+		for(MultipartFile multipartFile : dto.getFile0()) {
+		if(!multipartFile.isEmpty()) {
 		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-		UtilUpload.uploadFile(dto.getFile0()[0], pathModule, dto);
+		UtilUpload.uploadFile(multipartFile, pathModule, dto);
 
-		dto.setTableName("hybdMemberUploaded");
+
+		dto.setTableName("hybdFileUploaded");
 		dto.setPseq(dto.getHymmSeq());
 		dao.updateUploaded(dto);
+
+		}
+		}
 		return 1;
 	}
 	

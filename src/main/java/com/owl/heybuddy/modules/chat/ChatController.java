@@ -21,11 +21,11 @@ public class ChatController {
 	ChatServiceImpl service;
 
 	@RequestMapping(value = "/chat/chat")
-	public String chat(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
-			throws Exception {
+	public String chat(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
+		
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-
+		
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 
@@ -35,8 +35,8 @@ public class ChatController {
 	}
 
 	@RequestMapping(value = "/chat/chatPlus")
-	public String chatPlus(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
-			throws Exception {
+	public String chatPlus(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
+		
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 
@@ -47,8 +47,7 @@ public class ChatController {
 	}
 
 	@RequestMapping(value = "/chat/chatInst")
-	public String mySpaceInst(ChatVo vo, Chat dto, Model model, RedirectAttributes redirectAttributes,
-			HttpSession httpSession) throws Exception {
+	public String mySpaceInst(ChatVo vo, Chat dto, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 		
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		dto.setHymmSeq(vo.getHymmSeq());
@@ -72,6 +71,7 @@ public class ChatController {
 	@ResponseBody
 	@RequestMapping(value = "chat/chatRoomProc")
 	public Map<String, Object> getId(ChatVo vo, Chat dto, HttpSession httpSession, Model model) throws Exception {
+		
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
@@ -107,8 +107,8 @@ public class ChatController {
 	 */
 
 	@RequestMapping(value = "/chat/chatRoom")
-	public String chatRoom(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
-			throws Exception {
+	public String chatRoom(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
+		
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 

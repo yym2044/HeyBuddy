@@ -231,8 +231,9 @@ p, dt {
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <body>
 	<form id="chatRoom" name="chatRoom" method="post">
-		<input type="hidden" id="hycrSeq" name="hycrSeq"> <input
-			type="hidden" id="chatRoom" name="chatRoom">
+		<input type="hidden" id="hycrSeq" name="hycrSeq">
+		<input type="hidden" id="chatRoom" name="chatRoom">
+		<input type="hidden" id="hymmName" name="hymmName">
 		<%@include file="../include/loader.jsp"%>
 		<!--App Start-->
 		<div class="d-flex flex-column flex-root">
@@ -369,7 +370,7 @@ p, dt {
 													href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
 													class="list-group-item align-items-center border-0 list-group-item-action px-3 d-flex py-3">
 													<div class="flex-shrink-0">
-														<div class="avatar-status status-online me-3 avatar">
+														<div class="me-3 avatar">
 															<c:choose>
 																<c:when test="${empty item.uuidFileName}">
 																	<img style="width: 100%; height: 100%;"
@@ -387,10 +388,7 @@ p, dt {
 													<div class="overflow-hidden flex-grow-1">
 														<div class="d-flex">
 															<h6 class="mb-0 flex-grow-1">
-																<c:out value="${item.hycrName}" />
-																<!--New message badge-->
-																<span
-																	class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
+																<c:out value="${item.hymmName}" />,<c:out value="${sessName}" /> 채팅방
 															</h6>
 															<small class="opacity-75 ms-auto small"> <%-- <c:choose>
 															<c:when test="${item.hymmSeq eq sessSeq}">

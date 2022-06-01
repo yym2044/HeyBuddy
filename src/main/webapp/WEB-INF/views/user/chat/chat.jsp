@@ -236,8 +236,8 @@ p, dt {
 </style>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <body>
-<form id="chatForm" name="chatForm" method="post" class="chat-form rounded-pill" data-emoji-form="" action="/chat/chatUelete">
-<input type="hidden" id="hycrSeq" name="hycrSeq">
+<form id="chatForm" name="chatForm" method="post" class="chat-form rounded-pill" data-emoji-form="">
+<input type="hidden" id="hycrSeq" name="hycrSeq" value="<c:out value="${vo.hycrSeq}"/>">
 	<%@include file="../include/loader.jsp"%>
 
 	<!--App Start-->
@@ -373,96 +373,6 @@ p, dt {
 					<div class="content content-wrapper content-expand">
 						<!--Content-wrapper-overlay when sidebar open for 768px down width-->
 						<div class="content-wrapper-overlay"></div>
-						<%-- <!--Content-sidebar-->
-						<div class="content-left border-end">
-							<div
-								class="content-sidebar card rounded-0 align-items-stretch h-100"
-								id="content-sidebar">
-								<!--content-sidebar-header-->
-								<div
-									class="content-sidebar-header p-0 border-bottom position-relative">
-									<form
-										class="position-relative w-100 p-3 height-60 d-flex align-items-center"
-										method="post">
-										<input type="hidden" id="hycrSeq" name="hycrSeq">
-										<input type="hidden" id="chatRoom" name="chatRoom">
-										<div
-											class="position-absolute start-0 top-50 translate-middle-y opacity-50 lh-1 ms-3">
-											<i data-feather="search" class="fe-1x"></i>
-										</div>
-										<input type="text"
-											class="form-control px-5 bg-transparent border-0 py-0 shadow-none"
-											placeholder="Start new chat">
-										<button type="button"
-											class="btn d-md-none content_sidebar_toggler p-0 size-30 rounded-circle flex-center position-absolute shadow-none end-0 me-2 top-50 translate-middle-y text-body">
-											<i data-feather="x" class="fe-2x"></i>
-										</button>
-									</form>
-								</div>
-
-								<!--content-sidebar-body-->
-								<div class="content-sidebar-body p-0 card-body">
-									<div class="list-group list-group-flush mb-0">
-
-										<div class="list-group list-group-flush mb-0">
-
-											<c:forEach items="${list}" var="item" varStatus="status">
-												<!--Chat User-->
-												<a href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
-													class="list-group-item align-items-center border-0 list-group-item-action px-3 d-flex py-3">
-													<div class="flex-shrink-0">
-														<div class="avatar-status status-online me-3 avatar">
-															<c:choose>
-																<c:when test="${empty item.uuidFileName}">
-																	<img style="width: 100%; height: 100%;"
-																		src="/resources/user/images/gathering1.png"
-																		class="flex-shrink-0 rounded-3 width-80" alt="">
-																</c:when>
-																<c:otherwise>
-																	<img style="width: 100%; height: 100%;"
-																		src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
-																		class="flex-shrink-0 rounded-3 width-80" alt="">
-																</c:otherwise>
-															</c:choose>
-														</div>
-													</div>
-													<div class="overflow-hidden flex-grow-1">
-														<div class="d-flex">
-															<h6 class="mb-0 flex-grow-1">
-																<c:out value="${item.hycrName}" />
-																<!--New message badge-->
-																<span
-																	class="ms-1 badge rounded-pill bg-primary size-5 p-0 d-inline-block"></span>
-															</h6>
-															<small class="opacity-75 ms-auto small">
-																<c:choose>
-															<c:when test="${item.hymmSeq eq sessSeq}">
-																<span class="badge rounded-pill bg-primary">ME</span>
-															</c:when>
-															<c:otherwise>
-
-															</c:otherwise>
-														</c:choose>
-															</small>
-														</div>
-
-													</div>
-												</a>
-
-											</c:forEach>
-
-											<!--Load more button-->
-											<a href="#!"
-												class="list-group-item px-3 align-items-center justify-content-center list-group-item-action d-flex py-3">
-												<span>Load more</span>
-											</a>
-										</div>
-
-									</div>
-								</div>
-
-							</div>
-						</div> --%>
 
 						<!--content-right-->
 						<div
@@ -494,7 +404,9 @@ p, dt {
 										</c:choose>
 									</div>
 									<div>
-										<h5 class="mb-0 lh-1" style="color: black;" id="chatRoomName"></h5>
+										<h5 class="mb-0 flex-grow-1">
+																<c:out value="${vo.hycrSeq}" /> 번 채팅방
+															</h5>
 
 									</div>
 								</div>
@@ -584,27 +496,9 @@ p, dt {
 								
 							</div>
 						</div>
-</form>
 
 
 
-
-						<!-- 						<div class="chat">
-							<div class="chat-window" id="chat-window">
-								<ul id="messages">
-									<li class="msg"><span class="msg-span"> <i
-											class="name">Host: </i>Hello and welcome to the chat!
-									</span></li>
-									<li class="msg my"><span class="msg-span"> <i
-											class="name">Me: </i>My message is on the right
-									</span></li>
-								</ul>
-								<form id="messageForm" autocomplete="off">
-									<input type="text" id="msg-input" placeholder="Enter a message">
-									<button id="msg-btn" type="submit">Send</button>
-								</form>
-							</div>
-						</div> -->
 
 					</div>
 				</div>
@@ -614,7 +508,7 @@ p, dt {
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
-
+</form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
 	<script src="/resources/assets/vendor/feather.min.js"></script>

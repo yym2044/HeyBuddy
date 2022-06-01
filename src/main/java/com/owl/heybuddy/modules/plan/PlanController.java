@@ -2,6 +2,7 @@ package com.owl.heybuddy.modules.plan;
 
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 
 
@@ -169,7 +171,24 @@ public class PlanController {
 		return rt;
 		
 	}
+	
+	
+	
+	@RequestMapping(value = "/plan/planListNele")
+	public String planListNele(PlanVo vo, RedirectAttributes redirectAttributes) throws Exception {
 
+		service.updateDelete(vo); // 데이터를 받아오고
+
+		/*
+		 * redirectAttributes.addAttribute("thisPage" + vo.getThisPage());
+		 * redirectAttributes.addAttribute("shOption" + vo.getShOption());
+		 * redirectAttributes.addAttribute("shValue" + vo.getShValue());rmsep
+		 */
+
+		return "redirect:/plan/planList"; // 업데이트 해주는 영역
+
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/plan/planEditAjax")
 	public Plan planEditAjax(@ModelAttribute("vo") PlanVo vo, HttpSession httpSession) throws Exception {

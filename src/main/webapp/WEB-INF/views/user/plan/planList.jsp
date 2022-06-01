@@ -241,9 +241,9 @@
 								</div>
 							</div>
 							<div class="modal-footer planinst container">
-								<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
+								<a class="btn btn-light me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
 								<input type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기">
-								<a href="<c:out value="${rt.ifmmSeq}"/>" class="btn btn-danger" id="btnDelete">삭제하기</a>
+								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left" id="btnDelete">삭제하기</a>
 							<%-- <a class="btn btn-primary"  href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit">수정하기</a>  --%>
 							</div>
 						</div>
@@ -504,6 +504,11 @@
 			$("#hyplSeq").val(seq);
 			$("#planEdit").attr("action", "/plan/planUpdt");
 			$("#planEdit").submit();
+		}
+		goNele = function(seq) {
+			$("#hyplSeq").val(seq);
+			$("#planNele").attr("action", "/plan/planListNele");
+			$("#planNele").submit();
 		}
 		//	$("#formList").submit(); // 그냥 공통적으로 submit는 실행해준다는 의미기 때문에 넣어줘야한다.
 	</script>

@@ -47,8 +47,7 @@
 
 <body>
 
-	<form id="planList" name="planList" method="POST"
-		action="/plan/planInst" enctype="multipart/form-data">
+	<form id="planList" name="planList" method="POST" action="/plan/planInst" enctype="multipart/form-data">
 		<!-- <input type="hidden" id="hyplSeq" name="hyplSeq"> -->
 		<!-- Auto_Implements 기 때문에 필요없음-->
 		<!-- <input type="hidden" id="hyspSeq" name="hyspSeq"> -->
@@ -140,13 +139,9 @@
                                 </div> --%>
 							</div>
 							<div class="modal-footer planinst container">
-								<a class="btn btn-danger me-2"
-									style="width: 60px; font-size: 1em; text-align: center; float: right;"
-									data-bs-dismiss="modal">취소</a> <input
-									href="javascript:goInst()" type="submit"
-									class="btn btn-primary me-2" value="등록하기" id="btnSubmit"
-									name="btnSubmit">
-								<!-- <a href="javascript:goInst()" type="submit" class="btn btn-primary me-2" style="width: 100px; font-size: 1em; text-align: center; float: right;" id="btnSubmit" name="btnSubmit">등록하기</a> -->
+								<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
+									<input href="javascript:goInst()" type="submit" class="btn btn-primary me-2" value="등록하기" id="btnSubmit" name="btnSubmit">
+								<!-- <a href="javascript:goInst()" type="submit" class="btn btn-primary me-2" style="width: 100px; font-size: 1em; text-align: center; float: right;" id="" name="">등록하기</a> -->
 							</div>
 						</div>
 					</div>
@@ -214,7 +209,8 @@
 			<!-- 트리거 시키는 모달 버튼! 여기로 아작스 id를 갖게해야지 모달창이 뜸 신기하네 히든으로 됨, data-bas-toggle="modal" 이게 중요한듯 -->
 			<form id="planEdit" name="planEdit" method="POST" enctype="multipart/form-data">
 			<input id="btnForm2" type="hidden" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"/>
-
+			<input type="text" id="hyplSeq1" name="hyplSeq">
+			
 			<!-- <form id="modal2" name="modal2" method="POST" enctype="multipart/form-data"> -->
 			<div class="row planinst container">
 				<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -249,23 +245,23 @@
 							</div>
 							<div class="modal-footer planinst container">
 								<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
-									<input href="javascript:goUpdt()" type="submit" class="btn btn-primary me-2" value="수정하기" id="btnSubmit1" name="btnSubmit1">
-								<!-- <a href="javascript:goInst()" type="submit" class="btn btn-primary me-2" style="width: 100px; font-size: 1em; text-align: center; float: right;" id="btnSubmit" name="btnSubmit">등록하기</a> -->
+								<!-- <input href="javascript:goUpdt()" type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기"> -->
+									<a class="btn btn-primary"  href="javascript:goUpdt(<c:out value="${item.hyplSeq}"/>)" type="submit">수정하기</a> 
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			</form>
-			<!--  모달2 end -->
-
-
-
-
-
-
-
+			<!--  모달2 end
 		</main>
+
+
+
+
+
+
+
 	<!--///////////Page content wrapper End///////////////-->
 
 	<!--////////////Theme Core scripts Start/////////////////-->
@@ -405,6 +401,7 @@
 						
 					$("#btnForm2").click(); 
 						
+						$("#hyplSeq1").val(data.hyplSeq);
 						$("#hyplName1").val(data.hyplName);
 						$("#hyplDesc1").val(data.hyplDesc);
 						$("#hyplDate1").val(data.hyplDate);
@@ -471,10 +468,8 @@
 			dateFormat : 'yy-mm-dd',
 			prevText : '이전 달',
 			nextText : '다음 달',
-			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
-					'9월', '10월', '11월', '12월' ],
-			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
-					'9월', '10월', '11월', '12월' ],
+			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
+			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
 			dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
 			dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
 			dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
@@ -485,9 +480,7 @@
 
 	<!-- 벨리데이션 값 넣었을때 나오는 벨리데이션  -->
 	<script type="text/javascript">
-		$("#btnSubmit").on(
-				"click",
-				function() {
+		$("#btnSubmit").on("click",	function() {
 
 					if (!checkNull($("#hyplName"), $("#hyplName").val(), "제목을 입력해주세요")) return false;
 					if (!checkNull($("#hyplDate"), $("#hyplDate").val(), "날짜를 입력해주세요")) return false;
@@ -504,10 +497,15 @@
 		}
 
 		// POST 형식으로 데이터를 삽입 
-		goInst = function(seq) {
+		goInst = function() {
 			$("#hyplSeq").val(seq);
-			$("#planList").attr("action", "/plan/planInst");
+			$("#planList").attr("action", "/plan/planInst"); /* planList의 action 속성은 /plan/planInst이다 라고 선언한것.  */
 			$("#planList").submit();
+		}
+		goUpdt = function(seq) {
+			$("#hyplSeq").val(seq);
+			$("#planEdit").attr("action", "/plan/planUpdt");
+			$("#planEdit").submit();
 		}
 		//	$("#formList").submit(); // 그냥 공통적으로 submit는 실행해준다는 의미기 때문에 넣어줘야한다.
 	</script>

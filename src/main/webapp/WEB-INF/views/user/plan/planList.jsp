@@ -116,7 +116,7 @@
 								<br>
 								<h5>일정내용</h5>
 								<input class="form-control mb-3" type="text" id="hyplDesc" name="hyplDesc" style="height: 100px;" placeholder="일정을 입력하세요" autocomplete="off"> <br>
-								<h5>날짜</h5>
+								<h5>📅날짜</h5>
 								<input class="form-control mb-3 shDate" type="text" id="hyplDate" name="hyplDate" placeholder="날짜를 등록해주세요" autocomplete="off"> <br>
 								<h5>공유자</h5>
 								<div class="form-control mb-3">
@@ -146,9 +146,6 @@
 						</div>
 					</div>
 				</div>
-				<a class="btn btn-secondary" href="javascript:goView()"
-					style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">임시
-					일정상세</a>
 				<!-- <a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a> -->
 				<!-- Button trigger modal -->
 				<a class="btn btn-danger plandele" href="#" data-bs-toggle="modal"
@@ -207,9 +204,8 @@
 			<!--  모달2 상세일정 만들기위한 모달 start -->
 			
 			<!-- 트리거 시키는 모달 버튼! 여기로 아작스 id를 갖게해야지 모달창이 뜸 신기하네 히든으로 됨, data-bas-toggle="modal" 이게 중요한듯 -->
-			<form id="planEdit" name="planEdit" method="POST" enctype="multipart/form-data">
+			<form id="planEdit" name="planEdit" action="/plan/planUpdt" method="POST" enctype="multipart/form-data">
 			<input id="btnForm2" type="hidden" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"/>
-			<input type="text" id="hyplSeq1" name="hyplSeq">
 			
 			<!-- <form id="modal2" name="modal2" method="POST" enctype="multipart/form-data"> -->
 			<div class="row planinst container">
@@ -222,15 +218,16 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
+								<input type="hidden" id="hyplSeq1" name="hyplSeq">
 								<h5>제목</h5>
 								<input class="form-control mb-3" type="text" id="hyplName1" name="hyplName" autocomplete="off"> <br>
 								<h5>일정내용</h5>
 								<input class="form-control mb-3" type="text" id="hyplDesc1" name="hyplDesc" style="height: 100px;" autocomplete="off">
 								<br>
 								<h5>📅날짜</h5>
-								<input class="form-control mb-3 shDate" type="text" id="hyplDate1" name="hyplDate" autocomplete="off"> <br>
+								<input class="form-control mb-3 shDate" type="text" id="hyplDate1" name="hyplDate" <fmt:formatDate value="${hyplDate1}" pattern="yyyy-MM-dd HH:mm:ss"/> autocomplete="off"> <br>
 								<h5>👨‍👧‍👧공유된 멤버</h5>
-								<input class="form-control mb-3" type="text" id="hyplMemberName1" name="hyplMemberName" readOnly>
+								<input class="form-control mb-3" type="text" id="hyplMemberName1" name="hyplMemberName" disabled>
 								<div class="form-control mb-3">
 								<h5>공유자</h5>
 								
@@ -245,8 +242,9 @@
 							</div>
 							<div class="modal-footer planinst container">
 								<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
-								<!-- <input href="javascript:goUpdt()" type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기"> -->
-									<a class="btn btn-primary"  href="javascript:goUpdt(<c:out value="${item.hyplSeq}"/>)" type="submit">수정하기</a> 
+								<input type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기">
+								<a href="<c:out value="${rt.ifmmSeq}"/>" class="btn btn-danger" id="btnDelete">삭제하기</a>
+							<%-- <a class="btn btn-primary"  href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit">수정하기</a>  --%>
 							</div>
 						</div>
 					</div>

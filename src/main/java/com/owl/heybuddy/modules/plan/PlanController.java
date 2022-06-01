@@ -110,6 +110,7 @@ public class PlanController {
 	public String PlanUpdt(Plan dto, @ModelAttribute("vo") PlanVo vo, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 		
 		System.out.println("######## 수정시작 데이터 넘어오는지 확인 #######");
+		System.out.println("dto.gethyplSeq(): " + dto.getHyplSeq());
 		System.out.println("dto.gethyplName(): " + dto.getHyplName());
 		System.out.println("dto.gethyplDefaultyNy(): " + dto.getHyplDefaultNy());
 		System.out.println("dto.gethyplDate(): " + dto.getHyplDate());
@@ -163,7 +164,7 @@ public class PlanController {
 		
 		Plan rt = service.selectOne(vo);
 		
-//		model.addAttribute("rt", rt);  model.add...페이지가 로드될때
+		model.addAttribute("rt", rt);  // model.add...페이지가 로드될때 된다고함
 		
 		return rt;
 		

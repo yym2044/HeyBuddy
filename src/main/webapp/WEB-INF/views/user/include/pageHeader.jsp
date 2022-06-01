@@ -4,22 +4,22 @@
 
 <!--//page-header//-->
 <header class="navbar py-0 page-header navbar-expand navbar-light px-4 px-lg-8">
-	<a href="index.html" class="navbar-brand d-block d-lg-none">
+<!-- 	<a href="index.html" class="navbar-brand d-block d-lg-none">
 		<div class="d-flex align-items-center flex-no-wrap text-truncate">
-			<!--Sidebar-icon-->
+			Sidebar-icon
 			<span class="sidebar-icon bg-primary rounded-circle size-35 text-white"> A </span>
 		</div>
-	</a>
+	</a> -->
 	<ul class="navbar-nav d-flex align-items-center h-100">
 		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="javascript:void(0)" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 				<i data-feather="chevrons-left" class="fe-1x"></i>
 			</a></li>
-		<li class="nav-item d-flex flex-column me-2 h-100 justify-content-center dropdown"><a href="javascript:void(0)" data-bs-toggle="dropdown" class="d-flex align-items-center justify-content-center nav-link size-35 p-0" data-bs-auto-close="outside" aria-expanded="false">
+<!-- 		<li class="nav-item d-flex flex-column me-2 h-100 justify-content-center dropdown"><a href="javascript:void(0)" data-bs-toggle="dropdown" class="d-flex align-items-center justify-content-center nav-link size-35 p-0" data-bs-auto-close="outside" aria-expanded="false">
 				<i data-feather="search" class="fe-1x"></i>
-			</a> <!--Search dropdown menu-->
+			</a> Search dropdown menu
 			<div class="dropdown-menu p-0 dropdown-menu-sm overflow-hidden mt-0">
 
-				<!--Search form-->
+				Search form
 				<form>
 					<div class="d-flex align-items-center p-1 border-bottom ps-4">
 						<div class="text-muted">
@@ -29,14 +29,14 @@
 					</div>
 				</form>
 
-				<!--Recently searched-->
+				Recently searched
 
 
 				<h6 class="d-block dropdown-header pb-0 pt-3">
 					<i data-feather="trending-up" class="fe-1x me-2"></i> Top searches
 				</h6>
 				<div class="p-3 d-flex flex-wrap align-items-center">
-					<!--Recently searched item-->
+					Recently searched item
 					<a href="#" class="badge bg-tint-primary text-dark rounded-pill px-3 py-2 me-2 mb-2"> Campaign reports </a>
 					<a href="#" class="badge bg-tint-primary text-dark rounded-pill px-3 py-2 me-2 mb-2"> Project #4535 </a>
 					<a href="#" class="badge bg-tint-primary text-dark rounded-pill px-3 py-2 me-2 mb-2"> Chat </a>
@@ -45,21 +45,21 @@
 					<a href="#" class="badge bg-tint-primary text-dark rounded-pill px-3 py-2 me-2 mb-2"> Faqs </a>
 					<a href="#" class="badge bg-tint-primary text-secondary rounded-pill px-3 py-2 me-2 mb-2"> Inbox </a>
 				</div>
-			</div></li>
-		<li class="nav-item d-flex flex-column me-2 h-100 justify-content-center dropdown"><a href="#" data-bs-toggle="dropdown" class="nav-link size-35 d-flex align-items-center justify-content-center p-0">
+			</div></li> -->
+<!-- 		<li class="nav-item d-flex flex-column me-2 h-100 justify-content-center dropdown"><a href="#" data-bs-toggle="dropdown" class="nav-link size-35 d-flex align-items-center justify-content-center p-0">
 				<i data-feather="grid" class="fe-1x"></i>
 			</a>
 			<div class="dropdown-menu overflow-hidden dropdown-menu-sm p-0 mt-0">
-				<!--Apps list-->
+				Apps list
 				<div class="list-group list-group-flush">
 
 					<div class="list-group-item d-flex align-items-center justify-content-between px-3">
 						<h6 class="dropdown-header ps-0">Apps Shortcuts</h6>
 						<a href="#!" class="btn btn-primary btn-sm rounded-pill">View All Apps</a>
 					</div>
-					<!--App item-->
+					App item
 					<a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
-						<!--App logo-->
+						App logo
 						<img src="/resources/assets/media/brand-logos/atlassian.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
 						<div class="flex-grow-1">
 							<h6 class="mb-0">Atlassian</h6>
@@ -67,9 +67,9 @@
 						</div>
 					</a>
 
-					<!--App item-->
+					App item
 					<a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
-						<!--App logo-->
+						App logo
 						<img src="/resources/assets/media/brand-logos/google-webdev.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
 						<div class="flex-grow-1">
 							<h6 class="mb-0">Google webdev</h6>
@@ -77,9 +77,9 @@
 						</div>
 					</a>
 
-					<!--App item-->
+					App item
 					<a href="#!" class="list-group-item px-3 list-group-item-action d-flex align-items-center">
-						<!--App logo-->
+						App logo
 						<img src="/resources/assets/media/brand-logos/slack.svg" class="width-30 w-auto flex-shrink-0 me-4" alt="">
 						<div class="flex-grow-1">
 							<h6 class="mb-0">Slack</h6>
@@ -87,7 +87,7 @@
 						</div>
 					</a>
 				</div>
-			</div></li>
+			</div></li> -->
 	</ul>
 	<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
 		<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
@@ -100,7 +100,7 @@
 				</a>
 			</div>
 		</li>
-		<li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100 me-2"><a href="#" class="nav-link p-0 position-relative size-35 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+	<!-- 	<li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100 me-2"><a href="#" class="nav-link p-0 position-relative size-35 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
 				<i data-feather="bell" class="fe-1x"></i>
 				<span class="size-5 rounded-circle d-flex align-items-center justify-content-center position-absolute end-0 top-0 mt-2 me-1 bg-danger small"></span>
 			</a>
@@ -115,7 +115,7 @@
 				</div>
 				<div class="height-290" data-simplebar>
 					<div class="list-group list-group-flush mb-0">
-						<!--//Notification item start//-->
+						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<div class="d-block me-3">
 								<div class="avatar avatar-status status-online">
@@ -130,7 +130,7 @@
 								<small class="text-muted">Just now</small>
 							</div>
 						</a>
-						<!--//Notification item start//-->
+						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<div class="d-block me-3">
 								<div class="avatar avatar-status status-offline">
@@ -146,7 +146,7 @@
 								<small class="text-muted">2h Ago</small>
 							</div>
 						</a>
-						<!--//Notification item start//-->
+						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<span class="d-block me-3">
 								<span class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-success text-success rounded-circle">
@@ -161,7 +161,7 @@
 								<small class="text-muted">2h Ago</small>
 							</div>
 						</a>
-						<!--//Notification item start//-->
+						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<span class="d-block me-3">
 								<span class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-danger text-danger rounded-circle">
@@ -179,7 +179,7 @@
 						</a>
 					</div>
 				</div>
-			</div></li>
+			</div></li> -->
 		<li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100"><a href="#" class="nav-link dropdown-toggle height-35 px-2 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
 				<div class="d-flex align-items-center">
 

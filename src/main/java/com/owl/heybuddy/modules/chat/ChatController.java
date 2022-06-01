@@ -29,21 +29,41 @@ public class ChatController {
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 
+		vo.setHycrSeq(vo.getHycrSeq());
+		
 		return "user/chat/chat";
+	}
+
+	@RequestMapping(value = "/chat/chatPlus")
+	public String chatPlus(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
+			throws Exception {
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+
+		List<Chat> list = service.selectListChatRoom(vo);
+		model.addAttribute("list", list);
+
+		return "user/chat/chatPlus";
 	}
 
 	@RequestMapping(value = "/chat/chatInst")
 	public String mySpaceInst(ChatVo vo, Chat dto, Model model, RedirectAttributes redirectAttributes,
 			HttpSession httpSession) throws Exception {
-
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		dto.setHymmSeq(vo.getHymmSeq());
+		dto.setHymmName(vo.getHymmName());
 		service.insertChatRoom(dto);
+
+		dto.setHymmSeq(vo.getHymmSeq());
 		dto.setHycrSeq(dto.getHycrSeq());
 		service.insertChatMember(dto);
-		/*
-		 * vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		 * vo.setHymmName((String) httpSession.getAttribute("sessName"));
-		 */
-		vo.setHyspSeq(dto.getHyspSeq());
+
+		dto.setHycrSeq(dto.getHycrSeq());
+		dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		service.insertChatMember2(dto);
+		
+		vo.setHycrSeq(dto.getHycrSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
 
 		return "redirect:/chat/chat";
@@ -67,11 +87,10 @@ public class ChatController {
 
 		returnMap.put("chatList", chatList);
 		returnMap.put("rt", "success");
-		
-		
+
 		return returnMap;
 	}
-	
+
 	/*
 	 * @RequestMapping(value = "/chat/chatRoom", method = RequestMethod.GET) public
 	 * String chatRoom(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model,
@@ -96,7 +115,20 @@ public class ChatController {
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 
+		vo.setHycrSeq(vo.getHycrSeq());
+		
 		return "user/chat/chatRoom";
 	}
 
+	@RequestMapping(value = "/chat/chatUelete")
+	public String chatUelete(ChatVo vo, Chat dto, RedirectAttributes redirectAttributes) throws Exception {
+		
+		System.out.println("vo.getHycrSeq :" + vo.getHycrSeq());
+		service.ueleteChat(vo);
+
+		vo.setHyspSeq(dto.getHyspSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/chat/chat";
+	}
 }

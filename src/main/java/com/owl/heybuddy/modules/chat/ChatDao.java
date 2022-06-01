@@ -35,4 +35,11 @@ public class ChatDao {
 		return sqlSession.insert(namespace + ".insertChatMember", dto); // 채팅멤버등록
 	}
 
+	public int insertChatMember2(Chat dto) {
+		return sqlSession.insert(namespace + ".insertChatMember2", dto); // 채팅멤버등록
+	}
+
+	public int ueleteChat(ChatVo vo) {
+		return sqlSession.update(namespace + ".ueleteChat", vo); // 채팅가짜삭제
+	}
 }

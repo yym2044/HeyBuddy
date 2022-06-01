@@ -82,8 +82,7 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceInst")
-	public String mySpaceInst(MySpaceVo vo, MySpace dto, Model model, RedirectAttributes redirectAttributes,
-			HttpSession httpSession) throws Exception {
+	public String mySpaceInst(MySpaceVo vo, MySpace dto, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
 		service.insertMySpace(dto);
 
@@ -123,8 +122,7 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceReceiveList")
-	public String mySpaceReceiveList(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession)
-			throws Exception {
+	public String mySpaceReceiveList(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
@@ -139,8 +137,7 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceReceive")
-	public String mySpaceReceive(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession)
-			throws Exception {
+	public String mySpaceReceive(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
@@ -159,8 +156,8 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceUpdt1")
-	public String mySpaceUpdt1(@ModelAttribute("vo") MySpace dto, MySpaceVo vo, Model model,
-			RedirectAttributes redirectAttributes) throws Exception {
+	public String mySpaceUpdt1(@ModelAttribute("vo") MySpace dto, MySpaceVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
 		System.out.println("vo.getHysmAcceptedNy :" + vo.getHysmAcceptedNy());
 
 		if (vo.getHysmAcceptedNy() == 1) {
@@ -178,8 +175,8 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceUpdt2")
-	public String mySpaceUpdt2(@ModelAttribute("vo") MySpace dto, MySpaceVo vo, Model model,
-			RedirectAttributes redirectAttributes) throws Exception {
+	public String mySpaceUpdt2(@ModelAttribute("vo") MySpace dto, MySpaceVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
 		System.out.println("vo.getHysmAcceptedNy :" + vo.getHysmAcceptedNy());
 
 		service.updateReceiveNo(dto);
@@ -202,8 +199,7 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpacePlusMember")
-	public String mySpaceSend(@ModelAttribute("vo") MySpaceVo vo, Model model, MySpace dto,
-			RedirectAttributes redirectAttributes) throws Exception {
+	public String mySpaceSend(@ModelAttribute("vo") MySpaceVo vo, Model model, MySpace dto, RedirectAttributes redirectAttributes) throws Exception {
 
 		MySpace rt = service.selectOneMember(vo);
 		model.addAttribute("item", rt);
@@ -220,6 +216,7 @@ public class MySpaceController {
 	@ResponseBody
 	@RequestMapping(value = "mySpace/mySpaceCheckMember")
 	public Map<String, Object> getId(MySpaceVo vo, MySpace dto, HttpSession httpSession, Model model) throws Exception {
+		
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 //		Member rtMember = service.selectOneId(dto);
@@ -235,8 +232,7 @@ public class MySpaceController {
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceSendList")
-	public String mySpaceSendList(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession)
-			throws Exception {
+	public String mySpaceSendList(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));

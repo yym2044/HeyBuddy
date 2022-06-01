@@ -98,10 +98,9 @@ body {
 		<div class="page d-flex flex-row flex-column-fluid">
 
 			<!--///////////Page content wrapper///////////////-->
-			<main
-				class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+			<main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
 
-				<div class="container-fluid px-0">
+				<div class="container-fluid px-0 h-100">
 
 
 					<div class="row mySpaceZone">
@@ -118,7 +117,7 @@ body {
 									<a href="#!"
 										class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
 										<div class="flex-shrink-0">
-											<div class="avatar-status status-offline me-3 avatar">
+											<div class="me-3 avatar">
 												<img src="/resources/user/images/profileDefault.png"
 													class="rounded-circle img-fluid" alt="">
 											</div>
@@ -126,11 +125,11 @@ body {
 										<div class="overflow-hidden flex-grow-1">
 											<div class="d-flex">
 												<h6 class="mb-0 text-reset flex-grow-1">
-													<c:out value="${item.hymmName}" />
+													<c:out value="${item.hymmName}" />&nbsp&nbsp&nbsp
 													<c:choose>
 														<c:when test="${item.hysmAcceptedNy eq 1}">
 															<i style="color: green;" data-feather="check-square"
-																class="fe-1x"></i>
+																class="fe-1x"></i><small>수락</small>
 														</c:when>
 														<c:otherwise>
 															<i style="color: green;" data-feather="square"
@@ -146,10 +145,10 @@ body {
 									</a>
 								</c:forEach>
 								<!--Load more button-->
-								<a href="#!"
+							<!-- 	<a href="#!"
 									class="list-group-item px-3 align-items-center justify-content-center list-group-item-action d-flex py-3">
 									<span>Load more</span>
-								</a>
+								</a> -->
 							</div>
 						</div>
 					</div>

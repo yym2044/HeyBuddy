@@ -40,4 +40,16 @@ public class ChatServiceImpl implements ChatService {
 
 	}
 
+	@Override
+	public int insertChatMember2(Chat dto) throws Exception { // 채팅멤버 등록
+
+		return dao.insertChatMember2(dto);
+
+	}
+
+	@Override
+	public int ueleteChat(ChatVo vo) throws Exception { // 채팅가짜삭제
+		return dao.ueleteChat(vo);
+	}
+
 }

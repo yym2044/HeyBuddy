@@ -13,10 +13,12 @@
 
 		SELECT
 		a.hycrSeq
+		, a.hycrDelNy
 		, a.hycrName
 		, b.hycmSeq
 		, b.hymmSeq
 		, c.hymmName
+
 
 		FROM hybdChatRoom a
 		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
@@ -26,6 +28,7 @@
 		WHERE 1=1
 		AND d.hyspSeq = #{hyspSeq}
 		AND b.hymmSeq = #{hymmSeq}
+		AND a.hycrDelNy = 0
 		
 		group by d.hyspSeq , a.hycrSeq
 
@@ -47,7 +50,7 @@
 		, hycrDelNy
 		, hyspSeq
 		) VALUES (
-		#{hycrName}
+		#{hymmName}
 		, 0
 		, #{hyspSeq}
 		)
@@ -67,7 +70,27 @@
 		, hycrSeq
 		, hymmSeq
 		) VALUES (
-		#{hycmDelNy}
+		0
+		, #{hycrSeq}
+		, #{hymmSeq}
+		)
+
+		<selectKey resultType="String" keyProperty="hycmSeq"
+			order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+
+	</insert>
+	
+	<insert id="insertChatMember2">
+
+		INSERT INTO hybdChatMember
+		(
+		hycmDelNy
+		, hycrSeq
+		, hymmSeq
+		) VALUES (
+		0
 		, #{hycrSeq}
 		, #{hymmSeq}
 		)
@@ -111,5 +134,15 @@
 		AND b.hymmSeq = #{hymmSeq}
 		AND a.hycrSeq = #{hycrSeq}
 	</select>
+	
+	<update id="ueleteChat">
+	
+		UPDATE hybdChatRoom
+		SET
+		hycrDelNy = 1
+		WHERE 1=1
+		AND hycrSeq = #{hycrSeq}
+		
+	</update>
 	
 </mapper>

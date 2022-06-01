@@ -53,7 +53,7 @@ body {
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
 	<ul class="navbar-nav d-flex align-items-center h-100">
-		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/login/login" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+		<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a href="/login/userLogin" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 				<i data-feather="arrow-left" class="fe-1x"></i>
 			</a></li>
 		
@@ -104,26 +104,26 @@ body {
 										<div class="form-floating mb-3">
 											<input type="text" class="form-control" required=""
 												id="hymmName" name="hymmName" placeholder="name@example.com">
-											<label for="hymmName">이름</label> <span
+											<label for="hymmName"> Name </label> <span
 												class="invalid-feedback">Please enter your name</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="text" class="form-control" required=""
 												id="hymmId" name="hymmId" placeholder="name@example.com">
-											<label for="hymmId">아이디</label> <span
+											<label for="hymmId"> ID </label> <span
 												class="invalid-feedback">Please enter your ID</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="email" class="form-control" required=""
 												id="hymmEmail" name="hymmEmail" placeholder="name@example.com">
-											<label for="hymmEmail">이메일</label> <span
+											<label for="hymmEmail"> Email </label> <span
 												class="invalid-feedback">Please enter a valid full email
 												address</span>
 										</div>
 										<div class="form-floating mb-3">
 											<input type="email" class="form-control" required=""
 												id="hymmZoomAccount" name="hymmZoomAccount" placeholder="name@example.com">
-											<label for="hymmZoomAccount">줌계정</label> <span
+											<label for="hymmZoomAccount"> Zoom Account </label> <span
 												class="invalid-feedback">Please enter a valid zoom
 												account</span>
 										</div>

@@ -236,8 +236,7 @@ p, dt {
 </style>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <body>
-<form id="chatForm" name="chatForm" method="post" class="chat-form rounded-pill" data-emoji-form="" action="/chat/chatUelete">
-<input type="hidden" id="hycrSeq" name="hycrSeq">
+
 	<%@include file="../include/loader.jsp"%>
 
 	<!--App Start-->
@@ -253,7 +252,7 @@ p, dt {
 				<!--//page-header//-->
 				<header
 					class="navbar py-0 page-header navbar-expand navbar-light px-4 px-lg-8">
-	
+				
 					<ul class="navbar-nav d-flex align-items-center h-100">
 						<li
 							class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
@@ -266,13 +265,6 @@ p, dt {
 							<a href="/chat/chatRoom"
 							class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 								<i data-feather="arrow-left" class="fe-1x"></i>
-						</a>
-						</li>
-						<li
-							class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
-							<a href="javascript:goOut(<c:out value="${vo.hycrSeq}"/>);"
-							class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-								<i data-feather="x" class="fe-1x"></i>
 						</a>
 						</li>
 					</ul>
@@ -551,7 +543,7 @@ p, dt {
 								data-dropzone-area="">
 								<div class="dz-preview" id="dz-preview-row"
 									data-horizontal-scroll=""></div>
-								
+								<form class="chat-form rounded-pill" data-emoji-form="">
 									<div class="row align-items-center g-1">
 
 										<div class="col">
@@ -581,10 +573,10 @@ p, dt {
 											</div>
 										</div>
 									</div>
-								
+								</form>
 							</div>
 						</div>
-</form>
+
 
 
 
@@ -606,9 +598,12 @@ p, dt {
 							</div>
 						</div> -->
 
+
+
 					</div>
 				</div>
 				<!--//Page content End//-->
+
 
 			</main>
 			<!--///////////Page content wrapper End///////////////-->
@@ -627,15 +622,6 @@ p, dt {
 	<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 
 	<script src="/resources/assets/vendor/dropzone.min.js"></script>
-	<script type="text/javascript">
-		
-	goOut = function(seq) {
-			$("#hycrSeq").val(seq);
-			$("#chatForm").attr("action", "/chat/chatUelete");
-			$("#chatForm").submit();
-
-		}
-	</script>
 	<script>
 		let e = new Dropzone(
 				"[data-dropzone-area]",
@@ -691,9 +677,7 @@ p, dt {
 			});
 
 		}
-		</script>
-	
-
+	</script>
 	<!-- 	<script type="text/javascript">
 	goRoom = function(seq) {
 		$("#hycrSeq").val(seq);

@@ -14,4 +14,8 @@ public interface ChatService {
 
 	public int insertChatMember(Chat dto) throws Exception; // 채팅멤버등록
 
+	public int insertChatMember2(Chat dto) throws Exception; // 채팅멤버등록
+
+	public int ueleteChat(ChatVo vo) throws Exception; // 채팅가짜삭제
+
 }

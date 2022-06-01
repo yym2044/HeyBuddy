@@ -128,3 +128,8 @@ public class MemberDao {
 	
 	public int updateMemberAuth(Member dto) {return sqlSession.update(namespace + ".updateMemberAuth", dto); }
 }
+
+
+
+
+

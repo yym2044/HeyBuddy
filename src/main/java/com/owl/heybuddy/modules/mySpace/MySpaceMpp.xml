@@ -68,6 +68,7 @@
 
 		WHERE 1=1
 		AND b.hysmHost = #{hymmSeq}
+		AND hyspDelNy = 0
 		ORDER BY hysmSeq DESC
 	</select>
 
@@ -104,15 +105,12 @@
 		, c.hymmName
 
 		FROM hybdSpace a
-		LEFT JOIN
-		hybdSpaceMember b on b.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMember c on
-		c.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
 
 		WHERE 1=1
 		AND b.hyspSeq = #{hyspSeq}
-		AND b.hymmSeq
-		= #{hymmSeq}
+		AND b.hymmSeq = #{hymmSeq}
 
 		
 	</select>
@@ -237,8 +235,7 @@
 		, modDateTimeSvr = #{modDateTimeSvr}
 
 		WHERE 1=1
-		AND hyspSeq
-		= #{hyspSeq}
+		AND hyspSeq = #{hyspSeq}
 	</update>
 
 	<update id="updateMySpaceMember">
@@ -306,26 +303,15 @@
         , c.hymmEmail
         , d.path
         , d.uuidFileName
-         
 		, a.hyspName
 		, a.hyspColorCd
 		, a.regDateTime
 		, a.modDateTime
 	FROM
 		hybdSpace a
-	LEFT JOIN
-		hybdSpaceMember b
-	ON 
-		b.hyspSeq = a.hyspSeq
-        AND b.hysmRoleCd = 12
-	LEFT JOIN
-		hybdMember c
-	ON
-		c.hymmSeq = b.hymmSeq
-	LEFT JOIN
-		hybdMemberUploaded d
-	ON 
-		d.pseq = c.hymmSeq
+	LEFT JOIN hybdSpaceMember b ON  b.hyspSeq = a.hyspSeq  AND b.hysmRoleCd = 12
+	LEFT JOIN hybdMember c ON c.hymmSeq = b.hymmSeq
+	LEFT JOIN hybdMemberUploaded d ON  d.pseq = c.hymmSeq
 	WHERE 1=1
 		AND a.hyspSeq = #{hyspSeq}
 	</select>

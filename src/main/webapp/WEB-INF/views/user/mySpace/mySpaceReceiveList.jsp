@@ -56,12 +56,10 @@ body {
 </style>
 
 <body>
-	<form id="ReceiveList" name="ReceiveList" method="post"
-		action="/mySpace/mySpaceReceiveList">
-		<input type="hidden" id="hyspSeq" name="hyspSeq"
-			value="<c:out value="${item.hyspSeq}"/>"> <input
-			type="hidden" id="hymmSeq" name="hymmSeq"
-			value="<c:out value="${item.hymmSeq}"/>">
+	<form id="ReceiveList" name="ReceiveList" method="post" action="/mySpace/mySpaceReceiveList">
+		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+		<input type="hidden" id="hymmSeq" name="hymmSeq" value="<c:out value="${item.hymmSeq}"/>">
+		
 		<!--//page-header//-->
 		<header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -158,10 +156,10 @@ body {
 
 
 									<!--Load more button-->
-									<a href="#!"
+									<!-- <a href="#!"
 										class="list-group-item px-3 align-items-center justify-content-center list-group-item-action d-flex py-3">
 										<span>Load more</span>
-									</a>
+									</a> -->
 								</div>
 							</div>
 						</div>

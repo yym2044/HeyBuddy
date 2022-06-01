@@ -1,6 +1,7 @@
 package com.owl.heybuddy.modules.plan;
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 
 @Controller
@@ -73,7 +75,7 @@ public class PlanController {
 	}
 
 	@RequestMapping(value = "/plan/planInst")
-	public String memberInst(Model model, Plan dto, PlanVo vo, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+	public String planInst(Model model, Plan dto, PlanVo vo, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 		
 //		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 //		vo.setHyspName((String) httpSession.getAttribute("hyspName"));
@@ -104,6 +106,29 @@ public class PlanController {
 		return "redirect:/plan/planList";
 	}
 	
+	@RequestMapping(value = "/plan/planUpdt")
+	public String PlanUpdt(Plan dto, @ModelAttribute("vo") PlanVo vo, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		
+		System.out.println("######## 수정시작 데이터 넘어오는지 확인 #######");
+		System.out.println("dto.gethyplName(): " + dto.getHyplName());
+		System.out.println("dto.gethyplDefaultyNy(): " + dto.getHyplDefaultNy());
+		System.out.println("dto.gethyplDate(): " + dto.getHyplDate());
+		System.out.println("dto.gethyplDesc(): " + dto.getHyplDesc());
+		System.out.println("dto.gethyplMemberName(): " + dto.getHyplMemberName());
+		System.out.println("vo.getHyspSeq(): " + vo.getHyspSeq());
+		
+		dto.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
+		
+		service.update(dto); // 데이터를 받아오고 얘가 redirect보다 위에있어야 순서가 맞음.
+
+		vo.setHyplSeq(dto.getHyplSeq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		
+		return "redirect:/plan/planList"; // 업데이트 해주는 영역
+
+	}
 //	@RequestMapping(value = "/plan/planView")
 //	public String planView(@ModelAttribute("vo") PlanVo vo, Plan dto, Model model,HttpSession httpSession) throws Exception {
 //		

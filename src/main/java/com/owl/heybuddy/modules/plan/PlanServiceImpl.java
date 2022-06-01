@@ -56,14 +56,16 @@ public class PlanServiceImpl implements PlanService {
 
 	@Override
 	public int update(Plan dto) throws Exception {
-
+		
+		dao.update(dto);
 
 		return 1;
 	}
 
 	@Override
 	public int delete(PlanVo vo) throws Exception {
-
+		
+		dao.deleteNumber(vo);
 
 		return 1;
 	}
@@ -88,7 +90,7 @@ public class PlanServiceImpl implements PlanService {
 
 	@Override
 	public int updateDelete(PlanVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return dao.updateDelete(vo);
 	}
 }

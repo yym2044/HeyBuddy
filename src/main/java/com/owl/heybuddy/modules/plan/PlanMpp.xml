@@ -71,6 +71,7 @@
 		LEFT JOIN hybdSpace AS b ON a.hyspSeq = b.hyspSeq
 		WHERE 	1 = 1
 		 AND	b.hyspSeq = ${hyspSeq}
+		 AND 	a.hyplDelNy = 0
 	</select>
 	
 	<select id="selectListMemberInSpace" resultMap="resultMapObj">
@@ -156,7 +157,7 @@
 		LEFT JOIN hybdSpace AS b ON a.hyspSeq = b.hyspSeq
 		WHERE 1 = 1
             AND a.hyplSeq = #{hyplSeq}
-	
+			AND a.hyplDelNy = 0
 	</select>
 
 
@@ -173,13 +174,12 @@
 		)
 		VALUES (
 		#{hyplName}
-		,#{hyplDefaultNy}
-		,#{hyplDelNy}
+		,1
+		,0
 		,#{hyplDate}
 		,#{hyplDesc}
 		,#{hyplMemberName}
 		,#{hyspSeq}
-		
 		)
 		<selectKey resultType="String" keyProperty="hyplSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -191,17 +191,27 @@
 
 	<update id="update">
 		UPDATE
-		hyplPlan  <!-- 진짜 중요한게 테이블 이름틀리면 505 Error 불변임 -->
+			hybdPlan  <!-- 진짜 중요한게 테이블 이름틀리면 505 Error 불변임 -->
 		SET
-		hyplName = #{hyplName} <!-- 여기다 여러개 넣으면 여러개 수정 함께 가능 -->
-		,hyplNameEng = #{hyplNameEng}
-		,hyplGenderCd = #{hyplGenderCd}
-		,hyplEmailConsentNy = #{hyplEmailConsentNy}
-		,hyplId = #{hyplId}
-		,hyplPassword = #{hyplPassword} <!-- 여기다 여러개 넣으면 여러개 수정 함께 가능 -->
+		hyplName = #{hyplName}
+		,hyplDate = #{hyplDate}
+		,hyplDesc = #{hyplDesc} 
+		,hyplMemberName = #{hyplMemberName} 
 		WHERE
-		1 = 1
+			1 = 1
+		AND hyspSeq = #{hyspSeq}
+		AND hyplSeq = #{hyplSeq}
 	</update>
 
+
+	<update id="updateDelete">
+		UPDATE
+			hybdPlan  <!-- 진짜 중요한게 테이블 이름틀리면 505 Error 불변임 -->
+		SET
+		hyplDelNy = 1
+		WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+		AND hyplSeq = #{hyplSeq}
+	</update>
 
 </mapper>

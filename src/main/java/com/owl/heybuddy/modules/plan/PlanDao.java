@@ -2,6 +2,7 @@ package com.owl.heybuddy.modules.plan;
 
 
 
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -43,6 +44,7 @@ public class PlanDao {
 
 	// update
 	public int update(Plan dto) { return sqlSession.update(namespace + ".update", dto);}
+	public int updateDelete(PlanVo vo) { return sqlSession.update(namespace + ".updateDelete", vo);}
 	
 	
 	// delete

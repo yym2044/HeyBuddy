@@ -256,7 +256,7 @@
 																			<a href="#modalMember" data-bs-toggle="modal"> <c:out
 																					value="${item.hymmName}" />
 																			</a>
-
+ 
 																			<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
 																		</div>
 																	</td>

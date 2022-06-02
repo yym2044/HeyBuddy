@@ -112,7 +112,6 @@ body {
 							<div style="text-align: center;">
 								<img src="/resources/user/images/newJoinUs.PNG" alt="..."
 									width="600px">
-
 							</div>
 
 
@@ -140,10 +139,17 @@ body {
 										</h5>
 										<hr>
 										<a href="#!"
-											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> <img
-											src="/resources/user/images/Beer-drinking.jpeg" alt="..."
-											class="img-fluid rounded-circle">
+											class="avatar mb-3 mx-auto xxl rounded-cirlce d-block"> 
+											<c:choose>
+												<c:when test="${empty item.uuidFileName}">
+													<img src="/resources/user/images/gathering1.png" class="rounded-circle img-fluid" alt="">
+												</c:when>
+												<c:otherwise>
+													<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="rounded-circle img-fluid" alt="">
+												</c:otherwise>
+											</c:choose>
 										</a>
+										
 										<!-- Title -->
 										<h5 class="mb-0">
 											<a href="#!" class="text-reset"> <c:out

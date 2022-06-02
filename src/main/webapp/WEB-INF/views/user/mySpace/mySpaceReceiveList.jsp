@@ -125,9 +125,14 @@ body {
 											class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
 											<div class="flex-shrink-0">
 												<div class="me-3 avatar">
-													<img src="/resources/user/images/gathering1.png"
-														class="rounded-circle img-fluid" alt="">
-
+													<c:choose>
+														<c:when test="${empty item.uuidFileName}">
+															<img src="/resources/user/images/gathering1.png" class="rounded-circle img-fluid" alt="">
+														</c:when>
+														<c:otherwise>
+															<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="rounded-circle img-fluid" alt="">
+														</c:otherwise>
+													</c:choose>
 												</div>
 											</div>
 											<div class="overflow-hidden flex-grow-1">

@@ -143,10 +143,14 @@ body {
 
 													<!-- Avatar -->
 													<a class="avatar mb-3 mx-auto xxl rounded-cirlce d-block">
-														<img class="img-fluid rounded-circle"
-														style="width: 200px;" id="previewImage"
-														src="/resources/user/images/gathering1.png" alt="..."
-														class="img-fluid rounded-circle">
+														<c:choose>
+															<c:when test="${empty item.uuidFileName}">
+																<img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="/resources/user/images/gathering1.png" alt="..." class="img-fluid rounded-circle">
+															</c:when>
+															<c:otherwise>
+																<img class="img-fluid rounded-circle" style="width: 200px;" id="previewImage" src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" alt="..." class="img-fluid rounded-circle">
+															</c:otherwise>
+														</c:choose>
 													</a>
 													<!-- Title -->
 													<h5 class="mb-0">

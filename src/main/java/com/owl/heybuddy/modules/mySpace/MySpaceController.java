@@ -64,6 +64,8 @@ public class MySpaceController {
 	@RequestMapping(value = "/mySpace/mySpaceList")
 	public String mySpaceList(MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
 
+		httpSession.removeAttribute("hyspSeq");
+		
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		List<MySpace> list = service.selectListMySpace(vo);
 		model.addAttribute("list", list);
@@ -89,20 +91,26 @@ public class MySpaceController {
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 
-		vo.setHyspSeq(dto.getHyspSeq());
+//		vo.setHyspSeq(dto.getHyspSeq());
+		httpSession.setAttribute("hyspSeq", dto.getHyspSeq());
+		
 		redirectAttributes.addFlashAttribute("vo", vo);
 
 		return "redirect:/mySpace/mySpaceForm2";
 	}
 
 	@RequestMapping(value = "/mySpace/mySpaceForm2")
-	public String mySpaceForm2(@ModelAttribute("vo") MySpaceVo vo, Model model) throws Exception {
+	public String mySpaceForm2(@ModelAttribute("vo") MySpaceVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
 		System.out.println("vo.getHymmName :" + vo.getHymmName());
 		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
 		System.out.println("vo.getHyspName :" + vo.getHyspName());
 
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
 		MySpace rt = service.selectOneMySpace(vo);
 		model.addAttribute("item", rt);
 

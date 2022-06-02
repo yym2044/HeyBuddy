@@ -26,10 +26,14 @@
 		, c.hyspSeq
 		, c.hyspName
 		, c.hyspDelNy
+		, d.path
+		, d.uuidFileName
 
 		FROM hybdSpaceMember b
 		LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		LEFT JOIN hybdSpaceUploaded d on d.pseq = c.hyspSeq
+			AND d.defaultNy = 1
 		
 		WHERE 1=1 
 		AND b.hysmAcceptedNy = '1'
@@ -45,9 +49,13 @@
 		a.hyspSeq
 		, a.hyspName
 		, b.hysmAcceptedNy
+		, c.path
+		, c.uuidFileName
 
 		FROM hybdSpace a
 		LEFT JOIN hybdSpaceMember b on b.hysmRoleCd = 13 AND b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpaceUploaded c on c.pseq = a.hyspSeq
+			AND c.defaultNy = 1
 
 		WHERE 1=1
 		AND b.hymmSeq = #{hymmSeq}
@@ -103,10 +111,14 @@
 		, a.hyspSeq
 		, b.hysmSeq
 		, c.hymmName
+		, d.path
+		, d.uuidFileName
 
 		FROM hybdSpace a
 		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
 		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpaceUploaded d on d.pseq = a.hyspSeq
+			AND d.defaultNy = 1
 
 		WHERE 1=1
 		AND b.hyspSeq = #{hyspSeq}
@@ -114,7 +126,7 @@
 
 		
 	</select>
-
+	<!-- 
 	<select id="selectOneMySpace" resultMap="resultMapObj">
 
 		SELECT
@@ -132,6 +144,23 @@
 		WHERE 1=1
 		AND a.hyspSeq = #{hyspSeq}
 		AND b.hymmSeq = #{hymmSeq}
+	</select>
+	 -->
+	<select id="selectOneMySpace" resultMap="resultMapObj">
+	SELECT 
+		a. hyspSeq 
+	    , a.hyspTypeCd 
+	    , a.hyspName 
+	    , b.path 
+	    , b.uuidFileName 
+	FROM 
+		hybdSpace a
+	LEFT JOIN 
+		hybdSpaceUploaded b 
+	on 
+		b.pseq = a.hyspSeq AND b.defaultNy = 1 
+	WHERE 1=1 
+		AND a.hyspSeq = #{hyspSeq}
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">

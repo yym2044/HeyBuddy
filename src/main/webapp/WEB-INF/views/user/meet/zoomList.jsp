@@ -119,10 +119,11 @@
 															<c:forEach items="${list}" var="item" varStatus="status">
 																<%-- <c:if test="${item.agenda eq hyspSeq}"> --%>
 																<c:if test="${fn:split(item.agenda, '_')[0] eq hyspSeq}">
-																	<tr>
+																	<tr name="tr" id="tr_${status.index}" class="border <c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}">myTr</c:if>">
 																		<td style="width: 900px; vertical-align: middle;">
 																			<span class="fw-bold fs-4">
 																				<c:out value="${item.topic}"/>
+																				<c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}"><svg style="width: 12px; height:12px; color:red;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M576 136c0 22.09-17.91 40-40 40c-.248 0-.4551-.1266-.7031-.1305l-50.52 277.9C482 468.9 468.8 480 453.3 480H122.7c-15.46 0-28.72-11.06-31.48-26.27L40.71 175.9C40.46 175.9 40.25 176 39.1 176c-22.09 0-40-17.91-40-40S17.91 96 39.1 96s40 17.91 40 40c0 8.998-3.521 16.89-8.537 23.57l89.63 71.7c15.91 12.73 39.5 7.544 48.61-10.68l57.6-115.2C255.1 98.34 247.1 86.34 247.1 72C247.1 49.91 265.9 32 288 32s39.1 17.91 39.1 40c0 14.34-7.963 26.34-19.3 33.4l57.6 115.2c9.111 18.22 32.71 23.4 48.61 10.68l89.63-71.7C499.5 152.9 496 144.1 496 136C496 113.9 513.9 96 536 96S576 113.9 576 136z"/></svg></c:if>
 																			</span>
 																		</td>
 																		<!-- 줌 계정 higher plan 필요 
@@ -137,8 +138,12 @@
 																			</div>
 																		</td>
 																		 -->
+																		<td style="vertical-align: middle;">
+																			<button name="btnEnd" id="btnEnd_${status.index}" onclick="deleteMeeting(<c:out value="${item.id}"/>)" class="btn rounded-pill btn-danger text-truncate <c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}">myBtnEnd</c:if>">회의종료</button>
+																		</td>
 																		<td class="text-end" style="width: 200px; vertical-align: middle;">
-																			<i class="bi bi-alarm pe-1"></i>
+																			시작시간
+																			<i class="bi bi-alarm px-1"></i>
 																			<span id="zoomTimeSpan${status.index}">
 																				<%-- <c:out value="${fn:substring(item.start_time, 11, 19)}"/> --%>
 																			</span>
@@ -176,7 +181,8 @@
 				<form method="post" action="/meet/zoomInst">
 				
 					<input type="hidden" name="agenda" id="agenda">
-					<!-- startZoomModal Modal -->
+					
+					<!-- startZoom Modal Start -->
 					<div class="modal fade" id="startZoomModal" tabindex="-1" aria-labelledby="startZoomModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
@@ -194,8 +200,30 @@
 							</div>
 						</div>
 					</div>
-					<!-- startZoomModal Modal End -->
+					<!-- startZoom Modal End -->
 					
+				</form>
+				
+				<form method="post" action="/meet/zoomDele">
+					<!-- deleteZoom Modal Start -->
+					<div class="modal fade" id="deleteZoomModal" tabindex="-1" aria-labelledby="startZoomModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">미팅을 삭제합니다</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<input type="text" class="form-control" name="id" id="id" placeholder="미팅 아이디">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									<button type="submit" class="btn btn-primary">확인</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- deleteZoom Modal End -->
 				</form>
 
 				<!--//Page-footer//-->
@@ -256,6 +284,42 @@
 		$("#zoomTimeSpan" + i).text(TimesArray[i]);
 	}
 	
+	</script>
+	
+	<script type="text/javascript">
+	const tr = document.getElementsByName("tr");
+	const btnEnd = document.getElementsByName("btnEnd");
+	
+	
+	$(document).ready(function(){
+		for(var i = 0 ; i < tr.length; i++ ){
+			btnEnd[i].hidden = true;
+		}
+	});
+	
+	console.log(tr);
+	console.log(btnEnd);
+	
+	for(var i = 0 ; i < tr.length; i++ ){
+		
+		tr[i].addEventListener("mouseenter", (event) => {
+			if(btnEnd[event.target.id.split("_")[1]].classList.contains("myBtnEnd")){
+				btnEnd[event.target.id.split("_")[1]].hidden = false;
+			}
+		});
+		
+		tr[i].addEventListener("mouseleave", (event) => {
+			if(btnEnd[event.target.id.split("_")[1]].classList.contains("myBtnEnd")){
+				btnEnd[event.target.id.split("_")[1]].hidden = true;
+			}
+		});
+		
+	}
+	
+	deleteMeeting = function(id){
+		$("#deleteZoomModal").modal("show");
+		$("#id").val(id);
+	}
 	</script>
 
 </body>

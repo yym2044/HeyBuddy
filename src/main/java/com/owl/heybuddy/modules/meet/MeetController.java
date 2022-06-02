@@ -39,7 +39,6 @@ public class MeetController {
 		return "user/meet/zoomStart";
 	}
 	
-	
 	@RequestMapping(value = "/meet/zoomInst")
 	public String zoomInst(Zoom dto) throws Exception {
 		
@@ -154,6 +153,14 @@ public class MeetController {
 		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 		httpURLConnection.setRequestMethod("DELETE");
 		httpURLConnection.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2ODU1MDIwMDAsImlhdCI6MTY1Mzk2MDk3NH0.Wa0AASzvcr-TSfXHRknfvVaI5Ww4TTcLn6RafmFtd_U");
+		
+		// 이 부분을 빼면 반응 없음
+		BufferedReader bufferedReader;
+		if (httpURLConnection.getResponseCode() >= 200 && httpURLConnection.getResponseCode() <= 300) {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+		} else {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
+		}
 		
 		httpURLConnection.disconnect();
 		

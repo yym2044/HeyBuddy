@@ -93,22 +93,16 @@
 			<br>
 			<div class="row planinst container">
 				<!-- Button trigger modal -->
-				<button id="btnForm" type="button" class="btn btn-primary"
-					data-bs-toggle="modal" data-bs-target="#exampleModal"
-					style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
+				<button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
 
 				<!-- 모달 -->
-				<div class="modal fade " id="exampleModal" tabindex="-1"
-					aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div
-						class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 						<!-- 이 위치에 넣어줘야 적용됨  -->
 						<div class="modal-content">
 							<div class="modal-header">
-								<h4 class="modal-title" id="exampleModalLabel"
-									style="text-align: center; float: center;">📌일정등록</h4>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
+								<h4 class="modal-title" id="exampleModalLabel" style="text-align: center; float: center;">📌일정등록</h4>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
 								<h5>제목</h5>
@@ -117,7 +111,7 @@
 								<h5>일정내용</h5>
 								<input class="form-control mb-3" type="text" id="hyplDesc" name="hyplDesc" style="height: 100px;" placeholder="일정을 입력하세요" autocomplete="off"> <br>
 								<h5>📅날짜</h5>
-								<input class="form-control mb-3 shDate" type="text" id="hyplDate" name="hyplDate" placeholder="날짜를 등록해주세요" autocomplete="off"> <br>
+								<input class="form-control mb-3" type="text" id="hyplDate" name="hyplDate" placeholder="날짜를 등록해주세요" autocomplete="off"> <br>
 								<h5>공유자</h5>
 								<div class="form-control mb-3">
 									<div class="card card-body">
@@ -148,14 +142,9 @@
 				</div>
 				<!-- <a class="btn btn-danger plandele" href="#" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a> -->
 				<!-- Button trigger modal -->
-				<a class="btn btn-danger plandele" href="#" data-bs-toggle="modal"
-					data-bs-target="#staticBackdrop"
-					style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정삭제</a>
 
 				<!-- Modal -->
-				<div class="modal fade" id="staticBackdrop"
-					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -168,8 +157,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-danger">삭 제</button>
-								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">닫 기</button>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫 기</button>
 							</div>
 						</div>
 					</div>
@@ -204,7 +192,7 @@
 			<!--  모달2 상세일정 만들기위한 모달 start -->
 			
 			<!-- 트리거 시키는 모달 버튼! 여기로 아작스 id를 갖게해야지 모달창이 뜸 신기하네 히든으로 됨, data-bas-toggle="modal" 이게 중요한듯 -->
-			<form id="planEdit" name="planEdit" action="/plan/planUpdt" method="POST" enctype="multipart/form-data">
+			<form id="planEdit" name="planEdit" method="POST" enctype="multipart/form-data">
 			<input id="btnForm2" type="hidden" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"/>
 			
 			<!-- <form id="modal2" name="modal2" method="POST" enctype="multipart/form-data"> -->
@@ -225,7 +213,7 @@
 								<input class="form-control mb-3" type="text" id="hyplDesc1" name="hyplDesc" style="height: 100px;" autocomplete="off">
 								<br>
 								<h5>📅날짜</h5>
-								<input class="form-control mb-3 shDate" type="text" id="hyplDate1" name="hyplDate" <fmt:formatDate value="${hyplDate1}" pattern="yyyy-MM-dd HH:mm:ss"/> autocomplete="off"> <br>
+								<input class="form-control mb-3" type="text" id="hyplDate1" name="hyplDate" <fmt:formatDate value="${hyplDate1}" pattern="yyyy-MM-dd HH:mm:ss"/> autocomplete="off"> <br>
 								<h5>👨‍👧‍👧공유된 멤버</h5>
 								<input class="form-control mb-3" type="text" id="hyplMemberName1" name="hyplMemberName" disabled>
 								<div class="form-control mb-3">
@@ -242,8 +230,9 @@
 							</div>
 							<div class="modal-footer planinst container">
 								<a class="btn btn-light me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
-								<input type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기">
-								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left" id="btnDelete">삭제하기</a>
+								<a href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit" class="btn btn-primary me-2">수정하기</a>
+<!-- 								<input type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기"> -->
+								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제하기</a>
 							<%-- <a class="btn btn-primary"  href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit">수정하기</a>  --%>
 							</div>
 						</div>
@@ -278,11 +267,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
-
+	<!--  제이쿼리 시간포함 달력 -->
+	<link rel="stylesheet" type="text/css" href="/resources/datetimepicker-master/build/jquery.datetimepicker.min.css"/ >
+	<script src="/resources/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
 
 	<!--App calendar Plugin-->
-	<script
-		src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
 
 	<script>
 		var cBlue = "var(--bs-primary)";
@@ -450,9 +440,9 @@
 		var myModal = document.getElementById('myModal')
 		var myInput = document.getElementById('myInput')
 		 
-		myModal.addEventListener('shown.bs.modal', function(event) {
+		/* myModal.addEventListener('shown.bs.modal', function(event) {
 			myInput.focus()
-		})
+		}) */
 		  
 	</script>
 
@@ -486,39 +476,53 @@
 
 				});
 	</script>
-
+	
 	<script type="text/javascript">
-	/* 	goView = function(seq) {
-			$("#btnForm2").click(); */
-		/* 	$("#planList").attr("action", "/plan/planView"); */
-		/* 	$("#planList").submit(); */
-		}
 
 		// POST 형식으로 데이터를 삽입 
-		goInst = function() {
+		goInst = function(seq) {
 			$("#hyplSeq").val(seq);
 			$("#planList").attr("action", "/plan/planInst"); /* planList의 action 속성은 /plan/planInst이다 라고 선언한것.  */
 			$("#planList").submit();
-		}
+		};
 		goUpdt = function(seq) {
 			$("#hyplSeq").val(seq);
 			$("#planEdit").attr("action", "/plan/planUpdt");
 			$("#planEdit").submit();
-		}
+		};
 		goNele = function(seq) {
 			$("#hyplSeq").val(seq);
-			$("#planNele").attr("action", "/plan/planListNele");
-			$("#planNele").submit();
-		}
+			$("#planEdit").attr("action", "/plan/planListNele");
+			$("#planEdit").submit();
+		};
 		//	$("#formList").submit(); // 그냥 공통적으로 submit는 실행해준다는 의미기 때문에 넣어줘야한다.
 	</script>
 
-<!-- 	<script>
-		
-		
-	
-		$("#btnForm2").click();
-	
-	</script> -->
+
+		<script type="text/javascript">  /* 달력에 한글화 해주는 영역*/
+			
+			jQuery.datetimepicker.setLocale('kr');
+			
+			 
+			
+			 $(function() {
+			$('#hyplDate').datetimepicker({
+			lang : 'ko',
+			format:'Y-m-d H:i:00',
+			
+			
+			});
+			});
+			 
+			 $(function() {
+			$('#hyplDate1').datetimepicker({
+			lang : 'ko',
+			format:'Y-m-d H:i:00',
+			
+			});
+			});
+			
+			</script>
+
 </body>
 </html>

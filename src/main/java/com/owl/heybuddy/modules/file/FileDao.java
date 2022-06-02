@@ -60,7 +60,6 @@ public class FileDao {
 	}
 	public int insertDocumentTemp(File dto) {
 		return sqlSession.insert(namespace + ".insertDocumentTemp", dto); // 임시문서등록
-		
 	}
 	public int insertUploaded(File dto) {
 		return sqlSession.insert(namespace + ".insertUploaded", dto); // 파일등록 
@@ -71,7 +70,6 @@ public class FileDao {
 	public int updateUploaded(File dto) {
 		return sqlSession.update(namespace + ".updateUploaded", dto); // 파일수정
 	}
-
 	public int deleteDocument(FileVo vo) {
 		return sqlSession.delete(namespace + ".deleteDocument", vo); // 진짜삭제
 	} 

@@ -2,6 +2,7 @@
 
 <script src="/resources/user/js/backgroundImg.js"></script>
 
+
 <!--//page-header//-->
 <header class="navbar py-0 page-header navbar-expand navbar-light px-4 px-lg-8">
 <!-- 	<a href="index.html" class="navbar-brand d-block d-lg-none">

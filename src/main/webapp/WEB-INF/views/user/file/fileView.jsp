@@ -119,9 +119,12 @@ pageContext.setAttribute("br", "\n");
 				<form id="formView" action="" method="post">
 
 					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}"/>"> <input
+						value="<c:out value="${vo.thisPage}"/>"> 
+				
+				<input
 						type="hidden" id="hydcSeq" name="hydcSeq"
-						value="<c:out value="${vo.hydcSeq}"/>"> <input
+						value="<c:out value="${vo.hydcSeq}"/>" >
+						 <input
 						type="hidden" id="hymmSeq" name="hymmSeq"
 						value="<c:out value="${vo.hymmSeq}"/>"> <input
 						type="hidden" id="shHydcDelNy" name="shHydcDelNy"
@@ -146,20 +149,20 @@ pageContext.setAttribute("br", "\n");
 									class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 									<i data-feather="arrow-left" class="fe-1x me-lg-1"></i> <span
 									class="d-none d-lg-inline-block">Back</span>
-								</a> 
-								
-													<c:if test="${item.hymmSeq eq sessSeq}">
-													
-													<a
-									href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
-								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
-									data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
-									class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-									<i class="bi bi-trash-fill" data-bs-toggle="modal"
-									data-bs-target="#btnModalNelete"></i>
 								</a>
 
-			
+								<c:if test="${item.hymmSeq eq sessSeq}">
+
+									<a
+										href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
+								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+										data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
+										class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+										<i class="bi bi-trash-fill" data-bs-toggle="modal"
+										data-bs-target="#btnModalNelete"></i>
+									</a>
+
+
 									<a
 										href="javascript:goFileEdit('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
@@ -288,39 +291,51 @@ pageContext.setAttribute("br", "\n");
 														</span>
 														<!--File description-->
 
-														<span class="d-block small text-body text-truncate">
-															<c:out value="${fileUploaded.originalFileName}" />
+														<c:forEach items="${list}" var="fileUploaded" varStatus="status">
 
-														</span> <span class="d-block small text-muted text-truncate">
-															<c:out value="${fileUploaded.size}" /> mb
-														</span> <span class="d-block small text-muted text-truncate">
+															<!-- 이미지라면 -->
+															<c:if test="${item.type eq 0}">
+																<span class="d-block small text-body text-truncate">
+																	<c:out value="${fileUploaded.originalFileName}" />
 
+																</span>
+																<span class="d-block small text-muted text-truncate">
+																	<c:out value="${fileUploaded.size}" /> mb
+																</span>
+																<span class="d-block small text-muted text-truncate">
 
-															<!-- 이미지라면 --> <c:if test="${fileUploaded.type eq 0}">
-																<a href="#pop" class="btn_open"> preview </a>
+																	<a href="#pop" class="btn_open"> preview </a>
+																</span>
+
+																<!-- 이미지팝업 -->
+																<div id="pop" class="pop_wrap" style="display: none;">
+																	<div class="pop_inner">
+																		<p class="dsc">Image Preview</p>
+																		<img
+																			src="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"
+																			width="500px" class="img-fluid" alt="" />
+																		<button type="button" class="btn_close">Close</button>
+																	</div>
+																</div>
 															</c:if>
 
-														</span>
+															<!-- pdf라면 -->
+															<c:if test="${fileUploaded.type eq 1}">
+																
+																<span class="d-block small text-body text-truncate">
+																	<c:out value="${fileUploaded.originalFileName}" />
 
-														<!-- 이미지팝업 -->
-														<div id="pop" class="pop_wrap" style="display: none;">
-															<div class="pop_inner">
-																<p class="dsc">Image Preview</p>
-																<img
-																	src="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"
-																	width="500px" class="img-fluid" alt="" />
-																<button type="button" class="btn_close">Close</button>
-															</div>
-														</div>
+																</span>
+																<span class="d-block small text-muted text-truncate">
+																	<c:out value="${fileUploaded.size}" /> mb
+																</span>
+																	<span class="d-block small text-muted text-truncate">
+																<a
+																	href="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>">
+																	preview </a> </span>
+															</c:if>
 
-														<!-- pdf라면 -->
-														<c:if test="${fileUploaded.type eq 1}">
-															<a
-																href="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>">
-																preview </a>
-														</c:if>
-
-
+														</c:forEach>
 														<!-- <a href="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf"> view</a> -->
 														<%-- <iframe src="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
 <iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
@@ -332,8 +347,7 @@ pageContext.setAttribute("br", "\n");
 								</div>
 								<div class="d-flex mb-3 align-items-center small">
 
-									<br>
-									<br>
+									<br> <br>
 
 									<!--Comments-->
 									<a href="#!"
@@ -350,8 +364,7 @@ pageContext.setAttribute("br", "\n");
 								</div>
 
 
-								<br>
-								<br>
+								<br> <br>
 
 
 								<!--Comments list-->

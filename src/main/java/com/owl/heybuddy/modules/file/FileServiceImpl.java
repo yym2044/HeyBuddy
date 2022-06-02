@@ -36,7 +36,7 @@ public class FileServiceImpl implements FileService {
 		return dao.selectOneCount(vo);
 	}
 	@Override
-	public File documentView(FileVo vo) throws Exception { //문서뷰
+	public  File documentView(FileVo vo) throws Exception { //문서뷰
 		return dao.documentView(vo);
 	}
 	public File documentViewTemp(FileVo vo) {  //임시문서 뷰

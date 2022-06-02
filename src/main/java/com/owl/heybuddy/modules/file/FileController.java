@@ -124,6 +124,7 @@ public class FileController {
 			throws Exception {
 
 		service.updateDocument(dto);
+		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/file/fileView";
 	}
 	

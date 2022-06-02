@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class File { 
  
 
+
 	// document
 	private String hydcSeq;
 	private String hyspSeq;
@@ -21,11 +22,13 @@ public class File {
 	// RegMod
 	private String regIp;
 	private String regSeq;
+	private String regDevice;
 	private String regDeviceCd;
 	private Date regDateTime;
 	private Date regDateTimeSvr;
 	private String modIp;
 	private String modSeq;
+	private String modDevice;
 	private String modDeviceCd;
 	private Date modDateTime;
 	private Date modDateTimeSvr;
@@ -410,4 +413,18 @@ public void setPath2(String path2) {
 	this.path2 = path2;
 }
 	
+public String getRegDevice() {
+	return regDevice;
+}
+public void setRegDevice(String regDevice) {
+	this.regDevice = regDevice;
+}
+public String getModDevice() {
+	return modDevice;
+}
+public void setModDevice(String modDevice) {
+	this.modDevice = modDevice;
+}
+
+
 }

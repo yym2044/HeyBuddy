@@ -6,6 +6,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Member {
 
+
+
 	private String hymmSeq;
 	private Integer hymmAdminNy;
 	private Integer hymmDormancyNy;
@@ -40,11 +42,13 @@ public class Member {
 	private String regIp;
 	private String regSeq;
 	private String regDeviceCd;
+	private String regDevice;
 	private Date regDateTime;
 	private Date regDateTimeSvr;
 	private String modIp;
 	private String modSeq;
 	private String modDeviceCd;
+	private String modDevice;
 	private Date modDateTime;
 	private Date modDateTimeSvr;
 
@@ -477,4 +481,20 @@ public class Member {
 		this.hysmSeq = hysmSeq;
 	}
 
+	public String getRegDevice() {
+		return regDevice;
+	}
+
+	public void setRegDevice(String regDevice) {
+		this.regDevice = regDevice;
+	}
+
+	public String getModDevice() {
+		return modDevice;
+	}
+
+	public void setModDevice(String modDevice) {
+		this.modDevice = modDevice;
+	}
+	
 }

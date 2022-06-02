@@ -22,13 +22,30 @@
 		a.hydcTempNy = 0
 		AND 
 		c.hyspSeq = #{hyspSeq}
-		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
+		<!-- 기존 <if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if> -->
+		
+		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> 
+		OR 
+		shHydcTitle LIKE concat('%',#{shHydcTitle},'%')
+		OR 
+		shHydcText LIKE concat('%',#{shHydcText},'%')
+		OR
+		shHymmName LIKE concat('%',#{shHymmName},'%')
+		</if>
+
 		<choose>
+			<when test="shHydcTitle!= null and !shHydcTitle.equals('')" > OR a.hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcText!= null and !shHydcText.equals('')" >OR a.hydcText LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHymmName!= null and !shHymmName.equals('')" >OR b.hymmName LIKE concat('%',#{shHydcValue},'%')</when>
+		</choose>
+		
+		<!-- 기존소스
+		 <choose>
 			<when test="shHydcOption == 1">AND a.hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
 			<when test="shHydcOption == 2">AND a.hydcText LIKE concat('%',#{shHydcValue},'%')</when>
 			<when test="shHydcOption == 3">AND b.hymmName LIKE concat('%',#{shHydcValue},'%')</when>
 			<when test="shHydcOption == 4">AND d.originalFileName LIKE concat('%',#{shHydcValue},'%')</when>
-		</choose>
+		</choose> -->
 		ORDER BY 
 		a.modDateTime DESC
 		limit  #{startRnumForMysql} , #{rowNumToShow}
@@ -277,7 +294,7 @@
 		hydcSeq= #{hydcSeq}
 	</update>
 
-	<select id="fileUploaded" resultMap = "resultMapObj"> <!--파일뷰 -->
+	<select id="fileUploaded" resultMap="resultMapObj"> <!--파일뷰 -->
 		SELECT
 			seq
 			, type 

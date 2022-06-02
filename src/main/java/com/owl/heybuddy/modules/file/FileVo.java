@@ -9,19 +9,6 @@ public class FileVo {
 
 
 
-		public Integer getHydcDelNy() {
-		return hydcDelNy;
-	}
-	public void setHydcDelNy(Integer hydcDelNy) {
-		this.hydcDelNy = hydcDelNy;
-	}
-	public Integer getHydcTempNy() {
-		return hydcTempNy;
-	}
-	public void setHydcTempNy(Integer hydcTempNy) {
-		this.hydcTempNy = hydcTempNy;
-	}
-
 		private String hydcSeq;
 		private String hyspSeq;
 		private String hymmSeq;
@@ -60,6 +47,7 @@ public class FileVo {
 		private Integer shHydcDelNy;
 		private String shHydcTitle;
 		private String shHydcText;
+		private String shHymmName;
 	
 		
 		//paging	
@@ -684,6 +672,25 @@ this.checkboxSeqArray = checkboxSeqArray;
 
 
 
+
+public String getShHymmName() {
+return shHymmName;
+}
+public void setShHymmName(String shHymmName) {
+this.shHymmName = shHymmName;
+}
+public Integer getHydcDelNy() {
+return hydcDelNy;
+}
+public void setHydcDelNy(Integer hydcDelNy) {
+this.hydcDelNy = hydcDelNy;
+}
+public Integer getHydcTempNy() {
+return hydcTempNy;
+}
+public void setHydcTempNy(Integer hydcTempNy) {
+this.hydcTempNy = hydcTempNy;
+}
 
 
 }

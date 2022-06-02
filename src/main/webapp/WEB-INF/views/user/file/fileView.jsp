@@ -271,6 +271,8 @@ pageContext.setAttribute("br", "\n");
 												<c:when test="${empty fileUploaded.uuidFileName}">
 													<p>등록된 파일이 없습니다.</p>
 												</c:when>
+												
+												
 												<c:otherwise>
 
 													<div class="card-hover me-2 position-relative width-90">

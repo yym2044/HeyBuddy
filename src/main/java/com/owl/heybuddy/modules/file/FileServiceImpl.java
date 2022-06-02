@@ -37,8 +37,9 @@ public class FileServiceImpl implements FileService {
 	}
 	@Override
 	public  File documentView(FileVo vo) throws Exception { //문서뷰
-		return dao.documentView(vo);
+		return dao.documentView(vo); 
 	}
+	
 	public File documentViewTemp(FileVo vo) {  //임시문서 뷰
 		return dao.documentViewTemp(vo);
 	}

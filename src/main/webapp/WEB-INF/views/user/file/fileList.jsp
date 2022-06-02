@@ -161,7 +161,7 @@
 								<form class="position-relative">
 									
 				
-									<select class="form-select form-select" name="shHydcOption"
+					<%-- 				<select class="form-select form-select" name="shHydcOption"
 										id="shHydcOption" style="">
 										<option value="">검색구문
 											<option value="1"
@@ -173,11 +173,11 @@
 										<option value="3"
 											<c:if test="${vo.shHydcOption eq 4 }"> selected</c:if>>파일명
 										
-									</select>
+									</select> --%>
 										
 										<input class="form-control form-control" type="text"
 										name="shHydcValue" id="shHydcValue" style="" value=""
-										placeholder=" 검색어를입력해주세요  UI공사중이에요~~">
+										placeholder=" 검색어를입력해주세요(제목,내욕,파일명,작성자)  UI공사중이에요~~">
 										 	<button class="btn btn-primary" type="submit" name="search"
 										id="btnSearch" style="display: none;"></button> 
 								</form>

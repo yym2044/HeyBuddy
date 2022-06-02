@@ -34,7 +34,6 @@ public interface PlanService {
 	// delete
 	
 	
-	public int delete(PlanVo vo) throws Exception;
 	/*
 	 * public int deleteId(MemberVo vo) throws Exception; public int
 	 * deleteName(MemberVo vo) throws Exception; public int deleteNumber(MemberVo

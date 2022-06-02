@@ -208,9 +208,9 @@
 		UPDATE
 			hybdPlan  <!-- 진짜 중요한게 테이블 이름틀리면 505 Error 불변임 -->
 		SET
-		hyplDelNy = 1
-		WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+			hyplDelNy = 1
+		WHERE 
+			1 = 1
 		AND hyplSeq = #{hyplSeq}
 	</update>
 

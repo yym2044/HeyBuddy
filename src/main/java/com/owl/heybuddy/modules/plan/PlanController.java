@@ -175,15 +175,16 @@ public class PlanController {
 	
 	
 	@RequestMapping(value = "/plan/planListNele")
-	public String planListNele(PlanVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	public String planListNele(@ModelAttribute PlanVo vo, Plan dto ,RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
+		System.out.println("####### 삭제 시작 #######");
+		
+		vo.setHyplSeq(dto.getHyplSeq());
+		
 		service.updateDelete(vo); // 데이터를 받아오고
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
 
-		/*
-		 * redirectAttributes.addAttribute("thisPage" + vo.getThisPage());
-		 * redirectAttributes.addAttribute("shOption" + vo.getShOption());
-		 * redirectAttributes.addAttribute("shValue" + vo.getShValue());rmsep
-		 */
 
 		return "redirect:/plan/planList"; // 업데이트 해주는 영역
 

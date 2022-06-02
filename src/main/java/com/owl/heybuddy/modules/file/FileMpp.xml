@@ -24,8 +24,10 @@
 		c.hyspSeq = #{hyspSeq}
 		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if>
 		<choose>
-			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcOption == 1">AND a.hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcOption == 2">AND a.hydcText LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcOption == 3">AND b.hymmName LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcOption == 4">AND d.originalFileName LIKE concat('%',#{shHydcValue},'%')</when>
 		</choose>
 		ORDER BY 
 		a.modDateTime DESC

@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
- 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -154,19 +154,32 @@
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="col-md-12 mx-auto">
 						<div class="sticky-top top-0">
-
 							<!--Search form-->
 							<div class="pb-5">
+							
+							
 								<form class="position-relative">
-									<!--Icon-->
-									<span
-										class="d-flex size-20 rounded-circle ms-3 align-items-center justify-content-center position-absolute start-0 top-50 translate-middle-y">
-										<i data-feather="search" class="fe-1x opacity-50"></i>
-									</span>
-									<!--Input-->
-									<input type="text"
-										class="form-control shadow py-4 form-control-lg ps-9"
-										placeholder="UI공사중입니다~~">
+									
+				
+									<select class="form-select form-select" name="shHydcOption"
+										id="shHydcOption" style="">
+										<option value="">검색구문
+											<option value="1"
+											<c:if test="${vo.shHydcOption eq 1 }"> selected</c:if>>제목
+										<option value="2"
+											<c:if test="${vo.shHydcOption eq 2 }"> selected</c:if>>내용			
+										<option value="3"
+											<c:if test="${vo.shHydcOption eq 3 }"> selected</c:if>>작성자
+										<option value="3"
+											<c:if test="${vo.shHydcOption eq 4 }"> selected</c:if>>파일명
+										
+									</select>
+										
+										<input class="form-control form-control" type="text"
+										name="shHydcValue" id="shHydcValue" style="" value=""
+										placeholder=" 검색어를입력해주세요  UI공사중이에요~~">
+										 	<button class="btn btn-primary" type="submit" name="search"
+										id="btnSearch" style="display: none;"></button> 
 								</form>
 							</div>
 						</div>
@@ -267,7 +280,8 @@
 																	</td>
 
 
-																	<td class=""><fmt:formatDate pattern="yyyy-MM-dd hh:mm"
+																	<td class=""><fmt:formatDate
+																			pattern="yyyy-MM-dd hh:mm"
 																			value="${item.regDateTime }" /></td>
 
 																										
@@ -334,6 +348,7 @@
 									</div>
 								</footer>
 								<!--/.Page Footer End-->
+			
 			</main>
 			<!--///////////Page content wrapper End///////////////-->
 
@@ -414,10 +429,11 @@ var userList = new List('mailList', options);
 			$("#formList").attr("action", "/file/fileMultiNele");
 			$("#formList").submit();
 		};
-		</script>
+		
+</script>
 
 
-			<script type="text/javascript">
+											<script type="text/javascript">
 		$("#checkboxAll").click(function() {  //전체선택
 		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 		else $("input[name=checkboxSeq]").prop("checked", false);
@@ -430,6 +446,7 @@ var userList = new List('mailList', options);
 			else $("#checkboxAll").prop("checked", true);
 		});
 		</script>
-</body>
+
+										</body>
 
 </html>

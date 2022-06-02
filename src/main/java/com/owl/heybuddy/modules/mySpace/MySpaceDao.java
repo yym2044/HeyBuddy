@@ -50,6 +50,10 @@ public class MySpaceDao {
 	public int insertMySpace(MySpace dto) {
 		return sqlSession.insert(namespace + ".insertMySpace", dto); // 스페이스등록
 	}
+	
+	public int insertUploaded(MySpace dto) {
+		return sqlSession.insert(namespace + ".insertUploaded", dto); // 스페이스 사진 등록
+	}
 
 	public int insertMySpaceHost(MySpace dto) {
 

@@ -107,16 +107,16 @@ body {
 									<label for="newSpacePhoto" style="cursor: pointer;"> <img
 										class="img-fluid rounded-circle" style="width: 200px;"
 										id="previewImage" src="/resources/user/images/gathering1.png">
-									</label> <input id="newSpacePhoto" name="" type="file"
-										style="display: none;">
+									</label> 
 									<p class="p-2 fw-bold">스페이스 대표 사진</p>
 								</div>
 								<!--Card-->
-
-								<form id="newMySpace" name="newMySpace" method="post"
-									action="/mySpace/mySpaceForm"
-									class="z-index-1 position-relative needs-validation"
-									novalidate="">
+								
+								<form id="newMySpace" name="newMySpace" method="post" action="/mySpace/mySpaceForm" class="z-index-1 position-relative needs-validation"
+									novalidate="" enctype="multipart/form-data">
+									
+									<input id="newSpacePhoto" name="file" type="file" style="display: none;">
+									
 									<input type="hidden" id="hyspSeq" name="hyspSeq"
 										value="<c:out value="${vo.hyspSeq}"/>">
 									<hr class="mt-4">
@@ -194,6 +194,7 @@ body {
 		        reader.onload = (e) => {
 		            const previewImage = document.getElementById('previewImage');
 		            previewImage.src = e.target.result;
+		            previewImage.style.height = "200px";
 		        }
 		        reader.readAsDataURL(input.files[0]);
 		    }

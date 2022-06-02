@@ -170,6 +170,33 @@
 		</selectKey>
 
 	</insert>
+	
+	<insert id="insertUploaded">
+		INSERT INTO ${tableName}(
+			defaultNy
+			,type 
+			,sort
+			,originalFileName
+			,uuidFileName
+			,ext
+	 		,size 
+			,delNy
+			,pseq
+			,path
+		)
+		VALUES(
+			#{defaultNy}
+			,#{type} 
+			,#{sort}
+			,#{originalFileName}
+			,#{uuidFileName}
+			,#{ext}
+			,#{size} 
+			,0
+			,#{pseq}
+			,#{path}
+		)
+	</insert>
 
 
 

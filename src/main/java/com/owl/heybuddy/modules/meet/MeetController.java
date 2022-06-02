@@ -48,7 +48,7 @@ public class MeetController {
 		URL url = new URL(apiUrl);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("POST");
-		conn.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2NTQwNDg4MjMsImlhdCI6MTY1MzQ0NDAyM30.LvPYI6nF2idwcGhmgB_wUI7nCJc8Zk_0ci5ABJ7cxBE");
+		conn.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2ODU1MDIwMDAsImlhdCI6MTY1Mzk2MDk3NH0.Wa0AASzvcr-TSfXHRknfvVaI5Ww4TTcLn6RafmFtd_U");
 		
 		conn.setRequestProperty("Content-Type", "application/json");
 		conn.setRequestProperty("Accept", "application/json");
@@ -98,7 +98,7 @@ public class MeetController {
 		URL url = new URL(apiUrl);
 		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 		httpURLConnection.setRequestMethod("GET");
-		httpURLConnection.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2NTQwNDg4MjMsImlhdCI6MTY1MzQ0NDAyM30.LvPYI6nF2idwcGhmgB_wUI7nCJc8Zk_0ci5ABJ7cxBE");
+		httpURLConnection.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2ODU1MDIwMDAsImlhdCI6MTY1Mzk2MDk3NH0.Wa0AASzvcr-TSfXHRknfvVaI5Ww4TTcLn6RafmFtd_U");
 		
 		BufferedReader bufferedReader;
 		if (httpURLConnection.getResponseCode() >= 200 && httpURLConnection.getResponseCode() <= 300) {
@@ -153,7 +153,7 @@ public class MeetController {
 		URL url = new URL(apiUrl);
 		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 		httpURLConnection.setRequestMethod("DELETE");
-		httpURLConnection.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2NTQwNDg4MjMsImlhdCI6MTY1MzQ0NDAyM30.LvPYI6nF2idwcGhmgB_wUI7nCJc8Zk_0ci5ABJ7cxBE");
+		httpURLConnection.setRequestProperty("authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjJuQ21oazYzU3NPaW1sSlhJdHpka0EiLCJleHAiOjE2ODU1MDIwMDAsImlhdCI6MTY1Mzk2MDk3NH0.Wa0AASzvcr-TSfXHRknfvVaI5Ww4TTcLn6RafmFtd_U");
 		
 		httpURLConnection.disconnect();
 		

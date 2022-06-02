@@ -70,7 +70,7 @@ table tr .form-control {
 <body>
 
 
-	<form id="formForm" method="post">
+	<form id="formForm" method="post" enctype="multipart/form-data">
 	
 	<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
     <input type="hidden" name="hyspName" placeholder="스페이스 이름" value="${space.hyspName}">

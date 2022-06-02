@@ -343,7 +343,17 @@
 					$("#modalEmail").attr("href", "#!mailto:" + data.hymmEmail);
 				}
 				if(data.hymmNumber != null){
-					$("#modalNumber").text(data.hymmNumber);
+					
+					const number = data.hymmNumber
+					let numberString = "";
+					
+					if(number.length == 10){
+						numberString = number.substring(0,3) + "-" + number.substring(3,6) + "-" + number.substring(6,10);
+					} else {
+						numberString = number.substring(0,3) + "-" + number.substring(3,7) + "-" + number.substring(7,11);
+					}
+					
+					$("#modalNumber").text(numberString);
 				}
 				
 			}

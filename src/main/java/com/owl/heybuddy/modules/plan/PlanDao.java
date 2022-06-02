@@ -46,16 +46,8 @@ public class PlanDao {
 	public int update(Plan dto) { return sqlSession.update(namespace + ".update", dto);}
 	public int updateDelete(PlanVo vo) { return sqlSession.update(namespace + ".updateDelete", vo);}
 	
-	
 	// delete
-	public int deleteNumber(PlanVo vo) { return sqlSession.delete(namespace + ".deleteNumber", vo);}
 	
 	// login
 	
-	
-	/*
-	 * public int delete(MemberVo vo) { return sqlSession.update(namespace +
-	 * ".delete", vo);} public int updateDelete(MemberVo vo) { return
-	 * sqlSession.update(namespace + ".updateDelete", vo);}
-	 */
 }

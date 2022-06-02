@@ -63,20 +63,6 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public int delete(PlanVo vo) throws Exception {
-		
-		dao.deleteNumber(vo);
-
-		return 1;
-	}
-
-	/*
-	 * @Override public Member selectGender(MemberVo vo) throws Exception { return
-	 * dao.selectGender(vo); }
-	 */
-
-
-	@Override
 	public Plan selectOne(PlanVo vo) throws Exception {
 			
 		return dao.selectOne(vo);

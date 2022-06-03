@@ -96,14 +96,14 @@ body {
 									<form action="/login/userLogin" class=" z-index-1 position-relative needs-validation"
 										novalidate="">
 										<div class="form-floating mb-3">
-											<input type="text" class="form-control" required=""
+											<input type="text" onkeyup="enterkey();" class="form-control" required=""
 												id="hymmId" name="hymmId" value="userTest"> <label
 												for="hymmId">Account</label> <span
 												class="invalid-feedback">Please enter a valid email
 												address</span>
 										</div>
 										<div class="form-floating mb-3">
-											<input type="password" required="" class="form-control"
+											<input type="password" onkeyup="enterkey();" required="" class="form-control"
 												id="hymmPassword" name="hymmPassword" value="userTest"> <label
 												for="hymmPassword">Password</label> <span
 												class="invalid-feedback">Enter the password</span>
@@ -255,6 +255,37 @@ function kakaoLogin() {
 						}
 					});
 				});
+		
+		
+		//엔터키 쳤을 때 로그인 하는 방법 (input id칸이랑 pwd칸에 [onkeyup="enterkey();"] 추가)
+		function enterkey() {
+	        if (window.event.keyCode == 13) {
+	 				
+	        	$.ajax({
+					async : true,
+					cache : false,
+					type : "post",
+					url : "/member/loginProc",
+					data : {
+						"hymmId" : $("#hymmId").val(),
+						"hymmPassword" : $("#hymmPassword").val()
+					},
+					success : function(response) {
+						if (response.rt == "success") {
+							location.href = "/mySpace/mySpaceList";
+						} else {
+							alert("아이디 및 비밀번호를 확인해주세요");
+						}
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("ajaxUpdate " + jqXHR.textStatus + " : "
+								+ jqXHR.errorThrown);
+					}
+				});
+	        	
+	             
+	        	}
+			}
 
 </script>
 	<!-- *********************로그인E******************************** -->

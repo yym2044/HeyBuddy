@@ -115,13 +115,13 @@ main {
 										novalidate="">
 										<hr class="mt-4 mb-3">
 										<div class="form-floating mb-3">
-											<input type="text" class="form-control" 
+											<input type="text" class="form-control" onkeyup="enterkey();"
 												id="hymmId" name="hymmId"  required> <label
 												for="hymmId">아이디</label> <span
 												class="invalid-feedback">Please enter a valid account</span>
 										</div>
 										<div class="form-floating mb-3">
-											<input type="password" class="form-control" 
+											<input type="password" class="form-control" onkeyup="enterkey();"
 											id="hymmPassword" name="hymmPassword"  required > <label
 												for="hymmPassword">비밀번호</label> <span
 												class="invalid-feedback">Enter the password</span>
@@ -172,31 +172,60 @@ main {
 	<!--////////////Theme Core scripts End/////////////////-->
 
 <!-- *********************로그인S******************************** -->
-	<script>
-		$("#btnLogin").on("click", function() {
-				
-					$.ajax({
-						async : true,
-						cache : false,
-						type : "post",
-						url : "/member/loginProc",
-						data : {
-							"hymmId" : $("#hymmId").val(),
-							"hymmPassword" : $("#hymmPassword").val()
-						},
-						success : function(response) {
-							if (response.rt == "success") {
-								location.href = "/xdmin/memberList";
-							} else {
-								alert("아이디 및 비밀번호를 확인해주세요");
-							}
-						},
-						error : function(jqXHR, textStatus, errorThrown) {
-							alert("ajaxUpdate " + jqXHR.textStatus + " : "
-									+ jqXHR.errorThrown);
+<script>
+	$("#btnLogin").on("click", function() {
+			
+				$.ajax({
+					async : true,
+					cache : false,
+					type : "post",
+					url : "/member/loginProc",
+					data : {
+						"hymmId" : $("#hymmId").val(),
+						"hymmPassword" : $("#hymmPassword").val()
+					},
+					success : function(response) {
+						if (response.rt == "success") {
+							location.href = "/xdmin/memberList";
+						} else {
+							alert("아이디 및 비밀번호를 확인해주세요");
 						}
-					});
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("ajaxUpdate " + jqXHR.textStatus + " : "
+								+ jqXHR.errorThrown);
+					}
 				});
+			});
+	
+	//엔터키 쳤을 때 로그인 하는 방법 (input id칸이랑 pwd칸에 [onkeyup="enterkey();"] 추가)
+	function enterkey() {
+        if (window.event.keyCode == 13) {
+ 				
+        	$.ajax({
+				async : true,
+				cache : false,
+				type : "post",
+				url : "/member/loginProc",
+				data : {
+					"hymmId" : $("#hymmId").val(),
+					"hymmPassword" : $("#hymmPassword").val()
+				},
+				success : function(response) {
+					if (response.rt == "success") {
+						location.href = "/xdmin/memberList";
+					} else {
+						alert("아이디 및 비밀번호를 확인해주세요");
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("ajaxUpdate " + jqXHR.textStatus + " : "
+							+ jqXHR.errorThrown);
+				}
+			});
+             
+       	}
+	}
 
 </script>
 

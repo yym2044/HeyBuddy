@@ -227,8 +227,8 @@
 								<h5>👨‍👧‍👧공유된 멤버</h5>
 								<input class="form-control mb-3" type="text" id="hyplMemberName1" name="hyplMemberName" disabled>
 								<div class="form-control mb-3">
-								<h5>공유자</h5>
-								
+								<br>
+								<h5>공유자 추가</h5>
 									<div class="card card-body">
 										<select multiple class="form-control" id="hyplMemberName" name="hyplMemberName" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
 												<c:forEach items="${selectListMember}" var="item" varStatus="status">

@@ -232,7 +232,8 @@
 								<a class="btn btn-light me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
 								<a href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit" class="btn btn-primary me-2">수정하기</a>
 <!-- 								<input type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기"> -->
-								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제하기</a>
+								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left">삭제하기</a>
+<%-- 								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제하기</a> --%>
 							<%-- <a class="btn btn-primary"  href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit">수정하기</a>  --%>
 							</div>
 						</div>

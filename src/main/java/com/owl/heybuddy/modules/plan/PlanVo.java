@@ -8,6 +8,7 @@ public class PlanVo {
 	private Integer hyplDefaultNy;
 	private String hyplName;
 	private String hyplDate;
+	private String hyplEndDate;
 	private int hyplMember;
 	private String hyplMemberName;
 	private Integer hyplTypeCd;
@@ -74,6 +75,13 @@ public class PlanVo {
 	}
 	public void setHyplDate(String hyplDate) {
 		this.hyplDate = hyplDate;
+	}
+	
+	public String getHyplEndDate() {
+		return hyplEndDate;
+	}
+	public void setHyplEndDate(String hyplEndDate) {
+		this.hyplEndDate = hyplEndDate;
 	}
 	public int getHyplMember() {
 		return hyplMember;

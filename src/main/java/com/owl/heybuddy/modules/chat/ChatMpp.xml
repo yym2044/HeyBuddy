@@ -49,7 +49,7 @@
 		WHERE 1=1
 		AND d.hyspSeq = #{hyspSeq}
 		AND a.hycrDelNy = 0
-		AND b.hymmSeq != #{hymmSeq}
+		AND b.hycmChatMaker = #{hymmSeq}
 		
 	</select>
 

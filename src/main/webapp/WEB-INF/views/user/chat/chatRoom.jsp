@@ -388,7 +388,7 @@ p, dt {
 													<div class="overflow-hidden flex-grow-1">
 														<div class="d-flex">
 															<h6 class="mb-0 flex-grow-1">
-																<c:out value="${item.hymmName}" />,<c:out value="${sessName}" /> 채팅방
+																<%-- <c:out value="${item.hymmName}" />,<c:out value="${sessName}" /> --%><c:out value="${item.hycrSeq}" /> 채팅방
 															</h6>
 															<small class="opacity-75 ms-auto small"> <%-- <c:choose>
 															<c:when test="${item.hymmSeq eq sessSeq}">

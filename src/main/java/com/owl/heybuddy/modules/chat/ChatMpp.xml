@@ -34,21 +34,17 @@
 
 		SELECT
 		a.hycrSeq
-		,
-		a.hycrDelNy
+		, a.hycrDelNy
 		, a.hycrName
 		, b.hycmSeq
 		, b.hymmSeq
 		, c.hymmName
 
-
 		FROM
 		hybdChatRoom a
 		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
-		LEFT
-		JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace d on
-		d.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
 
 		WHERE 1=1
 		AND d.hyspSeq = #{hyspSeq}

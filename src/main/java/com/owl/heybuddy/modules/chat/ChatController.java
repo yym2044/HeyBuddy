@@ -56,8 +56,6 @@ public class ChatController {
 		vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmSeq(vo.getHymmSeq());
 		int rtChat = service.selectOneCheck(vo);
-		vo.setHymmSeq(vo.getHymmSeq());
-		vo.setHymmName(vo.getHymmName());
 
 		if (rtChat != 0) {
 

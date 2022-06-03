@@ -111,7 +111,12 @@
 								<h5>일정내용</h5>
 								<input class="form-control mb-3" type="text" id="hyplDesc" name="hyplDesc" style="height: 100px;" placeholder="일정을 입력하세요" autocomplete="off"> <br>
 								<h5>📅날짜</h5>
-								<input class="form-control mb-3" type="text" id="hyplDate" name="hyplDate" placeholder="날짜를 등록해주세요" autocomplete="off"> <br>
+								<div class="form-control" style="border-radius: 10px;">
+								<h6>시작일</h6>
+								<input class="form-control mb-3" type="text" id="hyplDate" name="hyplDate" <fmt:formatDate value="${hyplDate}" pattern="yyyy-MM-dd HH:mm:ss"/> placeholder="시작일 등록해주세요" autocomplete="off">
+								<h6>종료일</h6>
+								<input class="form-control mb-3" type="text" id="hyplEndDate" name="hyplEndDate" <fmt:formatDate value="${hyplEndDate}" pattern="yyyy-MM-dd HH:mm:ss"/> placeholder="종료일 등록해주세요" autocomplete="off">
+								</div><br>
 								<h5>공유자</h5>
 								<div class="form-control mb-3">
 									<div class="card card-body">
@@ -213,7 +218,12 @@
 								<input class="form-control mb-3" type="text" id="hyplDesc1" name="hyplDesc" style="height: 100px;" autocomplete="off">
 								<br>
 								<h5>📅날짜</h5>
-								<input class="form-control mb-3" type="text" id="hyplDate1" name="hyplDate" <fmt:formatDate value="${hyplDate1}" pattern="yyyy-MM-dd HH:mm:ss"/> autocomplete="off"> <br>
+								<div class="form-control" style="border-radius: 10px;">
+								<h6>시작일</h6>
+								<input class="form-control mb-3" type="text" id="hyplDate1" name="hyplDate" <fmt:formatDate value="${hyplDate1}" pattern="yyyy-MM-dd HH:mm:ss"/> autocomplete="off">
+								<h6>종료일</h6>
+								<input class="form-control mb-3" type="text" id="hyplEndDate1" name="hyplEndDate" <fmt:formatDate value="${hyplEndDate1}" pattern="yyyy-MM-dd HH:mm:ss"/>  autocomplete="off">
+								</div>
 								<h5>👨‍👧‍👧공유된 멤버</h5>
 								<input class="form-control mb-3" type="text" id="hyplMemberName1" name="hyplMemberName" disabled>
 								<div class="form-control mb-3">
@@ -316,6 +326,7 @@
 					obj.seq = data[i].hyplSeq;
 					obj.title = data[i].hyplName;
 					obj.start = data[i].hyplDate;
+					obj.end = data[i].hyplEndDate;
 					obj.backgroundColor = "var(--bs-success)";
 					obj.borderColor = "var(--bs-success)";
 
@@ -394,6 +405,7 @@
 						$("#hyplName1").val(data.hyplName);
 						$("#hyplDesc1").val(data.hyplDesc);
 						$("#hyplDate1").val(data.hyplDate);
+						$("#hyplEndDate1").val(data.hyplEndDate);
 						$("#hyplMemberName1").val(data.hyplMemberName);
 						/* 
 						
@@ -447,7 +459,7 @@
 		  
 	</script>
 
-	<!-- Jquery 달력  -->
+	<!-- Jquery 달력 여기선 필요없음 -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("input.shDate").datepicker();
@@ -517,6 +529,21 @@
 			 
 			 $(function() {
 			$('#hyplDate1').datetimepicker({
+			lang : 'ko',
+			format:'Y-m-d H:i:00',
+			
+			});
+			});
+			 
+			 $(function() {
+			$('#hyplEndDate').datetimepicker({
+			lang : 'ko',
+			format:'Y-m-d H:i:00',
+			
+			});
+			});
+			 $(function() {
+			$('#hyplEndDate1').datetimepicker({
 			lang : 'ko',
 			format:'Y-m-d H:i:00',
 			

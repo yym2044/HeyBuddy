@@ -152,6 +152,7 @@
 	    , a.hyspTypeCd 
 	    , a.hyspName 
 	    , b.path 
+	    , b.originalFileName
 	    , b.uuidFileName 
 	FROM 
 		hybdSpace a
@@ -351,6 +352,20 @@
 	WHERE 1=1
 		AND hyspSeq = #{hyspSeq}
 	</update>
+	
+	<update id="updateMySpaceUploaded">
+	UPDATE 
+		${tableName}
+	SET
+		originalFileName = #{originalFileName}
+		, uuidFileName = #{uuidFileName}
+		, ext = #{ext}
+		, path = #{path}
+		, size = #{size}
+	WHERE 1=1
+		AND pseq = #{pseq}
+	</update>
+	
 	<select id="selectOneMySpaceHost" resultMap="resultMapObj">
 	
 	SELECT  
@@ -359,7 +374,7 @@
         , c.hymmEmail
         , d.path
         , d.uuidFileName
-		, a.hyspName
+		, a.hyspName 
 		, a.hyspColorCd
 		, a.regDateTime
 		, a.modDateTime
@@ -371,5 +386,5 @@
 	WHERE 1=1
 		AND a.hyspSeq = #{hyspSeq}
 	</select>
-
+	
 </mapper>

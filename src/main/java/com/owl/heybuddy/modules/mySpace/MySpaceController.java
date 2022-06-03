@@ -34,8 +34,9 @@ public class MySpaceController {
 		httpSession.setAttribute("sessAuth", httpSession.getAttribute("sessAuth"));
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-
-		model.addAttribute("space", service.selectOneMySpaceHost(vo));
+		
+		model.addAttribute("space", service.selectOneMySpace(vo));
+		model.addAttribute("host", service.selectOneMySpaceHost(vo));
 
 		return "user/setting/space";
 	}

@@ -119,7 +119,7 @@
 </head>
 <body>
 
-	<form id="spaceForm" method="post">
+	<form id="spaceForm" method="post" enctype="multipart/form-data">
 	
 	<input type="hidden" id="hyspSeq" name="hyspSeq">
 	
@@ -193,15 +193,15 @@
 												<td>
 												<div class="d-flex align-items-center">
 													<c:choose>
-														<c:when test="${empty space.uuidFileName}">
+														<c:when test="${empty host.uuidFileName}">
 															<img src="/resources/user/images/profileDefault.png" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
 														</c:when>
 														<c:otherwise>
-															<img src="<c:out value="${space.path}"/><c:out value="${space.uuidFileName}"/>" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+															<img src="<c:out value="${host.path}"/><c:out value="${host.uuidFileName}"/>" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
 														</c:otherwise>
 													</c:choose>
 					                                <div>
-					                                    <div class="h6 mb-0 lh-1"><c:out value="${space.hymmName}"/> <c:out value="${space.hymmEmail}"/></div>
+					                                    <div class="h6 mb-0 lh-1"><c:out value="${host.hymmName}"/> <c:out value="${host.hymmEmail}"/></div>
 					                                </div>
 					                            </div>
 												</td>
@@ -210,11 +210,41 @@
 											</tr>
 											<tr>
 												<td>마이스페이스 이름</td>
-												<td colspan="2"><input name="hyspName" class="form-control" value="<c:out value="${space.hyspName}"/>"></td>
+												<td colspan="2"><input name="hyspName" class="form-control" value="<c:out value="${host.hyspName}"/>"></td>
 											</tr>
 											<tr>
 												<td>마이스페이스 아이디</td>
 												<td colspan="2">__heybuddy@1649227056_3FF8122770C2CDE1D2321C959890155C__</td>
+											</tr>
+											<tr>
+												<td>마이스페이스 이미지</td>
+												<td>
+													<input id="spacePhoto-upload" name="file" type="file" class="form-control" style="display: none;">
+													
+													<div class="d-flex align-items-center">
+														<c:choose>
+															<c:when test="${empty space.uuidFileName}">
+																<img id="spacePhoto" src="/resources/user/images/gathering1.png" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+																<div>
+								                                    <div id="spacePhotoName" class="h6 mb-0 lh-1">기본이미지</div>
+								                                </div>
+															</c:when>
+															<c:otherwise>
+																<img id="spacePhoto" src="<c:out value="${space.path}"/><c:out value="${space.uuidFileName}"/>" class="avatar rounded-pill me-3 flex-shrink-0" alt="">
+																<div>
+								                                    <div id="spacePhotoName" class="h6 mb-0 lh-1"><c:out value="${space.originalFileName}"/></div>
+								                                </div>
+															</c:otherwise>
+														</c:choose>
+						                                
+						                            </div>
+													
+													  
+												</td>
+												<td style="width: 100px;">
+													<label for="spacePhoto-upload"><a class="btn btn-primary">Upload</a></label>
+													<a href="javascript:defaultSpacePhoto();" class="btn btn-danger"><i class="fe-2x" data-feather="trash-2"></i></a>
+												</td>
 											</tr>
 											<tr>
 												<td>마이스페이스 로고</td>
@@ -231,16 +261,16 @@
 													  
 												</td>
 												<td style="width: 100px;">
-													
-													<label for="spaceLogo"><a class="btn btn-info">찾아보기</a></label>
+													<label for="spaceLogo"><a class="btn btn-primary">Upload</a></label>
+													<a href="javascript:defaultSpaceLogo();" class="btn btn-danger"><i class="fe-2x" data-feather="trash-2"></i></a>
 												</td>
 											</tr>
 											<tr>
-												<td>스페이스 색상</td>
+												<td>마이스페이스 색상</td>
 												<td colspan="2">
 													<div class="custom-radios">
 													  <div>
-													    <input type="radio" id="color-1" name="hyspColorCd" value="14" <c:if test="${space.hyspColorCd eq 14 or empty space.hyspColorCd}">checked</c:if>>
+													    <input type="radio" id="color-1" name="hyspColorCd" value="14" <c:if test="${host.hyspColorCd eq 14 or empty host.hyspColorCd}">checked</c:if>>
 													    <label for="color-1">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -249,7 +279,7 @@
 													  </div>
 													  
 													  <div>
-													    <input type="radio" id="color-2" name="hyspColorCd" value="15" <c:if test="${space.hyspColorCd eq 15}">checked</c:if>>
+													    <input type="radio" id="color-2" name="hyspColorCd" value="15" <c:if test="${host.hyspColorCd eq 15}">checked</c:if>>
 													    <label for="color-2">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -258,7 +288,7 @@
 													  </div>
 													  
 													  <div>
-													    <input type="radio" id="color-3" name="hyspColorCd" value="16" <c:if test="${space.hyspColorCd eq 16}">checked</c:if>>
+													    <input type="radio" id="color-3" name="hyspColorCd" value="16" <c:if test="${host.hyspColorCd eq 16}">checked</c:if>>
 													    <label for="color-3">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -267,7 +297,7 @@
 													  </div>
 													
 													  <div>
-													    <input type="radio" id="color-4" name="hyspColorCd" value="17" <c:if test="${space.hyspColorCd eq 17}">checked</c:if>>
+													    <input type="radio" id="color-4" name="hyspColorCd" value="17" <c:if test="${host.hyspColorCd eq 17}">checked</c:if>>
 													    <label for="color-4">
 													      <span>
 													        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" class="pb-2" />
@@ -392,6 +422,27 @@
 	</script>
 	
 	<script type="text/javascript">
+	let spacePhotoInput = document.getElementById("spacePhoto-upload");
+	let img = document.querySelector("#spacePhoto");
+	let name = document.querySelector("#spacePhotoName");
+
+	spacePhotoInput.onchange = (e) => {
+		img.src = URL.createObjectURL(e.target.files[0]);
+		name.innerText = e.target.files[0].name;
+	}
+	
+	defaultSpacePhoto = function(){
+		img.src = "/resources/user/images/gathering1.png";
+		spacePhotoInput.value = null;
+		name.innerText = "기본이미지";
+	}
+	
+	
+	</script>
+	
+	<script type="text/javascript">
+	
+	
 	$("#spaceLogo").on("change", function(e){
 		$("#spaceLogoText").val($(this)[0].files[0].name);
 		
@@ -399,8 +450,6 @@
 		document.querySelector("#sidebarLogoPreview").src = URL.createObjectURL(e.target.files[0]);
 		$("#sidebarLogoPreview").show();
 	});
-	
-	
 	
 	</script>
     

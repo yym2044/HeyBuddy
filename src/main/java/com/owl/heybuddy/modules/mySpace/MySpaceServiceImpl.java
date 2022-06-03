@@ -125,7 +125,30 @@ public class MySpaceServiceImpl implements MySpaceService {
 	
 	@Override
 	public int updateMySpaceHost(MySpace dto) throws Exception {
-		return dao.updateMySpaceHost(dto);
+		
+		dao.updateMySpaceHost(dto);
+		
+		dto.setTableName("hybdSpaceUploaded");
+		dto.setPseq(dto.getHyspSeq());
+		
+		if(!dto.getFile().isEmpty()) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			
+			UtilUpload.uploadSpace(dto.getFile(), pathModule, dto);
+			
+			dao.updateMySpaceUploaded(dto);
+		} else {
+			
+			dto.setOriginalFileName("gathering1.png");
+			dto.setUuidFileName("a7c849f2-eaf9-4908-a794-c4afcab9a639.png");
+			dto.setExt("png");
+			dto.setPath("/resources/uploaded/myspace/2022/06/02/");
+			dto.setSize(88047);
+			
+			dao.updateMySpaceUploaded(dto);
+		}
+		
+		return 1;
 	}
 	@Override
 	public MySpace selectOneMySpaceHost(MySpaceVo vo) throws Exception {

@@ -1,29 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.owl.heybuddy.modules.chat.ChatMpp"> <!-- 지금 파일 지정 -->
 
-	<resultMap id="resultMapObj"
-		type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
+	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
+
+	<select id="selectOneCheck" resultType="Integer">
+
+		SELECT count(*)  FROM hybdChatRoom a
+		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		WHERE b.hymmSeq IN (#{hymmSeq}, #{hycmChatMaker})
+		AND c.hyspSeq = #{hyspSeq}
+		AND b.hymmSeq = #{hymmSeq}
+        
+
+	</select>
+
+	<select id="selectOneCheck2" resultMap="resultMapObj">
+
+		SELECT distinct (a.hycrSeq) FROM hybdChatRoom a
+		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		WHERE b.hymmSeq IN (#{hymmSeq}, #{hycmChatMaker})
+		AND c.hyspSeq = #{hyspSeq}
+		AND b.hymmSeq = #{hymmSeq}
+
+	</select>
+
 
 	<select id="selectListChatRoom" resultMap="resultMapObj">
 
 		SELECT
 		a.hycrSeq
-		, a.hycrDelNy
+		,
+		a.hycrDelNy
 		, a.hycrName
 		, b.hycmSeq
 		, b.hymmSeq
 		, c.hymmName
 
 
-		FROM hybdChatRoom a
+		FROM
+		hybdChatRoom a
 		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
+		LEFT
+		JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+		LEFT JOIN hybdSpace d on
+		d.hyspSeq = a.hyspSeq
 
 		WHERE 1=1
 		AND d.hyspSeq = #{hyspSeq}
@@ -77,10 +102,12 @@
 		INSERT INTO hybdChatMember
 		(
 		hycmDelNy
+		,hycmChatMaker
 		, hycrSeq
 		, hymmSeq
 		) VALUES (
 		0
+		, #{hymmSeq}
 		, #{hycrSeq}
 		, #{hymmSeq}
 		)
@@ -113,6 +140,7 @@
 	</select>
 	
 	<select id="selectOneChatRoom" resultMap="resultMapObj">
+	
 		SELECT
 		a.hycrSeq
 		, c.hymmName
@@ -125,6 +153,7 @@
 		WHERE 1=1
 		AND b.hymmSeq != #{hymmSeq}
 		AND a.hycrSeq = #{hycrSeq}
+	
 	</select>
 	
 	<update id="ueleteChat">

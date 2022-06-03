@@ -10,6 +10,7 @@ public class ChatVo {
 	private String hycmSeq;
 	private String hymmName;
 	private String roomNum;
+	private String hycmChatMaker;
 
 	public String getRoomNum() {
 		return roomNum;
@@ -73,6 +74,14 @@ public class ChatVo {
 
 	public void setHymmName(String hymmName) {
 		this.hymmName = hymmName;
+	}
+
+	public String getHycmChatMaker() {
+		return hycmChatMaker;
+	}
+
+	public void setHycmChatMaker(String hycmChatMaker) {
+		this.hycmChatMaker = hycmChatMaker;
 	}
 
 }

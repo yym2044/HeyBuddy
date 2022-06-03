@@ -8,6 +8,7 @@ public class Chat {
 
 	private String hycmSeq;
 	private Integer hycmDelNy;
+	private String hycmChatMaker;
 
 	private String hycrSeq;
 	private String hycrName;
@@ -70,6 +71,14 @@ public class Chat {
 	private String hysmSeq;
 	private String hymmSeq;
 	private String hysmRoleCd;
+
+	public String getHycmChatMaker() {
+		return hycmChatMaker;
+	}
+
+	public void setHycmChatMaker(String hycmChatMaker) {
+		this.hycmChatMaker = hycmChatMaker;
+	}
 
 	public String getHycmSeq() {
 		return hycmSeq;

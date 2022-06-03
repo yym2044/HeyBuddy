@@ -268,13 +268,6 @@ p, dt {
 								<i data-feather="arrow-left" class="fe-1x"></i>
 						</a>
 						</li>
-						<li
-							class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
-							<a href="javascript:goOut(<c:out value="${vo.hycrSeq}"/>);"
-							class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-								<i data-feather="x" class="fe-1x"></i>
-						</a>
-						</li>
 					</ul>
 					<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
 						<li
@@ -425,13 +418,9 @@ p, dt {
 										<div class="dropdown-menu dropdown-menu-end mt-1">
 											<a href="#!.html" class="dropdown-item"><i
 												data-feather="user" class="fe-1x me-2 opacity-50"></i>Sender's
-												profile</a> <a href="#!.html" class="dropdown-item"><i
-												data-feather="archive" class="fe-1x me-2 opacity-50"></i>Archive
-												Chat</a> <a href="#!.html" class="dropdown-item"><i
+												profile</a><a href="javascript:goOut();" class="dropdown-item"><i
 												data-feather="trash-2" class="fe-1x me-2 opacity-50"></i>Delete
-												Chat</a> <a href="#!.html" class="dropdown-item"><i
-												data-feather="slash" class="fe-1x me-2 opacity-50"></i>Block
-												Sender</a>
+												Chat</a>
 										</div>
 									</div>
 								</div>
@@ -468,7 +457,7 @@ p, dt {
 
 										<div class="col">
 											<div class="d-flex align-items-center">
-												<textarea id="message" name="message"
+												<textarea id="message" name="message" onkeydown="return limitLines(this, event)"
 													class="form-control border-0 shadow-none bg-transparent"
 													placeholder="Type your message..." rows="1"
 													data-emoji-input="" data-autosize="true"></textarea>
@@ -521,15 +510,33 @@ p, dt {
 	<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 
 	<script src="/resources/assets/vendor/dropzone.min.js"></script>
+
 	<script type="text/javascript">
-		
-	goOut = function(seq) {
-			$("#hycrSeq").val(seq);
+		goOut = function() {
 			$("#chatForm").attr("action", "/chat/chatUelete");
 			$("#chatForm").submit();
-
 		}
 	</script>
+
+	<script type="text/javascript">
+
+		// textarea 줄 수 제한
+		function limitLines(obj, e) {
+
+			// 현재 textarea에 입력된 줄 수
+			let numberOfLines = (obj.value.match(/\n/g) || []).length + 1;
+
+			// textarea에 선언된 rows 수
+			let maxRows = obj.rows;
+
+			// e.which === 13 : 엔터키를 눌렀을 때.
+			if (e.which === 13 && numberOfLines === maxRows) {
+				$("#submit").click();
+				return false;
+			}
+		}
+	</script>
+
 	<script>
 		let e = new Dropzone(
 				"[data-dropzone-area]",

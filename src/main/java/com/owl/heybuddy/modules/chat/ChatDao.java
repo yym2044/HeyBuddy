@@ -19,11 +19,19 @@ public class ChatDao {
 		return sqlSession.selectList(namespace + ".selectListChatRoom", vo); // 채팅룸
 	}
 
+	public int selectOneCheck(ChatVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCheck", vo); // 채팅방체크
+	}
+
+	public Chat selectOneCheck2(ChatVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCheck2", vo); // 채팅방체크2
+	}
+
 	public List<Chat> selectListChatMember(ChatVo vo) {
 		return sqlSession.selectList(namespace + ".selectListChatMember", vo); // 채팅멤버
 	}
 
-	public String selectOneChatRoom(ChatVo vo) {
+	public Chat selectOneChatRoom(ChatVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneChatRoom", vo); // 채팅룸선택
 	}
 

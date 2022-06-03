@@ -8,7 +8,11 @@ public interface ChatService {
 
 	public List<Chat> selectListChatMember(ChatVo vo) throws Exception; // 채팅멤버
 
-	public String selectOneChatRoom(ChatVo vo) throws Exception; // 채팅룸선택
+	public Chat selectOneChatRoom(ChatVo vo) throws Exception; // 채팅룸선택
+
+	public int selectOneCheck(ChatVo vo) throws Exception; // 채팅룸체크
+
+	public Chat selectOneCheck2(ChatVo vo) throws Exception; // 채팅룸체크2
 
 	public int insertChatRoom(Chat dto) throws Exception; // 채팅방 등록
 

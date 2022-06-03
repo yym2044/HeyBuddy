@@ -21,22 +21,24 @@ public class ChatController {
 	ChatServiceImpl service;
 
 	@RequestMapping(value = "/chat/chat")
-	public String chat(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
-		
+	public String chat(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
+			throws Exception {
+
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		
+
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 
 		vo.setHycrSeq(vo.getHycrSeq());
-		
+
 		return "user/chat/chat";
 	}
 
 	@RequestMapping(value = "/chat/chatPlus")
-	public String chatPlus(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
-		
+	public String chatPlus(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
+			throws Exception {
+
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 
@@ -47,31 +49,53 @@ public class ChatController {
 	}
 
 	@RequestMapping(value = "/chat/chatInst")
-	public String mySpaceInst(ChatVo vo, Chat dto, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
-		
+	public String chatInst(ChatVo vo, Chat dto, Model model, RedirectAttributes redirectAttributes,
+			HttpSession httpSession) throws Exception {
+
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		dto.setHymmSeq(vo.getHymmSeq());
-		dto.setHymmName(vo.getHymmName());
-		service.insertChatRoom(dto);
+		vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmSeq(vo.getHymmSeq());
+		int rtChat = service.selectOneCheck(vo);
+		vo.setHymmSeq(vo.getHymmSeq());
+		vo.setHymmName(vo.getHymmName());
 
-		dto.setHymmSeq(vo.getHymmSeq());
-		dto.setHycrSeq(dto.getHycrSeq());
-		service.insertChatMember(dto);
+		if (rtChat != 0) {
 
-		dto.setHycrSeq(dto.getHycrSeq());
-		dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		service.insertChatMember2(dto);
-		
-		vo.setHycrSeq(dto.getHycrSeq());
+			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+			vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+			vo.setHymmSeq(vo.getHymmSeq());
+			Chat rtChat2 = service.selectOneCheck2(vo);
+
+			vo.setHycrSeq(rtChat2.getHycrSeq());
+
+		} else {
+
+			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+			dto.setHymmSeq(vo.getHymmSeq());
+			dto.setHymmName(vo.getHymmName());
+			service.insertChatRoom(dto);
+
+			dto.setHymmSeq(vo.getHymmSeq());
+			dto.setHycrSeq(dto.getHycrSeq());
+			service.insertChatMember(dto);
+
+			dto.setHycrSeq(dto.getHycrSeq());
+			dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+			service.insertChatMember2(dto);
+
+			vo.setHycrSeq(dto.getHycrSeq());
+
+		}
+
 		redirectAttributes.addFlashAttribute("vo", vo);
-
 		return "redirect:/chat/chat";
+
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "chat/chatRoomProc")
 	public Map<String, Object> getId(ChatVo vo, Chat dto, HttpSession httpSession, Model model) throws Exception {
-		
+
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
@@ -107,8 +131,9 @@ public class ChatController {
 	 */
 
 	@RequestMapping(value = "/chat/chatRoom")
-	public String chatRoom(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession) throws Exception {
-		
+	public String chatRoom(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
+			throws Exception {
+
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 
@@ -116,13 +141,13 @@ public class ChatController {
 		model.addAttribute("list", list);
 
 		vo.setHycrSeq(vo.getHycrSeq());
-		
+
 		return "user/chat/chatRoom";
 	}
 
 	@RequestMapping(value = "/chat/chatUelete")
 	public String chatUelete(ChatVo vo, Chat dto, RedirectAttributes redirectAttributes) throws Exception {
-		
+
 		System.out.println("vo.getHycrSeq :" + vo.getHycrSeq());
 		service.ueleteChat(vo);
 

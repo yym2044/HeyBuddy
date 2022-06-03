@@ -22,8 +22,18 @@ public class ChatServiceImpl implements ChatService {
 	}
 
 	@Override
-	public String selectOneChatRoom(ChatVo vo) throws Exception { // 채팅룸 선택
+	public Chat selectOneChatRoom(ChatVo vo) throws Exception { // 채팅룸 선택
 		return dao.selectOneChatRoom(vo);
+	}
+
+	@Override
+	public int selectOneCheck(ChatVo vo) throws Exception { // 채팅룸체크
+		return dao.selectOneCheck(vo);
+	}
+
+	@Override
+	public Chat selectOneCheck2(ChatVo vo) throws Exception { // 채팅룸체크2
+		return dao.selectOneCheck2(vo);
 	}
 
 	@Override

@@ -63,6 +63,7 @@
 			,a.hyplDefaultNy
 			,a.hyplDelNy
 			,a.hyplDate
+			,a.hyplEndDate
 			,a.hyplDesc
 			,a.hyplMemberName
 			,b.hyspSeq
@@ -149,6 +150,7 @@
 			,a.hyplName
 			,a.hyplDefaultNy
 			,a.hyplDate
+			,a.hyplEndDate
 			,a.hyplDesc
 			,a.hyplMemberName
 			,b.hyspSeq
@@ -168,6 +170,7 @@
 		,hyplDefaultNy
 		,hyplDelNy
 		,hyplDate
+		,hyplEndDate
 		,hyplDesc
 		,hyplMemberName
 		,hyspSeq
@@ -177,6 +180,7 @@
 		,1
 		,0
 		,#{hyplDate}
+		,#{hyplEndDate}
 		,#{hyplDesc}
 		,#{hyplMemberName}
 		,#{hyspSeq}
@@ -195,6 +199,7 @@
 		SET
 		hyplName = #{hyplName}
 		,hyplDate = #{hyplDate}
+		,hyplEndDate = #{hyplEndDate}
 		,hyplDesc = #{hyplDesc} 
 		,hyplMemberName = #{hyplMemberName} 
 		WHERE

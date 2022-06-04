@@ -52,7 +52,7 @@
 
 		<input type="hidden" id="hymmSeq" name="hymmSeq">
 		<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
-		<input type="hidden" id="thisPage" name="thisPage">
+		<input type="hidden" id="thisPage" name="thisPage" value="${vo.thisPage}">
 
 		<!-- include 처리 1번 -->
 		<%@include file="../include/loader.jsp"%>

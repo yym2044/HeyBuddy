@@ -185,7 +185,7 @@
 				<div class="d-flex align-items-center">
 
 					<!--Avatar with status-->
-					<div class="avatar-status status-online me-sm-2 avatar xs">
+					<div class="me-sm-2 avatar xs">
 						<c:choose>
 							<c:when test="${empty uuidFileName}">
 								<img style="width: 100%; height:100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">

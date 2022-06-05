@@ -116,13 +116,12 @@ body {
 										width="400px">
 
 								</div>
-
-								<div class="list-group list-group-flush mb-0">
+						
+								<div class="card list-group list-group-flush mb-0">
 									<c:forEach items="${list}" var="item" varStatus="status">
 										<!--Chat User-->
-										<a
-											href="javascript:goReceive(<c:out value="${item.hyspSeq}"/>);"
-											class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
+										<a href="javascript:goReceive(<c:out value="${item.hyspSeq}"/>);"
+											class="list-group-item align-items-center list-group-item-action px-3 d-flex py-3">
 											<div class="flex-shrink-0">
 												<div class="me-3 avatar">
 													<c:choose>
@@ -156,10 +155,6 @@ body {
 											</div>
 										</a>
 									</c:forEach>
-
-
-
-
 									<!--Load more button-->
 									<!-- <a href="#!"
 										class="list-group-item px-3 align-items-center justify-content-center list-group-item-action d-flex py-3">
@@ -170,9 +165,6 @@ body {
 						</div>
 					</div>
 					<!--///////////Page content wrapper end///////////////-->
-
-
-
 				</main>
 			</div>
 			<!--//Page-footer//-->

@@ -111,11 +111,11 @@ body {
 									width="440x">
 							</div>
 
-							<div class="list-group list-group-flush mb-0">
+							<div class="card list-group list-group-flush mb-0">
 								<c:forEach items="${list}" var="item" varStatus="status">
 									<!--Chat User-->
 									<a href="#!"
-										class="list-group-item align-items-center list-group-item-action border-0 px-3 d-flex py-3">
+										class="list-group-item align-items-center list-group-item-action px-3 d-flex py-3">
 										<div class="flex-shrink-0">
 											<div class="me-3 avatar">
 												<img src="/resources/user/images/profileDefault.png"

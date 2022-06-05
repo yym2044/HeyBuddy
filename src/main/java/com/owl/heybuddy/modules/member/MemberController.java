@@ -177,11 +177,6 @@ public class MemberController {
 		vo.setHymmName((String) httpSession.getAttribute("sessName"));
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 
-		System.out.println("vo.getHymmSeq :" + vo.getHymmSeq());
-		System.out.println("vo.getHymmName :" + vo.getHymmName());
-		System.out.println("vo.getHyspSeq :" + vo.getHyspSeq());
-		System.out.println("vo.getHyspName :" + vo.getHyspName());
-
 		int totalMembers = service.selectOneCountSpaceMember(vo);
 		vo.setTotalRows(totalMembers);
 

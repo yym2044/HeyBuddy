@@ -268,7 +268,82 @@ p, dt {
 								<i data-feather="arrow-left" class="fe-1x"></i>
 						</a>
 						</li>
+						<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
+							<button type="button" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0" data-bs-toggle="modal" data-bs-target="modalPlusMember">
+								<i data-feather="plus" class="fe-1x"></i>
+						</button>
+						</li>
 					</ul>
+					
+					<!-- Member Modal Start -->
+<div class="modal fade" id="modalPlusMember" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content border-0">
+
+			<div class="card">
+
+				<!--Card body-->
+				<div class="card-body">
+					<!--Contact-->
+					<div class="text-center">
+
+						<!-- Avatar -->
+						<a class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
+							<img id="modalAvatar" src="" alt="..." class="img-fluid rounded-circle">
+						</a>
+						<!-- Title -->
+						<h5 class="mb-0">
+							<a id="modalName" class="text-reset"></a>
+						</h5>
+
+						<!-- Email -->
+						<p class="small text-muted mb-0">
+							<a id="modalEmail" class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">no registered email.</a>
+						</p>
+
+						<!-- Phone -->
+						<p class="small text-muted mb-3">
+							<a id="modalNumber" class="d-block text-reset text-truncate" href="#">no registered number.</a>
+						</p>
+
+
+						<!-- Split dropdown user button -->
+						<div class="btn-group">
+							<button type="button" class="btn btn-outline-gray text-body">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+								Send Message
+							</button>
+							<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
+									<circle cx="12" cy="12" r="1"></circle>
+									<circle cx="12" cy="5" r="1"></circle>
+									<circle cx="12" cy="19" r="1"></circle></svg>
+							</button>
+							<ul class="dropdown-menu dropdown-menu-end" style="">
+								<li><a class="dropdown-item" href="#">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
+											<circle cx="12" cy="12" r="10"></circle>
+											<line x1="12" y1="16" x2="12" y2="12"></line>
+											<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+										View detail
+									</a></li>
+								<li><a class="dropdown-item" href="#">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
+											<circle cx="12" cy="12" r="10"></circle>
+											<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+										Block contact
+									</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Modal Member End-->
+
 					<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
 						<li
 							class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
@@ -290,7 +365,7 @@ p, dt {
 								<div class="d-flex align-items-center">
 
 									<!--Avatar with status-->
-									<div class="avatar-status status-online me-sm-2 avatar xs">
+									<div class="me-sm-2 avatar xs">
 										<c:choose>
 											<c:when test="${empty uuidFileName}">
 												<img style="width: 100%; height: 100%;"
@@ -362,7 +437,7 @@ p, dt {
 				<!--Main Header End-->
 
 				<!--//Page content//-->
-				<div class="px-auto px-lg-12">
+				<div class="px-4 px-lg-8">
 					<div class="content content-wrapper content-expand">
 						<!--Content-wrapper-overlay when sidebar open for 768px down width-->
 						<div class="content-wrapper-overlay"></div>
@@ -382,7 +457,7 @@ p, dt {
 								</div>
 								<div class="me-auto d-flex align-items-center">
 									<div
-										class="avatar-status d-none d-sm-flex status-online me-3 flex-shrink-0 avatar">
+										class="d-none d-sm-flex me-3 flex-shrink-0 avatar">
 										<c:choose>
 											<c:when test="${empty item.uuidFileName}">
 												<img style="width: 100%; height: 100%;"
@@ -398,7 +473,8 @@ p, dt {
 									</div>
 									<div>
 										<h5 class="mb-0 flex-grow-1">
-																<c:out value="${vo.hycrSeq}" /> 번 채팅방
+																<c:out value="${vo.hycrSeq}" /> . <c:out value="${vo.hymmName}" /> ,
+																<c:out value="${sessName}" /> 채팅방
 															</h5>
 
 									</div>

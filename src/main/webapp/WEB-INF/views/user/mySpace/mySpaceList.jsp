@@ -162,18 +162,18 @@ body {
 													<br> <br>
 													<!-- Split dropdown user button -->
 													<div class="btn-group">
-														<a
-															href="javascript:goSpace(<c:out value="${item.hyspSeq}"/>);">
+														<a href="javascript:goSpace(<c:out value="${item.hyspSeq}"/>);">
 															<button type="button" class="btn btn-gray">
 																<c:if test="${item.hysmRoleCd eq 12}">
-																	<i class="fe-1x me-2" data-feather="award"></i>
+																	<i class="fe-1x me-2" data-feather="award" style="color: #DE9627;"></i>
 																</c:if>
 																GO
 															</button>
 														</a>
+														</div>
 														<c:if test="${item.hysmRoleCd eq 12}">
 															<button type="button"
-																class="btn btn-gray dropdown-toggle-split rounded-end"
+																class="btn btn-gray dropdown-toggle-split rounded"
 																data-bs-toggle="dropdown" aria-expanded="false">
 																<i class="fe-1x" data-feather="more-vertical"></i>
 															</button>
@@ -187,7 +187,7 @@ body {
 																		스페이스 삭제 </a></li>
 															</ul>
 														</c:if>
-													</div>
+													
 												</div>
 											</div>
 										</div>

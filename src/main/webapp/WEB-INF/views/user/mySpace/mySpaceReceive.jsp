@@ -55,42 +55,32 @@ body {
 </style>
 
 <body>
-	<form id="Receive" name="Receive" method="post"
-		action="/mySpace/mySpaceReceive">
-		<input type="hidden" id="hyspSeq" name="hyspSeq"
-			value="<c:out value="${item.hyspSeq}"/>"> <input
-			type="hidden" id="hysmSeq" name="hysmSeq"
-			value="<c:out value="${item.hysmSeq}"/>">
+	<form id="Receive" name="Receive" method="post">
+		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+		<input type="hidden" id="hysmSeq" name="hysmSeq" value="<c:out value="${item.hysmSeq}"/>">
 		<!--//page-header//-->
 		<header class="navbar py-0 page-header navbar-expand navbar-light">
 
 			<ul class="navbar-nav d-flex align-items-center h-100">
-				<li
-					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-					href="/mySpace/mySpaceList"
-					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+				<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
+				<a href="/mySpace/mySpaceList" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 						<i data-feather="arrow-left" class="fe-1x"></i>
 				</a></li>
 
 			</ul>
 
 			<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
-				<li
-					class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
-					<div
-						class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
-						<a href="#" class="mode_dark text-reset p-0"> <i
-							data-feather="sun" class="fe-1x"></i>
-						</a> <a href="#" class="mode_light text-reset p-0"> <i
-							data-feather="moon" class="fe-1x"></i>
-						</a>
+				<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+					<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+						<a href="#" class="mode_dark text-reset p-0">
+						<i data-feather="sun" class="fe-1x"></i> </a>
+						<a href="#" class="mode_light text-reset p-0">
+						<i data-feather="moon" class="fe-1x"></i></a>
 					</div>
 				</li>
 
-				<li
-					class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-					href="javascript:logOut();"
-					class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+				<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
+				<a href="javascript:logOut();" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 						<i data-feather="log-out" class="fe-1x"></i>
 				</a></li>
 			</ul>
@@ -103,15 +93,13 @@ body {
 			<div class="page d-flex flex-row flex-column-fluid">
 
 				<!--///////////Page content wrapper///////////////-->
-				<main
-					class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+				<main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
 
 					<div class="container-fluid px-0">
 
 						<div class="row mySpaceZone">
 							<div style="text-align: center;">
-								<img src="/resources/user/images/newJoinUs.PNG" alt="..."
-									width="600px">
+								<img src="/resources/user/images/newJoinUs.PNG" alt="..." width="600px">
 							</div>
 
 
@@ -133,7 +121,7 @@ body {
 										</h5>
 										<br>
 										<h5>
-											최고의 팀 '
+											최고의 스페이스 '
 											<c:out value="${item.hyspName}" />
 											'으로부터 초대되었습니다.
 										</h5>
@@ -152,14 +140,12 @@ body {
 										
 										<!-- Title -->
 										<h5 class="mb-0">
-											<a href="#!" class="text-reset"> <c:out
-													value="${item.hyspName}" />
+											<a href="#!" class="text-reset">
+											<c:out value="${item.hyspName}" />
 											</a>
 										</h5>
 
-										<small> 현재 멤버수 : <c:out value="${vo.totalMembers}" />
-											명
-										</small>
+										<small> 현재 멤버수 : <c:out value="${vo.totalMembers}" /> 명 </small>
 
 										<!-- Email -->
 										<br> <br>

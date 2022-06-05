@@ -252,13 +252,6 @@ p, dt {
 								class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 									<i data-feather="chevrons-left" class="fe-1x"></i>
 							</a></li>
-							<li
-								class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
-								<a href="/chat/chatPlus"
-								class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
-									<i data-feather="plus" class="fe-1x"></i>
-							</a>
-							</li>
 						</ul>
 						<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
 							<li
@@ -281,7 +274,7 @@ p, dt {
 									<div class="d-flex align-items-center">
 
 										<!--Avatar with status-->
-										<div class="avatar-status status-online me-sm-2 avatar xs">
+										<div class="me-sm-2 avatar xs">
 											<c:choose>
 												<c:when test="${empty uuidFileName}">
 													<img style="width: 100%; height: 100%;"
@@ -352,23 +345,15 @@ p, dt {
 					</header>
 					<!--Main Header End-->
 					<!--//Page content//-->
-					<div class="px-12 px-lg-12">
-						<!--Content-wrapper-overlay when sidebar open for 768px down width-->
-						<div class="content-wrapper-overlay"></div>
-						<!--Content-sidebar-->
-						<div class="content-left border-end">
-							<div
-								class="content-sidebar card rounded-0 align-items-stretch h-100"
-								id="content-sidebar">
-								<!--content-sidebar-body-->
-								<div class="content-sidebar-body p-0 card-body">
-									<div class="list-group list-group-flush mb-0">
-										<div class="list-group list-group-flush mb-0">
+					<div class="px-4 px-lg-8">
+					
+							
+									<div class="card list-group mb-0">
+							
 											<c:forEach items="${list}" var="item" varStatus="status">
 												<!--Chat User-->
-												<a
-													href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
-													class="list-group-item align-items-center border-0 list-group-item-action px-3 d-flex py-3">
+												<a href="javascript:goRoom(<c:out value="${item.hycrSeq}"/>);"
+													class="list-group-item align-items-center list-group-item-action px-3 d-flex py-3">
 													<div class="flex-shrink-0">
 														<div class="me-3 avatar">
 															<c:choose>
@@ -388,7 +373,7 @@ p, dt {
 													<div class="overflow-hidden flex-grow-1">
 														<div class="d-flex">
 															<h6 class="mb-0 flex-grow-1">
-																<%-- <c:out value="${item.hymmName}" />,<c:out value="${sessName}" /> --%><c:out value="${item.hycrSeq}" /> 채팅방
+																<%-- <c:out value="${item.hymmName}" />,<c:out value="${sessName}" /> --%><c:out value="${item.hycrSeq}" /> . <c:out value="${item.hymmName}" />, <c:out value="${sessName}" /> 채팅방
 															</h6>
 															<small class="opacity-75 ms-auto small"> <%-- <c:choose>
 															<c:when test="${item.hymmSeq eq sessSeq}">
@@ -404,14 +389,9 @@ p, dt {
 												</a>
 											</c:forEach>
 
-										</div>
 
 									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
+				
 					<!--//Page content End//-->
 				</main>
 				<!--///////////Page content wrapper End///////////////-->

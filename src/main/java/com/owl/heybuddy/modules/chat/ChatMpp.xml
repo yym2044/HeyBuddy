@@ -11,9 +11,9 @@
 		SELECT count(*)  FROM hybdChatRoom a
 		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		WHERE b.hymmSeq IN (#{hymmSeq}, #{hycmChatMaker})
-		AND c.hyspSeq = #{hyspSeq}
-		AND b.hymmSeq = #{hymmSeq}
+		WHERE 1 = 1
+		AND (hymmSeq , hycmChatMaker) = (#{hycmChatMaker}, #{hymmSeq})
+		OR (hymmSeq , hycmChatMaker) = (#{hymmSeq}, #{hycmChatMaker})
         
 
 	</select>
@@ -23,9 +23,9 @@
 		SELECT distinct (a.hycrSeq) FROM hybdChatRoom a
 		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		WHERE b.hymmSeq IN (#{hymmSeq}, #{hycmChatMaker})
-		AND c.hyspSeq = #{hyspSeq}
-		AND b.hymmSeq = #{hymmSeq}
+		WHERE 1 = 1
+		AND (hymmSeq , hycmChatMaker) = (#{hycmChatMaker}, #{hymmSeq})
+		OR (hymmSeq , hycmChatMaker) = (#{hymmSeq}, #{hycmChatMaker})
 
 	</select>
 
@@ -34,23 +34,18 @@
 
 		SELECT
 		a.hycrSeq
-		, a.hycrDelNy
-		, a.hycrName
-		, b.hycmSeq
-		, b.hymmSeq
-		, c.hymmName
+		, d.hymmName
 
 		FROM
 		hybdChatRoom a
 		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace d on d.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMember d on d.hymmSeq = b.hymmSeq
 
 		WHERE 1=1
-		AND d.hyspSeq = #{hyspSeq}
-		AND a.hycrDelNy = 0
-		AND b.hycmChatMaker = #{hymmSeq}
-		
+		AND b.hymmSeq = #{hymmSeq}
+		AND c.hyspSeq = #{hyspSeq}
+
 	</select>
 
 	<insert id="insertChatRoom">
@@ -80,10 +75,12 @@
 		hycmDelNy
 		, hycrSeq
 		, hymmSeq
+		, hycmChatMaker
 		) VALUES (
 		0
 		, #{hycrSeq}
 		, #{hymmSeq}
+		, #{hycmChatMaker}
 		)
 
 		<selectKey resultType="String" keyProperty="hycmSeq"

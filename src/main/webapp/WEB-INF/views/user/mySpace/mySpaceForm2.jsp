@@ -142,7 +142,7 @@ body {
 										</h2>
 										<h1>
 											<i class="fe-1x me-2" data-feather="award"
-												style="width: 35px; height: 35px; color: #FFB900;"></i>
+												style="width: 35px; height: 35px; color: #DE9627;"></i>
 											<c:out value="${vo.hymmName}" />
 											님
 										</h1>

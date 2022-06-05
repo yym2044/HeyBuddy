@@ -61,9 +61,11 @@
 
 <body>
 	<form id="memberList" name="memberList" method="post">
-		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
-		<input type="hidden" id="hymmSeq" name="hymmSeq">
-		<input type="hidden" id="hymmName" name="hymmName" value="<c:out value="${item.hymmName}"/>">
+		<input type="hidden" id="hyspSeq" name="hyspSeq"
+			value="<c:out value="${item.hyspSeq}"/>"> <input
+			type="hidden" id="hymmSeq" name="hymmSeq"> <input
+			type="hidden" id="hymmName" name="hymmName"
+			value="<c:out value="${item.hymmName}"/>">
 
 		<%@include file="../include/loader.jsp"%>
 
@@ -89,7 +91,7 @@
 							<!--Search result nav-->
 
 							<!--Search results list-->
-							<div class="list-group mb-4">
+							<div class="card list-group mb-4">
 								<div class="list-group-item p-4">
 									<h5 class="text-muted">
 										About <span style="color: #119C8D;"><c:out
@@ -119,19 +121,20 @@
 
 											<div class="ps-3 flex-grow-1 overflow-hidden">
 												<span class="fw-semibold d-block mb-1 text-truncate"></span>
+												<c:choose>
+													<c:when test="${item.hymmSeq eq sessSeq}">
 
-												<h5 class="mb-1 text-truncate">
-													<c:out value="${item.hymmName}" />
-													<c:choose>
-														<c:when test="${item.hymmSeq eq sessSeq}">
-															<span class="badge rounded-pill bg-primary">ME</span>
-														</c:when>
-														<c:otherwise>
-
-														</c:otherwise>
-													</c:choose>
-												</h5>
-
+														<h5 class="mb-1 text-truncate">
+															&nbsp&nbsp&nbsp&nbsp<c:out value="${item.hymmName}" />
+															&nbsp<span class="badge rounded-pill bg-primary">ME</span>&nbsp
+														</h5>
+													</c:when>
+													<c:otherwise>
+														<h5 class="mb-1 text-truncate">
+															&nbsp&nbsp&nbsp&nbsp<c:out value="${item.hymmName}" />&nbsp
+														</h5>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</div>
 									</a>
@@ -193,11 +196,10 @@
 	</script>
 	<script type="text/javascript">
 		goChat = function(seq) {
-				$("#hymmSeq").val(seq);
-				$("#memberList").attr("action", "/chat/chatInst");
-				$("#memberList").submit();
-			}
-
+			$("#hymmSeq").val(seq);
+			$("#memberList").attr("action", "/chat/chatInst");
+			$("#memberList").submit();
+		}
 	</script>
 </body>
 

@@ -26,11 +26,11 @@ public class ChatController {
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-
+		vo.setHymmName(vo.getHymmName());
+		vo.setHycrSeq(vo.getHycrSeq());
+		
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
-
-		vo.setHycrSeq(vo.getHycrSeq());
 
 		return "user/chat/chat";
 	}
@@ -41,7 +41,7 @@ public class ChatController {
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-
+	
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 
@@ -55,6 +55,8 @@ public class ChatController {
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmSeq(vo.getHymmSeq());
+		vo.setHymmName(vo.getHymmName());
+		
 		int rtChat = service.selectOneCheck(vo);
 
 		if (rtChat != 0) {
@@ -73,11 +75,13 @@ public class ChatController {
 			dto.setHymmName(vo.getHymmName());
 			service.insertChatRoom(dto);
 
+			dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 			dto.setHymmSeq(vo.getHymmSeq());
 			dto.setHycrSeq(dto.getHycrSeq());
 			service.insertChatMember(dto);
 
 			dto.setHycrSeq(dto.getHycrSeq());
+			dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 			dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 			service.insertChatMember2(dto);
 

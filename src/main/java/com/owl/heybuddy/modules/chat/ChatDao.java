@@ -31,6 +31,14 @@ public class ChatDao {
 		return sqlSession.selectList(namespace + ".selectListChatMember", vo); // 채팅멤버
 	}
 
+	public List<Chat> selectListChatMember2(ChatVo vo) {
+		return sqlSession.selectList(namespace + ".selectListChatMember2", vo); // 채팅멤버리스트
+	}
+
+	public List<Chat> selectListMember(ChatVo vo) {
+		return sqlSession.selectList(namespace + ".selectListMember", vo); // 스페이스멤버
+	}
+
 	public Chat selectOneChatRoom(ChatVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneChatRoom", vo); // 채팅룸선택
 	}

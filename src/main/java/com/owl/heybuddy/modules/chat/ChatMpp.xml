@@ -6,6 +6,21 @@
 
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
 
+	<select id="selectListMember" resultMap="resultMapObj">
+		
+		SELECT
+		c.hymmSeq
+		,c.hymmName
+		
+		FROM hybdSpaceMember AS a
+		LEFT JOIN hybdSpace AS b ON a.hyspSeq= b.hyspSeq
+        LEFT JOIN hybdMember AS c ON c.hymmSeq = a.hymmSeq
+		WHERE 1 = 1
+        AND b.hyspSeq = #{hyspSeq}
+        AND a.hysmAcceptedNy = 1
+        
+	</select>
+
 	<select id="selectOneCheck" resultType="Integer">
 
 		SELECT count(*)  FROM hybdChatRoom a
@@ -45,6 +60,22 @@
 		WHERE 1=1
 		AND b.hymmSeq = #{hymmSeq}
 		AND c.hyspSeq = #{hyspSeq}
+		GROUP BY a.hycrSeq
+
+	</select>
+
+	<select id="selectListChatMember2" resultMap="resultMapObj">
+
+	SELECT 
+	a.hymmName
+	, b.hycrSeq
+	FROM hybdMember a
+	LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
+	LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
+
+	WHERE 1=1
+	AND c.hycrSeq = #{hycrSeq}
+
 
 	</select>
 

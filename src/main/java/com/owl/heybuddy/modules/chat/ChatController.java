@@ -28,24 +28,32 @@ public class ChatController {
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmName(vo.getHymmName());
 		vo.setHycrSeq(vo.getHycrSeq());
-		
+
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 
+		List<Chat> selectListMember = service.selectListMember(vo);
+		model.addAttribute("selectListMember", selectListMember);
+
+		List<Chat> chatList = service.selectListChatMember2(vo);
+		model.addAttribute("chatList", chatList);
+		
 		return "user/chat/chat";
 	}
 
-	@RequestMapping(value = "/chat/chatPlus")
-	public String chatPlus(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)
+	@RequestMapping(value = "/chat/chatPlusMember")
+	public String chatPlusMember(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession, RedirectAttributes redirectAttributes)
 			throws Exception {
 
-		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-	
-		List<Chat> list = service.selectListChatRoom(vo);
-		model.addAttribute("list", list);
+		dto.setHycmChatMaker(vo.getHycmChatMaker());
+		dto.setHymmSeq(dto.getHymmSeq());
+		dto.setHycrSeq(vo.getHycrSeq());
+		service.insertChatMember(dto);
 
-		return "user/chat/chatPlus";
+		vo.setHycrSeq(vo.getHycrSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/chat/chat";
 	}
 
 	@RequestMapping(value = "/chat/chatInst")
@@ -56,7 +64,7 @@ public class ChatController {
 		vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmSeq(vo.getHymmSeq());
 		vo.setHymmName(vo.getHymmName());
-		
+
 		int rtChat = service.selectOneCheck(vo);
 
 		if (rtChat != 0) {
@@ -138,7 +146,7 @@ public class ChatController {
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-
+		
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 

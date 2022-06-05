@@ -65,11 +65,13 @@ body {
 
 <body>
 	<form id="mySpaceList" name="mySpaceList" method="post" action="/mySpace/mySpaceList">
-		<input type="hidden" id="hyspSeq" name="hyspSeq"> <input
-			type="hidden" id="hymmSeq" name="hymmSeq"> <input
-			type="hidden" id="hymmName" name="hymmName"> <input
-			type="hidden" id="hysmHost" name="hysmHost">
-		<header class="navbar py-0 page-header navbar-expand navbar-light">
+		<input type="hidden" id="hyspSeq" name="hyspSeq">
+		<input type="hidden" id="hymmSeq" name="hymmSeq">
+		<input type="hidden" id="hymmName" name="hymmName">
+		<input type="hidden" id="hysmHost" name="hysmHost">
+
+	
+	<header class="navbar py-0 page-header navbar-expand navbar-light">
 
 			<ul class="navbar-nav d-flex align-items-center h-100">
 

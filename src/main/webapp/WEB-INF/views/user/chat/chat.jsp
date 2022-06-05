@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,36 +15,31 @@
 <title>hey, Buddy!</title>
 
 <!--Bootstrap icons-->
-<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 
 <!--Simplebar css-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/choices.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
 <!--dropzone-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/dropzone.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/dropzone.min.css">
 
 <!--Main style-->
-<link rel="stylesheet" href="/resources/assets/css/style.min.css"
-	id="switchThemeStyle">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 
 </head>
 
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
+
 <style>
+
 html {
 	height: 100%
 }
@@ -234,10 +228,16 @@ p, dt {
 	margin-right: auto;
 }
 </style>
+
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
+
 <body>
-<form id="chatForm" name="chatForm" method="post" class="chat-form rounded-pill" data-emoji-form="">
+
+<form id="chatForm" name="chatForm" method="post" class="chat-form rounded-pill" data-emoji-form="" enctype="multipart/form-data" action="/chat/chatPlusMember">
 <input type="hidden" id="hycrSeq" name="hycrSeq" value="<c:out value="${vo.hycrSeq}"/>">
+<input type="hidden" id="hycmChatMaker" name="hycmChatMaker" value="<c:out value="${vo.hycmChatMaker}"/>">
+<input type="hidden" id="hymmSeq" name="hymmSeq">
+	
 	<%@include file="../include/loader.jsp"%>
 
 	<!--App Start-->
@@ -251,159 +251,60 @@ p, dt {
 			<main class="page-content d-flex flex-column flex-row-fluid">
 
 				<!--//page-header//-->
-				<header
-					class="navbar py-0 page-header navbar-expand navbar-light px-4 px-lg-8">
+				<header class="navbar py-0 page-header navbar-expand navbar-light px-4 px-lg-8">
 	
 					<ul class="navbar-nav d-flex align-items-center h-100">
-						<li
-							class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center"><a
-							href="javascript:void(0)"
-							class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+						<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
+							<a href="javascript:void(0)" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 								<i data-feather="chevrons-left" class="fe-1x"></i>
 						</a></li>
-						<li
-							class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
-							<a href="/chat/chatRoom"
-							class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
+						<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
+							<a href="/chat/chatRoom" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0">
 								<i data-feather="arrow-left" class="fe-1x"></i>
 						</a>
 						</li>
-						<li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center">
-							<button type="button" class="sidebar-trigger nav-link size-35 d-flex align-items-center justify-content-center p-0" data-bs-toggle="modal" data-bs-target="modalPlusMember">
-								<i data-feather="plus" class="fe-1x"></i>
-						</button>
-						</li>
 					</ul>
 					
-					<!-- Member Modal Start -->
-<div class="modal fade" id="modalPlusMember" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content border-0">
-
-			<div class="card">
-
-				<!--Card body-->
-				<div class="card-body">
-					<!--Contact-->
-					<div class="text-center">
-
-						<!-- Avatar -->
-						<a class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
-							<img id="modalAvatar" src="" alt="..." class="img-fluid rounded-circle">
-						</a>
-						<!-- Title -->
-						<h5 class="mb-0">
-							<a id="modalName" class="text-reset"></a>
-						</h5>
-
-						<!-- Email -->
-						<p class="small text-muted mb-0">
-							<a id="modalEmail" class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">no registered email.</a>
-						</p>
-
-						<!-- Phone -->
-						<p class="small text-muted mb-3">
-							<a id="modalNumber" class="d-block text-reset text-truncate" href="#">no registered number.</a>
-						</p>
-
-
-						<!-- Split dropdown user button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-outline-gray text-body">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
-									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-								Send Message
-							</button>
-							<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
-									<circle cx="12" cy="12" r="1"></circle>
-									<circle cx="12" cy="5" r="1"></circle>
-									<circle cx="12" cy="19" r="1"></circle></svg>
-							</button>
-							<ul class="dropdown-menu dropdown-menu-end" style="">
-								<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
-											<circle cx="12" cy="12" r="10"></circle>
-											<line x1="12" y1="16" x2="12" y2="12"></line>
-											<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-										View detail
-									</a></li>
-								<li><a class="dropdown-item" href="#">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
-											<circle cx="12" cy="12" r="10"></circle>
-											<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-										Block contact
-									</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--Modal Member End-->
-
 					<ul class="navbar-nav ms-auto d-flex align-items-center h-100">
-						<li
-							class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
-							<div
-								class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
-								<a href="#" class="mode_dark text-reset p-0"> <i
-									data-feather="sun" class="fe-1x"></i>
-								</a> <a href="#" class="mode_light text-reset p-0"> <i
-									data-feather="moon" class="fe-1x"></i>
+						<li class="nav-item d-flex align-items-center justify-content-center flex-column h-100 me-2">
+							<div class="switch_modes nav-link p-0 size-35 d-flex align-items-center justify-content-center">
+								<a href="#" class="mode_dark text-reset p-0">
+									<i data-feather="sun" class="fe-1x"></i>
+								</a>
+								<a href="#" class="mode_light text-reset p-0">
+									<i data-feather="moon" class="fe-1x"></i>
 								</a>
 							</div>
 						</li>
-						<li
-							class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100"><a
-							href="#"
-							class="nav-link dropdown-toggle height-35 px-2 d-flex align-items-center justify-content-center"
-							aria-expanded="false" data-bs-toggle="dropdown"
-							data-bs-auto-close="outside">
+						<li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100">
+							<a href="#" class="nav-link dropdown-toggle height-35 px-2 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
 								<div class="d-flex align-items-center">
 
 									<!--Avatar with status-->
 									<div class="me-sm-2 avatar xs">
 										<c:choose>
 											<c:when test="${empty uuidFileName}">
-												<img style="width: 100%; height: 100%;"
-													src="/resources/user/images/profileDefault.png"
-													class="rounded-circle img-fluid" alt="">
+												<img style="width: 100%; height: 100%;" src="/resources/user/images/profileDefault.png" class="rounded-circle img-fluid" alt="">
 											</c:when>
 											<c:otherwise>
-												<img style="width: 100%; height: 100%;"
-													src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>"
-													class="rounded-circle img-fluid" alt="">
+												<img style="width: 100%; height: 100%;" src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="rounded-circle img-fluid" alt="">
 											</c:otherwise>
 										</c:choose>
 									</div>
-									<span class="d-none d-md-inline-block"><c:out
-											value="${sessName}" /></span>
+									<span class="d-none d-md-inline-block">
+										<c:out value="${sessName}" /></span>
 								</div>
-						</a>
+							</a>
 
-							<div
-								class="dropdown-menu mt-0 p-0 dropdown-menu-end overflow-hidden">
+							<div class="dropdown-menu mt-0 p-0 dropdown-menu-end overflow-hidden">
 								<!--User meta-->
-								<div
-									class="position-relative overflow-hidden px-3 pt-4 pb-9 bg-gradient-primary text-white">
+								<div class="position-relative overflow-hidden px-3 pt-4 pb-9 bg-gradient-primary text-white">
 									<!--Divider-->
-									<svg style="transform: rotate(-180deg);"
-										preserveAspectRatio="none"
-										class="position-absolute start-0 bottom-0 w-100 dropdown-wave"
-										fill="currentColor" height="24" viewBox="0 0 1200 120"
-										xmlns="http://www.w3.org/2000/svg">
-                                <path
-											d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z"
-											opacity=".25" />
-                                <path
-											d="M0 0v15.81c13 21.11 27.64 41.05 47.69 56.24C99.41 111.27 165 111 224.58 91.58c31.15-10.15 60.09-26.07 89.67-39.8 40.92-19 84.73-46 130.83-49.67 36.26-2.85 70.9 9.42 98.6 31.56 31.77 25.39 62.32 62 103.63 73 40.44 10.79 81.35-6.69 119.13-24.28s75.16-39 116.92-43.05c59.73-5.85 113.28 22.88 168.9 38.84 30.2 8.66 59 6.17 87.09-7.5 22.43-10.89 48-26.93 60.65-49.24V0z"
-											opacity=".5" />
-                                <path
-											d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
-                              </svg>
+							<svg style="transform: rotate(-180deg);" preserveAspectRatio="none" class="position-absolute start-0 bottom-0 w-100 dropdown-wave" fill="currentColor" height="24" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z" opacity=".25" />
+                                <path d="M0 0v15.81c13 21.11 27.64 41.05 47.69 56.24C99.41 111.27 165 111 224.58 91.58c31.15-10.15 60.09-26.07 89.67-39.8 40.92-19 84.73-46 130.83-49.67 36.26-2.85 70.9 9.42 98.6 31.56 31.77 25.39 62.32 62 103.63 73 40.44 10.79 81.35-6.69 119.13-24.28s75.16-39 116.92-43.05c59.73-5.85 113.28 22.88 168.9 38.84 30.2 8.66 59 6.17 87.09-7.5 22.43-10.89 48-26.93 60.65-49.24V0z" opacity=".5" />
+                                <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
+                            </svg>
 									<div class="position-relative">
 										<h5 class="mb-1">
 											<c:out value="${sessName}" />
@@ -414,24 +315,24 @@ p, dt {
 									</div>
 								</div>
 								<div class="pt-2">
-									<a href="/user/myProfile2" class="dropdown-item"> <i
-										class="fe-1x me-3" data-feather="user"></i>Profile
-									</a> <a href="/user/myProfile" class="dropdown-item"> <i
-										class="fe-1x me-3" data-feather="tool"></i>Settings
+									<a href="/user/myProfile2" class="dropdown-item">
+										<i class="fe-1x me-3" data-feather="user"></i>Profile
+									</a>
+									<a href="/user/myProfile" class="dropdown-item">
+										<i class="fe-1x me-3" data-feather="tool"></i>Settings
 									</a>
 									<hr class="my-2">
-									<a href="javascript:logOut();"
-										class="dropdown-item d-flex align-items-center"> <i
-										class="fe-1x me-3" data-feather="log-out"></i> 로그아웃
+									<a href="javascript:logOut();" class="dropdown-item d-flex align-items-center">
+										<i class="fe-1x me-3" data-feather="log-out"></i> 로그아웃
 									</a>
 								</div>
-							</div></li>
-						<li
-							class="nav-item dropdown ms-2 d-flex d-lg-none align-items-center justify-content-center flex-column h-100"><a
-							href="javascript:void(0)"
-							class="nav-link sidebar-trigger-lg-down size-35 p-0 d-flex align-items-center justify-content-center">
+							</div>
+						</li>
+						<li class="nav-item dropdown ms-2 d-flex d-lg-none align-items-center justify-content-center flex-column h-100">
+							<a href="javascript:void(0)" class="nav-link sidebar-trigger-lg-down size-35 p-0 d-flex align-items-center justify-content-center">
 								<i data-feather="menu" class="fe-2x"></i>
-						</a></li>
+							</a>
+						</li>
 					</ul>
 				</header>
 				<!--Main Header End-->
@@ -472,10 +373,9 @@ p, dt {
 										</c:choose>
 									</div>
 									<div>
+									
 										<h5 class="mb-0 flex-grow-1">
-																<c:out value="${vo.hycrSeq}" /> . <c:out value="${vo.hymmName}" /> ,
-																<c:out value="${sessName}" /> 채팅방
-															</h5>
+										<c:out value="${vo.hycrSeq}" /> / <c:forEach items="${chatList}" var="item" varStatus="status"><c:out value="${item.hymmName}" /> / </c:forEach> 채팅방</h5>
 
 									</div>
 								</div>
@@ -492,11 +392,12 @@ p, dt {
 											class="fe-1x"></i>
 										</a>
 										<div class="dropdown-menu dropdown-menu-end mt-1">
-											<a href="#!.html" class="dropdown-item"><i
-												data-feather="user" class="fe-1x me-2 opacity-50"></i>Sender's
-												profile</a><a href="javascript:goOut();" class="dropdown-item"><i
-												data-feather="trash-2" class="fe-1x me-2 opacity-50"></i>Delete
-												Chat</a>
+											<a href="#!.html" class="dropdown-item">
+											<i data-feather="user" class="fe-1x me-2 opacity-50"></i> Sender's profile </a>
+											<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalPlusMember">
+											<i class="fe-1x me-2 opacity-50" data-feather="user-plus"></i> Member Plus </a>
+											<a href="javascript:goOut();" class="dropdown-item">
+											<i data-feather="trash-2" class="fe-1x me-2 opacity-50"></i>Delete Chat</a>
 										</div>
 									</div>
 								</div>
@@ -573,6 +474,43 @@ p, dt {
 			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+
+
+					<!-- Member Modal Start -->
+<div class="modal fade" id="modalPlusMember" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content border-0">
+
+			<div class="card">
+
+				<!--Card body-->
+				<div class="card-body">
+					<!--Contact-->
+					<div class="text-center">
+							<div class="form-control mb-3">
+									<div class="card card-body">
+										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hyplMemberName" name="hyplMemberName">
+											<c:forEach items="${selectListMember}" var="item" varStatus="status">
+												<option value="<c:out value="${item.hymmSeq}"/>"><c:out value="${item.hymmName}" />
+											</c:forEach>
+										</select>
+									</div>
+								</div>
+								
+						<!-- Split dropdown user button -->
+						<div class="btn-group">
+							<a href="javascript:goPlus(<c:out value="${item.hymmSeq}"/>);"><button type="submit" class="btn btn-outline-gray text-body">
+								<i class="fe-1x me-2 opacity-50" data-feather="plus"></i>
+								대화상대 초대
+							</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Modal Member End-->
 </form>
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -591,7 +529,14 @@ p, dt {
 		goOut = function() {
 			$("#chatForm").attr("action", "/chat/chatUelete");
 			$("#chatForm").submit();
-		}
+		};
+		
+		goPlus = function(seq) {
+			$("#hymmSeq").val(seq);
+			$("#chatForm").attr("action", "/chat/chatPlusMember");
+			$("#chatForm").submit();
+		};
+		
 	</script>
 
 	<script type="text/javascript">

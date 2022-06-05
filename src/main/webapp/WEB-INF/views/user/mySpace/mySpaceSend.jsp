@@ -49,9 +49,8 @@ body {
 	<form id="mySpaceSend" name="mySpaceSend" method="post"
 		action="/mySpace/mySpaceSend"
 		class="z-index-1 position-relative needs-validation" novalidate="">
-		<input type="hidden" id="hyspSeq" name="hyspSeq"
-			value="<c:out value="${vo.hyspSeq}"/>"> <input type="hidden"
-			id=hysmHost name="hysmHost" value="<c:out value="${vo.hysmHost}"/>">
+		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${vo.hyspSeq}"/>">
+		<input type="hidden" id=hysmHost name="hysmHost" value="<c:out value="${vo.hysmHost}"/>">
 		<!--//page-header//-->
 		<header class="navbar py-0 page-header navbar-expand navbar-light">
 

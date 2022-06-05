@@ -223,7 +223,7 @@
 								<input class="form-control mb-3" type="text" id="hyplDate1" name="hyplDate" <fmt:formatDate value="${hyplDate1}" pattern="yyyy-MM-dd HH:mm:ss"/> autocomplete="off">
 								<h6>종료일</h6>
 								<input class="form-control mb-3" type="text" id="hyplEndDate1" name="hyplEndDate" <fmt:formatDate value="${hyplEndDate1}" pattern="yyyy-MM-dd HH:mm:ss"/>  autocomplete="off">
-								</div>
+								</div><br>
 								<h5>👨‍👧‍👧공유된 멤버</h5>
 								<input class="form-control mb-3" type="text" id="hyplMemberName1" name="hyplMemberName" disabled>
 								<div class="form-control mb-3">

@@ -8,6 +8,9 @@ public class Member {
 
 
 
+	private String hycrSeq;
+	
+	
 	private String hymmSeq;
 	private Integer hymmAdminNy;
 	private Integer hymmDormancyNy;
@@ -75,6 +78,14 @@ public class Member {
 
 	public String getHymmSeq() {
 		return hymmSeq;
+	}
+
+	public String getHycrSeq() {
+		return hycrSeq;
+	}
+
+	public void setHycrSeq(String hycrSeq) {
+		this.hycrSeq = hycrSeq;
 	}
 
 	public void setHymmSeq(String hymmSeq) {

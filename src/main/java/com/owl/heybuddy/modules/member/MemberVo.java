@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MemberVo {
 
+	private String hycrSeq;
 	
 	// space
 	private String hyspSeq;
@@ -639,6 +640,14 @@ public class MemberVo {
 
 	public void setHysmSeq(String hysmSeq) {
 		this.hysmSeq = hysmSeq;
+	}
+
+	public String getHycrSeq() {
+		return hycrSeq;
+	}
+
+	public void setHycrSeq(String hycrSeq) {
+		this.hycrSeq = hycrSeq;
 	}
 	
 	

@@ -27,12 +27,20 @@ public class ChatDao {
 		return sqlSession.selectOne(namespace + ".selectOneCheck2", vo); // 채팅방체크2
 	}
 
+	public String selectOneCheck3(ChatVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCheck3", vo); // 채팅방체크3
+	}
+
 	public List<Chat> selectListChatMember(ChatVo vo) {
 		return sqlSession.selectList(namespace + ".selectListChatMember", vo); // 채팅멤버
 	}
 
 	public List<Chat> selectListChatMember2(ChatVo vo) {
 		return sqlSession.selectList(namespace + ".selectListChatMember2", vo); // 채팅멤버리스트
+	}
+
+	public int selectOneChatMember(ChatVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneChatMember", vo); // 채팅멤버수
 	}
 
 	public List<Chat> selectListMember(ChatVo vo) {

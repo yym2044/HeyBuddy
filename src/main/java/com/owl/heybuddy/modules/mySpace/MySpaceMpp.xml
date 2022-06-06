@@ -32,8 +32,7 @@
 		FROM hybdSpaceMember b
 		LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
-		LEFT JOIN hybdSpaceUploaded d on d.pseq = c.hyspSeq
-			AND d.defaultNy = 1
+		LEFT JOIN hybdSpaceUploaded d on d.pseq = c.hyspSeq AND d.defaultNy = 1
 		
 		WHERE 1=1 
 		AND b.hysmAcceptedNy = '1'
@@ -64,6 +63,7 @@
 	</select>
 
 	<select id="selectListSend" resultMap="resultMapObj">
+	
 		SELECT
 		a.hyspName
 		, b.hymmSeq
@@ -78,10 +78,12 @@
 		AND b.hysmHost = #{hymmSeq}
 		AND hyspDelNy = 0
 		ORDER BY hysmSeq DESC
+		
 	</select>
 
 
 	<select id="selectListMember" resultMap="resultMapObj">
+		
 		SELECT
 		hymmSeq
 		,hymmName
@@ -90,9 +92,11 @@
 		
 		WHERE 1=1
 		AND hymmSeq = #{hymmSeq}
+		
 	</select>
 
 	<select id="selectOneMember" resultMap="resultMapObj">
+	
 		SELECT
 		hymmSeq
 
@@ -101,6 +105,7 @@
 
 		WHERE 1=1
 		AND hymmName = #{hymmName}
+		
 	</select>
 
 
@@ -147,6 +152,7 @@
 	</select>
 	 -->
 	<select id="selectOneMySpace" resultMap="resultMapObj">
+	
 	SELECT 
 		a. hyspSeq 
 	    , a.hyspTypeCd 
@@ -162,6 +168,7 @@
 		b.pseq = a.hyspSeq AND b.defaultNy = 1 
 	WHERE 1=1 
 		AND a.hyspSeq = #{hyspSeq}
+		
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">

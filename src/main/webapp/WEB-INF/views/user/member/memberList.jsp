@@ -61,11 +61,10 @@
 
 <body>
 	<form id="memberList" name="memberList" method="post">
-		<input type="hidden" id="hyspSeq" name="hyspSeq"
-			value="<c:out value="${item.hyspSeq}"/>"> <input
-			type="hidden" id="hymmSeq" name="hymmSeq"> <input
-			type="hidden" id="hymmName" name="hymmName"
-			value="<c:out value="${item.hymmName}"/>">
+		<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${item.hyspSeq}"/>">
+		<input type="hidden" id="hymmSeq" name="hymmSeq">
+		<input type="hidden" id="hymmName" name="hymmName" value="<c:out value="${item.hymmName}"/>">
+		<input type="hidden" id="hycrSeq" name="hycrSeq">
 
 		<%@include file="../include/loader.jsp"%>
 

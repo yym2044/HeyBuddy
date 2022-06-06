@@ -236,7 +236,7 @@ p, dt {
 <form id="chatForm" name="chatForm" method="post" class="chat-form rounded-pill" data-emoji-form="" enctype="multipart/form-data" action="/chat/chatPlusMember">
 <input type="hidden" id="hycrSeq" name="hycrSeq" value="<c:out value="${vo.hycrSeq}"/>">
 <input type="hidden" id="hycmChatMaker" name="hycmChatMaker" value="<c:out value="${vo.hycmChatMaker}"/>">
-<input type="hidden" id="hymmSeq" name="hymmSeq">
+
 	
 	<%@include file="../include/loader.jsp"%>
 
@@ -489,7 +489,7 @@ p, dt {
 					<div class="text-center">
 							<div class="form-control mb-3">
 									<div class="card card-body">
-										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hyplMemberName" name="hyplMemberName">
+										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hymmSeq" name="hymmSeq">
 											<c:forEach items="${selectListMember}" var="item" varStatus="status">
 												<option value="<c:out value="${item.hymmSeq}"/>"><c:out value="${item.hymmName}" />
 											</c:forEach>
@@ -499,7 +499,7 @@ p, dt {
 								
 						<!-- Split dropdown user button -->
 						<div class="btn-group">
-							<a href="javascript:goPlus(<c:out value="${item.hymmSeq}"/>);"><button type="submit" class="btn btn-outline-gray text-body">
+							<a href="javascript:goPlus();"><button type="submit" class="btn btn-outline-gray text-body">
 								<i class="fe-1x me-2 opacity-50" data-feather="plus"></i>
 								대화상대 초대
 							</button></a>
@@ -531,8 +531,7 @@ p, dt {
 			$("#chatForm").submit();
 		};
 		
-		goPlus = function(seq) {
-			$("#hymmSeq").val(seq);
+		goPlus = function() {
 			$("#chatForm").attr("action", "/chat/chatPlusMember");
 			$("#chatForm").submit();
 		};

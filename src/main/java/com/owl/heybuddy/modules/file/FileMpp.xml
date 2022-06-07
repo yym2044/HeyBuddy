@@ -2,65 +2,62 @@
 
 <!DOCTYPE mapper 
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.owl.heybuddy.modules.file.FileMpp"> <!-- 지금 파일 지정 -->
 
-	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.file.File"></resultMap> <!-- 결과 객체 저장 -->
- 
- 
-	<sql id="selectCommon"> <!-- 공통 -->
+	<resultMap id="resultMapObj"
+		type="com.owl.heybuddy.modules.file.File"></resultMap> <!-- 결과 객체 저장 -->
+
+
+<!-- 	<sql id="selectCommon"> 공통
 		from
 		hybdDocument a
-		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
+		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
-        LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
+		LEFT JOIN hybdMemberUploaded
+		d ON d.pseq = b.hymmSeq
+		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
 		where
-		a.hydcDelNy = 0 
+		a.hydcDelNy = 0
 		AND
 		a.hydcTempNy = 0
-		AND 
+		AND
 		c.hyspSeq = #{hyspSeq}
-		<!-- 기존 <if test="shHydcTitle != null and !shHydcTitle.equals('')"> AND hydcName LIKE concat('%',#{shHydcTitle},'%')</if> -->
-		OR a.hydcTitle LIKE concat('%',#{shHydcValue},'%')
-OR a.hydcText LIKE concat('%',#{shHydcValue},'%')
-OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
-OR d.originalFileName LIKE concat('%',#{shHydcValue},'%')
-<!-- 		<if test="shHydcTitle != null and !shHydcTitle.equals('')"> 
-		OR 
-		shHydcTitle LIKE concat('%',#{shHydcTitle},'%')
-		OR 
-		shHydcText LIKE concat('%',#{shHydcText},'%')
-		OR
-		shHymmName LIKE concat('%',#{shHymmName},'%')
-		</if>
-
-		<choose>
-			<when test="shHydcTitle!= null and !shHydcTitle.equals('')" > OR a.hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHydcText!= null and !shHydcText.equals('')" >OR a.hydcText LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHymmName!= null and !shHymmName.equals('')" >OR b.hymmName LIKE concat('%',#{shHydcValue},'%')</when>
-		</choose> -->
-		
-		<!-- 기존소스
-		 <choose>
-			<when test="shHydcOption == 1">AND a.hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHydcOption == 2">AND a.hydcText LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHydcOption == 3">AND b.hymmName LIKE concat('%',#{shHydcValue},'%')</when>
-			<when test="shHydcOption == 4">AND d.originalFileName LIKE concat('%',#{shHydcValue},'%')</when>
-		</choose> -->
-		ORDER BY 
+		ORDER BY
 		a.modDateTime DESC
-		limit  #{startRnumForMysql} , #{rowNumToShow}
-	</sql>
-	
+		limit #{startRnumForMysql} , #{rowNumToShow}
+	</sql> -->
+
 	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
 		select
 		count(*)
-		<include refid="selectCommon"/>
+		from
+		hybdDocument a
+		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMemberUploaded
+		d ON d.pseq = b.hymmSeq
+		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
+		where
+		a.hydcDelNy = 0
+		AND
+		a.hydcTempNy = 0
+		AND
+		c.hyspSeq = #{hyspSeq}
+		
+	<!-- 	a.hydcTitle LIKE concat('%',#{shHydcValue},'%')
+		OR a.hydcText LIKE concat('%',#{shHydcValue},'%')
+		OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
+		OR e.hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')
+	 -->
+		ORDER BY
+		a.modDateTime DESC
+		limit #{startRnumForMysql} , #{rowNumToShow}
+		<!-- <include refid="selectCommon" /> -->
 	</select>
 
-	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트-->
+	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트 -->
 		select
 		a.*
 		,b.hymmName
@@ -69,39 +66,56 @@ OR d.originalFileName LIKE concat('%',#{shHydcValue},'%')
 		,c.*
 		,d.*
 		,e.*
-		<include refid="selectCommon"/>
+		from
+		hybdDocument a
+		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
+		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
+		where
+		a.hydcDelNy = 0
+		AND
+		a.hydcTempNy = 0
+		AND
+		c.hyspSeq = #{hyspSeq}
+		ORDER BY
+		a.modDateTime DESC
+		limit #{startRnumForMysql} , #{rowNumToShow}
+	<!-- 	<include refid="selectCommon" /> -->
 	</select>
-			
+
 	<select id="selectListMemberInSpace" resultMap="resultMapObj">
 		SELECT
-			c.hymmSeq
-			,c.hymmName
-		FROM 
-			hybdSpaceMember AS a
+		c.hymmSeq
+		,c.hymmName
+		FROM
+		hybdSpaceMember AS a
 		LEFT JOIN hybdSpace AS b
-			ON a.hyspSeq= b.hyspSeq
-        LEFT JOIN hybdMember AS c
-        	ON c.hymmSeq = a.hymmSeq
-		WHERE	1 = 1
-        	AND a.hyspSeq = #{hyspSeq}
+		ON a.hyspSeq= b.hyspSeq
+		LEFT JOIN hybdMember AS c
+		ON c.hymmSeq = a.hymmSeq
+		WHERE 1 = 1
+		AND a.hyspSeq = #{hyspSeq}
 	</select>
-	
-	<select id="documentListTemp" resultMap="resultMapObj">  <!-- 임시저장문서리스트-->
+
+	<select id="documentListTemp" resultMap="resultMapObj">  <!-- 임시저장문서리스트 -->
 		select
 		*
 		from
 		hybdDocument a
-		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
+		LEFT JOIN hybdMember b on b.hymmSeq =
+		a.hymmSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
+		LEFT JOIN hybdFileUploaded e
+		ON e.pseq = a.hydcSeq
 		where
 		a.hydcDelNy = 0
 		and
 		a.hydcTempNy = 1
 	</select>
-	
 
- 	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
+
+	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select
 		a.*
 		,b.hymmName
@@ -112,15 +126,18 @@ OR d.originalFileName LIKE concat('%',#{shHydcValue},'%')
 		,d.hyflUuidFileName
 		from
 		hybdDocument a
-		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
-        LEFT JOIN hybdFileUploaded d ON d.hyflPseq = a.hydcSeq
+		LEFT JOIN hybdMember b ON
+		b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdMemberUploaded c ON c.pseq =
+		b.hymmSeq
+		LEFT JOIN hybdFileUploaded d ON d.hyflPseq = a.hydcSeq
 		where 1=1
-		and a.hydcDelNy = 0
+		and
+		a.hydcDelNy = 0
 		and a.hydcTempNy = 0
 		and a.hydcSeq = #{hydcSeq}
 	</select>
-	
+
 	<select id="documentViewTemp" resultMap="resultMapObj">   <!-- 임시저장문서뷰 셀렉원 -->
 		select
 		a.*
@@ -131,34 +148,35 @@ OR d.originalFileName LIKE concat('%',#{shHydcValue},'%')
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
-        LEFT JOIN hybdFileUploaded c ON c.hyflPseq = a.hymmSeq
+		LEFT JOIN hybdFileUploaded c ON c.hyflPseq = a.hymmSeq
 		where 1=1
-		and a.hydcDelNy = 0
+		and
+		a.hydcDelNy = 0
 		and a.hydcTempNy = 1
 		and a.hydcSeq = #{hydcSeq}
 	</select>
-	
-	
-		<select id="profileUploaded" resultMap = "resultMapObj"> <!-- 프로필뷰 -->
+
+
+	<select id="profileUploaded" resultMap="resultMapObj"> <!-- 프로필뷰 -->
 		SELECT
-			seq
-			, type 
-			, defaultNy
-			, sort
-			, originalFileName
-			, uuidFileName 
-			, ext
- 			, size  
-			, delNy
-			, pseq
-			, path
+		seq
+		, type
+		, defaultNy
+		, sort
+		, originalFileName
+		, uuidFileName
+		, ext
+		, size
+		, delNy
+		, pseq
+		, path
 		FROM
-			hybdMemberUploaded
+		hybdMemberUploaded
 		WHERE 1=1
-			AND pseq = #{hymmSeq}
+		AND pseq = #{hymmSeq}
 	</select>
-	
-	
+
+
 	<insert id="insertDocument">  <!-- 문서등록 -->
 		INSERT INTO hybdDocument(
 		hydcTitle
@@ -168,65 +186,66 @@ OR d.originalFileName LIKE concat('%',#{shHydcValue},'%')
 		,hydcDelNy
 		,regIp
 		,regSeq
-		,regDevice 
+		,regDevice
 		,regDateTime
 		,regDateTimeSvr
-		,modIp 
-		,modSeq 
+		,modIp
+		,modSeq
 		,modDevice
-		,modDateTime 
-		,modDateTimeSvr 
+		,modDateTime
+		,modDateTimeSvr
 		,hyspSeq
 		)
 		VALUES(
 		#{hydcTitle}
 		,#{hymmSeq}
-		,#{hydcText} 
+		,#{hydcText}
 		,0
 		,0
- 		,#{regIp}
+		,#{regIp}
 		,#{regSeq}
-		,#{regDevice} 
+		,#{regDevice}
 		,now()
 		,now()
- 		,#{modIp}
- 		,#{modSeq}
- 		,#{modDevice}
+		,#{modIp}
+		,#{modSeq}
+		,#{modDevice}
 		,now()
 		,now()
 		,#{hyspSeq}
 		)
-		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="hydcSeq"
+			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-</insert>
+	</insert>
 
 	<insert id="insertUploaded">  <!-- 파일등록 -->
 		INSERT INTO ${tableName}(
 		hyflDefaultNy
-		,hyflType 
+		,hyflType
 		,hyflSort
 		,hyflOriginalFileName
 		,hyflUuidFileName
 		,hyflExt
- 		,hyflSize 
+		,hyflSize
 		,hyflDelNy
 		,hyflPseq
 		,hyflPath
 		)
 		VALUES(
 		#{hyflDefaultNy}
-		,#{hyflType} 
+		,#{hyflType}
 		,#{hyflSort}
 		,#{hyflOriginalFileName}
 		,#{hyflUuidFileName}
 		,#{hyflExt}
-		,#{hyflSize} 
+		,#{hyflSize}
 		,0
 		,#{hyflPseq}
 		,#{hyflPath}
 		)
-</insert>
+	</insert>
 
 	<insert id="insertDocumentTemp">  <!--임시저장 문서등록 -->
 		INSERT INTO hybdDocument(
@@ -235,9 +254,7 @@ OR d.originalFileName LIKE concat('%',#{shHydcValue},'%')
 		,hydcText
 		,hydcTempNy
 		,hydcDelNy
-<!-- 		,regIp
-		,regSeq
-		,regDevice -->
+		<!-- ,regIp ,regSeq ,regDevice -->
 		,regDateTime
 		,regDateTimeSvr
 		,hyspSeq
@@ -245,90 +262,91 @@ OR d.originalFileName LIKE concat('%',#{shHydcValue},'%')
 		VALUES(
 		#{hydcTitle}
 		,#{hymmSeq}
-		,#{hydcText} 
+		,#{hydcText}
 		,1
 		,0
-<!-- 		,#{regIp}
-		,#{regSeq}
-		,#{regDevice} -->
+		<!-- ,#{regIp} ,#{regSeq} ,#{regDevice} -->
 		,now()
 		,now()
 		,#{hyspSeq}
 		)
-		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="hydcSeq"
+			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-</insert>
+	</insert>
 
 	<select id="selectOneSpace" resultMap="resultMapObj">
-	SELECT
+		SELECT
 		a.hyspSeq
 		, a.hyspName
 		, c.hymmSeq
 		, c.hymmName
-	FROM
+		FROM
 		hybdSpace a
-	LEFT JOIN
-		hybdSpaceMember b  
-	ON b.hyspSeq = a.hyspSeq
-	LEFT JOIN
+		LEFT JOIN
+		hybdSpaceMember b
+		ON b.hyspSeq = a.hyspSeq
+		LEFT JOIN
 		hybdMember c
-	ON c.hymmSeq = b.hymmSeq 
-	WHERE 1=1
+		ON c.hymmSeq = b.hymmSeq
+		WHERE 1=1
 		AND a.hyspSeq = #{hyspSeq}
 	</select>
- 
+
 	<update id="updateDocument">  <!-- 문서수정 or 임시저장등록할떄 -->
 		UPDATE hybdDocument SET
-		hydcTitle  =  #{hydcTitle}
-		,hydcText =  #{hydcText}
-		,hydcTempNy =  0
-		,modSeq =  #{hymmSeq}
-		,modDateTime =  now()
-		,modDateTimeSvr =  now()
+		hydcTitle = #{hydcTitle}
+		,hydcText = #{hydcText}
+		,hydcTempNy = 0
+		,modSeq = #{hymmSeq}
+		,modDateTime = now()
+		,modDateTimeSvr = now()
 		WHERE 1 = 1
 		AND hydcSeq = #{hydcSeq}
 	</update>
 
 
 	<update id="updateDeleteDocument">    <!-- 가짜삭제 -->
-	UPDATE hybdDocument SET 
-		hydcDelNy = 1 
+		UPDATE hybdDocument SET
+		hydcDelNy = 1
 		WHERE
 		hydcSeq= #{hydcSeq}
 	</update>
 
 	<select id="fileUploaded" resultMap="resultMapObj"> <!--파일뷰 -->
 		SELECT
-			hyflSeq
-			, hyflType 
-			, hyflDefaultNy
-			, hyflSort 
-			, hyflOriginalFileName
-			, hyflUuidFileName 
-			, hyflExt
-			, hyflSize 
-			, hyflDelNy
-			, hyflPseq
-			, hyflPath
+		hyflSeq
+		, hyflType
+		, hyflDefaultNy
+		, hyflSort
+		, hyflOriginalFileName
+		, hyflUuidFileName
+		, hyflExt
+		, hyflSize
+		, hyflDelNy
+		, hyflPseq
+		, hyflPath
 		FROM
-			hybdFileUploaded
+		hybdFileUploaded
 		WHERE 1=1
-			AND hyflPseq = #{hydcSeq}
+		AND hyflPseq = #{hydcSeq}
 	</select>
-	
+
 	<update id="updateUploaded"> <!--파일수정 -->
-	UPDATE
+		UPDATE
 		${tableName}
-	SET
+		SET
 		hyflOriginalFileName = #{hyflOriginalFileName}
-		, hyflUuidFileName = #{hyflUuidFileName}
+		, hyflUuidFileName =
+		#{hyflUuidFileName}
 		, hyflExt = #{hyflExt}
 		, hyflSize = #{hyflSize}
-		, hyflPath = #{hyflPath}
-	WHERE 1=1
+		,
+		hyflPath = #{hyflPath}
+		WHERE 1=1
 		AND hyflPseq = #{hyflPseq}
-		
+
 	</update>
-	
+
 </mapper>

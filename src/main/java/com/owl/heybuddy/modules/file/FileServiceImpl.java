@@ -51,7 +51,7 @@ public class FileServiceImpl implements FileService {
 		return dao.profileUploaded(vo);
 	}
 	@Override
-	public List<File> fileUploaded(List<FileVo> vo) throws Exception { //파일뷰
+	public List<File> fileUploaded(FileVo vo) throws Exception { //파일뷰
 		return dao.fileUploaded(vo);
 	}
 

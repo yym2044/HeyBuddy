@@ -45,10 +45,13 @@ public class FileController {
 		if (vo.getHyspSeq() == null) {
 			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		}
-
+		
 		List<File> selectListMember = service.selectListMemberInSpace(vo);
 		model.addAttribute("selectListMember", selectListMember);
-
+		
+		List<File> fileUploaded = service.fileUploaded(vo);  
+		model.addAttribute("fileUploaded", fileUploaded); 
+		
 		int count = service.selectOneCount(vo);
 		vo.setParamsPaging(count);
 		if (count != 0) {

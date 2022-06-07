@@ -296,7 +296,7 @@ pageContext.setAttribute("br", "\n");
 														<c:forEach items="${list}" var="fileUploaded" varStatus="status">
 
 															<!-- 이미지라면 -->
-															<c:if test="${item.type eq 0}">
+															<c:if test="${fileUploaded.type eq 0}">
 																<span class="d-block small text-body text-truncate">
 																	<c:out value="${fileUploaded.originalFileName}" />
 
@@ -319,6 +319,7 @@ pageContext.setAttribute("br", "\n");
 																		<button type="button" class="btn_close">Close</button>
 																	</div>
 																</div>
+																
 															</c:if>
 
 															<!-- pdf라면 -->

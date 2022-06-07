@@ -65,6 +65,7 @@
 		,b.hymmNumber
 		,c.*
 		,d.*
+		,e.*
 		<include refid="selectCommon"/>
 	</select>
 			

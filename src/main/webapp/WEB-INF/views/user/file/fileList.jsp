@@ -156,12 +156,12 @@
 						<div class="sticky-top top-0">
 							<!--Search form-->
 							<div class="pb-5">
-							
-							
+
+
 								<form class="position-relative">
-									
-				
-					<%-- 				<select class="form-select form-select" name="shHydcOption"
+
+
+									<%-- 				<select class="form-select form-select" name="shHydcOption"
 										id="shHydcOption" style="">
 										<option value="">검색구문
 											<option value="1"
@@ -174,12 +174,12 @@
 											<c:if test="${vo.shHydcOption eq 4 }"> selected</c:if>>파일명
 										
 									</select> --%>
-										
-										<input class="form-control form-control" type="text"
+
+									<input class="form-control form-control" type="text"
 										name="shHydcValue" id="shHydcValue" style="" value=""
 										placeholder=" 검색어를입력해주세요(제목,내욕,파일명,작성자)  UI공사중이에요~~">
-										 	<button class="btn btn-primary" type="submit" name="search"
-										id="btnSearch" style="display: none;"></button> 
+									<button class="btn btn-primary" type="submit" name="search"
+										id="btnSearch" style="display: none;"></button>
 								</form>
 							</div>
 						</div>
@@ -256,7 +256,7 @@
 																			<a href="#modalMember" data-bs-toggle="modal"> <c:out
 																					value="${item.hymmName}" />
 																			</a>
- 
+
 																			<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
 																		</div>
 																	</td>
@@ -265,18 +265,24 @@
 																		<p class="lh-sm text-truncate mb-0">
 																			<span class="fw-bolder me-2 me-lg-4"> <a
 																				href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
-																					<c:out value="${item.hydcTitle}" /> 
-																					</a>
-																		
-																		<c:if test="${item.type eq 1}">
-																				<i class="bi bi-paperclip"></i> <!--  파일이면클립아이콘 -->
-																		</c:if>
-																		<c:if test="${item.type eq 0}">
-																				<i class="bi bi-image-fill"></i> <!-- 사진이면이미지아이콘 -->
-																		</c:if>
-																		
+																					<c:out value="${item.hydcTitle}" />
+																			</a> <!-- 			이안에 파일 뽑아내는 리스트를 하나 더돌려야하는데 리스트속리스트를 돌리면 아이콘이 여러개생기는
+														현상이 발생하고...........	..............? 멤버사진테이블이랑 파일테이블이랑 컬럼명을 구분지어야하나?어카징? --> <c:forEach
+																					items="${list}" var="fileUploaded"
+																					varStatus="status">
+																					<c:if test="${item.type eq 1}">
+																						<i class="bi bi-paperclip"></i>
+																						<!--  파일이면클립아이콘 -->
+																					</c:if>
+																					<c:if test="${item.type eq 0}">
+																						<i class="bi bi-image-fill"></i>
+																						<!-- 사진이면이미지아이콘 -->
+																					</c:if>
+																				</c:forEach>
+
 																			</span>
 																		</p>
+
 																	</td>
 
 
@@ -284,19 +290,15 @@
 																			pattern="yyyy-MM-dd hh:mm"
 																			value="${item.regDateTime }" /></td>
 
-																										
-																		
-																	
 
 																</tr>
 															</tbody>
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>
-											</tbody>
 										</table>
 
-				<!--포스트 페이징과 버튼 -->
+										<!--포스트 페이징과 버튼 -->
 										<div class="row text-center" style="width: 100%">
 											<div style="width: 100%; float: none; margin: 0 auto">
 												<br> <br>
@@ -342,13 +344,13 @@
 									<div class="container-fluid px-0">
 										<span class="d-block lh-sm small text-muted text-end">
 											&copy; <script>
-                              document.write(new Date().getFullYear())
-                            </script> . Hey, Buddy All rights reserved.
+												document.write(new Date()
+														.getFullYear())
+											</script> . Hey, Buddy All rights reserved.
 										</span>
 									</div>
 								</footer>
 								<!--/.Page Footer End-->
-			
 			</main>
 			<!--///////////Page content wrapper End///////////////-->
 
@@ -358,95 +360,78 @@
 			<script src="/resources/assets/vendor/feather.min.js"></script>
 			<script src="/resources/assets/js/theme.bundle.js"></script>
 			<script>
-          feather.replace()
-        </script>
+				feather.replace()
+			</script>
 			<!--////////////Theme Core scripts End/////////////////-->
 
-			<!--Search email -->
+			<!--Search email//기본템플릿인데 나중에 활용해보기 -->
 			<script src="/resources/assets/vendor/list.min.js"></script>
 			<script>
-            var options = {
-  valueNames: [ 'name', 'label', ]
-};
- 
-var userList = new List('mailList', options);
-        </script>
- 
-			<!--Compose message editor-->
-			<script src="/resources/assets/vendor/quill.min.js"></script>
-			<script>
-    var initQuill = document.querySelectorAll("[data-quill]");
-    initQuill.forEach((qe) => {
-        const qt = {
-            ...(qe.dataset.quill ? JSON.parse(qe.dataset.quill) : {}),
-            modules: {
-                toolbar: [
-                [{ header: [1, 2, false] }],
-                    ["bold", "underline"],
-                    ["link", "image"]
-                ]
-            },
-            theme: "snow"
-        };
-        new Quill(qe, qt);
-    });
-</script>
+				var options = {
+					valueNames : [ 'name', 'label', ]
+				};
+
+				var userList = new List('mailList', options);
+			</script>
+
 
 			<script type="text/javascript">
-    	const sidebarLink = document.querySelectorAll('.Sidebar-link');
-    	console.log(sidebarLink);
-    	
-    	console.log(sidebarLink[4]);
-    	
-    	sidebarLink[4].className += ' current';
-    </script>
+				const sidebarLink = document.querySelectorAll('.Sidebar-link');
+				console.log(sidebarLink);
+
+				console.log(sidebarLink[4]);
+
+				sidebarLink[4].className += ' current';
+			</script>
 
 			<script type="text/javascript">
-		var seq = $("input:hidden[name=hydcSeq]");
-		
-		goFileList = function(seq) {
-			alert(seq);
-			$("#thisPage").val(seq);
-			$("#formList").submit();
-		};
-		
-		goFileView = function(hydcSeq, hymmSeq) {
-			alert(hymmSeq + "번 멤버가 올린 문서 " + hydcSeq + "번");
-			$("#hydcSeq").val(hydcSeq);
-			$("#hymmSeq").val(hymmSeq);
-			$("#formList").attr("action", "/file/fileView");
-			$("#formList").submit();
-		}; 
-		goFileForm = function(seq) {
-			$("#formList").attr("action", "/file/fileForm");
-			$("#formList").submit();
-		};
-		goFileListTemp = function() {
-			$("#formList").attr("action", "/file/fileListTemp");
-			$("#formList").submit();
-		};
-		goFileMultiNelete = function(seq) {
-			$("#formList").attr("action", "/file/fileMultiNele");
-			$("#formList").submit();
-		};
-		
-</script>
+				var seq = $("input:hidden[name=hydcSeq]");
+
+				goFileList = function(seq) {
+					alert(seq);
+					$("#thisPage").val(seq);
+					$("#formList").submit();
+				};
+
+				goFileView = function(hydcSeq, hymmSeq) {
+					alert(hymmSeq + "번 멤버가 올린 문서 " + hydcSeq + "번");
+					$("#hydcSeq").val(hydcSeq);
+					$("#hymmSeq").val(hymmSeq);
+					$("#formList").attr("action", "/file/fileView");
+					$("#formList").submit();
+				};
+				goFileForm = function(seq) {
+					$("#formList").attr("action", "/file/fileForm");
+					$("#formList").submit();
+				};
+				goFileListTemp = function() {
+					$("#formList").attr("action", "/file/fileListTemp");
+					$("#formList").submit();
+				};
+				goFileMultiNelete = function(seq) {
+					$("#formList").attr("action", "/file/fileMultiNele");
+					$("#formList").submit();
+				};
+			</script>
 
 
-											<script type="text/javascript">
-		$("#checkboxAll").click(function() {  //전체선택
-		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
-		else $("input[name=checkboxSeq]").prop("checked", false);
-		});
+			<script type="text/javascript">
+				$("#checkboxAll").click(function() { //전체선택
+					if ($("#checkboxAll").is(":checked"))
+						$("input[name=checkboxSeq]").prop("checked", true);
+					else
+						$("input[name=checkboxSeq]").prop("checked", false);
+				});
 
-		$("input[name=checkboxSeq]:checked").each(function() { 
-			var total = $("input[name=checkboxSeq]").length;
-			var checked = $("input[name=checkboxSeq]:checked").length;
-			if(total != checked) $("#checkboxAll").prop("checked", false);
-			else $("#checkboxAll").prop("checked", true);
-		});
-		</script>
-
-										</body>
+				$("input[name=checkboxSeq]:checked").each(function() {
+					var total = $("input[name=checkboxSeq]").length;
+					var checked = $("input[name=checkboxSeq]:checked").length;
+					if (total != checked)
+						$("#checkboxAll").prop("checked", false);
+					else
+						$("#checkboxAll").prop("checked", true);
+				});
+			</script>
+</body>
 
 </html>

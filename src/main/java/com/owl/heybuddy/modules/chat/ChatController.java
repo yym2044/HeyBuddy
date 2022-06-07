@@ -1,6 +1,5 @@
 package com.owl.heybuddy.modules.chat;
 
-import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
@@ -42,7 +41,7 @@ public class ChatController {
 	public String chatPlusMember(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession,
 			RedirectAttributes redirectAttributes) throws Exception {
 
-		dto.setHycmChatMaker(vo.getHycmChatMaker());
+		dto.setHycmChatMaker(dto.getHycmChatMaker());
 		dto.setHymmSeq(dto.getHymmSeq());
 		dto.setHycrSeq(vo.getHycrSeq());
 		service.insertChatMember(dto);
@@ -54,62 +53,17 @@ public class ChatController {
 	}
 
 	@RequestMapping(value = "/chat/chatInst")
-	public String chatInst(ChatVo vo, Chat dto, Model model, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+	public String chatInst(ChatVo vo, Chat dto, Model model, RedirectAttributes redirectAttributes,
+			HttpSession httpSession) throws Exception {
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 		vo.setHymmSeq(vo.getHymmSeq());
 		vo.setHymmName(vo.getHymmName());
 
-		int rtChat = service.selectOneCheck(vo);
-		
-		if (rtChat != 0) {
+		int rtChat = service.selectOneGroupCheckNum(vo);
 
-			if (rtChat == 1) {
-				vo.setHycrSeq(vo.getHycrSeq());
-				int rtChat4 = service.selectOneChatMember(vo);
-
-				if (rtChat4 > 2) {
-					
-					vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-					dto.setHymmSeq(vo.getHymmSeq());
-					dto.setHymmName(vo.getHymmName());
-					service.insertChatRoom(dto);
-
-					dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
-					dto.setHymmSeq(vo.getHymmSeq());
-					dto.setHycrSeq(dto.getHycrSeq());
-					service.insertChatMember(dto);
-
-					dto.setHycrSeq(dto.getHycrSeq());
-					dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
-					dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-					service.insertChatMember2(dto);
-
-					vo.setHycrSeq(dto.getHycrSeq());
-					
-				} else {
-					
-					vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-					vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
-					vo.setHymmSeq(vo.getHymmSeq());
-					Chat rtChat2 = service.selectOneCheck2(vo);
-					vo.setHycrSeq(rtChat2.getHycrSeq());	
-				}
-				
-			} else {
-				
-				vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-				vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
-				vo.setHymmSeq(vo.getHymmSeq());
-				String rtChat3 = service.selectOneCheck3(vo);
-				vo.setHycrSeq(rtChat3);
-				System.out.println("rtChat3.getHycrSeq():" + rtChat3);
-				
-			}
-
-			
-		} else {
+		if (rtChat == 0) {
 
 			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 			dto.setHymmSeq(vo.getHymmSeq());
@@ -128,12 +82,167 @@ public class ChatController {
 
 			vo.setHycrSeq(dto.getHycrSeq());
 
+		} else {
+
+			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+			vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+			vo.setHymmSeq(vo.getHymmSeq());
+			vo.setHymmName(vo.getHymmName());
+			
+			int rtChat2 = service.selectOneGroupCheckNum(vo);
+
+			if (rtChat2 == 1) {
+
+				vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+				vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+				vo.setHymmSeq(vo.getHymmSeq());
+				vo.setHymmName(vo.getHymmName());
+				
+				Chat rtChat5 = service.selectOneCheck2(vo);
+				vo.setHycrSeq(rtChat5.getHycrSeq());
+				
+				int rtChat3 = service.selectOneChatMember(vo);
+
+				if (rtChat3 > 2) {
+					
+					vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+					dto.setHymmSeq(vo.getHymmSeq());
+					dto.setHymmName(vo.getHymmName());
+					service.insertChatRoom(dto);
+
+					dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+					dto.setHymmSeq(vo.getHymmSeq());
+					dto.setHycrSeq(dto.getHycrSeq());
+					service.insertChatMember(dto);
+
+					dto.setHycrSeq(dto.getHycrSeq());
+					dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+					dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+					service.insertChatMember2(dto);
+
+					vo.setHycrSeq(dto.getHycrSeq());
+
+				} else if (rtChat3 == 2) {
+
+					vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+					vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+					vo.setHymmSeq(vo.getHymmSeq());
+
+					Chat rtChat4 = service.selectOneCheck2(vo);
+					vo.setHycrSeq(rtChat4.getHycrSeq());
+
+					service.selectOneCheck(vo);
+					vo.setHycrSeq(vo.getHycrSeq());
+
+				} else {
+					
+				}
+
+			} else if (rtChat2 == 2) {
+
+				vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+				vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+				vo.setHymmSeq(vo.getHymmSeq());
+				vo.setHycrSeq(vo.getHycrSeq());
+
+				Chat rtFinal = service.selectOneChat(vo);
+				vo.setHycrSeq(rtFinal.getHycrSeq());
+
+			} else {
+
+			}
+
 		}
 
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/chat/chat";
 
 	}
+	/*
+	 * vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+	 * vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+	 * vo.setHymmSeq(vo.getHymmSeq()); vo.setHymmName(vo.getHymmName());
+	 * 
+	 * int rtChat = service.selectOneCheck(vo); // 1 -> 그대로 출력 rtChat(채팅방존재여부확인)
+	 * rtChat2(시퀀스에따라채팅방조회) // rtChat3(최대시퀀스채팅룸가져오기) rtChat4(채팅방 멤버 수) // 2 -> 새로
+	 * 만들기
+	 * 
+	 * if (rtChat != 0) { // 채팅방 존재
+	 * 
+	 * 
+	 * 
+	 * if (rtChat == 1) {
+	 * 
+	 * vo.setHycrSeq(vo.getHycrSeq()); int rtChat4 =
+	 * service.selectOneChatMember(vo); vo.setHymmSeq(vo.getHymmSeq());
+	 * vo.setHymmName(vo.getHymmName());
+	 * 
+	 * if (rtChat4 > 2) {
+	 * 
+	 * vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+	 * dto.setHymmSeq(vo.getHymmSeq()); dto.setHymmName(vo.getHymmName());
+	 * service.insertChatRoom(dto);
+	 * 
+	 * dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+	 * dto.setHymmSeq(vo.getHymmSeq()); dto.setHycrSeq(dto.getHycrSeq());
+	 * service.insertChatMember(dto);
+	 * 
+	 * dto.setHycrSeq(dto.getHycrSeq()); dto.setHycmChatMaker((String)
+	 * httpSession.getAttribute("sessSeq")); dto.setHymmSeq((String)
+	 * httpSession.getAttribute("sessSeq")); service.insertChatMember2(dto);
+	 * 
+	 * vo.setHycrSeq(dto.getHycrSeq());
+	 * 
+	 * } else if (rtChat4 == 2) {
+	 * 
+	 * vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+	 * vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+	 * vo.setHymmSeq(vo.getHymmSeq()); vo.setHycrSeq(vo.getHycrSeq());
+	 * 
+	 * Chat rtChat2 = service.selectOneCheck2(vo);
+	 * vo.setHycrSeq(rtChat2.getHycrSeq());
+	 * 
+	 * } else {
+	 * 
+	 * }
+	 * 
+	 * } else if (rtChat == 2) {
+	 * 
+	 * vo.setHycrSeq(vo.getHycrSeq()); int rtChat4 =
+	 * service.selectOneChatMember(vo); vo.setHymmSeq(vo.getHymmSeq());
+	 * vo.setHymmName(vo.getHymmName()); vo.setHycrSeq(vo.getHycrSeq());
+	 * 
+	 * if (rtChat4 == 2) {
+	 * 
+	 * vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+	 * vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+	 * vo.setHymmSeq(vo.getHymmSeq()); String rtChat3 = service.selectOneCheck3(vo);
+	 * vo.setHycrSeq(rtChat3);
+	 * 
+	 * } else {
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * } else { // 조회된 채팅방 x - > 새로 생성
+	 * 
+	 * vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+	 * dto.setHymmSeq(vo.getHymmSeq()); dto.setHymmName(vo.getHymmName());
+	 * service.insertChatRoom(dto);
+	 * 
+	 * dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+	 * dto.setHymmSeq(vo.getHymmSeq()); dto.setHycrSeq(dto.getHycrSeq());
+	 * service.insertChatMember(dto);
+	 * 
+	 * dto.setHycrSeq(dto.getHycrSeq()); dto.setHycmChatMaker((String)
+	 * httpSession.getAttribute("sessSeq")); dto.setHymmSeq((String)
+	 * httpSession.getAttribute("sessSeq")); service.insertChatMember2(dto);
+	 * 
+	 * vo.setHycrSeq(dto.getHycrSeq());
+	 * 
+	 * }
+	 */
 
 	/*
 	 * @ResponseBody
@@ -181,7 +290,7 @@ public class ChatController {
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
-		
+
 		List<Chat> list = service.selectListChatRoom(vo);
 		model.addAttribute("list", list);
 

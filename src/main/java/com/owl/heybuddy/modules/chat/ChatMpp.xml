@@ -21,14 +21,75 @@
         
 	</select>
 
-	<select id="selectOneCheck" resultType="Integer">		<!-- 채팅방 존재 여부 확인 -->
 
-		SELECT count(*)  FROM hybdChatRoom a
+	<select id="selectOneCheck" resultMap="resultMapObj">		<!-- 일대일채팅방 존재 여부 확인 -->
+
+		select a.hycrSeq
+		from hybdChatMember a
+		LEFT JOIN hybdChatRoom b on b.hycrSeq = a.hycrSeq 
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		WHERE 1=1
+		AND a.hycrSeq = #{hycrSeq} 
+		group by a.hycrSeq having count(*) = 2
+<!-- 		SELECT count(a.hycrSeq)  FROM hybdChatRoom a
+		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		WHERE 1 = 1
+		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
+		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker}) -->
+		
+	</select>
+
+
+	<select id="selectOneChat" resultMap="resultMapObj">		<!-- 일대일채팅 뽑기 -->
+
+		SELECT distinct(a.hycrSeq)
+		FROM hybdChatMember a
+		WHERE  a.hycrSeq IN( SELECT a.hycrSeq FROM hybdChatMember a WHERE 1=1 group by a.hycrSeq having count(a.hymmSeq) = 2
+		)
+		AND a.hycrSeq IN(
+		   SELECT a.hycrSeq FROM hybdChatMember a LEFT JOIN hybdChatRoom b ON b.hycrSeq = a.hycrSeq 
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq 
+		WHERE 1 = 1 
+		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq}) OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker}))	
+	</select>
+
+
+	<select id="selectListGroupCheck" resultMap="resultMapObj">		<!-- 그룹채팅방 존재 여부 확인 -->
+ 
+		SELECT a.hycrSeq  FROM hybdChatRoom a
 		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		WHERE 1 = 1
 		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
 		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
+		
+	<!-- 	select a.hycrSeq
+		from hybdChatMember a
+		LEFT JOIN hybdChatRoom b on b.hycrSeq = a.hycrSeq 
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		WHERE 1=1
+		AND a.hycrSeq = #{hycrSeq} 
+		group by a.hycrSeq having count(*) > 2 -->
+		
+	</select>
+
+	<select id="selectOneGroupCheckNum" resultType="Integer">		<!-- 채팅방 갯수 -->
+ 
+		SELECT count(a.hycrSeq)  FROM hybdChatRoom a
+		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		WHERE 1 = 1
+		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
+		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
+		
+	<!-- 	select a.hycrSeq
+		from hybdChatMember a
+		LEFT JOIN hybdChatRoom b on b.hycrSeq = a.hycrSeq 
+		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+		WHERE 1=1
+		AND a.hycrSeq = #{hycrSeq} 
+		group by a.hycrSeq having count(*) > 2 -->
 		
 	</select>
 
@@ -43,9 +104,9 @@
 
 	</select>
 
-	<select id="selectOneCheck3" resultType="String">		<!-- 최소시퀀스에 맞는 채팅방 찾기 -->
+	<select id="selectOneCheck3" resultType="String">		<!-- 최소시퀀스에 맞는 채팅방 찾기 => 채팅방 리스트뽑기 -->
 
-		SELECT MIN(a.hycrSeq) FROM hybdChatRoom a
+		SELECT a.hycrSeq FROM hybdChatRoom a
 		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		WHERE 1 = 1
@@ -86,11 +147,10 @@
 
 	</select>
 
-	<select id="selectOneChatMember" resultType="Integer">		<!-- 채팅방 이름 출력 -->
+	<select id="selectOneChatMember" resultType="Integer">		<!-- 채팅방 멤버 수 출력 -->
 
 		SELECT 
-		a.hymmName
-		, b.hycrSeq
+		count(a.hymmSeq)
 		FROM hybdMember a
 		LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq

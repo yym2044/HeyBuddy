@@ -235,7 +235,7 @@ p, dt {
 
 <form id="chatForm" name="chatForm" method="post" class="chat-form rounded-pill" data-emoji-form="" enctype="multipart/form-data" action="/chat/chatPlusMember">
 <input type="hidden" id="hycrSeq" name="hycrSeq" value="<c:out value="${vo.hycrSeq}"/>">
-<input type="hidden" id="hycmChatMaker" name="hycmChatMaker" value="<c:out value="${vo.hycmChatMaker}"/>">
+
 
 	
 	<%@include file="../include/loader.jsp"%>

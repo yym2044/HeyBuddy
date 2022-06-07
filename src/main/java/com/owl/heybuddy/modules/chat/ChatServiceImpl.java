@@ -37,12 +37,27 @@ public class ChatServiceImpl implements ChatService {
 	}
 
 	@Override
+	public List<Chat> selectListGroupCheck(ChatVo vo) throws Exception { // 채팅룸 리스트
+		return dao.selectListGroupCheck(vo);
+	}
+
+	@Override
+	public int selectOneGroupCheckNum(ChatVo vo) throws Exception { // 채팅룸 리스트
+		return dao.selectOneGroupCheckNum(vo);
+	}
+
+	@Override
+	public Chat selectOneChat(ChatVo vo) throws Exception { // 채팅룸 리스트
+		return dao.selectOneChat(vo);
+	}
+
+	@Override
 	public Chat selectOneChatRoom(ChatVo vo) throws Exception { // 채팅룸 선택
 		return dao.selectOneChatRoom(vo);
 	}
 
 	@Override
-	public int selectOneCheck(ChatVo vo) throws Exception { // 채팅룸체크
+	public Chat selectOneCheck(ChatVo vo) throws Exception { // 채팅룸체크
 		return dao.selectOneCheck(vo);
 	}
 

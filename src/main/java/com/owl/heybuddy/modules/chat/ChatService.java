@@ -14,9 +14,15 @@ public interface ChatService {
 
 	public List<Chat> selectListMember(ChatVo vo) throws Exception; // 스페이스멤버
 
+	public List<Chat> selectListGroupCheck(ChatVo vo) throws Exception; // 채팅룸 리스트
+
+	public int selectOneGroupCheckNum(ChatVo vo) throws Exception; // 채팅룸 리스트
+
+	public Chat selectOneChat(ChatVo vo) throws Exception; // 채팅룸 리스트
+
 	public Chat selectOneChatRoom(ChatVo vo) throws Exception; // 채팅룸선택
 
-	public int selectOneCheck(ChatVo vo) throws Exception; // 채팅룸체크
+	public Chat selectOneCheck(ChatVo vo) throws Exception; // 채팅룸체크
 
 	public Chat selectOneCheck2(ChatVo vo) throws Exception; // 채팅룸체크2
 

@@ -19,7 +19,7 @@ public class ChatDao {
 		return sqlSession.selectList(namespace + ".selectListChatRoom", vo); // 채팅룸
 	}
 
-	public int selectOneCheck(ChatVo vo) {
+	public Chat selectOneCheck(ChatVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCheck", vo); // 채팅방체크
 	}
 
@@ -45,6 +45,18 @@ public class ChatDao {
 
 	public List<Chat> selectListMember(ChatVo vo) {
 		return sqlSession.selectList(namespace + ".selectListMember", vo); // 스페이스멤버
+	}
+
+	public List<Chat> selectListGroupCheck(ChatVo vo) {
+		return sqlSession.selectList(namespace + ".selectListGroupCheck", vo); // 채팅방리스트
+	}
+
+	public int selectOneGroupCheckNum(ChatVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneGroupCheckNum", vo); // 채팅방리스트
+	}
+
+	public Chat selectOneChat(ChatVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneChat", vo); // 채팅방리스트
 	}
 
 	public Chat selectOneChatRoom(ChatVo vo) {

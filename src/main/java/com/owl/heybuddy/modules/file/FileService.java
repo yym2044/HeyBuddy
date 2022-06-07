@@ -13,7 +13,7 @@ public interface FileService {
 	public List<File> selectListSpaceMember(FileVo vo) throws Exception; // 스페이스리스트
 	public File documentView(FileVo vo) throws Exception;  //문서뷰
 	public File documentViewTemp(FileVo vo) throws Exception;  // 임시문서뷰
-	public List<File> fileUploaded(FileVo vo) throws Exception; // 파일뷰
+	public List<File> fileUploaded(List<FileVo> vo) throws Exception; // 파일뷰
 	public List<File> profileUploaded(FileVo vo) throws Exception; //회원사진
 	public int insertDocument(File dto) throws Exception;  //문서등록
 	int insertDocumentTemp(File dto) throws Exception; // 문서임시등록

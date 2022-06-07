@@ -49,7 +49,7 @@ public class FileDao {
 	public List<File>  profileUploaded(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".profileUploaded", vo); // 회원사진 확인
 	}
-	public List<File> fileUploaded(FileVo vo) {
+	public List<File> fileUploaded(List<FileVo> vo) {
 		return sqlSession.selectList(namespace + ".fileUploaded", vo); // 파일확인
 	}
 	public Member selectOneSpace(FileVo vo) {

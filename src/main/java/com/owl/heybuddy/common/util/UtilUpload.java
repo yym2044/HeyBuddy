@@ -106,46 +106,29 @@ public class UtilUpload {
 		}
 		// 타입 정하기 end //
 		
-		
-//		//이미지일떄
-//		String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
-//		createPath(path);
-//		
-//		//pdf일때
-//		String path2 = Constants.UPLOAD_PATH_PDF + "/" + pathModule + "/" + pathDate + "/";
-//		createPath(path2);
-		
-//		//이미지파일이라면 아래경로 ?!
-//		multipartFile.transferTo(new File(path + uuidFileName));
-//		dto.setPath(path); 
-//
-//		//만약 PDF라면 아래경로 ?!
-//		multipartFile.transferTo(new File(path2 + uuidFileName));
-//		dto.setPath(path2);
-		
 		if(ext.equals("pdf")) {
 			
 			String path = Constants.UPLOAD_PATH_PDF + "/" + pathModule + "/" + pathDate + "/";
 			createPath(path);
 			multipartFile.transferTo(new File(path + uuidFileName));
-			dto.setPath("/resources/pdfjs-2.14.305-dist/web/" + pathModule + "/" + pathDate + "/");
+			dto.setHyflPath("/resources/pdfjs-2.14.305-dist/web/" + pathModule + "/" + pathDate + "/");
 			
 		} else {
 			
 			String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
 			createPath(path);
 			multipartFile.transferTo(new File(path + uuidFileName));
-			dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
+			dto.setHyflPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
 			
 		}
 		
 		
 
-		dto.setOriginalFileName(fileName);
-		dto.setUuidFileName(uuidFileName);
-		dto.setExt(ext);
-		dto.setSize(multipartFile.getSize());
-		dto.setType(temp);
+		dto.setHyflOriginalFileName(fileName);
+		dto.setHyflUuidFileName(uuidFileName);
+		dto.setHyflExt(ext);
+		dto.setHyflSize(multipartFile.getSize());
+		dto.setHyflType(temp);
 		
 		
 		

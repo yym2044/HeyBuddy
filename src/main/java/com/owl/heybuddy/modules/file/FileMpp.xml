@@ -15,7 +15,7 @@
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq 
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
-        LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
+        LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
 		where
 		a.hydcDelNy = 0 
 		AND
@@ -105,13 +105,13 @@
 		,b.hymmEmail
 		,c.path
 		,c.uuidFileName
-		,d.path
-		,d.uuidFileName
+		,d.hyflPath
+		,d.hyflUuidFileName
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
-        LEFT JOIN hybdFileUploaded d ON d.pseq = a.hydcSeq
+        LEFT JOIN hybdFileUploaded d ON d.hyflPseq = a.hydcSeq
 		where 1=1
 		and a.hydcDelNy = 0
 		and a.hydcTempNy = 0
@@ -123,12 +123,12 @@
 		a.*
 		,b.hymmName
 		,b.hymmEmail
-		,c.path
-		,c.uuidFileName
+		,c.hyflPath
+		,c.hyflUuidFileName
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
-        LEFT JOIN hybdFileUploaded c ON c.pseq = a.hymmSeq
+        LEFT JOIN hybdFileUploaded c ON c.hyflPseq = a.hymmSeq
 		where 1=1
 		and a.hydcDelNy = 0
 		and a.hydcTempNy = 1
@@ -200,28 +200,28 @@
 
 	<insert id="insertUploaded">  <!-- 파일등록 -->
 		INSERT INTO ${tableName}(
-		defaultNy
-		,type 
-		,sort
-		,originalFileName
-		,uuidFileName
-		,ext
- 		,size 
-		,delNY
-		,pseq
-		,path
+		hyflDefaultNy
+		,hyflType 
+		,hyflSort
+		,hyflOriginalFileName
+		,hyflUuidFileName
+		,hyflExt
+ 		,hyflSize 
+		,hyflDelNy
+		,hyflPseq
+		,hyflPath
 		)
 		VALUES(
-		#{defaultNy}
-		,#{type} 
-		,#{sort}
-		,#{originalFileName}
-		,#{uuidFileName}
-		,#{ext}
-		,#{size} 
+		#{hyflDefaultNy}
+		,#{hyflType} 
+		,#{hyflSort}
+		,#{hyflOriginalFileName}
+		,#{hyflUuidFileName}
+		,#{hyflExt}
+		,#{hyflSize} 
 		,0
-		,#{pseq}
-		,#{path}
+		,#{hyflPseq}
+		,#{hyflPath}
 		)
 </insert>
 
@@ -297,34 +297,34 @@
 
 	<select id="fileUploaded" resultMap="resultMapObj"> <!--파일뷰 -->
 		SELECT
-			seq
-			, type 
-			, defaultNy
-			, sort 
-			, originalFileName
-			, uuidFileName 
-			, ext
-			, size 
-			, delNy
-			, pseq
-			, path
+			hyflSeq
+			, hyflType 
+			, hyflDefaultNy
+			, hyflSort 
+			, hyflOriginalFileName
+			, hyflUuidFileName 
+			, hyflExt
+			, hyflSize 
+			, hyflDelNy
+			, hyflPseq
+			, hyflPath
 		FROM
 			hybdFileUploaded
 		WHERE 1=1
-			AND pseq = #{hydcSeq}
+			AND hyflPseq = #{hydcSeq}
 	</select>
 	
 	<update id="updateUploaded"> <!--파일수정 -->
 	UPDATE
 		${tableName}
 	SET
-		originalFileName = #{originalFileName}
-		, uuidFileName = #{uuidFileName}
-		, ext = #{ext}
-		, size = #{size}
-		, path = #{path}
+		hyflOriginalFileName = #{hyflOriginalFileName}
+		, hyflUuidFileName = #{hyflUuidFileName}
+		, hyflExt = #{hyflExt}
+		, hyflSize = #{hyflSize}
+		, hyflPath = #{hyflPath}
 	WHERE 1=1
-		AND pseq = #{pseq}
+		AND hyflPseq = #{hyflPseq}
 		
 	</update>
 	

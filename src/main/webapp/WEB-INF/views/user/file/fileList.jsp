@@ -266,19 +266,16 @@
 																			<span class="fw-bolder me-2 me-lg-4"> <a
 																				href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
 																					<c:out value="${item.hydcTitle}" />
-																			</a> <!-- 			이안에 파일 뽑아내는 리스트를 하나 더돌려야하는데 리스트속리스트를 돌리면 아이콘이 여러개생기는
-														현상이 발생하고...........	..............? 멤버사진테이블이랑 파일테이블이랑 컬럼명을 구분지어야하나?어카징? --> <c:forEach
-																					items="${list}" var="fileUploaded"
-																					varStatus="status">
-																					<c:if test="${item.type eq 1}">
+																			</a> 
+																					<c:if test="${item.hyflType eq 1}">
 																						<i class="bi bi-paperclip"></i>
 																						<!--  파일이면클립아이콘 -->
 																					</c:if>
-																					<c:if test="${item.type eq 0}">
+																					<c:if test="${item.hyflType eq 0}">
 																						<i class="bi bi-image-fill"></i>
 																						<!-- 사진이면이미지아이콘 -->
 																					</c:if>
-																				</c:forEach>
+								
 
 																			</span>
 																		</p>

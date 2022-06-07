@@ -268,7 +268,7 @@ pageContext.setAttribute("br", "\n");
 										<c:forEach items="${list}" var="fileUploaded"
 											varStatus="status">
 											<c:choose>
-												<c:when test="${empty fileUploaded.uuidFileName}">
+												<c:when test="${empty fileUploaded.hyflUuidFileName}">
 													<p>등록된 파일이 없습니다.</p>
 												</c:when>
 												
@@ -279,13 +279,13 @@ pageContext.setAttribute("br", "\n");
 														<span
 															class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
 															<img
-															src="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"
+															src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
 															width="200px" class="img-fluid" alt="" /> <span
 															class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
 
 																<span> <a
-																	href="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"
-																	download="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.originalFileName}"/>">
+																	href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+																	download="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflOriginalFileName}"/>">
 																		<i data-feather="download" class="fe-2x"></i>
 																</a>
 															</span>
@@ -293,16 +293,16 @@ pageContext.setAttribute("br", "\n");
 														</span>
 														<!--File description-->
 
-														<c:forEach items="${list}" var="fileUploaded" varStatus="status">
+														
 
 															<!-- 이미지라면 -->
-															<c:if test="${fileUploaded.type eq 0}">
+															<c:if test="${fileUploaded.hyflType eq 0}">
 																<span class="d-block small text-body text-truncate">
-																	<c:out value="${fileUploaded.originalFileName}" />
+																	<c:out value="${fileUploaded.hyflOriginalFileName}" />
 
 																</span>
 																<span class="d-block small text-muted text-truncate">
-																	<c:out value="${fileUploaded.size}" /> mb
+																	<c:out value="${fileUploaded.hyflSize}" /> mb
 																</span>
 																<span class="d-block small text-muted text-truncate">
 
@@ -314,7 +314,7 @@ pageContext.setAttribute("br", "\n");
 																	<div class="pop_inner">
 																		<p class="dsc">Image Preview</p>
 																		<img
-																			src="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>"
+																			src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
 																			width="500px" class="img-fluid" alt="" />
 																		<button type="button" class="btn_close">Close</button>
 																	</div>
@@ -323,22 +323,22 @@ pageContext.setAttribute("br", "\n");
 															</c:if>
 
 															<!-- pdf라면 -->
-															<c:if test="${fileUploaded.type eq 1}">
+															<c:if test="${fileUploaded.hyflType eq 1}">
 																
 																<span class="d-block small text-body text-truncate">
-																	<c:out value="${fileUploaded.originalFileName}" />
+																	<c:out value="${fileUploaded.hyflOriginalFileName}" />
 
 																</span>
 																<span class="d-block small text-muted text-truncate">
-																	<c:out value="${fileUploaded.size}" /> mb
+																	<c:out value="${fileUploaded.hyflSize}" /> mb
 																</span>
 																	<span class="d-block small text-muted text-truncate">
 																<a
-																	href="<c:out value="${fileUploaded.path}"/><c:out value="${fileUploaded.uuidFileName}"/>">
+																	href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>">
 																	preview </a> </span>
 															</c:if>
 
-														</c:forEach>
+									
 														<!-- <a href="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf"> view</a> -->
 														<%-- <iframe src="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
 <iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>

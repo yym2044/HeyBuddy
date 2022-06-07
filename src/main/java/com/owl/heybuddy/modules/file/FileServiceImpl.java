@@ -83,9 +83,9 @@ public class FileServiceImpl implements FileService {
 
 			dto.setTableName("hybdFileUploaded");
 //			dto.setType(0);
-			dto.setDefaultNy(0);
-			dto.setSort(j);
-			dto.setPseq(dto.getHydcSeq());
+			dto.setHyflDefaultNy(0);
+			dto.setHyflSort(j);
+			dto.setHyflPseq(dto.getHydcSeq());
 			
 			dao.insertUploaded(dto);
 
@@ -107,7 +107,7 @@ public class FileServiceImpl implements FileService {
 
 
 		dto.setTableName("hybdFileUploaded");
-		dto.setPseq(dto.getHymmSeq());
+		dto.setHyflPseq(dto.getHymmSeq());
 		dao.updateUploaded(dto);
 
 		}
@@ -141,9 +141,9 @@ public class FileServiceImpl implements FileService {
 
 			dto.setTableName("hybdFileUploaded");
 //			dto.setType(0);
-			dto.setDefaultNy(0);
-			dto.setSort(j);
-			dto.setPseq(dto.getHydcSeq());
+			dto.setHyflDefaultNy(0);
+			dto.setHyflSort(j);
+			dto.setHyflPseq(dto.getHydcSeq());
 			
 			dao.insertUploaded(dto);
 

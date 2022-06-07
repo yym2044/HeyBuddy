@@ -56,8 +56,18 @@ public class File {
 	private Integer delNy;
 	private String pseq;
 	private String path;
-
 	private String path2;
+	private String hyflSeq;
+	private Integer hyflType;
+	private Integer hyflDefaultNy;
+	private Integer hyflSort;
+	private String hyflOriginalFileName;
+	private String hyflUuidFileName;
+	private String hyflExt;
+	private long hyflSize;
+	private Integer hyflDelNy;
+	private String hyflPseq;
+	private String hyflPath;
 	
 	//hybdMember
 	private Integer hymmAdminNy;
@@ -426,5 +436,71 @@ public void setModDevice(String modDevice) {
 	this.modDevice = modDevice;
 }
 
+public String getHyflSeq() {
+	return hyflSeq;
+}
+public void setHyflSeq(String hyflSeq) {
+	this.hyflSeq = hyflSeq;
+}
+public Integer getHyflType() {
+	return hyflType;
+}
+public void setHyflType(Integer hyflType) {
+	this.hyflType = hyflType;
+}
+public Integer getHyflDefaultNy() {
+	return hyflDefaultNy;
+}
+public void setHyflDefaultNy(Integer hyflDefaultNy) {
+	this.hyflDefaultNy = hyflDefaultNy;
+}
+public Integer getHyflSort() {
+	return hyflSort;
+}
+public void setHyflSort(Integer hyflSort) {
+	this.hyflSort = hyflSort;
+}
+public String getHyflOriginalFileName() {
+	return hyflOriginalFileName;
+}
+public void setHyflOriginalFileName(String hyflOriginalFileName) {
+	this.hyflOriginalFileName = hyflOriginalFileName;
+}
+public String getHyflUuidFileName() {
+	return hyflUuidFileName;
+}
+public void setHyflUuidFileName(String hyflUuidFileName) {
+	this.hyflUuidFileName = hyflUuidFileName;
+}
+public String getHyflExt() {
+	return hyflExt;
+}
+public void setHyflExt(String hyflExt) {
+	this.hyflExt = hyflExt;
+}
+public long getHyflSize() {
+	return hyflSize;
+}
+public void setHyflSize(long hyflSize) {
+	this.hyflSize = hyflSize;
+}
+public Integer getHyflDelNy() {
+	return hyflDelNy;
+}
+public void setHyflDelNy(Integer hyflDelNy) {
+	this.hyflDelNy = hyflDelNy;
+}
+public String getHyflPseq() {
+	return hyflPseq;
+}
+public void setHyflPseq(String hyflPseq) {
+	this.hyflPseq = hyflPseq;
+}
+public String getHyflPath() {
+	return hyflPath;
+}
+public void setHyflPath(String hyflPath) {
+	this.hyflPath = hyflPath;
+}
 
 }

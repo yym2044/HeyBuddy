@@ -14,4 +14,10 @@ public class HomeController {
 		return "redirect:/login/userLogin";
 	}
 	
+	@RequestMapping(value = "/test")
+	public String test() {
+		
+		return "user/test";
+	}
+	
 }

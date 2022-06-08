@@ -24,6 +24,8 @@
 <title>hey, Buddy!</title>
 </head>
 <body>
+	<button id="btnOffer">send offer</button>
+	<button id="btnMyPeerConnection">myPeerConnection</button>
 
 	<%@include file="../include/loader.jsp"%>
 	
@@ -32,9 +34,6 @@
 		<h1>
 			<c:out value="${rt.hymrRoomName}" />
 		</h1>
-		<h4>
-			<c:out value="${rt.hymrRoomId}" />
-		</h4>
 	</header>
 	<main>
 		<div class="call" id="call">
@@ -107,10 +106,24 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- <script src="/resources/user/js/meet/meetRoom/client.js"></script> -->
-	<script type="text/javascript">
 	
+	<script type="text/javascript">
+	const sock = new SockJS('/stompTest');
+	const client = Stomp.over(sock);
+	
+	client.connect({}, function(){
+		console.log("Connected to stomp!");
+		
+		client.send("/pub/meetRoomList", {}, JSON.stringify({
+			"msg" : "give me rooms"
+		}));
+	});
+	</script>
+	
+	<script type="text/javascript">
 	const myFace = document.querySelector("#myFace");
 	const muteBtn = document.querySelector("#mute");
 	const muteIcon = muteBtn.querySelector(".muteIcon");
@@ -120,20 +133,13 @@
 	const unCameraIcon = cameraBtn.querySelector(".unCameraIcon");
 	const camerasSelect = document.querySelector("#cameras");
 	
-	const call = document.querySelector("#call");
-	
 	const HIDDEN_CN = "hidden";
 	
 	let myStream;
-	let muted = true;
+	let muted;
 	unMuteIcon.classList.add(HIDDEN_CN);
-	let cameraOff = false;
+	let cameraOff;
 	unCameraIcon.classList.add(HIDDEN_CN);
-	let peopleInRoom = 1;
-	
-	let pcObj = {
-	  // remoteSocketId: pc
-	};
 	
 	async function getCameras() {
 		  try {
@@ -169,16 +175,33 @@
 		  try {
 		    myStream = await navigator.mediaDevices.getUserMedia(
 		      deviceId ? cameraConstraints : initialConstraints
-		    		  
 		    );
 		    
-	    	console.log("myStream!!!!!!");
-	    	console.log(myStream);
-
 		    // stream을 mute하는 것이 아니라 HTML video element를 mute한다.
 		    myFace.srcObject = myStream;
-		    myFace.muted = true;
-
+		    //myFace.muted = true;
+		    
+		    if(localStorage.getItem("videoMuteNy") == 1){
+			    myStream.getVideoTracks().forEach((track) => (track.enabled = false));
+			    cameraOff = true;
+			    cameraIcon.classList.add(HIDDEN_CN);
+			    unCameraIcon.classList.remove(HIDDEN_CN);
+		    } else {
+		    	cameraOff = false;
+		    	cameraIcon.classList.remove(HIDDEN_CN);
+			    unCameraIcon.classList.add(HIDDEN_CN);
+		    }
+		    if(localStorage.getItem("audioMuteNy") == 1){
+		    	myStream.getAudioTracks().forEach((track) => (track.enabled = false));
+		    	muted = true;
+		    	unMuteIcon.classList.add(HIDDEN_CN);
+			    muteIcon.classList.remove(HIDDEN_CN);
+		    } else {
+		    	muted = false;
+		    	unMuteIcon.classList.remove(HIDDEN_CN);
+			    muteIcon.classList.add(HIDDEN_CN);
+		    }
+		    
 		    if (!deviceId) {
 		      // mute default
 		      myStream //
@@ -193,7 +216,7 @@
 		}
 	
 	function handleMuteClick() {
-		  myStream //
+		  myStream
 		    .getAudioTracks()
 		    .forEach((track) => (track.enabled = !track.enabled));
 		  if (muted) {
@@ -208,7 +231,7 @@
 		}
 
 		function handleCameraClick() {
-		  myStream //
+		  myStream
 		    .getVideoTracks()
 		    .forEach((track) => (track.enabled = !track.enabled));
 		  if (cameraOff) {
@@ -221,41 +244,32 @@
 		    cameraOff = true;
 		  }
 		}
-
-		async function handleCameraChange() {
-		  try {
-		    await getMedia(camerasSelect.value);
-		    /* 
-		    if (peerConnectionObjArr.length > 0) {
-		      const newVideoTrack = myStream.getVideoTracks()[0];
-		      peerConnectionObjArr.forEach((peerConnectionObj) => {
-		        const peerConnection = peerConnectionObj.connection;
-		        const peerVideoSender = peerConnection
-		          .getSenders()
-		          .find((sender) => sender.track.kind == "video");
-		        peerVideoSender.replaceTrack(newVideoTrack);
-		      });
-		    }
-		     */
-		  } catch (error) {
-		    console.log(error);
-		  }
-		}
-
-		muteBtn.addEventListener("click", handleMuteClick);
-		cameraBtn.addEventListener("click", handleCameraClick);
-		camerasSelect.addEventListener("input", handleCameraChange);
 		
-		/* getMedia(); */
+		async function handleCameraChange() {
+			  try {
+			    await getMedia(camerasSelect.value);
+			  } catch (error) {
+			    console.log(error);
+			  }
+			}
+
+			muteBtn.addEventListener("click", handleMuteClick);
+			cameraBtn.addEventListener("click", handleCameraClick);
+			camerasSelect.addEventListener("input", handleCameraChange);
 	
 	
-	/////////////////////////////////
+	///////////////////////////////////////////////////
 	
 	const chatForm = document.querySelector("#chatForm");
 	const chatBox = document.querySelector("#chatBox");
 	
 	const MYCHAT_CN = "myChat";
 	const NOTICE_CN = "noticeChat";
+	
+	let userNum = 1;
+	let pcObj = {
+		//remoteSocketId
+	};
 	
 	chatForm.addEventListener("submit", handleChatSubmit);
 	
@@ -264,12 +278,146 @@
 		const chatInput = chatForm.querySelector("input");
 		const message = chatInput.value;
 		chatInput.value = "";
-		client.send("/pub/chatBox", {}, JSON.stringify({
-			"type" : "chat",
-			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
-			"sender" : "<c:out value='${sessName}'/>",
-			"msg" : message
-		}));
+		/* socket.send(message); */
+		send({roomId : "<c:out value='${rt.hymrSeq}'/>", sender : "<c:out value='${sessName}'/>", type : "Chat", msg : message});
+		writeChat("<c:out value='${sessName}'/>" + " : " + message, MYCHAT_CN);
+	}
+	
+	///////////////////////////////////////////////////
+	
+	///////////////////////////////////////////////////
+	const leaveBtn = document.querySelector("#btnLeave");
+	
+	leaveBtn.addEventListener("click", leaveRoom);
+	
+	function leaveRoom() {
+		
+		send({roomId : "<c:out value='${rt.hymrSeq}'/>", sender : "<c:out value='${sessName}'/>", type : "LEAVE"});
+		
+		$("#meetRoomForm").attr("action", "/meet/meetLeave").submit();
+
+	}
+	
+	function removeStream(socketIdLeave){
+		const streams = document.querySelector("#streams");
+		const streamArr = streams.querySelectorAll("div");
+		streamArr.forEach((stream) => {
+			if (stream.id === socketIdLeave) {
+				streams.removeChild(stream);
+			}
+		});
+		
+		sortStreams(userNum);
+	}
+	
+	
+	///////////////////////////////////////////////////
+	
+	/* 
+	window.onbeforeunload = (event) => {
+		event.preventDefault();
+		event.returnValue = '잠깐';
+	}
+	 */
+	 
+	 
+	 
+	 
+	console.log(window);
+	
+	///////////////////////////////////////////////////
+	
+	// sockjs 사용 시 httpSession 바인딩이 안됨.
+	/* const socket = new SockJS('/ws'); */
+	//const socket = new WebSocket('ws://localhost:8091/ws');
+	const socket = new WebSocket('wss://tp.heybuddy.a9xlab.com/ws');
+	
+	socket.onopen = async function(e){
+		console.log('Info: connection opened.');
+		console.log(socket);
+		await getMedia();
+		send({roomId : "<c:out value='${ rt.hymrSeq }'/>", sender : "<c:out value='${sessName}'/>", type : "ENTER"});
+	};
+	
+	socket.onmessage = async function(event) {
+		//JSON형태의 String
+//		console.log(event.data);
+		
+		//JSON Object
+		var content = JSON.parse(event.data);
+//		console.log(content);
+		
+		var type = content.type;
+//		console.log("type : ",type);
+		
+		switch (type) {
+			
+			case "USER" :
+				if(content.sessName != '<c:out value="${sessName}"/>'){		//본인이 아닌경우에만
+					console.log("new User! Let's make new Connection");
+					console.log(content);
+					
+					const newPc = createConnection(
+						content.socket_id
+						,content.sessName
+					);
+					
+					const offer = await newPc.createOffer();
+					await newPc.setLocalDescription(offer);
+					console.log(offer);
+					
+					console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+					console.log(newPc);
+					console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+					console.log(pcObj);
+					
+					send({roomId : "<c:out value='${rt.hymrSeq}'/>", sender : "<c:out value='${sessName}'/>", type : "OFFER", CONTENT : offer, socketId : content.socket_id, nickName : content.sessName});
+					
+				}
+				break;
+			case "ENTER" :
+				writeChat("Notice!", NOTICE_CN);
+				writeChat(content.sender + "님이 입장하셨습니다.");
+				
+				userNum++;
+				
+				break;
+			case "LEAVE" :
+				writeChat("Notice!", NOTICE_CN);
+				writeChat(content.sender + "님이 나가셨습니다.");
+				
+				userNum--;
+				
+				removeStream(content.socketIdLeave);
+				document.querySelector("#myStream").className = "people" + userNum;
+				
+				break;
+			case "Chat" :
+				writeChat(content.sender + " : " + content.msg);
+				break;
+			// Offer를 받고 Answer 만들고 전송
+			case "OFFER" :
+				handleOffer(content);
+				break;
+			case "ANSWER" :
+				handleAnswer(content);
+				break;
+			case "ICE" :
+				handleIceCandidate(content);
+				break;
+			default:
+				break;
+		
+		}
+		
+	};
+	
+	socket.onclose = function(event) { console.log('Info: connection closed.'); };
+	socket.onerror = function(err) { console.log('Error:', err)}; ;
+	
+	
+	function send(message) {
+		socket.send(JSON.stringify(message));
 	}
 	
 	function writeChat(message, className = null){
@@ -280,288 +428,114 @@
 		li.classList.add(className);
 		chatBox.prepend(li);
 	}
-	/////////////////////////////////
 	
-	const leaveBtn = document.querySelector("#btnLeave");
-	
-	leaveBtn.addEventListener("click", leaveRoom);
-	/* window.addEventListener('beforeunload', leaveRoom); */
-	
-	function leaveRoom() {
+	// offer생성 후 offer 보내기
+	async function sendOffer(){
 		
-		client.send("/pub/chatBox", {}, JSON.stringify({
-			"type" : "notice_leave",
-			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
-			"sender" : "<c:out value='${sessSeq}'/>",
-			"msg" : "<c:out value='${ sessName }'/>님이 퇴장하셨습니다."
-		}));
+		const offer = await myPeerConnection.createOffer();
+		myPeerConnection.setLocalDescription(offer);
+		console.log("now I have an offer");
+		console.log(offer);
 		
-		client.disconnect();
-		
-		
-		
-		$("#meetRoomForm").attr("action", "/meet/meetLeave").submit();
-
+		send({roomId : "<c:out value='${rt.hymrSeq}'/>", sender : "<c:out value='${sessName}'/>", type : "OFFER", CONTENT : offer});
 	}
 	
-	function removeStream(leavedHymmSeq){
-		const streams = document.querySelector("#streams");
-		const streamArr = streams.querySelectorAll("div");
-		streamArr.forEach((stream) => {
-			if (stream.id === leavedHymmSeq) {
-				streams.removeChild(stream);
-			}
-		});
+	async function handleOffer(content){
 		
-		sortStreams();
-	}
-	
-	/////////////////////////////////
-	function getUserList() {
-	
-		client.send("/pub/userList", {}, JSON.stringify({
-			"hymrSeq" : "<c:out value='${rt.hymrSeq}'/>",
-			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>"
-		}));
+		const newPc = createConnection(
+					content.socketIdOffer,
+					content.nickNameOffer
+				);
 		
-	};
-	
-	var length = 0;
-	
-	async function initCall() {
+		const offer = content.CONTENT;
 		
-		await getMedia();
-		setTimeout(function(){
-			makeConnection();
-		}, 3000);
+		await newPc.setRemoteDescription(offer);
+		const answer = await newPc.createAnswer();
+		await newPc.setLocalDescription(answer);
+		console.log("now I have an answer");
+		console.log(answer);
 		
-		console.log("initCall!!!!!!!!!!");
+		send({roomId : "<c:out value='${rt.hymrSeq}'/>", sender : "<c:out value='${sessName}'/>", type : "ANSWER", CONTENT : answer, socketId : content.socketIdOffer});
 		
 	}
 	
-	/////////////////////////////////
-	// Controller's MessageMapping, header, message(자유형식)
+	async function handleAnswer(content){
+		const answer = content.CONTENT;
+		console.log(answer);
+		await pcObj[content.socketIdAnswer].setRemoteDescription(answer);
+	}
 	
-	const socket = new SockJS('/stompTest');
-	const client = Stomp.over(socket);
+	async function handleIceCandidate(content){
+		
+		console.log("received candidate");
+		
+		const ice = content.CONTENT;
+		await pcObj[content.socketIdIce].addIceCandidate(ice);
+	}
 	
-	client.connect({}, function() {
-		console.log("Connected to stomp!");
-		
-		//MeetList 업데이트 해주기
-		client.send("/pub/meetRoomList", {}, JSON.stringify({
-			"msg" : "give me rooms"
-		}));
-		
-		// Offer를 받고 Answer 만들고 전송
-		if("<c:out value='${meetRoomHostNy}'/>" != 1){
-			client.subscribe("/sub/offer/<c:out value='${rt.hymrRoomId}'/>", async function(event) {
-				console.log("got an offer!!!!");
-				const offer = JSON.parse(event.body);
-				console.log(offer);
-				
-			//	await initCall();
-				
-				myPeerConnection.setRemoteDescription(offer);
-				const answer = await myPeerConnection.createAnswer();
-				console.log("now I have an answer!!!!!!");
-				console.log(answer);
-				myPeerConnection.setLocalDescription(answer);
-				
-				client.send("/pub/answer", {}, JSON.stringify(answer));
-				console.log("sent the answer!!!!!");
-				
-			});
-			
-		}
-		
-		/* 
-		client.subscribe("/sub/offer/<c:out value='${sessSeq}'/>", async function(event) {
-			console.log("got an offer!!!!");
-			const offer = JSON.parse(event.body);
-			console.log(offer);
-			
-			myPeerConnection.setRemoteDescription(offer);
-			const answer = await myPeerConnection.createAnswer();
-			console.log(answer);
-			myPeerConnection.setLocalDescription(answer);
-			
-			client.send("/pub/answer", {}, JSON.stringify(answer));
-			console.log("sent the answer!!!");
-		});
-		 */
-		
-		if("<c:out value='${meetRoomHostNy}'/>" == 1){
-			client.subscribe("/sub/answer/<c:out value='${rt.hymrRoomId}'/>", async function(event) {
-				
-				console.log("got an answer!!!!");
-				const answer = JSON.parse(event.body);
-				console.log(answer);
-				
-				myPeerConnection.setRemoteDescription(answer);
-				
-			});
-		}
-		
-		client.subscribe("/sub/ice/<c:out value='${rt.hymrRoomId}'/>", async function(event) {
-			
-			console.log("got a candidate");
-			const ice = JSON.parse(event.body);
-			console.log(ice);
-			console.dir(ice);
-			
-			if(ice != null){
-				myPeerConnection.addIceCandidate(ice);
-			}
-			
-		});
-		
-		client.subscribe("/sub/userList/<c:out value='${rt.hymrRoomId}'/>", function(event) {
-			console.log("-----------유저 리스트-----------")
-			const userArr = JSON.parse(event.body);
-			console.log(userArr);
-			console.log("-----------유저 리스트-----------")
-			
-			length = userArr.length;
-						
-		});
-		
-		
-		// 채팅영역 이벤트
-		client.subscribe("/sub/chatBox/<c:out value='${rt.hymrRoomId}'/>", function(event) {
-			
-			const msg = JSON.parse(event.body);
-			
-			if(msg.type == "notice_enter" || msg.type == "notice_leave"){
-				
-				writeChat("Notice!", NOTICE_CN);
-				writeChat(msg.msg);
-				
-				// 회원이 퇴장한 후 db에서 불러오기 위해 setTimeout 설정 
-				if("<c:out value='${meetRoomHostNy}'/>" == "1"){
-					setTimeout(getUserList, 1000);
-				}
-				
-			} else if(msg.type == "chat"){
-				
-				if(msg.sender == "<c:out value='${sessName}'/>"){
-					writeChat(msg.sender + " : " + msg.msg, MYCHAT_CN);
-				} else {
-					writeChat(msg.sender + " : " + msg.msg);
-				}
-				
-			}
-			
-			if(msg.type == "notice_enter"){
-				
-				initCall();
-				
-				// 방장이 offer를 생성하고 보낸다.				
-				if("<c:out value='${meetRoomHostNy}'/>" == 1){
-					
-					if(length >= 1){
-						
-						setTimeout(async function(){
-							const offer = await myPeerConnection.createOffer();
-							myPeerConnection.setLocalDescription(offer);
-							console.log("now I have an offer!!!!!!");
-							console.log(offer);
-							
-							// offer 보내기
-							client.send("/pub/offer", {}, JSON.stringify(offer));
-							console.log("sent the offer!!!!!");
-						}, 5000);
-						
-					}
-					
-				}
-			}
-			
-			if(msg.type == "notice_leave") {
-				removeStream("peerStream");
-				document.querySelector("#myStream").className = "people1";
-			}
-			
-			
-		});
-		 
-		
-		
-		// 입장 Notice
-		client.send("/pub/chatBox", {}, JSON.stringify({
-			"type" : "notice_enter",
-			"roomId" : "<c:out value='${ rt.hymrRoomId }'/>",
-			"sender" : "<c:out value='${sessSeq}'/>",
-			"msg" : "<c:out value='${ sessName }'/>님이 입장하셨습니다.",
-		}));
-		
-	});
 	
-	/* 
-	window.addEventListener('beforeunload', (event) => {
-		// 명세에 따라 preventDefault는 호출해야하며, 기본 동작을 방지합니다. 
-		event.preventDefault(); 
-		// 대표적으로 Chrome에서는 returnValue 설정이 필요합니다. 
-		
-		leaveBtn.click();
-		
-		event.returnValue = 'sadf'; 
-	}); 
+	////////////////RTC code   //////////////////
 	
-	 */
-	 
-	 ////////////////   RTC code   //////////////////
-	
-	 function makeConnection(){
-	    myPeerConnection = new RTCPeerConnection({
-	        iceServers: [
-	            {
-	                urls: [
-	                    "stun:stun.l.google.com:19302",
+	function createConnection(remoteSocketId, remoteNickname){
+		const myPeerConnection = new RTCPeerConnection({
+			iceServers: [
+				{
+					urls: [
+						"stun:stun.l.google.com:19302",
 	                    "stun:stun1.l.google.com:19302",
 	                    "stun:stun2.l.google.com:19302",
 	                    "stun:stun3.l.google.com:19302",
-	                    /* "stun:stun4.l.google.com:19302", */
-	                ],
-	            },
-	        ],
-	    });
-	    
-	    myPeerConnection.addEventListener("icecandidate", handleIce);
-	    myPeerConnection.addEventListener("addstream", handleAddstream);
-	    myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream)); 
-	}
-	
-	function handleIce(data) {
-		if(length >= 2){
-			
-			if(data.candidate){
-				
-				setTimeout(function(){
-					console.log("sent candidate");
-					client.send("/pub/ice", {}, JSON.stringify(data.candidate));
-				}, 5000);
-				
-			}
-			
+					],
+				},
+			],
+		});
+//		myPeerConnection.addEventListener("icecandidate", handleIce);
+//		myPeerConnection.onicecandidate = handleIce;
+
+		/* myPeerConnection.addEventListener("icecandidate", (event) => {
+			handleIce(event, remoteSocketId);
+		}); */
+		/* myPeerConnection.addEventListener("addstream", (event) => {
+			handleAddStream(event, remoteSocketId, remoteNickname);
+		}); */
+		
+		myPeerConnection.onicecandidate = (event) => {
+			handleIce(event, remoteSocketId);
 		}
-	}
-	
-	function handleAddstream(data) {
-		if(length >= 2){
-			
-			console.log("handleAddstream Event Occured!!");
-			console.log(data);
-			
-			const peerFace = data.stream;
-			paintPeerFace(peerFace);
+		myPeerConnection.onaddstream = (event) => {
+			handleAddStream(event, remoteSocketId, remoteNickname);
 		}
+		
+		myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream));
+		
+		pcObj[remoteSocketId] = myPeerConnection;
+		
+		return myPeerConnection;
 	}
 	
-	function paintPeerFace(peerStream) {
+	function handleIce(event, remoteSocketId) {
+//		console.log("handleIce Event Occured!");
+		console.log(event);
+//		console.log(remoteSocketId);
+		
+		if(event.candidate) {
+			send({roomId : "<c:out value='${rt.hymrSeq}'/>", sender : "<c:out value='${sessName}'/>", type : "ICE", CONTENT : event.candidate, socketId : remoteSocketId});
+		}
+
+	}
+	
+	function handleAddStream(event, remoteSocketId, remoteNickname){
+		const peerStream = event.stream;
+		console.log("handleAddStream Event Occured!");
+		console.log("peerStream :" , peerStream);
+		
+		paintPeerFace(peerStream, remoteSocketId, remoteNickname);
+	}
+	
+	function paintPeerFace(peerStream, id, remoteNickname) {
 		const streams = document.querySelector("#streams");
 		const div = document.createElement("div");
-		div.id = "peerStream";
+		div.id = id;
 		const video = document.createElement("video");
 		video.autoplay = true;
 		video.playsInline = true;
@@ -570,21 +544,40 @@
 		video.srcObject = peerStream;
 		const nicknameContainer = document.createElement("h3");
 		nicknameContainer.className = "userNickname";
-		nicknameContainer.innerText = "상대방";
+		nicknameContainer.innerText = remoteNickname;
 		
 		div.appendChild(video);
 		div.appendChild(nicknameContainer);
 		streams.appendChild(div);
 		
-		sortStreams();
+		sortStreams(userNum); 
 	}
 	
-	function sortStreams(){
+	function sortStreams(userNum){
 		const streams = document.querySelector("#streams");
 		const streamArr = streams.querySelectorAll("div");
-		streamArr.forEach((stream) => (stream.className = 'people' + length));
+		streamArr.forEach((stream) => (stream.className = 'people' + userNum));
 	}
 	
+	const btnOffer = document.getElementById('btnOffer');
+	btnOffer.addEventListener("click", alertMyStream);
+	
+	function alertMyStream(){
+		//alert(myStream.id);
+		console.log(myStream.getVideoTracks());		
+	};
+	
+	/* const btnMyPeerConnection = document.getElementById("btnMyPeerConnection");
+	btnMyPeerConnection.addEventListener("click", function(){
+		console.log(myPeerConnection);
+	}); */
+	
+	const btnMyPeerConnection = document.getElementById("btnMyPeerConnection");
+	btnMyPeerConnection.addEventListener("click", function(){
+		console.log(pcObj);
+		console.dir(pcObj);
+	});
+			
 	</script>
 	
 	<!--////////////Theme Core scripts Start/////////////////-->

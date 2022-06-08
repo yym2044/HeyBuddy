@@ -32,7 +32,7 @@
 </head>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <body>
-
+	
 	<form id="meetListForm" method="post">
 
 		<input type="hidden" id="hymrSeq" name="hymrSeq">
@@ -278,7 +278,7 @@
 	 
 
 	 </script>
-	
+	 
 	<script type="text/javascript">
 	const socket = new SockJS('/stompTest');
 	const client = Stomp.over(socket);
@@ -385,7 +385,7 @@
 					append += '</div>';
 					append += '</td>';
 					append += '<td class="text-end" style="width: 200px; vertical-align: middle;">';
-					append += '<i class="bi bi-alarm pe-1"></i>12:34';
+					append += '<i class="bi bi-alarm pe-1"></i>' + timestampToDateTime(room[i].regDateTime) + '<br>';
 					append += '</td>';
 					append += '<td style="vertical-align: middle;">';
 					append += '<a href="javascript:enterRoom(' + room[i].hymrSeq + ');" class="btn rounded-pill btn-primary text-truncate">회의 참여</a>';
@@ -411,8 +411,26 @@
 		}));
 		
 	});
-	</script>
 	
+	
+	
+	timestampToDateTime = function(timeStamp){
+		var dateTime = new Date(timeStamp);
+		
+		var year = String(dateTime.getFullYear());
+		var month = String(dateTime.getMonth() + 1).padStart(2,"0");
+		var date = String(dateTime.getDate()).padStart(2,"0");
+		var hour = String(dateTime.getHours()).padStart(2,"0");
+		var minute = String(dateTime.getMinutes()).padStart(2,"0");
+		var second = String(dateTime.getSeconds()).padStart(2,"0");
+		
+		var result = year + "/" + month + "/" + date + " " + hour + ":" + minute + ":" + second;
+		
+		return result; 
+	}
+	
+	</script>
+		
 </body>
 
 </html>

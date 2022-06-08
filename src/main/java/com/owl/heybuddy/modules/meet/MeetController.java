@@ -220,6 +220,7 @@ public class MeetController {
 		vo.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		
 		model.addAttribute("rt", service.selectOneRoom(vo));
+		model.addAttribute("users", service.selectListOneRoomMember(vo));
 		
 		return "user/meet/meetEnter";
 	}
@@ -233,6 +234,7 @@ public class MeetController {
 		}
 		
 		model.addAttribute("rt", service.selectOneRoom(vo));
+//		model.addAttribute("users", service.selectListOneRoomMember(vo));
 		
 		return "user/meet/meetRoom";
 	}

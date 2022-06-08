@@ -117,10 +117,8 @@
 											<i id="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="copy to clipboard" class="bi bi-clipboard ps-1"></i>
 										</a>
 											</li>
-									<li><i class="bi bi-people pe-2"></i><span class="fs-5">1명
-											참여 중 (최대 15명)</span></li>
-									<li><i class="bi bi-clock pe-2"></i><span class="fs-5">20분
-											남음 (총 40분)</span></li>
+									<li><i class="bi bi-people pe-2"></i><span class="fs-5">${fn:length(users)}명 참여 중 </span></li>
+									<li><i class="bi bi-clock pe-2"></i><span class="fs-5"><fmt:formatDate value="${rt.regDateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></span></li>
 								</ul>
 								<div style="width: 720px; margin-left: 28px;" class="text-end">
 									<a href="meetList" class="btn btn-gray me-2">뒤로</a>

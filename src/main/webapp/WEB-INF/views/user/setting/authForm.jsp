@@ -111,7 +111,7 @@
 													<select id="Searchable" name="hysmSeq" class="form-control" data-choices='{"searchEnabled":true}'>
 														<!-- <option disabled>멤버</option> -->
 														<c:forEach items="${list}" var="item" varStatus="status">
-															<c:if test="${item.hysmRoleCd ne 12 and item.hysmAuthCd eq 0}">
+															<c:if test="${item.hysmRoleCd ne 12 and item.hysmAuthCd eq 0 and item.hymmActiveNy eq 1 and item.hysmAcceptedNy eq 1}">
 																<option value="${item.hysmSeq}"><c:out value="${item.hymmName}"/></option>
 															</c:if>
 														</c:forEach>

@@ -3,6 +3,7 @@
 <script type="text/javascript">
 	
 	const socketOnline = new WebSocket('ws://localhost:8091/online');
+	//const socketOnline = new WebSocket('wss://tp.heybuddy.a9xlab.com/online');
 
 </script>
 
@@ -37,7 +38,7 @@ logOut = function(){
 	
 	const bg = localStorage.getItem("backUrl");
 	
-	if(bg == 1){
+	if(bg == 1 || bg == null){
 		icon.classList.add("bg-success");
 	} else if(bg == 2){
 		icon.classList.add("bg-info");

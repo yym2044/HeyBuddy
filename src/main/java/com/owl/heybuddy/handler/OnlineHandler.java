@@ -39,7 +39,9 @@ public class OnlineHandler extends TextWebSocketHandler {
 			spaceUsers.put(hyspSeq, list);
 		}
 		
-		spaceUsers.get(hyspSeq).add(sessSeq);
+		if(!spaceUsers.get(hyspSeq).contains(sessSeq)) {
+			spaceUsers.get(hyspSeq).add(sessSeq);
+		}
 		
 		List<String> spaceUserList = spaceUsers.get(hyspSeq);
 		

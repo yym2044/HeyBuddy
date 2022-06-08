@@ -162,6 +162,7 @@
 																				<span class="badge bg-danger ms-1">S</span>
 																			</c:if>
 																		</div>
+																		<span id="Member<c:out value="${item.hymmSeq}"/>Text" class="text-muted small d-flex align-items-center onOffSpan"><span id="Member<c:out value="${item.hymmSeq}"/>Circle" class="align-middle me-1 size-5 border border-4 rounded-circle d-inline-block onOffSpan2"></span>Online</span>
 																	</div>
 																</div>
 															</td>
@@ -284,6 +285,33 @@
 		}
 	</script>
 	<%@include file="../include/pageScripts.jsp"%>
+	
+	<script type="text/javascript">
+	
+	socketOnline.onmessage = function(event){
+		
+		const userArrOnline = JSON.parse(event.data);
+		console.log("online users : ",userArrOnline);
+		
+		const users = document.getElementsByClassName("onOffSpan");
+		const users2 = document.getElementsByClassName("onOffSpan2");
+		
+		for(var i = 0; i < users.length; i++){
+			users[i].innerHTML = users[i].innerHTML.replace("Online", "Offline");
+			users2[i].classList.remove("border-success");
+			
+			for(var j = 0; j < userArrOnline.length; j++){
+			
+				if(users[i].id.replace("Member","").replace("Text","") == userArrOnline[j]){
+					document.getElementById("Member" + userArrOnline[j] + "Text").innerHTML = document.getElementById("Member" + userArrOnline[j] + "Text").innerHTML.replace("Offline", "Online");
+					document.getElementById("Member" + userArrOnline[j] + "Circle").classList.add("border-success");
+					break;
+				}
+				
+			}
+		}
+	}
+	</script>
 </body>
 
 </html>

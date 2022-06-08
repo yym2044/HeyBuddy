@@ -103,7 +103,9 @@
 									<a href="javascript:goChat(<c:out value="${item.hymmSeq}"/>);"
 										class="list-group-item p-4 list-group-item-action">
 										<div class="d-flex align-items-center">
-
+										
+											<!-- 온오프라인 상태 없는 버젼 -->
+											<%-- 
 											<c:choose>
 												<c:when test="${empty item.uuidFileName}">
 													<img style="width: 80px; height: 80px;"
@@ -116,6 +118,22 @@
 														class="flex-shrink-0 rounded-3 width-80" alt="">
 												</c:otherwise>
 											</c:choose>
+											 --%>
+											
+											<!-- 온오프라인 상태 추가 버젼 -->
+											
+											<div id="Member<c:out value="${item.hymmSeq}"/>" class="avatar avatar-status lg me-2 mb-2">
+												<c:choose>
+													<c:when test="${empty item.uuidFileName}">
+														<img src="/resources/user/images/profileDefault.png" class="img-fluid rounded-circle w-auto" alt="">
+													</c:when>
+													<c:otherwise>
+														<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="img-fluid rounded-circle w-auto" alt="">
+													</c:otherwise>
+												</c:choose>
+											</div>
+											
+											
 											<!-- <img src="/resources/assets/media/avatars/01.jpg" class="flex-shrink-0 rounded-3 width-80" alt=""> -->
 
 											<div class="ps-3 flex-grow-1 overflow-hidden">
@@ -200,7 +218,44 @@
 			$("#memberList").submit();
 		}
 	</script>
-</body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+	<script type="text/javascript">
+	
+//	const socket = new WebSockeet('wss://tp.heybuddy.a9xlab.com/online');
+	const socket = new WebSocket('ws://localhost:8091/online');
 
+	socket.onopen = function(){
+				
+	}
+	
+	socket.onmessage = function(event){
+		
+		const userArrOnline = JSON.parse(event.data);
+		console.log("online users : ",userArrOnline);
+		
+		const users = document.getElementsByClassName("avatar-status");
+		for(var i = 0; i < users.length; i++){
+			users[i].classList.add("status-offline");
+			for(var j = 0; j < userArrOnline.length; j++){
+			
+				if(users[i].id.replace("Member","") == userArrOnline[j]){
+					document.getElementById("Member" + userArrOnline[j]).classList.remove("status-offline");
+					document.getElementById("Member" + userArrOnline[j]).classList.add("status-online");
+					break;
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	</script>
+	
+	<%@include file="../include/pageScripts.jsp"%>
+</body>
 
 </html>

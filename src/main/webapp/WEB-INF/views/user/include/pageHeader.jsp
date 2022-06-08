@@ -232,26 +232,3 @@
 	</ul>
 </header>
 <!--Main Header End-->
-
-<script type="text/javascript">
-logOut = function(){
-	
-	$.ajax({
-		async: true 
-		,cache: false
-		,type: "post"
-		,url: "/member/logoutProc"
-		,success: function(response) {
-			if(response.rt == "success") {
-				location.href="/login/userLogin";
-			} else {
-				alert("로그아웃 실패");
-			}
-		}
-		,error : function(jqXHR, textStatus, errorThrown){
-			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-		}
-	});
-	
-}
-</script>

@@ -97,7 +97,7 @@
 							<span class="sidebar-text">환경 설정</span>
 						</a></li>
 				</c:if>
-				<li class="nav-item"><a href="/mySpace/mySpaceList" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
+				<li class="nav-item"><a href="javascript:goSpaceList();" class="nav-link d-flex align-items-center text-truncate Sidebar-link">
 						<span class="sidebar-icon iconic">
 							<i class="bi bi-arrow-left-right" class="fe-1x"></i>
 						</span>
@@ -127,24 +127,3 @@
 		</div>
 	</div>
 </div>
-
-
-<script type="text/javascript">
-
-	const icon = document.querySelector("#sidebarIcon");
-	icon.innerText = "<c:out value="${hyspName}"/>".charAt(0);
-	
-	const bg = localStorage.getItem("backUrl");
-	
-	if(bg == 1){
-		icon.classList.add("bg-success");
-	} else if(bg == 2){
-		icon.classList.add("bg-info");
-	} else if(bg == 3){
-		icon.classList.add("bg-warning");
-	} else if(bg == 4){
-		icon.classList.add("bg-danger");
-	}
-	
-	
-</script>

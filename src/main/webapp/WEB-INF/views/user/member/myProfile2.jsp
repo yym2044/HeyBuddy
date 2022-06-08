@@ -303,7 +303,7 @@
 		});
 	</script>
 
-	<%@include file="../include/pageScripts.jsp"%>
+	<%@include file="../include/pageScripts.jsp"%> 
 </body>
 
 </html>

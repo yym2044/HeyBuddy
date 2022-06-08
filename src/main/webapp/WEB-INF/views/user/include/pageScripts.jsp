@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <script type="text/javascript">
+	
+	const socketOnline = new WebSocket('ws://localhost:8091/online');
+
+</script>
+
+<script type="text/javascript">
 logOut = function(){
 	
 	$.ajax({
@@ -10,7 +16,7 @@ logOut = function(){
 		,url: "/member/logoutProc"
 		,success: function(response) {
 			if(response.rt == "success") {
-				socket.send(JSON.stringify({"type" : "LeaveSpace"}));
+				socketOnline.send(JSON.stringify({"type" : "LeaveSpace"}));
 				location.href="/login/userLogin";
 			} else {
 				alert("로그아웃 실패");
@@ -46,7 +52,7 @@ logOut = function(){
 <script type="text/javascript">
 
 goSpaceList = function(){
-	socket.send(JSON.stringify({"type" : "LeaveSpace"}));
+	socketOnline.send(JSON.stringify({"type" : "LeaveSpace"}));
 	location.href="/mySpace/mySpaceList";
 }
 

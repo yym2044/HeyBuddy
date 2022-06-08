@@ -222,16 +222,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
+	<%@include file="../include/pageScripts.jsp"%>
+	
 	<script type="text/javascript">
-	
-//	const socket = new WebSockeet('wss://tp.heybuddy.a9xlab.com/online');
-	const socket = new WebSocket('ws://localhost:8091/online');
-
-	socket.onopen = function(){
-				
-	}
-	
-	socket.onmessage = function(event){
+	socketOnline.onmessage = function(event){
 		
 		const userArrOnline = JSON.parse(event.data);
 		console.log("online users : ",userArrOnline);
@@ -252,10 +246,7 @@
 		}
 		
 	}
-	
 	</script>
-	
-	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

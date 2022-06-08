@@ -348,18 +348,11 @@ pageContext.setAttribute("br", "\n");
 								</div>
 
 
-
-
-
 								<br> <br>
-
-
-
 
 								<!--Comments list-->
 								<ul class="list-group">
 									<li class="list-group-item">
-
 										<div class="d-flex mb-3 align-items-center small">
 
 											<br> <br>
@@ -373,7 +366,7 @@ pageContext.setAttribute("br", "\n");
 													<c:otherwise>
 
 
-														<!--Comments-->
+														<!--Comments 갯수 아이콘-->
 														<a href="#!"
 															class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
 															<i data-feather="message-square"
@@ -381,11 +374,8 @@ pageContext.setAttribute("br", "\n");
 														</a>
 
 
-
-
 														<!-- 모댓글이라면 -->
 														<c:if test="${commentList.hycoGroupSeq eq 1}">
-
 															<img style="width: 30px; height: 30px;"
 																src="<c:out value="${commentList.path}"/><c:out value="${commentList.uuidFileName}"/>"
 																class="avatar rounded-pill flex-shrink-0" />
@@ -406,11 +396,8 @@ pageContext.setAttribute("br", "\n");
 																<div class="mb-2 small">
 																	<a href="#!" class="text-reset">Reply</a>
 																</div>
-
 															</div>
 														</c:if>
-
-
 													</c:otherwise>
 												</c:choose>
 											</c:forEach>
@@ -420,11 +407,11 @@ pageContext.setAttribute("br", "\n");
 												varStatus="status">
 												<c:choose>
 													<c:when test="${commentList2.hycoGroupSeq eq hycoGroupDepth}">
-
+<p></p>
 													</c:when>
 													<c:otherwise>
+													
 														<!-- 모댓글이라면 -->
-
 														<c:if test="${commentList2.hycoGroupDepth }">
 															<span class="d-block small text-body text-truncate">
 																<c:out value="${commentList2.hyflOriginalFileName}" />
@@ -455,6 +442,7 @@ pageContext.setAttribute("br", "\n");
 													</c:otherwise>
 												</c:choose>
 											</c:forEach>
+										</div>
 									</li>
 
 
@@ -468,7 +456,6 @@ pageContext.setAttribute("br", "\n");
 											</a>
 										</div>
 									</li>
-
 								</ul>
 							</div>
 						</div>

@@ -296,6 +296,7 @@
 		};
 	</script>
 	
+	<%@include file="../include/pageScripts.jsp"%>
     </body>
 
 </html>

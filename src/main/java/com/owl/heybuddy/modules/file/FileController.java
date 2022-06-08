@@ -1,14 +1,22 @@
 package com.owl.heybuddy.modules.file;
 
+
 import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -63,6 +71,8 @@ public class FileController {
 		return "user/file/fileListTemp";
 	}
 
+	 
+	
 	@RequestMapping(value = "/file/fileView") // 문서확인
 	public String fileView(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession) throws Exception {
 
@@ -71,9 +81,14 @@ public class FileController {
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 
-		List<File> list = service.fileUploaded(vo);  
-		model.addAttribute("list", list); 
-		model.addAttribute("fileUploaded", list); 
+		List<File> fileUploaded = service.fileUploaded(vo);    // 파일리스트
+		model.addAttribute("fileUploaded", fileUploaded); 
+		
+		List<File> commentList = service.commentList(vo); // 모댓글리스트
+		model.addAttribute("commnetList", commentList); 
+		
+		List<File> commentList2 = service.commentList2(vo); // 대댓글리스트
+		model.addAttribute("commnetList2", commentList2); 
 		
 		return "user/file/fileView";
 
@@ -169,4 +184,79 @@ public class FileController {
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/file/fileList";
 	}
+	
+	/*
+	 * @RequestMapping(value = "/file/commentProc", method = RequestMethod.POST)
+	 * public ResponseEntity<String> register(@RequestBody FileVo fileVo) {
+	 * ResponseEntity<String> entity = null; try { service.commentCreate(fileVo);
+	 * entity = new ResponseEntity<String>("regSuccess", HttpStatus.OK); } catch
+	 * (Exception e) { e.printStackTrace(); entity = new
+	 * ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST); } return
+	 * entity; }
+	 * 
+	 */
+	  
+	  @RequestMapping(value = "/file/fileInst3") // 댓글 등록 받음 
+		public String fileInst3(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+			
+			service.commentCreate(dto);
+			vo.setHycoSeq(dto.getHycoSeq());
+			System.out.println("dto.getHycoText() : "+dto.getHycoText());
+			redirectAttributes.addFlashAttribute("vo", vo);
+			return "redirect:/file/fileView";
+		}
+	
+	/*
+	 * @RestController
+	 * 
+	 * @RequestMapping("/file/fileViewProc") public class ReplyController {
+	 * 
+	 * private final FileService fileService;
+	 * 
+	 * @Inject public ReplyController(FileService fileService) { this.fileService =
+	 * fileService; }
+	 * 
+	 * //Reply Register
+	 * 
+	 * @RequestMapping(value = "", method = RequestMethod.POST) public
+	 * ResponseEntity<String> register(@RequestBody FileVo fileVo) {
+	 * ResponseEntity<String> entity = null; try {
+	 * fileService.commentCreate(fileVo); entity = new
+	 * ResponseEntity<String>("regSuccess", HttpStatus.OK); } catch (Exception e) {
+	 * e.printStackTrace(); entity = new ResponseEntity<String>(e.getMessage(),
+	 * HttpStatus.BAD_REQUEST); } return entity; }
+	 * 
+	 * //Reply List
+	 * 
+	 * @RequestMapping(value = "/all/{hydcSeq}", method = RequestMethod.GET) public
+	 * ResponseEntity<List<FileVo>> list(@PathVariable("hydcSeq") Integer hydcSeq) {
+	 * ResponseEntity<List<FileVo>> entity = null; try { entity = new
+	 * ResponseEntity<List<FileVo>>(fileService.commentList(hydcSeq),
+	 * HttpStatus.OK); } catch (Exception e) { e.printStackTrace(); entity = new
+	 * ResponseEntity<List<FileVo>>(HttpStatus.BAD_REQUEST); } return entity; }
+	 * 
+	 * //Reply Modify
+	 * 
+	 * @RequestMapping(value = "/{hycoSeq}", method = {RequestMethod.PUT,
+	 * RequestMethod.PATCH}) public ResponseEntity<String>
+	 * update(@PathVariable("hycoSeq") Integer hycoSeq, @RequestBody FileVo fileVo)
+	 * { ResponseEntity<String> entity = null; try { fileVo.setHycoSeq(hycoSeq);
+	 * fileService.commentUpdate(fileVo); entity = new
+	 * ResponseEntity<String>("modSuccess", HttpStatus.OK); } catch (Exception e) {
+	 * e.printStackTrace(); entity = new ResponseEntity<String>(e.getMessage(),
+	 * HttpStatus.BAD_REQUEST); } return entity; }
+	 * 
+	 * //Reply Delete
+	 * 
+	 * @RequestMapping(value = "/{reply_no}", method = RequestMethod.DELETE) public
+	 * ResponseEntity<String> delete(@PathVariable("hycoSeq") Integer hycoSeq) {
+	 * ResponseEntity<String> entity = null; try {
+	 * fileService.commentDelete(hycoSeq); entity = new
+	 * ResponseEntity<String>("delSuccess", HttpStatus.OK); } catch (Exception e) {
+	 * e.printStackTrace(); entity = new ResponseEntity<String>(e.getMessage(),
+	 * HttpStatus.BAD_REQUEST); } return entity; } }
+	 */
+	 
+	
+	
 }

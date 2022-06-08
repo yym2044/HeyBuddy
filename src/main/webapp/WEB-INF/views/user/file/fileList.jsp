@@ -429,6 +429,7 @@
 						$("#checkboxAll").prop("checked", true);
 				});
 			</script>
+			<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

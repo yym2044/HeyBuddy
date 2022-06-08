@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
- 
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -119,12 +119,9 @@ pageContext.setAttribute("br", "\n");
 				<form id="formView" action="" method="post">
 
 					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}"/>"> 
-				
-				<input
+						value="<c:out value="${vo.thisPage}"/>"> <input
 						type="hidden" id="hydcSeq" name="hydcSeq"
-						value="<c:out value="${vo.hydcSeq}"/>" >
-						 <input
+						value="<c:out value="${vo.hydcSeq}"/>"> <input
 						type="hidden" id="hymmSeq" name="hymmSeq"
 						value="<c:out value="${vo.hymmSeq}"/>"> <input
 						type="hidden" id="shHydcDelNy" name="shHydcDelNy"
@@ -265,14 +262,14 @@ pageContext.setAttribute("br", "\n");
 									<div class="d-flex flex-wrap">
 
 										<!--Attachment image-->
-										<c:forEach items="${list}" var="fileUploaded"
+										<c:forEach items="${fileUploaded}" var="fileUploaded"
 											varStatus="status">
 											<c:choose>
 												<c:when test="${empty fileUploaded.hyflUuidFileName}">
 													<p>등록된 파일이 없습니다.</p>
 												</c:when>
-												
-												
+
+
 												<c:otherwise>
 
 													<div class="card-hover me-2 position-relative width-90">
@@ -293,52 +290,53 @@ pageContext.setAttribute("br", "\n");
 														</span>
 														<!--File description-->
 
-														
 
-															<!-- 이미지라면 -->
-															<c:if test="${fileUploaded.hyflType eq 0}">
-																<span class="d-block small text-body text-truncate">
-																	<c:out value="${fileUploaded.hyflOriginalFileName}" />
 
-																</span>
-																<span class="d-block small text-muted text-truncate">
-																	<c:out value="${fileUploaded.hyflSize}" /> mb
-																</span>
-																<span class="d-block small text-muted text-truncate">
+														<!-- 이미지라면 -->
+														<c:if test="${fileUploaded.hyflType eq 0}">
+															<span class="d-block small text-body text-truncate">
+																<c:out value="${fileUploaded.hyflOriginalFileName}" />
 
-																	<a href="#pop" class="btn_open"> preview </a>
-																</span>
+															</span>
+															<span class="d-block small text-muted text-truncate">
+																<c:out value="${fileUploaded.hyflSize}" /> mb
+															</span>
+															<span class="d-block small text-muted text-truncate">
 
-																<!-- 이미지팝업 -->
-																<div id="pop" class="pop_wrap" style="display: none;">
-																	<div class="pop_inner">
-																		<p class="dsc">Image Preview</p>
-																		<img
-																			src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
-																			width="500px" class="img-fluid" alt="" />
-																		<button type="button" class="btn_close">Close</button>
-																	</div>
+																<a href="#pop" class="btn_open"> preview </a>
+															</span>
+
+															<!-- 이미지팝업 -->
+															<div id="pop" class="pop_wrap" style="display: none;">
+																<div class="pop_inner">
+																	<p class="dsc">Image Preview</p>
+																	<img
+																		src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+																		width="500px" class="img-fluid" alt="" />
+																	<button type="button" class="btn_close">Close</button>
 																</div>
-																
-															</c:if>
+															</div>
 
-															<!-- pdf라면 -->
-															<c:if test="${fileUploaded.hyflType eq 1}">
-																
-																<span class="d-block small text-body text-truncate">
-																	<c:out value="${fileUploaded.hyflOriginalFileName}" />
+														</c:if>
 
-																</span>
-																<span class="d-block small text-muted text-truncate">
-																	<c:out value="${fileUploaded.hyflSize}" /> mb
-																</span>
-																	<span class="d-block small text-muted text-truncate">
+														<!-- pdf라면 -->
+														<c:if test="${fileUploaded.hyflType eq 1}">
+
+															<span class="d-block small text-body text-truncate">
+																<c:out value="${fileUploaded.hyflOriginalFileName}" />
+
+															</span>
+															<span class="d-block small text-muted text-truncate">
+																<c:out value="${fileUploaded.hyflSize}" /> mb
+															</span>
+															<span class="d-block small text-muted text-truncate">
 																<a
-																	href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>">
-																	preview </a> </span>
-															</c:if>
+																href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>">
+																	preview </a>
+															</span>
+														</c:if>
 
-									
+
 														<!-- <a href="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf"> view</a> -->
 														<%-- <iframe src="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
 <iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
@@ -348,114 +346,130 @@ pageContext.setAttribute("br", "\n");
 										</c:forEach>
 									</div>
 								</div>
-								<div class="d-flex mb-3 align-items-center small">
 
-									<br> <br>
 
-									<!--Comments-->
-									<a href="#!"
-										class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
-										<i data-feather="message-square"
-										class="fe-1x me-1 align-middle"></i> <span>3</span>
-									</a>
 
-									<!--Shares-->
-									<a href="#!"
-										class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-1">
-										<i data-feather="share" class="fe-1x me-1 align-middle"></i> <span>4</span>
-									</a>
-								</div>
 
 
 								<br> <br>
 
 
+
+
 								<!--Comments list-->
-								<!-- 			<ul class="list-group">
-					<li class="list-group-item">
-						<div class="d-flex align-items-stretch">
-							<a href="#!" class="flex-shrink-0 d-block me-2"> <img
-								src="/resources/assets/media/avatars/01.jpg"
-								class="avatar sm rounded-circle" alt="">
-							</a>
-							Coomments and replies
-							<div>
-								<div class="py-2 mb-1 px-3 bg-body rounded-3">
-									<div class="d-flex justify-content-between">
-										<h6 class="mb-0">윤영민</h6>
-										<small class="text-muted">2022.04.27 11:16</small>
-									</div>
-									<p class="mb-0">확인 했습니다.</p>
-								</div>
-								Reply link
-								<div class="mb-2 small">
-									<a href="#!" class="text-reset">Reply</a>
-								</div>
-								Reply
-								<div class="d-flex align-items-stretch">
-									Reply icon
-									<div class="me-2 text-muted">
-										<i data-feather="corner-down-right"
-											class="fe-1x me-1 align-middle"></i>
-									</div>
-									<a href="#!" class="flex-shrink-0 d-block me-2"> <img
-										src="/resources/assets/media/avatars/02.jpg"
-										class="avatar xs rounded-circle" alt="">
-									</a>
-									Reply
-									<div>
-										<div class="py-2 mb-1 px-3 bg-body rounded-3">
-											<div class="d-flex justify-content-between">
-												<h6 class="mb-0">정미림</h6>
-												<small class="text-muted">2022.04.27 12:16</small>
-											</div>
-											<p class="mb-0">감사합니다.</p>
+								<ul class="list-group">
+									<li class="list-group-item">
+
+										<div class="d-flex mb-3 align-items-center small">
+
+											<br> <br>
+
+											<c:forEach items="${commentList}" var="commentList"
+												varStatus="status">
+												<c:choose>
+													<c:when test="${empty commentList.hycoSeq}">
+														<p>등록된 댓글이 없습니다.</p>
+													</c:when>
+													<c:otherwise>
+
+
+														<!--Comments-->
+														<a href="#!"
+															class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+															<i data-feather="message-square"
+															class="fe-1x me-1 align-middle"></i> <span>3</span>
+														</a>
+
+
+
+
+														<!-- 모댓글이라면 -->
+														<c:if test="${commentList.hycoGroupSeq eq 1}">
+
+															<img style="width: 30px; height: 30px;"
+																src="<c:out value="${commentList.path}"/><c:out value="${commentList.uuidFileName}"/>"
+																class="avatar rounded-pill flex-shrink-0" />
+															<div>
+																<div class="py-2 mb-1 px-3 bg-body rounded-3">
+																	<div class="d-flex justify-content-between">
+																		<h6 class="mb-0">
+																			<c:out value="${commentList.hymmName}" />
+																		</h6>
+																		<small class="text-muted"><c:out
+																				value="${commentList.regDateTime}" /></small>
+																	</div>
+																	<p class="mb-0">
+																		<c:out value="${commentList.hycoText}" />
+																	</p>
+																</div>
+
+																<div class="mb-2 small">
+																	<a href="#!" class="text-reset">Reply</a>
+																</div>
+
+															</div>
+														</c:if>
+
+
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+
+
+											<c:forEach items="${commentList2}" var="commentList2"
+												varStatus="status">
+												<c:choose>
+													<c:when test="${commentList2.hycoGroupSeq eq hycoGroupDepth}">
+
+													</c:when>
+													<c:otherwise>
+														<!-- 모댓글이라면 -->
+
+														<c:if test="${commentList2.hycoGroupDepth }">
+															<span class="d-block small text-body text-truncate">
+																<c:out value="${commentList2.hyflOriginalFileName}" />
+															</span>
+															<img style="width: 30px; height: 30px;"
+																src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
+																class="avatar rounded-pill flex-shrink-0" />
+															<div>
+																<div class="py-2 mb-1 px-3 bg-body rounded-3">
+																	<div class="d-flex justify-content-between">
+																		<h6 class="mb-0">
+																			<c:out value="${commentList2.hymmName}" />
+																		</h6>
+																		<small class="text-muted"><c:out
+																				value="${commentList2.regDateTime}" /></small>
+																	</div>
+																	<p class="mb-0">
+																		<c:out value="${commentList2.hycoText}" />
+																	</p>
+																</div>
+
+																<div class="mb-2 small">
+																	<a href="#!" class="text-reset">Reply</a>
+																</div>
+
+															</div>
+														</c:if>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+									</li>
+
+
+									<li class="list-group-item bg-body">
+										<h6>Add new comment</h6> <textarea id="hycoText"
+											name="hycoText" rows="2" class="form-control mb-2"></textarea>
+										<div class="text-end">
+											<a href="javascript:goCommentList();">
+												<button type="button" class="btn btn-primary btn-sm"
+													id="btnSubmit" value="">등록</button>
+											</a>
 										</div>
-										Reply link
-										<div class="mb-0 small">
-											<a href="#!" class="text-reset">Reply</a>
-										</div>
-									</div>
+									</li>
 
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="d-flex align-items-stretch">
-							<a href="#!" class="flex-shrink-0 d-block me-2"> <img
-								src="/resources/assets/media/avatars/03.jpg"
-								class="avatar sm rounded-circle" alt="">
-							</a>
-							Coomments and replies
-							<div>
-								<div class="py-2 mb-1 px-3 bg-body rounded-3">
-									<div class="d-flex justify-content-between">
-										<h6 class="mb-0">이건우</h6>
-										<small class="text-muted">2022.04.27 16:11</small>
-									</div>
-									<p class="mb-0">감사합니다. 😀</p>
-								</div>
-								Reply link
-								<div class="mb-2 small">
-									<a href="#!" class="text-reset">Reply</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="list-group-item bg-body">
-					
-					
-						Add comment
-						<h6>Add new comment</h6> <textarea name="addComment" rows="2"
-							class="form-control mb-2"></textarea>
-						<div class="text-end">
-							<button type="button" class="btn btn-primary btn-sm">등록</button>
-						</div>
-
-					</li>
-				</ul> -->
-
+								</ul>
 							</div>
 						</div>
 				</form>
@@ -512,6 +526,11 @@ pageContext.setAttribute("br", "\n");
 			$("#formView").attr("action", "/file/fileNele");
 			$("#formView").submit();
 		};
+		goCommentList = function() {
+			$("#hydcDelNy").val(0);
+			$("#formView").attr("action", "/file/fileInst3");
+			$("#formView").submit();
+		};
 	</script>
 
 
@@ -539,6 +558,101 @@ pageContext.setAttribute("br", "\n");
 	</script>
 	<!-- 이미지 팝업으로 크게보기 -->
 
+
+
+	<!-- 댓글등록아작스 실패 ㅠㅠㅠㅠㅠ -->
+	<!-- 	<script>
+	function commentPost() {
+    $.ajax({
+        type: "post",
+        url: "/file/fileInst3",
+        data: {"comment": $("#comment").val(), "bid": $("#bid").val()},
+        success: function (data) {
+            if (data.result == "success") {
+                location.reload();
+            }
+        },
+        error: function (request, status, error) {
+            alert("code: " + request.status + "\n" + "error: " + error);
+        }
+    });
+}
+	</script> -->
+
+
+	<!-- 댓글등록 -->
+	<script>
+		
+	</script>
+
+
+	<!-- 	세션동일시 댓글수정삭제가능 -->
+	<script>
+		if (data.list[i].writer === $("#sessionNickname").val()) {
+			html += "<span style='cursor: pointer; color: blue' class='commentMod' data-toggle='modal' data-target='#modifyModal'>수정 </span>";
+
+			html += "<span style='cursor: pointer; color: blue' class='commentDel'>삭제</span>";
+		} else if ($("#sessionRole").val() === "ROLE_ADMIN") {
+			html += "<span style='cursor: pointer; color: blue' class='commentDel'>삭제</span>";
+		}
+	</script>
+
+
+	<!-- 	댓글 수정버튼  -->
+	<script>
+		$(document).on(
+				"click",
+				".commentMod",
+				function() {
+
+					const comment_id = $(this).siblings('input').val();
+					const comment_text = $(this).siblings('.comment_container')
+							.children('h5').text();
+					const comment_writer = $(this).siblings('b').text();
+
+					$("#comment_id").val(comment_id);
+					$("#comment_text").val(comment_text);
+					$("#comment_writer").val(comment_writer);
+
+				});
+	</script>
+
+
+	<!-- 댓글수정 아작스전달 -->
+
+	<script>
+		$(".modalModBtn").on(
+				"click",
+				function() {
+					const comment_id = $("#comment_id").val();
+					const comment_text = $("#comment_text").val();
+					if (!confirm("댓글을 수정하시겠습니까?")) {
+						return false;
+					} else {
+						$.ajax({
+							type : 'put',
+							url : "/api/comment/modify",
+							data : {
+								"cid" : comment_id,
+								"comment" : comment_text
+							},
+							success : function(result) {
+								if (result == "success") {
+									alert("댓글을 수정하였습니다.");
+								} else {
+									alert("오류가 발생하였습니다. 다시 시도해주세요")
+								}
+								location.reload();
+							},
+							error : function(request, status, error) {
+								alert("code: " + request.status + "\n"
+										+ "error: " + error);
+							}
+						});
+					}
+				});
+	</script>
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

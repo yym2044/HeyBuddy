@@ -38,6 +38,9 @@ public class File {
 	private Integer hycoDefaultNy;
 	private String hycoText;
 	private Integer hycoDelNy;
+	private Integer hycoGroupSeq;
+	private Integer hycoGroupDepth;
+
 
 	
 	// uploaded
@@ -502,5 +505,19 @@ public String getHyflPath() {
 public void setHyflPath(String hyflPath) {
 	this.hyflPath = hyflPath;
 }
+public Integer getHycoGroupSeq() {
+	return hycoGroupSeq;
+}
+public void setHycoGroupSeq(Integer hycoGroupSeq) {
+	this.hycoGroupSeq = hycoGroupSeq;
+}
+public Integer getHycoGroupDepth() {
+	return hycoGroupDepth;
+}
+public void setHycoGroupDepth(Integer hycoGroupDepth) {
+	this.hycoGroupDepth = hycoGroupDepth;
+}
+
+
 
 }

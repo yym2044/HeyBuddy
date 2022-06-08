@@ -10,51 +10,36 @@
 		type="com.owl.heybuddy.modules.file.File"></resultMap> <!-- 결과 객체 저장 -->
 
 
-<!-- 	<sql id="selectCommon"> 공통
+	<sql id="selectCommon"> 
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMemberUploaded
-		d ON d.pseq = b.hymmSeq
+		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
 		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
+		LEFT JOIN hybdComment f ON f.hycoSeq = a.hydcSeq
 		where
 		a.hydcDelNy = 0
 		AND
 		a.hydcTempNy = 0
 		AND
 		c.hyspSeq = #{hyspSeq}
+
+<!-- 	AND ( 
+		a.hydcTitle LIKE concat('%',#{shHydcValue},'%')
+		OR a.hydcText LIKE concat('%',#{shHydcValue},'%')
+		OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
+		OR e.hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')
+		 ) -->
 		ORDER BY
 		a.modDateTime DESC
 		limit #{startRnumForMysql} , #{rowNumToShow}
-	</sql> -->
+	</sql> 
 
 	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
 		select
 		count(*)
-		from
-		hybdDocument a
-		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMemberUploaded
-		d ON d.pseq = b.hymmSeq
-		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
-		where
-		a.hydcDelNy = 0
-		AND
-		a.hydcTempNy = 0
-		AND
-		c.hyspSeq = #{hyspSeq}
-		
-	<!-- 	a.hydcTitle LIKE concat('%',#{shHydcValue},'%')
-		OR a.hydcText LIKE concat('%',#{shHydcValue},'%')
-		OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
-		OR e.hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')
-	 -->
-		ORDER BY
-		a.modDateTime DESC
-		limit #{startRnumForMysql} , #{rowNumToShow}
-		<!-- <include refid="selectCommon" /> -->
+ 	<include refid="selectCommon" />
 	</select>
 
 	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트 -->
@@ -66,22 +51,8 @@
 		,c.*
 		,d.*
 		,e.*
-		from
-		hybdDocument a
-		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
-		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
-		where
-		a.hydcDelNy = 0
-		AND
-		a.hydcTempNy = 0
-		AND
-		c.hyspSeq = #{hyspSeq}
-		ORDER BY
-		a.modDateTime DESC
-		limit #{startRnumForMysql} , #{rowNumToShow}
-	<!-- 	<include refid="selectCommon" /> -->
+		,f.*
+	<include refid="selectCommon" /> 
 	</select>
 
 	<select id="selectListMemberInSpace" resultMap="resultMapObj">
@@ -103,11 +74,9 @@
 		*
 		from
 		hybdDocument a
-		LEFT JOIN hybdMember b on b.hymmSeq =
-		a.hymmSeq
+		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdFileUploaded e
-		ON e.pseq = a.hydcSeq
+		LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
 		where
 		a.hydcDelNy = 0
 		and
@@ -124,13 +93,15 @@
 		,c.uuidFileName
 		,d.hyflPath
 		,d.hyflUuidFileName
+		,e.hycoText
+		,e.regDateTime
+		,e.modDateTime
 		from
 		hybdDocument a
-		LEFT JOIN hybdMember b ON
-		b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdMemberUploaded c ON c.pseq =
-		b.hymmSeq
+		LEFT JOIN hybdMember b ON	b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
 		LEFT JOIN hybdFileUploaded d ON d.hyflPseq = a.hydcSeq
+		LEFT JOIN hybdComment e ON e.hycoSeq = a.hydcSeq
 		where 1=1
 		and
 		a.hydcDelNy = 0
@@ -283,13 +254,9 @@
 		, c.hymmSeq
 		, c.hymmName
 		FROM
-		hybdSpace a
-		LEFT JOIN
-		hybdSpaceMember b
-		ON b.hyspSeq = a.hyspSeq
-		LEFT JOIN
-		hybdMember c
-		ON c.hymmSeq = b.hymmSeq
+		hybdSpace a 
+		LEFT JOIN hybdSpaceMember b ON b.hyspSeq = a.hyspSeq
+		LEFT JOIN hybdMember c ON c.hymmSeq = b.hymmSeq
 		WHERE 1=1
 		AND a.hyspSeq = #{hyspSeq}
 	</select>
@@ -338,15 +305,88 @@
 		${tableName}
 		SET
 		hyflOriginalFileName = #{hyflOriginalFileName}
-		, hyflUuidFileName =
-		#{hyflUuidFileName}
+		, hyflUuidFileName = #{hyflUuidFileName}
 		, hyflExt = #{hyflExt}
 		, hyflSize = #{hyflSize}
-		,
-		hyflPath = #{hyflPath}
+		, hyflPath = #{hyflPath}
 		WHERE 1=1
 		AND hyflPseq = #{hyflPseq}
-
 	</update>
+
+ <select id="commentList" resultMap="resultMapObj">  <!-- 모댓글리스트 -->
+        SELECT
+   		   a.*
+   		   ,b.*
+   		   ,c.*
+        FROM hybdComment a
+        LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
+        LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
+        WHERE hycoSeq = #{hycoSeq}
+        ORDER BY hycoSeq
+    </select>
+    
+     <select id="commentList2" resultMap="resultMapObj">  <!-- 대댓글리스트 -->
+        SELECT
+   		   a.*
+   		   ,b.*
+   		   ,c.*
+        FROM hybdComment a
+        LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
+        LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
+        WHERE hycoSeq = #{hycoSeq}
+        AND   hycoGroupSeq = #{hycoGroupDepth}
+        ORDER BY hycoSeq
+    </select>
+
+    <insert id="commentCreate"> <!-- 댓글등록 -->
+        INSERT INTO hybdComment (
+            hydcSeq
+            , hycoText
+            , hymmSeq
+            , hycoDelNy
+            , regDateTime
+            , modDateTime
+        ) VALUES (
+            #{hydcSeq}
+            , #{hycoText}
+            , #{hymmSeq}
+            , 0
+            , now()
+            , now() 
+        )
+    </insert>
+
+    <update id="commentUpdate"> <!-- 댓글수정 -->
+        UPDATE hybdComment
+        SET
+            hycoText = #{hycoText}
+            , modDateTime = NOW()
+        WHERE hycoSeq = #{hycoSeq}
+    </update>
+
+    <delete id="commentDelete"> <!-- 댓글삭제 -->
+        DELETE FROM hybdComment
+        WHERE hycoSeq = #{hycoSeq}
+    </delete> 
+
+<!--     <resultMap id="ReplyResultMap" type="ReplyVO">
+        <id property="reply_no" column="reply_no"/>
+        <result property="article_no" column="article_no"/>
+        <result property="reply_text" column="reply_text"/>
+        <result property="reply_writer" column="reply_writer"/>
+        <result property="reg_date" column="reg_date"/>
+        <result property="update_date" column="update_date"/>
+    </resultMap>
+
+    <resultMap id="ArticleResultMap" type="ArticleVO">
+        <id property="article_no" column="article_no"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="writer" column="writer"/>
+        <result property="regDate" column="regdate"/>
+        <result property="viewCnt" column="viewcnt"/>
+    </resultMap> -->
+
+
 
 </mapper>

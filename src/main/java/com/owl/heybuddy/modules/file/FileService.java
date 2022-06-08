@@ -20,6 +20,20 @@ public interface FileService {
 	int updateDocument(File dto) throws Exception; //문서수정 및 임시저장에서 진짜등록할때
 	int deleteDocument(FileVo vo) throws Exception;  //문서삭제
 	int updateDeleteDocument(FileVo vo) throws Exception; //문서가짜삭제 
+	
+    List<File> commentList(FileVo vo) throws Exception; //댓글리스트
+    int commentCreate(File dto) throws Exception; //댓글등록
+    int commentUpdate(File dto) throws Exception; //댓글수정
+    int commentDelete(FileVo vo) throws Exception; //댓글삭제
+	List<File> commentList(File dto) throws Exception; //댓글리스트
+ 
+
+
+
+
+
+
+
 
 
 

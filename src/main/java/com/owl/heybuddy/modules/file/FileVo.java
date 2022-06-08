@@ -8,6 +8,12 @@ public class FileVo {
 
 
 
+		public Integer getHycoGroupDepth() {
+		return hycoGroupDepth;
+	}
+	public void setHycoGroupDepth(Integer hycoGroupDepth) {
+		this.hycoGroupDepth = hycoGroupDepth;
+	}
 
 		private String hydcSeq;
 		private String hyspSeq;
@@ -34,11 +40,9 @@ public class FileVo {
 		private Date modDateTime;
 		private Date modDateTimeSvr;
 		
-
 		//선택삭제
 		private String[] checkboxSeqArray;
 
-	
 		//common
 		private String shHydcOption;
 		private String shHydcValue;
@@ -49,7 +53,25 @@ public class FileVo {
 		private String shHydcText;
 		private String shHymmName;
 	
+		// hybdComment 
+		private String hycoSeq;
+		private Integer hycoDefaultNy;
+		private String hycoText;
+		private Integer hycoDelNy;
+		private Integer hycoGroupSeq;
+		private Integer hycoGroupDepth;
 		
+	
+		  @Override
+		    public String toString() {
+		      return "fileVo [hycoSeq=" + hycoSeq + 
+		                    ", hydcSeq="+ hydcSeq + 
+		                    ", hycoText="+ hycoText + 
+		                    ", hymmSeq="+ hymmSeq + 
+		                    ", regDateTime="+ regDateTime + 
+		                    ", modDateTime="+ modDateTime+ "]" ;
+		    }
+
 		//paging	
 			private int thisPage = 1;									// 현재 페이지
 			private int rowNumToShow = 10;								// 화면에 보여줄 데이터 줄 갯수
@@ -691,6 +713,45 @@ return hydcTempNy;
 public void setHydcTempNy(Integer hydcTempNy) {
 this.hydcTempNy = hydcTempNy;
 }
+
+
+
+
+public Integer getHycoDefaultNy() {
+return hycoDefaultNy;
+}
+public void setHycoDefaultNy(Integer hycoDefaultNy) {
+this.hycoDefaultNy = hycoDefaultNy;
+}
+public String getHycoText() {
+return hycoText;
+}
+public void setHycoText(String hycoText) {
+this.hycoText = hycoText;
+}
+public Integer getHycoDelNy() {
+return hycoDelNy;
+}
+public void setHycoDelNy(Integer hycoDelNy) {
+this.hycoDelNy = hycoDelNy;
+}
+
+public Integer getHycoGroupSeq() {
+return hycoGroupSeq;
+}
+public void setHycoGroupSeq(Integer hycoGroupSeq) {
+this.hycoGroupSeq = hycoGroupSeq;
+}
+
+
+public String getHycoSeq() {
+return hycoSeq;
+}
+public void setHycoSeq(String hycoSeq) {
+this.hycoSeq = hycoSeq;
+}
+
+
 
 
 }

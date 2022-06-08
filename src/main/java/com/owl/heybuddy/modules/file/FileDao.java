@@ -34,6 +34,29 @@ public class FileDao {
 	public List<File> selectListMemberInSpace(FileVo vo) {
 		return sqlSession.selectList(namespace + ".selectListMemberInSpace", vo);
 	}
+
+	/*
+	 * public HashMap<String, Object> getCommentList(Long bid) { HashMap<String,
+	 * Object> map = new HashMap<>(); Optional<BoardEntity> boardEntity =
+	 * boardRepository.findById(bid); List<BoardCommentEntity>
+	 * boardCommentEntityList =
+	 * boardCommentQueryRepository.findByBoardId(boardEntity.get());
+	 * 
+	 * List<BoardCommentDto> boardCommentDtoList = new ArrayList<>(); // 댓글 리스트
+	 * List<Long> ccCountList = new ArrayList<>(); // 대댓글 갯수 카운트
+	 * 
+	 * for (int i = 0; i < boardCommentEntityList.size(); i++) {
+	 * boardCommentDtoList.add(boardCommentEntityList.get(i).toDto()); //댓글 리스트
+	 * ccCountList.add(boardCommentQueryRepository.findReCommentCnt(
+	 * boardCommentEntityList.get(i).getId())); //대댓글 갯수 카운트 } map.put("list",
+	 * boardCommentDtoList); map.put("commentCnt", ccCountList);
+	 * 
+	 * return map; }
+	 */
+	
+
+
+		
 	public int selectOneCountSpaceMember(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCountSpaceMember", vo); // 회원검색 (공유자검색시)
 	}
@@ -76,5 +99,24 @@ public class FileDao {
 	public int updateDeleteDocument(FileVo vo) {
 		return sqlSession.update(namespace + ".updateDeleteDocument", vo); // 가짜삭제
 	}
+    public List<File> commentList(FileVo vo) throws Exception {   //모댓글리스트
+        return sqlSession.selectList(namespace + ".commentList", vo);
+    }
+	public List<File> commentList2(FileVo vo) throws Exception {  //대댓글리스트
+        return sqlSession.selectList(namespace + ".commentList", vo);
+    }
+    public List<File> commentList(File dto) throws Exception {
+        return sqlSession.selectList(namespace + ".commentList", dto);
+    }
+    public int commentCreate(File dto) throws Exception {   //댓글등록
+    	return  sqlSession.insert(namespace + ".commentCreate", dto);
+    }
+    public int commentUpdate(File dto) throws Exception {   //댓글수정
+    	return sqlSession.update(namespace + ".commentUpdate", dto);
+    }
+    public int commentDelete(FileVo vo) throws Exception {   //댓글삭제 
+    	return sqlSession.delete(namespace + ".commentDelete", vo);
+    }
+
 
 }

@@ -246,17 +246,16 @@
 													<a href="javascript:defaultSpacePhoto();" class="btn btn-danger"><i class="fe-2x" data-feather="trash-2"></i></a>
 												</td>
 											</tr>
+											<!-- 
 											<tr>
 												<td>마이스페이스 로고</td>
 												<td>
-													<input id="spaceLogo" type="file" class="form-control" style="display: none;">
-													<!-- <input id="spaceLogoText" type="text" class="form-control" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다. 배경화면은 투명으로 제작해주세요."> -->
+													<input id="spaceLogo" type="file" name="file0" class="form-control" style="display: none;">
 													
 													<div class="position-relative flex-grow-1 me-2 me-lg-4">
-														<!--Img-->
 														<span id="sidebarIcon2" class="sidebar-icon lh-1 text-white rounded-circle bg-success fw-bold fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="width: 24px; height: 24px;"></span>
-														<img id="sidebarLogoPreview" class="feather feather-search fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="display: none; width: 24px; height: 24px;" src="/resources/user/images/profileDefault.png">
-														<input id="spaceLogoText" type="text" class="form-control ps-8" readonly placeholder="이미지 권장 사이즈는 300 * 60 입니다.">
+														<img id="sidebarLogoPreview" class="feather feather-search rounded-circle fe-1x position-absolute start-0 top-50 translate-middle-y ms-2" style="display: none; width: 24px; height: 24px;" src="">
+														<input id="spaceLogoText" type="text" class="form-control ps-8" readonly placeholder="이미지 권장 사이즈는 60 * 60 입니다.">
 													</div>
 													  
 												</td>
@@ -265,6 +264,7 @@
 													<a href="javascript:defaultSpaceLogo();" class="btn btn-danger"><i class="fe-2x" data-feather="trash-2"></i></a>
 												</td>
 											</tr>
+											 -->
 											<tr>
 												<td>마이스페이스 색상</td>
 												<td colspan="2">
@@ -439,9 +439,9 @@
 	
 	
 	</script>
-	
+	<!-- 
 	<script type="text/javascript">
-	
+	document.querySelector('#sidebarIcon2').innerText = "<c:out value="${hyspName}"/>".charAt(0);
 	
 	$("#spaceLogo").on("change", function(e){
 		$("#spaceLogoText").val($(this)[0].files[0].name);
@@ -451,11 +451,14 @@
 		$("#sidebarLogoPreview").show();
 	});
 	
+	defaultSpaceLogo = function(){
+		$("#sidebarLogoPreview").hide();
+		$("#sidebarIcon2").show();
+		$("#spaceLogo").val("");
+		$("#spaceLogoText").val("");
+	}
 	</script>
-    
-    <script type="text/javascript">
-	document.querySelector('#sidebarIcon2').innerText = "<c:out value="${hyspName}"/>".charAt(0);
-	</script>
+     --> 
 	
 	<script type="text/javascript">
 	$("#btnSubmit").on("click", function(){

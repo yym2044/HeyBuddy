@@ -9,10 +9,9 @@
 			<a href="#" class="d-block">
 				<div class="d-flex align-items-center flex-no-wrap text-truncate">
 					<!--Sidebar-icon-->
-					<span id="sidebarIcon" class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-success fw-bold"></span>
+					<span id="sidebarIcon" class="sidebar-icon fs-5 lh-1 text-white rounded-circle fw-bold"></span>
 					<span class="sidebar-text">
 						<!--Sidebar-text-->
-						<%-- <span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder"><c:out value="${item.hyspName}"/></span> --%>
 						<span class="sidebar-text text-truncate fs-4 ms-3 fw-bolder">
 							<c:out value="${hyspName}" />
 						</span>
@@ -131,5 +130,21 @@
 
 
 <script type="text/javascript">
-	document.querySelector('#sidebarIcon').innerText = "<c:out value="${hyspName}"/>".charAt(0);
+
+	const icon = document.querySelector("#sidebarIcon");
+	icon.innerText = "<c:out value="${hyspName}"/>".charAt(0);
+	
+	const bg = localStorage.getItem("backUrl");
+	
+	if(bg == 1){
+		icon.classList.add("bg-success");
+	} else if(bg == 2){
+		icon.classList.add("bg-info");
+	} else if(bg == 3){
+		icon.classList.add("bg-warning");
+	} else if(bg == 4){
+		icon.classList.add("bg-danger");
+	}
+	
+	
 </script>

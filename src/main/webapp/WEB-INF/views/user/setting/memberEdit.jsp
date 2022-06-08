@@ -296,7 +296,7 @@ table tr .form-control {
 		img.src = URL.createObjectURL(e.target.files[0]);
 	}
 	</script>
-
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

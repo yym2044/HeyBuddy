@@ -470,7 +470,7 @@
 		$("#spaceForm").attr("action", "/setting/deleteMySpace").submit();
 	}
 	</script>
-    
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

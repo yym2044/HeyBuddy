@@ -131,7 +131,7 @@
 
 		sidebarLink[2].className += ' current';
 	</script>
-
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

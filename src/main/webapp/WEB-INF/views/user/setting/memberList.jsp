@@ -283,6 +283,7 @@
 			$("#formList").attr("action", "/setting/memberList").submit();
 		}
 	</script>
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

@@ -321,7 +321,8 @@
 		$("#id").val(id);
 	}
 	</script>
-
+	<%@include file="../include/pageScripts.jsp"%>
+	
 </body>
 
 </html>

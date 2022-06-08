@@ -285,7 +285,7 @@ goDelete = function(hymmSeq){
 }
 
 </script>    
-    
+<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

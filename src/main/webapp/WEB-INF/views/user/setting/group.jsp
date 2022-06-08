@@ -673,6 +673,7 @@ label {
 
 		sidebarLink[5].className += ' current';
 	</script>
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

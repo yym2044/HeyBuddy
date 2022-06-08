@@ -316,8 +316,7 @@ public class ChatController {
 	@ResponseBody
 
 	@RequestMapping(value = "chat/chatPlusProc")
-	public Map<String, Object> chatPlusProc(ChatVo vo, Chat dto, HttpSession httpSession, Model model)
-			throws Exception {
+	public Map<String, Object> chatPlusProc(ChatVo vo, Chat dto, HttpSession httpSession, Model model) throws Exception {
 
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
@@ -329,20 +328,25 @@ public class ChatController {
 
 		List<Chat> list = service.selectListPlusMember(vo);
 		model.addAttribute("list", list);
-		returnMap.put("list", list);
-		returnMap.put("rt", "success");
 
-		if (list != null) {
-			vo.setHymmSeq(dto.getHymmSeq());
+		if (list == null) {
+			
+			returnMap.put("rt", "fail");
+		
+		} else {
+			
+			dto.setHymmSeq(dto.getHymmSeq());
 			Chat rtMember = service.selectOnePlusMember(dto);
-			if (rtMember.getHymmSeq() != null) {
-
+			
+			if (rtMember.getHymmSeq() == dto.getHymmSeq()) {
+				
 				returnMap.put("rt", "fail");
+			
 			} else {
+			
 				returnMap.put("rt", "success");
 			}
-		} else {
-			returnMap.put("rt", "fail");
+			
 		}
 
 		return returnMap;

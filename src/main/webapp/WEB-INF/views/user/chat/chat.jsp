@@ -533,30 +533,32 @@ p, dt {
 		
 		goPlus = function() {
 			
+			
 			$.ajax({
-				async : true,
-				cache : false,
-				type : "post",
-				url : "/chat/chatPlusProc",
-				data : { "hymmSeq" : $("#hymmSeq").val()}
-				success : function(data) {
-					if (response.rt == "success") {
-						
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/chat/chatPlusProc"
+				,dataType : "JSON"
+				,data : { "hymmSeq" : $("#hymmSeq").val(), "hycrSeq": $("#hycrSeq").val()}
+				,success: function(data) {
+					if (data.rt == "success") {
 						
 						$("#chatForm").attr("action", "/chat/chatPlusMember");
 						$("#chatForm").submit();
+						
 					} else {
 						
 						alert("이미 채팅방에 존재합니다.");
 						
 					}
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert("ajaxUpdate " + jqXHR.textStatus + " : "
-							+ jqXHR.errorThrown);
+					
+				}			
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 				}
 			});
-
+		
 		}
 		
 	</script>

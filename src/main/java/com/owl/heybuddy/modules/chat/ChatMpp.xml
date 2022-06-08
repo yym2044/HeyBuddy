@@ -8,7 +8,22 @@
 
 	<select id="selectListMember" resultMap="resultMapObj">		<!-- 채팅방 추가 멤버 리스트 출력 -->
 		
-		SELECT
+		
+		SELECT DISTINCT a.hymmSeq ,c.hymmName
+		FROM hybdSpaceMember a 
+		LEFT JOIN hybdSpace b ON a.hyspSeq= b.hyspSeq
+        LEFT JOIN hybdMember c ON c.hymmSeq = a.hymmSeq
+		WHERE 1 = 1
+        AND b.hyspSeq = #{hyspSeq}
+        AND a.hysmAcceptedNy = 1
+		AND	a.hymmSeq NOT IN 
+		(SELECT a.hymmSeq FROM hybdMember a
+		LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
+		LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
+		WHERE 1=1
+		AND c.hycrSeq = #{hycrSeq})
+		
+		<!-- SELECT
 		c.hymmSeq
 		,c.hymmName
 		
@@ -17,7 +32,7 @@
         LEFT JOIN hybdMember AS c ON c.hymmSeq = a.hymmSeq
 		WHERE 1 = 1
         AND b.hyspSeq = #{hyspSeq}
-        AND a.hysmAcceptedNy = 1
+        AND a.hysmAcceptedNy = 1 -->
         
 	</select>
 

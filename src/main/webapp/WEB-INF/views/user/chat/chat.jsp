@@ -691,6 +691,7 @@ p, dt {
 	<!-- 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 	<script src="script.js"></script> -->
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 </html>
 <script type="module">

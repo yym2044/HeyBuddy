@@ -465,7 +465,7 @@ if (toastTrigger) {
 		alert("준비중입니다.");
 	}
 	</script>
-
+	<%@include file="../include/pageScripts.jsp"%>
 </body>
 
 </html>

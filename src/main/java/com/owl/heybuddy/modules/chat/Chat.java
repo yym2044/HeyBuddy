@@ -13,6 +13,7 @@ public class Chat {
 	private String hycrSeq;
 	private String hycrName;
 	private Integer hycrDelNy;
+	private Integer hycrGroupNy;
 	// hybdMember
 	private Integer hymmAdminNy;
 	private Integer hymmDormancyNy;
@@ -71,6 +72,14 @@ public class Chat {
 	private String hysmSeq;
 	private String hymmSeq;
 	private String hysmRoleCd;
+
+	public Integer getHycrGroupNy() {
+		return hycrGroupNy;
+	}
+
+	public void setHycrGroupNy(Integer hycrGroupNy) {
+		this.hycrGroupNy = hycrGroupNy;
+	}
 
 	public String getHycmChatMaker() {
 		return hycmChatMaker;

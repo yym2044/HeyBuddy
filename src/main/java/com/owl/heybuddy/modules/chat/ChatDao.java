@@ -59,8 +59,16 @@ public class ChatDao {
 		return sqlSession.selectOne(namespace + ".selectOneChat", vo); // 채팅방리스트
 	}
 
+	public List<Chat> selectListPlusMember(ChatVo vo) {
+		return sqlSession.selectList(namespace + ".selectListPlusMember", vo); // 채팅방리스트
+	}
+
 	public Chat selectOneChatRoom(ChatVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneChatRoom", vo); // 채팅룸선택
+	}
+
+	public Chat selectOnePlusMember(Chat dto) {
+		return sqlSession.selectOne(namespace + ".selectOnePlusMember", dto); // 채팅룸선택
 	}
 
 	public int insertChatRoom(Chat dto) {
@@ -77,5 +85,9 @@ public class ChatDao {
 
 	public int ueleteChat(ChatVo vo) {
 		return sqlSession.update(namespace + ".ueleteChat", vo); // 채팅가짜삭제
+	}
+
+	public int updateChat(ChatVo vo) {
+		return sqlSession.update(namespace + ".updateChat", vo); // 채팅가짜삭제
 	}
 }

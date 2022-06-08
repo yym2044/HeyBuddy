@@ -65,10 +65,20 @@ public class ChatServiceImpl implements ChatService {
 	public Chat selectOneCheck2(ChatVo vo) throws Exception { // 채팅룸체크2
 		return dao.selectOneCheck2(vo);
 	}
+	
+	@Override
+	public Chat selectOnePlusMember(Chat dto) throws Exception { // 채팅룸체크2
+		return dao.selectOnePlusMember(dto);
+	}
 
 	@Override
 	public String selectOneCheck3(ChatVo vo) throws Exception { // 채팅룸체크3
 		return dao.selectOneCheck3(vo);
+	}
+
+	@Override
+	public List<Chat> selectListPlusMember(ChatVo vo) throws Exception { // 채팅룸체크3
+		return dao.selectListPlusMember(vo);
 	}
 
 	@Override
@@ -95,6 +105,11 @@ public class ChatServiceImpl implements ChatService {
 	@Override
 	public int ueleteChat(ChatVo vo) throws Exception { // 채팅가짜삭제
 		return dao.ueleteChat(vo);
+	}
+
+	@Override
+	public int updateChat(ChatVo vo) throws Exception { // 채팅가짜삭제
+		return dao.updateChat(vo);
 	}
 
 }

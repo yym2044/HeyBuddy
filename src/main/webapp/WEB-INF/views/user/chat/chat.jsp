@@ -489,7 +489,7 @@ p, dt {
 					<div class="text-center">
 							<div class="form-control mb-3">
 									<div class="card card-body">
-										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hymmSeq" name="hymmSeq">
+										<select class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hymmSeq" name="hymmSeq">
 											<c:forEach items="${selectListMember}" var="item" varStatus="status">
 												<option value="<c:out value="${item.hymmSeq}"/>"><c:out value="${item.hymmName}" />
 											</c:forEach>
@@ -529,12 +529,35 @@ p, dt {
 		goOut = function() {
 			$("#chatForm").attr("action", "/chat/chatUelete");
 			$("#chatForm").submit();
-		};
+		}
 		
 		goPlus = function() {
-			$("#chatForm").attr("action", "/chat/chatPlusMember");
-			$("#chatForm").submit();
-		};
+			
+			$.ajax({
+				async : true,
+				cache : false,
+				type : "post",
+				url : "/chat/chatPlusProc",
+				data : { "hymmSeq" : $("#hymmSeq").val()}
+				success : function(data) {
+					if (response.rt == "success") {
+						
+						
+						$("#chatForm").attr("action", "/chat/chatPlusMember");
+						$("#chatForm").submit();
+					} else {
+						
+						alert("이미 채팅방에 존재합니다.");
+						
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("ajaxUpdate " + jqXHR.textStatus + " : "
+							+ jqXHR.errorThrown);
+				}
+			});
+
+		}
 		
 	</script>
 

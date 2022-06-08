@@ -22,9 +22,13 @@ public interface ChatService {
 
 	public Chat selectOneChatRoom(ChatVo vo) throws Exception; // 채팅룸선택
 
+	public Chat selectOnePlusMember(Chat dto) throws Exception; // 채팅룸선택
+
 	public Chat selectOneCheck(ChatVo vo) throws Exception; // 채팅룸체크
 
 	public Chat selectOneCheck2(ChatVo vo) throws Exception; // 채팅룸체크2
+
+	public List<Chat> selectListPlusMember(ChatVo vo) throws Exception; // 채팅룸체크2
 
 	public String selectOneCheck3(ChatVo vo) throws Exception; // 채팅룸체크3
 
@@ -35,5 +39,7 @@ public interface ChatService {
 	public int insertChatMember2(Chat dto) throws Exception; // 채팅멤버등록
 
 	public int ueleteChat(ChatVo vo) throws Exception; // 채팅가짜삭제
+
+	public int updateChat(ChatVo vo) throws Exception; // 채팅가짜삭제
 
 }

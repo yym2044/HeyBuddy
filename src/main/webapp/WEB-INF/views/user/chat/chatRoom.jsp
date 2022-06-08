@@ -372,9 +372,17 @@ p, dt {
 													</div>
 													<div class="overflow-hidden flex-grow-1">
 														<div class="d-flex">
-															<h6 class="mb-0 flex-grow-1">
-																<%-- <c:out value="${item.hymmName}" />,<c:out value="${sessName}" /> --%><c:out value="${item.hycrSeq}" /> . <c:out value="${item.hymmName}" />, <c:out value="${sessName}" /> 채팅방
-															</h6>
+															
+																<%-- <c:out value="${item.hymmName}" />,<c:out value="${sessName}" /> --%>
+																<c:choose>
+																<c:when test="${item.hycrGroupNy == 1}"><h6 class="mb-0 flex-grow-1"><c:out value="${item.hycrSeq}" /> . 그룹채팅방 </h6>
+																</c:when>
+																<c:otherwise>
+										<h6 class="mb-0 flex-grow-1"><c:out value="${item.hycrSeq}" /> . <c:out value="${item.hymmName}" />, <c:out value="${sessName}" /> 채팅방 </h6>						
+																</c:otherwise>
+																</c:choose>
+																
+															
 															<small class="opacity-75 ms-auto small"> <%-- <c:choose>
 															<c:when test="${item.hymmSeq eq sessSeq}">
 																<span class="badge rounded-pill bg-primary">ME</span>

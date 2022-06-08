@@ -1,6 +1,9 @@
 package com.owl.heybuddy.modules.chat;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -44,6 +48,7 @@ public class ChatController {
 		dto.setHycmChatMaker(dto.getHycmChatMaker());
 		dto.setHymmSeq(dto.getHymmSeq());
 		dto.setHycrSeq(vo.getHycrSeq());
+		service.updateChat(vo);
 		service.insertChatMember(dto);
 
 		vo.setHycrSeq(vo.getHycrSeq());
@@ -88,7 +93,7 @@ public class ChatController {
 			vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 			vo.setHymmSeq(vo.getHymmSeq());
 			vo.setHymmName(vo.getHymmName());
-			
+
 			int rtChat2 = service.selectOneGroupCheckNum(vo);
 
 			if (rtChat2 == 1) {
@@ -97,14 +102,14 @@ public class ChatController {
 				vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 				vo.setHymmSeq(vo.getHymmSeq());
 				vo.setHymmName(vo.getHymmName());
-				
+
 				Chat rtChat5 = service.selectOneCheck2(vo);
 				vo.setHycrSeq(rtChat5.getHycrSeq());
-				
+
 				int rtChat3 = service.selectOneChatMember(vo);
 
 				if (rtChat3 > 2) {
-					
+
 					vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 					dto.setHymmSeq(vo.getHymmSeq());
 					dto.setHymmName(vo.getHymmName());
@@ -135,10 +140,10 @@ public class ChatController {
 					vo.setHycrSeq(vo.getHycrSeq());
 
 				} else {
-					
+
 				}
 
-			} else if (rtChat2 == 2) {
+			} else if (rtChat2 > 1) {
 
 				vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 				vo.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
@@ -146,7 +151,31 @@ public class ChatController {
 				vo.setHycrSeq(vo.getHycrSeq());
 
 				Chat rtFinal = service.selectOneChat(vo);
-				vo.setHycrSeq(rtFinal.getHycrSeq());
+
+				if (rtFinal == null) {
+
+					vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+					dto.setHymmSeq(vo.getHymmSeq());
+					dto.setHymmName(vo.getHymmName());
+					service.insertChatRoom(dto);
+
+					dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+					dto.setHymmSeq(vo.getHymmSeq());
+					dto.setHycrSeq(dto.getHycrSeq());
+					service.insertChatMember(dto);
+
+					dto.setHycrSeq(dto.getHycrSeq());
+					dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
+					dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+					service.insertChatMember2(dto);
+
+					vo.setHycrSeq(dto.getHycrSeq());
+
+				} else {
+
+					vo.setHycrSeq(rtFinal.getHycrSeq());
+
+				}
 
 			} else {
 
@@ -283,6 +312,41 @@ public class ChatController {
 	 * 
 	 * return "redirect:/chat/chat"; }
 	 */
+
+	@ResponseBody
+
+	@RequestMapping(value = "chat/chatPlusProc")
+	public Map<String, Object> chatPlusProc(ChatVo vo, Chat dto, HttpSession httpSession, Model model)
+			throws Exception {
+
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		vo.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		vo.setHymmName((String) httpSession.getAttribute("sessName"));
+		vo.setHycrSeq(vo.getHycrSeq());
+		System.out.println("vo.getHycrSeq() :" + vo.getHycrSeq());
+
+		List<Chat> list = service.selectListPlusMember(vo);
+		model.addAttribute("list", list);
+		returnMap.put("list", list);
+		returnMap.put("rt", "success");
+
+		if (list != null) {
+			vo.setHymmSeq(dto.getHymmSeq());
+			Chat rtMember = service.selectOnePlusMember(dto);
+			if (rtMember.getHymmSeq() != null) {
+
+				returnMap.put("rt", "fail");
+			} else {
+				returnMap.put("rt", "success");
+			}
+		} else {
+			returnMap.put("rt", "fail");
+		}
+
+		return returnMap;
+	}
 
 	@RequestMapping(value = "/chat/chatRoom")
 	public String chatRoom(@ModelAttribute("vo") ChatVo vo, Chat dto, Model model, HttpSession httpSession)

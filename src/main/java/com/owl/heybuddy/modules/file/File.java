@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class File { 
  
 
-
 	// document
 	private String hydcSeq;
 	private String hyspSeq;
@@ -40,7 +39,7 @@ public class File {
 	private Integer hycoDelNy;
 	private Integer hycoGroupSeq;
 	private Integer hycoGroupDepth;
-
+	private Integer hycoGroupType;
 
 	
 	// uploaded
@@ -518,6 +517,13 @@ public void setHycoGroupDepth(Integer hycoGroupDepth) {
 	this.hycoGroupDepth = hycoGroupDepth;
 }
 
+
+public Integer getHycoGroupType() {
+	return hycoGroupType;
+}
+public void setHycoGroupType(Integer hycoGroupType) {
+	this.hycoGroupType = hycoGroupType;
+}
 
 
 }

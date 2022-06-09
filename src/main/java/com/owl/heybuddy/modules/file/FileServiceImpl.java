@@ -26,23 +26,34 @@ public class FileServiceImpl implements FileService {
 		return dao.documentListTemp(vo);
 	}
 	@Override
-	public List<File> commentList(File dto) throws Exception { // 댓글리스트
-		return dao.commentList(dto);
-	}
-	@Override
 	public List<File> commentList(FileVo vo) throws Exception { // 모댓글리스트
 		return dao.commentList(vo);
+	}
+	@Override
+	public List<File> commentList1(File dto) throws Exception { // 모댓글리스트
+		return dao.commentList1(dto);
+	}
+	@Override
+	public List<File> commentList1(FileVo vo) throws Exception { // 모댓글리스트
+		return dao.commentList1(vo);
 	}
 	
 	public List<File> commentList2(FileVo vo) throws Exception  { // 대댓글리스트
 		return dao.commentList2(vo);
 	}
-
 	@Override
-	public int commentCreate(File dto) throws Exception { //댓글등록
-		return dao.commentCreate(dto);
+	public List<File> commentList2(File dto) throws Exception { // 대댓글리스트
+		return dao.commentList2(dto);
+	}
+	@Override
+	public int commentCreate1(File dto) throws Exception { //모댓글등록
+		return dao.commentCreate1(dto);
 	}
 
+	@Override
+	public int commentCreate2(File dto) throws Exception { //대댓글등록
+		return dao.commentCreate2(dto);
+	}
 	@Override
 	public int commentUpdate(File dto) throws Exception {  //댓글수정
 		return dao.commentUpdate(dto);

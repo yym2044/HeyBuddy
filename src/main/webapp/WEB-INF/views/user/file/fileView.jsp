@@ -71,6 +71,10 @@ pageContext.setAttribute("br", "\n");
 	vertical-align: middle;
 	font-size: 15px;
 }
+    .modal-backdrop {   /* css충돌로 우선 삭제모달ㄲㅏ맣게 ㅠ */
+        z-index: -1;
+    }
+
 </style>
 
 
@@ -150,14 +154,12 @@ pageContext.setAttribute("br", "\n");
 
 								<c:if test="${item.hymmSeq eq sessSeq}">
 
-									<a
-										href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
-								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+									<div
 										data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
 										class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 										<i class="bi bi-trash-fill" data-bs-toggle="modal"
 										data-bs-target="#btnModalNelete"></i>
-									</a>
+									</div>
 
 
 									<a
@@ -169,7 +171,7 @@ pageContext.setAttribute("br", "\n");
 									</a>
 
 
-									<div class="modal fade" id="btnModalNelete" tabindex="-1"
+									<div class="modal" id="btnModalNelete" tabindex="-1"
 										aria-labelledby="exampleModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
@@ -255,10 +257,7 @@ pageContext.setAttribute("br", "\n");
 
 									<hr>
 
-
-
-
-									<p>첨부파일</p>
+									<!-- 	<h6>첨부파일</h6> -->
 									<div class="d-flex flex-wrap">
 
 										<!--Attachment image-->
@@ -290,9 +289,7 @@ pageContext.setAttribute("br", "\n");
 														</span>
 														<!--File description-->
 
-
-
-														<!-- 이미지라면 -->
+														<!-- 파일이 이미지라면 -->
 														<c:if test="${fileUploaded.hyflType eq 0}">
 															<span class="d-block small text-body text-truncate">
 																<c:out value="${fileUploaded.hyflOriginalFileName}" />
@@ -319,7 +316,7 @@ pageContext.setAttribute("br", "\n");
 
 														</c:if>
 
-														<!-- pdf라면 -->
+														<!-- 파일이 pdf라면 -->
 														<c:if test="${fileUploaded.hyflType eq 1}">
 
 															<span class="d-block small text-body text-truncate">
@@ -347,35 +344,26 @@ pageContext.setAttribute("br", "\n");
 									</div>
 								</div>
 
-
-								<br> <br>
-
-								<!--Comments list-->
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="d-flex mb-3 align-items-center small">
-
-											<br> <br>
-
-											<c:forEach items="${commentList}" var="commentList"
-												varStatus="status">
-												<c:choose>
-													<c:when test="${empty commentList.hycoSeq}">
-														<p>등록된 댓글이 없습니다.</p>
-													</c:when>
-													<c:otherwise>
-
-
-														<!--Comments 갯수 아이콘-->
-														<a href="#!"
-															class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+								<br> 
+							    <hr>
+												
+												<!--Comments list-->
+												<!--Comments 갯수 아이콘, 나중에 count-->
+								
+													
+														<!-- 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
 															<i data-feather="message-square"
-															class="fe-1x me-1 align-middle"></i> <span>3</span>
-														</a>
-
-
+															class="fe-1x me-1 align-middle"></i> 
+															<span>3</span> </div> -->
+										<c:forEach items="${commentList}" var="commentList" varStatus="status">
+												<c:choose>
+												<c:when test="${empty commentList.hycoSeq}">
+													등록된 댓글이 없습니다.
+												</c:when>
+												<c:otherwise>
 														<!-- 모댓글이라면 -->
-														<c:if test="${commentList.hycoGroupSeq eq 1}">
+													<c:forEach items="${commentList}" var="commentList" varStatus="status">
+														<c:if test="${commentList.hycoGroupType eq 0}">
 															<img style="width: 30px; height: 30px;"
 																src="<c:out value="${commentList.path}"/><c:out value="${commentList.uuidFileName}"/>"
 																class="avatar rounded-pill flex-shrink-0" />
@@ -398,65 +386,53 @@ pageContext.setAttribute("br", "\n");
 																</div>
 															</div>
 														</c:if>
-													</c:otherwise>
-												</c:choose>
-											</c:forEach>
-
-
-											<c:forEach items="${commentList2}" var="commentList2"
-												varStatus="status">
-												<c:choose>
-													<c:when test="${commentList2.hycoGroupSeq eq hycoGroupDepth}">
-<p></p>
-													</c:when>
-													<c:otherwise>
-													
-														<!-- 모댓글이라면 -->
-														<c:if test="${commentList2.hycoGroupDepth }">
-															<span class="d-block small text-body text-truncate">
-																<c:out value="${commentList2.hyflOriginalFileName}" />
-															</span>
+										
+														<!-- 대댓글이라면 -->
+														<c:if test="${commentList.hycoGroupType eq 1 }">
 															<img style="width: 30px; height: 30px;"
-																src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
+																src="<c:out value="${commentList.path}"/><c:out value="${commentList.uuidFileName}"/>"
 																class="avatar rounded-pill flex-shrink-0" />
 															<div>
 																<div class="py-2 mb-1 px-3 bg-body rounded-3">
 																	<div class="d-flex justify-content-between">
 																		<h6 class="mb-0">
-																			<c:out value="${commentList2.hymmName}" />
+																			<c:out value="${commentList.hymmName}" />
 																		</h6>
 																		<small class="text-muted"><c:out
-																				value="${commentList2.regDateTime}" /></small>
+																				value="${commentList.regDateTime}" /></small>
 																	</div>
 																	<p class="mb-0">
-																		<c:out value="${commentList2.hycoText}" />
+																		<c:out value="${commentList.hycoText}" />
 																	</p>
 																</div>
 
 																<div class="mb-2 small">
 																	<a href="#!" class="text-reset">Reply</a>
 																</div>
-
+						<!-- 					
+											<a href="javascript:goCommentList2();">
+												<button type="button" class="btn btn-primary btn-sm"
+													id="btnSubmit" value="">등록</button>
+											</a> -->
 															</div>
 														</c:if>
-													</c:otherwise>
+													</c:forEach>
+												</c:otherwise>
 												</c:choose>
 											</c:forEach>
 										</div>
-									</li>
-
-
-									<li class="list-group-item bg-body">
+					
+						
 										<h6>Add new comment</h6> <textarea id="hycoText"
 											name="hycoText" rows="2" class="form-control mb-2"></textarea>
 										<div class="text-end">
-											<a href="javascript:goCommentList();">
+											<a href="javascript:goCommentList1();">
 												<button type="button" class="btn btn-primary btn-sm"
 													id="btnSubmit" value="">등록</button>
 											</a>
 										</div>
-									</li>
-								</ul>
+						
+					
 							</div>
 						</div>
 				</form>
@@ -503,23 +479,25 @@ pageContext.setAttribute("br", "\n");
 			$("#formView").attr("action", "/file/fileList");
 			$("#formView").submit();
 		};
-
 		goFileEdit = function() {
 			$("#formView").attr("action", "/file/fileEdit");
 			$("#formView").submit();
 		};
-
 		goFileNelete = function(seq) {
 			$("#formView").attr("action", "/file/fileNele");
 			$("#formView").submit();
 		};
-		goCommentList = function() {
+		goCommentList1 = function() {
 			$("#hydcDelNy").val(0);
-			$("#formView").attr("action", "/file/fileInst3");
+			$("#formView").attr("action", "/file/fileInst3");  // 모댓글등록
+			$("#formView").submit();
+		};
+		goCommentList2 = function() {
+			$("#hydcDelNy").val(0);
+			$("#formView").attr("action", "/file/fileInst4");  // 대댓글등록
 			$("#formView").submit();
 		};
 	</script>
-
 
 	<!-- 이미지 팝업으로 크게보기 -->
 	<script>
@@ -544,8 +522,6 @@ pageContext.setAttribute("br", "\n");
 		}
 	</script>
 	<!-- 이미지 팝업으로 크게보기 -->
-
-
 
 	<!-- 댓글등록아작스 실패 ㅠㅠㅠㅠㅠ -->
 	<!-- 	<script>
@@ -573,7 +549,7 @@ pageContext.setAttribute("br", "\n");
 	</script>
 
 
-	<!-- 	세션동일시 댓글수정삭제가능 -->
+	<!-- 	세션동일시 댓글수정삭제가능, 나중에 해보기 -->
 	<script>
 		if (data.list[i].writer === $("#sessionNickname").val()) {
 			html += "<span style='cursor: pointer; color: blue' class='commentMod' data-toggle='modal' data-target='#modifyModal'>수정 </span>";
@@ -585,7 +561,7 @@ pageContext.setAttribute("br", "\n");
 	</script>
 
 
-	<!-- 	댓글 수정버튼  -->
+	<!-- 	댓글 수정버튼, 나중에 해보기  -->
 	<script>
 		$(document).on(
 				"click",
@@ -605,7 +581,7 @@ pageContext.setAttribute("br", "\n");
 	</script>
 
 
-	<!-- 댓글수정 아작스전달 -->
+	<!-- 댓글수정 아작스전달, 나중에 해보기 -->
 
 	<script>
 		$(".modalModBtn").on(

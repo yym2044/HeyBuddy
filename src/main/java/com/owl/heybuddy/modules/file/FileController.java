@@ -70,7 +70,6 @@ public class FileController {
 		return "user/file/fileListTemp";
 	}
 
-	 
 	
 	@RequestMapping(value = "/file/fileView") // 문서확인
 	public String fileView(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession) throws Exception {
@@ -80,17 +79,14 @@ public class FileController {
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
 
-		List<File> fileUploaded = service.fileUploaded(vo);    // 파일리스트
+		List<File> fileUploaded = service.fileUploaded(vo);  // 파일리스트
 		model.addAttribute("fileUploaded", fileUploaded); 
 		
-		List<File> commentList = service.commentList(vo); // 모댓글리스트
+		List<File> commentList = service.commentList(vo); // 댓글리스트+댓글단멤버와사진
 		model.addAttribute("commnetList", commentList); 
-		
-		List<File> commentList2 = service.commentList2(vo); // 대댓글리스트
-		model.addAttribute("commnetList2", commentList2); 
+
 		
 		return "user/file/fileView";
-
 	}
 
 	@RequestMapping(value = "/file/fileForm") // 문서등록
@@ -98,7 +94,6 @@ public class FileController {
 		
 		File rt = service.documentView(vo);
 		model.addAttribute("item", rt);
-
 		return "user/file/fileForm";
 	}
 
@@ -106,12 +101,9 @@ public class FileController {
 	public String fileInst(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
 		System.out.println("vo.getHydcTempNy :" + vo.getHydcTempNy());
-
 		service.insertDocument(dto);
 		vo.setHydcSeq(dto.getHydcSeq());
-		
 		redirectAttributes.addFlashAttribute("vo", vo);
-
 		return "redirect:/file/fileList";
 	}
 	
@@ -195,16 +187,26 @@ public class FileController {
 	 * 
 	 */
 	  
-	  @RequestMapping(value = "/file/fileInst3") // 댓글 등록 받음 
+	  @RequestMapping(value = "/file/fileInst3") // 모댓글 등록 받음 
 		public String fileInst3(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 			
-			service.commentCreate(dto);
+			service.commentCreate1(dto);
 			vo.setHycoSeq(dto.getHycoSeq());
 			System.out.println("dto.getHycoText() : "+dto.getHycoText());
 			redirectAttributes.addFlashAttribute("vo", vo);
 			return "redirect:/file/fileView";
 		}
 	
+	  @RequestMapping(value = "/file/fileInst4") // 대댓글 등록 받음 
+		public String fileInst4(FileVo vo, Model model, File dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+			
+			service.commentCreate2(dto);
+			vo.setHycoSeq(dto.getHycoSeq());
+			System.out.println("dto.getHycoText() : "+dto.getHycoText());
+			redirectAttributes.addFlashAttribute("vo", vo);
+			return "redirect:/file/fileView";
+		}
+	  
 	/*
 	 * @RestController
 	 * 

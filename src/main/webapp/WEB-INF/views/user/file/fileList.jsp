@@ -41,6 +41,13 @@
 
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 
+
+<style>
+    .modal-backdrop {  /* css충돌로 우선 모달ㄲㅏ맣게 ㅠ */
+        z-index: -1;
+    }
+</style>
+
 <body>
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
@@ -95,14 +102,12 @@
 						<div class="flex-grow-1">
 
 
-							<a
-								href="javascript:goFileNelete('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
-								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+							<div
 								data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
 								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 								<i class="bi bi-trash-fill" data-bs-toggle="modal"
 								data-bs-target="#btnModalNelete"></i>
-							</a> <a
+							</div> <a
 								href="javascript:goFileForm('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
 								data-bs-placement="top" data-bs-toggle="tooltip" title="등록"
@@ -117,7 +122,7 @@
 							</a>
 
 
-							<div class="modal fade" id="btnModalNelete" tabindex="-1"
+							<div class="modal" id="btnModalNelete" tabindex="-1"
 								aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -134,7 +139,7 @@
 												data-bs-dismiss="modal">취소</button>
 
 											<a
-												href="javascript:goFileNelete
+												href="javascript:goFileMultiNelete
 									('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>',
 									'<c:out value="${vo.shHydcValue}"/>' );">
 												<button type="button" class="btn btn-primary" id="">확인</button>
@@ -194,14 +199,11 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="table-responsive">
-
 										<table
 											class="table-card align-middle table-nowrap mb-0 table table-borderless">
 
 											<!-- 			<thead class="small text-uppercase text-muted">
 												<tr>
-
-
 
 											<th class=""><input type="checkbox"
 														id="checkboxAll" name="checkboxAll">check All</th>
@@ -383,17 +385,15 @@
 
 			<script type="text/javascript">
 				var seq = $("input:hidden[name=hydcSeq]");
-
 				goFileList = function(seq) {
 					alert(seq);
 					$("#thisPage").val(seq);
 					$("#formList").submit();
 				};
-
 				goFileView = function(hydcSeq, hymmSeq) {
 					alert(hymmSeq + "번 멤버가 올린 문서 " + hydcSeq + "번");
-					$("#hydcSeq").val(hydcSeq);
 					$("#hymmSeq").val(hymmSeq);
+					$("#hydcSeq").val(hydcSeq);
 					$("#formList").attr("action", "/file/fileView");
 					$("#formList").submit();
 				};
@@ -405,15 +405,33 @@
 					$("#formList").attr("action", "/file/fileListTemp");
 					$("#formList").submit();
 				};
-				goFileMultiNelete = function(seq) {
+/* 				goFileMultiNelete = function(seq) {
 					$("#formList").attr("action", "/file/fileMultiNele");
 					$("#formList").submit();
-				};
+				}; */
 			</script>
 
-
-			<script type="text/javascript">
-				$("#checkboxAll").click(function() { //전체선택
+			<script>
+	
+	var goFileMultiNelete ="/file/fileMultiNele";
+	var seq = $("input:hidden[name=hydcSeq]");
+	var form = $("form[name=formList]");
+	var checkboxSeqArray = [];
+	
+				$("#btnModalNelete").on("click", function(){
+					$("input[name=checkboxSeq]:checked").each(function(){ // check된것을 찾고 체크된 값만 넘김
+						checkboxSeqArray.push($(this).val());  // check 해당된 값을 담는다.
+					});				
+				
+				$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+				$("#modalConfirm").modal("hide");
+				form.attr("action", goFileMultiNelete).submit();
+				});
+				
+	</script>
+	
+	<!-- 			<script type="text/javascript">
+				$("#checkboxAll").click(function() { //전체선택 인데 ui구성상 전체선택은 뺴버림..ㅎㅎ
 					if ($("#checkboxAll").is(":checked"))
 						$("input[name=checkboxSeq]").prop("checked", true);
 					else
@@ -428,7 +446,10 @@
 					else
 						$("#checkboxAll").prop("checked", true);
 				});
-			</script>
+			</script> -->
+			
+			
+			
 			<%@include file="../include/pageScripts.jsp"%>
 </body>
 

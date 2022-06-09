@@ -17,22 +17,16 @@
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
 		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
-		LEFT JOIN hybdComment f ON f.hycoSeq = a.hydcSeq
-		where
-		a.hydcDelNy = 0
-		AND
-		a.hydcTempNy = 0
-		AND
-		c.hyspSeq = #{hyspSeq}
-
+		where a.hydcDelNy = 0
+		AND a.hydcTempNy = 0
+		AND c.hyspSeq = #{hyspSeq}
 <!-- 	AND ( 
 		a.hydcTitle LIKE concat('%',#{shHydcValue},'%')
 		OR a.hydcText LIKE concat('%',#{shHydcValue},'%')
 		OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
 		OR e.hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')
 		 ) -->
-		ORDER BY
-		a.modDateTime DESC
+		ORDER BY a.modDateTime DESC
 		limit #{startRnumForMysql} , #{rowNumToShow}
 	</sql> 
 
@@ -51,7 +45,6 @@
 		,c.*
 		,d.*
 		,e.*
-		,f.*
 	<include refid="selectCommon" /> 
 	</select>
 
@@ -83,7 +76,6 @@
 		a.hydcTempNy = 1
 	</select>
 
-
 	<select id="documentView" resultMap="resultMapObj">   <!-- 문서뷰 셀렉원 -->
 		select
 		a.*
@@ -93,18 +85,17 @@
 		,c.uuidFileName
 		,d.hyflPath
 		,d.hyflUuidFileName
-		,e.hycoText
+<!-- 		,e.hycoText
 		,e.regDateTime
-		,e.modDateTime
+		,e.modDateTime -->
 		from
 		hybdDocument a
 		LEFT JOIN hybdMember b ON	b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
 		LEFT JOIN hybdFileUploaded d ON d.hyflPseq = a.hydcSeq
-		LEFT JOIN hybdComment e ON e.hycoSeq = a.hydcSeq
+<!-- 		LEFT JOIN hybdComment e ON e.hydcSeq = a.hydcSeq =  -->
 		where 1=1
-		and
-		a.hydcDelNy = 0
+		and a.hydcDelNy = 0
 		and a.hydcTempNy = 0
 		and a.hydcSeq = #{hydcSeq}
 	</select>
@@ -121,12 +112,10 @@
 		LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdFileUploaded c ON c.hyflPseq = a.hymmSeq
 		where 1=1
-		and
-		a.hydcDelNy = 0
+		and a.hydcDelNy = 0
 		and a.hydcTempNy = 1
 		and a.hydcSeq = #{hydcSeq}
 	</select>
-
 
 	<select id="profileUploaded" resultMap="resultMapObj"> <!-- 프로필뷰 -->
 		SELECT
@@ -146,7 +135,6 @@
 		WHERE 1=1
 		AND pseq = #{hymmSeq}
 	</select>
-
 
 	<insert id="insertDocument">  <!-- 문서등록 -->
 		INSERT INTO hybdDocument(
@@ -185,8 +173,7 @@
 		,now()
 		,#{hyspSeq}
 		)
-		<selectKey resultType="String" keyProperty="hydcSeq"
-			order="AFTER">
+		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
@@ -241,8 +228,7 @@
 		,now()
 		,#{hyspSeq}
 		)
-		<selectKey resultType="String" keyProperty="hydcSeq"
-			order="AFTER">
+		<selectKey resultType="String" keyProperty="hydcSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
@@ -272,7 +258,6 @@
 		WHERE 1 = 1
 		AND hydcSeq = #{hydcSeq}
 	</update>
-
 
 	<update id="updateDeleteDocument">    <!-- 가짜삭제 -->
 		UPDATE hybdDocument SET
@@ -312,17 +297,36 @@
 		WHERE 1=1
 		AND hyflPseq = #{hyflPseq}
 	</update>
-
- <select id="commentList" resultMap="resultMapObj">  <!-- 모댓글리스트 -->
+	
+	 <select id="commentList" resultMap="resultMapObj">  <!-- 댓글리스트 -->
         SELECT
    		   a.*
    		   ,b.*
    		   ,c.*
+   		   ,f.*
         FROM hybdComment a
         LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
         LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
-        WHERE hycoSeq = #{hycoSeq}
-        ORDER BY hycoSeq
+        LEFT JOIN hybdDocument f ON f.hydcSeq = a.hydcSeq
+        WHERE 1=1 
+        AND a.hydcSeq = #{hydcSeq} 
+        ORDER BY a.hycoSeq
+    </select>
+
+ <select id="commentList1" resultMap="resultMapObj">  <!-- 모댓글리스트 -->
+        SELECT
+   		   a.*
+   		   ,b.*
+   		   ,c.*
+   		   ,f.*
+        FROM hybdComment a
+        LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
+        LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
+        LEFT JOIN hybdDocument f ON f.hydcSeq = a.hydcSeq
+        WHERE 1=1 
+        AND a.hycoGroupType = 0
+        AND a.hydcSeq = #{hydcSeq} 
+        ORDER BY a.hycoSeq
     </select>
     
      <select id="commentList2" resultMap="resultMapObj">  <!-- 대댓글리스트 -->
@@ -330,20 +334,25 @@
    		   a.*
    		   ,b.*
    		   ,c.*
+   		   ,f.*
         FROM hybdComment a
         LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
         LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
-        WHERE hycoSeq = #{hycoSeq}
-        AND   hycoGroupSeq = #{hycoGroupDepth}
-        ORDER BY hycoSeq
+        LEFT JOIN hybdDocument f ON f.hydcSeq = a.hydcSeq
+        WHERE 1=1
+        AND a.hycoGroupType = 1
+<!--         AND a.hycoGroupSeq = a.hycoGroupDepth -->
+        AND a.hydcSeq = #{hydcSeq}
+        ORDER BY a.hycoSeq
     </select>
 
-    <insert id="commentCreate"> <!-- 댓글등록 -->
+    <insert id="commentCreate1"> <!-- 모댓글등록 -->
         INSERT INTO hybdComment (
             hydcSeq
             , hycoText
             , hymmSeq
             , hycoDelNy
+            , hycoGroupType
             , regDateTime
             , modDateTime
         ) VALUES (
@@ -351,6 +360,27 @@
             , #{hycoText}
             , #{hymmSeq}
             , 0
+            , 0 
+            , now()
+            , now() 
+        )
+    </insert>
+    
+        <insert id="commentCreate2"> <!-- 대댓글등록 -->
+        INSERT INTO hybdComment (
+            hydcSeq
+            , hycoText
+            , hymmSeq
+            , hycoDelNy
+            , hycoGroupType
+            , regDateTime
+            , modDateTime
+        ) VALUES (
+            #{hydcSeq}
+            , #{hycoText}
+            , #{hymmSeq}
+            , 0
+            , 1
             , now()
             , now() 
         )

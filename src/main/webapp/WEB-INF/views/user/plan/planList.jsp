@@ -21,28 +21,20 @@
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
-	rel="stylesheet">
+<link	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"	rel="stylesheet">
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
-<link
-	href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
-	rel="stylesheet">
+<link	href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"	rel="stylesheet">
 <!--Simplebar css-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet"	href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/choices.min.css">
+<link rel="stylesheet"	href="/resources/assets/vendor/css/choices.min.css">
 
 <!--Calendar app style-->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
+<link rel="stylesheet"	href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
 
 <!--Main style-->
-<link rel="stylesheet" href="/resources/assets/css/style.min.css"
-	id="switchThemeStyle">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 </head>
 
 <body>
@@ -281,7 +273,13 @@
 	<!--  제이쿼리 시간포함 달력 -->
 	<link rel="stylesheet" type="text/css" href="/resources/datetimepicker-master/build/jquery.datetimepicker.min.css"/ >
 	<script src="/resources/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
-
+	
+	<script src="/resources/assets/vendor/feather.min.js"></script>
+	<script src="/resources/assets/js/theme.bundle.js"></script>
+	<script>
+		feather.replace()
+	</script>
+	
 	<!--App calendar Plugin-->
 	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
 
@@ -460,7 +458,7 @@
 	</script>
 
 	<!-- Jquery 달력 여기선 필요없음 -->
-	<script type="text/javascript">
+<!-- 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("input.shDate").datepicker();
 		});
@@ -477,7 +475,7 @@
 			showMonthAfterYear : true,
 			yearSuffix : '년'
 		});
-	</script>
+	</script> -->
 
 	<!-- 벨리데이션 값 넣었을때 나오는 벨리데이션  -->
 	<script type="text/javascript">

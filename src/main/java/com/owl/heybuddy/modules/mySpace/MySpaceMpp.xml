@@ -350,6 +350,24 @@
 	</delete>
 
 	<!-- 호스트 설정 부분 -->
+	<update id="updateHost">
+	UPDATE
+		hybdSpaceMember
+	SET
+		hysmRoleCd = #{hysmRoleCd}
+	WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+		AND hymmSeq = #{hymmSeq}
+	</update>
+	<update id="updateHost2">
+	UPDATE
+		hybdSpaceMember
+	SET
+		hysmHost = #{hysmHost}
+	WHERE 1=1
+		AND hyspSeq = #{hyspSeq}
+	</update>
+	
 	<update id="updateMySpaceHost">
 	UPDATE 
 		hybdSpace

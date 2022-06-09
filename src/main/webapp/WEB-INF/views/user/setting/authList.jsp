@@ -155,13 +155,13 @@
 															<td>
 																<c:choose>
 																	<c:when test="${item.hysmRoleCd eq 12}">
-																		<a href="">호스트 변경</a>
+																		<a href="javascript:changeHostModal();">호스트 변경</a>
 																	</c:when>
 																	<c:otherwise>
 																		<a class="btn btn-info position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" href="javascript:goEdit(<c:out value="${item.hymmSeq}"/>)">
 																			<i class="bi bi-pencil-square"></i>
 																		</a>
-																		<button onclick="javascript:showDeleteModal(<c:out value="${item.hysmSeq}"/>)" class="btn btn-danger position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex" data-bs-toggle="modal" data-bs-target="#deleteModal">
+																		<button onclick="javascript:showDeleteModal(<c:out value="${item.hysmSeq}"/>,<c:out value="${item.hymmSeq}"/>)" class="btn btn-danger position-relative p-0 size-30 justify-content-center align-items-center d-inline-flex">
 																			<i class="bi bi-trash3"></i>
 																		</button>
 																	</c:otherwise>
@@ -197,6 +197,35 @@
 					</div>
 				</div>
 				<!-- Delete Modal End -->
+				
+				<!-- Change Host Modal -->
+				<div class="modal fade" id="changeHostModal" tabindex="-1" aria-labelledby="changeHostModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="">호스트 변경</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<h4>마이스페이스 호스트를 변경합니다.</h4>
+								<div class="card">
+									<select id="selectHost" class="form-select">
+										<c:forEach items="${list}" var="item" varStatus="status">
+											<c:if test="${item.hysmRoleCd ne 12 and item.hysmAcceptedNy eq 1 and item.hymmActiveNy eq 1}">
+												<option value="${item.hymmSeq}"><c:out value="${item.hymmName}"/></option>								
+											</c:if>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+								<button onclick="changeHost();" type="button" class="btn btn-primary">확인</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Change Host Modal End -->
 
 				<!-- Member Modal Start -->
 				<div class="modal fade" id="modalMemberCard" tabindex="-1">
@@ -371,8 +400,16 @@
 	
 	<script type="text/javascript">
 	
-	showDeleteModal = function(hysmSeq){
+	showDeleteModal = function(hysmSeq, hymmSeq){
+		
+		if("<c:out value='${sessSeq}'/>" == hymmSeq){
+			alert("자신의 권한은 삭제할 수 없습니다. 호스트에게 요청하세요!");
+			return false;
+		}
+		
 		$("#hysmSeq").val(hysmSeq);
+		$("#deleteModal").modal("show");
+		
 	}
 	
 	$("#btnAuthDelete").on("click", function(){
@@ -385,6 +422,48 @@
 		$("#authListForm").attr("action", "/setting/authEdit").submit();
 	}
 	
+	changeHostModal = function(){
+		if('<c:out value="${hostNy}"/>' == 1){
+			$("#changeHostModal").modal("show");
+		} else {
+			alert("호스트만 가능합니다.");
+		}
+	}
+	
+	changeHost = function(){
+		
+		$.ajax({
+			async: true
+			, cache: false
+			, type: "post"
+			, url: "/user/selectOneAjax"
+			, data : { "hymmSeq" : $("#selectHost").val() }
+			, success: function(data){
+
+				if(data.hysmAuthCd > 0){
+					alert("관리권한을 먼저 삭제해야 합니다.");
+					return false;
+				}
+				
+				$("#hymmSeq").val(data.hymmSeq);
+				
+				$("#authListForm").attr("action", "/setting/changeHost").submit();
+				
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+		
+		console.log($("#selectHost").val());
+		
+//		$("#authListForm").attr("action", "/setting/changeHost").submit();
+	}
+	
+	</script>
+	
+	<script type="text/javascript">
+	console.log($("#selectHost"));
 	</script>
 	
 	

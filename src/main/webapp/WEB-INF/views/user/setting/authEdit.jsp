@@ -235,6 +235,7 @@
 	</div>
 	
 	<form id="authEditForm" method="post">
+		<input type="hidden" name="hymmSeq" value="${rt.hymmSeq}">
 		<input type="hidden" name="hysmSeq" value="${rt.hysmSeq}">
 		<input type="hidden" id="hysmAuthCd" name="hysmAuthCd" value="${rt.hysmAuthCd}">
 	</form>

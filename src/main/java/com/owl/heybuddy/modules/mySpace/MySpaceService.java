@@ -2,6 +2,8 @@ package com.owl.heybuddy.modules.mySpace;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 public interface MySpaceService {
 
 	public int selectOneCount(MySpaceVo vo) throws Exception; // counting
@@ -40,4 +42,5 @@ public interface MySpaceService {
 	
 	public int updateMySpaceHost(MySpace dto) throws Exception;
 	public MySpace selectOneMySpaceHost(MySpaceVo vo) throws Exception;
+	public int updateHost(MySpace dto, HttpSession httpSession) throws Exception;
 }

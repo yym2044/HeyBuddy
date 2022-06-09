@@ -97,4 +97,11 @@ public class MySpaceDao {
 	public MySpace selectOneMySpaceHost(MySpaceVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneMySpaceHost", vo); 
 	}
+	
+	public int updateHost(MySpace dto) {
+		return sqlSession.update(namespace + ".updateHost", dto);
+	}
+	public int updateHost2(MySpace dto) {
+		return sqlSession.update(namespace + ".updateHost2", dto);
+	}
 }

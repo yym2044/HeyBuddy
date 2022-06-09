@@ -40,6 +40,16 @@ public class MySpaceController {
 
 		return "user/setting/space";
 	}
+	
+	@RequestMapping(value = "/setting/changeHost")	// 스페이스 호스트 변경
+	public String changeHost(MySpace dto, HttpSession httpSession) throws Exception {
+		
+		dto.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		service.updateHost(dto, httpSession);
+		
+		return "redirect:/mySpace/mySpaceList";
+	}
 
 	@RequestMapping(value = "/setting/updateMySpaceHost")
 	public String updateMySpaceHost(MySpace dto, HttpSession httpSession) throws Exception {

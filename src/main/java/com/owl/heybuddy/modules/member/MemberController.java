@@ -165,6 +165,22 @@ public class MemberController {
 
 		return "redirect:/login/userLogin";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/user/memberListAjax")
+	public Map<String, Object> memberListAjax(MemberVo vo, HttpSession httpSession) throws Exception {
+		
+		Map<String, Object> resultMap = new HashMap<>();
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		List<Member> list = service.selectListSpaceMember(vo);
+		
+		resultMap.put("list", list);
+		
+		return resultMap;
+	}
+	
 
 	@RequestMapping(value = "/user/memberList")
 	public String chatList(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
@@ -259,11 +275,18 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/setting/authUpdt")
-	public String authUpdt(Member dto) throws Exception {
+	public String authUpdt(Member dto, HttpSession httpSession) throws Exception {
 		
 		service.updateMemberAuth(dto);
 		
-		return "redirect:/setting/authList";
+		System.out.println(httpSession.getAttribute("sessSeq"));
+		System.out.println(dto.getHymmSeq());
+		
+		if(httpSession.getAttribute("sessSeq").equals(dto.getHymmSeq())) {
+			return "redirect:/user/memberList";
+		} else {
+			return "redirect:/setting/authList";
+		}
 	}
 
 	@RequestMapping(value = "/setting/authList")

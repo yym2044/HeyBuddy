@@ -2,6 +2,8 @@ package com.owl.heybuddy.modules.mySpace;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -154,4 +156,22 @@ public class MySpaceServiceImpl implements MySpaceService {
 	public MySpace selectOneMySpaceHost(MySpaceVo vo) throws Exception {
 		return dao.selectOneMySpaceHost(vo);
 	}
+	
+	@Override
+	public int updateHost(MySpace dto, HttpSession httpSession) throws Exception {
+		
+		// 새로운 호스트 설정
+		dto.setHysmRoleCd("12");
+		dto.setHysmHost(dto.getHymmSeq());
+		dao.updateHost(dto);
+		dao.updateHost2(dto);
+		
+		// 기존 호스트 값 변경
+		dto.setHymmSeq((String) httpSession.getAttribute("sessSeq"));
+		dto.setHysmRoleCd("13");
+		dao.updateHost(dto);
+		
+		return 1;
+	}
+	
 }

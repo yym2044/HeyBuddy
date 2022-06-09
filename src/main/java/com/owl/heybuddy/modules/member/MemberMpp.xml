@@ -47,6 +47,7 @@
 	</select>
     
 	<select id="memberList" resultMap="resultMapObj">  <!-- 멤버리스트-->
+		
 		select
 		*
 		from
@@ -89,6 +90,7 @@
 		AND b.hysmAcceptedNy = '1'
 		AND b.hysmExitNy = '0'
 		AND b.hyspSeq = #{hyspSeq}
+		AND a.hymmSeq != #{hymmSeq}
 		
 	</select>
 

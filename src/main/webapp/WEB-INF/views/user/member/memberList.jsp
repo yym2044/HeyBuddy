@@ -98,10 +98,39 @@
 									</h5>
 								</div>
 
+						
+									<!--Search result item-->
+									<a href = "#" class="list-group-item p-4 list-group-item-action">
+										<div class="d-flex align-items-center">
+											<div id="Member<c:out value="${sessSeq}"/>" class="avatar avatar-status lg me-2 mb-2">
+												<c:choose>
+													<c:when test="${empty item.uuidFileName}">
+														<img src="/resources/user/images/profileDefault.png" class="img-fluid rounded-circle w-100 h-100" alt="">
+													</c:when>
+													<c:otherwise>
+														<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="img-fluid rounded-circle w-100 h-100" alt="">
+													</c:otherwise>
+												</c:choose>
+											</div>
+											
+											
+											<!-- <img src="/resources/assets/media/avatars/01.jpg" class="flex-shrink-0 rounded-3 width-80" alt=""> -->
+
+											<div class="ps-3 flex-grow-1 overflow-hidden">
+												<span class="fw-semibold d-block mb-1 text-truncate"></span>
+											
+														<h5 class="mb-1 text-truncate">
+															&nbsp&nbsp&nbsp&nbsp<c:out value="${sessName}" />
+															&nbsp<span class="badge rounded-pill bg-primary">ME</span>&nbsp
+														</h5>
+													
+											</div>
+										</div>
+									</a>
+								
 								<c:forEach items="${list}" var="item" varStatus="status">
 									<!--Search result item-->
-									<a href="javascript:goChat(<c:out value="${item.hymmSeq}"/>);"
-										class="list-group-item p-4 list-group-item-action">
+									<a href = "javascript:goChat(<c:out value="${item.hymmSeq}"/>);" class="list-group-item p-4 list-group-item-action">
 										<div class="d-flex align-items-center">
 										
 											<!-- 온오프라인 상태 없는 버젼 -->
@@ -121,6 +150,9 @@
 											 --%>
 											
 											<!-- 온오프라인 상태 추가 버젼 -->
+											
+											
+											
 											
 											<div id="Member<c:out value="${item.hymmSeq}"/>" class="avatar avatar-status lg me-2 mb-2">
 												<c:choose>

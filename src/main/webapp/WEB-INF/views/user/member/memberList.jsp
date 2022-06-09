@@ -125,10 +125,10 @@
 											<div id="Member<c:out value="${item.hymmSeq}"/>" class="avatar avatar-status lg me-2 mb-2">
 												<c:choose>
 													<c:when test="${empty item.uuidFileName}">
-														<img src="/resources/user/images/profileDefault.png" class="img-fluid rounded-circle w-auto" alt="">
+														<img src="/resources/user/images/profileDefault.png" class="img-fluid rounded-circle w-100 h-100" alt="">
 													</c:when>
 													<c:otherwise>
-														<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="img-fluid rounded-circle w-auto" alt="">
+														<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="img-fluid rounded-circle w-100 h-100" alt="">
 													</c:otherwise>
 												</c:choose>
 											</div>

@@ -405,7 +405,7 @@ pageContext.setAttribute("br", "\n");
 																		<c:out value="${commentList.hycoText}" />
 																	</p>
 																</div>
-
+ 
 																<div class="mb-2 small">
 																	<a href="#!" class="text-reset">Reply</a>
 																</div>

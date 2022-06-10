@@ -99,16 +99,16 @@
 								</div>
 
 						
-									<!--Search result item-->
+									<!-- 본인	-->
 									<a href = "#" class="list-group-item p-4 list-group-item-action">
 										<div class="d-flex align-items-center">
 											<div id="Member<c:out value="${sessSeq}"/>" class="avatar avatar-status lg me-2 mb-2">
 												<c:choose>
-													<c:when test="${empty item.uuidFileName}">
+													<c:when test="${empty uuidFileName}">
 														<img src="/resources/user/images/profileDefault.png" class="img-fluid rounded-circle w-100 h-100" alt="">
 													</c:when>
 													<c:otherwise>
-														<img src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>" class="img-fluid rounded-circle w-100 h-100" alt="">
+														<img src="<c:out value="${path}"/><c:out value="${uuidFileName}"/>" class="img-fluid rounded-circle w-100 h-100" alt="">
 													</c:otherwise>
 												</c:choose>
 											</div>
@@ -129,7 +129,7 @@
 									</a>
 								
 								<c:forEach items="${list}" var="item" varStatus="status">
-									<!--Search result item-->
+									<!-- 본인 말고 다른 유저들 -->
 									<a href = "javascript:goChat(<c:out value="${item.hymmSeq}"/>);" class="list-group-item p-4 list-group-item-action">
 										<div class="d-flex align-items-center">
 										

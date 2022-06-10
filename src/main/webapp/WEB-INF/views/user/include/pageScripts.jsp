@@ -58,3 +58,27 @@ goSpaceList = function(){
 }
 
 </script>
+<!-- 
+<script type="text/javascript">
+
+	$.ajax({
+		async: true
+		, cache: false
+		, type: "post"
+		, url: "/user/memberListAjax"
+		, success: function(data){
+			
+			const list = data.list;
+			
+			$.each(list, function(i){
+				console.log(list[i].hymmSeq);
+			});
+			
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+	}); 
+
+</script>
+ -->

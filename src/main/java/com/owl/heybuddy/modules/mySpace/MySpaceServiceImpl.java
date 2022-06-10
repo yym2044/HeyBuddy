@@ -132,6 +132,8 @@ public class MySpaceServiceImpl implements MySpaceService {
 		
 		dto.setTableName("hybdSpaceUploaded");
 		dto.setPseq(dto.getHyspSeq());
+		dto.setType(0);
+		dto.setSort(1);
 		
 		if(!dto.getFile().isEmpty()) {
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");

@@ -31,6 +31,7 @@
 			<exclude-mapping path="/login/userLogin" />
 			<exclude-mapping path="/login/xdminLogin" />
 			<exclude-mapping path="/member/loginProc" />
+			<exclude-mapping path="/member/loginProcKakao" />
 			<exclude-mapping path="/member/logoutProc" />
 			<exclude-mapping path="/user/memberForm" />
 			<exclude-mapping path="/user/memberSignUp" />

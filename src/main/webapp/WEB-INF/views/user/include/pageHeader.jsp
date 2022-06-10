@@ -101,8 +101,9 @@
 				</a>
 			</div>
 		</li>
-	<!-- 	<li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100 me-2"><a href="#" class="nav-link p-0 position-relative size-35 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
-				<i data-feather="bell" class="fe-1x"></i>
+	    <li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100 me-2">
+	    	<a href="#" class="nav-link p-0 position-relative size-35 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+    			<i data-feather="user" class="fe-1x"></i>
 				<span class="size-5 rounded-circle d-flex align-items-center justify-content-center position-absolute end-0 top-0 mt-2 me-1 bg-danger small"></span>
 			</a>
 
@@ -116,7 +117,6 @@
 				</div>
 				<div class="height-290" data-simplebar>
 					<div class="list-group list-group-flush mb-0">
-						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<div class="d-block me-3">
 								<div class="avatar avatar-status status-online">
@@ -131,7 +131,6 @@
 								<small class="text-muted">Just now</small>
 							</div>
 						</a>
-						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<div class="d-block me-3">
 								<div class="avatar avatar-status status-offline">
@@ -147,7 +146,6 @@
 								<small class="text-muted">2h Ago</small>
 							</div>
 						</a>
-						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<span class="d-block me-3">
 								<span class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-success text-success rounded-circle">
@@ -162,7 +160,6 @@
 								<small class="text-muted">2h Ago</small>
 							</div>
 						</a>
-						//Notification item start//
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<span class="d-block me-3">
 								<span class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-danger text-danger rounded-circle">
@@ -180,7 +177,7 @@
 						</a>
 					</div>
 				</div>
-			</div></li> -->
+			</div></li>
 		<li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100"><a href="#" class="nav-link dropdown-toggle height-35 px-2 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
 				<div class="d-flex align-items-center">
 

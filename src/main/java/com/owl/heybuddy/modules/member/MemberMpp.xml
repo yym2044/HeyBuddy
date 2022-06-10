@@ -145,7 +145,7 @@
 		,hymmId
 		,hymmPassword
 		,hymmEmail
-		,hymmZoomAccount
+		,hymmEmailKakao
 		,hymmActiveNy
 		,hymmDelny
 		,regDateTime
@@ -158,7 +158,7 @@
 		,#{hymmId}
 		,#{hymmPassword}
 		,#{hymmEmail}
-		,#{hymmZoomAccount}
+		,#{hymmEmailKakao}
 		,1
 		,0
 		,now()
@@ -181,7 +181,6 @@
 		,hymmGenderCd
 		,hymmNumber
 		,hymmEmail
-		,hymmZoomAccount
 		,hymmDelny
 		,hymmDesc
 		,hymmSaveCd
@@ -203,7 +202,6 @@
 		,#{hymmGenderCd}
 		,#{hymmNumber}
 		,#{hymmEmail}
-		,#{hymmZoomAccount}
 		,0
 		,#{hymmDesc}
 		,#{hymmSaveCd}
@@ -243,6 +241,27 @@
 				, 0
 				, #{hymmSeq}
 				, "/resources/user/images/"
+			)
+		
+	</insert>
+	
+	<insert id="signUpUploadedKakao">
+		INSERT INTO
+			hybdMemberUploaded (
+				defaultNy
+				, type
+				, sort
+				, uuidFileName
+				, delNy
+				, pseq
+				
+			) VALUES (
+				1
+				, 0
+				, 1
+				, #{uuidFileName}
+				, 0
+				, #{hymmSeq}
 			)
 		
 	</insert>
@@ -357,6 +376,26 @@
 		WHERE 1 = 1
 			AND a.hymmId = #{hymmId}
 			AND a.hymmPassword = #{hymmPassword}
+	</select>
+	
+	<select id="selectOneLoginKakao" resultMap="resultMapObj">
+	SELECT
+		a.hymmSeq
+		,a.hymmAdminNy
+		,a.hymmId
+		,a.hymmName
+		,a.hymmEmail
+		,a.hymmDesc
+		,a.hymmPassword
+		,b.uuidFileName
+		,b.path
+	FROM
+		hybdMember a
+	LEFT JOIN
+		hybdMemberUploaded b
+	ON b.pseq = a.hymmSeq
+	WHERE 1 = 1
+		AND a.hymmEmailKakao = #{hymmEmailKakao}
 	</select>
 
 	
@@ -608,5 +647,7 @@
 	WHERE 1=1
 		AND hysmSeq = #{hysmSeq}
 	</update>
+	
+	
 	
 </mapper>

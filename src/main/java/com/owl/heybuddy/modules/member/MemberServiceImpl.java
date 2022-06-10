@@ -50,9 +50,13 @@ public class MemberServiceImpl implements MemberService {
 		
 		dao.insertSignUp(dto);
 		
-		//기본 프로필 사진으로 저장
-		dao.signUpUploaded(dto);
-		
+		if(dto.getUuidFileName().equals("") || dto.getUuidFileName() == null) {
+			//기본 프로필 사진으로 저장
+			dao.signUpUploaded(dto);
+		} else {
+			//카톡 프로필 사진으로 저장
+			dao.signUpUploadedKakao(dto);
+		}
 		
 		return 1;
 	}
@@ -112,6 +116,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public Member selectOneLogin(Member dto) { // 회원로그인
 		return dao.selectOneLogin(dto);
+	}
+	
+	@Override
+	public Member selectOneLoginKakao(Member dto) {
+		return dao.selectOneLoginKakao(dto);
 	}
 
 //	영민 추가

@@ -50,6 +50,10 @@ public class MemberDao {
 	public int signUpUploaded(Member dto) {
 		return sqlSession.insert(namespace + ".signUpUploaded", dto);
 	}
+	
+	public int signUpUploadedKakao(Member dto) {
+		return sqlSession.insert(namespace + ".signUpUploadedKakao", dto);
+	}
 
 	public int updateMember(Member dto) {
 		return sqlSession.update(namespace + ".updateMember", dto); // 회원수정
@@ -73,6 +77,10 @@ public class MemberDao {
 
 	public Member selectOneLogin(Member dto) {
 		return sqlSession.selectOne(namespace + ".selectOneLogin", dto); // 로그인
+	}
+	
+	public Member selectOneLoginKakao(Member dto) {
+		return sqlSession.selectOne(namespace + ".selectOneLoginKakao", dto);
 	}
 
 	public int deleteMember(MemberVo vo) {

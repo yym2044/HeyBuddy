@@ -49,6 +49,10 @@ body {
 </style>
 <body>
 	<form id="memberSignUp" name="memberSignUp" method="post" class="z-index-1 position-relative needs-validation" novalidate="">
+	
+	<input id="hymmEmailKakao" name="hymmEmailKakao" type="hidden" value="${dto.hymmEmailKakao}">
+	<input id="uuidFileName" name="uuidFileName" type="hidden" value="${dto.uuidFileName}">
+	
 <!--//page-header//-->
 <header class="navbar py-0 page-header navbar-expand navbar-light">
 
@@ -121,13 +125,6 @@ body {
 												address</span>
 										</div>
 										<div class="form-floating mb-3">
-											<input type="email" class="form-control" required=""
-												id="hymmZoomAccount" name="hymmZoomAccount" placeholder="name@example.com">
-											<label for="hymmZoomAccount"> Zoom Account </label> <span
-												class="invalid-feedback">Please enter a valid zoom
-												account</span>
-										</div>
-										<div class="form-floating mb-3">
 											<input type="password" required="" class="form-control"
 												id="hymmPassword" name="hymmPassword" placeholder="Password"> <label
 												for="hymmPassword">Password</label> <span
@@ -153,17 +150,13 @@ body {
 										</div>
 										<a href="javascript:goInst();"><button class="w-100 btn btn-lg btn-success" type="button">Sign
 											Up</button></a>
+										<!-- 	
 										<div class="d-flex align-items-center pb-3">
 											<span class="flex-grow-1 border-bottom pt-1"></span> <span
 												class="d-inline-flex align-items-center justify-content-center lh-1 size-30 rounded-circle text-mono">or</span>
 											<span class="flex-grow-1 border-bottom pt-1"></span>
 										</div>
-
-										<a href="javascript:kakaoSignup();"><img
-											src="/resources/user/images/kakao_login_medium_wide.png"
-											alt="..." width="100%"></a>
-
-									
+										 -->
 								</div>
 							</div>
 						</div>

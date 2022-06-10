@@ -20,7 +20,7 @@ public class Member {
 	private Integer hymmGenderCd;
 	private String hymmNumber;
 	private String hymmEmail;
-	private String hymmZoomAccount;
+	private String hymmEmailKakao;
 	private String hymmDob;
 	private Integer hymmSaveCd;
 	private Integer hymmEmailConsentNy;
@@ -154,14 +154,6 @@ public class Member {
 
 	public void setHymmEmail(String hymmEmail) {
 		this.hymmEmail = hymmEmail;
-	}
-
-	public String getHymmZoomAccount() {
-		return hymmZoomAccount;
-	}
-
-	public void setHymmZoomAccount(String hymmZoomAccount) {
-		this.hymmZoomAccount = hymmZoomAccount;
 	}
 
 	public String getHymmDob() {
@@ -506,6 +498,14 @@ public class Member {
 
 	public void setModDevice(String modDevice) {
 		this.modDevice = modDevice;
+	}
+
+	public String getHymmEmailKakao() {
+		return hymmEmailKakao;
+	}
+
+	public void setHymmEmailKakao(String hymmEmailKakao) {
+		this.hymmEmailKakao = hymmEmailKakao;
 	}
 	
 }

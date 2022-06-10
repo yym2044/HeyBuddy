@@ -24,6 +24,10 @@ public static int DATE_INTERVAL = -30;
 
 public static final String UPLOAD_PATH_PREFIX = "C:/factory/ws_sts_4130/HeyBuddy/src/main/webapp/resources/uploaded/";
 public static final String UPLOAD_PATH_PDF = "C:/factory/ws_sts_4130/HeyBuddy/src/main/webapp/resources/pdfjs-2.14.305-dist/web/";
+
+//xshell에 올릴 때 쓰는 경로
+//public static final String UPLOAD_PATH_PREFIX = "/factory/workspace/HeyBuddy/resources/uploaded/";
+//public static final String UPLOAD_PATH_PDF = "/factory/workspace/HeyBuddy/resources/pdfjs-2.14.305-dist/web/";
 	
 
 

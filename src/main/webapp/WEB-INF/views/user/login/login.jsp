@@ -30,7 +30,6 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
-
 </head>
 <style>
 body {
@@ -148,7 +147,6 @@ body {
 
 				<!--///////////Page content wrapper end///////////////-->
 
-	
 			</main>
 		</div>
 					<!--//Page-footer//-->
@@ -163,6 +161,11 @@ body {
 				</footer>
 				<!--/.Page Footer End-->
 	</div>
+	
+	<form id="formKakao" method="post">
+		<input id="hymmEmailKakao" name="hymmEmailKakao" type="hidden">
+		<input id="uuidFileName" name="uuidFileName" type="hidden">
+	</form>
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -182,37 +185,53 @@ body {
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 	<script>
-window.Kakao.init('34a7cb875c4bfe22aa44952d415d481f');	// 자바스크립트 키 입력
+//window.Kakao.init('34a7cb875c4bfe22aa44952d415d481f');	// 자바스크립트 키 입력
+window.Kakao.init('e4fc7b792c48957b6ef06c9de0552373');	// 자바스크립트 키 입력
 console.log(Kakao.isInitialized()); 
 function kakaoLogin() {
     window.Kakao.Auth.login({
-        scope: 'profile_nickname', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+        scope: 'profile_nickname, account_email, profile_image', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
         success: function(response) {
             console.log(response) // 로그인 성공하면 받아오는 데이터
             window.Kakao.API.request({ // 사용자 정보 가져오기 
                 url: '/v2/user/me',
                 success: (res) => {
                     const kakao_account = res.kakao_account; 
-                    const profile_nickname = res.properties.nickname; 
-                    console.log(kakao_account)		// 받아온 정보들을 출력
-                    console.log(profile_nickname)		// 받아온 정보들을 출력
+                    console.log("kakao_account : ",kakao_account);
+                    const emailKakao = kakao_account.email;
+                    const photoKakao = kakao_account.profile.profile_image_url;
+                    
+                    console.log(emailKakao);
+                    
+                    //기존회원인지 아닌지 확인하는 ajax
+                    
                     $.ajax({
-            			async: true 
-            			,cache: false
-            			,type: "post"
-            			,url: "/member/KakaoLgProc"
-            			,data : {"hybdName" : profile_nickname}
-            			,success: function(response) {
-            				if(response.item == "success") {
-            					location.href = "url적는곳";
-            				} else {
-            					alert("카카오 로그인이 실패하였습니다. ");
-            				}
-            			}
-            			,error : function(jqXHR, textStatus, errorThrown){
-            				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-            			}
-            		})
+                    	async: true
+                    	, cache: false
+                    	, type: "post"
+                    	, url: "/member/loginProcKakao"
+                    	, data: {hymmEmailKakao : emailKakao}
+                    	, success : function(response) {
+                    		console.log("ajax");
+                    		console.log(response);
+                    		
+                    		if(response.rt == "success") {
+                    			location.href = "/mySpace/mySpaceList";
+                    		} else if (response.rt == "fail") {
+                    			alert("회원가입 페이지로 이동합니다.");
+                    			
+                    			$("#hymmEmailKakao").val(emailKakao);
+                    			$("#uuidFileName").val(photoKakao);
+                    			$("#formKakao").attr("action", "/user/memberForm").submit();
+                    			
+                    		}
+                    		
+                    	}
+                    	, error : function(jqXHR, textStatus, errorThrown){
+                    		alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                    	}
+                    })
+                   
                 }
             });
             // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드

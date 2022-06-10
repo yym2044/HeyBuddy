@@ -89,6 +89,35 @@ public class MemberController {
 	public String xdminLogin(Member dto, Model model) throws Exception {
 		return "/xdmin/login/xdminLogin";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/member/loginProcKakao")
+	public Map<String, Object> loginProcKakao(Member dto, HttpSession httpSession) throws Exception {
+		
+		Map<String, Object> returnMap = new HashMap<>();
+		Member rtMember = service.selectOneLoginKakao(dto);
+		
+		if(rtMember != null) {
+			if(rtMember.getHymmSeq() != null) {
+				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+
+				httpSession.setAttribute("sessSeq", rtMember.getHymmSeq());
+				httpSession.setAttribute("sessAdminNy", rtMember.getHymmAdminNy());
+				httpSession.setAttribute("sessId", rtMember.getHymmId());
+				httpSession.setAttribute("sessName", rtMember.getHymmName());
+				httpSession.setAttribute("sessEmail", rtMember.getHymmEmail());
+				httpSession.setAttribute("uuidFileName", rtMember.getUuidFileName());
+				httpSession.setAttribute("path", rtMember.getPath());
+
+				returnMap.put("rt", "success");
+			} else {
+				returnMap.put("rt", "fail");
+			}
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+	}
 
 	@ResponseBody
 	@RequestMapping(value = "/member/loginProc") // 기본로그인 PR
@@ -150,7 +179,8 @@ public class MemberController {
 	/******************************* 사용자 *******************************/
 
 	@RequestMapping(value = "/user/memberForm") // 회원등록
-	public String memberForm() throws Exception {
+	public String memberForm(@ModelAttribute("dto") Member dto) throws Exception {
+		
 		return "user/member/memberForm";
 	}
 

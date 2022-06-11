@@ -17,6 +17,7 @@
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		LEFT JOIN hybdMemberUploaded d ON d.pseq = b.hymmSeq
 		LEFT JOIN hybdFileUploaded e ON e.hyflPseq = a.hydcSeq
+			AND e.hyflSort = 0
 		where a.hydcDelNy = 0
 		AND a.hydcTempNy = 0
 		AND c.hyspSeq = #{hyspSeq}
@@ -69,7 +70,6 @@
 		hybdDocument a
 		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdFileUploaded e ON e.pseq = a.hydcSeq
 		where
 		a.hydcDelNy = 0
 		and
@@ -83,8 +83,6 @@
 		,b.hymmEmail
 		,c.path
 		,c.uuidFileName
-		,d.hyflPath
-		,d.hyflUuidFileName
 <!-- 		,e.hycoText
 		,e.regDateTime
 		,e.modDateTime -->
@@ -92,7 +90,6 @@
 		hybdDocument a
 		LEFT JOIN hybdMember b ON	b.hymmSeq = a.hymmSeq
 		LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
-		LEFT JOIN hybdFileUploaded d ON d.hyflPseq = a.hydcSeq
 <!-- 		LEFT JOIN hybdComment e ON e.hydcSeq = a.hydcSeq =  -->
 		where 1=1
 		and a.hydcDelNy = 0
@@ -142,6 +139,7 @@
 		,hymmSeq
 		,hydcText
 		,hydcTempNy
+		,hydcType
 		,hydcDelNy
 		,regIp
 		,regSeq
@@ -160,6 +158,7 @@
 		,#{hymmSeq}
 		,#{hydcText}
 		,0
+		,#{hydcType}
 		,0
 		,#{regIp}
 		,#{regSeq}
@@ -211,6 +210,7 @@
 		,hymmSeq
 		,hydcText
 		,hydcTempNy
+		,hydcType
 		,hydcDelNy
 		<!-- ,regIp ,regSeq ,regDevice -->
 		,regDateTime
@@ -222,6 +222,7 @@
 		,#{hymmSeq}
 		,#{hydcText}
 		,1
+		,#{hydcType}
 		,0
 		<!-- ,#{regIp} ,#{regSeq} ,#{regDevice} -->
 		,now()

@@ -269,11 +269,11 @@
 																				href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
 																					<c:out value="${item.hydcTitle}" />
 																			</a> 
-																					<c:if test="${item.hyflType eq 1}">
+																					<c:if test="${item.hydcType eq 1 or item.hydcType eq 2}">
 																						<i class="bi bi-paperclip"></i>
 																						<!--  파일이면클립아이콘 -->
 																					</c:if>
-																					<c:if test="${item.hyflType eq 0}">
+																					<c:if test="${item.hydcType eq 1 or item.hydcType eq 3}">
 																						<i class="bi bi-image-fill"></i>
 																						<!-- 사진이면이미지아이콘 -->
 																					</c:if>

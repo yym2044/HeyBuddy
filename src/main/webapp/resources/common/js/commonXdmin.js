@@ -24,12 +24,30 @@ checkUploadedImageExt = function(obj, seq){
 	}
 }
 
+checkUploadedImageExt2 = function(fileName){
+	var ext = fileName.split('.').pop().toLowerCase();
+	if(extArrayImage.indexOf(ext) == -1){
+		return false;
+	} else {
+		return true;
+	}
+}
+
 checkUploadedFileExt = function(obj, seq){
 	var ext = obj.split('.').pop().toLowerCase();
 	if(extArrayFile.indexOf(ext) == -1){
 		alert("허용된 확장자가 아닙니다.");
 		$("#file"+seq).val("");
 		return false;
+	}
+}
+
+checkUploadedFileExt2 = function(fileName){
+	var ext = fileName.split('.').pop().toLowerCase();
+	if(extArrayFile.indexOf(ext) == -1){
+		return false;
+	} else {
+		return true;
 	}
 }
 

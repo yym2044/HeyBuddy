@@ -83,6 +83,8 @@
 
 
 				<form id="formList" name="formList" method="post" action="" enctype="multipart/form-data">
+				
+					<input type="hidden" id="hydcType" name="hydcType">
 
 					<!-- 기본값히든처리 -->
 					<input type="hidden" id="hyspSeq" name="hyspSeq" value="<c:out value="${hyspSeq}"/>">
@@ -232,12 +234,51 @@
 	</script>
  
 	<script type="text/javascript">
+	
+		/// 추가된 부분 2022-06-11 start
+		function setDocumentType(){
+			
+			const file = document.getElementById("file0");
+
+			let fileNy = false;
+			let imgNy = false;
+			
+			for(var i = 0; i < file.files.length; i++){
+				if (checkUploadedFileExt2(file.files[i].name) == true) {
+					fileNy = true;
+				}
+				if (checkUploadedImageExt2(file.files[i].name) == true) {
+					imgNy = true;
+				}
+			}
+			
+			if(fileNy && imgNy) {
+				$("#hydcType").val("1");
+			} else if(fileNy) {
+				$("#hydcType").val("2");
+			} else if(imgNy) {
+				$("#hydcType").val("3");
+			} else {
+				$("#hydcType").val("0");
+			}
+			
+		}
+		/// 추가된 부분 2022-06-11 end
+		
+	
 		goFileList = function() {
+			
+			setDocumentType();
+			 
 			$("#hydcTempNy").val(0);
 			$("#formList").attr("action", "/file/fileInst1");
 			$("#formList").submit();
+			
 		};
 		goFileListTemp = function() {
+			
+			setDocumentType();
+			
 			$("#hydcTempNy").val(1);
 			$("#formList").attr("action", "/file/fileInst2");
 			$("#formList").submit();

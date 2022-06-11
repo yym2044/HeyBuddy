@@ -13,6 +13,7 @@ public class File {
 	private String hymmSeq;
 	private String hydcTitle;
 	private String hydcText;
+	private String hydcType;
 
 	private Integer hydcDelNy;
 	private Integer hydcTempNy;
@@ -70,6 +71,7 @@ public class File {
 	private Integer hyflDelNy;
 	private String hyflPseq;
 	private String hyflPath;
+	
 	
 	//hybdMember
 	private Integer hymmAdminNy;
@@ -523,6 +525,12 @@ public Integer getHycoGroupType() {
 }
 public void setHycoGroupType(Integer hycoGroupType) {
 	this.hycoGroupType = hycoGroupType;
+}
+public String getHydcType() {
+	return hydcType;
+}
+public void setHydcType(String hydcType) {
+	this.hydcType = hydcType;
 }
 
 

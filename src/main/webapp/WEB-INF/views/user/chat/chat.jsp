@@ -12,7 +12,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hey, Buddy!</title>
+
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">hey, Buddy!</title>
 
 <!--Bootstrap icons-->
 <link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -695,6 +697,7 @@ p, dt {
 </body>
 </html>
 <script type="module">
+
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 	import {
@@ -784,7 +787,5 @@ const app = initializeApp(firebaseConfig);
             d1.insertAdjacentHTML('beforebegin', divData);
         }
     });
-
-
 
 </script>

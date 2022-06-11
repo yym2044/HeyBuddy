@@ -23,7 +23,6 @@ public class Chat {
 	private Integer hymmGenderCd;
 	private String hymmNumber;
 	private String hymmEmail;
-	private String hymmZoomAccount;
 	private String hymmDob;
 	private Integer hymmSaveCd;
 	private Integer hymmEmailConsentNy;
@@ -191,14 +190,6 @@ public class Chat {
 
 	public void setHymmEmail(String hymmEmail) {
 		this.hymmEmail = hymmEmail;
-	}
-
-	public String getHymmZoomAccount() {
-		return hymmZoomAccount;
-	}
-
-	public void setHymmZoomAccount(String hymmZoomAccount) {
-		this.hymmZoomAccount = hymmZoomAccount;
 	}
 
 	public String getHymmDob() {

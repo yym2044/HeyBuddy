@@ -78,6 +78,7 @@
 		SELECT
 		a.hymmSeq
 		, a.hymmName
+		, a.hymmId
 		, d.uuidFileName
 		, d.path
 	
@@ -647,7 +648,5 @@
 	WHERE 1=1
 		AND hysmSeq = #{hysmSeq}
 	</update>
-	
-	
 	
 </mapper>

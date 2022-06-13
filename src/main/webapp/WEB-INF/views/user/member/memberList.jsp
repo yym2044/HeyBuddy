@@ -255,12 +255,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
 	<%@include file="../include/pageScripts.jsp"%>
-	
-	<script type="text/javascript">
+	<script type="text/javascript">	// pageScripts.jsp 파일에도 똑같이 socketOnline.onmessage function이 있지만 아래에 내용을 적음으로써 memberList.jsp에서는 아래의 내용으로 적용됨.
 	socketOnline.onmessage = function(event){
 		
 		const userArrOnline = JSON.parse(event.data);
-		console.log("online users : ",userArrOnline);
+//		console.log("online users : ",userArrOnline);
 		
 		const users = document.getElementsByClassName("avatar-status");
 		for(var i = 0; i < users.length; i++){
@@ -276,6 +275,9 @@
 			}
 			
 		}
+		
+		//pageScripts.jsp
+		paintOnlineMember();
 		
 	}
 	</script>

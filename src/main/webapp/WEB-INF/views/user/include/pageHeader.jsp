@@ -104,75 +104,28 @@
 	    <li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100 me-2">
 	    	<a href="#" class="nav-link p-0 position-relative size-35 d-flex align-items-center justify-content-center" aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
     			<i data-feather="user" class="fe-1x"></i>
-				<span class="size-5 rounded-circle d-flex align-items-center justify-content-center position-absolute end-0 top-0 mt-2 me-1 bg-danger small"></span>
+				<span id="onlineMemberIconSpan" class="rounded-circle d-flex align-items-center justify-content-center position-absolute end-0 top-0 mt-2 me-1 bg-danger small"></span>
 			</a>
 
 
 			<div class="dropdown-menu mt-0 p-0 overflow-hidden dropdown-menu-end dropdown-menu-sm">
 				<div class="d-flex p-3 justify-content-between align-items-center border border-top-0 border-start-0 border-end-0">
-					<h5 class="me-3 mb-0">Notifications</h5>
-					<div class="flex-shrink-0">
-						<a href="#!" class="btn btn-primary btn-sm">View All</a>
-					</div>
+					<h5 class="me-3 mb-0">접속중인 멤버</h5>
 				</div>
-				<div class="height-290" data-simplebar>
-					<div class="list-group list-group-flush mb-0">
+				<div class="" style="max-height: 290px; overflow: auto;" data-simplebar>
+					<div id="onlineMembersDiv" class="list-group list-group-flush mb-0">
 						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
 							<div class="d-block me-3">
-								<div class="avatar avatar-status status-online">
+								<div class="avatar">
 									<img src="/resources/assets/media/avatars/01.jpg" class="img-fluid rounded-circle w-auto" alt="">
 								</div>
 							</div>
 
 							<div class="flex-grow-1 flex-wrap pe-3">
 								<span class="mb-0 d-block">
-									<strong>Adam Danely</strong> assigned a task to you <strong>#PI-392</strong>
+									<strong>Name</strong>
 								</span>
-								<small class="text-muted">Just now</small>
-							</div>
-						</a>
-						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
-							<div class="d-block me-3">
-								<div class="avatar avatar-status status-offline">
-									<img src="/resources/assets/media/avatars/06.jpg" class="img-fluid rounded-circle w-auto" alt="">
-								</div>
-							</div>
-
-							<div class="flex-grow-1 flex-wrap pe-3">
-								<span class="mb-0 d-block">
-									<strong>Vivianna Kiser </strong> just posted
-									<span>"Lorem ipsum is placeholder text used in the graphic, print, and industries. "</span>
-								</span>
-								<small class="text-muted">2h Ago</small>
-							</div>
-						</a>
-						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
-							<span class="d-block me-3">
-								<span class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-success text-success rounded-circle">
-									<i class="fe-2x" data-feather="tool"></i>
-								</span>
-							</span>
-
-							<div class="flex-grow-1 flex-wrap pe-3">
-								<span class="mb-0 d-block">
-									<strong>Updated</strong> Your account password updated succuessfully
-								</span>
-								<small class="text-muted">2h Ago</small>
-							</div>
-						</a>
-						<a href="#" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">
-							<span class="d-block me-3">
-								<span class="d-flex align-items-center justify-content-center lh-1 size-50 bg-tint-danger text-danger rounded-circle">
-									<i class="fe-2x" data-feather="percent"></i>
-								</span>
-							</span>
-
-							<div class="flex-grow-1 flex-wrap pe-3">
-								<span class="mb-0 d-block">
-									<strong>Pro discount</strong> Upgrade to pro plan with 30% discount, Apply coupon
-									<span class="badge bg-primary">PRO30</span>
-								</span>
-								<small class="text-muted">2h Ago</small>
+								<small class="text-muted">Id</small>
 							</div>
 						</a>
 					</div>

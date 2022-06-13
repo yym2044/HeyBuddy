@@ -310,6 +310,10 @@
 				
 			}
 		}
+		
+		//pageScripts.jsp
+		paintOnlineMember();
+		
 	}
 	</script>
 </body>

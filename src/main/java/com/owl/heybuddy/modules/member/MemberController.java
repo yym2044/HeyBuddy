@@ -201,9 +201,7 @@ public class MemberController {
 	public Map<String, Object> memberListAjax(MemberVo vo, HttpSession httpSession) throws Exception {
 		
 		Map<String, Object> resultMap = new HashMap<>();
-		
-		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-		
+
 		List<Member> list = service.selectListSpaceMember(vo);
 		
 		resultMap.put("list", list);

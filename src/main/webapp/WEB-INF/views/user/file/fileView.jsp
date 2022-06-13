@@ -359,7 +359,7 @@ pageContext.setAttribute("br", "\n");
 						<textarea id="hycoText" name="hycoText" rows="2"
 							class="form-control mb-2"></textarea>
 							<a href="javascript:goCommentList1();">
-								<button type="button" class="btn btn-primary btn-sm"
+			 					<button type="button" class="btn btn-primary btn-sm"
 									id="btnSubmit" value="">등록</button>
 							</a>
 						</div>

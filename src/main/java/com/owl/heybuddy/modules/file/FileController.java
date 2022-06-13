@@ -69,7 +69,7 @@ public class FileController {
 		}
 		return "user/file/fileListTemp";
 	}
-
+ 
 	
 	@RequestMapping(value = "/file/fileView") // 문서확인
 	public String fileView(@ModelAttribute("vo") FileVo vo, File dto, Model model, HttpSession httpSession) throws Exception {

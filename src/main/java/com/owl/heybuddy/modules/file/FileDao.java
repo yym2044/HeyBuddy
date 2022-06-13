@@ -76,6 +76,7 @@ public class FileDao {
 	public int updateDeleteDocument(FileVo vo) {
 		return sqlSession.update(namespace + ".updateDeleteDocument", vo); // 가짜삭제
 	}
+	
     public List<File> commentList(FileVo vo)  {   //댓글리스트
         return sqlSession.selectList(namespace + ".commentList", vo);
     }

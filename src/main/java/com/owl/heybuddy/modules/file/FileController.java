@@ -82,9 +82,11 @@ public class FileController {
 		List<File> fileUploaded = service.fileUploaded(vo);  // 파일리스트
 		model.addAttribute("fileUploaded", fileUploaded); 
 		
-		List<File> commentList = service.commentList(vo); // 댓글리스트+댓글단멤버와사진
-		model.addAttribute("commnetList", commentList); 
+		List<File> commentList1 = service.commentList1(vo); // 모댓글리스트+댓글단멤버와사진
+		model.addAttribute("commnetList1", commentList1); 
 
+		List<File> commentList2 = service.commentList2(vo); // 대댓글리스트+댓글단멤버와사진
+		model.addAttribute("commnetList2", commentList2); 
 		
 		return "user/file/fileView";
 	}

@@ -71,10 +71,10 @@ pageContext.setAttribute("br", "\n");
 	vertical-align: middle;
 	font-size: 15px;
 }
-    .modal-backdrop {   /* css충돌로 우선 삭제모달ㄲㅏ맣게 ㅠ */
-        z-index: -1;
-    }
 
+.modal-backdrop { /* css충돌로 우선 삭제모달ㄲㅏ맣게 ㅠ */
+	z-index: -1;
+}
 </style>
 
 
@@ -154,11 +154,11 @@ pageContext.setAttribute("br", "\n");
 
 								<c:if test="${item.hymmSeq eq sessSeq}">
 
-									<div
-										data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
+									<div data-bs-placement="top" data-bs-toggle="tooltip"
+										title="삭제"
 										class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 										<i class="bi bi-trash-fill" data-bs-toggle="modal"
-										data-bs-target="#btnModalNelete"></i>
+											data-bs-target="#btnModalNelete"></i>
 									</div>
 
 
@@ -205,255 +205,265 @@ pageContext.setAttribute("br", "\n");
 
 					<!--Inbox Details-->
 					<div class="px-4 position-relative px-lg-8 mb-4 h-100 flex-grow-1">
-						<div class="card h-100">
-							<div class="card-header">
-								<div class="row justify-content-md-between">
-									<div class="col-md d-flex mb-4 mb-md-0 align-items-center">
-										<div class="avatar">
+						<div class="card-header">
+							<div class="row justify-content-md-between">
+								<div class="col-md d-flex mb-4 mb-md-0 align-items-center">
+									<div class="avatar">
 
 
-											<c:choose>
-												<c:when test="${empty item.uuidFileName}">
-													<img style="width: 50px; height: 50px;"
-														src="/resources/user/images/profileDefault.png"
-														class="rounded-circle" alt="">
-												</c:when>
-												<c:otherwise>
-													<img style="width: 50px; height: 50px;"
-														src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
-														class="avatar rounded-pill flex-shrink-0" />
-												</c:otherwise>
-											</c:choose>
-										</div>
+										<c:choose>
+											<c:when test="${empty item.uuidFileName}">
+												<img style="width: 50px; height: 50px;"
+													src="/resources/user/images/profileDefault.png"
+													class="rounded-circle" alt="">
+											</c:when>
+											<c:otherwise>
+												<img style="width: 50px; height: 50px;"
+													src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
+													class="avatar rounded-pill flex-shrink-0" />
+											</c:otherwise>
+										</c:choose>
+									</div>
 
-										<div class="flex-1 ms-2">
-											<h5 class="mb-0">
-												<c:out value="${item.hydcTitle}" />
-											</h5>
-											<a class="text-800 fs--1" href="#!"> <span
-												class="fw-semi-bold"> <c:out value="${item.hymmName}"></c:out>
-											</span> <span class="ms-1 text-500"> &lt; <c:out
-														value="${item.hymmEmail}"></c:out> &gt;
-											</span>
-											</a>
-										</div>
-										<div
-											class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
-											<a href="#!" data-bs-toggle="tooltip" data-bs-placement="top"
-												title="Print" class="d-inline-block me-3"> <i
-												class="bi bi-printer"></i>
-											</a> <small> <fmt:formatDate pattern="yyyy-MM-dd hh:mm"
-													value="${item.regDateTime}" /></small>
+									<div class="flex-1 ms-2">
+										<h5 class="mb-0">
+											<c:out value="${item.hydcTitle}" />
+										</h5>
+										<a class="text-800 fs--1" href="#!"> <span
+											class="fw-semi-bold"> <c:out value="${item.hymmName}"></c:out>
+										</span> <span class="ms-1 text-500"> &lt; <c:out
+													value="${item.hymmEmail}"></c:out> &gt;
+										</span>
+										</a>
+									</div>
+									<div
+										class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
+										<a href="#!" data-bs-toggle="tooltip" data-bs-placement="top"
+											title="Print" class="d-inline-block me-3"> <i
+											class="bi bi-printer"></i>
+										</a> <small> <fmt:formatDate pattern="yyyy-MM-dd hh:mm"
+												value="${item.regDateTime}" /></small>
 
-										</div>
 									</div>
 								</div>
-								<div class="card-body flex-grow-1">
-									<label for="hydcText" class="form-label"></label>
-									<p>
-										<c:out value="${fn:replace(item.hydcText, br, '<br/>')}"
-											escapeXml="false" />
-									</p>
+							</div>
+							<div class="card-body flex-grow-1">
+								<label for="hydcText" class="form-label"></label>
+								<p>
+									<c:out value="${fn:replace(item.hydcText, br, '<br/>')}"
+										escapeXml="false" />
+								</p>
 
-									<hr>
+								<hr>
 
-									<!-- 	<h6>첨부파일</h6> -->
-									<div class="d-flex flex-wrap">
-
-										<!--Attachment image-->
-										<c:forEach items="${fileUploaded}" var="fileUploaded"
-											varStatus="status">
-											<c:choose>
-												<c:when test="${empty fileUploaded.hyflUuidFileName}">
-													<p>등록된 파일이 없습니다.</p>
-												</c:when>
+								<!-- 	<h6>첨부파일</h6> -->
 
 
-												<c:otherwise>
+								<!--Attachment image-->
+								<c:forEach items="${fileUploaded}" var="fileUploaded"
+									varStatus="status">
+									<c:choose>
+										<c:when test="${empty fileUploaded.hyflUuidFileName}">
+											<p>등록된 파일이 없습니다.</p>
+										</c:when>
 
-													<div class="card-hover me-2 position-relative width-90">
-														<span
-															class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
+
+										<c:otherwise>
+
+											<div class="card-hover me-2  width-90">
+												<span
+													class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
+													<img
+													src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+													width="200px" class="img-fluid" alt="" /> <span
+													class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
+
+														<span> <a
+															href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+															download="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflOriginalFileName}"/>">
+																<i data-feather="download" class="fe-2x"></i>
+														</a>
+													</span>
+												</span>
+												</span>
+												<!--File description-->
+
+												<!-- 파일이 이미지라면 -->
+												<c:if test="${fileUploaded.hyflType eq 0}">
+													<span class="d-block small text-body text-truncate">
+														<c:out value="${fileUploaded.hyflOriginalFileName}" />
+
+													</span>
+													<span class="d-block small text-muted text-truncate">
+														<c:out value="${fileUploaded.hyflSize}" /> mb
+													</span>
+													<span class="d-block small text-muted text-truncate">
+
+														<a href="#pop" class="btn_open"> preview </a>
+													</span>
+
+													<!-- 이미지팝업 -->
+													<div id="pop" class="pop_wrap" style="display: none;">
+														<div class="pop_inner">
+															<p class="dsc">Image Preview</p>
 															<img
-															src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
-															width="200px" class="img-fluid" alt="" /> <span
-															class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
+																src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+																width="500px" class="img-fluid" alt="" />
+															<button type="button" class="btn_close">Close</button>
+														</div>
+													</div>
 
-																<span> <a
-																	href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
-																	download="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflOriginalFileName}"/>">
-																		<i data-feather="download" class="fe-2x"></i>
-																</a>
-															</span>
-														</span>
-														</span>
-														<!--File description-->
+												</c:if>
 
-														<!-- 파일이 이미지라면 -->
-														<c:if test="${fileUploaded.hyflType eq 0}">
-															<span class="d-block small text-body text-truncate">
-																<c:out value="${fileUploaded.hyflOriginalFileName}" />
+												<!-- 파일이 pdf라면 -->
+												<c:if test="${fileUploaded.hyflType eq 1}">
 
-															</span>
-															<span class="d-block small text-muted text-truncate">
-																<c:out value="${fileUploaded.hyflSize}" /> mb
-															</span>
-															<span class="d-block small text-muted text-truncate">
+													<span class="d-block small text-body text-truncate">
+														<c:out value="${fileUploaded.hyflOriginalFileName}" />
 
-																<a href="#pop" class="btn_open"> preview </a>
-															</span>
+													</span>
+													<span class="d-block small text-muted text-truncate">
+														<c:out value="${fileUploaded.hyflSize}" /> mb
+													</span>
+													<span class="d-block small text-muted text-truncate">
+														<a
+														href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>">
+															preview </a>
+													</span>
 
-															<!-- 이미지팝업 -->
-															<div id="pop" class="pop_wrap" style="display: none;">
-																<div class="pop_inner">
-																	<p class="dsc">Image Preview</p>
-																	<img
-																		src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
-																		width="500px" class="img-fluid" alt="" />
-																	<button type="button" class="btn_close">Close</button>
-																</div>
-															</div>
+												</c:if>
+											</div>
 
-														</c:if>
-
-														<!-- 파일이 pdf라면 -->
-														<c:if test="${fileUploaded.hyflType eq 1}">
-
-															<span class="d-block small text-body text-truncate">
-																<c:out value="${fileUploaded.hyflOriginalFileName}" />
-
-															</span>
-															<span class="d-block small text-muted text-truncate">
-																<c:out value="${fileUploaded.hyflSize}" /> mb
-															</span>
-															<span class="d-block small text-muted text-truncate">
-																<a
-																href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>">
-																	preview </a>
-															</span>
-														</c:if>
-
-
-														<!-- <a href="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf"> view</a> -->
-														<%-- <iframe src="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
+											<!-- <a href="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf"> view</a> -->
+											<%-- <iframe src="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
 <iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
 			 --%>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-									</div>
-								</div>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+					
+						<br>
+						<hr>
 
-								<br> 
-							    <hr>
-												
-												<!--Comments list-->
-												<!--Comments 갯수 아이콘, 나중에 count-->
-								
-													
-														<!-- 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+						<!--Comments list-->
+						<!--Comments 갯수 아이콘, 나중에 count-->
+
+
+						<!-- 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
 															<i data-feather="message-square"
 															class="fe-1x me-1 align-middle"></i> 
 															<span>3</span> </div> -->
-										<c:forEach items="${commentList}" var="commentList" varStatus="status">
-												<c:choose>
-												<c:when test="${empty commentList.hycoSeq}">
-													등록된 댓글이 없습니다.
-												</c:when>
-												<c:otherwise>
-														<!-- 모댓글이라면 -->
-													<c:forEach items="${commentList}" var="commentList" varStatus="status">
-														<c:if test="${commentList.hycoGroupType eq 0}">
-															<img style="width: 30px; height: 30px;"
-																src="<c:out value="${commentList.path}"/><c:out value="${commentList.uuidFileName}"/>"
-																class="avatar rounded-pill flex-shrink-0" />
-															<div>
-																<div class="py-2 mb-1 px-3 bg-body rounded-3">
-																	<div class="d-flex justify-content-between">
-																		<h6 class="mb-0">
-																			<c:out value="${commentList.hymmName}" />
-																		</h6>
-																		<small class="text-muted"><c:out
-																				value="${commentList.regDateTime}" /></small>
-																	</div>
-																	<p class="mb-0">
-																		<c:out value="${commentList.hycoText}" />
-																	</p>
-																</div>
 
-																<div class="mb-2 small">
-																	<a href="#!" class="text-reset">Reply</a>
-																</div>
-															</div>
-														</c:if>
-										
-														<!-- 대댓글이라면 -->
-														<c:if test="${commentList.hycoGroupType eq 1 }">
-															<img style="width: 30px; height: 30px;"
-																src="<c:out value="${commentList.path}"/><c:out value="${commentList.uuidFileName}"/>"
-																class="avatar rounded-pill flex-shrink-0" />
-															<div>
-																<div class="py-2 mb-1 px-3 bg-body rounded-3">
-																	<div class="d-flex justify-content-between">
-																		<h6 class="mb-0">
-																			<c:out value="${commentList.hymmName}" />
-																		</h6>
-																		<small class="text-muted"><c:out
-																				value="${commentList.regDateTime}" /></small>
-																	</div>
-																	<p class="mb-0">
-																		<c:out value="${commentList.hycoText}" />
-																	</p>
-																</div>
- 
-																<div class="mb-2 small">
-																	<a href="#!" class="text-reset">Reply</a>
-																</div>
-						<!-- 					
+						<h6>Add new comment</h6>
+						<div class="text-end">
+						<textarea id="hycoText" name="hycoText" rows="2"
+							class="form-control mb-2"></textarea>
+							<a href="javascript:goCommentList1();">
+								<button type="button" class="btn btn-primary btn-sm"
+									id="btnSubmit" value="">등록</button>
+							</a>
+						</div>
+
+						<c:forEach items="${commentList1}" var="commentList1"
+							varStatus="status">
+							<c:choose>
+								<c:when test="${empty commentList1.hycoSeq}">
+	
+						<textarea id="hycoText" name="hycoText" rows="2"
+							class="form-control mb-2"></textarea>
+							
+						<div class="text-end">
+							<a href="javascript:goCommentList1();">
+								<button type="button" class="btn btn-primary btn-sm"
+									id="btnSubmit" value="">등록</button>
+							</a>
+						</div>
+						
+						</c:when>
+						
+								<c:otherwise>
+									<!-- 모댓글이라면 -->
+									<c:forEach items="${commentList1}" var="commentList1"
+										varStatus="status">
+										<c:if test="${commentList1.hycoGroupType eq 0}">
+											<img style="width: 30px; height: 30px;"
+												src="<c:out value="${commentList.path}"/><c:out value="${commentList1.uuidFileName}"/>"
+												class="avatar rounded-pill flex-shrink-0" />
+											<div>
+												<div class="py-2 mb-1 px-3 bg-body rounded-3">
+													<div class="d-flex justify-content-between">
+														<h6 class="mb-0">
+															<c:out value="${commentList1.hymmName}" />
+														</h6>
+														<small class="text-muted"><c:out
+																value="${commentList1.regDateTime}" /></small>
+													</div>
+													<p class="mb-0">
+														<c:out value="${commentList1.hycoText}" />
+													</p>
+												</div>
+
+												<div class="mb-2 small">
+													<a href="#!" class="text-reset">Reply</a>
+												</div>
+											</div>
+										</c:if>
+
+										<!-- 대댓글이라면 -->
+										<c:if test="${commentList2.hycoGroupType eq 1 }">
+											<img style="width: 30px; height: 30px;"
+												src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
+												class="avatar rounded-pill flex-shrink-0" />
+											<div>
+												<div class="py-2 mb-1 px-3 bg-body rounded-3">
+													<div class="d-flex justify-content-between">
+														<h6 class="mb-0">
+															<c:out value="${commentList2.hymmName}" />
+														</h6>
+														<small class="text-muted"><c:out
+																value="${commentList2.regDateTime}" /></small>
+													</div>
+													<p class="mb-0">
+														<c:out value="${commentList2.hycoText}" />
+													</p>
+												</div>
+
+												<div class="mb-2 small">
+													<a href="#!" class="text-reset">Reply</a>
+												</div>
+												<!-- 					
 											<a href="javascript:goCommentList2();">
 												<button type="button" class="btn btn-primary btn-sm"
 													id="btnSubmit" value="">등록</button>
 											</a> -->
-															</div>
-														</c:if>
-													</c:forEach>
-												</c:otherwise>
-												</c:choose>
-											</c:forEach>
-										</div>
-					
-						
-										<h6>Add new comment</h6> <textarea id="hycoText"
-											name="hycoText" rows="2" class="form-control mb-2"></textarea>
-										<div class="text-end">
-											<a href="javascript:goCommentList1();">
-												<button type="button" class="btn btn-primary btn-sm"
-													id="btnSubmit" value="">등록</button>
-											</a>
-										</div>
-						
-					
-							</div>
-						</div>
-				</form>
-				<!--//Page content End//-->
-
-
-				<!--//Page-footer//-->
-				<footer class="pb-4 px-4 px-lg-8">
-					<div class="container-fluid px-0">
-						<span class="d-block lh-sm small text-muted text-end">
-							&copy; <script>
-								document.write(new Date().getFullYear())
-							</script> . Hey, Buddy All rights reserved.
-						</span>
+											</div>
+										</c:if>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
 					</div>
-				</footer>
-				<!--/.Page Footer End-->
+				</form>
 			</main>
-			<!--///////////Page content wrapper End///////////////-->
 		</div>
 	</div>
+	<!--///////////Page content wrapper End///////////////-->
+
+
+	<!--//Page-footer//-->
+	<footer class="pb-4 px-4 px-lg-8">
+		<div class="container-fluid px-0">
+			<span class="d-block lh-sm small text-muted text-end"> &copy;
+				<script>
+					document.write(new Date().getFullYear())
+				</script> . Hey, Buddy All rights reserved.
+			</span>
+		</div>
+	</footer>
+	<!--/.Page Footer End-->
+
+
+
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
@@ -489,12 +499,12 @@ pageContext.setAttribute("br", "\n");
 		};
 		goCommentList1 = function() {
 			$("#hydcDelNy").val(0);
-			$("#formView").attr("action", "/file/fileInst3");  // 모댓글등록
+			$("#formView").attr("action", "/file/fileInst3"); // 모댓글등록
 			$("#formView").submit();
 		};
 		goCommentList2 = function() {
 			$("#hydcDelNy").val(0);
-			$("#formView").attr("action", "/file/fileInst4");  // 대댓글등록
+			$("#formView").attr("action", "/file/fileInst4"); // 대댓글등록
 			$("#formView").submit();
 		};
 	</script>

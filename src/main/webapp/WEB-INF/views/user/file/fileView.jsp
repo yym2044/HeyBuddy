@@ -266,8 +266,6 @@ pageContext.setAttribute("br", "\n");
 										<c:when test="${empty fileUploaded.hyflUuidFileName}">
 											<p>등록된 파일이 없습니다.</p>
 										</c:when>
-
-
 										<c:otherwise>
 
 											<div class="card-hover me-2  width-90">
@@ -341,61 +339,61 @@ pageContext.setAttribute("br", "\n");
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-					
-						<br>
-						<hr>
 
-						<!--Comments list-->
-						<!--Comments 갯수 아이콘, 나중에 count-->
+								<br>
+								<hr>
+
+								<!--Comments list-->
+								<!--Comments 갯수 아이콘, 나중에 count-->
 
 
-						<!-- 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+								<!-- 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
 															<i data-feather="message-square"
 															class="fe-1x me-1 align-middle"></i> 
 															<span>3</span> </div> -->
 
-						<h6>Add new comment</h6>
-						<div class="text-end">
-						<textarea id="hycoText" name="hycoText" rows="2"
-							class="form-control mb-2"></textarea>
-							<a href="javascript:goCommentList1();">
-			 					<button type="button" class="btn btn-primary btn-sm"
-									id="btnSubmit" value="">등록</button>
-							</a>
-						</div>
+								<h6>Add new comment</h6>
 
-						<c:forEach items="${commentList1}" var="commentList1"
-							varStatus="status">
-							<c:choose>
-								<c:when test="${empty commentList1.hycoSeq}">
-	
-						<textarea id="hycoText" name="hycoText" rows="2"
-							class="form-control mb-2"></textarea>
-							
-						<div class="text-end">
-							<a href="javascript:goCommentList1();">
-								<button type="button" class="btn btn-primary btn-sm"
-									id="btnSubmit" value="">등록</button>
-							</a>
-						</div>
-						
-						</c:when>
-						
-								<c:otherwise>
-									<!-- 모댓글이라면 -->
-									<c:forEach items="${commentList1}" var="commentList1"
-										varStatus="status">
-										<c:if test="${commentList1.hycoGroupType eq 0}">
-											<img style="width: 30px; height: 30px;"
-												src="<c:out value="${commentList.path}"/><c:out value="${commentList1.uuidFileName}"/>"
-												class="avatar rounded-pill flex-shrink-0" />
-											<div>
+
+								<div class="text-end">
+									<input type="text" class="form-control" style="height: 100px"
+										autocomplete="off" id="hycoText" name="hycoText" value=""
+										required>
+									<div class="invalid-feedback">내용을 입력해주세요.</div>
+
+									<br> <a href="javascript:goCommentList1();">
+										<button type="button" class="btn btn-primary btn-sm"
+											id="btnSubmit" value="">등록</button>
+									</a>
+								</div>
+
+
+								<!-- 모댓글이라면 -->
+
+								<c:forEach items="${commentList1}" var="commentList1"
+									varStatus="status">
+									<c:choose>
+										<c:when test="${empty commentList1.hycoSeq}">
+											<!-- 		<p>등록된 댓글이 없습니다.</p> -->
+											<!-- 					<textarea id="hycoText" name="hycoText" rows="2"
+											class="form-control mb-2"></textarea> -->
+										</c:when>
+										<c:otherwise>
+											<c:if test="${commentList1.hycoGroupType eq 0}">
+
+												<img style="width: 30px; height: 30px;"
+													src="<c:out value="${commentList1.path}"/><c:out value="${commentList1.uuidFileName}"/>"
+													class="avatar rounded-pill flex-shrink-0" />
+
+
 												<div class="py-2 mb-1 px-3 bg-body rounded-3">
 													<div class="d-flex justify-content-between">
+
 														<h6 class="mb-0">
 															<c:out value="${commentList1.hymmName}" />
 														</h6>
-														<small class="text-muted"><c:out
+														<small class="text-muted"><fmt:formatDate
+																pattern="yyyy-MM-dd hh:mm"
 																value="${commentList1.regDateTime}" /></small>
 													</div>
 													<p class="mb-0">
@@ -404,45 +402,95 @@ pageContext.setAttribute("br", "\n");
 												</div>
 
 												<div class="mb-2 small">
-													<a href="#!" class="text-reset">Reply</a>
-												</div>
-											</div>
-										</c:if>
-
-										<!-- 대댓글이라면 -->
-										<c:if test="${commentList2.hycoGroupType eq 1 }">
-											<img style="width: 30px; height: 30px;"
-												src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
-												class="avatar rounded-pill flex-shrink-0" />
-											<div>
-												<div class="py-2 mb-1 px-3 bg-body rounded-3">
-													<div class="d-flex justify-content-between">
-														<h6 class="mb-0">
-															<c:out value="${commentList2.hymmName}" />
-														</h6>
-														<small class="text-muted"><c:out
-																value="${commentList2.regDateTime}" /></small>
-													</div>
-													<p class="mb-0">
-														<c:out value="${commentList2.hycoText}" />
+													<p>
+														<button class="" type="button" data-bs-toggle="collapse"
+															data-bs-target="#collapseExample" aria-expanded="false"
+															aria-controls="collapseExample">Reply</button>
 													</p>
+													<div class="collapse" id="collapseExample">
+														<div class="card card-body">
+
+															<input type="text" class="form-control"
+																style="height: 100px" autocomplete="off" id="hycoText"
+																name="hycoText" value="" required>
+															<div class="invalid-feedback">내용을 입력해주세요.</div>
+
+															<a href="javascript:goCommentList1();">
+																<button type="button" class="btn btn-primary btn-sm"
+																	id="btnSubmit" value="">등록</button>
+															</a>
+														</div>
+													</div>
+												</div>
+												
+												<br>
+											</c:if>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+
+
+								<!-- 대댓글이라면 -->
+
+								<c:forEach items="${commentList2}" var="commentList2"
+									varStatus="status">
+									<c:choose>
+										<c:when test="${empty commentList2.hycoGroupType}">
+										</c:when>
+										<c:otherwise>
+											<c:if test="${commentList2.hycoGroupSeq eq hycoGroupDepth}">
+												<img style="width: 30px; height: 30px;"
+													src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
+													class="avatar rounded-pill flex-shrink-0" />
+												<div>
+													<div class="py-2 mb-1 px-3 bg-body rounded-3">
+														<div class="d-flex justify-content-between">
+															<h6 class="mb-0">
+																<c:out value="${commentList2.hymmName}" />
+															</h6>
+															<small class="text-muted"><fmt:formatDate
+																	pattern="yyyy-MM-dd hh:mm"
+																	value="${commentList2.regDateTime}" /></small>
+														</div>
+														<p class="mb-0">
+															<c:out value="${commentList2.hycoText}" />
+														</p>
+													</div>
+
+													<!-- 	<div class="mb-2 small">
+														<a href="#!" class="text-reset">Reply</a>
+													</div> -->
+
+														<div class="mb-2 small">
+													<p>
+														<button class="" type="button" data-bs-toggle="collapse"
+															data-bs-target="#collapseExample" aria-expanded="false"
+															aria-controls="collapseExample">Reply</button>
+													</p>
+													<div class="collapse" id="collapseExample">
+														<div class="card card-body">
+
+															<input type="text" class="form-control"
+																style="height: 100px" autocomplete="off" id="hycoText"
+																name="hycoText" value="" required>
+															<div class="invalid-feedback">내용을 입력해주세요.</div>
+
+															<a href="javascript:goCommentList2();">
+																<button type="button" class="btn btn-primary btn-sm"
+																	id="btnSubmit" value="">등록</button>
+															</a>
+														</div>
+													</div>
 												</div>
 
-												<div class="mb-2 small">
-													<a href="#!" class="text-reset">Reply</a>
+								
 												</div>
-												<!-- 					
-											<a href="javascript:goCommentList2();">
-												<button type="button" class="btn btn-primary btn-sm"
-													id="btnSubmit" value="">등록</button>
-											</a> -->
-											</div>
-										</c:if>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-					</div>
+											</c:if>
+
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</div>
 				</form>
 			</main>
 		</div>
@@ -625,6 +673,35 @@ pageContext.setAttribute("br", "\n");
 					}
 				});
 	</script>
+	<!-- 
+		<script type="text/javascript">
+
+		function setDocumentType(){
+			
+			const file = document.getElementById("hycoText");
+
+			let MainComentNy = false;
+			let ReComentNy = false;
+			
+			for(var i = 0; i < file.files.length; i++){
+				if (checkUploadedFileExt2(file.files[i].name) == true) {
+					fileNy = true;
+				}
+				if (checkUploadedImageExt2(file.files[i].name) == true) {
+					imgNy = true;
+				}
+			}
+			
+			if(MainComentNy) {
+				$("#hycoGroupType").val("0");
+			} else {
+				$("#hycoGroupType").val("1");
+			}
+			
+		}
+			</script>
+		 -->
+
 	<%@include file="../include/pageScripts.jsp"%>
 </body>
 

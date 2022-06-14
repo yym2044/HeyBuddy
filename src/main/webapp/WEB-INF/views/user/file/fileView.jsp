@@ -367,10 +367,96 @@ pageContext.setAttribute("br", "\n");
 									</a>
 								</div>
 
+								<br>
 
-								<!-- 모댓글이라면 -->
+								<!-- 모댓글+대댓글리스트 -->
 
 								<c:forEach items="${commentList1}" var="commentList1"
+									varStatus="status">
+
+
+									<div class="py-2 mb-1 px-3 bg-body rounded-3">
+
+										<img style="width: 30px; height: 30px;"
+											src="<c:out value="${commentList1.path}"/><c:out value="${commentList1.uuidFileName}"/>"
+											class="avatar rounded-pill flex-shrink-0" />
+
+										<div class="d-flex justify-content-between">
+
+											<h6 class="mb-0">
+												<c:out value="${commentList1.hymmName}" />
+											</h6>
+											<small class="text-muted"><fmt:formatDate
+													pattern="yyyy-MM-dd hh:mm"
+													value="${commentList1.regDateTime}" /></small>
+										</div>
+										<p class="mb-0">
+											<c:out value="${commentList1.hycoText}" />
+										</p>
+									</div>
+
+
+
+									<c:forEach items="${commentList2}" var="commentList2"
+										varStatus="status">
+										<c:if
+											test="${commentList2.hycoGroupSeq eq commentList2.hycoGroupParent}">
+
+											<div class="py-2 mb-1 px-3 bg-body rounded-3">
+												<img style="width: 30px; height: 30px;"
+													src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
+													class="avatar rounded-pill flex-shrink-0" />
+
+
+												<div class="d-flex justify-content-between">
+
+													<h6 class="mb-0">
+														<c:out value="${commentList2.hymmName}" />
+													</h6>
+													<small class="text-muted"><fmt:formatDate
+															pattern="yyyy-MM-dd hh:mm"
+															value="${commentList2.regDateTime}" /></small>
+												</div>
+												<p class="mb-0">
+													<c:out value="${commentList2.hycoText}" />
+												</p>
+											</div>
+										</c:if>
+									</c:forEach>
+
+									<br>
+
+									<div class="mb-2 small">
+										<div align="right">
+											<button class="btn btn-secondary btn-sm " type="button"
+												data-bs-toggle="collapse" data-bs-target="#collapseExample"
+												aria-expanded="false" aria-controls="collapseExample">Reply</button>
+										</div>
+										<div class="collapse" id="collapseExample">
+											<div class="card card-body">
+
+												<input type="text" class="form-control" style="height: 50px"
+													autocomplete="off" id="hycoText" name="hycoText" value=""
+													required>
+												<div class="invalid-feedback">내용을 입력해주세요.</div>
+												<br>
+												<div align="right">
+													<a href="javascript:goCommentList2();">
+														<button type="button" class="btn btn-primary btn-sm"
+															id="btnSubmit" value="">등록</button>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								<br>
+
+
+
+
+								<!-- 모댓글이라면 -->
+								<%-- 		<c:forEach items="${commentList1}" var="commentList1"
 									varStatus="status">
 									<c:choose>
 										<c:when test="${empty commentList1.hycoSeq}">
@@ -440,7 +526,7 @@ pageContext.setAttribute("br", "\n");
 										<c:when test="${empty commentList2.hycoGroupType}">
 										</c:when>
 										<c:otherwise>
-											<c:if test="${commentList2.hycoGroupSeq eq hycoGroupDepth}">
+											<c:if test="${commentList2.hycoGroupSeq eq hycoGroupParent}">
 												<img style="width: 30px; height: 30px;"
 													src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
 													class="avatar rounded-pill flex-shrink-0" />
@@ -493,7 +579,7 @@ pageContext.setAttribute("br", "\n");
 
 										</c:otherwise>
 									</c:choose>
-								</c:forEach>
+								</c:forEach> --%>
 							</div>
 				</form>
 			</main>

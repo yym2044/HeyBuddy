@@ -332,10 +332,7 @@ pageContext.setAttribute("br", "\n");
 												</c:if>
 											</div>
 
-											<!-- <a href="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf"> view</a> -->
-											<%-- <iframe src="/resources/pdfjs-2.14.305-dist/web/viewer.html?file=test.pdf" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
-<iframe src="<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>" style="width:500px; height:300px; border:1px solid #00c;"></iframe>
-			 --%>
+		
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>

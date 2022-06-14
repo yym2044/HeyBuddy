@@ -402,27 +402,29 @@ pageContext.setAttribute("br", "\n");
 												</div>
 
 												<div class="mb-2 small">
-													<p>
+													<div align="right">
 														<button class="" type="button" data-bs-toggle="collapse"
 															data-bs-target="#collapseExample" aria-expanded="false"
 															aria-controls="collapseExample">Reply</button>
-													</p>
+													</div>
 													<div class="collapse" id="collapseExample">
 														<div class="card card-body">
 
 															<input type="text" class="form-control"
-																style="height: 100px" autocomplete="off" id="hycoText"
+																style="height: 50px" autocomplete="off" id="hycoText"
 																name="hycoText" value="" required>
 															<div class="invalid-feedback">내용을 입력해주세요.</div>
-
-															<a href="javascript:goCommentList1();">
-																<button type="button" class="btn btn-primary btn-sm"
-																	id="btnSubmit" value="">등록</button>
-															</a>
+															<br>
+															<div align="right">
+																<a href="javascript:goCommentList1();">
+																	<button type="button" class="btn btn-primary btn-sm"
+																		id="btnSubmit" value="">등록</button>
+																</a>
+															</div>
 														</div>
 													</div>
 												</div>
-												
+
 												<br>
 											</c:if>
 										</c:otherwise>
@@ -461,29 +463,31 @@ pageContext.setAttribute("br", "\n");
 														<a href="#!" class="text-reset">Reply</a>
 													</div> -->
 
-														<div class="mb-2 small">
-													<p>
-														<button class="" type="button" data-bs-toggle="collapse"
-															data-bs-target="#collapseExample" aria-expanded="false"
-															aria-controls="collapseExample">Reply</button>
-													</p>
-													<div class="collapse" id="collapseExample">
-														<div class="card card-body">
+													<div class="mb-2 small">
+														<div align="right">
+															<button class="" type="button" data-bs-toggle="collapse"
+																data-bs-target="#collapseExample2" aria-expanded="false"
+																aria-controls="collapseExample2">Reply</button>
+														</div>
+														<div class="collapse" id="collapseExample2">
+															<div class="card card-body">
 
-															<input type="text" class="form-control"
-																style="height: 100px" autocomplete="off" id="hycoText"
-																name="hycoText" value="" required>
-															<div class="invalid-feedback">내용을 입력해주세요.</div>
-
-															<a href="javascript:goCommentList2();">
-																<button type="button" class="btn btn-primary btn-sm"
-																	id="btnSubmit" value="">등록</button>
-															</a>
+																<input type="text" class="form-control"
+																	style="height: 50px" autocomplete="off" id="hycoText"
+																	name="hycoText" value="" required>
+																<div class="invalid-feedback">내용을 입력해주세요.</div>
+																<br>
+																<div align="right">
+																	<a href="javascript:goCommentList2();">
+																		<button type="button" class="btn btn-primary btn-sm"
+																			id="btnSubmit" value="">등록</button>
+																	</a>
+																</div>
+															</div>
 														</div>
 													</div>
-												</div>
 
-								
+
 												</div>
 											</c:if>
 

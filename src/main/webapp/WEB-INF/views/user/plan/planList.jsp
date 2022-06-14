@@ -65,8 +65,8 @@
 			<!--//Page Toolbar//-->
 			<div class="row planinst container">
 				<!-- Button trigger modal -->
-				<button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px; display: none;">일정등록</button>
-
+				<!-- <button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
+ -->
 				<!-- 모달 -->
 				<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -146,9 +146,9 @@
 
 			<!--//달력임 이거 없으면 날라감//-->
 			<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
-				<div class="container-fluid px-0">
-					<div class="card card-body">
-						<div id="exampleCalendar"></div>
+				<div class="container-fluid px-0">  <!-- 좌우 간격 조정 시키는것 -->
+					<div class="card card-body">  <!-- 흰색 배경 좌우 간격조정  -->
+						<div id="exampleCalendar"></div> <!-- 달력 간격조정 -->
 					</div>
 				</div>
 			</div>
@@ -235,11 +235,6 @@
 	<!--///////////Page content wrapper End///////////////-->
 
 	<!--////////////Theme Core scripts Start/////////////////-->
-	<script src="/resources/assets/vendor/feather.min.js"></script>
-	<script src="/resources/assets/js/theme.bundle.js"></script>
-	<script>
-		feather.replace()
-	</script>
 
 
 
@@ -250,9 +245,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
-	<!--  제이쿼리 시간포함 달력 -->
-	<link rel="stylesheet" type="text/css" href="/resources/datetimepicker-master/build/jquery.datetimepicker.min.css"/ >
-	<script src="/resources/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
+
 	
 	<script src="/resources/assets/vendor/feather.min.js"></script>
 	<script src="/resources/assets/js/theme.bundle.js"></script>
@@ -327,7 +320,8 @@
 		});
 
 		// Initialize the 달력
-		const exampleCalendar = new FullCalendar.Calendar(document.getElementById('exampleCalendar'), {
+		const exampleCalendar = new FullCalendar.Calendar(document
+				.getElementById('exampleCalendar'), {
 			height: 575,
 			events : exampleEvents,
 			headerToolbar : {
@@ -489,7 +483,9 @@
 		//	$("#formList").submit(); // 그냥 공통적으로 submit는 실행해준다는 의미기 때문에 넣어줘야한다.
 	</script>
 
-
+		<!--  제이쿼리 시간포함 달력 -->
+	<link rel="stylesheet" type="text/css" href="/resources/datetimepicker-master/build/jquery.datetimepicker.min.css"/>
+	<script src="/resources/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
 		<script type="text/javascript">  /* 달력에 한글화 해주는 영역*/
 			
 			jQuery.datetimepicker.setLocale('kr');

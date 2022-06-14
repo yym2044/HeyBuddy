@@ -63,29 +63,9 @@
 			<!-- include 처리 3번 -->
 			<%@include file="../include/pageHeader.jsp"%>
 			<!--//Page Toolbar//-->
-			<div class="toolbar pt-4 px-4 px-lg-8">
-				<div class="position-relative container-fluid px-0">
-					<div class="row align-items-center position-relative">
-						<div class="col-md-8 mb-3 mb-lg-0">
-							<!--  <p class="mb-0 text-muted">일정을 등록해 주세요</p> -->
-
-
-						</div>
-						<!--   <div class="col-md-4">
-                                    <nav aria-label="breadcrumb" class="d-flex justify-content-md-end">
-                                        <ol class="breadcrumb mb-0">
-                                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                                            <li class="breadcrumb-item">일정</li>
-                                        </ol>
-                                    </nav>
-                                </div> -->
-					</div>
-				</div>
-			</div>
-			<br>
 			<div class="row planinst container">
 				<!-- Button trigger modal -->
-				<button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
+				<button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px; display: none;">일정등록</button>
 
 				<!-- 모달 -->
 				<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -347,8 +327,8 @@
 		});
 
 		// Initialize the 달력
-		const exampleCalendar = new FullCalendar.Calendar(document
-				.getElementById('exampleCalendar'), {
+		const exampleCalendar = new FullCalendar.Calendar(document.getElementById('exampleCalendar'), {
+			height: 575,
 			events : exampleEvents,
 			headerToolbar : {
 				left : 'prev,next today',

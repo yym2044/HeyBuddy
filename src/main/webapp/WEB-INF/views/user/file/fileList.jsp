@@ -42,11 +42,7 @@
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 
 
-<style>
-    .modal-backdrop {  /* css충돌로 우선 모달ㄲㅏ맣게 ㅠ */
-        z-index: -1;
-    }
-</style>
+
 
 <body>
 	<!-- include 처리 1번 -->
@@ -95,7 +91,7 @@
 				<!--//Page Toolbar End//-->
 
 				<!--Email Header-->
-				<div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
+				<div class="top-0 mb-2 px-4 px-lg-8 ">
 					<div
 						class="d-flex align-items-center pb-2 flex-row justify-content-between">
 
@@ -130,12 +126,12 @@
 											<h5 class="modal-title" id="modal-title">
 												<i class="fas fa-exclamation-circle"></i>삭제 확인!
 											</h5>
-											<button type="button" class="btn-close"
-												data-bs-dismiss="modal" aria-label="Close"></button>
+										<!-- 	<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button> -->
 										</div>
 										<div class="modal-body">정말 삭제하시겠습니까?</div>
 										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary"
+									<button type="button" class="btn btn-secondary"
 												data-bs-dismiss="modal">취소</button>
 
 											<a

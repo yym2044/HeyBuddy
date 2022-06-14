@@ -297,9 +297,6 @@
 		}
 	});
 	
-	console.log(tr);
-	console.log(btnEnd);
-	
 	for(var i = 0 ; i < tr.length; i++ ){
 		
 		tr[i].addEventListener("mouseenter", (event) => {

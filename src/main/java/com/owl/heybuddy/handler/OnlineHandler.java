@@ -18,13 +18,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 public class OnlineHandler extends TextWebSocketHandler {
 	
-	// Map<(아이디), (웹소켓세션)> 스페이스에 구별 없이 모든 접속한 세션을 저장
+	// Map<(시퀀스), (웹소켓세션)> 스페이스에 구별 없이 모든 접속한 세션을 저장
 	Map<String, WebSocketSession> userSessions = new HashMap<>();
 	
 	// Room마다 연결되어 있는 userId list를 저장
 	Map<String, List<String>> spaceUsers = new HashMap<>();
-	
-	
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -97,6 +95,12 @@ public class OnlineHandler extends TextWebSocketHandler {
 
 	private String getSessSeq(WebSocketSession session) {
 		Map<String, Object> httpSession = session.getAttributes();
+		
+		for(String key : httpSession.keySet()) {
+			String value = String.valueOf(httpSession.get(key));
+			System.out.println("[key] : " + key + ", [value] : " + value);
+		}
+		
 		return (String) httpSession.get("sessSeq");
 	}
 	private String getHyspSeq(WebSocketSession session) {

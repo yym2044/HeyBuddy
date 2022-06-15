@@ -73,7 +73,7 @@ public class ChatController {
 			vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
 			dto.setHymmSeq(vo.getHymmSeq());
 			dto.setHymmName(vo.getHymmName());
-			service.insertChatRoom(dto);
+			service.insertChatRoom(dto);                                                                                                                                                                        
 
 			dto.setHycmChatMaker((String) httpSession.getAttribute("sessSeq"));
 			dto.setHymmSeq(vo.getHymmSeq());

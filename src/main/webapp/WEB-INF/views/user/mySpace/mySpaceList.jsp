@@ -271,8 +271,7 @@ body {
 				$("#mySpaceList").attr("action", "/mySpace/mySpaceFelete");
 				$("#mySpaceList").submit();
 			}
-		</script>
-		<script type="text/javascript">
+		
 			logOut = function() {
 
 				$.ajax({

@@ -81,9 +81,10 @@ public class MySpaceController {
 		List<MySpace> list = service.selectListMySpace(vo);
 		model.addAttribute("list", list);
 
-		vo.setHyspSeq(vo.getHyspSeq());
-		vo.setHyspName(vo.getHyspName());
-		vo.setHysmHost(vo.getHysmHost());
+		/*
+		 * vo.setHyspSeq(vo.getHyspSeq()); vo.setHyspName(vo.getHyspName());
+		 * vo.setHysmHost(vo.getHysmHost());
+		 */
 
 		return "user/mySpace/mySpaceList";
 	}

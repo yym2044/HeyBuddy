@@ -7,189 +7,160 @@
 	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.chat.Chat"></resultMap> <!-- 결과 객체 저장 -->
 
 	<select id="selectListMember" resultMap="resultMapObj">		<!-- 채팅방 추가 멤버 리스트 출력 -->
-		
-		
-		SELECT DISTINCT a.hymmSeq ,c.hymmName
+		SELECT DISTINCT
+			a.hymmSeq 
+			,c.hymmName
 		FROM hybdSpaceMember a 
-		LEFT JOIN hybdSpace b ON a.hyspSeq= b.hyspSeq
-        LEFT JOIN hybdMember c ON c.hymmSeq = a.hymmSeq
+			LEFT JOIN hybdSpace b ON a.hyspSeq= b.hyspSeq
+        	LEFT JOIN hybdMember c ON c.hymmSeq = a.hymmSeq
 		WHERE 1 = 1
-        AND b.hyspSeq = #{hyspSeq}
-        AND a.hysmAcceptedNy = 1
-		AND	a.hymmSeq NOT IN 
-		(SELECT a.hymmSeq FROM hybdMember a
-		LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
+        	AND b.hyspSeq = #{hyspSeq}
+        	AND a.hysmAcceptedNy = 1
+			AND	a.hymmSeq NOT IN
+		(SELECT 
+			a.hymmSeq 
+		FROM hybdMember a
+			LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
+			LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
 		WHERE 1=1
-		AND c.hycrSeq = #{hycrSeq})
-		
-		<!-- SELECT
-		c.hymmSeq
-		,c.hymmName
-		
-		FROM hybdSpaceMember AS a
-		LEFT JOIN hybdSpace AS b ON a.hyspSeq= b.hyspSeq
-        LEFT JOIN hybdMember AS c ON c.hymmSeq = a.hymmSeq
-		WHERE 1 = 1
-        AND b.hyspSeq = #{hyspSeq}
-        AND a.hysmAcceptedNy = 1 -->
-        
+			AND c.hycrSeq = #{hycrSeq})
 	</select>
 
 
 	<select id="selectOneCheck" resultMap="resultMapObj">		<!-- 일대일채팅방 존재 여부 확인 -->
-
-		select a.hycrSeq
+		select 
+			a.hycrSeq
 		from hybdChatMember a
-		LEFT JOIN hybdChatRoom b on b.hycrSeq = a.hycrSeq 
-		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+			LEFT JOIN hybdChatRoom b on b.hycrSeq = a.hycrSeq 
+			LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
 		WHERE 1=1
-		AND a.hycrSeq = #{hycrSeq} 
-		group by a.hycrSeq having count(*) = 2
-<!-- 		SELECT count(a.hycrSeq)  FROM hybdChatRoom a
-		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
-		WHERE 1 = 1
-		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
-		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker}) -->
-		
+			AND a.hycrSeq = #{hycrSeq} 
+			group by a.hycrSeq having count(*) = 2		
 	</select>
 
 
 	<select id="selectOneChat" resultMap="resultMapObj">		<!-- 일대일채팅 뽑기 -->
-
-		SELECT distinct(a.hycrSeq)
+		SELECT
+			distinct(a.hycrSeq)
 		FROM hybdChatMember a
-		WHERE  a.hycrSeq
-		IN(SELECT a.hycrSeq FROM hybdChatMember a WHERE 1=1 group by a.hycrSeq having count(a.hymmSeq) = 2)
-		AND a.hycrSeq 
-		IN(SELECT a.hycrSeq FROM hybdChatMember a LEFT JOIN hybdChatRoom b ON b.hycrSeq = a.hycrSeq 
-		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq 
+			WHERE  a.hycrSeq IN
+		(SELECT 
+			a.hycrSeq 
+		FROM hybdChatMember a 
+		WHERE 1=1 
+			group by a.hycrSeq having count(a.hymmSeq) = 2)
+			AND a.hycrSeq IN
+		(SELECT 
+			a.hycrSeq 
+		FROM hybdChatMember a 
+			LEFT JOIN hybdChatRoom b ON b.hycrSeq = a.hycrSeq 
+			LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq 
 		WHERE 1 = 1 
-		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq}) OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker}))	
+			AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq}) 
+			OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker}))	
 	</select>
 
 
 	<select id="selectListGroupCheck" resultMap="resultMapObj">		<!-- 그룹채팅방 존재 여부 확인 -->
- 
-		SELECT a.hycrSeq  FROM hybdChatRoom a
-		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		SELECT 
+			a.hycrSeq  
+		FROM hybdChatRoom a
+			LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+			LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		WHERE 1 = 1
-		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
-		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
-		
-	<!-- 	select a.hycrSeq
-		from hybdChatMember a
-		LEFT JOIN hybdChatRoom b on b.hycrSeq = a.hycrSeq 
-		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
-		WHERE 1=1
-		AND a.hycrSeq = #{hycrSeq} 
-		group by a.hycrSeq having count(*) > 2 -->
-		
+			AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
+			OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
 	</select>
+
 
 	<select id="selectOneGroupCheckNum" resultType="Integer">		<!-- 채팅방 갯수 -->
- 
-		SELECT count(a.hycrSeq)  FROM hybdChatRoom a
-		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		SELECT 
+			count(a.hycrSeq)  
+		FROM hybdChatRoom a
+			LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+			LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		WHERE 1 = 1
-		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
-		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
-		
-	<!-- 	select a.hycrSeq
-		from hybdChatMember a
-		LEFT JOIN hybdChatRoom b on b.hycrSeq = a.hycrSeq 
-		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
-		WHERE 1=1
-		AND a.hycrSeq = #{hycrSeq} 
-		group by a.hycrSeq having count(*) > 2 -->
-		
+			AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
+			OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
 	</select>
+
 
 	<select id="selectOneCheck2" resultMap="resultMapObj">		<!-- 시퀀스에 맞는 채팅방 찾기 -->
-
-		SELECT distinct (a.hycrSeq) FROM hybdChatRoom a
-		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		SELECT
+			distinct (a.hycrSeq) 
+		FROM hybdChatRoom a
+			LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+			LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		WHERE 1 = 1
-		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
-		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
-
+			AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
+			OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
 	</select>
+
 
 	<select id="selectListPlusMember" resultMap="resultMapObj">		<!-- 시퀀스에 맞는 채팅방 찾기 -->
-
 		SELECT
-		a.hymmSeq
-		, b.hymmName 
+			a.hymmSeq
+			, b.hymmName 
 		FROM hybdChatMember a
-		
-		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdChatRoom c on c.hycrSeq = a.hycrSeq
+			LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
+			LEFT JOIN hybdChatRoom c on c.hycrSeq = a.hycrSeq
 		WHERE 1 = 1
-		AND c.hycrSeq = #{hycrSeq}
-
+			AND c.hycrSeq = #{hycrSeq}
 	</select>
+
 
 	<select id="selectOnePlusMember" resultMap="resultMapObj">		<!-- 시퀀스에 맞는 채팅방 찾기 -->
-
 		SELECT
-		a.hymmSeq
-		, b.hymmName 
+			a.hymmSeq
+			, b.hymmName 
 		FROM hybdChatMember a
-		
-		LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdChatRoom c on c.hycrSeq = a.hycrSeq
+			LEFT JOIN hybdMember b on b.hymmSeq = a.hymmSeq
+			LEFT JOIN hybdChatRoom c on c.hycrSeq = a.hycrSeq
 		WHERE 1 = 1
-		AND a.hymmSeq = #{hymmSeq}
-
+			AND a.hymmSeq = #{hymmSeq}
 	</select>
+
 
 	<select id="selectOneCheck3" resultType="String">		<!-- 최소시퀀스에 맞는 채팅방 찾기 => 채팅방 리스트뽑기 -->
-
-		SELECT a.hycrSeq FROM hybdChatRoom a
-		LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
+		SELECT 
+			a.hycrSeq 
+		FROM hybdChatRoom a
+			LEFT JOIN hybdChatMember b ON b.hycrSeq = a.hycrSeq
+			LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq
 		WHERE 1 = 1
-		AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
-		OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
-		
-
+			AND (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hycmChatMaker} , #{hymmSeq})
+			OR (c.hyspSeq , hymmSeq , hycmChatMaker) = (#{hyspSeq} , #{hymmSeq} , #{hycmChatMaker})
 	</select>
+
 
 	<select id="selectListChatRoom" resultMap="resultMapObj">		<!-- 채팅룸 목록 출력 -->
-
 		SELECT 
-		a.hycrSeq 
-		, d.hymmName 
-		, a.hycrGroupNy
+			a.hycrSeq 
+			, d.hymmName 
+			, a.hycrGroupNy
 		FROM hybdChatRoom a 
-		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq 
-		LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq 
-		LEFT JOIN hybdMember d on d.hymmSeq = b.hymmSeq 
+			LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq 
+			LEFT JOIN hybdSpace c on c.hyspSeq = a.hyspSeq 
+			LEFT JOIN hybdMember d on d.hymmSeq = b.hymmSeq 
 		WHERE 1=1 
-		AND c.hyspSeq = #{hyspSeq} 
-		AND (b.hycmChatMaker = #{hymmSeq}
-		OR b.hymmSeq = #{hymmSeq})
-		GROUP BY a.hycrSeq
-
+			AND c.hyspSeq = #{hyspSeq} 
+			AND (b.hycmChatMaker = #{hymmSeq}
+			OR b.hymmSeq = #{hymmSeq})
+			GROUP BY a.hycrSeq
 	</select>
+
 
 	<select id="selectListChatMember2" resultMap="resultMapObj">		<!-- 채팅방 이름 출력 -->
-
 		SELECT 
-		a.hymmName
-		, b.hycrSeq
+			a.hymmName
+			, b.hycrSeq
 		FROM hybdMember a
-		LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
-	
+			LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
+			LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
 		WHERE 1=1
-		AND c.hycrSeq = #{hycrSeq}
-
+			AND c.hycrSeq = #{hycrSeq}
 	</select>
+
 
 	<select id="selectOneChatMember" resultType="Integer">		<!-- 채팅방 멤버 수 출력 -->
 
@@ -204,125 +175,106 @@
 
 	</select>
 
+
 	<insert id="insertChatRoom">		<!-- 룸생성 -->
-
-		INSERT INTO hybdChatRoom
-		(
-		hycrName
-		, hycrDelNy
-		, hyspSeq
+		INSERT INTO hybdChatRoom (
+			hycrName
+			, hycrDelNy
+			, hyspSeq
 		) VALUES (
-		#{hymmName}
-		, 0
-		, #{hyspSeq}
+			#{hymmName}
+			, 0
+			, #{hyspSeq}
 		)
-
 		<selectKey resultType="String" keyProperty="hycrSeq"
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-
 	</insert>
+
 
 	<insert id="insertChatMember">		<!-- 멤버추가 -->
-
-		INSERT INTO hybdChatMember
-		(
-		hycmDelNy
-		, hycrSeq
-		, hymmSeq
-		, hycmChatMaker
+		INSERT INTO hybdChatMember (
+			hycmDelNy	
+			, hycrSeq
+			, hymmSeq
+			, hycmChatMaker
 		) VALUES (
-		0
-		, #{hycrSeq}
-		, #{hymmSeq}
-		, #{hycmChatMaker}
+			0
+			, #{hycrSeq}
+			, #{hymmSeq}
+			, #{hycmChatMaker}
 		)
-
 		<selectKey resultType="String" keyProperty="hycmSeq"
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-
 	</insert>
+	
 	
 	<insert id="insertChatMember2">		<!-- 세션멤버추가 -->
-
-		INSERT INTO hybdChatMember
-		(
-		hycmDelNy
-		,hycmChatMaker
-		, hycrSeq
-		, hymmSeq
+		INSERT INTO hybdChatMember (
+			hycmDelNy
+			,hycmChatMaker
+			, hycrSeq
+			, hymmSeq
 		) VALUES (
-		0
-		, #{hymmSeq}
-		, #{hycrSeq}
-		, #{hymmSeq}
+			0
+			, #{hymmSeq}
+			, #{hycrSeq}
+			, #{hymmSeq}
 		)
-
 		<selectKey resultType="String" keyProperty="hycmSeq"
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-
 	</insert>
 
+
 	<select id="selectListChatMember" resultMap="resultMapObj">		<!-- 사용 안함 -->
-
 		SELECT
-		a.hymmName
-		, c.hycrName
-		, c.hycrSeq
-
+			a.hymmName
+			, c.hycrName
+			, c.hycrSeq
 		FROM hybdMember a
-		LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
-		LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
-		LEFT JOIN hybdSpace d
-		on d.hyspSeq = c.hyspSeq
-
+			LEFT JOIN hybdChatMember b on b.hymmSeq = a.hymmSeq
+			LEFT JOIN hybdChatRoom c on c.hycrSeq = b.hycrSeq
+			LEFT JOIN hybdSpace d on d.hyspSeq = c.hyspSeq
 		WHERE 1=1
-
-		AND d.hyspSeq = #{hyspSeq}
-		AND c.hycrSeq = #{hycrSeq}
-
+			AND d.hyspSeq = #{hyspSeq}
+			AND c.hycrSeq = #{hycrSeq}
 	</select>
+	
 	
 	<select id="selectOneChatRoom" resultMap="resultMapObj">		<!-- 사용 안함 -->
-	
 		SELECT
-		a.hycrSeq
-		, c.hymmName
-
-		FROM
-		hybdChatRoom a
-		LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
-		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-
+			a.hycrSeq
+			, c.hymmName
+		FROM hybdChatRoom a
+			LEFT JOIN hybdChatMember b on b.hycrSeq = a.hycrSeq
+			LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
 		WHERE 1=1
-		AND b.hymmSeq != #{hymmSeq}
-		AND a.hycrSeq = #{hycrSeq}
-	
+			AND b.hymmSeq != #{hymmSeq}
+			AND a.hycrSeq = #{hycrSeq}
 	</select>
 	
-	<update id="ueleteChat">		<!-- 채팅방 삭제 -->
 	
+	<update id="ueleteChat">		<!-- 채팅방 삭제 -->
 		UPDATE hybdChatRoom
 		SET
-		hycrDelNy = 1
+			hycrDelNy = 1
 		WHERE 1=1
-		AND hycrSeq = #{hycrSeq}
-		
+			AND hycrSeq = #{hycrSeq}
 	</update>
+	
 	
 	<update id="updateChat">		<!-- 채팅방 삭제 -->
-	
 		UPDATE hybdChatRoom
 		SET
-		hycrGroupNy = 1
+			hycrGroupNy = 1
 		WHERE 1=1
-		AND hycrSeq = #{hycrSeq}
-		
+			AND hycrSeq = #{hycrSeq}
 	</update>
+	
 	
 </mapper>

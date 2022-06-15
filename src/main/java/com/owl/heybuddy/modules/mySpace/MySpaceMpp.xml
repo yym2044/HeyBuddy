@@ -1,212 +1,174 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.owl.heybuddy.modules.mySpace.MySpaceMpp"> <!-- 지금 파일 지정 -->
 
-	<resultMap id="resultMapObj"
-		type="com.owl.heybuddy.modules.mySpace.MySpace"></resultMap> <!-- 결과 객체 저장 -->
+	<resultMap id="resultMapObj" type="com.owl.heybuddy.modules.mySpace.MySpace"></resultMap> <!-- 결과 객체 저장 -->
 
 
 	<select id="selectListMySpace" resultMap="resultMapObj">
-
 		SELECT
-		a.hymmSeq
-		, a.hymmName
-		, a.hymmId
-		, a.hymmDelNy
-		, b.hysmSeq
-		, b.hyspSeq
-		, b.hymmSeq
-		, b.hysmRoleCd
-		, b.hysmHost
-		, b.hysmDelNy
-		, c.hyspSeq
-		, c.hyspName
-		, c.hyspDelNy
-		, d.path
-		, d.uuidFileName
-
+			a.hymmSeq
+			, a.hymmName
+			, a.hymmId
+			, a.hymmDelNy
+			, b.hysmSeq
+			, b.hyspSeq
+			, b.hymmSeq
+			, b.hysmRoleCd
+			, b.hysmHost
+			, b.hysmDelNy
+			, c.hyspSeq
+			, c.hyspName
+			, c.hyspDelNy
+			, d.path
+			, d.uuidFileName
 		FROM hybdSpaceMember b
-		LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
-		LEFT JOIN hybdSpaceUploaded d on d.pseq = c.hyspSeq AND d.defaultNy = 1
-		
+			LEFT JOIN hybdMember a on a.hymmSeq = b.hymmSeq
+			LEFT JOIN hybdSpace c on c.hyspSeq = b.hyspSeq
+			LEFT JOIN hybdSpaceUploaded d on d.pseq = c.hyspSeq AND d.defaultNy = 1
 		WHERE 1=1 
-		AND b.hysmAcceptedNy = '1'
-		AND b.hysmExitNy = '0'
-		AND c.hyspDelNy = '0'
-		
-
+			AND b.hysmAcceptedNy = '1'
+			AND b.hysmExitNy = '0'
+			AND c.hyspDelNy = '0'
 	</select>
+
 
 	<select id="selectListReceive" resultMap="resultMapObj">
-	
 		SELECT
-		a.hyspSeq
-		, a.hyspName
-		, b.hysmAcceptedNy
-		, c.path
-		, c.uuidFileName
-
+			a.hyspSeq
+			, a.hyspName
+			, b.hysmAcceptedNy
+			, c.path
+			, c.uuidFileName
 		FROM hybdSpace a
-		LEFT JOIN hybdSpaceMember b on b.hysmRoleCd = 13 AND b.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdSpaceUploaded c on c.pseq = a.hyspSeq
-			AND c.defaultNy = 1
-
+			LEFT JOIN hybdSpaceMember b on b.hysmRoleCd = 13 AND b.hyspSeq = a.hyspSeq
+			LEFT JOIN hybdSpaceUploaded c on c.pseq = a.hyspSeq AND c.defaultNy = 1
 		WHERE 1=1
-		AND b.hymmSeq = #{hymmSeq}
-		ORDER BY hysmSeq DESC
-		
+			AND b.hymmSeq = #{hymmSeq}
+			ORDER BY hysmSeq DESC
 	</select>
-
-	<select id="selectListSend" resultMap="resultMapObj">
 	
+	
+	<select id="selectListSend" resultMap="resultMapObj">
 		SELECT
-		a.hyspName
-		, b.hymmSeq
-		, b.hysmAcceptedNy
-		, c.hymmName
-
+			a.hyspName
+			, b.hymmSeq
+			, b.hysmAcceptedNy
+			, c.hymmName
 		FROM hybdSpace a
-		LEFT JOIN hybdSpaceMember b on b.hysmRoleCd = 13 AND b.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-
+			LEFT JOIN hybdSpaceMember b on b.hysmRoleCd = 13 AND b.hyspSeq = a.hyspSeq
+			LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
 		WHERE 1=1
-		AND b.hysmHost = #{hymmSeq}
-		AND hyspDelNy = 0
-		ORDER BY hysmSeq DESC
-		
+			AND b.hysmHost = #{hymmSeq}
+			AND hyspDelNy = 0
+			ORDER BY hysmSeq DESC
 	</select>
 
 
 	<select id="selectListMember" resultMap="resultMapObj">
-		
 		SELECT
-		hymmSeq
-		,hymmName
-
+			hymmSeq
+			,hymmName
 		FROM hybdMember
-		
 		WHERE 1=1
-		AND hymmSeq = #{hymmSeq}
-		
+			AND hymmSeq = #{hymmSeq}
 	</select>
 
+
 	<select id="selectOneMember" resultMap="resultMapObj">
-	
 		SELECT
-		hymmSeq
-
-		FROM
-		hybdMember
-
+			hymmSeq
+		FROM hybdMember
 		WHERE 1=1
-		AND hymmName = #{hymmName}
-		
+		 AND hymmName = #{hymmName}
 	</select>
 
 
 	<select id="selectOneReceive" resultMap="resultMapObj">
-
 		SELECT
-		a.hyspName
-		, a.hyspSeq
-		, b.hysmSeq
-		, c.hymmName
-		, d.path
-		, d.uuidFileName
-
+			a.hyspName
+			, a.hyspSeq
+			, b.hysmSeq
+			, c.hymmName
+			, d.path
+			, d.uuidFileName
 		FROM hybdSpace a
-		LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
-		LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
-		LEFT JOIN hybdSpaceUploaded d on d.pseq = a.hyspSeq
-			AND d.defaultNy = 1
-
+			LEFT JOIN hybdSpaceMember b on b.hyspSeq = a.hyspSeq
+			LEFT JOIN hybdMember c on c.hymmSeq = b.hymmSeq
+			LEFT JOIN hybdSpaceUploaded d on d.pseq = a.hyspSeq AND d.defaultNy = 1
 		WHERE 1=1
-		AND b.hyspSeq = #{hyspSeq}
-		AND b.hymmSeq = #{hymmSeq}
-
-		
+			AND b.hyspSeq = #{hyspSeq}
+			AND b.hymmSeq = #{hymmSeq}
 	</select>
-	<!-- 
-	<select id="selectOneMySpace" resultMap="resultMapObj">
-
-		SELECT
-		a. hyspSeq
-		, a.hyspTypeCd
-		, a.hyspName
-		, b.hymmName
-		, c.hysmRoleCd
-
-		FROM hybdSpaceMember c
-
-		LEFT JOIN hybdMember b on b.hymmSeq = c.hymmSeq
-		LEFT JOIN hybdSpace a on a.hyspSeq = c.hyspSeq
-
-		WHERE 1=1
-		AND a.hyspSeq = #{hyspSeq}
-		AND b.hymmSeq = #{hymmSeq}
-	</select>
-	 -->
-	<select id="selectOneMySpace" resultMap="resultMapObj">
 	
-	SELECT 
-		a. hyspSeq 
-	    , a.hyspTypeCd 
-	    , a.hyspName 
-	    , b.path 
-	    , b.originalFileName
-	    , b.uuidFileName 
-	FROM 
-		hybdSpace a
-	LEFT JOIN 
-		hybdSpaceUploaded b 
-	on 
-		b.pseq = a.hyspSeq AND b.defaultNy = 1 
-	WHERE 1=1 
-		AND a.hyspSeq = #{hyspSeq}
-		
+	
+<!-- <select id="selectOneMySpace" resultMap="resultMapObj">
+		SELECT
+			a. hyspSeq
+			, a.hyspTypeCd
+			, a.hyspName
+			, b.hymmName
+			, c.hysmRoleCd
+		FROM hybdSpaceMember c
+			LEFT JOIN hybdMember b on b.hymmSeq = c.hymmSeq
+			LEFT JOIN hybdSpace a on a.hyspSeq = c.hyspSeq
+		WHERE 1=1
+			AND a.hyspSeq = #{hyspSeq}
+			AND b.hymmSeq = #{hymmSeq}
+	</select> -->
+	
+	
+	<select id="selectOneMySpace" resultMap="resultMapObj">
+		SELECT 
+			a. hyspSeq 
+		    , a.hyspTypeCd 
+		    , a.hyspName 
+		    , b.path 
+		    , b.originalFileName
+		    , b.uuidFileName 
+		FROM hybdSpace a
+			LEFT JOIN hybdSpaceUploaded b on b.pseq = a.hyspSeq AND b.defaultNy = 1 
+		WHERE 1=1 
+			AND a.hyspSeq = #{hyspSeq}
 	</select>
+	
 	
 	<select id="selectOneCount" resultType="Integer">
-
 		SELECT
-		count(*)
+			count(*)
 		FROM hybdSpaceMember
 		WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
-		AND hysmAcceptedNy = '1'
-
+			AND hyspSeq = #{hyspSeq}
+			AND hysmAcceptedNy = '1'
 	</select>
 	
+	
 	<insert id="insertMySpace">
-
 		INSERT INTO hybdSpace (
-		hyspTypeCd
-		, hyspName
-		, hyspDelNy
-		, regDateTime
-		, regDateTimeSvr
-		, modDateTime
-		, modDateTimeSvr
+			hyspTypeCd
+			, hyspName
+			, hyspDelNy
+			, regDateTime
+			, regDateTimeSvr
+			, modDateTime
+			, modDateTimeSvr
 		) VALUES (
-		#{hyspTypeCd}
-		, #{hyspName}
-		, 0
-		, now()
-		, now()
-		, now()
-		, now()
+			#{hyspTypeCd}
+			, #{hyspName}
+			, 0
+			, now()
+			, now()
+			, now()
+			, now()
 		)
 		<selectKey resultType="String" keyProperty="hyspSeq"
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-
 	</insert>
+	
 	
 	<insert id="insertUploaded">
 		INSERT INTO ${tableName}(
@@ -236,180 +198,177 @@
 	</insert>
 
 
-
 	<insert id="insertMySpaceHost">
-
 		INSERT INTO hybdSpaceMember (
-		hymmSeq
-		, hysmRoleCd
-		, hyspSeq
-		, hysmAcceptedNy
-		, hysmExitNy
-		, hysmHost
-		, hysmDelNy
+			hymmSeq
+			, hysmRoleCd
+			, hyspSeq
+			, hysmAcceptedNy
+			, hysmExitNy
+			, hysmHost
+			, hysmDelNy
 		) VALUES (
-		#{hymmSeq}
-		, 12
-		, #{hyspSeq}
-		, 1
-		, 0
-		, #{hymmSeq}
-		, 0
+			#{hymmSeq}
+			, 12
+			, #{hyspSeq}
+			, 1
+			, 0
+			, #{hymmSeq}
+			, 0
 		)
-
-
-		<selectKey resultType="String" keyProperty="hyspSeq"
-			order="AFTER">
+		<selectKey resultType="String" keyProperty="hyspSeq" order="AFTER">
 			SELECT last_insert_id()
-
 		</selectKey>
 	</insert>
 	
+	
 	<insert id="insertMySpaceGuest">
-
 		INSERT INTO hybdSpaceMember (
-		hymmSeq
-		, hysmRoleCd
-		, hyspSeq
-		, hysmHost
-		, hysmDelNy
+			hymmSeq
+			, hysmRoleCd
+			, hyspSeq
+			, hysmHost
+			, hysmDelNy
 		) VALUES (
-		#{hymmSeq}
-		, 13
-		, #{hyspSeq}
-		, #{hysmHost}
-		, 0
+			#{hymmSeq}
+			, 13
+			, #{hyspSeq}
+			, #{hysmHost}
+			, 0
 		)
-
-
-		<selectKey resultType="String" keyProperty="hyspSeq"
-			order="AFTER">
+		<selectKey resultType="String" keyProperty="hyspSeq" order="AFTER">
 			SELECT last_insert_id()
-
 		</selectKey>
 	</insert>
+
 
 	<update id="updateMySpace">
 		UPDATE hybdSpace
 		SET
-		hyspTypeCd = #{hyspTypeCd}
-		, hyspUseNy = #{hyspUseNy}
-		, hyspName = #{hyspName}
-		, modDateTime = #{modDateTime}
-		, modDateTimeSvr = #{modDateTimeSvr}
-
+			hyspTypeCd = #{hyspTypeCd}
+			, hyspUseNy = #{hyspUseNy}
+			, hyspName = #{hyspName}
+			, modDateTime = #{modDateTime}
+			, modDateTimeSvr = #{modDateTimeSvr}
 		WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+			AND hyspSeq = #{hyspSeq}
 	</update>
+
 
 	<update id="updateMySpaceMember">
 		UPDATE hybdSpaceMember
 		SET
-		hysmRoleCd = #{hysmRoleCd}
-		, hysmAcceptedNy = #{hysmAcceptedNy}
-		, hysmExitNy = #{hysmExitNy}
-
+			hysmRoleCd = #{hysmRoleCd}
+			, hysmAcceptedNy = #{hysmAcceptedNy}
+			, hysmExitNy = #{hysmExitNy}
 		WHERE 1=1
-		AND hysmSeq = #{hysmSeq}
+			AND hysmSeq = #{hysmSeq}
 	</update>
+	
 	
 	<update id="updateReceiveYes">
 		UPDATE hybdSpaceMember
 		SET
-		hysmAcceptedNy = 1
-		, hysmExitNy = 0
-
+			hysmAcceptedNy = 1
+			, hysmExitNy = 0
 		WHERE 1=1
-		AND hysmSeq = #{hysmSeq}
-		AND hyspSeq = #{hyspSeq}
+			AND hysmSeq = #{hysmSeq}
+			AND hyspSeq = #{hyspSeq}
 	</update>
+
 
 	<update id="updateReceiveNo">
 		UPDATE hybdSpaceMember
 		SET
-		hysmAcceptedNy = 0
-		, hysmExitNy = 0
-
+			hysmAcceptedNy = 0
+			, hysmExitNy = 0
 		WHERE 1=1
-		AND hysmSeq = #{hysmSeq}
-		AND hyspSeq = #{hyspSeq}
+			AND hysmSeq = #{hysmSeq}
+			AND hyspSeq = #{hyspSeq}
 	</update>
+
 
 	<update id="ueleteMySpace">
 		UPDATE hybdSpace
 		SET
-		hyspDelNy = 1
+			hyspDelNy = 1
 		WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+			AND hyspSeq = #{hyspSeq}
 	</update>
+
 
 	<delete id="deleteMySpace">
 		DELETE FROM hybdSpace
 		WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+			AND hyspSeq = #{hyspSeq}
 	</delete>
+
 
 	<!-- 호스트 설정 부분 -->
 	<update id="updateHost">
-	UPDATE
-		hybdSpaceMember
-	SET
-		hysmRoleCd = #{hysmRoleCd}
-	WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
-		AND hymmSeq = #{hymmSeq}
+		UPDATE
+			hybdSpaceMember
+		SET
+			hysmRoleCd = #{hysmRoleCd}
+		WHERE 1=1
+			AND hyspSeq = #{hyspSeq}
+			AND hymmSeq = #{hymmSeq}
 	</update>
+	
+	
 	<update id="updateHost2">
-	UPDATE
-		hybdSpaceMember
-	SET
-		hysmHost = #{hysmHost}
-	WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+		UPDATE
+			hybdSpaceMember
+		SET
+			hysmHost = #{hysmHost}
+		WHERE 1=1
+			AND hyspSeq = #{hyspSeq}
 	</update>
+	
 	
 	<update id="updateMySpaceHost">
-	UPDATE 
-		hybdSpace
-	SET
-		hyspName = #{hyspName}
-		, hyspColorCd = #{hyspColorCd}
-	WHERE 1=1
-		AND hyspSeq = #{hyspSeq}
+		UPDATE 
+			hybdSpace
+		SET
+			hyspName = #{hyspName}
+			, hyspColorCd = #{hyspColorCd}
+		WHERE 1=1
+			AND hyspSeq = #{hyspSeq}
 	</update>
+	
 	
 	<update id="updateMySpaceUploaded">
-	UPDATE 
-		${tableName}
-	SET
-		originalFileName = #{originalFileName}
-		, uuidFileName = #{uuidFileName}
-		, ext = #{ext}
-		, path = #{path}
-		, size = #{size}
-	WHERE 1=1
-		AND pseq = #{pseq}
+		UPDATE 
+			${tableName}
+		SET
+			originalFileName = #{originalFileName}
+			, uuidFileName = #{uuidFileName}
+			, ext = #{ext}
+			, path = #{path}
+			, size = #{size}
+		WHERE 1=1
+			AND pseq = #{pseq}
 	</update>
 	
-	<select id="selectOneMySpaceHost" resultMap="resultMapObj">
 	
-	SELECT  
-		a.hyspSeq
-        , c.hymmName
-        , c.hymmEmail
-        , d.path
-        , d.uuidFileName
-		, a.hyspName 
-		, a.hyspColorCd
-		, a.regDateTime
-		, a.modDateTime
-	FROM
-		hybdSpace a
-	LEFT JOIN hybdSpaceMember b ON  b.hyspSeq = a.hyspSeq  AND b.hysmRoleCd = 12
-	LEFT JOIN hybdMember c ON c.hymmSeq = b.hymmSeq
-	LEFT JOIN hybdMemberUploaded d ON  d.pseq = c.hymmSeq
-	WHERE 1=1
-		AND a.hyspSeq = #{hyspSeq}
+	<select id="selectOneMySpaceHost" resultMap="resultMapObj">
+		SELECT  
+			a.hyspSeq
+	        , c.hymmName
+	        , c.hymmEmail
+	        , d.path
+	        , d.uuidFileName
+			, a.hyspName 
+			, a.hyspColorCd
+			, a.regDateTime
+			, a.modDateTime
+		FROM hybdSpace a
+			LEFT JOIN hybdSpaceMember b ON  b.hyspSeq = a.hyspSeq  AND b.hysmRoleCd = 12
+			LEFT JOIN hybdMember c ON c.hymmSeq = b.hymmSeq
+			LEFT JOIN hybdMemberUploaded d ON  d.pseq = c.hymmSeq
+		WHERE 1=1
+			AND a.hyspSeq = #{hyspSeq}
 	</select>
+	
 	
 </mapper>

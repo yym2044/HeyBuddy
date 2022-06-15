@@ -71,10 +71,6 @@ pageContext.setAttribute("br", "\n");
 	vertical-align: middle;
 	font-size: 15px;
 }
-
-.modal-backdrop { /* css충돌로 우선 삭제모달ㄲㅏ맣게 ㅠ */
-	z-index: -1;
-}
 </style>
 
 
@@ -138,7 +134,7 @@ pageContext.setAttribute("br", "\n");
 						value="<c:out value="${vo.shHydcValue}"/>">
 
 					<!--Email Header-->
-					<div class="position-sticky top-0 mb-2 px-4 px-lg-8 z-index-fixed">
+					<div class="top-0 mb-2 px-4 px-lg-8 ">
 						<div
 							class="d-flex align-items-center pb-2 flex-row justify-content-between">
 
@@ -240,7 +236,9 @@ pageContext.setAttribute("br", "\n");
 										class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
 										<a href="#!" data-bs-toggle="tooltip" data-bs-placement="top"
 											title="Print" class="d-inline-block me-3"> <i
-											class="bi bi-printer"></i>
+											class="bi bi-printer" onclick="window.print()" /></i>
+
+
 										</a> <small> <fmt:formatDate pattern="yyyy-MM-dd hh:mm"
 												value="${item.regDateTime}" /></small>
 
@@ -268,7 +266,7 @@ pageContext.setAttribute("br", "\n");
 										</c:when>
 										<c:otherwise>
 
-											<div class="card-hover me-2  width-90">
+											<div class="card-hover me-2  width-100">
 												<span
 													class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
 													<img
@@ -297,14 +295,19 @@ pageContext.setAttribute("br", "\n");
 													</span>
 													<span class="d-block small text-muted text-truncate">
 
-														<a href="#pop" class="btn_open"> preview </a>
+														<a href="#pop${status.index}" class="btn_open" > preview </a>
 													</span>
 
 													<!-- 이미지팝업 -->
-													<div id="pop" class="pop_wrap" style="display: none;">
+													<div id="pop${status.index}" class="pop_wrap" style="display: none;">
 														<div class="pop_inner">
 															<p class="dsc">Image Preview</p>
-															<img
+															<a href="#!" data-bs-toggle="tooltip"
+																data-bs-placement="top" title="Print"
+																class="d-inline-block me-3"> <i
+																class="bi bi-printer" onclick="window.print()" /></i>
+
+															</a> <img
 																src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
 																width="500px" class="img-fluid" alt="" />
 															<button type="button" class="btn_close">Close</button>
@@ -332,7 +335,7 @@ pageContext.setAttribute("br", "\n");
 												</c:if>
 											</div>
 
-		
+
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
@@ -418,35 +421,40 @@ pageContext.setAttribute("br", "\n");
 													<c:out value="${commentList2.hycoText}" />
 												</p>
 											</div>
+
+											<br>
+
+											<div class="mb-2 small">
+												<div align="right">
+													<button class="btn btn-secondary btn-sm " type="button"
+														data-bs-toggle="collapse"
+														data-bs-target="#collapseExample${commentList2.index}"
+														aria-expanded="false" aria-controls="collapseExample">Reply</button>
+												</div>
+												<div class="collapse"
+													id="collapseExample${commentList2.index}">
+													<div class="card card-body">
+
+														<input type="text" class="form-control"
+															style="height: 50px" autocomplete="off" id="hycoText"
+															name="hycoText" value="" required>
+														<div class="invalid-feedback">내용을 입력해주세요.</div>
+														<br>
+														<div align="right">
+															<a href="javascript:goCommentList2();">
+																<button type="button" class="btn btn-primary btn-sm"
+																	id="btnSubmit" value="">등록</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
 										</c:if>
 									</c:forEach>
 
-									<br>
-
-									<div class="mb-2 small">
-										<div align="right">
-											<button class="btn btn-secondary btn-sm " type="button"
-												data-bs-toggle="collapse" data-bs-target="#collapseExample"
-												aria-expanded="false" aria-controls="collapseExample">Reply</button>
-										</div>
-										<div class="collapse" id="collapseExample">
-											<div class="card card-body">
-
-												<input type="text" class="form-control" style="height: 50px"
-													autocomplete="off" id="hycoText" name="hycoText" value=""
-													required>
-												<div class="invalid-feedback">내용을 입력해주세요.</div>
-												<br>
-												<div align="right">
-													<a href="javascript:goCommentList2();">
-														<button type="button" class="btn btn-primary btn-sm"
-															id="btnSubmit" value="">등록</button>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
 								</c:forEach>
+
+
 								<br>
 
 
@@ -668,6 +676,10 @@ pageContext.setAttribute("br", "\n");
 	</script>
 	<!-- 이미지 팝업으로 크게보기 -->
 
+
+
+
+
 	<!-- 댓글등록아작스 실패 ㅠㅠㅠㅠㅠ -->
 	<!-- 	<script>
 	function commentPost() {
@@ -688,14 +700,8 @@ pageContext.setAttribute("br", "\n");
 	</script> -->
 
 
-	<!-- 댓글등록 -->
-	<script>
-		
-	</script>
-
-
 	<!-- 	세션동일시 댓글수정삭제가능, 나중에 해보기 -->
-	<script>
+	<!-- 	<script>
 		if (data.list[i].writer === $("#sessionNickname").val()) {
 			html += "<span style='cursor: pointer; color: blue' class='commentMod' data-toggle='modal' data-target='#modifyModal'>수정 </span>";
 
@@ -703,11 +709,11 @@ pageContext.setAttribute("br", "\n");
 		} else if ($("#sessionRole").val() === "ROLE_ADMIN") {
 			html += "<span style='cursor: pointer; color: blue' class='commentDel'>삭제</span>";
 		}
-	</script>
+	</script> -->
 
 
 	<!-- 	댓글 수정버튼, 나중에 해보기  -->
-	<script>
+	<!-- 	<script>
 		$(document).on(
 				"click",
 				".commentMod",
@@ -723,11 +729,11 @@ pageContext.setAttribute("br", "\n");
 					$("#comment_writer").val(comment_writer);
 
 				});
-	</script>
+	</script> -->
 
 
 	<!-- 댓글수정 아작스전달, 나중에 해보기 -->
-
+	<!-- 
 	<script>
 		$(".modalModBtn").on(
 				"click",
@@ -759,7 +765,7 @@ pageContext.setAttribute("br", "\n");
 						});
 					}
 				});
-	</script>
+	</script> -->
 	<!-- 
 		<script type="text/javascript">
 

@@ -164,9 +164,9 @@ body {
 			$("#mySpaceSend").attr("action", "/mySpace/mySpacePlusMember");
 			$("#mySpaceSend").submit();
 		}
-	</script>
-	<!-- 	<script type="text/javascript">
-		$("#plusMember").on(
+		
+		
+		<!-- $("#plusMember").on(
 				"click",
 				function(seq) {
 
@@ -192,11 +192,10 @@ body {
 						}
 					});
 
-				});
-	</script> -->
-	<script type="text/javascript">
-		logOut = function() {
+				}); -->
 
+				
+		logOut = function() {
 			$.ajax({
 				async : true,
 				cache : false,
@@ -214,10 +213,9 @@ body {
 							+ jqXHR.errorThrown);
 				}
 			});
-
 		}
+		
+		
 	</script>
-
 </body>
-
 </html>

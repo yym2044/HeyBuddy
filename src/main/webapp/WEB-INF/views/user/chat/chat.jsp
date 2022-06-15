@@ -448,9 +448,8 @@ p, dt {
 			$("#chatForm").submit();
 		}
 		
+		
 		goPlus = function() {
-			
-			
 			$.ajax({
 				async: true 
 				,cache: false
@@ -460,16 +459,11 @@ p, dt {
 				,data : { "hymmSeq" : $("#hymmSeq").val(), "hycrSeq": $("#hycrSeq").val()}
 				,success: function(data) {
 					if (data.rt == "success") {
-						
 						$("#chatForm").attr("action", "/chat/chatPlusMember");
 						$("#chatForm").submit();
-						
 					} else {
-						
-						alert("이미 채팅방에 존재합니다.");
-						
+						alert("이미 채팅방에 존재합니다.");	
 					}
-					
 				}			
 				,error : function(jqXHR, textStatus, errorThrown){
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
@@ -477,10 +471,6 @@ p, dt {
 			});
 		
 		}
-		
-	</script>
-
-	<script type="text/javascript">
 
 		// textarea 줄 수 제한
 		function limitLines(obj, e) {
@@ -497,9 +487,8 @@ p, dt {
 				return false;
 			}
 		}
-	</script>
-
-	<script>
+		
+		
 		let e = new Dropzone(
 				"[data-dropzone-area]",
 				{
@@ -520,21 +509,17 @@ p, dt {
 			e.previewsContainer.classList.remove("dz-preview-moved",
 					"border-bottom", "pb-2", "mb-3")
 		}))
-	</script>
+	
 
 	<!--Chat sidebar toggler-->
-	<script>
-		$('.content_sidebar_toggler,.content-wrapper-overlay')
-				.on(
-						"click",
-						function(e) {
+
+		$('.content_sidebar_toggler,.content-wrapper-overlay').on("click", function(e) {
 							$('.content-expand-md').toggleClass(
 									"content_sidebar_show");
 						});
-	</script>
-	<script type="text/javascript">
-		logOut = function() {
 
+		
+		logOut = function() {
 			$.ajax({
 				async : true,
 				cache : false,
@@ -554,48 +539,10 @@ p, dt {
 			});
 
 		}
-		</script>
-	
 
-	<!-- 	<script type="text/javascript">
-	goRoom = function(seq) {
-		$("#hycrSeq").val(seq);
-		$.ajax({
-			async: true 
-			,cache: false
-			,type: "post"
-			,url: "/chat/chatRoomProc"
-			,dataType : "json"
-			,data : { 
-				"hycrSeq" : $("#hycrSeq").val()
-			}
-			,success: function(data) {
-					alert(data);
-					alert(JSON.stringify(data));
-	 				alert(JSON.stringify(data['chatList'][0]['hycrName']));
-	 				alert("myRoom: "+ myRoom);
-	 				$('#chatRoomName').empty();	// 기재된 내용 삭제
-	 				$('#chatRoomName').append(data['chatList'][0]['hycrName']) ;
-					
-	 				
-					/* for(var i = 0; i < data['chatList'].length; i++){
-						
-						$('#submit').append(data['chatList'][i]['hymmName']) ;
-						
-						} */ 
-			}			
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				
-			}
-		});
-	
-	}
-	</script> -->
-
-
+		
 	<!-- 사이드바 Hover 유지시켜주는 작업-->
-	<script type="text/javascript">
+	
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 		console.log(sidebarLink);
 

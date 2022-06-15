@@ -121,9 +121,7 @@ body {
 										</h5>
 										<br>
 										<h5>
-											최고의 스페이스 '
-											<c:out value="${item.hyspName}" />
-											'으로부터 초대되었습니다.
+											최고의 스페이스 ' <c:out value="${item.hyspName}" /> '으로부터 초대되었습니다.
 										</h5>
 										<hr>
 										<a href="#!"
@@ -214,6 +212,8 @@ body {
 			$("#Receive").attr("action", "/mySpace/mySpaceUpdt1");
 			$("#Receive").submit();
 		}
+		
+		
 		goReceive2 = function(seq) {
 			$("#hyspSeq").val(seq);
 			$("#hysmAcceptedNy").val(0);
@@ -243,10 +243,9 @@ body {
 		function inputHyspAcceptedNy_y() {
 			document.getElementById('hyspAcceptedNy').value = 1;
 		} */
-	</script>
-	<script type="text/javascript">
-		logOut = function() {
 
+		
+		logOut = function() {
 			$.ajax({
 				async : true,
 				cache : false,
@@ -264,9 +263,9 @@ body {
 							+ jqXHR.errorThrown);
 				}
 			});
-
 		}
+		
+		
 	</script>
 </body>
-
 </html>

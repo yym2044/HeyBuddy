@@ -242,8 +242,8 @@
 		console.log(sidebarLink[0]);
 
 		sidebarLink[0].className += ' current';
-	</script>
-	<script type="text/javascript">
+
+		
 		goChat = function(seq) {
 			$("#hymmSeq").val(seq);
 			$("#memberList").attr("action", "/chat/chatInst");

@@ -318,7 +318,7 @@ p, dt {
 	<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 
 	<script src="/resources/assets/vendor/dropzone.min.js"></script>
-	<script>
+	<script type="text/javascript">
 		let e = new Dropzone(
 				"[data-dropzone-area]",
 				{
@@ -339,21 +339,17 @@ p, dt {
 			e.previewsContainer.classList.remove("dz-preview-moved",
 					"border-bottom", "pb-2", "mb-3")
 		}))
-	</script>
+
 
 	<!--Chat sidebar toggler-->
-	<script>
-		$('.content_sidebar_toggler,.content-wrapper-overlay')
-				.on(
-						"click",
-						function(e) {
+
+		$('.content_sidebar_toggler,.content-wrapper-overlay').on("click", function(e) {
 							$('.content-expand-md').toggleClass(
 									"content_sidebar_show");
 						});
-	</script>
-	<script type="text/javascript">
-		logOut = function() {
 
+		
+		logOut = function() {
 			$.ajax({
 				async : true,
 				cache : false,
@@ -371,25 +367,23 @@ p, dt {
 							+ jqXHR.errorThrown);
 				}
 			});
-
 		}
-	</script>
+
+		
 	<!-- 사이드바 Hover 유지시켜주는 작업-->
-	<script type="text/javascript">
+	
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 		console.log(sidebarLink);
-
 		console.log(sidebarLink[1]);
-
 		sidebarLink[1].className += ' current';
-	</script>
-	<script type="text/javascript">
+
 	
 	goRoom = function(seq) {
 		$("#hycrSeq").val(seq);
 		$("#chatRoom").attr("action", "/chat/chat");
 		$("#chatRoom").submit();
 	}
+	
 	
 	</script>
 	<%@include file="../include/pageScripts.jsp"%>

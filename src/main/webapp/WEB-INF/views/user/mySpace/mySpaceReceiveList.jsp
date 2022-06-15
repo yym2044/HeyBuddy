@@ -196,10 +196,9 @@ body {
 			$("#ReceiveList").attr("action", "/mySpace/mySpaceReceive");
 			$("#ReceiveList").submit();
 		}
-	</script>
-	<script type="text/javascript">
-		logOut = function() {
 
+		
+		logOut = function() {
 			$.ajax({
 				async : true,
 				cache : false,
@@ -217,8 +216,9 @@ body {
 							+ jqXHR.errorThrown);
 				}
 			});
-
 		}
+		
+		
 	</script>
 
 </body>

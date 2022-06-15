@@ -183,14 +183,12 @@ body {
 			$("#newMySpace").attr("action", "/mySpace/mySpaceInst");
 			$("#newMySpace").submit();
 		}
-	</script>
 
-	<script type="text/javascript">
+		
 		/*** 단일파일 업로드 */
 		function readImage(input) {
 		    if (input.files && input.files[0]) {
-		        const reader = new FileReader();
-		        
+		        const reader = new FileReader();        
 		        reader.onload = (e) => {
 		            const previewImage = document.getElementById('previewImage');
 		            previewImage.src = e.target.result;
@@ -199,14 +197,16 @@ body {
 		        reader.readAsDataURL(input.files[0]);
 		    }
 		}
+		
+		
 		// 이벤트 리스너
 		document.getElementById('newSpacePhoto').addEventListener('change', (e) => {
 		    readImage(e.target);
 		})
-	</script>
-	<script type="text/javascript">
-			logOut = function() {
 
+
+		
+			logOut = function() {
 				$.ajax({
 					async : true,
 					cache : false,
@@ -224,10 +224,9 @@ body {
 								+ jqXHR.errorThrown);
 					}
 				});
-
 			}
+		
+		
 		</script>
-
 </body>
-
 </html>

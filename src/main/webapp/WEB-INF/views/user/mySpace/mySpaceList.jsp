@@ -250,30 +250,37 @@ body {
 				$("#mySpaceList").submit();
 			}
 
+			
 			goSpace = function(seq) {
 				$("#hyspSeq").val(seq);
 				$("#mySpaceList").attr("action", "/user/memberList");
 				$("#mySpaceList").submit();
 			}
+			
+			
 			goReceive = function(seq) {
 				$("#hymmSeq").val(seq);
 				$("#mySpaceList").attr("action", "/mySpace/mySpaceReceiveList");
 				$("#mySpaceList").submit();
 			}
+			
+			
 			goPlusMember = function(seq0, seq1) {
 				$("#hyspSeq").val(seq0);
 				$("#hysmHost").val(seq1);
 				$("#mySpaceList").attr("action", "/mySpace/mySpaceSend");
 				$("#mySpaceList").submit();
 			}
+			
+			
 			goFelete = function(seq) {
 				$("#hyspSeq").val(seq);
 				$("#mySpaceList").attr("action", "/mySpace/mySpaceFelete");
 				$("#mySpaceList").submit();
 			}
 		
+			
 			logOut = function() {
-
 				$.ajax({
 					async : true,
 					cache : false,
@@ -291,8 +298,9 @@ body {
 								+ jqXHR.errorThrown);
 					}
 				});
-
 			}
+			
+			
 		</script>
 	</form>
 </body>

@@ -182,7 +182,6 @@ body {
 	<!--////////////Theme Core scripts End/////////////////-->
 	<script type="text/javascript">
 		logOut = function() {
-
 			$.ajax({
 				async : true,
 				cache : false,
@@ -200,9 +199,9 @@ body {
 							+ jqXHR.errorThrown);
 				}
 			});
-
 		}
+		
+		
 	</script>
 </body>
-
 </html>

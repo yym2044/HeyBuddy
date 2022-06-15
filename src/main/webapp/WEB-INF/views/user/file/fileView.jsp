@@ -346,13 +346,14 @@ pageContext.setAttribute("br", "\n");
 								<!--Comments list-->
 								<!--Comments 갯수 아이콘, 나중에 count-->
 
-
-								<!-- 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
+<%-- 
+							 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
 															<i data-feather="message-square"
 															class="fe-1x me-1 align-middle"></i> 
-															<span>3</span> </div> -->
+															<span><c:out
+												value="${vo.totalRows}" /></span> </div> --%>
 
-								<h6>Add new comment</h6>
+								<h6>Add new comment  </h6>
 
 
 								<div class="text-end">
@@ -393,7 +394,7 @@ pageContext.setAttribute("br", "\n");
 										<p class="mb-0">
 											<c:out value="${commentList1.hycoText}" />
 										</p>
-									</div>
+									
 
 
 
@@ -402,7 +403,7 @@ pageContext.setAttribute("br", "\n");
 										<c:if
 											test="${commentList2.hycoGroupSeq eq commentList2.hycoGroupParent}">
 
-											<div class="py-2 mb-1 px-3 bg-body rounded-3">
+					
 												<img style="width: 30px; height: 30px;"
 													src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
 													class="avatar rounded-pill flex-shrink-0" />
@@ -420,7 +421,7 @@ pageContext.setAttribute("br", "\n");
 												<p class="mb-0">
 													<c:out value="${commentList2.hycoText}" />
 												</p>
-											</div>
+										
 
 											<br>
 

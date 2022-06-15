@@ -478,7 +478,7 @@
 	<script type="text/javascript">
 		$("#btnSubmit").on("click",	function() {
 
-					if (!checkNull($("#hyplEndDate"), $("#hyplEndDate").val(), "시작일을 확인해주세요")) return false;
+					if(!checkNoSelect($("#hyplStartDate"),$("#hyplStartDate").val(), "시작일을 확인해주세요")) return false;
 					if(!checkNoSelect($("#hyplEndDate"),$("#hyplEndDate").val(), "종료일을 확인해주세요")) return false;
 					
 				});

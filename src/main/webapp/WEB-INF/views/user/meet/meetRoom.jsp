@@ -24,8 +24,8 @@
 <title>hey, Buddy!</title>
 </head>
 <body>
-	<button id="btnOffer">send offer</button>
-	<button id="btnMyPeerConnection">myPeerConnection</button>
+	<button id="btnOffer" style="display: none;">send offer</button>
+	<button id="btnMyPeerConnection" style="display: none;">myPeerConnection</button>
 
 	<%@include file="../include/loader.jsp"%>
 	
@@ -578,6 +578,10 @@
 		console.dir(pcObj);
 	});
 			
+	</script>
+	
+	<script type="text/javascript">
+	const socketOnline = new WebSocket('wss://tp.heybuddy.a9xlab.com/online');
 	</script>
 	
 	<!--////////////Theme Core scripts Start/////////////////-->

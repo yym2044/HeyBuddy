@@ -98,7 +98,7 @@ goSpaceList = function(){
 		append += '<a href="javascript:showProfileModal(' + '<c:out value="${sessSeq}"/>' + ')" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">';
 		append += '<div class="d-block me-3">';
 		append += '<div class="avatar">';
-		append += '<img src="' + '<c:out value="${path}"/>' + '<c:out value="${uuidFileName}"/>' + '" class="img-fluid rounded-circle w-auto" alt="">';
+		append += '<img src="' + '<c:out value="${path}"/>' + '<c:out value="${uuidFileName}"/>' + '" class="img-fluid rounded-circle" stlye="width:48px; height:48px;" alt="">';
 		append += '</div></div>';
 		append += '<div class="flex-grow-1 flex-wrap pe-3">';
 		append += '<span class="mb-0 d-block d-flex align-items-center">';
@@ -128,7 +128,7 @@ goSpaceList = function(){
 					append += '<a href="javascript:showProfileModal(' + spaceUsers[i].hymmSeq + ')" class="list-group-item border-0 list-group-item-action px-4 d-flex align-items-center">';
 					append += '<div class="d-block me-3">';
 					append += '<div class="avatar">';
-					append += '<img src="' + spaceUsers[i].path + spaceUsers[i].uuidFileName + '" class="img-fluid rounded-circle w-auto" alt="">';
+					append += '<img src="' + spaceUsers[i].path + spaceUsers[i].uuidFileName + '" class="img-fluid rounded-circle" stlye="width:48px; height:48px;" alt="">';
 					append += '</div></div>';
 					append += '<div class="flex-grow-1 flex-wrap pe-3">';
 					append += '<span class="mb-0 d-block">';

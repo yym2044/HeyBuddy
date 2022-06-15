@@ -89,3 +89,12 @@ checkMobile = function(obj, value, message) {
 		return false;
 	}
 }
+
+checkNoSelect = function(obj, value, message){
+	if(value == 0){
+		alert(message);
+		return false;
+	} else {
+		return true;
+	}
+}

@@ -131,7 +131,7 @@
 																		</c:otherwise>
 																	</c:choose>
 																	<div class="h6 mb-0 lh-1 d-flex align-items-center">
-																		<a href="javascript:showModal(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/></a>
+																		<a href="javascript:showProfileModal(<c:out value="${item.hymmSeq}"/>);"><c:out value="${item.hymmName}"/></a>
 																		<c:if test="${item.hysmRoleCd eq 12}">
 																			<span class="badge bg-danger ms-1">S</span>
 																		</c:if>
@@ -227,76 +227,6 @@
 				</div>
 				<!-- Change Host Modal End -->
 
-				<!-- Member Modal Start -->
-				<div class="modal fade" id="modalMemberCard" tabindex="-1">
-					<div class="modal-dialog">
-						<div class="modal-content border-0">
-
-							<div class="card">
-
-								<!--Card body-->
-								<div class="card-body">
-									<!--Contact-->
-									<div class="text-center">
-
-										<!-- Avatar -->
-										<a class="avatar mb-3 mx-auto xl rounded-cirlce d-block">
-											<img id="modalAvatar" src="" alt="..." class="img-fluid rounded-circle">
-										</a>
-										<!-- Title -->
-										<h5 class="mb-0">
-											<a id="modalName" class="text-reset"></a>
-										</h5>
-
-										<!-- Email -->
-										<p class="small text-muted mb-0">
-											<a id="modalEmail" class="d-block text-reset text-truncate" href="#!mailto:noah.pierre@company.com">no registered email.</a>
-										</p>
-
-										<!-- Phone -->
-										<p class="small text-muted mb-3">
-											<a id="modalNumber" class="d-block text-reset text-truncate" href="#">no registered number.</a>
-										</p>
-
-
-										<!-- Split dropdown user button -->
-										<div class="btn-group">
-											<button type="button" class="btn btn-outline-gray text-body">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square fe-1x me-2 align-middle">
-													<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-												Send Message
-											</button>
-											<button type="button" class="btn btn-outline-gray text-body dropdown-toggle-split rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical fe-1x">
-													<circle cx="12" cy="12" r="1"></circle>
-													<circle cx="12" cy="5" r="1"></circle>
-													<circle cx="12" cy="19" r="1"></circle></svg>
-											</button>
-											<ul class="dropdown-menu dropdown-menu-end" style="">
-												<li><a class="dropdown-item" href="#">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info fe-1x align-middle me-2 opacity-50">
-															<circle cx="12" cy="12" r="10"></circle>
-															<line x1="12" y1="16" x2="12" y2="12"></line>
-															<line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-														View detail
-													</a></li>
-												<li><a class="dropdown-item" href="#">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-slash fe-1x align-middle me-2 opacity-50">
-															<circle cx="12" cy="12" r="10"></circle>
-															<line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-														Block contact
-													</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--Modal Member End-->
-
-
 				<!--//Page-footer//-->
 				<footer class="pb-4 px-4 px-lg-8">
 					<div class="container-fluid px-0">
@@ -344,58 +274,6 @@
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');
 
 		sidebarLink[5].className += ' current';
-	</script>
-	
-	<script type="text/javascript">
-	
-	function showModal(seq){
-		
-		$.ajax({
-			async: false
-			,cache: false
-			,type: "post"
-			,url: "/user/selectOneAjax"
-			,data : { "hymmSeq" : seq }
-			,success: function(data){
-				
-				if(data.uuidFileName != null){
-					$("#modalAvatar").attr("src", data.path + data.uuidFileName);
-				} else {
-					$("#modalAvatar").attr("src", "/resources/user/images/profileDefault.png");
-				}
-				
-				if(data.hymmName != null){
-					$("#modalName").text(data.hymmName);
-				}
-				if(data.hymmEmail != null){
-					$("#modalEmail").text(data.hymmEmail);
-					$("#modalEmail").attr("href", "#!mailto:" + data.hymmEmail);
-				}
-				if(data.hymmNumber != null){
-					
-					const number = data.hymmNumber
-					let numberString = "";
-					
-					if(number.length == 10){
-						numberString = number.substring(0,3) + "-" + number.substring(3,6) + "-" + number.substring(6,10);
-					} else {
-						numberString = number.substring(0,3) + "-" + number.substring(3,7) + "-" + number.substring(7,11);
-					}
-					
-					$("#modalNumber").text(numberString);
-				}
-				
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-		
-		
-		$("#modalMemberCard").modal('show');
-		
-	}
-	
 	</script>
 	
 	<script type="text/javascript">

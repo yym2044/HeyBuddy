@@ -65,8 +65,8 @@
 			<!--//Page Toolbar//-->
 			<div class="row planinst container">
 				<!-- Button trigger modal -->
-				<!-- <button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
- -->
+				<button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
+
 				<!-- 모달 -->
 				<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -94,7 +94,9 @@
 									<div class="card card-body">
 										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hyplMemberName" name="hyplMemberName">
 											<c:forEach items="${selectListMember}" var="item" varStatus="status">
-												<option value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}" />
+												<c:if test="${item.hymmSeq ne sessSeq }">
+													<option value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}" /></option>
+												</c:if>
 											</c:forEach>
 										</select>
 									</div>
@@ -289,27 +291,40 @@
 			type : "post",
 			url : "/plan/planListAjax",
 			success : function(data) {
-
+				
 				$.each(data, function(i) {
+					
+					var str = data[i].hyplMemberName;
+					
+					if(str != null){
+							
+						var memberArr = str.split(',');
+						
+						for(var j = 0; j < memberArr.length; j++){
+							if('<c:out value="${sessName}"/>' == memberArr[j]){
+								
+								const obj = new Object();
 
-					const obj = new Object();
+								obj.seq = data[i].hyplSeq;
+								obj.title = data[i].hyplName;
+								obj.start = data[i].hyplDate;
+								obj.end = data[i].hyplEndDate;
+								obj.backgroundColor = "var(--bs-success)";
+								obj.borderColor = "var(--bs-success)";
 
-					obj.seq = data[i].hyplSeq;
-					obj.title = data[i].hyplName;
-					obj.start = data[i].hyplDate;
-					obj.end = data[i].hyplEndDate;
-					obj.backgroundColor = "var(--bs-success)";
-					obj.borderColor = "var(--bs-success)";
-
-					console.log(obj);
-
-					exampleEvents.push(obj);
+								exampleEvents.push(obj);
+								
+							}
+						}
+						
+					}
+					
+					
 
 				});
 
-				console.log("sdfsdfsffsdfsdf");
 				console.log(exampleEvents);
-
+				 
 			}
 
 			,
@@ -346,10 +361,20 @@
 			selectable : true,
 			dateClick : function(info) { /* 클릭햇을때 일어나는 이벤트  */
 				/* alert('Date: ' + info.dateStr); */
+				const timeStamp = info.jsEvent.timeStamp;
+				
+				console.log("timeStamp ",timeStamp);
+				
+				const date = new Date(timeStamp);
+				
+				console.log(date.getTime());
+				
+				
 				console.log(info.dateStr);
 
 				/* alert('Resource ID: ' + info.resource.id); */
 				/* $("#title").click(/plan/planView); */
+				$("#hyplDate").val(info.dateStr + " 09:00:00");
 				$("#btnForm").click();
 			},
 			
@@ -369,6 +394,7 @@
 					},
 					/* 컨트롤러갔다와서 실행 */
 					success : function(data) {
+						console.log("ajax success");
 						console.log(data);
 						
 					$("#btnForm2").click(); 

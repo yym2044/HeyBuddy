@@ -94,9 +94,8 @@
 									<div class="card card-body">
 										<select multiple class="form-control" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}' id="hyplMemberName" name="hyplMemberName">
 											<c:forEach items="${selectListMember}" var="item" varStatus="status">
-												<c:if test="${item.hymmSeq ne sessSeq }">
+												<%-- <c:if test="${item.hymmSeq ne sessSeq }"> --%> <!-- 참여자 만들때 사용할 것  -->
 													<option value="<c:out value="${item.hymmName}"/>"><c:out value="${item.hymmName}" /></option>
-												</c:if>
 											</c:forEach>
 										</select>
 									</div>
@@ -238,22 +237,19 @@
 
 	<!--////////////Theme Core scripts Start/////////////////-->
 
-
+	 <script src="/resources/assets/vendor/feather.min.js"></script>
+	<script src="/resources/assets/js/theme.bundle.js"></script>
+	<script>feather.replace()</script> 
 
 	<!-- <script src="/resources/user/js/backgroundImg.js"></script> -->
 	<script href="../_bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 	<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 
 	
-	<script src="/resources/assets/vendor/feather.min.js"></script>
-	<script src="/resources/assets/js/theme.bundle.js"></script>
-	<script>
-		feather.replace()
-	</script>
 	
 	<!--App calendar Plugin-->
 	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
@@ -477,14 +473,14 @@
 		});
 	</script> -->
 
+	<script src="/resources/common/js/validation.js"></script> 
 	<!-- 벨리데이션 값 넣었을때 나오는 벨리데이션  -->
 	<script type="text/javascript">
 		$("#btnSubmit").on("click",	function() {
 
-					if (!checkNull($("#hyplName"), $("#hyplName").val(), "제목을 입력해주세요")) return false;
-					if (!checkNull($("#hyplDate"), $("#hyplDate").val(), "날짜를 입력해주세요")) return false;
-					if (!checkNull($("#hyplDesc"), $("#hyplDesc").val(), "상세일정을 입력해주세요")) return false;
-
+					if (!checkNull($("#hyplEndDate"), $("#hyplEndDate").val(), "시작일을 확인해주세요")) return false;
+					if(!checkNoSelect($("#hyplEndDate"),$("#hyplEndDate").val(), "종료일을 확인해주세요")) return false;
+					
 				});
 	</script>
 	

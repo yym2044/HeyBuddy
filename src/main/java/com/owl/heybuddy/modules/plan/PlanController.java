@@ -89,6 +89,7 @@ public class PlanController {
 		System.out.println("dto.gethyplDesc(): " + dto.getHyplDesc());
 		System.out.println("dto.gethyplMemberName(): " + dto.getHyplMemberName());
 		System.out.println("vo.getHyspSeq(): " + vo.getHyspSeq());
+		System.out.println("vo.getHyspSeq(): " + vo.getHymmSeq());
 		
 		dto.setHyspSeq((String)httpSession.getAttribute("hyspSeq"));
 		

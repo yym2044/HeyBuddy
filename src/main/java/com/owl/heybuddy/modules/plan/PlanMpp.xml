@@ -71,7 +71,7 @@
 			hybdPlan AS a
 		LEFT JOIN hybdSpace AS b ON a.hyspSeq = b.hyspSeq
 		WHERE 	1 = 1
-		 AND	b.hyspSeq = ${hyspSeq}
+		 AND	b.hyspSeq = #{hyspSeq}
 		 AND 	a.hyplDelNy = 0
 	</select>
 	

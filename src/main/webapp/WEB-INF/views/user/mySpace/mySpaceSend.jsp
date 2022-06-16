@@ -164,35 +164,6 @@ body {
 			$("#mySpaceSend").attr("action", "/mySpace/mySpacePlusMember");
 			$("#mySpaceSend").submit();
 		}
-		
-		
-		<!-- $("#plusMember").on(
-				"click",
-				function(seq) {
-
-					$.ajax({
-						async : true,
-						cache : false,
-						type : "post",
-						url : "/mySpace/mySpaceCheckMember",
-						dataType : "JSON",
-						data : {
-							"hymmSeq" : $("#hymmSeq").val()
-						},
-						success : function(data) {
-							alert(data);
-							alert(JSON.stringify(data));
-							alert(JSON.stringify(data['idList'][0]['hymmSeq']));
-							alert(JSON.stringify(data['idList'][0]['hymmName']));
-							location.href = "/mySpace/mySpacePlusMember";
-						},
-						error : function(jqXHR, textStatus, errorThrown) {
-							alert("ajaxUpdate " + jqXHR.textStatus + " : "
-									+ jqXHR.errorThrown);
-						}
-					});
-
-				}); -->
 
 				
 		logOut = function() {

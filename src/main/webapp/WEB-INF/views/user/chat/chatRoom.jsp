@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,31 +15,24 @@
 <title>hey, Buddy!</title>
 
 <!--Bootstrap icons-->
-<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
+<link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 
 <!--Simplebar css-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/simplebar.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
 <!--Choices css-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/choices.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/choices.min.css">
 
 <!--dropzone-->
-<link rel="stylesheet"
-	href="/resources/assets/vendor/css/dropzone.min.css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/dropzone.min.css">
 
 <!--Main style-->
-<link rel="stylesheet" href="/resources/assets/css/style.min.css"
-	id="switchThemeStyle">
+<link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
 
 </head>
 
@@ -318,8 +310,9 @@ p, dt {
 	<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 
 	<script src="/resources/assets/vendor/dropzone.min.js"></script>
-	<script type="text/javascript">
-		let e = new Dropzone(
+	<script>	
+		
+	let e = new Dropzone(
 				"[data-dropzone-area]",
 				{
 					url : "https://httpbin.org/post",
@@ -339,8 +332,9 @@ p, dt {
 			e.previewsContainer.classList.remove("dz-preview-moved",
 					"border-bottom", "pb-2", "mb-3")
 		}))
+</script>
 
-
+	<script type="text/javascript">
 	<!--Chat sidebar toggler-->
 
 		$('.content_sidebar_toggler,.content-wrapper-overlay').on("click", function(e) {

@@ -134,7 +134,7 @@
 								<p style="text-align: center;">정말로 일정을 삭제 하시겠습니까?</p>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-danger">삭 제</button>
+								<button href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" type="button" class="btn btn-danger">삭 제</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫 기</button>
 							</div>
 						</div>
@@ -215,7 +215,7 @@
 								<a class="btn btn-light me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
 								<a href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit" class="btn btn-primary me-2">수정하기</a>
 <!-- 								<input type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기"> -->
-								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left">삭제하기</a>
+								<a class="btn btn-danger" style="float: left" data-bs-target="staticBackdrop">삭제하기</a> 
 <%-- 								<a href="javascript:goNele(<c:out value="${rt.hyplSeq}"/>)" class="btn btn-danger" style="float: left" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제하기</a> --%>
 							<%-- <a class="btn btn-primary"  href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit">수정하기</a>  --%>
 							</div>
@@ -481,7 +481,7 @@
 					if(!checkNoSelect($("#hyplStartDate"),$("#hyplStartDate").val(), "시작일을 확인해주세요")) return false;
 					if(!checkNoSelect($("#hyplEndDate"),$("#hyplEndDate").val(), "종료일을 확인해주세요")) return false;
 					if(!checkNoSelect($("#hyplMemberName"),$("#hyplMemberName").val(), "공유자를 확인해주세요(본인포함)")) return false;
-					if(!checkNoSelect($("#hyplMemberName1"),$("#hyplMemberName1").val(), "공유자를 선택해주세요")) return false;
+					/* if(!checkNoSelect($("#hyplMemberName1"),$("#hyplMemberName1").val(), "공유자를 선택해주세요")) return false; */
 					
 				});
 	</script>

@@ -21,6 +21,7 @@ public class FileServiceImpl implements FileService {
 	public List<File> documentList(FileVo vo) throws Exception { // 문서리스트
 		return dao.documentList(vo);
 	}
+	
 	@Override
 	public List<File> documentListTemp(FileVo vo) throws Exception { // 임시문서리스트
 		return dao.documentListTemp(vo);
@@ -68,7 +69,10 @@ public class FileServiceImpl implements FileService {
 	public int selectOneCount(FileVo vo) throws Exception { // 문서검색
 		return dao.selectOneCount(vo);
 	}
-
+	@Override
+	public int selectOneCountC(FileVo vo) throws Exception { // 댓글페이징
+		return dao.selectOneCountC(vo);
+	}
 	@Override
 	public File documentView(FileVo vo) throws Exception { // 문서뷰
 		return dao.documentView(vo);

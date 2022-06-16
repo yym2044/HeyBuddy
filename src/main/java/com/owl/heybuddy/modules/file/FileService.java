@@ -7,6 +7,7 @@ public interface FileService {
 
 	 
 	int selectOneCount(FileVo vo) throws Exception;    //문서검색
+	int selectOneCountC(FileVo vo) throws Exception;    //댓글페이징
 	public List<File> documentList(FileVo vo) throws Exception; //문서리스트
 	public List<File> documentListTemp(FileVo vo) throws Exception; //임시저장 문서리스트
 	public int selectOneCountSpaceMember(FileVo vo) throws Exception;    //스페이스멤버

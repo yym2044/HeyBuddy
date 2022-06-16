@@ -116,10 +116,13 @@ pageContext.setAttribute("br", "\n");
 				<!--//Page Toolbar End//-->
 
 				<!-- 히든처리 -->
-				<form id="formView" action="" method="post">
+				<form id="formView" name="formView" method="post" action="/file/fileView">
 
+<input type="hidden" id="rowNumToShowC" name="rowNumToShowC"
+				value="<c:out value="${vo.rowNumToShowC}"/>"> <input
+				type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
 					<input type="hidden" id="thisPage" name="thisPage"
-						value="<c:out value="${vo.thisPage}"/>"> <input
+						value="<c:out value="${vo.thisPageC}"/>"> <input
 						type="hidden" id="hydcSeq" name="hydcSeq"
 						value="<c:out value="${vo.hydcSeq}"/>"> <input
 						type="hidden" id="hymmSeq" name="hymmSeq"
@@ -133,6 +136,9 @@ pageContext.setAttribute("br", "\n");
 						type="hidden" id="shHydcValue" name="shHydcValue"
 						value="<c:out value="${vo.shHydcValue}"/>">
 
+
+
+		
 					<!--Email Header-->
 					<div class="top-0 mb-2 px-4 px-lg-8 ">
 						<div
@@ -251,111 +257,114 @@ pageContext.setAttribute("br", "\n");
 										escapeXml="false" />
 								</p>
 
+								<br>
 								<hr>
 
 								<h6>Attached File</h6>
-
+								<br>
 
 								<!--Attachment image-->
+								<div class="row justify-content-md-between">
+									<div class="col-md d-flex mb-4 mb-md-0 align-items-center">
+										<c:forEach items="${fileUploaded}" var="fileUploaded"
+											varStatus="status">
+											<c:choose>
+												<c:when test="${empty fileUploaded.hyflUuidFileName}">
+													<p>등록된 파일이 없습니다.</p>
+												</c:when>
+												<c:otherwise>
 
-								<c:forEach items="${fileUploaded}" var="fileUploaded"
-									varStatus="status">
-									<c:choose>
-										<c:when test="${empty fileUploaded.hyflUuidFileName}">
-											<p>등록된 파일이 없습니다.</p>
-										</c:when>
-										<c:otherwise>
+													<div class="card-hover me-2  width-100">
+														<span
+															class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
+															<img
+															src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+															width="200px" height="200px" class="img-fluid" alt="" />
+															<span
+															class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
 
-											<div class="card-hover me-2  width-100">
-												<span
-													class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
-													<img
-													src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
-													width="200px" class="img-fluid" alt="" /> <span
-													class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
+																<span> <a
+																	href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+																	download="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflOriginalFileName}"/>">
+																		<i data-feather="download" class="fe-2x"></i>
+																</a>
+															</span>
+														</span>
+														</span>
+														<!--File description-->
 
-														<span> <a
-															href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
-															download="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflOriginalFileName}"/>">
-																<i data-feather="download" class="fe-2x"></i>
-														</a>
-													</span>
-												</span>
-												</span>
-												<!--File description-->
+														<!-- 파일이 이미지라면 -->
+														<c:if test="${fileUploaded.hyflType eq 0}">
+															<span class="d-block small text-body text-truncate">
+																<c:out value="${fileUploaded.hyflOriginalFileName}" />
 
-												<!-- 파일이 이미지라면 -->
-												<c:if test="${fileUploaded.hyflType eq 0}">
-													<span class="d-block small text-body text-truncate">
-														<c:out value="${fileUploaded.hyflOriginalFileName}" />
+															</span>
+															<span class="d-block small text-muted text-truncate">
+																<c:out value="${fileUploaded.hyflSize}" /> mb
+															</span>
+															<span class="d-block small text-muted text-truncate">
 
-													</span>
-													<span class="d-block small text-muted text-truncate">
-														<c:out value="${fileUploaded.hyflSize}" /> mb
-													</span>
-													<span class="d-block small text-muted text-truncate">
+																<a href="#pop${status.index}" class="btn_open">
+																	preview </a>
+															</span>
 
-														<a href="#pop${status.index}" class="btn_open">
-															preview </a>
-													</span>
+															<!-- 이미지팝업 -->
+															<div id="pop${status.index}" class="pop_wrap"
+																style="display: none;">
+																<div class="pop_inner">
+																	<p class="dsc">Image Preview</p>
+																	<a href="#!" data-bs-toggle="tooltip"
+																		data-bs-placement="top" title="Print"
+																		class="d-inline-block me-3"> <i
+																		class="bi bi-printer" onclick="window.print()" /></i>
 
-													<!-- 이미지팝업 -->
-													<div id="pop${status.index}" class="pop_wrap"
-														style="display: none;">
-														<div class="pop_inner">
-															<p class="dsc">Image Preview</p>
-															<a href="#!" data-bs-toggle="tooltip"
-																data-bs-placement="top" title="Print"
-																class="d-inline-block me-3"> <i
-																class="bi bi-printer" onclick="window.print()" /></i>
+																	</a> <img
+																		src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+																		width="500px" class="img-fluid" alt="" />
+																	<button type="button" class="btn_close">Close</button>
+																</div>
+															</div>
 
-															</a> <img
-																src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
-																width="500px" class="img-fluid" alt="" />
-															<button type="button" class="btn_close">Close</button>
-														</div>
+														</c:if>
+
+														<!-- 파일이 pdf라면 -->
+														<c:if test="${fileUploaded.hyflType eq 1}">
+
+															<span class="d-block small text-body text-truncate">
+																<c:out value="${fileUploaded.hyflOriginalFileName}" />
+
+															</span>
+															<span class="d-block small text-muted text-truncate">
+																<c:out value="${fileUploaded.hyflSize}" /> mb
+															</span>
+															<span class="d-block small text-muted text-truncate">
+																<a
+																href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>">
+																	preview </a>
+															</span>
+
+														</c:if>
 													</div>
 
-												</c:if>
 
-												<!-- 파일이 pdf라면 -->
-												<c:if test="${fileUploaded.hyflType eq 1}">
-
-													<span class="d-block small text-body text-truncate">
-														<c:out value="${fileUploaded.hyflOriginalFileName}" />
-
-													</span>
-													<span class="d-block small text-muted text-truncate">
-														<c:out value="${fileUploaded.hyflSize}" /> mb
-													</span>
-													<span class="d-block small text-muted text-truncate">
-														<a
-														href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>">
-															preview </a>
-													</span>
-
-												</c:if>
-											</div>
-
-
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
-
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+									</div>
+								</div>
 								<br>
 								<hr>
 
 								<!--Comments list-->
 								<!--Comments 갯수 아이콘, 나중에 count-->
 
-								<%-- 
-							 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
-															<i data-feather="message-square"
-															class="fe-1x me-1 align-middle"></i> 
-															<span><c:out
-												value="${vo.totalRows}" /></span> </div> --%>
 
-								<h6>Add new comment</h6>
+
+								<h6>Add new comment
+								&nbsp;&nbsp;<i data-feather="message-square"
+									class="fe-1x me-1 align-middle-sm"></i> <span><c:out
+										value="${vo.totalRowsC}" /></span> </h6>
+
 
 								<div class="text-end">
 									<input type="text" class="form-control" style="height: 100px"
@@ -392,7 +401,7 @@ pageContext.setAttribute("br", "\n");
 											<c:out value="${commentList1.hycoText}" />
 										</p>
 
-<%-- 대댓글 구현 실패로 우선 주석 ㅠㅠ
+										<%-- 대댓글 구현 실패로 우선 주석 ㅠㅠ
 										<div class="mb-2 small">
 											<div align="right">
 												<button class="btn btn-secondary btn-sm " type="button"
@@ -478,7 +487,42 @@ pageContext.setAttribute("br", "\n");
 
 								<br>
 
+		<!--포스트 페이징과 버튼 -->
+							<div class="row text-center" style="width: 100%">
+								<div style="width: 100%; float: none; margin: 0 auto">
+									<br> <br>
+									<nav aria-label="...">
+										<ul class="pagination  justify-content-center">
+											<c:if test="${vo.startPageC gt vo.pageNumToShowC}">
+												<li class="page-item"><a class="page-link"
+													href="javascript:goCommentList(<c:out value='${vo.startPageC - 1}'/>);">
+														Previous</a></li>
+											</c:if>
+											<c:forEach begin="${vo.startPageC}" end="${vo.endPageC}"
+												varStatus="i">
+												<c:choose>
+													<c:when test="${i.index eq vo.thisPageC}">
+														<li class="page-item active"><a class="page-link"
+															href="javascript:goCommentList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+													</c:when>
+													<c:otherwise>
+														<li class="page-item"><a class="page-link"
+															href="javascript:goCommentList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+											<c:if test="${vo.endPageC ne vo.totalPagesC}">
+												<li class="page-item"><a class="page-link"
+													href="javascript:goCommentList( <c:out value='${vo.endPageC + 1 }'/>);">Next</a></li>
+											</c:if>
+										</ul>
+									</nav>
 
+									<br> <br>
+
+
+								</div>
+							</div>
 
 
 								<!-- 모댓글이라면 -->
@@ -649,6 +693,15 @@ pageContext.setAttribute("br", "\n");
 
 
 	<script type="text/javascript">
+		var seq = $("input:hidden[name=hycoSeq]");
+		goCommentList = function(seq) {
+				alert(seq);
+			$("#thisPageS").val(seq);
+			$("#formView").submit();
+		};
+	</script>
+	
+	<script type="text/javascript">
 		goFileList = function() {
 			$("#formView").attr("action", "/file/fileList");
 			$("#formView").submit();
@@ -817,6 +870,9 @@ pageContext.setAttribute("br", "\n");
 		 -->
 
 	<%@include file="../include/pageScripts.jsp"%>
+	
+	
+
 </body>
 
 </html>

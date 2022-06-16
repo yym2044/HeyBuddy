@@ -22,6 +22,9 @@ public class FileDao {
 	public int selectOneCount(FileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);  // 문서검색
 	}
+	public int selectOneCountC(FileVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCountC", vo);  // 댓글페이징
+	}
 	public List<File> documentList(FileVo vo) {
 		return sqlSession.selectList(namespace + ".documentList", vo); //  문서리스트
 	}

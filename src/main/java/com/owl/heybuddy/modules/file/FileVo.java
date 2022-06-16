@@ -6,8 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileVo { 
 
-
-
 		private String hydcSeq;
 		private String hyspSeq;
 		private String hymmSeq;
@@ -40,6 +38,7 @@ public class FileVo {
 		private Integer hycoGroupSeq;
 		private Integer hycoGroupDepth;
 		private Integer hycoGroupType;
+
 		
 		//선택삭제
 		private String[] checkboxSeqArray;
@@ -117,6 +116,59 @@ public class FileVo {
 			System.out.println("getStartRnumForMysql(): " + startRnumForMysql);
 	}
 
+			
+			//댓글 paging	
+			private int thisPageC = 1;									// 현재 페이지
+			private int rowNumToShowC = 3;								// 화면에 보여줄 데이터 줄 갯수
+			private int pageNumToShowC = 5;								// 화면에 보여줄 페이징 번호 갯수
+
+			private int totalRowsC;										// 전체 데이터 갯수
+			private int totalPagesC;										// 전체 페이지 번호
+			private int startPageC;										// 시작 페이지 번호
+			private int endPageC;										// 마지막 페이지 번호
+			
+			private int startRnumForOracleC = 1;							// 쿼리 시작 row
+			private int endRnumForOracleC;								// 쿼리 끝 row
+			private Integer RNUMC;
+			
+			private int startRnumForMysqlC = 0;							// 쿼리 시작 row
+			
+			
+
+			public void setParamsPagingC(int totalRowsParamC) {
+			
+			totalRowsC = totalRowsParamC;
+
+			totalPagesC = totalRowsC / rowNumToShowC;
+
+			if (totalRowsC % rowNumToShowC > 0) {
+				totalPagesC = totalPagesC+ 1;
+			}
+
+			if (totalPagesC < thisPageC) {
+				thisPageC = totalPagesC;
+			}
+			
+			startPageC = (((thisPageC - 1) / pageNumToShowC) * pageNumToShowC + 1);
+
+			endPageC = (startPageC + pageNumToShowC - 1);
+
+			if (endPageC > totalPagesC) {
+				endPageC = (totalPagesC);
+			}
+			
+			endRnumForOracleC = ((rowNumToShowC * thisPageC));
+			startRnumForOracleC = ((endRnumForOracleC - rowNumToShowC) + 1);
+			if (startRnumForOracleC < 1) startRnumForOracleC = 1;
+			
+			
+			if (thisPageC == 1  || thisPageC == 0 ) {
+				startRnumForMysqlC = 0;
+			} else {
+				startRnumForMysqlC = ((rowNumToShowC * (thisPageC-1)));
+			}
+
+	}
 			//hybdMember
 			private Integer hymmAdminNy;
 			private Integer hymmDormancyNy;
@@ -598,6 +650,75 @@ public class FileVo {
 		this.checkboxSeq = checkboxSeq;
 	}
 
-		
+
+
+
+	public int getThisPageC() {
+	return thisPageC;
+}
+public void setThisPageC(int thisPageC) {
+	this.thisPageC = thisPageC;
+}
+public int getRowNumToShowC() {
+	return rowNumToShowC;
+}
+public void setRowNumToShowC(int rowNumToShowC) {
+	this.rowNumToShowC = rowNumToShowC;
+}
+public int getPageNumToShowC() {
+	return pageNumToShowC;
+}
+public void setPageNumToShowC(int pageNumToShowC) {
+	this.pageNumToShowC = pageNumToShowC;
+}
+public int getTotalRowsC() {
+	return totalRowsC;
+}
+public void setTotalRowsC(int totalRowsC) {
+	this.totalRowsC = totalRowsC;
+}
+public int getTotalPagesC() {
+	return totalPagesC;
+}
+public void setTotalPagesC(int totalPagesC) {
+	this.totalPagesC = totalPagesC;
+}
+public int getStartPageC() {
+	return startPageC;
+}
+public void setStartPageC(int startPageC) {
+	this.startPageC = startPageC;
+}
+public int getEndPageC() {
+	return endPageC;
+}
+public void setEndPageC(int endPageC) {
+	this.endPageC = endPageC;
+}
+public int getStartRnumForOracleC() {
+	return startRnumForOracleC;
+}
+public void setStartRnumForOracleC(int startRnumForOracleC) {
+	this.startRnumForOracleC = startRnumForOracleC;
+}
+public int getEndRnumForOracleC() {
+	return endRnumForOracleC;
+}
+public void setEndRnumForOracleC(int endRnumForOracleC) {
+	this.endRnumForOracleC = endRnumForOracleC;
+}
+public Integer getRNUMC() {
+	return RNUMC;
+}
+public void setRNUMC(Integer rNUMC) {
+	RNUMC = rNUMC;
+}
+public int getStartRnumForMysqlC() {
+	return startRnumForMysqlC;
+}
+public void setStartRnumForMysqlC(int startRnumForMysqlC) {
+	this.startRnumForMysqlC = startRnumForMysqlC;
+}
+
 	
 }

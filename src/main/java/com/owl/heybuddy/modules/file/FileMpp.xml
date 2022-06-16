@@ -30,6 +30,20 @@
 		ORDER BY a.modDateTime DESC
 		limit #{startRnumForMysql} , #{rowNumToShow}
 	</sql> 
+	
+		<sql id="selectCommonC">  <!-- 댓글공통 -->
+        FROM hybdComment a
+        LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
+        LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
+        LEFT JOIN hybdDocument f ON f.hydcSeq = a.hydcSeq
+        WHERE 1=1 
+        AND a.hycoGroupType = 0
+        AND a.hydcSeq = #{hydcSeq} 
+        ORDER BY a.hycoSeq
+        limit #{startRnumForMysqlC} , #{rowNumToShowC}
+	</sql> 
+	
+	
 
 	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
 		select
@@ -37,6 +51,13 @@
  	<include refid="selectCommon" />
 	</select>
 
+	<select id="selectOneCountC" resultType="Integer">   <!-- 댓글 페이징 -->
+		select
+		count(*)
+ 	<include refid="selectCommonC" />
+	</select>
+	
+	
 	<select id="documentList" resultMap="resultMapObj">  <!-- 문서리스트 -->
 		select
 		a.*
@@ -312,6 +333,7 @@
         WHERE 1=1 
         AND a.hydcSeq = #{hydcSeq} 
         ORDER BY a.hycoSeq
+        limit #{startRnumForMysqlC} , #{rowNumToShowC}
     </select>
 
  <select id="commentList1" resultMap="resultMapObj">  <!-- 모댓글리스트 -->
@@ -320,14 +342,7 @@
    		   ,b.*
    		   ,c.*
    		   ,f.*
-        FROM hybdComment a
-        LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
-        LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
-        LEFT JOIN hybdDocument f ON f.hydcSeq = a.hydcSeq
-        WHERE 1=1 
-        AND a.hycoGroupType = 0
-        AND a.hydcSeq = #{hydcSeq} 
-        ORDER BY a.hycoSeq
+	<include refid="selectCommonC" /> 
     </select>
     
      <select id="commentList2" resultMap="resultMapObj">  <!-- 대댓글리스트 -->

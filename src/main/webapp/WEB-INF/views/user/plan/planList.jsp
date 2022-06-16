@@ -122,7 +122,7 @@
 				<!-- Button trigger modal -->
 
 				<!-- Modal -->
-				<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"data-bs-keyboard="false"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -480,6 +480,8 @@
 
 					if(!checkNoSelect($("#hyplStartDate"),$("#hyplStartDate").val(), "시작일을 확인해주세요")) return false;
 					if(!checkNoSelect($("#hyplEndDate"),$("#hyplEndDate").val(), "종료일을 확인해주세요")) return false;
+					if(!checkNoSelect($("#hyplMemberName"),$("#hyplMemberName").val(), "공유자를 확인해주세요(본인포함)")) return false;
+					if(!checkNoSelect($("#hyplMemberName1"),$("#hyplMemberName1").val(), "공유자를 선택해주세요")) return false;
 					
 				});
 	</script>

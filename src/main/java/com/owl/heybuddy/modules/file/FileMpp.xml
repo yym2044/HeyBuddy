@@ -21,12 +21,12 @@
 		where a.hydcDelNy = 0
 		AND a.hydcTempNy = 0
 		AND c.hyspSeq = #{hyspSeq}
-<!--   		AND ( 
-		a.hydcTitle LIKE concat('%',#{shHydcValue},'%')
+<!-- 		AND
+		(OR a.hydcTitle LIKE concat('%',#{shHydcValue},'%')
 		OR a.hydcText LIKE concat('%',#{shHydcValue},'%')
 		OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
 		OR e.hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')
-		 )  -->
+		) -->
 		ORDER BY a.modDateTime DESC
 		limit #{startRnumForMysql} , #{rowNumToShow}
 	</sql> 

@@ -116,7 +116,7 @@ public class FileController {
 		service.insertDocumentTemp(dto);
 		vo.setHydcSeq(dto.getHydcSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/file/fileList";
+		return "redirect:/file/fileListTemp";
 	}
 
 	@RequestMapping(value = "/file/fileEdit") // 문서수정

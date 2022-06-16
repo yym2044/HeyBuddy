@@ -267,18 +267,14 @@
 		
 	
 		goFileList = function() {
-			
 			setDocumentType();
-			 
 			$("#hydcTempNy").val(0);
 			$("#formList").attr("action", "/file/fileInst1");
 			$("#formList").submit();
 			
 		};
 		goFileListTemp = function() {
-			
 			setDocumentType();
-			
 			$("#hydcTempNy").val(1);
 			$("#formList").attr("action", "/file/fileInst2");
 			$("#formList").submit();

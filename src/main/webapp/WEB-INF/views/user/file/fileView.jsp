@@ -206,7 +206,6 @@ pageContext.setAttribute("br", "\n");
 								<div class="col-md d-flex mb-4 mb-md-0 align-items-center">
 									<div class="avatar">
 
-
 										<c:choose>
 											<c:when test="${empty item.uuidFileName}">
 												<img style="width: 50px; height: 50px;"
@@ -254,10 +253,11 @@ pageContext.setAttribute("br", "\n");
 
 								<hr>
 
-								<!-- 	<h6>첨부파일</h6> -->
+								<h6>Attached File</h6>
 
 
 								<!--Attachment image-->
+
 								<c:forEach items="${fileUploaded}" var="fileUploaded"
 									varStatus="status">
 									<c:choose>
@@ -295,11 +295,13 @@ pageContext.setAttribute("br", "\n");
 													</span>
 													<span class="d-block small text-muted text-truncate">
 
-														<a href="#pop${status.index}" class="btn_open" > preview </a>
+														<a href="#pop${status.index}" class="btn_open">
+															preview </a>
 													</span>
 
 													<!-- 이미지팝업 -->
-													<div id="pop${status.index}" class="pop_wrap" style="display: none;">
+													<div id="pop${status.index}" class="pop_wrap"
+														style="display: none;">
 														<div class="pop_inner">
 															<p class="dsc">Image Preview</p>
 															<a href="#!" data-bs-toggle="tooltip"
@@ -346,15 +348,14 @@ pageContext.setAttribute("br", "\n");
 								<!--Comments list-->
 								<!--Comments 갯수 아이콘, 나중에 count-->
 
-<%-- 
+								<%-- 
 							 	<div class="d-flex align-items-center btn btn-sm btn-white border rounded-2 px-2 ms-auto">
 															<i data-feather="message-square"
 															class="fe-1x me-1 align-middle"></i> 
 															<span><c:out
 												value="${vo.totalRows}" /></span> </div> --%>
 
-								<h6>Add new comment  </h6>
-
+								<h6>Add new comment</h6>
 
 								<div class="text-end">
 									<input type="text" class="form-control" style="height: 100px"
@@ -374,16 +375,12 @@ pageContext.setAttribute("br", "\n");
 
 								<c:forEach items="${commentList1}" var="commentList1"
 									varStatus="status">
-
-
 									<div class="py-2 mb-1 px-3 bg-body rounded-3">
 
 										<img style="width: 30px; height: 30px;"
 											src="<c:out value="${commentList1.path}"/><c:out value="${commentList1.uuidFileName}"/>"
 											class="avatar rounded-pill flex-shrink-0" />
-
 										<div class="d-flex justify-content-between">
-
 											<h6 class="mb-0">
 												<c:out value="${commentList1.hymmName}" />
 											</h6>
@@ -394,16 +391,39 @@ pageContext.setAttribute("br", "\n");
 										<p class="mb-0">
 											<c:out value="${commentList1.hycoText}" />
 										</p>
-									
+
+<%-- 대댓글 구현 실패로 우선 주석 ㅠㅠ
+										<div class="mb-2 small">
+											<div align="right">
+												<button class="btn btn-secondary btn-sm " type="button"
+													data-bs-toggle="collapse"
+													data-bs-target="#collapseExample${status.index}"
+													aria-expanded="false" aria-controls="collapseExample">Reply</button>
+											</div>
+											<div class="collapse" id="collapseExample${status.index}">
+												<div class="card card-body">
+
+													<input type="text" class="form-control"
+														style="height: 50px" autocomplete="off" id="hycoText"
+														name="hycoText" value="" required>
+													<div class="invalid-feedback">내용을 입력해주세요.</div>
+													<br>
+													<div align="right">
+														<a href="javascript:goCommentList2();">
+															<button type="button" class="btn btn-primary btn-sm"
+																id="btnSubmit" value="">등록</button>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div> --%>
+
+										<c:forEach items="${commentList2}" var="commentList2"
+											varStatus="status">
+											<c:if
+												test="${commentList2.hycoGroupSeq eq commentList2.hycoGroupParent}">
 
 
-
-									<c:forEach items="${commentList2}" var="commentList2"
-										varStatus="status">
-										<c:if
-											test="${commentList2.hycoGroupSeq eq commentList2.hycoGroupParent}">
-
-					
 												<img style="width: 30px; height: 30px;"
 													src="<c:out value="${commentList2.path}"/><c:out value="${commentList2.uuidFileName}"/>"
 													class="avatar rounded-pill flex-shrink-0" />
@@ -421,11 +441,11 @@ pageContext.setAttribute("br", "\n");
 												<p class="mb-0">
 													<c:out value="${commentList2.hycoText}" />
 												</p>
-										
 
-											<br>
 
-											<div class="mb-2 small">
+												<br>
+
+												<%-- 	<div class="mb-2 small">
 												<div align="right">
 													<button class="btn btn-secondary btn-sm " type="button"
 														data-bs-toggle="collapse"
@@ -449,10 +469,10 @@ pageContext.setAttribute("br", "\n");
 														</div>
 													</div>
 												</div>
-											</div>
-										</c:if>
-									</c:forEach>
-
+											</div> --%>
+											</c:if>
+										</c:forEach>
+									</div>
 								</c:forEach>
 
 

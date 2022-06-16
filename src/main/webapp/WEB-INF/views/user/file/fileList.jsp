@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>  
+<head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,10 +48,6 @@
 	<!-- include 처리 1번 -->
 	<%@include file="../include/loader.jsp"%>
 
-	<!--App Start-->
-	<div class="d-flex flex-column flex-root">
-		<!--Page-->
-		<div class="page d-flex flex-row flex-column-fluid">
 			<!-- include 처리 2번 -->
 			<%@include file="../include/pageSideBar.jsp"%>
 
@@ -75,21 +71,6 @@
 				</form>
 
 
-
-				<!--//Page Toolbar//-->
-				<!-- 			<div class="toolbar py-4 px-4 px-lg-8">
-					<div class="position-relative container-fluid px-0">
-						<div class="row align-items-center position-relative">
-							<div class="col-md-8 mb-4 mb-lg-0">
-								<h3 class="mb-2">UI 공사중 ㅠㅠ</h3>
-
-
-							</div>
-						</div>
-					</div>
-				</div>  -->
-				<!--//Page Toolbar End//-->
-
 				<!--Email Header-->
 				<div class="top-0 mb-2 px-4 px-lg-8 ">
 					<div
@@ -98,20 +79,20 @@
 						<div class="flex-grow-1">
 
 
-							<div
-								data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
+							<div data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
 								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 								<i class="bi bi-trash-fill" data-bs-toggle="modal"
-								data-bs-target="#btnModalNelete"></i>
-							</div> <a
+									data-bs-target="#btnModalNelete"></i>
+							</div>
+							<a
 								href="javascript:goFileForm('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
-								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+								'<c:out value="${vo.shHydcValue}"/>');"
 								data-bs-placement="top" data-bs-toggle="tooltip" title="등록"
 								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 								<i class="bi bi-pencil-fill"></i>
 							</a> <a
 								href="javascript:goFileListTemp('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
-								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+							'<c:out value="${vo.shHydcValue}"/>');"
 								data-bs-placement="top" data-bs-toggle="tooltip" title="임시저장리스트"
 								class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 								<i class="bi bi-bookmark-check-fill"></i>
@@ -126,17 +107,17 @@
 											<h5 class="modal-title" id="modal-title">
 												<i class="fas fa-exclamation-circle"></i>삭제 확인!
 											</h5>
-										<!-- 	<button type="button" class="btn-close"
+											<!-- 	<button type="button" class="btn-close"
 												data-bs-dismiss="modal" aria-label="Close"></button> -->
 										</div>
 										<div class="modal-body">정말 삭제하시겠습니까?</div>
 										<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
+											<button type="button" class="btn btn-secondary"
 												data-bs-dismiss="modal">취소</button>
 
 											<a
 												href="javascript:goFileMultiNelete
-									('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>',
+									('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>',
 									'<c:out value="${vo.shHydcValue}"/>' );">
 												<button type="button" class="btn btn-primary" id="">확인</button>
 											</a>
@@ -144,7 +125,6 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -157,11 +137,6 @@
 						<div class="sticky-top top-0">
 							<!--Search form-->
 							<div class="pb-5">
-
-
-								<form class="position-relative">
-
-
 									<%-- 				<select class="form-select form-select" name="shHydcOption"
 										id="shHydcOption" style="">
 										<option value="">검색구문
@@ -175,13 +150,11 @@
 											<c:if test="${vo.shHydcOption eq 4 }"> selected</c:if>>파일명
 										
 									</select> --%>
-
 									<input class="form-control form-control" type="text"
-										name="shHydcValue" id="shHydcValue" style="" value=""
+										name="shHydcValue" id="shHydcValue" 
 										placeholder=" 검색어를입력해주세요(제목,내욕,파일명,작성자)  UI공사중이에요~~">
 									<button class="btn btn-primary" type="submit" name="search"
 										id="btnSearch" style="display: none;"></button>
-								</form>
 							</div>
 						</div>
 					</div>
@@ -191,30 +164,12 @@
 
 				<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 					<div class="container-fluid px-0">
-						<div class="row text-center">
 							<div class="col-12">
 								<div class="card">
 									<div class="table-responsive">
 										<table
-											class="table-card align-middle table-nowrap mb-0 table table-borderless">
+											class=" table-nowrap mb-0 table table-borderless">
 
-											<!-- 			<thead class="small text-uppercase text-muted">
-												<tr>
-
-											<th class=""><input type="checkbox"
-														id="checkboxAll" name="checkboxAll">check All</th>
-										
-										<td></td>
-										<td></td>
-										<td>
-											<input class="form-control form-control" type="text"
-														name="shHydcValue" id="shHydcValue" style="" value=""
-														placeholder="검색어를입력해주세요"> </td>
-
-										<td><button class="btn btn-primary" type="submit" name="search"
-														id="btnSearch">검색</button> </td>
-												</tr>
-											</thead> -->
 											<tbody>
 
 												<c:choose>
@@ -264,16 +219,16 @@
 																			<span class="fw-bolder me-2 me-lg-4"> <a
 																				href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
 																					<c:out value="${item.hydcTitle}" />
-																			</a> 
-																					<c:if test="${item.hydcType eq 1 or item.hydcType eq 2}">
-																						<i class="bi bi-paperclip"></i>
-																						<!--  파일이면클립아이콘 -->
-																					</c:if>
-																					<c:if test="${item.hydcType eq 1 or item.hydcType eq 3}">
-																						<i class="bi bi-image-fill"></i>
-																						<!-- 사진이면이미지아이콘 -->
-																					</c:if>
-								
+																			</a> <c:if
+																					test="${item.hydcType eq 1 or item.hydcType eq 2}">
+																					<i class="bi bi-paperclip"></i>
+																					<!--  파일이면클립아이콘 -->
+																				</c:if> <c:if
+																					test="${item.hydcType eq 1 or item.hydcType eq 3}">
+																					<i class="bi bi-image-fill"></i>
+																					<!-- 사진이면이미지아이콘 -->
+																				</c:if>
+
 
 																			</span>
 																		</p>
@@ -331,21 +286,24 @@
 										</div>
 									</div>
 								</div>
-								<!--//Page content End//-->
+							</div>
+						</div>
+					</div>
+
+				<!--//Page content End//-->
 
 
-								<!--//Page-footer//-->
-								<footer class="pb-4 px-4 px-lg-8">
-									<div class="container-fluid px-0">
-										<span class="d-block lh-sm small text-muted text-end">
-											&copy; <script>
-												document.write(new Date()
-														.getFullYear())
-											</script> . Hey, Buddy All rights reserved.
-										</span>
-									</div>
-								</footer>
-								<!--/.Page Footer End-->
+				<!--//Page-footer//-->
+				<footer class="pb-4 px-4 px-lg-8">
+					<div class="container-fluid px-0">
+						<span class="d-block lh-sm small text-muted text-end">
+							&copy; <script>
+								document.write(new Date().getFullYear())
+							</script> . Hey, Buddy All rights reserved.
+						</span>
+					</div>
+				</footer>
+				<!--/.Page Footer End-->
 			</main>
 			<!--///////////Page content wrapper End///////////////-->
 
@@ -401,32 +359,34 @@
 					$("#formList").attr("action", "/file/fileListTemp");
 					$("#formList").submit();
 				};
-/* 				goFileMultiNelete = function(seq) {
-					$("#formList").attr("action", "/file/fileMultiNele");
-					$("#formList").submit();
-				}; */
+				/* 				goFileMultiNelete = function(seq) {
+				 $("#formList").attr("action", "/file/fileMultiNele");
+				 $("#formList").submit();
+				 }; */
 			</script>
 
 			<script>
-	
-	var goFileMultiNelete ="/file/fileMultiNele";
-	var seq = $("input:hidden[name=hydcSeq]");
-	var form = $("form[name=formList]");
-	var checkboxSeqArray = [];
-	
-				$("#btnModalNelete").on("click", function(){
-					$("input[name=checkboxSeq]:checked").each(function(){ // check된것을 찾고 체크된 값만 넘김
-						checkboxSeqArray.push($(this).val());  // check 해당된 값을 담는다.
-					});				
-				
-				$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-				$("#modalConfirm").modal("hide");
-				form.attr("action", goFileMultiNelete).submit();
-				});
-				
-	</script>
-	
-	<!-- 			<script type="text/javascript">
+				var goFileMultiNelete = "/file/fileMultiNele";
+				var seq = $("input:hidden[name=hydcSeq]");
+				var form = $("form[name=formList]");
+				var checkboxSeqArray = [];
+
+				$("#btnModalNelete").on(
+						"click",
+						function() {
+							$("input[name=checkboxSeq]:checked").each(
+									function() { // check된것을 찾고 체크된 값만 넘김
+										checkboxSeqArray.push($(this).val()); // check 해당된 값을 담는다.
+									});
+
+							$("input:hidden[name=checkboxSeqArray]").val(
+									checkboxSeqArray);
+							$("#modalConfirm").modal("hide");
+							form.attr("action", goFileMultiNelete).submit();
+						});
+			</script>
+
+			<!-- 			<script type="text/javascript">
 				$("#checkboxAll").click(function() { //전체선택 인데 ui구성상 전체선택은 뺴버림..ㅎㅎ
 					if ($("#checkboxAll").is(":checked"))
 						$("input[name=checkboxSeq]").prop("checked", true);
@@ -443,9 +403,9 @@
 						$("#checkboxAll").prop("checked", true);
 				});
 			</script> -->
-			
-			
-			
+
+
+
 			<%@include file="../include/pageScripts.jsp"%>
 </body>
 

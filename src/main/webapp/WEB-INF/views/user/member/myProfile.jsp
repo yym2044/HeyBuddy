@@ -455,6 +455,12 @@ if (toastTrigger) {
 	<script type="text/javascript">
 		
 		$("#btnSubmit").on("click", function(){
+			
+			if($("#hymmDob").val() == ""){
+				alert("생일을 입력해주세요.");
+				return false;
+			}
+			
 			$("#myProfileForm").attr("action", "/user/myProfileUpdt").submit();
 		});
 		
@@ -465,6 +471,7 @@ if (toastTrigger) {
 		alert("준비중입니다.");
 	}
 	</script>
+	
 	<%@include file="../include/pageScripts.jsp"%>
 </body>
 

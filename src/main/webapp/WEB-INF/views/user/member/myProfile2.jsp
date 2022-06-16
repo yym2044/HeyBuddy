@@ -42,7 +42,7 @@
 	align-items: center; /* 수직 정렬 */ 
 }
 
-.card {
+#card1 {
 	width: 350px;
 	height: 600px;
 }
@@ -52,7 +52,7 @@
 	height: 200px;
 }
 
-#table tr {
+#table1 tr {
 	height: 45px;
 }
 #grayArea {
@@ -123,7 +123,7 @@
 
 
 								<!--card-->
-								<div class="card px-0">
+								<div class="card px-0" id="card1">
 
 									<!--Card body-->
 									<div class="card-body px-0">
@@ -157,25 +157,43 @@
 											</div>
 											<div class="px-6">
 
-												<table id="table" class="w-100 text-start mt-4">
+												<table id="table1" class="w-100 text-start mt-4">
 													<tr>
-														<td class="text-muted">휴대전화</td>
-														<td><c:choose>
-																<c:when test="${fn:length(rt.hymmNumber) eq 10 }">
-																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out
-																		value="${fn:substring(rt.hymmNumber,3,6)}" />-<c:out
-																		value="${fn:substring(rt.hymmNumber,6,10)}" />
+														<td class="text-muted" style="width: 80px;">휴대전화</td>
+														<td>
+															<c:choose>
+																<c:when test="${empty rt.hymmNumber}">
+																	-
 																</c:when>
 																<c:otherwise>
-																	<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out
-																		value="${fn:substring(rt.hymmNumber,3,7)}" />-<c:out
-																		value="${fn:substring(rt.hymmNumber,7,11)}" />
+																	<c:choose>
+																		<c:when test="${fn:length(rt.hymmNumber) eq 10 }">
+																			<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out
+																				value="${fn:substring(rt.hymmNumber,3,6)}" />-<c:out
+																				value="${fn:substring(rt.hymmNumber,6,10)}" />
+																		</c:when>
+																		<c:otherwise>
+																			<c:out value="${fn:substring(rt.hymmNumber,0,3)}" />-<c:out
+																				value="${fn:substring(rt.hymmNumber,3,7)}" />-<c:out
+																				value="${fn:substring(rt.hymmNumber,7,11)}" />
+																		</c:otherwise>
+																	</c:choose>
 																</c:otherwise>
-															</c:choose></td>
+															</c:choose>
+														</td>
 													</tr>
 													<tr>
 														<td class="text-muted">이메일</td>
-														<td><c:out value="${rt.hymmEmail}" /></td>
+														<td>
+															<c:choose>
+																<c:when test="${empty rt.hymmEmail}">
+																	-																	
+																</c:when>
+																<c:otherwise>
+																	<c:out value="${rt.hymmEmail}" />
+																</c:otherwise>
+															</c:choose>
+														</td>
 													</tr>
 												</table>
 											</div>

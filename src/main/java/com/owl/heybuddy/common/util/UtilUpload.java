@@ -72,7 +72,10 @@ public class UtilUpload {
 		File uploadPath = new File(path);
 
 		if (!uploadPath.exists()) {
-			uploadPath.mkdir();
+//			아마존으로 쓰려면 mkdirs() 써야함.
+//			uploadPath.mkdir();
+			
+			uploadPath.mkdirs();
 		} else {
 		}
 	}

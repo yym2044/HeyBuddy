@@ -34,6 +34,9 @@
 		<h1>
 			<c:out value="${rt.hymrRoomName}" />
 		</h1>
+		<div class="col text-end me-5">
+			<button id="leave" data-bs-target="#leaveModal" data-bs-toggle="modal">Leave</button>
+		</div>
 	</header>
 	<main>
 		<div class="call" id="call">
@@ -59,7 +62,9 @@
 						</div>
 					</div>
 					<div id="controlers__column">
+					<!-- 
 						<button id="leave" data-bs-target="#leaveModal" data-bs-toggle="modal">Leave</button>
+					 -->
 					</div>
 				</div>
 			</div>

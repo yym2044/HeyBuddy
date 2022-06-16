@@ -260,7 +260,7 @@ main {
 #streamBox #controlers #buttons .unCameraIcon {
   color: var(--red-icon-color);
 }
-
+/* 
 #streamBox #controlers #leave {
   padding: 5px 10px;
 
@@ -274,8 +274,30 @@ main {
 
   transition: all 0.2s ease-in-out;
 }
+*/
 
+#leave {
+	padding: 5px 10px;
+
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+
+  background: var(--red-icon-color);
+  color: var(--header-background-color);
+
+  transition: all 0.2s ease-in-out;
+}
+
+/* 
 #streamBox #controlers #leave:hover {
+  background-color: var(--header-background-color);
+  color: var(--red-icon-color);
+}
+*/
+
+#leave:hover {
   background-color: var(--header-background-color);
   color: var(--red-icon-color);
 }
@@ -310,7 +332,7 @@ main {
 }
 
 #chatRoom #chatBox .myChat {
-  opacity: 0.6;
+  opacity: 1;
   color: yellow;
 }
 

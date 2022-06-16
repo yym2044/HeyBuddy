@@ -364,6 +364,18 @@ public class MemberController {
 
 		return "user/setting/memberEdit";
 	}
+	
+	@RequestMapping(value = "/setting/memberUpdt")
+	public String memberUpdtSetting(Member dto, MemberVo vo, HttpSession httpSession, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.updateMemberSetting(dto);
+		
+		vo.setHymmSeq(dto.getHymmSeq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/setting/memberView";
+	}
 
 	@RequestMapping(value = "/setting/memberForm")
 	public String memberFormHost(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
@@ -406,11 +418,15 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/setting/memberView")
-	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, HttpSession httpSession, Model model)
+	public String memberViewHost(@ModelAttribute("vo") MemberVo vo, Member dto, HttpSession httpSession, Model model)
 			throws Exception {
 
 		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
-
+		
+		System.out.println("------------------------------------------");
+		System.out.println(dto.getHymmSeq());
+		System.out.println("------------------------------------------");
+		
 		Member rt = service.selectOneMemberInSpace(vo);
 		model.addAttribute("item", rt);
 		model.addAttribute("uploaded", service.profileUploaded(vo));

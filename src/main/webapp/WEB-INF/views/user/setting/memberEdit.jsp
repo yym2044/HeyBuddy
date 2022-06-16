@@ -140,25 +140,25 @@ table tr .form-control {
 											<tr>
 												<td class="tableText">아이디</td>
 												<td>
-													<input type="text" class="form-control" placeholder="로그인 시 사용할 아이디" value="<c:out value="${item.hymmId}"/>">
+													<input type="text" class="form-control" placeholder="로그인 시 사용할 아이디" value="<c:out value="${item.hymmId}"/>" readonly>
 												</td>
 											</tr>
 											<tr>
 												<td>이름</td>
 												<td>
-													<input type="text" class="form-control" placeholder="이름(50자 이하)" value="<c:out value="${item.hymmName}"/>">
+													<input type="text" class="form-control" placeholder="이름(50자 이하)" value="<c:out value="${item.hymmName}"/>" readonly>
 												</td>
 											</tr>
 											<tr>
 												<td>휴대전화</td>
 												<td>
-													<input type="text" class="form-control" placeholder="전화번호" value="<c:out value="${item.hymmNumber}"/>">
+													<input type="text" name="hymmNumber" class="form-control" placeholder="전화번호" value="<c:out value="${item.hymmNumber}"/>">
 												</td>
 											</tr>
 											<tr>
 												<td>이메일</td>
 												<td>
-													<input type="text" class="form-control" placeholder="이메일" value="<c:out value="${item.hymmEmail}"/>">
+													<input type="text" name="hymmEmail" class="form-control" placeholder="이메일" value="<c:out value="${item.hymmEmail}"/>">
 												</td>
 											</tr>
 											<tr>
@@ -186,7 +186,7 @@ table tr .form-control {
 										</table>
 										<div class="text-center pb-4">
 											<a class="btn btn-secondary" href="javascript:goView(<c:out value="${item.hymmSeq}"/>)">취소</a>
-											<a class="btn btn-info" href="memberView">확인</a>
+											<a class="btn btn-info" href="javascript:goUpdt(<c:out value="${item.hymmSeq}"/>)">확인</a>
 										</div>
 									</div>
 								</div>
@@ -271,6 +271,11 @@ table tr .form-control {
 	goView = function(hymmSeq){
 		$("#hymmSeq").val(hymmSeq);
 		$("#formEdit").attr("action", "/setting/memberView").submit();
+	}
+	
+	goUpdt = function(hymmSeq){
+		$("#hymmSeq").val(hymmSeq);
+		$("#formEdit").attr("action", "/setting/memberUpdt").submit();
 	}
 	
 	</script>

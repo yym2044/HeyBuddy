@@ -96,10 +96,10 @@ public class OnlineHandler extends TextWebSocketHandler {
 	private String getSessSeq(WebSocketSession session) {
 		Map<String, Object> httpSession = session.getAttributes();
 		
-		for(String key : httpSession.keySet()) {
-			String value = String.valueOf(httpSession.get(key));
-			System.out.println("[key] : " + key + ", [value] : " + value);
-		}
+//		for(String key : httpSession.keySet()) {
+//			String value = String.valueOf(httpSession.get(key));
+//			System.out.println("[key] : " + key + ", [value] : " + value);
+//		}
 		
 		return (String) httpSession.get("sessSeq");
 	}

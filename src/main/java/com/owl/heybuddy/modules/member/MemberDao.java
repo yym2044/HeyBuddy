@@ -135,6 +135,8 @@ public class MemberDao {
 	public int updateMemberPwd(Member dto) {return sqlSession.update(namespace + ".updateMemberPwd", dto); }
 	
 	public int updateMemberAuth(Member dto) {return sqlSession.update(namespace + ".updateMemberAuth", dto); }
+	
+	public int updateMemberSetting(Member dto) {return sqlSession.update(namespace + ".updateMemberSetting", dto); }
 }
 
 

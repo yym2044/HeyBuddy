@@ -621,5 +621,16 @@
 			AND hysmSeq = #{hysmSeq}
 	</update>
 	
+	<update id="updateMemberSetting">
+		UPDATE
+			hybdMember
+		SET
+			hymmNumber = #{hymmNumber}
+			, hymmEmail = #{hymmEmail}
+			, hymmDob = #{hymmDob}
+			, hymmDesc = #{hymmDesc}
+		WHERE 1=1
+			AND hymmSeq = #{hymmSeq}
+	</update>
 	
 </mapper>

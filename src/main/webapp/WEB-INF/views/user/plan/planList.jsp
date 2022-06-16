@@ -288,38 +288,25 @@
 			success : function(data) {
 				
 				$.each(data, function(i) {
-					
-					var str = data[i].hyplMemberName;
-					
-					if(str != null){
-							
-						var memberArr = str.split(',');
-						
-						for(var j = 0; j < memberArr.length; j++){
-							if('<c:out value="${sessName}"/>' == memberArr[j]){
-								
-								const obj = new Object();
 
-								obj.seq = data[i].hyplSeq;
-								obj.title = data[i].hyplName;
-								obj.start = data[i].hyplDate;
-								obj.end = data[i].hyplEndDate;
-								obj.backgroundColor = "var(--bs-success)";
-								obj.borderColor = "var(--bs-success)";
+					const obj = new Object();
 
-								exampleEvents.push(obj);
-								
-							}
-						}
-						
-					}
-					
-					
+					obj.seq = data[i].hyplSeq;
+					obj.title = data[i].hyplName;
+					obj.start = data[i].hyplDate;
+					obj.end = data[i].hyplEndDate;
+					obj.backgroundColor = "var(--bs-success)";
+					obj.borderColor = "var(--bs-success)";
+
+					console.log(obj);
+
+					exampleEvents.push(obj);
 
 				});
 
+				console.log("sdfsdfsffsdfsdf");
 				console.log(exampleEvents);
-				 
+
 			}
 
 			,

@@ -149,7 +149,7 @@
 								<!--Attachment image-->
 								<div class="row">
 									<div class="col-md-12 mb-3">
-										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
+						 				<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
 										</label>
 						<!-- 				<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
 									 -->	

@@ -248,7 +248,7 @@
 
 									</div>
 								</div>
-							</div>
+							</div> 
 							<div class="card-body flex-grow-1">
 								<label for="hydcText" class="form-label"></label>
 								<p>

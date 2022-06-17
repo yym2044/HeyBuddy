@@ -119,7 +119,7 @@ public class FileVo {
 			
 			//댓글 paging	
 			private int thisPageC = 1;									// 현재 페이지
-			private int rowNumToShowC = 3;								// 화면에 보여줄 데이터 줄 갯수
+			private int rowNumToShowC = 5;								// 화면에 보여줄 데이터 줄 갯수
 			private int pageNumToShowC = 5;								// 화면에 보여줄 페이징 번호 갯수
 
 			private int totalRowsC;										// 전체 데이터 갯수

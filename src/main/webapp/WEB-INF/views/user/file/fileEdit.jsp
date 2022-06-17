@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
- 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
- 
+<% pageContext.setAttribute("br", "\n"); %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
+
 <!DOCTYPE html>
 <html lang="en"> 
 
@@ -140,11 +141,13 @@
 											<div class="col-md-12 mb-3">
 												<div class="form-floating">
 													내용
-													<input type="text" class="form-control" style="height: 100px" autocomplete="off" id="hydcText" name="hydcText" value="<c:out value="${item.hydcText}"/>" required>
+													<input type="text" class="form-control" style="height: 100px" autocomplete="off" id="hydcText" name="hydcText" value="	<c:out value="${fn:replace(item.hydcText, br, '<br/>')}"
+										escapeXml="false" />" required>
 													<div class="invalid-feedback">내용을 입력해주세요.</div>
 												</div>
 											</div>
 											
+								
 								
 							<!--Attachment image-->
 								<div class="row">

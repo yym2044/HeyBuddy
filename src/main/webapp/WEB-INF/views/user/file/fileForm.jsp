@@ -4,7 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-
+<% pageContext.setAttribute("br", "\n"); %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 
 <!DOCTYPE html>
 <html lang="en"> 
@@ -122,14 +123,7 @@
 								<div class="row justify-content-md-between">
 									<div class="col-md d-flex mb-4 mb-md-0 align-items-center">
 										<div class="col-md-12 mb-3">
-										<!-- 	공유자추가
-											<button type="button" id="btnCheckMember">공유자 체크 버튼</button>
-											<select multiple class="form-control" id="selectShare" data-choices='{"silent": true,"removeItems": "true","removeItemButton": "true"}'>
-												<option value="2">김나리</option>
-												<option value="3">윤영민</option>
-												<option value="1">정미림</option>
-												<option value="4">이건우</option> 
-											</select> -->
+							
 
 											<div class="col-md-12 mb-3">
 												제목
@@ -142,9 +136,10 @@
 													내용
 													<input type="text" class="form-control" style="height: 100px" autocomplete="off" id="hydcText" name="hydcText" value="" required>
 													<div class="invalid-feedback">내용을 입력해주세요.</div>
+
 												</div>
 											</div>
-										</div>
+								
 									</div>
 								</div>
 							</div>
@@ -179,7 +174,7 @@
 									<a href="javascript:goFileList();">
 									<button type="button" class="btn btn-primary ms-2" id="btnSubmit">등록</button>
 									</a>
-									
+									<br><br>
 								</div>
 
 							</div>

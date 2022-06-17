@@ -5,6 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+<% pageContext.setAttribute("br", "\n"); %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 
 <!DOCTYPE html>  
 <html lang="en"> 

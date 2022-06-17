@@ -5,9 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<%
-pageContext.setAttribute("br", "\n");
-%>
+<% pageContext.setAttribute("br", "\n"); %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 <!-- 설명엔터 -->
 
 
@@ -253,8 +252,10 @@ pageContext.setAttribute("br", "\n");
 							<div class="card-body flex-grow-1">
 								<label for="hydcText" class="form-label"></label>
 								<p>
-									<c:out value="${fn:replace(item.hydcText, br, '<br/>')}"
-										escapeXml="false" />
+								<%-- 	<c:out value="${fn:replace(item.hydcText, br, '<br/>')}" escapeXml="false" /> --%>
+									<c:out value="${fn:replace(item.hydcText, replaceChar, '<br/>')}" escapeXml="false" />
+								
+								
 								</p>
 
 								<br>

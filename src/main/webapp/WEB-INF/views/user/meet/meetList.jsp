@@ -278,7 +278,6 @@
 	 
 
 	 </script>
-	 
 	<script type="text/javascript">
 	const socket = new SockJS('/stompTest');
 	const client = Stomp.over(socket);
@@ -409,6 +408,14 @@
 		client.send("/pub/meetRoomList", {}, JSON.stringify({
 			"msg" : "give me rooms"
 		}));
+		//////////////////////////
+		function test(){
+			client.send("/pub/meetRoomList", {}, JSON.stringify({
+				"msg" : "give me rooms"
+			}));
+		}
+		
+		setInterval(test, 10000);
 		
 	});
 	
@@ -430,6 +437,7 @@
 	}
 	
 	</script>
+	
 	<%@include file="../include/pageScripts.jsp"%>
 </body>
 

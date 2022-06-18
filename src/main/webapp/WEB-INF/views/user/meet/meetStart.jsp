@@ -236,6 +236,23 @@
 	const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 	const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 	</script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+	<script type="text/javascript">
+	const sock = new SockJS('/stompTest');
+	const client = Stomp.over(sock);
+	
+	client.connect({}, function(){
+		console.log("Connected to stomp!");
+		
+		client.send("/pub/meetRoomList", {}, JSON.stringify({
+			"msg" : "give me rooms"
+		}));
+	});
+	</script>
+	
 	<%@include file="../include/pageScripts.jsp"%>
 </body>
 

@@ -390,6 +390,17 @@
     <script type="text/javascript">
     
     let backUrl;
+    let colorCd = '<c:out value="${host.hyspColorCd}"/>';
+    
+    if(colorCd == '14'){
+    	backUrl = 1;
+    } else if(colorCd == '15'){
+    	backUrl = 2;
+    } else if(colorCd == '16'){
+    	backUrl = 3;
+    } else if(colorCd == '17'){
+    	backUrl = 4;
+    }
     
     $("input[name='hyspColorCd']").on("click", function(){
     	if($(this).val() == '14'){

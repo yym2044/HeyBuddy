@@ -126,6 +126,30 @@
 			"msg" : "give me rooms"
 		}));
 	});
+	
+	
+	window.onbeforeunload = handleUnload;
+	window.onunload = handleUnload;
+	
+	function handleUnload(event){
+		$.ajax({
+			async: true
+			, cache: false
+			, type: "post"
+			, url: "/meet/meetLeaveAjax"
+			, data : { "hymmSeq" : '<c:out value="${sessSeq}"/>' , "hymrSeq" : '<c:out value="${rt.hymrSeq}"/>' , "hostNy" : '<c:out value="${meetRoomHostNy}"/>' }
+			, success: function(data){
+				
+				client.send("/pub/meetRoomList", {}, JSON.stringify({
+					"msg" : "give me rooms"
+				}));
+				
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	}
 	</script>
 	
 	<script type="text/javascript">
@@ -318,16 +342,45 @@
 	
 	///////////////////////////////////////////////////
 	
+	
+	
+		
+		
+		
+		/*   
+		var confirmationMessage = "잠깐";
+		
+		(event || window.event).preventDefault();
+		(event || window.event).returnValue = confirmationMessage;
+		 */
+		//return confirmationMessage;
+		
+	
+	
+
 	/* 
 	window.onbeforeunload = (event) => {
+		
+		$.ajax({
+			async: false
+			, cache: false
+			, type: "post"
+			, url: "/meet/meetLeaveAjax"
+			, data : { "hymmSeq" : '<c:out value="${sessSeq}"/>' , "hymrSeq" : '<c:out value="${rt.hymrSeq}"/>' , "hostNy" : '<c:out value="${meetRoomHostNy}"/>' }
+			, success: function(data){
+				
+				console.log(data);
+				
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+		 
 		event.preventDefault();
 		event.returnValue = '잠깐';
 	}
-	 */
-	 
-	 
-	 
-	 
+	  */
 	console.log(window);
 	
 	///////////////////////////////////////////////////

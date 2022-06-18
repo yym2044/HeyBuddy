@@ -15,7 +15,6 @@ public class FileServiceImpl implements FileService {
 
 	@Autowired
 	FileDao dao;
-	private FileDao FileDao;
 
 	@Override
 	public List<File> documentList(FileVo vo) throws Exception { // 문서리스트

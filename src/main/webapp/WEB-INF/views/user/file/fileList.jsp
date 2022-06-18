@@ -40,7 +40,14 @@
 </head>
 
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
+<style type="text/css">
 
+td{
+vertical-align: middle;
+height:30px;
+}
+
+</style>
 
 
 
@@ -165,7 +172,7 @@
 		<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 			<div class="container-fluid px-0">
 				<div class="col-12">
-					<div class="card">
+					<div class="card" style="height:430px;">
 						<div class="table-responsive">
 							<table class=" table-nowrap mb-0 table table-borderless">
 
@@ -197,7 +204,7 @@
 																		class="rounded-circle" alt="">
 																</c:when>
 																<c:otherwise>
-																	<img style="width: 50px; height: 50px;"
+																	<img style="width: 30px; height: 30px;"
 																		src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
 																		class="avatar rounded-pill flex-shrink-0" />
 																</c:otherwise>

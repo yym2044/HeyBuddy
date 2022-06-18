@@ -189,7 +189,7 @@ body {
 							</span>
 						</div>
 					</footer>
-					<!--/.Page Footer End-->
+					<!--//Page Footer End-->
 
 				</main>
 			</div>

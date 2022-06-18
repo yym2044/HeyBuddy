@@ -44,7 +44,7 @@
 
 #card1 {
 	width: 350px;
-	height: 600px;
+	height: 500px;
 }
 
 #profilePhoto {
@@ -195,13 +195,25 @@
 															</c:choose>
 														</td>
 													</tr>
+													<tr>
+														<td colspan="2" class="text-center">
+															<c:choose>
+																<c:when test="${!empty rt.hymmDesc}">
+																	<c:out value="${rt.hymmDesc}"/>
+																</c:when>
+																<c:otherwise>
+																	상태메세지가 없습니다.																
+																</c:otherwise>
+															</c:choose>
+														</td>
+													</tr>
 												</table>
 											</div>
 										</div>
 									</div>
 								</div>
 
-</div>
+							</div>
 
 								<!-- ////////////////////////////////////////////////////////////// -->
 							</div>

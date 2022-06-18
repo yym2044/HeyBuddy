@@ -180,8 +180,7 @@ height:30px;
 
 									<c:choose>
 										<c:when test="${fn:length(list) eq 0}">
-											<div style="height: 490px;"
-												class="d-flex align-items-center justify-content-center">
+											<div style="margin-top:80px;">
 												<div class="text-center">
 													<h1 class="d-block">등록된 문서가 없습니다</h1>
 													<img src="/resources/user/images/cuteOwl.png"
@@ -199,7 +198,7 @@ height:30px;
 
 														<td class=""><c:choose>
 																<c:when test="${empty item.uuidFileName}">
-																	<img style="width: 50px; height: 50px;"
+																	<img style="width: 30px; height: 30px;"
 																		src="/resources/user/images/profileDefault.png"
 																		class="rounded-circle" alt="">
 																</c:when>

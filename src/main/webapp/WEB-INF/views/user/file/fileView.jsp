@@ -138,8 +138,9 @@ pageContext.setAttribute("replaceChar", "\n");
 						type="hidden" id="shHydcOption" name="shHydcOption"
 						value="<c:out value="${vo.shHydcOption}"/>"> <input
 						type="hidden" id="shHydcValue" name="shHydcValue"
-						value="<c:out value="${vo.shHydcValue}"/>">
-
+						value="<c:out value="${vo.shHydcValue}"/>"> <input
+						type="hidden" id="hycoSeq" name="hycoSeq"
+						value="<c:out value="${vo.hycoSeq}"/>">
 
 
 
@@ -397,11 +398,10 @@ pageContext.setAttribute("replaceChar", "\n");
 
 										<img style="width: 30px; height: 30px;"
 											src="<c:out value="${commentList1.path}"/><c:out value="${commentList1.uuidFileName}"/>"
-											class="avatar rounded-pill flex-shrink-0" />
-
-										<span class="fw-semi-bold"><c:out value="${commentList1.hymmName}" /></span>
-
-										<small class="text-muted"><fmt:formatDate
+											class="avatar rounded-pill flex-shrink-0" /> <span
+											class="fw-semi-bold"><c:out
+												value="${commentList1.hymmName}" /></span> <small
+											class="text-muted"><fmt:formatDate
 												pattern="yyyy-MM-dd hh:mm"
 												value="${commentList1.regDateTime}" /></small>
 
@@ -409,21 +409,24 @@ pageContext.setAttribute("replaceChar", "\n");
 											<c:out value="${commentList1.hycoText}" />
 										</p>
 
-	<div
-										class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
-										<c:if test="${commentList1.hymmSeq eq sessSeq}">
+										<div
+											class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
+											<c:if test="${commentList1.hymmSeq eq sessSeq}">
 
-											<a href="javascript:goCommentDelete;" data-bs-placement="top"
-												data-bs-toggle="tooltip" title="삭제"
-												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
-												<i class="bi bi-trash-fill" ></i></a>
-								<!-- 			<a href="javascript:goCommentEdit;" data-bs-placement="top"
+												<a
+													href="javascript:goCommentDelete('<c:out value="${commentList1.hycoSeq}"/>','<c:out value="${vo.thisPage}"/>',
+								'<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');"
+													data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
+													class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+													<i class="bi bi-trash-fill"></i>
+												</a>
+												<!-- 			<a href="javascript:goCommentEdit;" data-bs-placement="top"
 												data-bs-toggle="tooltip" title="수정"
 												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
 												<i class="bi bi-pencil-fill"></i>
 											</a> -->
-										</c:if>
-</div>
+											</c:if>
+										</div>
 
 										<%-- 대댓글 구현 실패로 우선 주석 ㅠㅠ
 										<div class="mb-2 small">
@@ -743,6 +746,7 @@ pageContext.setAttribute("replaceChar", "\n");
 			$("#formView").submit();
 		};
 		goCommentDelete = function(seq) {
+			var seq = $("input:hidden[name=hycoSeq]");
 			$("#formView").attr("action", "/file/commentNele");
 			$("#formView").submit();
 		};

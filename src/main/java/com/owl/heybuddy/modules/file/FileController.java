@@ -189,19 +189,21 @@ public class FileController {
 			throws Exception {
 		service.updateDeleteComment(vo);
 
-		vo.setHycoSeq(dto.getHycoSeq());
-		redirectAttributes.addFlashAttribute("vo", vo);
-
 		/*
-		 * redirectAttributes.addAttribute("thisPage", vo.getThisPage());
-		 * redirectAttributes.addAttribute("hydcSeq", vo.getHydcSeq());
-		 * redirectAttributes.addAttribute("hydcTitle", vo.getHydcTitle());
-		 * redirectAttributes.addAttribute("hydcText", vo.getHydcText());
-		 * redirectAttributes.addAttribute("hycoText", vo.getHycoText());
-		 * redirectAttributes.addAttribute("hycoDelNy", vo.getHycoDelNy());
-		 * redirectAttributes.addAttribute("shHydcOption", vo.getShHydcOption());
-		 * redirectAttributes.addAttribute("shHydcValue", vo.getShHydcValue());
+		 * vo.setHycoSeq(dto.getHycoSeq()); redirectAttributes.addFlashAttribute("vo",
+		 * vo);
 		 */
+
+	    redirectAttributes.addAttribute("thisPage", vo.getThisPage());
+		redirectAttributes.addAttribute("hydcSeq", vo.getHydcSeq());
+		redirectAttributes.addAttribute("hydcTitle", vo.getHydcTitle());
+		redirectAttributes.addAttribute("hydcText", vo.getHydcText());
+		redirectAttributes.addAttribute("hycoSeq", vo.getHycoSeq());
+		redirectAttributes.addAttribute("hycoText", vo.getHycoText());
+		redirectAttributes.addAttribute("hycoDelNy", vo.getHycoDelNy());
+		redirectAttributes.addAttribute("shHydcOption", vo.getShHydcOption());
+		redirectAttributes.addAttribute("shHydcValue", vo.getShHydcValue());
+		
 		return "redirect:/file/fileView";
 	}
 

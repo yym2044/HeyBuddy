@@ -275,7 +275,7 @@
 												</c:when>
 												<c:otherwise>
 
-													<div class="card-hover me-2  width-100">
+													<div class="card-hover me-2  width-100 height-200">
 														<span
 															class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
 															<img

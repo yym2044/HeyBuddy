@@ -144,7 +144,7 @@
 								</div>
 							</div>
 
-							<div class="card-body flex-grow-1">
+							
 
 								<!--Attachment image-->
 								<div class="row">
@@ -160,10 +160,8 @@
 										</div>
 									</div>
 								</div>
-								<!--Attachment image-->
-								
-								
 							</div>
+							
 							<div class="row text-center" style="width: 100%">
 								<div style="width: 100%; float: none; margin: 0 auto">
 

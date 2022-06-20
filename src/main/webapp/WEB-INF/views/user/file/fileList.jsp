@@ -139,7 +139,7 @@ td {
 		<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 			<div class="container-fluid px-0">
 				<div class="col-12">
-					<div class="card" style="height: 700px;">
+					<div class="card" style="height: 600px;">
 						<div class="table-responsive">
 							<table class=" table-nowrap mb-0 table table-borderless">
 
@@ -159,20 +159,14 @@ td {
 
 												<option value="4"
 													<c:if test="${vo.shHydcOption eq 4 }"> selected</c:if>>파일명
-
-
-
-												
 										</select></th>
 
 										<th  colspan="2"><input class="form-control form-control" type="text"
 											name="shHydcValue" id="shHydcValue" placeholder="검색어를입력해주세요"></th>
-										
-						
+									
 										<th ><button
 												class="btn btn-primary" type="submit" name="search"
 												id="btnSearch">검색</button></th>
-
 									</tr>
 								</thead>
 
@@ -209,9 +203,9 @@ td {
 
 													<td class="">
 														<div class="mb-0 me-2 flex-shrink-0 name">
-															<a href="#modalMember" data-bs-toggle="modal"> <c:out
+														<!-- 	<a href="#modalMember" data-bs-toggle="modal"> --> <c:out
 																	value="${item.hymmName}" />
-															</a>
+															<!-- </a> -->
 														</div>
 													</td>
 
@@ -221,11 +215,11 @@ td {
 																href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
 																	<c:out value="${item.hydcTitle}" />
 															</a> <c:if test="${item.hydcType eq 1 or item.hydcType eq 2}">
-																	<i class="bi bi-paperclip"></i>
+																	 &nbsp; <i class="bi bi-paperclip"></i>
 																	<!--  파일이면클립아이콘 -->
 																</c:if> <c:if
 																	test="${item.hydcType eq 1 or item.hydcType eq 3}">
-																	<i class="bi bi-image-fill"></i>
+																	&nbsp; <i class="bi bi-image-fill"></i>
 																	<!-- 사진이면이미지아이콘 -->
 																</c:if> <!-- 댓글카운트 --> <%-- 	 &nbsp;&nbsp;(<i data-feather="message-square"
 																	class="fe-1x me-1 align-middle-sm"></i> <span><c:out
@@ -384,11 +378,7 @@ td {
 		$("#btnSearch").on(
 				"click", function() {
 				if (!checkNull($("#shHydcOption"), $("#shHydcOption").val(),"검색구문을 선택해 주세요!")) 
-					return 
-					false;
-				if (!checkNull($("#shHydcValue"), $("#shHydcValue").val(),"검색어를 입력 해 주세요!"))
-					return 
-					false;
+					return  false;
 			});
 	</script>
 	

@@ -27,6 +27,7 @@
 		OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
 		OR e.hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')
 		) -->
+		<if test="shHymmName != null and !shHymmName.equals('')"> AND shHymmName LIKE concat('%',#{shHymmName},'%')</if>
 		<choose>
 			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
 			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
@@ -38,7 +39,7 @@
 		limit #{startRnumForMysql} , #{rowNumToShow}
 	</sql> 
 	
-		<sql id="selectCommonC">  <!-- 댓글공통 -->
+	<sql id="selectCommonC">  <!-- 댓글공통 -->
         FROM hybdComment a
         LEFT JOIN hybdMember b ON b.hymmSeq = a.hymmSeq
         LEFT JOIN hybdMemberUploaded c ON c.pseq = b.hymmSeq
@@ -51,12 +52,12 @@
 	</sql> 
 	
 	
-
 	<select id="selectOneCount" resultType="Integer">   <!-- selectCommon 사용 / 페이징 -->
 		select
 		count(*)
  	<include refid="selectCommon" />
 	</select>
+
 
 	<select id="selectOneCountC" resultType="Integer">   <!-- 댓글 페이징 -->
 		select

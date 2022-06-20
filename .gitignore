@@ -30,3 +30,6 @@ target/
 .factorypath
 .project
 .springBeans
+
+# template
+/src/main/webapp/resources/assets/

@@ -27,6 +27,13 @@
 		OR b.hymmName LIKE concat('%',#{shHydcValue},'%')
 		OR e.hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')
 		) -->
+		<choose>
+			<when test="shHydcOption == 1">AND hydcTitle LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcOption == 2">AND hydcText LIKE concat('%',#{shHydcValue},'%')</when>
+			<when test="shHydcOption == 3">AND hymmName LIKE concat('%',#{shHydcValue},'%')	</when>
+			<when test="shHydcOption == 4">AND hyflOriginalFileName LIKE concat('%',#{shHydcValue},'%')	</when>
+		</choose>
+		
 		ORDER BY a.modDateTime DESC
 		limit #{startRnumForMysql} , #{rowNumToShow}
 	</sql> 

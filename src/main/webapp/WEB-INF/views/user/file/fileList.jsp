@@ -41,12 +41,10 @@
 
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 <style type="text/css">
-
-td{
-vertical-align: middle;
-height:30px;
+td {
+	vertical-align: middle;
+	height: 30px;
 }
-
 </style>
 
 
@@ -135,125 +133,117 @@ height:30px;
 				</div>
 			</div>
 		</div>
-		<!--Email Header-->
-
-
-
-		<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
-			<div class="col-md-12 mx-auto">
-				<div class="sticky-top top-0">
-					<!--Search form-->
-					<div class="pb-5">
-						<%-- 				<select class="form-select form-select" name="shHydcOption"
-										id="shHydcOption" style="">
-										<option value="">검색구문
-											<option value="1"
-											<c:if test="${vo.shHydcOption eq 1 }"> selected</c:if>>제목
-										<option value="2"
-											<c:if test="${vo.shHydcOption eq 2 }"> selected</c:if>>내용			
-										<option value="3"
-											<c:if test="${vo.shHydcOption eq 3 }"> selected</c:if>>작성자
-										<option value="3"
-											<c:if test="${vo.shHydcOption eq 4 }"> selected</c:if>>파일명
-										
-									</select> --%>
-						<input class="form-control form-control" type="text"
-							name="shHydcValue" id="shHydcValue"
-							placeholder=" 검색어를입력해주세요(제목,내욕,파일명,작성자)  UI공사중이에요~~">
-						<button class="btn btn-primary" type="submit" name="search"
-							id="btnSearch" style="display: none;"></button>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<!--//Page content//-->
 
 		<div class="content py-4 px-4 px-lg-8 d-flex flex-column-fluid">
 			<div class="container-fluid px-0">
 				<div class="col-12">
-					<div class="card" style="height:430px;">
+					<div class="card" style="height: 700px;">
 						<div class="table-responsive">
 							<table class=" table-nowrap mb-0 table table-borderless">
 
-								<tbody>
+								<thead class="small text-uppercase text-muted">
+									<tr>
+										<th  colspan="2"><select class="form-select form-select"
+											name="shHydcOption" id="shHydcOption" style="">
+												<option value="">선택
+												<option value="1"
+													<c:if test="${vo.shHydcOption eq 1 }"> selected</c:if>>제목
 
-									<c:choose>
-										<c:when test="${fn:length(list) eq 0}">
-											<div style="margin-top:80px;">
-												<div class="text-center">
-													<h1 class="d-block">등록된 문서가 없습니다</h1>
-													<img src="/resources/user/images/cuteOwl.png"
-														style="width: 200px;">
-												</div>
+												<option value="2"
+													<c:if test="${vo.shHydcOption eq 2 }"> selected</c:if>>내용
+
+												<option value="3"
+													<c:if test="${vo.shHydcOption eq 3 }"> selected</c:if>>작성자
+
+												<option value="4"
+													<c:if test="${vo.shHydcOption eq 4 }"> selected</c:if>>파일명
+
+
+
+												
+										</select></th>
+
+										<th  colspan="2"><input class="form-control form-control" type="text"
+											name="shHydcValue" id="shHydcValue" placeholder="검색어를입력해주세요"></th>
+										
+						
+										<th ><button
+												class="btn btn-primary" type="submit" name="search"
+												id="btnSearch">검색</button></th>
+
+									</tr>
+								</thead>
+
+								<c:choose>
+									<c:when test="${fn:length(list) eq 0}">
+										<div style="margin-top: 80px;">
+											<div class="text-center">
+												<h1 class="d-block">등록된 문서가 없습니다</h1>
+												<img src="/resources/user/images/cuteOwl.png"
+													style="width: 200px;">
 											</div>
-										</c:when>
-										<c:otherwise>
-											<c:forEach items="${list}" var="item" varStatus="status">
-												<tbody id="">
-													<tr>
-														<td><input type="checkbox" id="checkboxSeq"
-															name="checkboxSeq"
-															value="<c:out value="${item.hydcSeq}" />"></td>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<c:forEach items="${list}" var="item" varStatus="status">
+											<tbody id="">
+												<tr>
+													<td> &nbsp;&nbsp;<input type="checkbox" id="checkboxSeq"
+														name="checkboxSeq"
+														value="<c:out value="${item.hydcSeq}" />"></td>
 
-														<td class=""><c:choose>
-																<c:when test="${empty item.uuidFileName}">
-																	<img style="width: 30px; height: 30px;"
-																		src="/resources/user/images/profileDefault.png"
-																		class="rounded-circle" alt="">
-																</c:when>
-																<c:otherwise>
-																	<img style="width: 30px; height: 30px;"
-																		src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
-																		class="avatar rounded-pill flex-shrink-0" />
-																</c:otherwise>
-															</c:choose></td>
+													<td class=""><c:choose>
+															<c:when test="${empty item.uuidFileName}">
+																<img style="width: 40px; height: 40px;"
+																	src="/resources/user/images/profileDefault.png"
+																	class="rounded-circle" alt="">
+															</c:when>
+															<c:otherwise>
+																<img style="width: 30px; height: 30px;"
+																	src="<c:out value="${item.path}"/><c:out value="${item.uuidFileName}"/>"
+																	class="avatar rounded-pill flex-shrink-0" />
+															</c:otherwise>
+														</c:choose></td>
 
-														<td class="">
-															<div class="mb-0 me-2 flex-shrink-0 name">
-																<a href="#modalMember" data-bs-toggle="modal"> <c:out
-																		value="${item.hymmName}" />
-																</a>
+													<td class="">
+														<div class="mb-0 me-2 flex-shrink-0 name">
+															<a href="#modalMember" data-bs-toggle="modal"> <c:out
+																	value="${item.hymmName}" />
+															</a>
+														</div>
+													</td>
 
-																<!--   <span class="badge label bg-danger flex-shrink-0 rounded-pill ms-auto">Friends</span> -->
-															</div>
-														</td>
-
-														<td class="">
-															<p class="lh-sm text-truncate mb-0">
-																<span class="fw-bolder me-2 me-lg-4"> <a
-																	href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
-																		<c:out value="${item.hydcTitle}" />
-																</a> <c:if
-																		test="${item.hydcType eq 1 or item.hydcType eq 2}">
-																		<i class="bi bi-paperclip"></i>
-																		<!--  파일이면클립아이콘 -->
-																	</c:if> <c:if
-																		test="${item.hydcType eq 1 or item.hydcType eq 3}">
-																		<i class="bi bi-image-fill"></i>
-																		<!-- 사진이면이미지아이콘 -->
-																	</c:if>
-																	
-																	<!-- 댓글카운트 -->
-																<%-- 	 &nbsp;&nbsp;(<i data-feather="message-square"
+													<td class="">
+														<p class="lh-sm text-truncate mb-0">
+															<span class="fw-bolder me-2 me-lg-4"> <a
+																href="javaScript:goFileView(<c:out value="${item.hydcSeq}"/>, <c:out value="${item.hymmSeq}"/>)">
+																	<c:out value="${item.hydcTitle}" />
+															</a> <c:if test="${item.hydcType eq 1 or item.hydcType eq 2}">
+																	<i class="bi bi-paperclip"></i>
+																	<!--  파일이면클립아이콘 -->
+																</c:if> <c:if
+																	test="${item.hydcType eq 1 or item.hydcType eq 3}">
+																	<i class="bi bi-image-fill"></i>
+																	<!-- 사진이면이미지아이콘 -->
+																</c:if> <!-- 댓글카운트 --> <%-- 	 &nbsp;&nbsp;(<i data-feather="message-square"
 																	class="fe-1x me-1 align-middle-sm"></i> <span><c:out
 																			value="${vo.totalRowsC}" />)</span> --%>
 
-																</span>
-															</p>
-
-														</td>
-
-
-														<td class=""><fmt:formatDate
-																pattern="yyyy-MM-dd hh:mm" value="${item.regDateTime }" /></td>
+															</span>
+														</p>
+													</td>
 
 
-													</tr>
-												</tbody>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
+													<td class=""><fmt:formatDate
+															pattern="yyyy-MM-dd hh:mm" value="${item.regDateTime }" /></td>
+
+												</tr>
+											</tbody>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
 							</table>
 
 							<!--포스트 페이징과 버튼 -->
@@ -389,6 +379,19 @@ height:30px;
 			form.attr("action", goFileMultiNelete).submit();
 		});
 	</script>
+	
+		<script type="text/javascript">
+		$("#btnSearch").on(
+				"click", function() {
+				if (!checkNull($("#shHydcOption"), $("#shHydcOption").val(),"검색구문을 선택해 주세요!")) 
+					return 
+					false;
+				if (!checkNull($("#shHydcValue"), $("#shHydcValue").val(),"검색어를 입력 해 주세요!"))
+					return 
+					false;
+			});
+	</script>
+	
 
 	<!-- 			<script type="text/javascript">
 				$("#checkboxAll").click(function() { //전체선택 인데 ui구성상 전체선택은 뺴버림..ㅎㅎ

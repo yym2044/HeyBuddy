@@ -382,7 +382,7 @@
 								<br>
 
 								<!-- 모댓글+대댓글리스트 -->
-
+	
 								<c:forEach items="${commentList1}" var="commentList1"
 									varStatus="status">
 									<div class="py-2 mb-1 px-3 bg-body rounded-3">
@@ -390,14 +390,13 @@
 										<img style="width: 30px; height: 30px;"
 											src="<c:out value="${commentList1.path}"/><c:out value="${commentList1.uuidFileName}"/>"
 											class="avatar rounded-pill flex-shrink-0" />
-										<div class="d-flex justify-content-between">
-											<h6 class="mb-0">
+					
 												<c:out value="${commentList1.hymmName}" />
-											</h6>
+						
 											<small class="text-muted"><fmt:formatDate
 													pattern="yyyy-MM-dd hh:mm"
 													value="${commentList1.regDateTime}" /></small>
-										</div>
+							
 										<p class="mb-0">
 											<c:out value="${commentList1.hycoText}" />
 										</p>

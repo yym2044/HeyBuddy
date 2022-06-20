@@ -5,8 +5,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<% pageContext.setAttribute("br", "\n"); %>
-<% pageContext.setAttribute("replaceChar", "\n"); %>
+<%
+pageContext.setAttribute("br", "\n");
+%>
+<%
+pageContext.setAttribute("replaceChar", "\n");
+%>
 <!-- 설명엔터 -->
 
 
@@ -115,11 +119,12 @@
 				<!--//Page Toolbar End//-->
 
 				<!-- 히든처리 -->
-				<form id="formView" name="formView" method="post" action="/file/fileView">
+				<form id="formView" name="formView" method="post"
+					action="/file/fileView">
 
-<input type="hidden" id="rowNumToShowC" name="rowNumToShowC"
-				value="<c:out value="${vo.rowNumToShowC}"/>"> <input
-				type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+					<input type="hidden" id="rowNumToShowC" name="rowNumToShowC"
+						value="<c:out value="${vo.rowNumToShowC}"/>"> <input
+						type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
 					<input type="hidden" id="thisPage" name="thisPage"
 						value="<c:out value="${vo.thisPageC}"/>"> <input
 						type="hidden" id="hydcSeq" name="hydcSeq"
@@ -137,7 +142,7 @@
 
 
 
-		
+
 					<!--Email Header-->
 					<div class="top-0 mb-2 px-4 px-lg-8 ">
 						<div
@@ -248,14 +253,16 @@
 
 									</div>
 								</div>
-							</div> 
+							</div>
 							<div class="card-body flex-grow-1">
 								<label for="hydcText" class="form-label"></label>
 								<p>
-								<%-- 	<c:out value="${fn:replace(item.hydcText, br, '<br/>')}" escapeXml="false" /> --%>
-									<c:out value="${fn:replace(item.hydcText, replaceChar, '<br/>')}" escapeXml="false" />
-								
-								
+									<%-- 	<c:out value="${fn:replace(item.hydcText, br, '<br/>')}" escapeXml="false" /> --%>
+									<c:out
+										value="${fn:replace(item.hydcText, replaceChar, '<br/>')}"
+										escapeXml="false" />
+
+
 								</p>
 
 								<br>
@@ -361,10 +368,11 @@
 
 
 
-								<h6>Add new comment
-								&nbsp;&nbsp;<i data-feather="message-square"
-									class="fe-1x me-1 align-middle-sm"></i> <span><c:out
-										value="${vo.totalRowsC}" /></span> </h6>
+								<h6>
+									Add new comment &nbsp;&nbsp;<i data-feather="message-square"
+										class="fe-1x me-1 align-middle-sm"></i> <span><c:out
+											value="${vo.totalRowsC}" /></span>
+								</h6>
 
 
 								<div class="text-end">
@@ -382,7 +390,7 @@
 								<br>
 
 								<!-- 모댓글+대댓글리스트 -->
-	
+
 								<c:forEach items="${commentList1}" var="commentList1"
 									varStatus="status">
 									<div class="py-2 mb-1 px-3 bg-body rounded-3">
@@ -390,16 +398,32 @@
 										<img style="width: 30px; height: 30px;"
 											src="<c:out value="${commentList1.path}"/><c:out value="${commentList1.uuidFileName}"/>"
 											class="avatar rounded-pill flex-shrink-0" />
-					
-												<c:out value="${commentList1.hymmName}" />
-						
-											<small class="text-muted"><fmt:formatDate
-													pattern="yyyy-MM-dd hh:mm"
-													value="${commentList1.regDateTime}" /></small>
-							
+
+										<span class="fw-semi-bold"><c:out value="${commentList1.hymmName}" /></span>
+
+										<small class="text-muted"><fmt:formatDate
+												pattern="yyyy-MM-dd hh:mm"
+												value="${commentList1.regDateTime}" /></small>
+
 										<p class="mb-0">
 											<c:out value="${commentList1.hycoText}" />
 										</p>
+
+	<div
+										class="col-md-auto ms-auto justify-content-md-end d-flex align-items-center">
+										<c:if test="${commentList1.hymmSeq eq sessSeq}">
+
+											<a href="javascript:goCommentDelete;" data-bs-placement="top"
+												data-bs-toggle="tooltip" title="삭제"
+												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+												<i class="bi bi-trash-fill" ></i></a>
+								<!-- 			<a href="javascript:goCommentEdit;" data-bs-placement="top"
+												data-bs-toggle="tooltip" title="수정"
+												class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+												<i class="bi bi-pencil-fill"></i>
+											</a> -->
+										</c:if>
+</div>
 
 										<%-- 대댓글 구현 실패로 우선 주석 ㅠㅠ
 										<div class="mb-2 small">
@@ -487,42 +511,42 @@
 
 								<br>
 
-		<!--포스트 페이징과 버튼 -->
-							<div class="row text-center" style="width: 100%">
-								<div style="width: 100%; float: none; margin: 0 auto">
-									<br> <br>
-									<nav aria-label="...">
-										<ul class="pagination  justify-content-center">
-											<c:if test="${vo.startPageC gt vo.pageNumToShowC}">
-												<li class="page-item"><a class="page-link"
-													href="javascript:goCommentList(<c:out value='${vo.startPageC - 1}'/>);">
-														Previous</a></li>
-											</c:if>
-											<c:forEach begin="${vo.startPageC}" end="${vo.endPageC}"
-												varStatus="i">
-												<c:choose>
-													<c:when test="${i.index eq vo.thisPageC}">
-														<li class="page-item active"><a class="page-link"
-															href="javascript:goCommentList(<c:out value='${i.index}'/>);">${i.index}</a></li>
-													</c:when>
-													<c:otherwise>
-														<li class="page-item"><a class="page-link"
-															href="javascript:goCommentList(<c:out value='${i.index}'/>);">${i.index}</a></li>
-													</c:otherwise>
-												</c:choose>
-											</c:forEach>
-											<c:if test="${vo.endPageC ne vo.totalPagesC}">
-												<li class="page-item"><a class="page-link"
-													href="javascript:goCommentList( <c:out value='${vo.endPageC + 1 }'/>);">Next</a></li>
-											</c:if>
-										</ul>
-									</nav>
+								<!--포스트 페이징과 버튼 -->
+								<div class="row text-center" style="width: 100%">
+									<div style="width: 100%; float: none; margin: 0 auto">
+										<br> <br>
+										<nav aria-label="...">
+											<ul class="pagination  justify-content-center">
+												<c:if test="${vo.startPageC gt vo.pageNumToShowC}">
+													<li class="page-item"><a class="page-link"
+														href="javascript:goCommentList(<c:out value='${vo.startPageC - 1}'/>);">
+															Previous</a></li>
+												</c:if>
+												<c:forEach begin="${vo.startPageC}" end="${vo.endPageC}"
+													varStatus="i">
+													<c:choose>
+														<c:when test="${i.index eq vo.thisPageC}">
+															<li class="page-item active"><a class="page-link"
+																href="javascript:goCommentList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+														</c:when>
+														<c:otherwise>
+															<li class="page-item"><a class="page-link"
+																href="javascript:goCommentList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+														</c:otherwise>
+													</c:choose>
+												</c:forEach>
+												<c:if test="${vo.endPageC ne vo.totalPagesC}">
+													<li class="page-item"><a class="page-link"
+														href="javascript:goCommentList( <c:out value='${vo.endPageC + 1 }'/>);">Next</a></li>
+												</c:if>
+											</ul>
+										</nav>
 
-									<br> <br>
+										<br> <br>
 
 
+									</div>
 								</div>
-							</div>
 
 
 								<!-- 모댓글이라면 -->
@@ -695,12 +719,12 @@
 	<script type="text/javascript">
 		var seq = $("input:hidden[name=hycoSeq]");
 		goCommentList = function(seq) {
-				alert(seq);
+			alert(seq);
 			$("#thisPageS").val(seq);
 			$("#formView").submit();
 		};
 	</script>
-	
+
 	<script type="text/javascript">
 		goFileList = function() {
 			$("#formView").attr("action", "/file/fileList");
@@ -712,6 +736,14 @@
 		};
 		goFileNelete = function(seq) {
 			$("#formView").attr("action", "/file/fileNele");
+			$("#formView").submit();
+		};
+		goCommentEdit = function() {
+			$("#formView").attr("action", "/file/commentUpdt");
+			$("#formView").submit();
+		};
+		goCommentDelete = function(seq) {
+			$("#formView").attr("action", "/file/commentNele");
 			$("#formView").submit();
 		};
 		goCommentList1 = function() {
@@ -870,8 +902,8 @@
 		 -->
 
 	<%@include file="../include/pageScripts.jsp"%>
-	
-	
+
+
 
 </body>
 

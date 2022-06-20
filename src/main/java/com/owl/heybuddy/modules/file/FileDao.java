@@ -95,11 +95,11 @@ public class FileDao {
     public int commentCreate2(File dto)  {   //대댓글등록
     	return  sqlSession.insert(namespace + ".commentCreate2", dto);
     }
-    public int commentUpdate(File dto)  {   //댓글수정
-    	return sqlSession.update(namespace + ".commentUpdate", dto);
+    public int updateComment(File dto)  {   //댓글수정
+    	return sqlSession.update(namespace + ".updateComment", dto);
     }
-    public int commentDelete(FileVo vo)  {   //댓글삭제 
-    	return sqlSession.delete(namespace + ".commentDelete", vo);
+    public int updateDeleteComment(FileVo vo)  {   //댓글삭제 
+    	return sqlSession.update(namespace + ".updateDeleteComment", vo);
     }
     public List<File> commentList1(File dto)  {
     	return sqlSession.selectList(namespace + ".commentList1", dto);
@@ -107,6 +107,7 @@ public class FileDao {
     public List<File> commentList2(File dto)  {
         return sqlSession.selectList(namespace + ".commentList2", dto);
     }
+
 
 	/*
 	 * public HashMap<String, Object> getCommentList(Long bid) { HashMap<String,

@@ -28,8 +28,9 @@ public interface FileService {
 	List<File> commentList2(File dto) throws Exception; //대댓글리스트
     int commentCreate1(File dto) throws Exception; //모댓글등록
     int commentCreate2(File dto) throws Exception; //대댓글등록
-    int commentUpdate(File dto) throws Exception; //댓글수정
-    int commentDelete(FileVo vo) throws Exception; //댓글삭제
+    int updateComment(File dto) throws Exception; //댓글수정
+    int updateDeleteComment(FileVo vo) throws Exception; //댓글삭제
+
 
 
  

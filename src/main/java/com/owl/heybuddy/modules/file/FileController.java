@@ -178,6 +178,28 @@ public class FileController {
 		return "redirect:/file/fileList";
 	}
 	
+	@RequestMapping(value = "/file/commentUpdt") // 댓글수정받음
+	public String commentUpdt(File dto, FileVo vo, RedirectAttributes redirectAttributes, HttpSession httpSession)
+			throws Exception {
+		service.updateComment(dto);
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/file/fileView";
+	}
+	
+	@RequestMapping(value = "/file/commentNele") // 댓글삭제
+	public String commentNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.updateDeleteComment(vo);
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage());
+		redirectAttributes.addAttribute("hydcSeq", vo.getHydcSeq());
+		redirectAttributes.addAttribute("hydcTitle", vo.getHydcTitle());
+		redirectAttributes.addAttribute("hydcText", vo.getHydcText());
+		redirectAttributes.addAttribute("hydcText", vo.getHycoText());
+		redirectAttributes.addAttribute("hydcText", vo.getHycoDelNy());
+		redirectAttributes.addAttribute("shHydcOption", vo.getShHydcOption());
+		redirectAttributes.addAttribute("shHydcValue", vo.getShHydcValue());
+		return "redirect:/file/fileView";
+	}
+	
 	@RequestMapping(value = "/file/fileMultiNele") // 멀티 가짜삭제
 	public String fileNele(FileVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		String[] checkboxSeqArray = vo.getCheckboxSeqArray();

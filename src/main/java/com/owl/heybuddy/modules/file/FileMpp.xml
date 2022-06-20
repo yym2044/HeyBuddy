@@ -295,6 +295,24 @@
 		WHERE
 		hydcSeq= #{hydcSeq}
 	</update>
+	
+		<update id="updateComment">  <!-- 댓글수정 -->
+		UPDATE hybdComment SET
+		hycoText = #{hycoText}
+		,modSeq = #{hymmSeq}
+		,modDateTime = now()
+		,modDateTimeSvr = now()
+		WHERE 1 = 1
+		AND hycoSeq = #{hycoSeq}
+	</update>
+
+	<update id="updateDeleteComment">    <!-- 댓글삭제 -->
+		UPDATE hybdComment SET
+		hycoDelNy = 1
+		WHERE
+		hycoSeq= #{hycoSeq}
+	</update>
+	
 
 	<select id="fileUploaded" resultMap="resultMapObj"> <!--파일뷰 -->
 		SELECT

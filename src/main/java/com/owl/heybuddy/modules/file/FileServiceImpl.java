@@ -54,15 +54,6 @@ public class FileServiceImpl implements FileService {
 	public int commentCreate2(File dto) throws Exception { //대댓글등록
 		return dao.commentCreate2(dto);
 	}
-	@Override
-	public int commentUpdate(File dto) throws Exception {  //댓글수정
-		return dao.commentUpdate(dto);
-	}
-
-	@Override
-	public int commentDelete(FileVo vo) throws Exception { //댓글삭제 
-		return dao.commentDelete(vo);
-	}
 
 	@Override
 	public int selectOneCount(FileVo vo) throws Exception { // 문서검색
@@ -193,7 +184,15 @@ public class FileServiceImpl implements FileService {
 		return 1;
 	}
 
+	
+	@Override
+	public int updateComment(File dto) throws Exception { // 문서수정
+		return dao.updateComment(dto);	
+	}
 
-
+	@Override
+	public int updateDeleteComment(FileVo vo) throws Exception { // 댓글가짜삭제
+		return dao.updateDeleteComment(vo);
+	}
 
 }

@@ -184,7 +184,6 @@ public class FileServiceImpl implements FileService {
 		return 1;
 	}
 
-	
 	@Override
 	public int updateComment(File dto) throws Exception { // 문서수정
 		return dao.updateComment(dto);	

@@ -193,8 +193,8 @@ public class FileController {
 		redirectAttributes.addAttribute("hydcSeq", vo.getHydcSeq());
 		redirectAttributes.addAttribute("hydcTitle", vo.getHydcTitle());
 		redirectAttributes.addAttribute("hydcText", vo.getHydcText());
-		redirectAttributes.addAttribute("hydcText", vo.getHycoText());
-		redirectAttributes.addAttribute("hydcText", vo.getHycoDelNy());
+		redirectAttributes.addAttribute("hycoText", vo.getHycoText());
+		/* redirectAttributes.addAttribute("hycoDelNy", vo.getHycoDelNy()); */
 		redirectAttributes.addAttribute("shHydcOption", vo.getShHydcOption());
 		redirectAttributes.addAttribute("shHydcValue", vo.getShHydcValue());
 		return "redirect:/file/fileView";

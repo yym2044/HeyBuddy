@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -160,14 +160,17 @@
 											<thead class="small text-uppercase text-muted">
 												<tr>
 
+													<th class="text-center"><input type="checkbox"
+														id="checkboxAll" name="checkboxAll"></th>
 
-													<!-- 	검색 -->
+													<th class="text-center">제목</th>
+													<th class="text-center">등록일</th>
 
 												</tr>
 											</thead>
 											<tbody>
 
-						
+
 
 
 												<c:choose>
@@ -184,21 +187,13 @@
 													<c:otherwise>
 														<c:forEach items="${list}" var="item" varStatus="status">
 															<tbody id="mainTable_tbody">
-																					<tr>
 
-													<th class="text-center"><input type="checkbox"
-														id="checkboxAll" name="checkboxAll"></th>
-												
-													<th class="text-center">제목</th>
-													<th class="text-center">등록일</th>
-
-												</tr>
 																<tr>
 
 																	<td class="text-center"><input type="checkbox"
 																		id="checkboxSeq" name="checkboxSeq"
 																		value="<c:out value="${item.hydcSeq}" />"></td>
-																
+
 
 																	<td class="text-center"><span
 																		class="fw-bolder me-2 me-lg-4"> <a
@@ -206,23 +201,24 @@
 																				<c:out value="${item.hydcTitle}" />
 																		</a>
 																	</span></td>
-																	<td class="text-center"><fmt:formatDate pattern="yyyy-MM-dd hh:mm"
+																	<td class="text-center"><fmt:formatDate
+																			pattern="yyyy-MM-dd hh:mm"
 																			value="${item.regDateTime }" /></td>
 																</tr>
-																
-												
+
+
 															</tbody>
-									
-										
+
+
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>
 											</tbody>
 										</table>
-						
-															
-															
-															<!--포스트 페이징과 버튼 -->
+
+
+
+										<!--포스트 페이징과 버튼 -->
 										<div class="row text-center" style="width: 100%">
 											<div style="width: 100%; float: none; margin: 0 auto">
 												<br> <br>
@@ -239,8 +235,8 @@
 																<c:when test="${i.index eq vo.thisPage}">
 																	<li class="page-item active"><a class="page-link"
 																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
-					 											</c:when>
-																 <c:otherwise>
+																</c:when>
+																<c:otherwise>
 																	<li class="page-item"><a class="page-link"
 																		href="javascript:goFileList( <c:out value='${i.index}'/>);">${i.index}</a></li>
 																</c:otherwise>
@@ -258,8 +254,8 @@
 
 											</div>
 										</div>
-										
-								
+
+
 									</div>
 
 								</div>

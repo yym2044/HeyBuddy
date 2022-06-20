@@ -89,7 +89,7 @@ public class FileController {
 		List<File> commentList2 = service.commentList2(vo); // 대댓글리스트+댓글단멤버와사진
 		model.addAttribute("commentList2", commentList2); 
 		
-		int count = service.selectOneCountC(vo);
+		int count = service.selectOneCountC(vo);  //댓글리스트페이징 
 		vo.setParamsPagingC(count);
 		if (count != 0) {
 			List<File> commentList1 = service.commentList1(vo);

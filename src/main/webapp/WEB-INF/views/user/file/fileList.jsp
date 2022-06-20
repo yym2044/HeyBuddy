@@ -73,7 +73,7 @@ td {
 				value="<c:out value="${vo.thisPage}" default="1"/>"> <input
 				type="hidden" id="hydcSeq" name="hydcSeq"> <input
 				type="hidden" id="hymmSeq" name="hymmSeq">
-		</form>
+
 
 
 		<!--Email Header-->
@@ -281,7 +281,7 @@ td {
 				</div>
 			</div>
 		</div>
-
+		</form>
 		<!--//Page content End//-->
 
 

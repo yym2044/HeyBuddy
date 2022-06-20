@@ -98,7 +98,7 @@ public class FileDao {
     public int updateComment(File dto)  {   //댓글수정
     	return sqlSession.update(namespace + ".updateComment", dto);
     }
-    public int updateDeleteComment(FileVo vo)  {   //댓글삭제 
+    public int updateDeleteComment(FileVo vo)  {   //댓글가짜삭제 
     	return sqlSession.update(namespace + ".updateDeleteComment", vo);
     }
     public List<File> commentList1(File dto)  {

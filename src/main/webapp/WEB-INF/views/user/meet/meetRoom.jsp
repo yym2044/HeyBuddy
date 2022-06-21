@@ -14,6 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+
 <link rel="stylesheet" href="/resources/user/css/meet/meetRoom/style.css">
 
 <!--Main style-->
@@ -292,6 +294,8 @@
 	const chatForm = document.querySelector("#chatForm");
 	const chatBox = document.querySelector("#chatBox");
 	
+	chatBox.scrollTop = chatBox.scrollHeight;
+	
 	const MYCHAT_CN = "myChat";
 	const NOTICE_CN = "noticeChat";
 	
@@ -307,7 +311,7 @@
 		const chatInput = chatForm.querySelector("input");
 		const message = chatInput.value;
 		chatInput.value = "";
-		/* socket.send(message); */
+		chatInput.focus();
 		send({roomId : "<c:out value='${rt.hymrSeq}'/>", sender : "<c:out value='${sessName}'/>", type : "Chat", msg : message});
 		writeChat("<c:out value='${sessName}'/>" + " : " + message, MYCHAT_CN);
 	}

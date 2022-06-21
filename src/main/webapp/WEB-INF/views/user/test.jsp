@@ -11,8 +11,18 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
 <link rel="shortcut icon" href="#">
+<style type="text/css">
+ video{
+        transform: rotateY(180deg);
+        -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+        -moz-transform:rotateY(180deg); /* Firefox */
+    }
+</style>
 </head>
 <body>
 
@@ -68,8 +78,8 @@
 	/////////////////////////////////////////////////////////////////
 	//웹소켓 서버 연결 (시그널링서버)
 	
-	//const socket = new WebSocket('ws://localhost:8091/wsTest');
-	const socket = new WebSocket('wss://tp.heybuddy.a9xlab.com/wsTest');
+	const socket = new WebSocket('ws://localhost:8091/wsTest');
+	//const socket = new WebSocket('wss://tp.heybuddy.a9xlab.com/wsTest');
 	
 	// 접속 성공 시
 	socket.onopen = async function(){

@@ -14,6 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>hey, Buddy!</title>
 
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+
 <!--Simplebar css-->
 <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
@@ -105,48 +107,38 @@
 											<c:otherwise>
 												<div class="table-responsive" style="min-height: 490px;">
 													<table id="datatable" class="table mt-0 table-hover table-card table-nowrap">
-														<!-- <thead class="text-uppercase small text-muted">
+														<thead class="text-uppercase small text-muted">
 						                                        <tr>
-						                                            <th>Name</th>
-						                                            <th>Position</th>
-						                                            <th>Office</th>
-						                                            <th>Age</th>
-						                                            <th>Start date</th>
-						                                            <th>Salary</th>
+						                                            <th>Host</th>
+						                                            <th>Meeting</th>
+						                                            <th>Start Time</th>
+						                                            <th colspan="2"></th>
 						                                        </tr>
-						                                    </thead> -->
+						                                    </thead>
 														<tbody>
 															<c:forEach items="${list}" var="item" varStatus="status">
 																<%-- <c:if test="${item.agenda eq hyspSeq}"> --%>
 																<c:if test="${fn:split(item.agenda, '_')[0] eq hyspSeq}">
-																	<tr name="tr" id="tr_${status.index}" class="border <c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}">myTr</c:if>">
-																		<td style="width: 900px; vertical-align: middle;">
-																			<span class="fw-bold fs-4">
+																	<tr name="tr" id="tr_${status.index}" class="<c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}">myTr</c:if>">
+																		<td class="tdMemberAjax" style="width: 200px; vertical-align: middle;" class="text-center">
+																			<c:out value="${fn:split(item.agenda, '_')[1]}"/>
+																		</td>
+																		<td style="width: 700px; vertical-align: middle;">
+																			<span class="fw-bold fs-3">
 																				<c:out value="${item.topic}"/>
 																				<c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}"><svg style="width: 12px; height:12px; color:red;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M576 136c0 22.09-17.91 40-40 40c-.248 0-.4551-.1266-.7031-.1305l-50.52 277.9C482 468.9 468.8 480 453.3 480H122.7c-15.46 0-28.72-11.06-31.48-26.27L40.71 175.9C40.46 175.9 40.25 176 39.1 176c-22.09 0-40-17.91-40-40S17.91 96 39.1 96s40 17.91 40 40c0 8.998-3.521 16.89-8.537 23.57l89.63 71.7c15.91 12.73 39.5 7.544 48.61-10.68l57.6-115.2C255.1 98.34 247.1 86.34 247.1 72C247.1 49.91 265.9 32 288 32s39.1 17.91 39.1 40c0 14.34-7.963 26.34-19.3 33.4l57.6 115.2c9.111 18.22 32.71 23.4 48.61 10.68l89.63-71.7C499.5 152.9 496 144.1 496 136C496 113.9 513.9 96 536 96S576 113.9 576 136z"/></svg></c:if>
 																			</span>
 																		</td>
-																		<!-- 줌 계정 higher plan 필요 
-																		<td class="text-start" style="width: 700px;">
-																			<div class="avatar-group justify-content-end">
-																				<a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="홍길동">
-																					<img src="/resources/user/images/profileDefault.png" alt="..." class="avatar-group-img rounded-circle">
-																				</a>
-																				<a href="#!.html" class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="장길산">
-																					<img src="/resources/user/images/profileDefault.png" alt="..." class="avatar-group-img rounded-circle">
-																				</a>
-																			</div>
-																		</td>
-																		 -->
-																		<td style="vertical-align: middle;">
-																			<button name="btnEnd" id="btnEnd_${status.index}" onclick="deleteMeeting(<c:out value="${item.id}"/>)" class="btn rounded-pill btn-danger text-truncate <c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}">myBtnEnd</c:if>">회의종료</button>
-																		</td>
-																		<td class="text-end" style="width: 200px; vertical-align: middle;">
-																			시작시간
+																		<td class="" style="width: 200px; vertical-align: middle;">
 																			<i class="bi bi-alarm px-1"></i>
 																			<span id="zoomTimeSpan${status.index}">
 																				<%-- <c:out value="${fn:substring(item.start_time, 11, 19)}"/> --%>
 																			</span>
+																		</td>
+																		<td style="vertical-align: middle;">
+																			<c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}">
+																				<button name="btnEnd" id="btnEnd_${status.index}" onclick="deleteMeeting(<c:out value="${item.id}"/>)" class="btn rounded-pill btn-danger text-truncate <c:if test="${fn:split(item.agenda, '_')[1] eq sessSeq}">myBtnEnd</c:if>">회의삭제</button>
+																			</c:if>
 																		</td>
 																		<td style="vertical-align: middle;">
 																			<a href="<c:out value="${item.join_url}"/>" target="_blank" class="btn rounded-pill btn-primary text-truncate">회의 참여</a>
@@ -187,7 +179,7 @@
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">새로운 미팅을 생성합니다. (일일 제한 : 100회)</h5>
+									<h5 class="modal-title" id="exampleModalLabel">새로운 미팅을 생성합니다.</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
@@ -205,6 +197,7 @@
 				</form>
 				
 				<form method="post" action="/meet/zoomDele">
+					<input type="hidden" class="form-control" name="id" id="id" placeholder="미팅 아이디">
 					<!-- deleteZoom Modal Start -->
 					<div class="modal fade" id="deleteZoomModal" tabindex="-1" aria-labelledby="startZoomModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -212,9 +205,7 @@
 								<div class="modal-header">
 									<h5 class="modal-title" id="exampleModalLabel">미팅을 삭제합니다</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-									<input type="text" class="form-control" name="id" id="id" placeholder="미팅 아이디">
+									
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
@@ -287,36 +278,65 @@
 	</script>
 	
 	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		 $(document.body).tooltip({ selector: "[data-bs-toggle='tooltip']" });
+	 });
+	
 	const tr = document.getElementsByName("tr");
 	const btnEnd = document.getElementsByName("btnEnd");
 	
 	
-	$(document).ready(function(){
-		for(var i = 0 ; i < tr.length; i++ ){
-			btnEnd[i].hidden = true;
-		}
-	});
-	
-	for(var i = 0 ; i < tr.length; i++ ){
-		
-		tr[i].addEventListener("mouseenter", (event) => {
-			if(btnEnd[event.target.id.split("_")[1]].classList.contains("myBtnEnd")){
-				btnEnd[event.target.id.split("_")[1]].hidden = false;
-			}
-		});
-		
-		tr[i].addEventListener("mouseleave", (event) => {
-			if(btnEnd[event.target.id.split("_")[1]].classList.contains("myBtnEnd")){
-				btnEnd[event.target.id.split("_")[1]].hidden = true;
-			}
-		});
-		
-	}
 	
 	deleteMeeting = function(id){
 		$("#deleteZoomModal").modal("show");
 		$("#id").val(id);
 	}
+	
+	
+	const tdMembers = document.getElementsByClassName("tdMemberAjax");
+	
+	console.log(tdMembers);
+	
+	tdMembers.forEach((el) => {
+		
+		const hymmSeq = el.innerText;
+		
+		////
+		
+		$.ajax({
+			async: false
+			,cache: false
+			,type: "post"
+			,url: "/user/selectOneAjax"
+			,data : { "hymmSeq" : hymmSeq }
+			,success: function(data){
+				console.log(data);
+				
+				let append = "";
+				append += '<div class="avatar-group">';
+				append += '<a class="avatar-group-item avatar rounded-circle" data-bs-toggle="tooltip" title="' + data.hymmName + '">';
+				
+				if(data.uuidFileName == '' || data.uuidFileName == null){
+					append += '<img src="/resources/user/images/profileDefault.png" alt="..." class="avatar-group-img rounded-circle"></a></div>';
+				} else {
+					append += '<img src="' + data.path + data.uuidFileName + '" alt="..." class="avatar-group-img rounded-circle"></a></div>';
+				}
+				
+				el.innerHTML = append;
+				
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+		
+		////
+		
+		
+		
+	});
+	
 	</script>
 	<%@include file="../include/pageScripts.jsp"%>
 	

@@ -14,6 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>hey, Buddy!</title>
   
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />  
+  
 <!--Simplebar css-->
 <link rel="stylesheet" href="/resources/assets/vendor/css/simplebar.min.css">
 
@@ -369,6 +371,8 @@
 				
 				append += '<div class="table-responsive">';
 				append += '<table id="datatable" class="table mt-0 table-hover table-card table-nowrap">';
+				append += '<thead class="text-uppercase small text-muted">';
+				append += '<tr><th class="text-center">Name</th><th>Attendants</th><th class="text-center">Start Time</th><th></th></tr></thead>';
 				append += '<tbody>';
 
 				for(var i = 0 ; i < room.length ; i++){
@@ -383,7 +387,7 @@
 					append += '<div id="avatar-group' + i + '" name="member_group" class="avatar-group justify-content-end">';
 					append += '</div>';
 					append += '</td>';
-					append += '<td class="text-end" style="width: 200px; vertical-align: middle;">';
+					append += '<td class="text-center" style="width: 200px; vertical-align: middle;">';
 					append += '<i class="bi bi-alarm pe-1"></i>' + timestampToDateTime(room[i].regDateTime) + '<br>';
 					append += '</td>';
 					append += '<td style="vertical-align: middle;">';

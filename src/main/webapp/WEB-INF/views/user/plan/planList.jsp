@@ -17,7 +17,7 @@
 <!--Bootstrap icons-->
 <link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
-
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
 <!--Google web fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

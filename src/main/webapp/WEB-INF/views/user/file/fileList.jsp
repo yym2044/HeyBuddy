@@ -37,6 +37,10 @@
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
+
+<!-- 주소창아이콘 -->
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+	
 </head>
 
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
@@ -365,8 +369,8 @@ td {
 		var checkboxSeqArray = [];
 
 		$("#btnModalNelete").on("click", function() {
-			$("input[name=checkboxSeq]:checked").each(function() { // check된것을 찾고 체크된 값만 넘김
-				checkboxSeqArray.push($(this).val()); // check 해당된 값을 담는다.
+			$("input[name=checkboxSeq]:checked").each(function() {
+				checkboxSeqArray.push($(this).val()); 
 			});
 
 			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
@@ -378,7 +382,7 @@ td {
 	<script type="text/javascript">
 		$("#deleteButton").on(
 				"click", function() {
-				if  ( ${item.hymmSeq}가  sessSeq가 아니라면)) 선택이 안되게.. 아오씨안대
+				if  ( ${item.hymmSeq}가  sessSeq가 아니라면)) 선택이 안되게.. 아오씨안대.. 어케 
 				"hymmName+님이 업로드하신 문서가 아닙니다" ))
 					return  false;
 			});

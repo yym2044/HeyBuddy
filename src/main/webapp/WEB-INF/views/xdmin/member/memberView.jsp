@@ -34,6 +34,9 @@
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css"
 	id="switchThemeStyle">
+	<!-- 주소창아이콘 -->
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+	
 </head>
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">
 

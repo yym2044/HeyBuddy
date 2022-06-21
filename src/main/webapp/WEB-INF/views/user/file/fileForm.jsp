@@ -31,6 +31,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+<!-- 주소창아이콘 -->
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+	
 <style>
 .addScroll {
 	overflow-y: auto;
@@ -151,10 +154,7 @@
 									<div class="col-md-12 mb-3">
 						 				<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
 										</label>
-						<!-- 				<button type="button" id="btnCheckFiles">첨부파일 체크버튼</button>
-									 -->	
 										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);">
-										
 										<div class="addScroll">
 											<ul id="ulFile0" class="list-group"></ul>
 										</div>

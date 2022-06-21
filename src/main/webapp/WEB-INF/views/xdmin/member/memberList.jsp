@@ -41,6 +41,9 @@
 <link
 	href="/infra/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
 	rel="stylesheet">
+	<!-- 주소창아이콘 -->
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+	
 
 </head>
 

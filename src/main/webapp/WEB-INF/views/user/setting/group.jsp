@@ -15,7 +15,7 @@
 <title>hey, Buddy!</title>
 
 <link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
-
+ 
 <!--Bootstrap icons-->
 <link href="/resources/assets/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 

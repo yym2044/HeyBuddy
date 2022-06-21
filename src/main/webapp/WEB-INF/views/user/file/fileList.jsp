@@ -85,7 +85,7 @@ td {
 
 
 					<div data-bs-placement="top" data-bs-toggle="tooltip" title="삭제"
-						class="border text-body hover-bg-secondary btn btn-sm shadow-sm">
+						class="border text-body hover-bg-secondary btn btn-sm shadow-sm" id="deleteButton">
 						<i class="bi bi-trash-fill" data-bs-toggle="modal"
 							data-bs-target="#btnModalNelete"></i>
 					</div>
@@ -351,11 +351,12 @@ td {
 			$("#formList").attr("action", "/file/fileListTemp");
 			$("#formList").submit();
 		};
+		
 		/* 				goFileMultiNelete = function(seq) {
 		 $("#formList").attr("action", "/file/fileMultiNele");
 		 $("#formList").submit();
 		 }; */
-	</script>
+			</script>
 
 	<script>
 		var goFileMultiNelete = "/file/fileMultiNele";
@@ -373,6 +374,17 @@ td {
 			form.attr("action", goFileMultiNelete).submit();
 		});
 	</script>
+<!-- 	
+	<script type="text/javascript">
+		$("#deleteButton").on(
+				"click", function() {
+				if  ( ${item.hymmSeq}가  sessSeq가 아니라면)) 선택이 안되게.. 아오씨안대
+				"hymmName+님이 업로드하신 문서가 아닙니다" ))
+					return  false;
+			});
+	</script> -->
+	
+
 	
 		<script type="text/javascript">
 		$("#btnSearch").on(

@@ -63,9 +63,9 @@
 			<!-- include 처리 3번 -->
 			<%@include file="../include/pageHeader.jsp"%>
 			<!--//Page Toolbar//-->
-			<div class="row planinst container">
+			<div class="row container">
 				<!-- Button trigger modal -->
-				<button id="btnForm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
+				<button id="btnForm" type="button" class="btn btn-primary planinst" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 130px; text-align: center; margin-left: 30px; margin-bottom: 5px;">일정등록</button>
 
 				<!-- 모달 -->
 				<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -110,7 +110,7 @@
 	                                </select>
                                 </div> --%>
 							</div>
-							<div class="modal-footer planinst container">
+							<div class="modal-footer container">
 								<a class="btn btn-danger me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
 									<input href="javascript:goInst()" type="submit" class="btn btn-primary me-2" value="등록하기" id="btnSubmit" name="btnSubmit">
 								<!-- <a href="javascript:goInst()" type="submit" class="btn btn-primary me-2" style="width: 100px; font-size: 1em; text-align: center; float: right;" id="" name="">등록하기</a> -->
@@ -173,7 +173,7 @@
 			<input id="btnForm2" type="hidden" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"/>
 			
 			<!-- <form id="modal2" name="modal2" method="POST" enctype="multipart/form-data"> -->
-			<div class="row planinst container">
+			<div class="row container">
 				<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 						<!-- 이 위치에 넣어줘야 적용됨  -->
@@ -210,7 +210,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="modal-footer planinst container">
+							<div class="modal-footer container">
 								<a class="btn btn-light me-2" style="width: 60px; font-size: 1em; text-align: center; float: right;" data-bs-dismiss="modal">취소</a> 
 								<a href="javascript:goUpdt(<c:out value="${rt.hyplSeq}"/>)" type="submit" class="btn btn-primary me-2">수정하기</a>
 <!-- 								<input type="submit" class="btn btn-primary me-2" id="" name="" value="수정하기"> -->

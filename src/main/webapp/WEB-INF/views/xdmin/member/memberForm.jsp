@@ -36,6 +36,10 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
 <!--Main style-->
 <link rel="stylesheet" href="/resources/assets/css/style.min.css" id="switchThemeStyle">
+
+<!-- 주소창아이콘 -->
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+	
 </head>
 
 <link rel="stylesheet" href="/resources/user/css/heyBuddyStyle.css">

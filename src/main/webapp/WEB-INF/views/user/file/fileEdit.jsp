@@ -37,6 +37,10 @@
 <!--Main style-->
 <link rel="stylesheet" href="assets/css/style.min.css"
 	id="switchThemeStyle">
+	
+<!-- 주소창아이콘 -->
+<link rel="shortcut icon" href="https://ifh.cc/g/hTTRML.png" type="image/x-icon" />
+	
 </head>
 <style>
 .addScroll {
@@ -154,8 +158,7 @@
 									<div class="col-md-12 mb-3">
 										<label for="file0" class="form-label input-file-button"> 첨부파일 <i data-feather="paperclip" class="fe-1x "></i>
 										</label>
-										<!-- <button type="button" id="btnCheckFiles">첨부파일 체크버튼</button> -->
-										
+					
 										<input id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onChange="upload(0, 3);"
 										<c:out value="${uploaded.path}"/><c:out value="${uploaded.uuidFileName}"/>>
 										
@@ -174,9 +177,6 @@
 						
 										<a class="btn btn-primary ms-2"
 											href="javascript:goFileUpdt('<c:out value="${item.hydcSeq}"/>','<c:out value="${vo.thisPage}"/>','<c:out value="${vo.shHydcOption}"/>','<c:out value="${vo.shHydcValue}"/>');">저장</a>
-									
-									
-									
 									</div>
 									<br> <br>
 								</div>
@@ -280,6 +280,37 @@
 
 	</script>
 	
+	<script type="text/javascript">
+	
+		/// 추가된 부분 2022-06-11 start
+		function setDocumentType(){
+			
+			const file = document.getElementById("file0");
+
+			let fileNy = false;
+			let imgNy = false;
+			
+			for(var i = 0; i < file.files.length; i++){
+				if (checkUploadedFileExt2(file.files[i].name) == true) {
+					fileNy = true;
+				}
+				if (checkUploadedImageExt2(file.files[i].name) == true) {
+					imgNy = true;
+				}
+			}
+			
+			if(fileNy && imgNy) {
+				$("#hydcType").val("1");
+			} else if(fileNy) {
+				$("#hydcType").val("2");
+			} else if(imgNy) {
+				$("#hydcType").val("3");
+			} else {
+				$("#hydcType").val("0");
+			}
+			
+		}
+		</script>
 	
 	<script type="text/javascript">
 		const sidebarLink = document.querySelectorAll('.Sidebar-link');

@@ -47,6 +47,7 @@
         WHERE 1=1 
         AND a.hycoGroupType = 0
         AND a.hydcSeq = #{hydcSeq} 
+        AND a.hycoDelNy = 0
         ORDER BY a.hycoSeq
         limit #{startRnumForMysqlC} , #{rowNumToShowC}
 	</sql> 
@@ -358,6 +359,7 @@
         LEFT JOIN hybdDocument f ON f.hydcSeq = a.hydcSeq
         WHERE 1=1 
         AND a.hydcSeq = #{hydcSeq} 
+        AND a.hycoDelNy = 0
         ORDER BY a.hycoSeq
         limit #{startRnumForMysqlC} , #{rowNumToShowC}
     </select>

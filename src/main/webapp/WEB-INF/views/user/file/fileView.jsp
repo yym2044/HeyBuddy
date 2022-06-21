@@ -284,6 +284,9 @@ pageContext.setAttribute("replaceChar", "\n");
 												<c:otherwise>
 
 													<div class="card-hover me-2  width-100 height-200">
+													
+																	<!-- 파일이 이미지라면 -->
+														<c:if test="${fileUploaded.hyflType eq 0}">
 														<span
 															class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
 															<img
@@ -300,10 +303,9 @@ pageContext.setAttribute("replaceChar", "\n");
 															</span>
 														</span>
 														</span>
-														<!--File description-->
-
-														<!-- 파일이 이미지라면 -->
-														<c:if test="${fileUploaded.hyflType eq 0}">
+													
+										
+													
 															<span class="d-block small text-body text-truncate">
 																<c:out value="${fileUploaded.hyflOriginalFileName}" />
 
@@ -338,10 +340,30 @@ pageContext.setAttribute("replaceChar", "\n");
 
 														<!-- 파일이 pdf라면 -->
 														<c:if test="${fileUploaded.hyflType eq 1}">
+			<span
+															class="hover-image mb-1 position-relative d-block overflow-hidden rounded-3">
+														<%-- 	<img
+															src="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+															width="200px" height="200px" class="img-fluid" alt="" />
+															
+															 --%>
+															<img src="/resources/user/images/pdf.PNG" class="" width="100px" height="100px" class="img-fluid" alt="" />
+															
+															<span
+															class="hover-image-overlay position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center text-white">
 
+																<span> <a
+																	href="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflUuidFileName}"/>"
+																	download="<c:out value="${fileUploaded.hyflPath}"/><c:out value="${fileUploaded.hyflOriginalFileName}"/>">
+																		<i data-feather="download" class="fe-2x"></i>
+																</a>
+															</span>
+														</span>
+														</span>
+														
+														
 															<span class="d-block small text-body text-truncate">
 																<c:out value="${fileUploaded.hyflOriginalFileName}" />
-
 															</span>
 															<span class="d-block small text-muted text-truncate">
 																<c:out value="${fileUploaded.hyflSize}" /> mb
@@ -746,7 +768,8 @@ pageContext.setAttribute("replaceChar", "\n");
 			$("#formView").submit();
 		};
 		goCommentDelete = function(seq) {
-			var seq = $("input:hidden[name=hycoSeq]");
+		/* 	var seq = $("input:hidden[name=hycoSeq]"); */
+			$("input:hidden[name=hycoSeq]").val(seq);
 			$("#formView").attr("action", "/file/commentNele");
 			$("#formView").submit();
 		};

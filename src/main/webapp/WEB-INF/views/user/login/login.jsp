@@ -118,8 +118,7 @@ body {
 													Me</label>
 											</div>
 											<div>
-												<a href="page-auth-recover-pass.html"
-													class="small text-light text-mono fontB">Forget Password?</a>
+												<a id="btnFindPwd" href="#" class="small text-light text-mono fontB">Forget Password?</a>
 											</div>
 										</div>
 										<button class="w-100 btn btn-lg text-mono" id="btnLogin" name="btnLogin" type="button">Sign
@@ -307,6 +306,13 @@ function kakaoLogin() {
 	             
 	        	}
 			}
+		
+		
+		$("#btnFindPwd").on("click", function(){
+			alert("준비중입니다.");
+			return false;
+		});
+		
 
 </script>
 	<!-- *********************로그인E******************************** -->

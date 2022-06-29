@@ -212,9 +212,16 @@
 								<h4>마이스페이스 호스트를 변경합니다.</h4>
 								<div class="card">
 									<select id="selectHost" class="form-select">
+										<%-- 
 										<c:forEach items="${list}" var="item" varStatus="status">
 											<c:if test="${item.hysmRoleCd ne 12 and item.hysmAcceptedNy eq 1 and item.hymmActiveNy eq 1}">
 												<option value="${item.hymmSeq}"><c:out value="${item.hymmName}"/></option>								
+											</c:if>
+										</c:forEach>
+										 --%>
+										<c:forEach items="${list}" var="item" varStatus="status">
+											<c:if test="${item.hysmRoleCd ne 12 and item.hysmAuthCd eq 0 and item.hymmActiveNy eq 1 and item.hysmAcceptedNy eq 1}">
+												<option value="${item.hysmSeq}"><c:out value="${item.hymmName}"/></option>
 											</c:if>
 										</c:forEach>
 									</select>

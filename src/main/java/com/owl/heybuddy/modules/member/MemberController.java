@@ -1,11 +1,18 @@
 package com.owl.heybuddy.modules.member;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -397,6 +404,112 @@ public class MemberController {
 
 		return "redirect:/setting/memberList";
 
+	}
+	
+	@RequestMapping(value = "/member/excelDownload")
+	public void excelDownload(MemberVo vo, HttpServletResponse httpServletResponse, HttpSession httpSession) throws Exception {
+		
+		String[] arr = vo.getCheckboxExcelArray();
+		
+		vo.setHyspSeq((String) httpSession.getAttribute("hyspSeq"));
+		
+		int count = service.selectOneCountMemberInSpace(vo);
+		vo.setParamsPaging(count);
+		if (count != 0) {
+			List<Member> list = service.selectListMemberInSpace(vo);
+			
+			Workbook wb = new XSSFWorkbook();
+			Sheet sheet = wb.createSheet("1st sheet");
+			Row row = null;
+			Cell cell = null;
+			int rowNum = 0;
+			
+			// Header
+			row = sheet.createRow(rowNum++);
+			
+			int col = 1;
+			
+			cell = row.createCell(0);
+			cell.setCellValue("번호");
+			if(Arrays.asList(arr).contains("1")) {
+				cell = row.createCell(col++);
+				cell.setCellValue("아이디");
+			}
+			if(Arrays.asList(arr).contains("2")) {
+				cell = row.createCell(col++);
+				cell.setCellValue("이름");
+			}
+			if(Arrays.asList(arr).contains("3")) {
+				cell = row.createCell(col++);
+				cell.setCellValue("이메일");
+			}
+			if(Arrays.asList(arr).contains("4")) {
+				cell = row.createCell(col++);
+				cell.setCellValue("휴대전화");
+			}
+			if(Arrays.asList(arr).contains("5")) {
+				cell = row.createCell(col++);
+				cell.setCellValue("성별");
+			}
+			if(Arrays.asList(arr).contains("6")) {
+				cell = row.createCell(col++);
+				cell.setCellValue("생년월일");
+			}
+			
+			// Body
+			
+			for(int i = 0; i < list.size(); i++) {
+				col = 1;
+				row = sheet.createRow(rowNum++);
+				
+				cell = row.createCell(0);
+				cell.setCellValue(String.valueOf(list.get(i).getHymmSeq()));
+				
+				if(Arrays.asList(arr).contains("1")) {
+					cell = row.createCell(col++);
+					cell.setCellValue(list.get(i).getHymmId());
+				}
+				if(Arrays.asList(arr).contains("2")) {
+					cell = row.createCell(col++);
+					cell.setCellValue(list.get(i).getHymmName());
+				}
+				if(Arrays.asList(arr).contains("3")) {
+					cell = row.createCell(col++);
+					cell.setCellValue(list.get(i).getHymmEmail());
+				}
+				if(Arrays.asList(arr).contains("4")) {
+					cell = row.createCell(col++);
+					cell.setCellValue(list.get(i).getHymmNumber());
+				}
+				if(Arrays.asList(arr).contains("5")) {
+					cell = row.createCell(col++);
+					cell.setCellValue(list.get(i).getRegDateTime());
+				}
+				if(Arrays.asList(arr).contains("6")) {
+					cell = row.createCell(col++);
+					cell.setCellValue(list.get(i).getHymmDob());
+				}
+				
+			}
+			
+			// 컨텐츠 타입과 파일명 지정
+			httpServletResponse.setContentType("ms-vnd/excel");
+			
+			String fileName = new String(vo.getExcelFileName().getBytes("UTF-8"), "ISO-8859-1");
+			
+			// response.setHeader("Content-Disposition", "attachment;filename=example.xls");
+			httpServletResponse.setHeader("Content-Disposition", "attachment;filename=" + fileName + ".xlsx");
+			
+			// Excel File Output
+			wb.write(httpServletResponse.getOutputStream());
+			wb.close();
+			
+		} else {
+			// by pass
+		}
+		
+		
+		
 	}
 
 	@RequestMapping(value = "/setting/memberList")

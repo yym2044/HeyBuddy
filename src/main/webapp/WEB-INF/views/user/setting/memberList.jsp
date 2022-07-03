@@ -55,7 +55,7 @@
 		<input type="hidden" id="hymmSeq" name="hymmSeq">
 		<input type="hidden" id="hyspSeq" name="hyspSeq" value="${vo.hyspSeq}">
 		<input type="hidden" id="thisPage" name="thisPage" value="${vo.thisPage}">
-
+		
 		<!-- include 처리 1번 -->
 		<%@include file="../include/loader.jsp"%>
 
@@ -125,7 +125,7 @@
 											</div>
 											<div class="col text-end">
 												<a class="btn btn-outline-danger" href="javascript:goForm()">멤버 등록</a>
-												<a class="btn btn-outline-success" href="#!">엑셀 파일</a>
+												<a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#excelModal">엑셀 파일</a>
 											</div>
 										</div>
 
@@ -243,6 +243,84 @@
 				<!--///////////Page content wrapper End///////////////-->
 			</div>
 		</div>
+		
+		<!-- Excel Modal Start -->
+		
+		<div class="modal fade" id="excelModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<input type="hidden" name="checkboxExcelArray" id="checkboxExcelArray">
+							<h5 class="modal-title fw-bold" id="staticBackdropLabel">Export data to Excel</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="bg-light text-center">
+								<span class="fw-bold">파일명</span>
+								<input id="excelFileName" name="excelFileName" type="text">
+								<span class="fw-bold">.xlsx</span>
+							</div>
+							<br>
+							<table class="table table-sm table-hover">
+								<thead class="bg-light">
+									<tr class="text-center">
+										<td colspan="4">출력항목</td>
+									</tr>
+								</thead>
+								<tr>
+									<td>
+										<input name="checkExcel" type="checkbox" class="form-check-input" id="ch1" value="1">
+									</td>
+									<td>
+										<label for="ch1" class="form-check-label">아이디</label>
+									</td>
+									<td>
+										<input name="checkExcel" type="checkbox" class="form-check-input" id="ch2" value="2">
+									</td>
+									<td>
+										<label for="ch2" class="form-check-label">이름</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input name="checkExcel" type="checkbox" class="form-check-input" id="ch3" value="3">
+									</td>
+									<td>
+										<label for="ch3" class="form-check-label">이메일</label>
+									</td>
+									<td>
+										<input name="checkExcel" type="checkbox" class="form-check-input" id="ch4" value="4">
+									</td>
+									<td>
+										<label for="ch4" class="form-check-label">휴대전화</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input name="checkExcel" type="checkbox" class="form-check-input" id="ch5" value="5">
+									</td>
+									<td>
+										<label for="ch5" class="form-check-label">가입날짜</label>
+									</td>
+									<td>
+										<input name="checkExcel" type="checkbox" class="form-check-input" id="ch6" value="6">
+									</td>
+									<td>
+										<label for="ch6" class="form-check-label">생년월일</label>
+									</td>
+								</tr>
+							</table>
+
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<button onclick="submitExcel();" type="button" class="btn btn-primary">다운</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Excel Modal End -->
 
 	</form>
 
@@ -318,6 +396,35 @@
 		
 	}
 	</script>
+	
+	<script src="/resources/common/js/validation.js"></script>
+	
+	<script type="text/javascript">
+	//체크박스 다수를 담을 배열
+	
+	submitExcel = function(){
+		
+		var checkboxExcelArray = [];
+		
+		if(!checkNull($("#excelFileName"), $("#excelFileName").val(), "파일명을 입력해주세요")) {
+			return false;
+		}
+		
+		$("input[name=checkExcel]:checked").each(function(){
+			checkboxExcelArray.push($(this).val());
+		});
+		
+		$("input[name=checkboxExcelArray]").val(checkboxExcelArray);
+		
+		$("#formList").attr("action", "/member/excelDownload").submit();
+		
+		setTimeout(() => {
+			$("#excelModal").modal("hide");
+		}, 2000);
+		
+	}
+	</script>
+	
 </body>
 
 </html>

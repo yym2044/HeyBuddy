@@ -8,6 +8,10 @@ public class MemberVo {
 
 	private String hycrSeq;
 	
+	// Excel
+	private String[] checkboxExcelArray;
+	private String excelFileName;
+	
 	// space
 	private String hyspSeq;
 	private String hyspName;
@@ -649,6 +653,23 @@ public class MemberVo {
 	public void setHycrSeq(String hycrSeq) {
 		this.hycrSeq = hycrSeq;
 	}
+
+	public String[] getCheckboxExcelArray() {
+		return checkboxExcelArray;
+	}
+
+	public void setCheckboxExcelArray(String[] checkboxExcelArray) {
+		this.checkboxExcelArray = checkboxExcelArray;
+	}
+
+	public String getExcelFileName() {
+		return excelFileName;
+	}
+
+	public void setExcelFileName(String excelFileName) {
+		this.excelFileName = excelFileName;
+	}
+
 	
 	
 	

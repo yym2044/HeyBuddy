@@ -88,7 +88,7 @@
 									<!--Account nav-->
 									<div class="card p-3">
 										<ul class="nav nav-tabs nav-vertical h-100">
-											<li class="nav-item"><a href="account-general.html" class="nav-link active px-3">
+											<li class="nav-item"><a href="#" class="nav-link active px-3">
 													<i data-feather="user" class="fe-1x align-middle me-2"></i>내 정보
 												</a></li>
 											<li class="nav-item"><a href="javascript:noService();" class="nav-link px-3">

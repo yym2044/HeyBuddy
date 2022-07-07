@@ -577,14 +577,14 @@ p, dt {
     // https://firebase.google.com/docs/web/setup#available-libraries
 
     // Your web app's Firebase configuration
- const firebaseConfig = {
-	apiKey: "AIzaSyAFBcVqLBg2dZ3-dRVvoq7dNqRc2bsxlVY",
-	authDomain: "heybuddy-b3735.firebaseapp.com",
-	databaseURL: "https://heybuddy-b3735-default-rtdb.firebaseio.com",
-	projectId: "heybuddy-b3735",
-	storageBucket: "heybuddy-b3735.appspot.com",
-	messagingSenderId: "621505432743",
-	appId: "1:621505432743:web:36139966644ae80ea45f82"
+const firebaseConfig = {
+  apiKey: "AIzaSyDupB2Q8MBmGzhfz0y7DtYAnGK-j5SYGVo",
+  authDomain: "heybuddy-79c9a.firebaseapp.com",
+databaseURL: "https://heybuddy-79c9a-default-rtdb.firebaseio.com",
+  projectId: "heybuddy-79c9a",
+  storageBucket: "heybuddy-79c9a.appspot.com",
+  messagingSenderId: "110378487716",
+  appId: "1:110378487716:web:fc6f22508e5960b4aefb31"
 };
 
 // Initialize Firebase

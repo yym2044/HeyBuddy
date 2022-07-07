@@ -78,8 +78,8 @@ goSpaceList = function(){
 		}
 	}); 
 	
-	const socketOnline = new WebSocket('ws://localhost:8091/online');
-	//const socketOnline = new WebSocket('wss://tp.heybuddy.a9xlab.com/online');
+	//const socketOnline = new WebSocket('ws://localhost:8091/online');
+	const socketOnline = new WebSocket('wss://tp.heybuddy.a9xlab.com/online');
 
 	socketOnline.onmessage = function(event){
 		

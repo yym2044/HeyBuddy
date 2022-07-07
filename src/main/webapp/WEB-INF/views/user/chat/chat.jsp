@@ -590,7 +590,7 @@ databaseURL: "https://heybuddy-79c9a-default-rtdb.firebaseio.com",
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
-
+ 
    var myName = '<c:out value="${sessName}"/>';
    var mySpace = '<c:out value="${hyspSeq}"/>';
    var myRoom = '<c:out value="${vo.hycrSeq}" />';
